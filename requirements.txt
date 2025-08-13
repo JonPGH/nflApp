@@ -1,0 +1,16 @@
+# Core Streamlit dependency
+streamlit==1.32.0
+
+# Data handling
+pandas==2.2.1
+numpy==1.26.4
+
+# Web requests
+requests==2.31.0
+
+# Interactive visualizations
+plotly==5.20.0
+
+matplotlib
+ipywidgets
+pulp
