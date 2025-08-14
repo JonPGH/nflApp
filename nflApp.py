@@ -28,7 +28,7 @@ def check_password():
             st.error("Incorrect password. Please try again.")
     
     if not st.session_state.authenticated:
-        st.text_input("Enter Password (new password in resource glossary 7/18/2025)", type="password", key="password", on_change=password_entered)
+        st.text_input("Enter Password (can be found in Resource Glossary at ftmff.substack.com", type="password", key="password", on_change=password_entered)
         return False
     return True
 
@@ -198,14 +198,26 @@ if check_password():
         adp_data = pd.read_csv(f'{file_path}/ADP_Dashboard.csv')
         logo = "{}/Logo.png".format(file_path)
         season_proj = pd.read_csv(f'{file_path}/JA_Season_Projections.csv')
+        name_change = pd.read_csv(f'{file_path}/nflnamechange.csv')
 
-        return logo, adp_data, season_proj
-    logo, adp_data, season_proj = load_data()
+        return logo, adp_data, season_proj, name_change
+    logo, adp_data, season_proj, namemap = load_data()
     season_proj['Proj FPts'] = 0
+    namemapdict = dict(zip(namemap.OldName,namemap.NewName))
+    adp_data['Player'] = adp_data['Player'].replace(namemapdict)
+    season_proj['Player'] = season_proj['Player'].replace(namemapdict)
+
+    # get current adp
+    adp_data = adp_data.sort_values(by='Date')
+    last_ten_dates = adp_data['Date'].unique()[-7:]
+    last_ten_adp = adp_data[adp_data['Date'].isin(last_ten_dates)].groupby('Player',as_index=False)['ADP'].mean().sort_values(by='ADP')
+    last_ten_adp = last_ten_adp.round(1)
+    curr_adp_dict = dict(zip(last_ten_adp.Player,last_ten_adp.ADP))
+    curr_trend_dict = dict(zip(adp_data.Player,adp_data.Trend))
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["ADP Data", "Season Projections"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["ADP Data", "Season Projections","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -298,16 +310,22 @@ if check_password():
             pos_selected.append('TE')
         
         if 'QB' not in pos_selected:
-            show_cols = ['Player','Team','Pos','Proj FPts','Rush Att','Rush Yards','Rush TD','Rec','Rec Yards','Rec TD']
+            show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Rush Att','Rush Yards','Rush TD','Rec','Rec Yards','Rec TD']
         elif ('QB' in pos_selected) & ('RB' not in pos_selected) & ('WR' not in pos_selected) & ('TE' not in pos_selected):
-            show_cols = ['Player','Team','Pos','Proj FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yards','Rush TD']
+            show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yards','Rush TD']
         else:
-            show_cols = ['Player','Team','Pos','Proj FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yards','Rush TD','Rec','Rec Yards','Rec TD']
+            show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yards','Rush TD','Rec','Rec Yards','Rec TD']
 
         show_proj = season_proj[season_proj['Pos'].isin(pos_selected)]
+        show_proj['ADP'] = show_proj['Player'].map(curr_adp_dict)
+        show_proj['ADP Trend'] = show_proj['Player'].map(curr_trend_dict)
         
         a_col1, a_col2 = st.columns([1,4])
         with a_col1:
+            projteamlist = list(season_proj['Team'].unique())
+            projteamlist.sort()
+            team_list = ['All'] + projteamlist 
+            team_selection = st.selectbox("Team Filter:", team_list)
             b_col1, b_col2 = st.columns([1,1])
             with b_col1:
                 pass_yards_per_point = st.text_input("Pass Yds/Pt:", value=25)
@@ -340,7 +358,15 @@ if check_password():
             show_proj['Int'] = round(show_proj['Int'],1)
 
             show_proj = show_proj.sort_values(by='Proj FPts',ascending=False)
-            st.dataframe(show_proj[show_cols], hide_index=True, height=570, width=950)
+            if team_selection == 'All':
+                pass
+            else:
+                show_proj = show_proj[show_proj['Team']==team_selection]
+            
+            if len(show_proj) > 10:
+                st.dataframe(show_proj[show_cols], hide_index=True, height=570, width=1200)
+            else:
+                st.dataframe(show_proj[show_cols], hide_index=True,  width=1200)
 
             # Text input for custom file name with a default value
             c_col1, c_col2, c_col3 = st.columns([1,2,3])
@@ -354,3 +380,19 @@ if check_password():
 
                 csv = convert_df_to_csv(show_proj)
                 st.download_button(label="Download CSV", data=csv, file_name=file_name, mime='text/csv')
+    elif tab == "Tableau":
+        tableau_choice = st.selectbox(options=['ADP','NFL 2024'],label='Choose dashboard to display')
+        if tableau_choice == 'ADP':
+            #st.markdown("<h2><center>Main MLB Dashboard</center></h2>", unsafe_allow_html=True)
+            st.markdown("<i><center><a href='https://public.tableau.com/app/profile/jon.anderson4212/viz/FTMFFADPDashboard/ADPTable#1'>Click here to visit full thing</i></a></center>", unsafe_allow_html=True)
+            tableau_code_nfladp = """
+            <div class='tableauPlaceholder' id='viz1755127779758' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;FT&#47;FTMFFADPDashboard&#47;ADPTable&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='FTMFFADPDashboard&#47;ADPTable' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;FT&#47;FTMFFADPDashboard&#47;ADPTable&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1755127779758');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1200px';vizElement.style.height='850px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1200px';vizElement.style.height='850px';} else { vizElement.style.width='100%';vizElement.style.height='800px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            """ 
+            components.html(tableau_code_nfladp, height=750, scrolling=True)
+        elif tableau_choice == 'NFL 2024':
+            #st.markdown("<h2><center>Main MLB Dashboard</center></h2>", unsafe_allow_html=True)
+            st.markdown("<i><center><a href='https://public.tableau.com/app/profile/jon.anderson4212/viz/JonPGHNFL2024/TeamSummary'>Click here to visit full thing</i></a></center>", unsafe_allow_html=True)
+            tableau_code_nfl24 = """
+            <div class='tableauPlaceholder' id='viz1755127840102' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Jo&#47;JonPGHNFL2024&#47;TeamSummary&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='JonPGHNFL2024&#47;TeamSummary' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Jo&#47;JonPGHNFL2024&#47;TeamSummary&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1755127840102');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='850px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='850px';} else { vizElement.style.width='100%';vizElement.style.height='1500px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            """ 
+            components.html(tableau_code_nfl24, height=750, scrolling=True)
