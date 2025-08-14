@@ -4,6 +4,7 @@ import os
 import warnings
 warnings.filterwarnings("ignore")
 import numpy as np
+import streamlit.components.v1 as components
 
 # Initialize session state for authentication
 if 'authenticated' not in st.session_state:
