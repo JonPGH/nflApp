@@ -1,13 +1,13 @@
 import streamlit as st
-import pandas as pd, math
+import pandas as pd
 import os
 import warnings
 warnings.filterwarnings("ignore")
 import numpy as np
 #import matplotlib.pyplot as plt
-import streamlit.components.v1 as components
-import plotly.express as px
-import plotly.graph_objects as go
+#import streamlit.components.v1 as components
+#import plotly.express as px
+#import plotly.graph_objects as go
 
 # Initialize session state for authentication
 if 'authenticated' not in st.session_state:
@@ -217,7 +217,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["ADP Data", "Season Projections","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Season Projections","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -288,40 +288,39 @@ if check_password():
                 st.dataframe(show_l7_adp[show_l7_adp['Pos']==pos_filter],hide_index=True,width=470,height=750)
 
     elif tab == "Season Projections":
-        st.markdown(f"<center><h3>Season Long Projections</h3></center>", unsafe_allow_html=True)
-        col1,col2,col3,col4,col5 = st.columns([1,1,1,1,9])
-        with col1:
-            show_qb = st.checkbox('QB', value=True)
-        with col2:
-            show_rb = st.checkbox('RB', value=True)
-        with col3:
-            show_wr = st.checkbox('WR', value=True)
-        with col4:
-            show_te = st.checkbox('TE', value=True)
+        st.markdown(f"<center><h2>Season Long Projections</h2></center>", unsafe_allow_html=True)
 
-        pos_selected = []
-        if show_qb is True:
-            pos_selected.append('QB')
-        if show_rb is True:
-            pos_selected.append('RB')
-        if show_wr is True:
-            pos_selected.append('WR')
-        if show_te is True:
-            pos_selected.append('TE')
-        
-        if 'QB' not in pos_selected:
-            show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Rush Att','Rush Yards','Rush TD','Rec','Rec Yards','Rec TD']
-        elif ('QB' in pos_selected) & ('RB' not in pos_selected) & ('WR' not in pos_selected) & ('TE' not in pos_selected):
-            show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yards','Rush TD']
-        else:
-            show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yards','Rush TD','Rec','Rec Yards','Rec TD']
-
-        show_proj = season_proj[season_proj['Pos'].isin(pos_selected)]
-        show_proj['ADP'] = show_proj['Player'].map(curr_adp_dict)
-        show_proj['ADP Trend'] = show_proj['Player'].map(curr_trend_dict)
-        
         a_col1, a_col2 = st.columns([1,4])
         with a_col1:
+            box_col1, box_col2 = st.columns([1,1])
+            with box_col1:
+                show_qb = st.checkbox('QB', value=True)
+                show_rb = st.checkbox('RB', value=True)
+            with box_col2:
+                show_wr = st.checkbox('WR', value=True)
+                show_te = st.checkbox('TE', value=True)
+            pos_selected = []
+            
+            if show_qb is True:
+                pos_selected.append('QB')
+            if show_rb is True:
+                pos_selected.append('RB')
+            if show_wr is True:
+                pos_selected.append('WR')
+            if show_te is True:
+                pos_selected.append('TE')
+            
+            if 'QB' not in pos_selected:
+                show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Rush Att','Rush Yards','Rush TD','Rec','Rec Yards','Rec TD']
+            elif ('QB' in pos_selected) & ('RB' not in pos_selected) & ('WR' not in pos_selected) & ('TE' not in pos_selected):
+                show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yards','Rush TD']
+            else:
+                show_cols = ['Player','Team','Pos','ADP','ADP Trend','Proj FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yards','Rush TD','Rec','Rec Yards','Rec TD']
+
+            show_proj = season_proj[season_proj['Pos'].isin(pos_selected)]
+            show_proj['ADP'] = show_proj['Player'].map(curr_adp_dict)
+            show_proj['ADP Trend'] = show_proj['Player'].map(curr_trend_dict)
+
             projteamlist = list(season_proj['Team'].unique())
             projteamlist.sort()
             team_list = ['All'] + projteamlist 
@@ -357,7 +356,7 @@ if check_password():
             show_proj['Rush TD'] = round(show_proj['Rush TD'],1)
             show_proj['Int'] = round(show_proj['Int'],1)
 
-            show_proj = show_proj.sort_values(by='Proj FPts',ascending=False)
+            show_proj = show_proj[show_proj['Proj FPts']>19].sort_values(by='Proj FPts',ascending=False)
             if team_selection == 'All':
                 pass
             else:
