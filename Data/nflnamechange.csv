@@ -1,67 +1,70 @@
-,OldName,NewName
-0,Benny Snell Jr.,Benny Snell
-1,DJ Chark,D.J. Chark
-2,EJ Manuel,E.J. Manuel
-3,Gardner Minshew II,Gardner Minshew
-4,Jeff Wilson,Jeff Wilson Jr.
-5,Jeffery Wilson,Jeff Wilson Jr.
-6,JJ Nelson,J.J. Nelson
-7,Patrick Mahomes II,Patrick Mahomes
-8,Robert Kelley,Rob Kelley
-9,Ronald Jones II,Ronald Jones
-10,Steven Sims,Steven Sims Jr.
-11,D.K. Metcalf,DK Metcalf
-12,D.J. Moore,DJ Moore
-13,J.D. McKissic,JD McKissic
-14,D'Wayne Eskridge,Dee Eskridge
-15,Larry Rountree III,Larry Rountree
-16,C.J. Ham,CJ Ham
-17,Michael Pittman,Michael Pittman Jr.
-18,Michael Woods II,Michael Woods
-19,Mitchell Trubisky,Mitch Trubisky
-20,Isaih Pacheco,Isiah Pacheco
-21,KhaDarel Hodge,Khadarel Hodge
-22,Tre` McKitty,Tre McKitty
-23,Tre' McKitty,Tre McKitty
-24,Josh Palmer,Joshua Palmer
-25,Scott Miller,Scotty Miller
-26,Kenneth Walker III,Kenneth Walker
-27,Devonta Smith,DeVonta Smith
-28,A.J. Dillon,AJ Dillon
-29,Brian Robinson Jr.,Brian Robinson
-30,Devon Achane,De'Von Achane
-31,Marvin Mims Jr.,Marvin Mims
-32,Marvin Harrison,Marvin Harrison Jr.
-33,Travis Etienne Jr.,Travis Etienne
-34,Brian Thomas Jr.,Brian Thomas
-35,Demario Douglas,DeMario Douglas
-36,Ray-Ray McCloud III,Ray-Ray McCloud
-37,DJ Chark Jr.,DJ Chark
-38,Pierre Strong Jr.,Pierre Strong
-39,Cedrick Wilson Jr.,Cedrick Wilson
-40,Calvin Austin III,Calvin Austin
-41,D.J. Chark,DJ Chark
-42,Deebo Samuel Sr.,Deebo Samuel
-43,Nathaniel Dell,Tank Dell
-44,Nathaniel Dell Jr.,Tank Dell
-45,Tank Dell Jr.,Tank Dell
-46,Gabriel Davis,Gabe Davis
-47,Aiden O'Connell,Aidan O'Connell
-48,CJ Stroud,C.J. Stroud
-49,Chigoziem Okonkwo,Chig Okonkwo
-50,Dont'e Thornton Jr.,Dont'e Thornton
-51,Luther Burden III,Luther Burden
-52,Nick Westbrook-Ikhine,Nick Westbrook
-53,Harold Fannin Jr.,Harold Fannin
-54,Ollie Gordon II,Ollie Gordon
-55,Oronde Gadsden II,Oronde Gadsden II
-56,Cedrick Wilson Jr.,Cedrick Wilson
-57,LeQuint Allen Jr.,LeQuint Allen
-58,Chris Brooks,Christopher Brooks
-59,Kevin Austin Jr.,Kevin Austin
-60,Jimmy Horn Jr.,Jimmy Horn
-61,Chris Rodriguez Jr.,Chris Rodriguez
-62,John Metchie III,John Metchie
-63,Juju Smith-Schuster,JuJu Smith-Schuster
-64,Kavontae Turpin,KaVontae Turpin
-65,Oronde Gadsden II,Oronde Gadsden
+,Unnamed: 0,OldName,NewName
+0,0,Benny Snell Jr.,Benny Snell
+1,1,DJ Chark,D.J. Chark
+2,2,EJ Manuel,E.J. Manuel
+3,3,Gardner Minshew II,Gardner Minshew
+4,4,Jeff Wilson,Jeff Wilson Jr.
+5,5,Jeffery Wilson,Jeff Wilson Jr.
+6,6,JJ Nelson,J.J. Nelson
+7,7,Patrick Mahomes II,Patrick Mahomes
+8,8,Robert Kelley,Rob Kelley
+9,9,Ronald Jones II,Ronald Jones
+10,10,Steven Sims,Steven Sims Jr.
+11,11,D.K. Metcalf,DK Metcalf
+12,12,D.J. Moore,DJ Moore
+13,13,J.D. McKissic,JD McKissic
+14,14,D'Wayne Eskridge,Dee Eskridge
+15,15,Larry Rountree III,Larry Rountree
+16,16,C.J. Ham,CJ Ham
+17,17,Michael Pittman,Michael Pittman Jr.
+18,18,Michael Woods II,Michael Woods
+19,19,Mitchell Trubisky,Mitch Trubisky
+20,20,Isaih Pacheco,Isiah Pacheco
+21,21,KhaDarel Hodge,Khadarel Hodge
+22,22,Tre` McKitty,Tre McKitty
+23,23,Tre' McKitty,Tre McKitty
+24,24,Josh Palmer,Joshua Palmer
+25,25,Scott Miller,Scotty Miller
+26,26,Kenneth Walker III,Kenneth Walker
+27,27,Devonta Smith,DeVonta Smith
+28,28,A.J. Dillon,AJ Dillon
+29,29,Brian Robinson Jr.,Brian Robinson
+30,30,Devon Achane,De'Von Achane
+31,31,Marvin Mims Jr.,Marvin Mims
+32,32,Marvin Harrison,Marvin Harrison Jr.
+33,33,Travis Etienne Jr.,Travis Etienne
+34,34,Brian Thomas Jr.,Brian Thomas
+35,35,Demario Douglas,DeMario Douglas
+36,36,Ray-Ray McCloud III,Ray-Ray McCloud
+37,37,DJ Chark Jr.,DJ Chark
+38,38,Pierre Strong Jr.,Pierre Strong
+39,39,Cedrick Wilson Jr.,Cedrick Wilson
+40,40,Calvin Austin III,Calvin Austin
+41,41,D.J. Chark,DJ Chark
+42,42,Deebo Samuel Sr.,Deebo Samuel
+43,43,Nathaniel Dell,Tank Dell
+44,44,Nathaniel Dell Jr.,Tank Dell
+45,45,Tank Dell Jr.,Tank Dell
+46,46,Gabriel Davis,Gabe Davis
+47,47,Aiden O'Connell,Aidan O'Connell
+48,48,CJ Stroud,C.J. Stroud
+49,49,Chigoziem Okonkwo,Chig Okonkwo
+50,50,Dont'e Thornton Jr.,Dont'e Thornton
+51,51,Luther Burden III,Luther Burden
+52,52,Nick Westbrook-Ikhine,Nick Westbrook
+53,53,Harold Fannin Jr.,Harold Fannin
+54,54,Ollie Gordon II,Ollie Gordon
+55,55,Oronde Gadsden II,Oronde Gadsden II
+56,56,Cedrick Wilson Jr.,Cedrick Wilson
+57,57,LeQuint Allen Jr.,LeQuint Allen
+58,58,Chris Brooks,Christopher Brooks
+59,59,Kevin Austin Jr.,Kevin Austin
+60,60,Jimmy Horn Jr.,Jimmy Horn
+61,61,Chris Rodriguez Jr.,Chris Rodriguez
+62,62,John Metchie III,John Metchie
+63,63,Juju Smith-Schuster,JuJu Smith-Schuster
+64,64,Kavontae Turpin,KaVontae Turpin
+65,65,Oronde Gadsden II,Oronde Gadsden
+66,66,Michael Penix,Michael Penix Jr.
+67,67,Tyrone Tracy Jr.,Tyrone Tracy
+68,68,Hollywood Brown,Marquise Brown
