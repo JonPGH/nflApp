@@ -1,0 +1,545 @@
+,Team,Week,Date,Opp,HomeRoad,Odds
+0,Arizona Cardinals,1,2025-9-7,New Orleans Saints,Road,-265
+1,Atlanta Falcons,1,2025-9-7,Tampa Bay Buccaneers,Home,114
+2,Baltimore Ravens,1,2025-9-7,Buffalo Bills,Road,-102
+3,Buffalo Bills,1,2025-9-7,Baltimore Ravens,Home,-116
+4,Carolina Panthers,1,2025-9-7,Jacksonville Jaguars,Road,136
+5,Chicago Bears,1,2025-9-8,Minnesota Vikings,Home,112
+6,Cincinnati Bengals,1,2025-9-7,Cleveland Browns,Road,-265
+7,Cleveland Browns,1,2025-9-7,Cincinnati Bengals,Home,215
+8,Dallas Cowboys,1,2025-9-4,Philadelphia Eagles,Road,260
+9,Denver Broncos,1,2025-9-7,Tennessee Titans,Home,-420
+10,Detroit Lions,1,2025-9-7,Green Bay Packers,Road,100
+11,Green Bay Packers,1,2025-9-7,Detroit Lions,Home,-118
+12,Houston Texans,1,2025-9-7,Los Angeles Rams,Road,124
+13,Indianapolis Colts,1,2025-9-7,Miami Dolphins,Home,-125
+14,Jacksonville Jaguars,1,2025-9-7,Carolina Panthers,Home,-162
+15,Kansas City Chiefs,1,2025-9-5,Los Angeles Chargers,Road,-162
+16,Las Vegas Raiders,1,2025-9-7,New England Patriots,Road,130
+17,Los Angeles Chargers,1,2025-9-5,Kansas City Chiefs,Home,136
+18,Los Angeles Rams,1,2025-9-7,Houston Texans,Home,-146
+19,Miami Dolphins,1,2025-9-7,Indianapolis Colts,Road,105
+20,Minnesota Vikings,1,2025-9-8,Chicago Bears,Road,-132
+21,New England Patriots,1,2025-9-7,Las Vegas Raiders,Home,-155
+22,New Orleans Saints,1,2025-9-7,Arizona Cardinals,Home,215
+23,New York Giants,1,2025-9-7,Washington Commanders,Road,225
+24,New York Jets,1,2025-9-7,Pittsburgh Steelers,Home,130
+25,Philadelphia Eagles,1,2025-9-4,Dallas Cowboys,Home,-325
+26,Pittsburgh Steelers,1,2025-9-7,New York Jets,Road,-155
+27,San Francisco 49ers,1,2025-9-7,Seattle Seahawks,Road,-142
+28,Seattle Seahawks,1,2025-9-7,San Francisco 49ers,Home,120
+29,Tampa Bay Buccaneers,1,2025-9-7,Atlanta Falcons,Road,-135
+30,Tennessee Titans,1,2025-9-7,Denver Broncos,Road,330
+31,Washington Commanders,1,2025-9-7,New York Giants,Home,-275
+32,Arizona Cardinals,2,2025-9-14,Carolina Panthers,Home,-205
+33,Atlanta Falcons,2,2025-9-14,Minnesota Vikings,Road,180
+34,Baltimore Ravens,2,2025-9-14,Cleveland Browns,Home,-650
+35,Buffalo Bills,2,2025-9-14,New York Jets,Road,-410
+36,Carolina Panthers,2,2025-9-14,Arizona Cardinals,Road,170
+37,Chicago Bears,2,2025-9-14,Detroit Lions,Road,180
+38,Cincinnati Bengals,2,2025-9-14,Jacksonville Jaguars,Home,-238
+39,Cleveland Browns,2,2025-9-14,Baltimore Ravens,Road,470
+40,Dallas Cowboys,2,2025-9-14,New York Giants,Home,-205
+41,Denver Broncos,2,2025-9-14,Indianapolis Colts,Road,-185
+42,Detroit Lions,2,2025-9-14,Chicago Bears,Home,-218
+43,Green Bay Packers,2,2025-9-11,Washington Commanders,Home,-135
+44,Houston Texans,2,2025-9-15,Tampa Bay Buccaneers,Home,-130
+45,Indianapolis Colts,2,2025-9-14,Denver Broncos,Home,154
+46,Jacksonville Jaguars,2,2025-9-14,Cincinnati Bengals,Road,195
+47,Kansas City Chiefs,2,2025-9-14,Philadelphia Eagles,Home,-106
+48,Las Vegas Raiders,2,2025-9-15,Los Angeles Chargers,Home,136
+49,Los Angeles Chargers,2,2025-9-15,Las Vegas Raiders,Road,-162
+50,Los Angeles Rams,2,2025-9-14,Tennessee Titans,Road,-238
+51,Miami Dolphins,2,2025-9-14,New England Patriots,Home,-135
+52,Minnesota Vikings,2,2025-9-14,Atlanta Falcons,Home,-218
+53,New England Patriots,2,2025-9-14,Miami Dolphins,Road,114
+54,New Orleans Saints,2,2025-9-14,San Francisco 49ers,Home,260
+55,New York Giants,2,2025-9-14,Dallas Cowboys,Road,170
+56,New York Jets,2,2025-9-14,Buffalo Bills,Home,320
+57,Philadelphia Eagles,2,2025-9-14,Kansas City Chiefs,Road,-110
+58,Pittsburgh Steelers,2,2025-9-14,Seattle Seahawks,Home,-135
+59,San Francisco 49ers,2,2025-9-14,New Orleans Saints,Road,-325
+60,Seattle Seahawks,2,2025-9-14,Pittsburgh Steelers,Road,114
+61,Tampa Bay Buccaneers,2,2025-9-15,Houston Texans,Road,110
+62,Tennessee Titans,2,2025-9-14,Los Angeles Rams,Home,195
+63,Washington Commanders,2,2025-9-11,Green Bay Packers,Road,114
+64,Arizona Cardinals,3,2025-9-21,San Francisco 49ers,Road,164
+65,Atlanta Falcons,3,2025-9-21,Carolina Panthers,Road,105
+66,Baltimore Ravens,3,2025-9-22,Detroit Lions,Home,-185
+67,Buffalo Bills,3,2025-9-18,Miami Dolphins,Home,-410
+68,Carolina Panthers,3,2025-9-21,Atlanta Falcons,Home,-125
+69,Chicago Bears,3,2025-9-21,Dallas Cowboys,Home,-166
+70,Cincinnati Bengals,3,2025-9-21,Minnesota Vikings,Road,105
+71,Cleveland Browns,3,2025-9-21,Green Bay Packers,Home,215
+72,Dallas Cowboys,3,2025-9-21,Chicago Bears,Road,140
+73,Denver Broncos,3,2025-9-21,Los Angeles Chargers,Road,105
+74,Detroit Lions,3,2025-9-22,Baltimore Ravens,Road,154
+75,Green Bay Packers,3,2025-9-21,Cleveland Browns,Road,-265
+76,Houston Texans,3,2025-9-21,Jacksonville Jaguars,Road,-125
+77,Indianapolis Colts,3,2025-9-21,Tennessee Titans,Road,105
+78,Jacksonville Jaguars,3,2025-9-21,Houston Texans,Home,105
+79,Kansas City Chiefs,3,2025-9-21,New York Giants,Road,-290
+80,Las Vegas Raiders,3,2025-9-21,Washington Commanders,Road,285
+81,Los Angeles Chargers,3,2025-9-21,Denver Broncos,Home,-125
+82,Los Angeles Rams,3,2025-9-21,Philadelphia Eagles,Road,185
+83,Miami Dolphins,3,2025-9-18,Buffalo Bills,Road,320
+84,Minnesota Vikings,3,2025-9-21,Cincinnati Bengals,Home,-125
+85,New England Patriots,3,2025-9-21,Pittsburgh Steelers,Home,-125
+86,New Orleans Saints,3,2025-9-21,Seattle Seahawks,Road,225
+87,New York Giants,3,2025-9-21,Kansas City Chiefs,Home,235
+88,New York Jets,3,2025-9-21,Tampa Bay Buccaneers,Road,270
+89,Philadelphia Eagles,3,2025-9-21,Los Angeles Rams,Home,-225
+90,Pittsburgh Steelers,3,2025-9-21,New England Patriots,Road,105
+91,San Francisco 49ers,3,2025-9-21,Arizona Cardinals,Home,-198
+92,Seattle Seahawks,3,2025-9-21,New Orleans Saints,Home,-278
+93,Tampa Bay Buccaneers,3,2025-9-21,New York Jets,Home,-340
+94,Tennessee Titans,3,2025-9-21,Indianapolis Colts,Home,-125
+95,Washington Commanders,3,2025-9-21,Las Vegas Raiders,Home,-360
+96,Arizona Cardinals,4,2025-9-25,Seattle Seahawks,Home,-135
+97,Atlanta Falcons,4,2025-9-28,Washington Commanders,Home,154
+98,Baltimore Ravens,4,2025-9-28,Kansas City Chiefs,Road,105
+99,Buffalo Bills,4,2025-9-28,New Orleans Saints,Home,-650
+100,Carolina Panthers,4,2025-9-28,New England Patriots,Road,154
+101,Chicago Bears,4,2025-9-28,Las Vegas Raiders,Road,-125
+102,Cincinnati Bengals,4,2025-9-29,Denver Broncos,Road,114
+103,Cleveland Browns,4,2025-9-28,Detroit Lions,Road,390
+104,Dallas Cowboys,4,2025-9-28,Green Bay Packers,Home,105
+105,Denver Broncos,4,2025-9-29,Cincinnati Bengals,Home,-135
+106,Detroit Lions,4,2025-9-28,Cleveland Browns,Home,-520
+107,Green Bay Packers,4,2025-9-28,Dallas Cowboys,Road,-125
+108,Houston Texans,4,2025-9-28,Tennessee Titans,Home,-258
+109,Indianapolis Colts,4,2025-9-28,Los Angeles Rams,Road,245
+110,Jacksonville Jaguars,4,2025-9-28,San Francisco 49ers,Road,200
+111,Kansas City Chiefs,4,2025-9-28,Baltimore Ravens,Home,-125
+112,Las Vegas Raiders,4,2025-9-28,Chicago Bears,Home,105
+113,Los Angeles Chargers,4,2025-9-28,New York Giants,Road,-185
+114,Los Angeles Rams,4,2025-9-28,Indianapolis Colts,Home,-305
+115,Miami Dolphins,4,2025-9-29,New York Jets,Home,-245
+116,Minnesota Vikings,4,2025-9-28,Pittsburgh Steelers,Road,-125
+117,New England Patriots,4,2025-9-28,Carolina Panthers,Home,-185
+118,New Orleans Saints,4,2025-9-28,Buffalo Bills,Road,470
+119,New York Giants,4,2025-9-28,Los Angeles Chargers,Home,154
+120,New York Jets,4,2025-9-29,Miami Dolphins,Road,200
+121,Philadelphia Eagles,4,2025-9-28,Tampa Bay Buccaneers,Road,-148
+122,Pittsburgh Steelers,4,2025-9-28,Minnesota Vikings,Home,105
+123,San Francisco 49ers,4,2025-9-28,Jacksonville Jaguars,Home,-245
+124,Seattle Seahawks,4,2025-9-25,Arizona Cardinals,Road,114
+125,Tampa Bay Buccaneers,4,2025-9-28,Philadelphia Eagles,Home,124
+126,Tennessee Titans,4,2025-9-28,Houston Texans,Road,210
+127,Washington Commanders,4,2025-9-28,Atlanta Falcons,Road,-185
+128,Arizona Cardinals,5,2025-10-5,Tennessee Titans,Home,-245
+129,Atlanta Falcons,5,2025-10-13,Buffalo Bills,Home,195
+130,Baltimore Ravens,5,2025-10-5,Houston Texans,Home,-360
+131,Buffalo Bills,5,2025-10-5,New England Patriots,Home,-410
+132,Carolina Panthers,5,2025-10-5,Miami Dolphins,Home,105
+133,Chicago Bears,5,2025-10-13,Washington Commanders,Road,180
+134,Cincinnati Bengals,5,2025-10-5,Detroit Lions,Home,102
+135,Cleveland Browns,5,2025-10-5,Minnesota Vikings,Home,280
+136,Dallas Cowboys,5,2025-10-5,New York Jets,Road,-135
+137,Denver Broncos,5,2025-10-5,Philadelphia Eagles,Road,180
+138,Detroit Lions,5,2025-10-5,Cincinnati Bengals,Road,-122
+139,Green Bay Packers,5,2025-10-12,Cincinnati Bengals,Home,-162
+140,Houston Texans,5,2025-10-5,Baltimore Ravens,Road,285
+141,Indianapolis Colts,5,2025-10-5,Las Vegas Raiders,Home,-125
+142,Jacksonville Jaguars,5,2025-10-6,Kansas City Chiefs,Home,180
+143,Kansas City Chiefs,5,2025-10-6,Jacksonville Jaguars,Road,-218
+144,Las Vegas Raiders,5,2025-10-5,Indianapolis Colts,Road,105
+145,Los Angeles Chargers,5,2025-10-5,Washington Commanders,Home,-125
+146,Los Angeles Rams,5,2025-10-2,San Francisco 49ers,Home,-125
+147,Miami Dolphins,5,2025-10-5,Carolina Panthers,Road,-125
+148,Minnesota Vikings,5,2025-10-5,Cleveland Browns,Road,-355
+149,New England Patriots,5,2025-10-5,Buffalo Bills,Road,320
+150,New Orleans Saints,5,2025-10-5,New York Giants,Home,105
+151,New York Giants,5,2025-10-5,New Orleans Saints,Road,-125
+152,New York Jets,5,2025-10-5,Dallas Cowboys,Home,114
+153,Philadelphia Eagles,5,2025-10-5,Denver Broncos,Home,-218
+154,Pittsburgh Steelers,5,2025-10-12,Cleveland Browns,Home,-298
+155,San Francisco 49ers,5,2025-10-2,Los Angeles Rams,Road,105
+156,Seattle Seahawks,5,2025-10-5,Tampa Bay Buccaneers,Home,105
+157,Tampa Bay Buccaneers,5,2025-10-5,Seattle Seahawks,Road,-125
+158,Tennessee Titans,5,2025-10-5,Arizona Cardinals,Road,200
+159,Washington Commanders,5,2025-10-5,Los Angeles Chargers,Road,105
+160,Arizona Cardinals,6,2025-10-12,Indianapolis Colts,Road,-125
+161,Atlanta Falcons,6,2025-10-19,San Francisco 49ers,Road,230
+162,Baltimore Ravens,6,2025-10-12,Los Angeles Rams,Home,-250
+163,Buffalo Bills,6,2025-10-13,Atlanta Falcons,Road,-238
+164,Carolina Panthers,6,2025-10-12,Dallas Cowboys,Home,105
+165,Chicago Bears,6,2025-10-19,New Orleans Saints,Home,-360
+166,Cincinnati Bengals,6,2025-10-12,Green Bay Packers,Road,136
+167,Cleveland Browns,6,2025-10-12,Pittsburgh Steelers,Road,240
+168,Dallas Cowboys,6,2025-10-12,Carolina Panthers,Road,-125
+169,Denver Broncos,6,2025-10-12,New York Jets,Road,-285
+170,Detroit Lions,6,2025-10-12,Kansas City Chiefs,Road,136
+171,Green Bay Packers,6,2025-10-19,Arizona Cardinals,Road,-125
+172,Houston Texans,6,2025-10-20,Seattle Seahawks,Road,105
+173,Indianapolis Colts,6,2025-10-12,Arizona Cardinals,Home,105
+174,Jacksonville Jaguars,6,2025-10-12,Seattle Seahawks,Home,-125
+175,Kansas City Chiefs,6,2025-10-12,Detroit Lions,Home,-162
+176,Las Vegas Raiders,6,2025-10-12,Tennessee Titans,Home,-170
+177,Los Angeles Chargers,6,2025-10-12,Miami Dolphins,Road,-142
+178,Los Angeles Rams,6,2025-10-12,Baltimore Ravens,Road,205
+179,Miami Dolphins,6,2025-10-12,Los Angeles Chargers,Home,120
+180,Minnesota Vikings,6,2025-10-19,Philadelphia Eagles,Home,142
+181,New England Patriots,6,2025-10-12,New Orleans Saints,Road,-170
+182,New Orleans Saints,6,2025-10-12,New England Patriots,Home,142
+183,New York Giants,6,2025-10-9,Philadelphia Eagles,Home,275
+184,New York Jets,6,2025-10-12,Denver Broncos,Home,230
+185,Philadelphia Eagles,6,2025-10-9,New York Giants,Road,-345
+186,Pittsburgh Steelers,6,2025-10-16,Cincinnati Bengals,Road,185
+187,San Francisco 49ers,6,2025-10-12,Tampa Bay Buccaneers,Road,110
+188,Seattle Seahawks,6,2025-10-12,Jacksonville Jaguars,Road,105
+189,Tampa Bay Buccaneers,6,2025-10-12,San Francisco 49ers,Home,-130
+190,Tennessee Titans,6,2025-10-12,Las Vegas Raiders,Road,142
+191,Washington Commanders,6,2025-10-13,Chicago Bears,Home,-218
+192,Arizona Cardinals,7,2025-10-19,Green Bay Packers,Home,105
+193,Atlanta Falcons,7,2025-10-26,Miami Dolphins,Home,-125
+194,Baltimore Ravens,7,2025-10-26,Chicago Bears,Home,-325
+195,Buffalo Bills,7,2025-10-26,Carolina Panthers,Road,-325
+196,Carolina Panthers,7,2025-10-19,New York Jets,Road,105
+197,Chicago Bears,7,2025-10-26,Baltimore Ravens,Road,260
+198,Cincinnati Bengals,7,2025-10-16,Pittsburgh Steelers,Home,-225
+199,Cleveland Browns,7,2025-10-19,Miami Dolphins,Home,105
+200,Dallas Cowboys,7,2025-10-19,Washington Commanders,Home,124
+201,Denver Broncos,7,2025-10-19,New York Giants,Home,-345
+202,Detroit Lions,7,2025-10-20,Tampa Bay Buccaneers,Home,-192
+203,Green Bay Packers,7,2025-10-26,Pittsburgh Steelers,Road,-125
+204,Houston Texans,7,2025-10-26,San Francisco 49ers,Home,105
+205,Indianapolis Colts,7,2025-10-19,Los Angeles Chargers,Road,210
+206,Jacksonville Jaguars,7,2025-10-19,Los Angeles Rams,Home,154
+207,Kansas City Chiefs,7,2025-10-19,Las Vegas Raiders,Home,-440
+208,Las Vegas Raiders,7,2025-10-19,Kansas City Chiefs,Road,340
+209,Los Angeles Chargers,7,2025-10-19,Indianapolis Colts,Home,-258
+210,Los Angeles Rams,7,2025-10-19,Jacksonville Jaguars,Road,-185
+211,Miami Dolphins,7,2025-10-19,Cleveland Browns,Road,-125
+212,Minnesota Vikings,7,2025-10-23,Los Angeles Chargers,Road,136
+213,New England Patriots,7,2025-10-19,Tennessee Titans,Road,-125
+214,New Orleans Saints,7,2025-10-19,Chicago Bears,Road,285
+215,New York Giants,7,2025-10-19,Denver Broncos,Road,275
+216,New York Jets,7,2025-10-19,Carolina Panthers,Home,-125
+217,Philadelphia Eagles,7,2025-10-19,Minnesota Vikings,Road,-170
+218,Pittsburgh Steelers,7,2025-10-26,Green Bay Packers,Home,105
+219,San Francisco 49ers,7,2025-10-19,Atlanta Falcons,Home,-285
+220,Seattle Seahawks,7,2025-10-20,Houston Texans,Home,-125
+221,Tampa Bay Buccaneers,7,2025-10-20,Detroit Lions,Road,160
+222,Tennessee Titans,7,2025-10-19,New England Patriots,Home,105
+223,Washington Commanders,7,2025-10-19,Dallas Cowboys,Road,-148
+224,Arizona Cardinals,8,2025-11-3,Dallas Cowboys,Road,105
+225,Atlanta Falcons,8,2025-11-2,New England Patriots,Road,140
+226,Baltimore Ravens,8,2025-10-30,Miami Dolphins,Road,-245
+227,Buffalo Bills,8,2025-11-2,Kansas City Chiefs,Home,-148
+228,Carolina Panthers,8,2025-10-26,Buffalo Bills,Home,260
+229,Chicago Bears,8,2025-11-2,Cincinnati Bengals,Road,142
+230,Cincinnati Bengals,8,2025-10-26,New York Jets,Home,-375
+231,Cleveland Browns,8,2025-10-26,New England Patriots,Road,195
+232,Dallas Cowboys,8,2025-10-26,Denver Broncos,Road,180
+233,Denver Broncos,8,2025-10-26,Dallas Cowboys,Home,-218
+234,Detroit Lions,8,2025-11-2,Minnesota Vikings,Home,-218
+235,Green Bay Packers,8,2025-11-2,Carolina Panthers,Home,-360
+236,Houston Texans,8,2025-11-2,Denver Broncos,Home,100
+237,Indianapolis Colts,8,2025-10-26,Tennessee Titans,Home,-185
+238,Jacksonville Jaguars,8,2025-11-2,Las Vegas Raiders,Road,105
+239,Kansas City Chiefs,8,2025-10-27,Washington Commanders,Home,-198
+240,Las Vegas Raiders,8,2025-11-2,Jacksonville Jaguars,Home,-125
+241,Los Angeles Chargers,8,2025-10-23,Minnesota Vikings,Home,-162
+242,Los Angeles Rams,8,2025-11-2,New Orleans Saints,Home,-440
+243,Miami Dolphins,8,2025-10-26,Atlanta Falcons,Road,105
+244,Minnesota Vikings,8,2025-11-2,Detroit Lions,Road,180
+245,New England Patriots,8,2025-10-26,Cleveland Browns,Home,-238
+246,New Orleans Saints,8,2025-10-26,Tampa Bay Buccaneers,Home,195
+247,New York Giants,8,2025-10-26,Philadelphia Eagles,Road,400
+248,New York Jets,8,2025-10-26,Cincinnati Bengals,Road,295
+249,Philadelphia Eagles,8,2025-10-26,New York Giants,Home,-535
+250,Pittsburgh Steelers,8,2025-11-2,Indianapolis Colts,Home,-185
+251,San Francisco 49ers,8,2025-10-26,Houston Texans,Road,-125
+252,Seattle Seahawks,8,2025-11-2,Washington Commanders,Road,205
+253,Tampa Bay Buccaneers,8,2025-10-26,New Orleans Saints,Road,-238
+254,Tennessee Titans,8,2025-10-26,Indianapolis Colts,Road,154
+255,Washington Commanders,8,2025-10-27,Kansas City Chiefs,Road,164
+256,Arizona Cardinals,9,2025-11-9,Seattle Seahawks,Road,105
+257,Atlanta Falcons,9,2025-11-9,Indianapolis Colts,Road,-115
+258,Baltimore Ravens,9,2025-11-9,Minnesota Vikings,Road,-192
+259,Buffalo Bills,9,2025-11-9,Miami Dolphins,Road,-245
+260,Carolina Panthers,9,2025-11-2,Green Bay Packers,Road,285
+261,Chicago Bears,9,2025-11-9,New York Giants,Home,-238
+262,Cincinnati Bengals,9,2025-11-2,Chicago Bears,Home,-170
+263,Cleveland Browns,9,2025-11-9,New York Jets,Road,120
+264,Dallas Cowboys,9,2025-11-3,Arizona Cardinals,Home,-125
+265,Denver Broncos,9,2025-11-2,Houston Texans,Road,-120
+266,Detroit Lions,9,2025-11-9,Washington Commanders,Road,105
+267,Green Bay Packers,9,2025-11-10,Philadelphia Eagles,Home,105
+268,Houston Texans,9,2025-11-9,Jacksonville Jaguars,Home,-185
+269,Indianapolis Colts,9,2025-11-2,Pittsburgh Steelers,Road,154
+270,Jacksonville Jaguars,9,2025-11-9,Houston Texans,Road,154
+271,Kansas City Chiefs,9,2025-11-2,Buffalo Bills,Road,124
+272,Las Vegas Raiders,9,2025-11-6,Denver Broncos,Road,235
+273,Los Angeles Chargers,9,2025-11-2,Tennessee Titans,Road,-218
+274,Los Angeles Rams,9,2025-11-9,San Francisco 49ers,Road,105
+275,Miami Dolphins,9,2025-10-30,Baltimore Ravens,Home,200
+276,Minnesota Vikings,9,2025-11-9,Baltimore Ravens,Home,160
+277,New England Patriots,9,2025-11-2,Atlanta Falcons,Home,-166
+278,New Orleans Saints,9,2025-11-2,Los Angeles Rams,Road,340
+279,New York Giants,9,2025-11-2,San Francisco 49ers,Home,154
+280,New York Jets,9,2025-11-9,Cleveland Browns,Home,-142
+281,Philadelphia Eagles,9,2025-11-10,Green Bay Packers,Road,-125
+282,Pittsburgh Steelers,9,2025-11-9,Los Angeles Chargers,Road,180
+283,San Francisco 49ers,9,2025-11-2,New York Giants,Road,-185
+284,Seattle Seahawks,9,2025-11-9,Arizona Cardinals,Home,-125
+285,Tampa Bay Buccaneers,9,2025-11-9,New England Patriots,Home,-218
+286,Tennessee Titans,9,2025-11-2,Los Angeles Chargers,Home,180
+287,Washington Commanders,9,2025-11-2,Seattle Seahawks,Home,-250
+288,Arizona Cardinals,10,2025-11-16,San Francisco 49ers,Home,105
+289,Atlanta Falcons,10,2025-11-16,Carolina Panthers,Home,-166
+290,Baltimore Ravens,10,2025-11-16,Cleveland Browns,Road,-410
+291,Buffalo Bills,10,2025-11-16,Tampa Bay Buccaneers,Home,-245
+292,Carolina Panthers,10,2025-11-9,New Orleans Saints,Home,-205
+293,Chicago Bears,10,2025-11-16,Minnesota Vikings,Road,114
+294,Cincinnati Bengals,10,2025-11-16,Pittsburgh Steelers,Road,-125
+295,Cleveland Browns,10,2025-11-16,Baltimore Ravens,Home,320
+296,Dallas Cowboys,10,2025-11-17,Las Vegas Raiders,Road,-125
+297,Denver Broncos,10,2025-11-6,Las Vegas Raiders,Home,-290
+298,Detroit Lions,10,2025-11-16,Philadelphia Eagles,Road,160
+299,Green Bay Packers,10,2025-11-16,New York Giants,Road,-205
+300,Houston Texans,10,2025-11-16,Tennessee Titans,Road,-166
+301,Indianapolis Colts,10,2025-11-9,Atlanta Falcons,Home,-105
+302,Jacksonville Jaguars,10,2025-11-16,Los Angeles Chargers,Home,105
+303,Kansas City Chiefs,10,2025-11-16,Denver Broncos,Road,-125
+304,Las Vegas Raiders,10,2025-11-17,Dallas Cowboys,Home,105
+305,Los Angeles Chargers,10,2025-11-9,Pittsburgh Steelers,Home,-218
+306,Los Angeles Rams,10,2025-11-16,Seattle Seahawks,Home,-218
+307,Miami Dolphins,10,2025-11-9,Buffalo Bills,Home,200
+308,Minnesota Vikings,10,2025-11-16,Chicago Bears,Home,-135
+309,New England Patriots,10,2025-11-9,Tampa Bay Buccaneers,Road,180
+310,New Orleans Saints,10,2025-11-9,Carolina Panthers,Road,170
+311,New York Giants,10,2025-11-9,Chicago Bears,Road,195
+312,New York Jets,10,2025-11-13,New England Patriots,Road,190
+313,Philadelphia Eagles,10,2025-11-16,Detroit Lions,Home,-192
+314,Pittsburgh Steelers,10,2025-11-16,Cincinnati Bengals,Home,105
+315,San Francisco 49ers,10,2025-11-9,Los Angeles Rams,Home,-125
+316,Seattle Seahawks,10,2025-11-16,Los Angeles Rams,Road,180
+317,Tampa Bay Buccaneers,10,2025-11-16,Buffalo Bills,Road,200
+318,Tennessee Titans,10,2025-11-16,Houston Texans,Home,140
+319,Washington Commanders,10,2025-11-9,Detroit Lions,Home,-125
+320,Arizona Cardinals,11,2025-11-23,Jacksonville Jaguars,Home,-162
+321,Atlanta Falcons,11,2025-11-23,New Orleans Saints,Road,-130
+322,Baltimore Ravens,11,2025-11-23,New York Jets,Home,-600
+323,Buffalo Bills,11,2025-11-20,Houston Texans,Road,-185
+324,Carolina Panthers,11,2025-11-16,Atlanta Falcons,Road,140
+325,Chicago Bears,11,2025-11-23,Pittsburgh Steelers,Home,-135
+326,Cincinnati Bengals,11,2025-11-23,New England Patriots,Home,-225
+327,Cleveland Browns,11,2025-11-23,Las Vegas Raiders,Road,154
+328,Dallas Cowboys,11,2025-11-23,Philadelphia Eagles,Home,180
+329,Denver Broncos,11,2025-11-16,Kansas City Chiefs,Home,105
+330,Detroit Lions,11,2025-11-23,New York Giants,Home,-410
+331,Green Bay Packers,11,2025-11-23,Minnesota Vikings,Home,-185
+332,Houston Texans,11,2025-11-20,Buffalo Bills,Home,154
+333,Indianapolis Colts,11,2025-11-23,Kansas City Chiefs,Road,350
+334,Jacksonville Jaguars,11,2025-11-23,Arizona Cardinals,Road,136
+335,Kansas City Chiefs,11,2025-11-23,Indianapolis Colts,Home,-455
+336,Las Vegas Raiders,11,2025-11-23,Cleveland Browns,Home,-185
+337,Los Angeles Chargers,11,2025-11-16,Jacksonville Jaguars,Road,-125
+338,Los Angeles Rams,11,2025-11-23,Tampa Bay Buccaneers,Home,-148
+339,Miami Dolphins,11,2025-11-16,Washington Commanders,Home,185
+340,Minnesota Vikings,11,2025-11-23,Green Bay Packers,Road,154
+341,New England Patriots,11,2025-11-13,New York Jets,Home,-230
+342,New Orleans Saints,11,2025-11-23,Atlanta Falcons,Home,110
+343,New York Giants,11,2025-11-16,Green Bay Packers,Home,170
+344,New York Jets,11,2025-11-23,Baltimore Ravens,Road,440
+345,Philadelphia Eagles,11,2025-11-23,Dallas Cowboys,Road,-218
+346,Pittsburgh Steelers,11,2025-11-23,Chicago Bears,Road,114
+347,San Francisco 49ers,11,2025-11-16,Arizona Cardinals,Road,-125
+348,Seattle Seahawks,11,2025-11-23,Tennessee Titans,Road,-125
+349,Tampa Bay Buccaneers,11,2025-11-23,Los Angeles Rams,Road,124
+350,Tennessee Titans,11,2025-11-23,Seattle Seahawks,Home,105
+351,Washington Commanders,11,2025-11-16,Miami Dolphins,Road,-225
+352,Arizona Cardinals,12,2025-11-30,Tampa Bay Buccaneers,Road,154
+353,Atlanta Falcons,12,2025-11-30,New York Jets,Road,-125
+354,Baltimore Ravens,12,2025-11-27,Cincinnati Bengals,Home,-238
+355,Buffalo Bills,12,2025-11-30,Pittsburgh Steelers,Road,-218
+356,Carolina Panthers,12,2025-11-24,San Francisco 49ers,Road,250
+357,Chicago Bears,12,2025-11-28,Philadelphia Eagles,Road,270
+358,Cincinnati Bengals,12,2025-11-27,Baltimore Ravens,Road,195
+359,Cleveland Browns,12,2025-11-30,San Francisco 49ers,Home,210
+360,Dallas Cowboys,12,2025-11-27,Kansas City Chiefs,Home,200
+361,Denver Broncos,12,2025-11-30,Washington Commanders,Road,114
+362,Detroit Lions,12,2025-11-27,Green Bay Packers,Home,-155
+363,Green Bay Packers,12,2025-11-27,Detroit Lions,Road,130
+364,Houston Texans,12,2025-11-30,Indianapolis Colts,Road,-125
+365,Indianapolis Colts,12,2025-11-30,Houston Texans,Home,105
+366,Jacksonville Jaguars,12,2025-11-30,Tennessee Titans,Road,-125
+367,Kansas City Chiefs,12,2025-11-27,Dallas Cowboys,Road,-245
+368,Las Vegas Raiders,12,2025-11-30,Los Angeles Chargers,Road,225
+369,Los Angeles Chargers,12,2025-11-30,Las Vegas Raiders,Home,-278
+370,Los Angeles Rams,12,2025-11-30,Carolina Panthers,Road,-185
+371,Miami Dolphins,12,2025-11-30,New Orleans Saints,Home,-258
+372,Minnesota Vikings,12,2025-11-30,Seattle Seahawks,Road,105
+373,New England Patriots,12,2025-11-23,Cincinnati Bengals,Road,185
+374,New Orleans Saints,12,2025-11-30,Miami Dolphins,Road,210
+375,New York Giants,12,2025-11-23,Detroit Lions,Road,320
+376,New York Jets,12,2025-11-30,Atlanta Falcons,Home,105
+377,Philadelphia Eagles,12,2025-11-28,Chicago Bears,Home,-340
+378,Pittsburgh Steelers,12,2025-11-30,Buffalo Bills,Home,180
+379,San Francisco 49ers,12,2025-11-24,Carolina Panthers,Home,-310
+380,Seattle Seahawks,12,2025-11-30,Minnesota Vikings,Home,-125
+381,Tampa Bay Buccaneers,12,2025-11-30,Arizona Cardinals,Home,-185
+382,Tennessee Titans,12,2025-11-30,Jacksonville Jaguars,Home,105
+383,Washington Commanders,12,2025-11-30,Denver Broncos,Home,-135
+384,Arizona Cardinals,13,2025-12-7,Los Angeles Rams,Home,102
+385,Atlanta Falcons,13,2025-12-7,Seattle Seahawks,Home,-125
+386,Baltimore Ravens,13,2025-12-7,Pittsburgh Steelers,Home,-395
+387,Buffalo Bills,13,2025-12-7,Cincinnati Bengals,Home,-238
+388,Carolina Panthers,13,2025-11-30,Los Angeles Rams,Home,154
+389,Chicago Bears,13,2025-12-7,Green Bay Packers,Road,164
+390,Cincinnati Bengals,13,2025-12-7,Buffalo Bills,Road,195
+391,Cleveland Browns,13,2025-12-7,Tennessee Titans,Home,-125
+392,Dallas Cowboys,13,2025-12-4,Detroit Lions,Road,220
+393,Denver Broncos,13,2025-12-7,Las Vegas Raiders,Road,-185
+394,Detroit Lions,13,2025-12-4,Dallas Cowboys,Home,-270
+395,Green Bay Packers,13,2025-12-7,Chicago Bears,Home,-198
+396,Houston Texans,13,2025-12-7,Kansas City Chiefs,Road,230
+397,Indianapolis Colts,13,2025-12-7,Jacksonville Jaguars,Road,136
+398,Jacksonville Jaguars,13,2025-12-7,Indianapolis Colts,Home,-162
+399,Kansas City Chiefs,13,2025-12-7,Houston Texans,Home,-285
+400,Las Vegas Raiders,13,2025-12-7,Denver Broncos,Home,154
+401,Los Angeles Chargers,13,2025-12-8,Philadelphia Eagles,Home,114
+402,Los Angeles Rams,13,2025-12-7,Arizona Cardinals,Road,-122
+403,Miami Dolphins,13,2025-12-7,New York Jets,Road,-125
+404,Minnesota Vikings,13,2025-12-7,Washington Commanders,Home,105
+405,New England Patriots,13,2025-12-1,New York Giants,Home,-166
+406,New Orleans Saints,13,2025-12-7,Tampa Bay Buccaneers,Road,340
+407,New York Giants,13,2025-12-1,New England Patriots,Road,140
+408,New York Jets,13,2025-12-7,Miami Dolphins,Home,105
+409,Philadelphia Eagles,13,2025-12-8,Los Angeles Chargers,Road,-135
+410,Pittsburgh Steelers,13,2025-12-7,Baltimore Ravens,Road,310
+411,San Francisco 49ers,13,2025-11-30,Cleveland Browns,Road,-258
+412,Seattle Seahawks,13,2025-12-7,Atlanta Falcons,Road,105
+413,Tampa Bay Buccaneers,13,2025-12-7,New Orleans Saints,Home,-440
+414,Tennessee Titans,13,2025-12-7,Cleveland Browns,Road,105
+415,Washington Commanders,13,2025-12-7,Minnesota Vikings,Road,-125
+416,Arizona Cardinals,14,2025-12-14,Houston Texans,Road,114
+417,Atlanta Falcons,14,2025-12-11,Tampa Bay Buccaneers,Road,195
+418,Baltimore Ravens,14,2025-12-14,Cincinnati Bengals,Road,-142
+419,Buffalo Bills,14,2025-12-14,New England Patriots,Road,-218
+420,Carolina Panthers,14,2025-12-14,New Orleans Saints,Road,-125
+421,Chicago Bears,14,2025-12-14,Cleveland Browns,Home,-305
+422,Cincinnati Bengals,14,2025-12-14,Baltimore Ravens,Home,120
+423,Cleveland Browns,14,2025-12-14,Chicago Bears,Road,245
+424,Dallas Cowboys,14,2025-12-14,Minnesota Vikings,Home,105
+425,Denver Broncos,14,2025-12-14,Green Bay Packers,Home,-125
+426,Detroit Lions,14,2025-12-14,Los Angeles Rams,Road,-122
+427,Green Bay Packers,14,2025-12-14,Denver Broncos,Road,105
+428,Houston Texans,14,2025-12-14,Arizona Cardinals,Home,-135
+429,Indianapolis Colts,14,2025-12-14,Seattle Seahawks,Road,154
+430,Jacksonville Jaguars,14,2025-12-14,New York Jets,Home,-218
+431,Kansas City Chiefs,14,2025-12-14,Los Angeles Chargers,Home,-218
+432,Las Vegas Raiders,14,2025-12-14,Philadelphia Eagles,Road,410
+433,Los Angeles Chargers,14,2025-12-14,Kansas City Chiefs,Road,180
+434,Los Angeles Rams,14,2025-12-14,Detroit Lions,Home,102
+435,Miami Dolphins,14,2025-12-15,Pittsburgh Steelers,Road,136
+436,Minnesota Vikings,14,2025-12-14,Dallas Cowboys,Road,-125
+437,New England Patriots,14,2025-12-14,Buffalo Bills,Home,180
+438,New Orleans Saints,14,2025-12-14,Carolina Panthers,Home,105
+439,New York Giants,14,2025-12-14,Washington Commanders,Home,180
+440,New York Jets,14,2025-12-14,Jacksonville Jaguars,Road,180
+441,Philadelphia Eagles,14,2025-12-14,Las Vegas Raiders,Home,-550
+442,Pittsburgh Steelers,14,2025-12-15,Miami Dolphins,Home,-162
+443,San Francisco 49ers,14,2025-12-14,Tennessee Titans,Home,-375
+444,Seattle Seahawks,14,2025-12-14,Indianapolis Colts,Home,-185
+445,Tampa Bay Buccaneers,14,2025-12-11,Atlanta Falcons,Home,-238
+446,Tennessee Titans,14,2025-12-14,San Francisco 49ers,Road,295
+447,Washington Commanders,14,2025-12-14,New York Giants,Road,-218
+448,Arizona Cardinals,15,2025-12-21,Atlanta Falcons,Home,-185
+449,Atlanta Falcons,15,2025-12-21,Arizona Cardinals,Road,154
+450,Baltimore Ravens,15,2025-12-21,New England Patriots,Home,-395
+451,Buffalo Bills,15,2025-12-21,Cleveland Browns,Road,-410
+452,Carolina Panthers,15,2025-12-21,Tampa Bay Buccaneers,Home,154
+453,Chicago Bears,15,2025-12-20,Green Bay Packers,Home,105
+454,Cincinnati Bengals,15,2025-12-21,Miami Dolphins,Road,-125
+455,Cleveland Browns,15,2025-12-21,Buffalo Bills,Home,320
+456,Dallas Cowboys,15,2025-12-21,Los Angeles Chargers,Home,105
+457,Denver Broncos,15,2025-12-21,Jacksonville Jaguars,Home,-238
+458,Detroit Lions,15,2025-12-21,Pittsburgh Steelers,Home,-258
+459,Green Bay Packers,15,2025-12-20,Chicago Bears,Road,-125
+460,Houston Texans,15,2025-12-21,Las Vegas Raiders,Home,-205
+461,Indianapolis Colts,15,2025-12-22,San Francisco 49ers,Home,140
+462,Jacksonville Jaguars,15,2025-12-21,Denver Broncos,Road,195
+463,Kansas City Chiefs,15,2025-12-21,Tennessee Titans,Road,-325
+464,Las Vegas Raiders,15,2025-12-21,Houston Texans,Road,170
+465,Los Angeles Chargers,15,2025-12-21,Dallas Cowboys,Road,-125
+466,Los Angeles Rams,15,2025-12-18,Seattle Seahawks,Road,-125
+467,Miami Dolphins,15,2025-12-21,Cincinnati Bengals,Home,105
+468,Minnesota Vikings,15,2025-12-21,New York Giants,Road,-135
+469,New England Patriots,15,2025-12-21,Baltimore Ravens,Road,310
+470,New Orleans Saints,15,2025-12-21,New York Jets,Home,-125
+471,New York Giants,15,2025-12-21,Minnesota Vikings,Home,114
+472,New York Jets,15,2025-12-21,New Orleans Saints,Road,105
+473,Philadelphia Eagles,15,2025-12-20,Washington Commanders,Road,-125
+474,Pittsburgh Steelers,15,2025-12-21,Detroit Lions,Road,210
+475,San Francisco 49ers,15,2025-12-22,Indianapolis Colts,Road,-166
+476,Seattle Seahawks,15,2025-12-18,Los Angeles Rams,Home,105
+477,Tampa Bay Buccaneers,15,2025-12-21,Carolina Panthers,Road,-185
+478,Tennessee Titans,15,2025-12-21,Kansas City Chiefs,Home,260
+479,Washington Commanders,15,2025-12-20,Philadelphia Eagles,Home,105
+480,Arizona Cardinals,16,2025-12-28,Cincinnati Bengals,Road,154
+481,Atlanta Falcons,16,2025-12-29,Los Angeles Rams,Home,140
+482,Baltimore Ravens,16,2025-12-28,Green Bay Packers,Road,-125
+483,Buffalo Bills,16,2025-12-28,Philadelphia Eagles,Home,-125
+484,Carolina Panthers,16,2025-12-28,Seattle Seahawks,Home,105
+485,Chicago Bears,16,2025-12-28,San Francisco 49ers,Road,164
+486,Cincinnati Bengals,16,2025-12-28,Arizona Cardinals,Home,-185
+487,Cleveland Browns,16,2025-12-28,Pittsburgh Steelers,Home,114
+488,Dallas Cowboys,16,2025-12-25,Washington Commanders,Road,166
+489,Denver Broncos,16,2025-12-25,Kansas City Chiefs,Road,180
+490,Detroit Lions,16,2025-12-25,Minnesota Vikings,Road,-126
+491,Green Bay Packers,16,2025-12-28,Baltimore Ravens,Home,105
+492,Houston Texans,16,2025-12-28,Los Angeles Chargers,Road,154
+493,Indianapolis Colts,16,2025-12-28,Jacksonville Jaguars,Home,-125
+494,Jacksonville Jaguars,16,2025-12-28,Indianapolis Colts,Road,105
+495,Kansas City Chiefs,16,2025-12-25,Denver Broncos,Home,-218
+496,Las Vegas Raiders,16,2025-12-28,New York Giants,Home,-135
+497,Los Angeles Chargers,16,2025-12-28,Houston Texans,Home,-185
+498,Los Angeles Rams,16,2025-12-29,Atlanta Falcons,Road,-166
+499,Miami Dolphins,16,2025-12-28,Tampa Bay Buccaneers,Home,105
+500,Minnesota Vikings,16,2025-12-25,Detroit Lions,Home,108
+501,New England Patriots,16,2025-12-28,New York Jets,Road,-125
+502,New Orleans Saints,16,2025-12-28,Tennessee Titans,Road,145
+503,New York Giants,16,2025-12-28,Las Vegas Raiders,Road,114
+504,New York Jets,16,2025-12-28,New England Patriots,Home,105
+505,Philadelphia Eagles,16,2025-12-28,Buffalo Bills,Road,105
+506,Pittsburgh Steelers,16,2025-12-28,Cleveland Browns,Road,-135
+507,San Francisco 49ers,16,2025-12-28,Chicago Bears,Home,-198
+508,Seattle Seahawks,16,2025-12-28,Carolina Panthers,Road,-125
+509,Tampa Bay Buccaneers,16,2025-12-28,Miami Dolphins,Road,-125
+510,Tennessee Titans,16,2025-12-28,New Orleans Saints,Home,-175
+511,Washington Commanders,16,2025-12-25,Dallas Cowboys,Home,-198
+512,Arizona Cardinals,17,2026-1-4,Los Angeles Rams,Road,185
+513,Atlanta Falcons,17,2026-1-4,New Orleans Saints,Home,-230
+514,Baltimore Ravens,17,2026-1-4,Pittsburgh Steelers,Road,-205
+515,Buffalo Bills,17,2026-1-4,New York Jets,Home,-410
+516,Carolina Panthers,17,2026-1-4,Tampa Bay Buccaneers,Road,260
+517,Chicago Bears,17,2026-1-4,Detroit Lions,Home,105
+518,Cincinnati Bengals,17,2026-1-4,Cleveland Browns,Home,-410
+519,Cleveland Browns,17,2026-1-4,Cincinnati Bengals,Road,320
+520,Dallas Cowboys,17,2026-1-4,New York Giants,Road,-125
+521,Denver Broncos,17,2026-1-4,Los Angeles Chargers,Home,-135
+522,Detroit Lions,17,2026-1-4,Chicago Bears,Road,-125
+523,Green Bay Packers,17,2026-1-4,Minnesota Vikings,Road,-125
+524,Houston Texans,17,2026-1-4,Indianapolis Colts,Home,-218
+525,Indianapolis Colts,17,2026-1-4,Houston Texans,Road,180
+526,Jacksonville Jaguars,17,2026-1-4,Tennessee Titans,Home,-218
+527,Kansas City Chiefs,17,2026-1-4,Las Vegas Raiders,Road,-258
+528,Las Vegas Raiders,17,2026-1-4,Kansas City Chiefs,Home,210
+529,Los Angeles Chargers,17,2026-1-4,Denver Broncos,Road,114
+530,Los Angeles Rams,17,2026-1-4,Arizona Cardinals,Home,-225
+531,Miami Dolphins,17,2026-1-4,New England Patriots,Road,114
+532,Minnesota Vikings,17,2026-1-4,Green Bay Packers,Home,105
+533,New England Patriots,17,2026-1-4,Miami Dolphins,Home,-135
+534,New Orleans Saints,17,2026-1-4,Atlanta Falcons,Road,190
+535,New York Giants,17,2026-1-4,Dallas Cowboys,Home,105
+536,New York Jets,17,2026-1-4,Buffalo Bills,Road,320
+537,Philadelphia Eagles,17,2026-1-4,Washington Commanders,Home,-218
+538,Pittsburgh Steelers,17,2026-1-4,Baltimore Ravens,Home,170
+539,San Francisco 49ers,17,2026-1-4,Seattle Seahawks,Home,-218
+540,Seattle Seahawks,17,2026-1-4,San Francisco 49ers,Road,180
+541,Tampa Bay Buccaneers,17,2026-1-4,Carolina Panthers,Home,-325
+542,Tennessee Titans,17,2026-1-4,Jacksonville Jaguars,Road,180
+543,Washington Commanders,17,2026-1-4,Philadelphia Eagles,Road,180
