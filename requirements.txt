@@ -9,3 +9,4 @@ numpy==1.26.4
 
 # Web requests
 requests==2.31.0
+matplotlib
