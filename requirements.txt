@@ -9,5 +9,5 @@ numpy==1.26.4
 
 # Web requests
 requests==2.31.0
-matplotlib
+matplotlib>=3.5.0
 plotly==5.20.0
