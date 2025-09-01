@@ -5,6 +5,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import numpy as np
 import streamlit.components.v1 as components
+import matplotlib.pyplot as plt
 
 # Initialize session state for authentication
 if 'authenticated' not in st.session_state:
@@ -203,14 +204,92 @@ if check_password():
         weekproj = pd.read_csv(f'{file_path}/ja_proj.csv')
         schedule = pd.read_csv(f'{file_path}/nfl_schedule_tracking.csv')
         dkdata = pd.read_csv(f'{file_path}/DKData.csv')
+        implied_totals = pd.read_csv(f'{file_path}/DKData.csv')
+        nfl_week_maps = pd.read_csv(f'{file_path}/nfl_week_mapping.csv')
+        team_name_change = pd.read_csv(f'{file_path}/nflteamnamechange.csv')
 
+        return logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change
+    
+    def load_team_logos_dumb():
+        base_dir = os.path.dirname(__file__)
+        file_path = os.path.join(base_dir, 'Data', 'logos')
+        #ari = pd.read_csv(f'{file_path}/ari.png')
+        with open(f'{file_path}/ari.png', 'rb') as file: ari = file.read()
+        with open(f'{file_path}/atl.png', 'rb') as file: atl = file.read()
+        with open(f'{file_path}/bal.png', 'rb') as file: bal = file.read()
+        with open(f'{file_path}/buf.png', 'rb') as file: buf = file.read()
 
-        return logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata
-    logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata = load_data()
+        with open(f'{file_path}/car.png', 'rb') as file: car = file.read()
+        with open(f'{file_path}/chi.png', 'rb') as file: chi = file.read()
+        with open(f'{file_path}/cin.png', 'rb') as file: cin = file.read()
+        with open(f'{file_path}/cle.png', 'rb') as file: cle = file.read()
+
+        with open(f'{file_path}/dal.png', 'rb') as file: dal = file.read()
+        with open(f'{file_path}/den.png', 'rb') as file: den = file.read()
+        with open(f'{file_path}/det.png', 'rb') as file: det = file.read()
+        with open(f'{file_path}/gnb.png', 'rb') as file: gnb = file.read()
+
+        with open(f'{file_path}/hou.png', 'rb') as file: hou = file.read()
+        with open(f'{file_path}/ind.png', 'rb') as file: ind = file.read()
+        with open(f'{file_path}/jax.png', 'rb') as file: jax = file.read()
+        with open(f'{file_path}/ind.png', 'rb') as file: ind = file.read()
+        
+        with open(f'{file_path}/kan.png', 'rb') as file: kan = file.read()
+        with open(f'{file_path}/lac.png', 'rb') as file: lac = file.read()
+        with open(f'{file_path}/lar.png', 'rb') as file: lar = file.read()
+        with open(f'{file_path}/lvr.png', 'rb') as file: lvr = file.read()
+
+        with open(f'{file_path}/mia.png', 'rb') as file: mia = file.read()
+        with open(f'{file_path}/min.png', 'rb') as file: min = file.read()
+        with open(f'{file_path}/nor.png', 'rb') as file: nor = file.read()
+        with open(f'{file_path}/nwe.png', 'rb') as file: nwe = file.read()
+
+        with open(f'{file_path}/nyg.png', 'rb') as file: nyg = file.read()
+        with open(f'{file_path}/nyj.png', 'rb') as file: nyj = file.read()
+        with open(f'{file_path}/phi.png', 'rb') as file: phi = file.read()
+        with open(f'{file_path}/pit.png', 'rb') as file: pit = file.read()
+
+        with open(f'{file_path}/sea.png', 'rb') as file: sea = file.read()
+        with open(f'{file_path}/sfo.png', 'rb') as file: sfo = file.read()
+        with open(f'{file_path}/tam.png', 'rb') as file: tam = file.read()
+        with open(f'{file_path}/ten.png', 'rb') as file: ten = file.read()
+        with open(f'{file_path}/was.png', 'rb') as file: was = file.read()
+
+        return ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was
+    
+    def load_team_logos():
+        base_dir = os.path.dirname(__file__)
+        file_path = os.path.join(base_dir, 'Data', 'logos')
+        
+        # Dictionary to store team logos
+        team_logos = {}
+        
+        # List of team abbreviations
+        teams = ['ari', 'atl', 'bal', 'buf', 'car', 'chi', 'cin', 'cle', 'dal', 'den', 'det', 
+                'gnb', 'hou', 'ind', 'jax', 'kan', 'lac', 'lar', 'lvr', 'mia', 'min', 'nor', 
+                'nwe', 'nyg', 'nyj', 'phi', 'pit', 'sea', 'sfo', 'tam', 'ten', 'was']
+        
+        # Load each team logo into the dictionary
+        for team in teams:
+            with open(f'{file_path}/{team}.png', 'rb') as file:
+                team_logos[team] = file.read()
+        
+        return team_logos
+
+    # Load the logos into a dictionary
+    #team_logos = load_team_logos()
+    
+    #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
+
+    logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change = load_data()
+    
+    
     season_proj['Proj FPts'] = 0
     namemapdict = dict(zip(namemap.OldName,namemap.NewName))
     adp_data['Player'] = adp_data['Player'].replace(namemapdict)
     season_proj['Player'] = season_proj['Player'].replace(namemapdict)
+    
+    teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
 
     dkdata['Sal'] = pd.to_numeric(dkdata['Sal'])
     dkdata['Sal'] = dkdata['Sal'].astype(int)
@@ -225,7 +304,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections", "Season Projections","Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game", "Season Projections","Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -237,6 +316,117 @@ if check_password():
     # Main content
     st.markdown(f"<center><h1>Follow The Money Fantasy Football Web App</h1></center>", unsafe_allow_html=True)
     import streamlit as st
+
+    if tab == "Game by Game":
+        st.markdown("<h1><center>Game by Game Preview</h1></center>", unsafe_allow_html=True)
+        get_this_week_number = dkdata['Week'].iloc[0]
+        schedule['Date'] = pd.to_datetime(schedule['Date'])
+        schedule['Date'] = schedule['Date'].dt.date
+        nfl_week_maps['Date'] = pd.to_datetime(nfl_week_maps['Date'])
+        nfl_week_maps['Date'] = nfl_week_maps['Date'].dt.date
+        schedule = pd.merge(schedule,nfl_week_maps, on='Date',how='left')
+
+        this_week = schedule[schedule['Week']==get_this_week_number]
+        this_week['Game Name'] =this_week['Away'] + ' @ ' + this_week['Home']
+        game_selection_list = list(this_week['Game Name'].unique())
+        game_selection = st.selectbox('Select A Game', game_selection_list)
+
+        selectedgamedata = this_week[this_week['Game Name']==game_selection]
+        selected_gameid = selectedgamedata['ID'].iloc[0]
+        game_line_log = schedule[schedule['ID']==selected_gameid]
+  
+        selectedgamedata = selectedgamedata[selectedgamedata['Timestamp']==np.max(selectedgamedata['Timestamp'])]
+
+        road_team = selectedgamedata['Away'].iloc[0]
+        home_team = selectedgamedata['Home'].iloc[0]
+
+        road_team_short = teamnamechangedict.get(road_team)
+        road_team_short_lower = road_team_short.lower()
+        home_team_short = teamnamechangedict.get(home_team)
+        home_team_short_lower = home_team_short.lower()
+
+        favored_team = selectedgamedata['Underdog'].iloc[0]
+        road_spread = selectedgamedata['Away Spread'].iloc[0]
+        home_spread = selectedgamedata['Home Spread'].iloc[0]
+        game_ou = selectedgamedata['OU'].iloc[0]
+
+        if favored_team == road_team:
+            favored_spread = road_spread
+        else:
+            favored_spread = home_spread
+
+        st.markdown(f"<h1><center>{road_team} vs. {home_team}</h1></center>", unsafe_allow_html=True)
+        
+        st.markdown(f"<h3><center>{favored_team} {favored_spread} <br> Over/Under: {game_ou}</h3></center>",unsafe_allow_html=True)
+        
+        line_move_check = st.checkbox('Show Line Movements', value=False)
+        if line_move_check:
+            # Create smaller line plots with reduced text sizes
+            plotcol1, plotcol2 = st.columns([1, 1])
+            with plotcol1:
+                fig, ax = plt.subplots(figsize=(2.4, 1.5))  # Smaller figure size
+                game_line_log.plot.line(x='Timestamp', y='OU', ax=ax, linewidth=1)
+                ax.get_legend().remove()  # Hide the legend
+                ax.set_xlabel("Timestamp", fontsize=4)
+                ax.set_ylabel("OU", fontsize=4)
+                ax.set_title("OU Over Time", fontsize=6)
+                ax.tick_params(axis='both', labelsize=3)  # Smaller tick labels
+                plt.xticks(rotation=45)
+                plt.tight_layout()  # Adjust layout to prevent clipping
+                st.pyplot(fig)
+
+            with plotcol2:
+                fig, ax = plt.subplots(figsize=(2.4, 1.5))  # Smaller figure size
+                game_line_log.plot.line(x='Timestamp', y='Home Spread', ax=ax, linewidth=1)
+                ax.get_legend().remove()  # Hide the legend
+                ax.set_xlabel("Timestamp", fontsize=4)
+                ax.set_ylabel("Spread", fontsize=4)  # Corrected label to match data
+                ax.set_title("Spread Over Time", fontsize=6)  # Corrected title
+                ax.tick_params(axis='both', labelsize=3)  # Smaller tick labels
+                plt.xticks(rotation=45)
+                plt.tight_layout()  # Adjust layout to prevent clipping
+                st.pyplot(fig)
+
+        road_projections = weekproj[weekproj['Team']==road_team_short]
+        home_projections = weekproj[weekproj['Team']==home_team_short]
+        
+        #img_col1, img_col2 = st.columns([1,1])
+        #with img_col1:
+            #st.image(team_logos.get(road_team_short_lower),width=200)
+        #with img_col2:
+            #st.image(team_logos.get(home_team_short_lower),width=200)
+        projcol1, projcol2 = st.columns([1,1])
+
+        with projcol1:
+            st.markdown(f"<h1><center>{road_team}</h1></center>", unsafe_allow_html=True)
+            #st.image(team_logos.get(road_team_short_lower),width=200)
+            st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
+            road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+            st.dataframe(road_qb_proj, hide_index=True, width=630)
+            st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
+            road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+            st.dataframe(road_rb_proj, hide_index=True, width=600,height=150)
+            st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
+            road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+            if len(road_rec_proj) > 7:
+                st.dataframe(road_rec_proj, hide_index=True, width=600,height=325)
+            else:
+                st.dataframe(road_rec_proj, hide_index=True, width=600)
+
+        with projcol2:
+            st.markdown(f"<h1><center>{home_team}</h1></center>", unsafe_allow_html=True)
+            st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
+            home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+            st.dataframe(home_qb_proj, hide_index=True, width=630)
+            st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
+            home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+            st.dataframe(home_rb_proj, hide_index=True, width=600,height=150)
+            st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
+            home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+            if len(home_rec_proj) > 7:
+                st.dataframe(home_rec_proj, hide_index=True, width=600,height=325)
+            else:
+                st.dataframe(home_rec_proj, hide_index=True, width=600)
 
     if tab == "Weekly Projections":
         st.markdown("<h3><center>Weekly Projections & Ranks</h3></center>", unsafe_allow_html=True)
