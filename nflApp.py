@@ -204,7 +204,7 @@ if check_password():
         weekproj = pd.read_csv(f'{file_path}/ja_proj.csv')
         schedule = pd.read_csv(f'{file_path}/nfl_schedule_tracking.csv')
         dkdata = pd.read_csv(f'{file_path}/DKData.csv')
-        implied_totals = pd.read_csv(f'{file_path}/DKData.csv')
+        implied_totals = pd.read_csv(f'{file_path}/implied_totals.csv')
         nfl_week_maps = pd.read_csv(f'{file_path}/nfl_week_mapping.csv')
         team_name_change = pd.read_csv(f'{file_path}/nflteamnamechange.csv')
 
@@ -282,12 +282,48 @@ if check_password():
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
     logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change = load_data()
+    teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
+
+    all_game_times = schedule[['ID','Date','Time']]
+    all_game_times['Date'] = pd.to_datetime(all_game_times['Date'])
+    all_game_times['Date'] = all_game_times['Date'].dt.date
+    all_game_times['DOW'] = all_game_times['Date'].apply(lambda x: x.strftime('%A'))
+    all_game_times['start_hour'] = all_game_times['Time'].str.split(':').str[0].astype(int)
+    all_game_times['MainSlate'] = np.where((all_game_times['DOW']=='Sunday')&(all_game_times['start_hour']>=13)&(all_game_times['start_hour']<17),'Y','N')
+    main_slate_dict = dict(zip(all_game_times.ID,all_game_times.MainSlate))
+
+    # this week
+    get_this_week_number = dkdata['Week'].iloc[0]
+
+    nfl_week_maps['Date'] = pd.to_datetime(nfl_week_maps['Date'])
+    nfl_week_maps['Date'] = nfl_week_maps['Date'].dt.date
+    schedule['Date'] = pd.to_datetime(schedule['Date'])
+    schedule['Date'] = schedule['Date'].dt.date
+    schedule = pd.merge(schedule,nfl_week_maps, on='Date',how='left')
+    this_week_schedule = schedule[schedule['Week']==get_this_week_number]
+    this_week_schedule['MainSlate'] = this_week_schedule['ID'].map(main_slate_dict)
+    this_week_schedule['AwayShort'] = this_week_schedule['Away'].replace(teamnamechangedict)
+    this_week_schedule['HomeShort'] = this_week_schedule['Home'].replace(teamnamechangedict)
+    this_week_mainslate = this_week_schedule[this_week_schedule['MainSlate']=='Y'].reset_index(drop=True)
+    this_week_mainslate = this_week_mainslate[['Away','Home']].drop_duplicates()
+    this_week_mainslate['AwayShort'] = this_week_mainslate['Away'].replace(teamnamechangedict)
+    this_week_mainslate['HomeShort'] = this_week_mainslate['Home'].replace(teamnamechangedict)
+    away_list = list(this_week_mainslate['AwayShort'])
+    home_list = list(this_week_mainslate['HomeShort'])
+    main_slate_team_list = []
+    for team in away_list:
+        main_slate_team_list.append(team)
+    for team in home_list:
+        main_slate_team_list.append(team)
     
-    
+    ###
+    weekproj['Team'] = weekproj['Team'].replace({'GB':'GNB','TB':'TAM','ARZ':'ARI','SF':'SFO'})
+    weekproj['Opp'] = weekproj['Opp'].replace({'GB':'GNB','TB':'TAM', 'ARZ':'ARI','SF':'SFO'})
     season_proj['Proj FPts'] = 0
     namemapdict = dict(zip(namemap.OldName,namemap.NewName))
     adp_data['Player'] = adp_data['Player'].replace(namemapdict)
     season_proj['Player'] = season_proj['Player'].replace(namemapdict)
+    implied_totals['Rank'] = implied_totals['Implied'].rank(ascending=False)
     
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
 
@@ -315,11 +351,14 @@ if check_password():
 
     # Main content
     st.markdown(f"<center><h1>Follow The Money Fantasy Football Web App</h1></center>", unsafe_allow_html=True)
-    import streamlit as st
 
     if tab == "Game by Game":
         st.markdown("<h1><center>Game by Game Preview</h1></center>", unsafe_allow_html=True)
         get_this_week_number = dkdata['Week'].iloc[0]
+        try:
+            schedule=schedule.drop(['Week'],axis=1)
+        except:
+            pass
         schedule['Date'] = pd.to_datetime(schedule['Date'])
         schedule['Date'] = schedule['Date'].dt.date
         nfl_week_maps['Date'] = pd.to_datetime(nfl_week_maps['Date'])
@@ -332,6 +371,15 @@ if check_password():
         game_selection = st.selectbox('Select A Game', game_selection_list)
 
         selectedgamedata = this_week[this_week['Game Name']==game_selection]
+        game_date = selectedgamedata['Date'].iloc[0]
+        game_time = selectedgamedata['Time'].iloc[0]
+        date_to_show = game_date.strftime('%A, %B %-d')
+
+        from datetime import datetime
+        time_obj = datetime.strptime(game_time, '%H:%M')
+        # Format to 12-hour time with AM/PM
+        time_to_show = time_obj.strftime('%-I:%M %p')
+
         selected_gameid = selectedgamedata['ID'].iloc[0]
         game_line_log = schedule[schedule['ID']==selected_gameid]
   
@@ -355,9 +403,14 @@ if check_password():
         else:
             favored_spread = home_spread
 
-        st.markdown(f"<h1><center>{road_team} vs. {home_team}</h1></center>", unsafe_allow_html=True)
-        
-        st.markdown(f"<h3><center>{favored_team} {favored_spread} <br> Over/Under: {game_ou}</h3></center>",unsafe_allow_html=True)
+        #st.markdown(f"<h1><center>{road_team} vs. {home_team}</h1></center>", unsafe_allow_html=True)
+        #st.markdown(f"<h3><center>{favored_team} {favored_spread} <br> Over/Under: {game_ou}</h3></center>",unsafe_allow_html=True)
+
+        st.markdown(f"""<center><font size=25 face=Futura><b>{road_team} vs. {home_team}</b></font><br>
+                        <center><font size=6 face=Futura><u>{date_to_show} at {time_to_show}</u></center></font>
+                        <font size=6 face=Futura><i><b>{favored_team} {favored_spread}</font><br>
+                        <font size=6 face=Futura>Over/Under: {game_ou}</center></font><br>
+                    """, unsafe_allow_html=True)
         
         line_move_check = st.checkbox('Show Line Movements', value=False)
         if line_move_check:
@@ -388,8 +441,12 @@ if check_password():
                 st.pyplot(fig)
 
         road_projections = weekproj[weekproj['Team']==road_team_short]
+        road_implied = implied_totals[implied_totals['Team']==road_team_short]['Implied'].iloc[0]
+        road_implied_rank = implied_totals[implied_totals['Team']==road_team_short]['Rank'].iloc[0]
         home_projections = weekproj[weekproj['Team']==home_team_short]
-        
+        home_implied = implied_totals[implied_totals['Team']==home_team_short]['Implied'].iloc[0]
+        home_implied_rank = implied_totals[implied_totals['Team']==home_team_short]['Rank'].iloc[0]
+
         #img_col1, img_col2 = st.columns([1,1])
         #with img_col1:
             #st.image(team_logos.get(road_team_short_lower),width=200)
@@ -398,7 +455,7 @@ if check_password():
         projcol1, projcol2 = st.columns([1,1])
 
         with projcol1:
-            st.markdown(f"<h1><center>{road_team}</h1></center>", unsafe_allow_html=True)
+            st.markdown(f"<h1><center>{road_team}</h1><h5><center>Implied for {road_implied} points, ranked #{int(road_implied_rank)} of {len(implied_totals)}</h5></center>", unsafe_allow_html=True)
             #st.image(team_logos.get(road_team_short_lower),width=200)
             st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
             road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
@@ -414,7 +471,7 @@ if check_password():
                 st.dataframe(road_rec_proj, hide_index=True, width=600)
 
         with projcol2:
-            st.markdown(f"<h1><center>{home_team}</h1></center>", unsafe_allow_html=True)
+            st.markdown(f"<h1><center>{home_team}</h1><h5><center>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</h5></center></center>", unsafe_allow_html=True)
             st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
             home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
             st.dataframe(home_qb_proj, hide_index=True, width=630)
@@ -445,7 +502,7 @@ if check_password():
             }
 
         # Position filter
-        weekprojcol1, weekprojcol2 = st.columns([1,1])
+        weekprojcol1, weekprojcol2, weekprojcol3 = st.columns([1,1,1])
         with weekprojcol1:
             positions = ['All', 'QB', 'RB', 'WR', 'TE', 'FLEX']
             selected_position = st.selectbox("Select Position", positions)
@@ -453,7 +510,9 @@ if check_password():
             # Team filter
             teams = ['All'] + sorted(weekproj['Team'].unique().tolist())
             selected_team = st.selectbox("Select Team", teams)
-
+        with weekprojcol3:
+            mainslateselect = st.selectbox('Show Main Slate Only', ['No','Yes'])
+        
         # Button to toggle scoring settings
         show_scoring = st.button("Customize Scoring System", key="toggle_scoring")
 
@@ -530,11 +589,12 @@ if check_password():
         )
 
         # ranking
+        if mainslateselect == 'Yes':
+            weekproj = weekproj[weekproj['Team'].isin(main_slate_team_list)]
         weekproj['Pos Rank'] = weekproj.groupby('Pos')['FPts'].rank(ascending=False)
 
         dfs_sals_check = st.checkbox('Show DFS Info?')
         dfs_sals_dict = dict(zip(dkdata.Player,dkdata.Sal))
-        #st.dataframe(dkdata)
 
         # Filter data based on selections
         filtered_data = weekproj.copy()
@@ -599,15 +659,6 @@ if check_password():
         csv = convert_df_to_csv(show_filtered_data)
         st.download_button(label="Download CSV", data=csv, file_name='JA Projections.csv', mime='text/csv')
 
-
-    if tab == "Weekly Projections 1":
-        st.markdown("<h3><center>Weekly Projections & Ranks</h3></center>", unsafe_allow_html=True)
-
-        weekproj['FPts'] = (weekproj['Pass Yards']/25)+(weekproj['Pass TD']*4)-(weekproj['Int'])+(weekproj['Rush Yds']/10)+(weekproj['Rec Yds']/10)+(weekproj['Rec'])+(weekproj['Rush TD']*6)+(weekproj['Rec TD']*6)
-        weekproj = weekproj.round(2)
-        weekproj = weekproj.sort_values(by='FPts',ascending=False)
-        st.dataframe(weekproj, hide_index=True)
-    
     if tab == "ADP Data":
         adp_data = adp_data.sort_values(by='Date')
         adp_min = int(adp_data['ADP'].min())
