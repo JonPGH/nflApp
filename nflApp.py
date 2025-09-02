@@ -354,6 +354,15 @@ if check_password():
 
     if tab == "Game by Game":
         st.markdown("<h1><center>Game by Game Preview</h1></center>", unsafe_allow_html=True)
+
+        show_all_game_info = st.checkbox('Show Game Info', value=False)
+        if show_all_game_info:
+            show_schedule = implied_totals[['Team','Opp','OU','Spread','Implied']].sort_values(by='OU',ascending=False)
+            show_schedule['MainSlate'] = np.where(show_schedule['Team'].isin(main_slate_team_list),"Y","N")
+            scol1, scol2, scol3 = st.columns([1,1,1])
+            with scol2:
+                st.dataframe(show_schedule, width=800,height=900, hide_index=True)
+
         get_this_week_number = dkdata['Week'].iloc[0]
         try:
             schedule=schedule.drop(['Week'],axis=1)
