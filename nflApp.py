@@ -829,7 +829,33 @@ if check_password():
                 qb_options = list(select_game_data['player'].unique())
                 qb_dropdown = st.selectbox('Select QB', qb_options)
 
-        st.dataframe(select_game_data)
+        #st.dataframe(select_game_data)
+
+        st.markdown("Prop Movements")
+        player_list = list(allproplines['player'].unique())
+        propplayerpick = st.selectbox('Select a Player', player_list)
+        player_prop_lines = allproplines[allproplines['player']==propplayerpick]
+        player_markets = list(player_prop_lines['market'].unique())
+        player_books = list(player_prop_lines['book'].unique())
+        marketpick = st.selectbox('Select a Market', player_markets)
+        bookpick = st.selectbox('Select a Sports Book', player_books)
+
+        selected_lines = allproplines[(allproplines['player']==propplayerpick)&(allproplines['market']==marketpick)&(allproplines['book']==bookpick)]
+        selected_lines = selected_lines[selected_lines['over_under']=='Over']
+
+        #st.dataframe(selected_lines)
+
+        fig, ax = plt.subplots(figsize=(5, 3))  # Smaller figure size
+        selected_lines.plot.line(x='scrape_time', y='line', ax=ax, linewidth=3)
+        ax.get_legend().remove()  # Hide the legend
+        ax.set_xlabel("Timestamp", fontsize=4)
+        ax.set_ylabel("Line", fontsize=4)
+        ax.set_title(f"{propplayerpick} {marketpick} Line Movement", fontsize=6)
+        ax.tick_params(axis='both', labelsize=7)  # Smaller tick labels
+        plt.xticks(rotation=45)
+        plt.tight_layout()  # Adjust layout to prevent clipping
+        st.pyplot(fig)
+
 
 
     
