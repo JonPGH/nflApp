@@ -635,7 +635,7 @@ if check_password():
         filtered_data['Val'] = filtered_data['FPts'] / (filtered_data['Sal'] / 1000)
         filtered_data['Val'] = round(filtered_data['Val'],2)
 
-        filtered_data = filtered_data[filtered_data['FPts']>4]
+        filtered_data = filtered_data[filtered_data['FPts']>1]
 
         #filtered_data['Sal'] = filtered_data['Sal'].apply(lambda x: f"${int(x):,}")
         #filtered_data['Val'] = round(filtered_data['FPts']/(filtered_data['Sal']/1000),2)
