@@ -355,6 +355,8 @@ if check_password():
     if tab == "Game by Game":
         st.markdown("<h1><center>Game by Game Preview</h1></center>", unsafe_allow_html=True)
 
+        dksalsdf = dkdata[['Player','Sal']]
+
         show_all_game_info = st.checkbox('Show Game Info', value=False)
         if show_all_game_info:
             show_schedule = implied_totals[['Team','Opp','OU','Spread','Implied']].sort_values(by='OU',ascending=False)
@@ -449,6 +451,7 @@ if check_password():
                 plt.tight_layout()  # Adjust layout to prevent clipping
                 st.pyplot(fig)
 
+        weekproj = pd.merge(weekproj,dksalsdf,how='left',on='Player')
         road_projections = weekproj[weekproj['Team']==road_team_short]
         road_implied = implied_totals[implied_totals['Team']==road_team_short]['Implied'].iloc[0]
         road_implied_rank = implied_totals[implied_totals['Team']==road_team_short]['Rank'].iloc[0]
@@ -467,13 +470,13 @@ if check_password():
             st.markdown(f"<h1><center>{road_team}</h1><h5><center>Implied for {road_implied} points, ranked #{int(road_implied_rank)} of {len(implied_totals)}</h5></center>", unsafe_allow_html=True)
             #st.image(team_logos.get(road_team_short_lower),width=200)
             st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-            road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+            road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
             st.dataframe(road_qb_proj, hide_index=True, width=630)
             st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-            road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+            road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
             st.dataframe(road_rb_proj, hide_index=True, width=600,height=150)
             st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-            road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+            road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
             if len(road_rec_proj) > 7:
                 st.dataframe(road_rec_proj, hide_index=True, width=600,height=325)
             else:
@@ -482,13 +485,13 @@ if check_password():
         with projcol2:
             st.markdown(f"<h1><center>{home_team}</h1><h5><center>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</h5></center></center>", unsafe_allow_html=True)
             st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-            home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+            home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
             st.dataframe(home_qb_proj, hide_index=True, width=630)
             st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-            home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+            home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
             st.dataframe(home_rb_proj, hide_index=True, width=600,height=150)
             st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-            home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+            home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
             if len(home_rec_proj) > 7:
                 st.dataframe(home_rec_proj, hide_index=True, width=600,height=325)
             else:
@@ -635,7 +638,7 @@ if check_password():
         filtered_data['Val'] = filtered_data['FPts'] / (filtered_data['Sal'] / 1000)
         filtered_data['Val'] = round(filtered_data['Val'],2)
 
-        filtered_data = filtered_data[filtered_data['FPts']>1]
+        filtered_data = filtered_data[filtered_data['FPts']>0]
 
         #filtered_data['Sal'] = filtered_data['Sal'].apply(lambda x: f"${int(x):,}")
         #filtered_data['Val'] = round(filtered_data['FPts']/(filtered_data['Sal']/1000),2)
