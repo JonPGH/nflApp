@@ -1631,3 +1631,517 @@
 1629,2025-09-03 17:59:56 EDT,b6eb23d78a4e1b3bf9946be7cfac0e6b,2026-1-4,13:0,Washington Commanders,Philadelphia Eagles,Washington Commanders,180,Philadelphia Eagles,-218,,4.5,-110,-4.5,-110
 1630,2025-09-03 17:59:56 EDT,c624c615075899bb7be6a39e5eea3b2b,2026-1-4,13:0,Seattle Seahawks,San Francisco 49ers,Seattle Seahawks,180,San Francisco 49ers,-218,44.5,4.5,-110,-4.5,-110
 1631,2025-09-03 17:59:56 EDT,30621f6a1072712bee795c15eafe9768,2026-1-4,16:5,Los Angeles Chargers,Denver Broncos,Los Angeles Chargers,114,Denver Broncos,-135,42.5,2.5,-110,-2.5,-110
+1632,2025-09-04 09:31:13 EDT,f1bc532dff946d15cb85654b5c4b246e,2025-9-4,20:20,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys,320,Philadelphia Eagles,-410,47.5,8.5,-115,-8.5,-105
+1633,2025-09-04 09:31:13 EDT,9535d3e3ee9d9fc83ea2b500ad0b587c,2025-9-5,20:0,Kansas City Chiefs,Los Angeles Chargers,Los Angeles Chargers,142,Kansas City Chiefs,-168,46.5,-3.0,-115,3.0,-105
+1634,2025-09-04 09:31:13 EDT,557d13ef8f4c1d21044f3a478cda6d0b,2025-9-7,13:0,Arizona Cardinals,New Orleans Saints,New Orleans Saints,240,Arizona Cardinals,-298,43.5,-6.5,-110,6.5,-110
+1635,2025-09-04 09:31:13 EDT,1e09eb3fe1385796c1a32000de48ac64,2025-9-7,13:0,Tampa Bay Buccaneers,Atlanta Falcons,Atlanta Falcons,114,Tampa Bay Buccaneers,-135,46.5,-1.5,-115,1.5,-105
+1636,2025-09-04 09:31:13 EDT,394256a6c3d0f5ecd1208fffaae6a72f,2025-9-7,13:0,Carolina Panthers,Jacksonville Jaguars,Carolina Panthers,150,Jacksonville Jaguars,-180,46.5,3.5,-120,-3.5,100
+1637,2025-09-04 09:31:13 EDT,e2d3b0596efcebc1c19dab92009f5e26,2025-9-7,13:0,Cincinnati Bengals,Cleveland Browns,Cleveland Browns,195,Cincinnati Bengals,-238,48.5,-5.5,-108,5.5,-112
+1638,2025-09-04 09:31:13 EDT,b02a72c768a6c6dee87aa74f78e84176,2025-9-7,13:0,Miami Dolphins,Indianapolis Colts,Miami Dolphins,-105,Indianapolis Colts,-115,47.5,1.5,-118,-1.5,-102
+1639,2025-09-04 09:31:13 EDT,0b2455795dfcd692dd607503e4f20d04,2025-9-7,13:0,Las Vegas Raiders,New England Patriots,Las Vegas Raiders,130,New England Patriots,-155,43.5,3.0,-118,-3.0,-102
+1640,2025-09-04 09:31:13 EDT,4cce00ca468c67eca17a9a061f778fb2,2025-9-7,13:0,New York Giants,Washington Commanders,New York Giants,220,Washington Commanders,-270,45.5,6.0,-112,-6.0,-108
+1641,2025-09-04 09:31:13 EDT,5ed483bb614b18955f8b43f177746371,2025-9-7,13:0,Pittsburgh Steelers,New York Jets,New York Jets,136,Pittsburgh Steelers,-162,38.5,-3.0,-102,3.0,-118
+1642,2025-09-04 09:31:13 EDT,68397f3aa9eb847a421a49f990a11928,2025-9-7,16:5,Tennessee Titans,Denver Broncos,Tennessee Titans,350,Denver Broncos,-450,42.5,8.5,-112,-8.5,-108
+1643,2025-09-04 09:31:13 EDT,9f1ad249959aacae89e5e74e43429a4a,2025-9-7,16:5,San Francisco 49ers,Seattle Seahawks,Seattle Seahawks,112,San Francisco 49ers,-132,43.5,-2.5,-112,2.5,-108
+1644,2025-09-04 09:31:13 EDT,8e0e2d9237098222f9ca7554b11b12bb,2025-9-7,16:25,Detroit Lions,Green Bay Packers,Detroit Lions,114,Green Bay Packers,-134,47.5,2.5,-105,-2.5,-115
+1645,2025-09-04 09:31:13 EDT,dc0e3db61983a138098f28226788d2d3,2025-9-7,16:25,Houston Texans,Los Angeles Rams,Houston Texans,132,Los Angeles Rams,-156,43.5,3.0,-112,-3.0,-108
+1646,2025-09-04 09:31:13 EDT,dee0a41ed5e8201a96d457899adbe918,2025-9-7,20:20,Baltimore Ravens,Buffalo Bills,Buffalo Bills,-104,Baltimore Ravens,-112,50.5,-1.5,-110,1.5,-110
+1647,2025-09-04 09:31:13 EDT,c6d7807cee33d5e81c671527b9c8b3f1,2025-9-8,20:15,Minnesota Vikings,Chicago Bears,Chicago Bears,-102,Minnesota Vikings,-116,43.5,-1.5,-112,1.5,-108
+1648,2025-09-04 09:31:13 EDT,0c6e5d9821ce0d3e82f3e792879776a6,2025-9-11,20:15,Washington Commanders,Green Bay Packers,Washington Commanders,130,Green Bay Packers,-155,48.5,3.0,-115,-3.0,-105
+1649,2025-09-04 09:31:13 EDT,553edb8bf2452482b37dde58e832a6fb,2025-9-14,13:0,Cleveland Browns,Baltimore Ravens,Cleveland Browns,490,Baltimore Ravens,-675,44.5,12.5,-110,-12.5,-110
+1650,2025-09-04 09:31:13 EDT,cd0fd9335b5182d3bfed35ab8d5ab6fb,2025-9-14,13:0,Buffalo Bills,New York Jets,New York Jets,310,Buffalo Bills,-395,44.5,-8.5,-110,8.5,-110
+1651,2025-09-04 09:31:13 EDT,1ee9ea2c8256bc6be5dd92e60f6c17de,2025-9-14,13:0,Chicago Bears,Detroit Lions,Chicago Bears,185,Detroit Lions,-225,48.5,4.5,-105,-4.5,-115
+1652,2025-09-04 09:31:13 EDT,ec75e45d75691f810f347e0c5ff25d6e,2025-9-14,13:0,Jacksonville Jaguars,Cincinnati Bengals,Jacksonville Jaguars,195,Cincinnati Bengals,-238,49.5,5.5,-110,-5.5,-110
+1653,2025-09-04 09:31:13 EDT,05a5b084f4e19535b2d3f91ef5c00169,2025-9-14,13:0,New York Giants,Dallas Cowboys,New York Giants,130,Dallas Cowboys,-155,44.5,3.0,-110,-3.0,-110
+1654,2025-09-04 09:31:13 EDT,0e6f68b30237afc04d1517a193213a65,2025-9-14,13:0,Los Angeles Rams,Tennessee Titans,Tennessee Titans,195,Los Angeles Rams,-238,45.5,-5.5,-110,5.5,-110
+1655,2025-09-04 09:31:13 EDT,575c1b169aab675ec72372ccb0f4c55f,2025-9-14,13:0,New England Patriots,Miami Dolphins,New England Patriots,114,Miami Dolphins,-135,45.5,2.5,-110,-2.5,-110
+1656,2025-09-04 09:31:13 EDT,866d7405986fb4d14897cdb6c0aa5926,2025-9-14,13:0,San Francisco 49ers,New Orleans Saints,New Orleans Saints,270,San Francisco 49ers,-340,44.5,-7.0,-110,7.0,-110
+1657,2025-09-04 09:31:13 EDT,82f9fd7001598d5cf9c1bdd57c66cae4,2025-9-14,13:0,Seattle Seahawks,Pittsburgh Steelers,Seattle Seahawks,114,Pittsburgh Steelers,-135,41.5,2.5,-110,-2.5,-110
+1658,2025-09-04 09:31:13 EDT,7e2ad5ef04493526707e0868f7b70c47,2025-9-14,16:5,Carolina Panthers,Arizona Cardinals,Carolina Panthers,180,Arizona Cardinals,-218,46.5,4.5,-110,-4.5,-110
+1659,2025-09-04 09:31:13 EDT,e217b38ef8bc6e98d3512cb42b90782e,2025-9-14,16:5,Denver Broncos,Indianapolis Colts,Indianapolis Colts,154,Denver Broncos,-185,44.5,-3.5,-110,3.5,-110
+1660,2025-09-04 09:31:13 EDT,bbec8d71145954cff67915c9b006bb6e,2025-9-14,16:25,Philadelphia Eagles,Kansas City Chiefs,Philadelphia Eagles,-104,Kansas City Chiefs,-112,45.5,1.5,-110,-1.5,-110
+1661,2025-09-04 09:31:13 EDT,37d09ce5d357536d0e58dd4ba0ab4106,2025-9-14,20:20,Atlanta Falcons,Minnesota Vikings,Atlanta Falcons,185,Minnesota Vikings,-225,45.5,4.5,-110,-4.5,-110
+1662,2025-09-04 09:31:13 EDT,7d9a04f411031528d9c1d2df7b9a0453,2025-9-15,19:0,Tampa Bay Buccaneers,Houston Texans,Tampa Bay Buccaneers,105,Houston Texans,-125,46.5,1.5,-105,-1.5,-115
+1663,2025-09-04 09:31:13 EDT,bebae12f59f19bd877df7ac3cab05263,2025-9-15,22:0,Los Angeles Chargers,Las Vegas Raiders,Las Vegas Raiders,136,Los Angeles Chargers,-162,44.5,-3.0,-110,3.0,-110
+1664,2025-09-04 09:31:13 EDT,aca5234c57e31b1931e51d2d0d6046f5,2025-9-18,20:15,Miami Dolphins,Buffalo Bills,Miami Dolphins,330,Buffalo Bills,-425,48.5,8.5,-110,-8.5,-110
+1665,2025-09-04 09:31:13 EDT,5737e4dbf6879c5061bb23033a4d8a55,2025-9-21,13:0,Atlanta Falcons,Carolina Panthers,Atlanta Falcons,105,Carolina Panthers,-125,46.5,1.5,-112,-1.5,-108
+1666,2025-09-04 09:31:13 EDT,eefb7f130c8fc2c129e296fe5c6ba3e3,2025-9-21,13:0,Cincinnati Bengals,Minnesota Vikings,Cincinnati Bengals,105,Minnesota Vikings,-125,47.5,1.5,-115,-1.5,-105
+1667,2025-09-04 09:31:13 EDT,581955d1b79fe87a3a61a4885cd7ea67,2025-9-21,13:0,Green Bay Packers,Cleveland Browns,Cleveland Browns,250,Green Bay Packers,-310,43.5,-6.5,-110,6.5,-110
+1668,2025-09-04 09:31:13 EDT,97de7672b61dbddbce982711c121e76d,2025-9-21,13:0,Houston Texans,Jacksonville Jaguars,Jacksonville Jaguars,105,Houston Texans,-125,46.5,-1.5,-110,1.5,-110
+1669,2025-09-04 09:31:13 EDT,bb506016737825f4d0b1f9862f95c246,2025-9-21,13:0,Indianapolis Colts,Tennessee Titans,Indianapolis Colts,105,Tennessee Titans,-125,45.5,1.5,-110,-1.5,-110
+1670,2025-09-04 09:31:13 EDT,03a5eed2c8ef5d1c8a48866ea4b0d63a,2025-9-21,13:0,Las Vegas Raiders,Washington Commanders,Las Vegas Raiders,285,Washington Commanders,-360,47.5,7.5,-110,-7.5,-110
+1671,2025-09-04 09:31:13 EDT,4c4ae4a2d54fc3f71c450187e9391ddc,2025-9-21,13:0,Los Angeles Rams,Philadelphia Eagles,Los Angeles Rams,185,Philadelphia Eagles,-225,46.5,4.5,-105,-4.5,-115
+1672,2025-09-04 09:31:13 EDT,c4c42918a645b1a4773f47d7eaa5cfcf,2025-9-21,13:0,Pittsburgh Steelers,New England Patriots,Pittsburgh Steelers,105,New England Patriots,-125,43.5,1.5,-110,-1.5,-110
+1673,2025-09-04 09:31:13 EDT,02522f48a7b7e7524881c1b1638cd94d,2025-9-21,13:0,New York Jets,Tampa Bay Buccaneers,New York Jets,270,Tampa Bay Buccaneers,-340,45.5,7.5,-112,-7.5,-108
+1674,2025-09-04 09:31:13 EDT,0ee3f5a0078c21cfdffd1b97002e7da5,2025-9-21,16:5,Denver Broncos,Los Angeles Chargers,Denver Broncos,105,Los Angeles Chargers,-125,44.5,1.5,-110,-1.5,-110
+1675,2025-09-04 09:31:13 EDT,311c411c2d53e36a902763dc7a2ef678,2025-9-21,16:5,New Orleans Saints,Seattle Seahawks,New Orleans Saints,230,Seattle Seahawks,-285,43.5,6.5,-105,-6.5,-115
+1676,2025-09-04 09:31:13 EDT,20b50dac292089c063b21e1410f172ef,2025-9-21,16:25,Arizona Cardinals,San Francisco 49ers,Arizona Cardinals,164,San Francisco 49ers,-198,47.5,3.5,-105,-3.5,-115
+1677,2025-09-04 09:31:13 EDT,186868cc79ce1f5d22075b67ebbc7b64,2025-9-21,16:25,Dallas Cowboys,Chicago Bears,Dallas Cowboys,145,Chicago Bears,-175,47.5,3.0,-105,-3.0,-115
+1678,2025-09-04 09:31:13 EDT,ee840f13db8bd150fcdd8f6670fa7041,2025-9-21,20:20,Kansas City Chiefs,New York Giants,New York Giants,235,Kansas City Chiefs,-290,43.5,-6.5,-110,6.5,-110
+1679,2025-09-04 09:31:13 EDT,6e67ddae4bb01d1c2d3f461ee62d2666,2025-9-22,20:15,Detroit Lions,Baltimore Ravens,Detroit Lions,160,Baltimore Ravens,-192,49.5,3.5,-105,-3.5,-115
+1680,2025-09-04 09:31:13 EDT,4a08b89f07a4a395620f6df5c1d239f4,2025-9-25,20:15,Seattle Seahawks,Arizona Cardinals,Seattle Seahawks,114,Arizona Cardinals,-135,46.5,2.5,-112,-2.5,-108
+1681,2025-09-04 09:31:13 EDT,4dd631102a977fd398f7ea594ed208f2,2025-9-28,9:30,Minnesota Vikings,Pittsburgh Steelers,Pittsburgh Steelers,105,Minnesota Vikings,-125,42.5,-1.5,-110,1.5,-110
+1682,2025-09-04 09:31:13 EDT,b7934d72587b62de0f563ac9acbaa770,2025-9-28,13:0,Washington Commanders,Atlanta Falcons,Atlanta Falcons,154,Washington Commanders,-185,48.5,-3.5,-105,3.5,-115
+1683,2025-09-04 09:31:13 EDT,d16a43752aaac66e9ff8768d8590b662,2025-9-28,13:0,New Orleans Saints,Buffalo Bills,New Orleans Saints,500,Buffalo Bills,-700,46.5,12.5,-110,-12.5,-110
+1684,2025-09-04 09:31:13 EDT,f8fe40924827231233dc10f6999d8ff7,2025-9-28,13:0,Carolina Panthers,New England Patriots,Carolina Panthers,154,New England Patriots,-185,45.5,3.5,-105,-3.5,-115
+1685,2025-09-04 09:31:13 EDT,bcb1f89cf378a586097c50585e53acce,2025-9-28,13:0,Cleveland Browns,Detroit Lions,Cleveland Browns,400,Detroit Lions,-535,45.5,10.5,-112,-10.5,-108
+1686,2025-09-04 09:31:13 EDT,85c9b76cd6bd575b611cb4e8feb7a0b0,2025-9-28,13:0,Tennessee Titans,Houston Texans,Tennessee Titans,210,Houston Texans,-258,44.5,6.0,-110,-6.0,-110
+1687,2025-09-04 09:31:13 EDT,d921b1e86b0a30ad91000ffc360d302d,2025-9-28,13:0,Los Angeles Chargers,New York Giants,New York Giants,154,Los Angeles Chargers,-185,43.5,-3.5,-110,3.5,-110
+1688,2025-09-04 09:31:13 EDT,894976986c24d52cf1d45f0e6bb0e90c,2025-9-28,13:0,Philadelphia Eagles,Tampa Bay Buccaneers,Tampa Bay Buccaneers,120,Philadelphia Eagles,-142,48.5,-2.5,-115,2.5,-105
+1689,2025-09-04 09:31:13 EDT,d90e0de2d5fa2d57e8812f31775ad0ba,2025-9-28,16:5,Indianapolis Colts,Los Angeles Rams,Indianapolis Colts,245,Los Angeles Rams,-305,46.5,6.5,-110,-6.5,-110
+1690,2025-09-04 09:31:13 EDT,09f55b4a19a83eb951a9400a11123477,2025-9-28,16:5,Jacksonville Jaguars,San Francisco 49ers,Jacksonville Jaguars,200,San Francisco 49ers,-245,48.5,5.5,-110,-5.5,-110
+1691,2025-09-04 09:31:13 EDT,051233db287b02fd3e7574955879ece2,2025-9-28,16:25,Baltimore Ravens,Kansas City Chiefs,Baltimore Ravens,105,Kansas City Chiefs,-125,48.5,1.5,-112,-1.5,-108
+1692,2025-09-04 09:31:13 EDT,af6fbb0a2e996613bc393115276c60e2,2025-9-28,16:25,Chicago Bears,Las Vegas Raiders,Las Vegas Raiders,105,Chicago Bears,-125,45.5,-1.5,-110,1.5,-110
+1693,2025-09-04 09:31:13 EDT,de432abcc3bd8d42a582ae9f71388dcd,2025-9-28,20:20,Green Bay Packers,Dallas Cowboys,Dallas Cowboys,124,Green Bay Packers,-148,47.5,-2.5,-115,2.5,-105
+1694,2025-09-04 09:31:13 EDT,bc76fb8d846588ed46297aaab4e83de9,2025-9-29,19:15,New York Jets,Miami Dolphins,New York Jets,200,Miami Dolphins,-245,44.5,5.5,-110,-5.5,-110
+1695,2025-09-04 09:31:13 EDT,8dcb2a6bf542ccb7e6bc58f83c8fc2ac,2025-9-29,20:15,Cincinnati Bengals,Denver Broncos,Cincinnati Bengals,120,Denver Broncos,-142,47.5,2.5,-110,-2.5,-110
+1696,2025-09-04 09:31:13 EDT,c4b72eabb3d557e73022ec730d8e3944,2025-10-2,20:15,San Francisco 49ers,Los Angeles Rams,San Francisco 49ers,105,Los Angeles Rams,-125,47.5,1.5,-110,-1.5,-110
+1697,2025-09-04 09:31:13 EDT,6e206c7bc9379b07d27298a393305384,2025-10-5,9:30,Minnesota Vikings,Cleveland Browns,Cleveland Browns,280,Minnesota Vikings,-355,41.5,-7.0,-115,7.0,-105
+1698,2025-09-04 09:31:13 EDT,6eb8eeff6a052455649ddd2a50e0a188,2025-10-5,13:0,Houston Texans,Baltimore Ravens,Houston Texans,295,Baltimore Ravens,-375,47.5,7.5,-115,-7.5,-105
+1699,2025-09-04 09:31:13 EDT,ff8222149317a63ffe50fcda777d14c0,2025-10-5,13:0,Miami Dolphins,Carolina Panthers,Carolina Panthers,105,Miami Dolphins,-125,46.5,-1.5,-108,1.5,-112
+1700,2025-09-04 09:31:13 EDT,df7e32f3c6cfaaa66de560906faabe32,2025-10-5,13:0,Dallas Cowboys,New York Jets,New York Jets,114,Dallas Cowboys,-135,44.5,-2.5,-110,2.5,-110
+1701,2025-09-04 09:31:13 EDT,bc4f9a719baf61261befad75f4bdb539,2025-10-5,13:0,Denver Broncos,Philadelphia Eagles,Denver Broncos,180,Philadelphia Eagles,-218,45.5,4.5,-110,-4.5,-110
+1702,2025-09-04 09:31:13 EDT,1e3d3526039030b96471845ade5992cf,2025-10-5,13:0,Las Vegas Raiders,Indianapolis Colts,Las Vegas Raiders,105,Indianapolis Colts,-125,44.5,1.5,-110,-1.5,-110
+1703,2025-09-04 09:31:13 EDT,1fe136913ef0e77717c0f0668163637f,2025-10-5,13:0,New York Giants,New Orleans Saints,New Orleans Saints,105,New York Giants,-125,42.5,-1.5,-110,1.5,-110
+1704,2025-09-04 09:31:13 EDT,8fa3fd86eaa7b432469d43b84904e1dc,2025-10-5,16:5,Tennessee Titans,Arizona Cardinals,Tennessee Titans,195,Arizona Cardinals,-238,46.5,5.5,-110,-5.5,-110
+1705,2025-09-04 09:31:13 EDT,6f5a22a3ca33478094cef1e9212ba0fc,2025-10-5,16:5,Tampa Bay Buccaneers,Seattle Seahawks,Seattle Seahawks,105,Tampa Bay Buccaneers,-125,47.5,-1.5,-108,1.5,-112
+1706,2025-09-04 09:31:13 EDT,e9de9c4390a28a90f437760050b23531,2025-10-5,16:25,Detroit Lions,Cincinnati Bengals,Cincinnati Bengals,102,Detroit Lions,-122,50.5,-1.5,-105,1.5,-115
+1707,2025-09-04 09:31:13 EDT,79c4e9f40e2647dc2a7b377cf61c48cd,2025-10-5,16:25,Washington Commanders,Los Angeles Chargers,Washington Commanders,105,Los Angeles Chargers,-125,47.5,1.5,-115,-1.5,-105
+1708,2025-09-04 09:31:13 EDT,ba826e757d625a676452b8d3d6971bb0,2025-10-5,20:20,New England Patriots,Buffalo Bills,New England Patriots,320,Buffalo Bills,-410,46.5,8.5,-110,-8.5,-110
+1709,2025-09-04 09:31:13 EDT,1910db6879dddf37e4f86f0bcf1c9547,2025-10-6,20:15,Kansas City Chiefs,Jacksonville Jaguars,Jacksonville Jaguars,180,Kansas City Chiefs,-218,47.5,-4.5,-110,4.5,-110
+1710,2025-09-04 09:31:13 EDT,e10fe83ee6178a598e7fa84ea0913366,2025-10-9,20:15,Philadelphia Eagles,New York Giants,New York Giants,260,Philadelphia Eagles,-325,43.5,-7.0,-110,7.0,-110
+1711,2025-09-04 09:31:13 EDT,e34812ee7fbf13bd75e4298bccfbdd10,2025-10-12,9:30,Denver Broncos,New York Jets,New York Jets,235,Denver Broncos,-290,42.5,-6.5,-110,6.5,-110
+1712,2025-09-04 09:31:13 EDT,dfa87b0532de1389297103c2e3195347,2025-10-12,13:0,Arizona Cardinals,Indianapolis Colts,Indianapolis Colts,105,Arizona Cardinals,-125,47.5,-1.5,-110,1.5,-110
+1713,2025-09-04 09:31:13 EDT,b235bc78609644cb28492cc1d6ad69fd,2025-10-12,13:0,Los Angeles Rams,Baltimore Ravens,Los Angeles Rams,205,Baltimore Ravens,-250,48.5,5.5,-108,-5.5,-112
+1714,2025-09-04 09:31:13 EDT,dd3a14fa1529e79bd338a7bfd71d5b3a,2025-10-12,13:0,Dallas Cowboys,Carolina Panthers,Carolina Panthers,102,Dallas Cowboys,-122,46.5,-1.5,-105,1.5,-115
+1715,2025-09-04 09:31:13 EDT,a11bbccb332241029ebaeb519b93b776,2025-10-12,13:0,Cleveland Browns,Pittsburgh Steelers,Cleveland Browns,235,Pittsburgh Steelers,-290,42.5,6.5,-115,-6.5,-105
+1716,2025-09-04 09:31:13 EDT,e5dd1fed586cfc0ec2d7c06f2a02c37a,2025-10-12,13:0,Seattle Seahawks,Jacksonville Jaguars,Seattle Seahawks,105,Jacksonville Jaguars,-125,46.5,1.5,-110,-1.5,-110
+1717,2025-09-04 09:31:13 EDT,a7211a87bbd5fb2ee473eb9c93ee2e68,2025-10-12,13:0,Los Angeles Chargers,Miami Dolphins,Miami Dolphins,120,Los Angeles Chargers,-142,45.5,-2.5,-112,2.5,-108
+1718,2025-09-04 09:31:13 EDT,9e705d669039f2ca8364f408b7792a8a,2025-10-12,13:0,San Francisco 49ers,Tampa Bay Buccaneers,San Francisco 49ers,110,Tampa Bay Buccaneers,-130,48.5,1.5,-110,-1.5,-110
+1719,2025-09-04 09:31:13 EDT,4963bff460a5f26cab46a8e5ea6db148,2025-10-12,16:5,Tennessee Titans,Las Vegas Raiders,Tennessee Titans,145,Las Vegas Raiders,-175,44.5,3.0,-105,-3.0,-115
+1720,2025-09-04 09:31:13 EDT,0c85b0939650e29689bb2651b33522eb,2025-10-12,16:25,Cincinnati Bengals,Green Bay Packers,Cincinnati Bengals,142,Green Bay Packers,-170,48.5,3.0,-105,-3.0,-115
+1721,2025-09-04 09:31:13 EDT,f2c642e1f95555424b9a9a4f03733b42,2025-10-12,16:25,New England Patriots,New Orleans Saints,New Orleans Saints,142,New England Patriots,-170,43.5,-3.0,-110,3.0,-110
+1722,2025-09-04 09:31:13 EDT,82e432d5d8bc0b5a6cbe0c324de90de3,2025-10-12,20:20,Detroit Lions,Kansas City Chiefs,Detroit Lions,136,Kansas City Chiefs,-162,48.5,3.0,-115,-3.0,-105
+1723,2025-09-04 09:31:13 EDT,33e0adf378d2856ffe5f8452e7d5512d,2025-10-13,19:15,Buffalo Bills,Atlanta Falcons,Atlanta Falcons,195,Buffalo Bills,-238,48.5,-5.5,-110,5.5,-110
+1724,2025-09-04 09:31:13 EDT,38366aa83a3eb6cef71a1134c4fceb2c,2025-10-13,20:15,Chicago Bears,Washington Commanders,Chicago Bears,180,Washington Commanders,-218,48.5,4.5,-115,-4.5,-105
+1725,2025-09-04 09:31:13 EDT,6076f9eab496770efc0ab7095b27c122,2025-10-16,20:15,Pittsburgh Steelers,Cincinnati Bengals,Pittsburgh Steelers,185,Cincinnati Bengals,-225,46.5,4.5,-110,-4.5,-110
+1726,2025-09-04 09:31:13 EDT,79de65f1b97c9145ebdcb019eb486500,2025-10-19,9:30,Los Angeles Rams,Jacksonville Jaguars,Jacksonville Jaguars,154,Los Angeles Rams,-185,47.5,-3.5,-110,3.5,-110
+1727,2025-09-04 09:31:13 EDT,ba4e8bfa1f4eeaa74c7b09f409361c0d,2025-10-19,13:0,Carolina Panthers,New York Jets,Carolina Panthers,105,New York Jets,-125,43.5,1.5,-112,-1.5,-108
+1728,2025-09-04 09:31:13 EDT,8f06a4b503cc7309cb0df4a8b67f9930,2025-10-19,13:0,New Orleans Saints,Chicago Bears,New Orleans Saints,280,Chicago Bears,-355,44.5,7.5,-110,-7.5,-110
+1729,2025-09-04 09:31:13 EDT,f0336c9a3749716250afba387d157377,2025-10-19,13:0,Miami Dolphins,Cleveland Browns,Cleveland Browns,105,Miami Dolphins,-125,43.5,-1.5,-110,1.5,-110
+1730,2025-09-04 09:31:13 EDT,3127c0dd6ed51a44354af51791bc3e5a,2025-10-19,13:0,Las Vegas Raiders,Kansas City Chiefs,Las Vegas Raiders,330,Kansas City Chiefs,-425,45.5,9.5,-110,-9.5,-110
+1731,2025-09-04 09:31:13 EDT,6a8d2daf7f75100d02656bc0217737e8,2025-10-19,13:0,Philadelphia Eagles,Minnesota Vikings,Minnesota Vikings,140,Philadelphia Eagles,-166,44.5,-3.0,-115,3.0,-105
+1732,2025-09-04 09:31:13 EDT,f7fa9341eeffb08f7e6e769398cd32e2,2025-10-19,13:0,New England Patriots,Tennessee Titans,Tennessee Titans,105,New England Patriots,-125,44.5,-1.5,-110,1.5,-110
+1733,2025-09-04 09:31:13 EDT,3be866344dfa050e602a6e69170b3cbe,2025-10-19,16:5,New York Giants,Denver Broncos,New York Giants,275,Denver Broncos,-345,42.5,7.5,-112,-7.5,-108
+1734,2025-09-04 09:31:13 EDT,a0ad5501e9d1d2ee9f61d9f293374f17,2025-10-19,16:5,Indianapolis Colts,Los Angeles Chargers,Indianapolis Colts,205,Los Angeles Chargers,-250,45.5,6.0,-110,-6.0,-110
+1735,2025-09-04 09:31:13 EDT,1036171316ac51350b388c99e000cfc1,2025-10-19,16:25,Green Bay Packers,Arizona Cardinals,Arizona Cardinals,114,Green Bay Packers,-135,47.5,-2.5,-110,2.5,-110
+1736,2025-09-04 09:31:13 EDT,ff0c1ce30d562926ce40fc9bbaa2b7b1,2025-10-19,16:25,Washington Commanders,Dallas Cowboys,Dallas Cowboys,136,Washington Commanders,-162,48.5,-3.0,-110,3.0,-110
+1737,2025-09-04 09:31:13 EDT,7b2ded52498efcf97a08ef10ee99b0f3,2025-10-19,20:20,Atlanta Falcons,San Francisco 49ers,Atlanta Falcons,230,San Francisco 49ers,-285,47.5,6.5,-110,-6.5,-110
+1738,2025-09-04 09:31:13 EDT,b808059d3ccc754ace4a3d23b58e47e8,2025-10-20,19:0,Tampa Bay Buccaneers,Detroit Lions,Tampa Bay Buccaneers,160,Detroit Lions,-192,49.5,3.5,-110,-3.5,-110
+1739,2025-09-04 09:31:13 EDT,7ca953ab786f70b22cabbe4946d330fa,2025-10-20,22:0,Houston Texans,Seattle Seahawks,Houston Texans,105,Seattle Seahawks,-125,44.5,1.5,-110,-1.5,-110
+1740,2025-09-04 09:31:13 EDT,6439b16f4a038f1c351dc3f1aef27471,2025-10-23,20:15,Minnesota Vikings,Los Angeles Chargers,Minnesota Vikings,136,Los Angeles Chargers,-162,44.5,3.0,-110,-3.0,-110
+1741,2025-09-04 09:31:13 EDT,ac02b1b59aa0623845378a02bc530c68,2025-10-26,13:0,Miami Dolphins,Atlanta Falcons,Miami Dolphins,105,Atlanta Falcons,-125,46.5,1.5,-110,-1.5,-110
+1742,2025-09-04 09:31:13 EDT,a061e80d1f50eab193b34d19f8e59f62,2025-10-26,13:0,Chicago Bears,Baltimore Ravens,Chicago Bears,260,Baltimore Ravens,-325,48.5,7.0,-110,-7.0,-110
+1743,2025-09-04 09:31:13 EDT,53d4369464c66630f03a5d128cd39b08,2025-10-26,13:0,Buffalo Bills,Carolina Panthers,Carolina Panthers,250,Buffalo Bills,-310,47.5,-7.0,-110,7.0,-110
+1744,2025-09-04 09:31:13 EDT,9c1f73e48ca9750f6e7d5d64874057c2,2025-10-26,13:0,New York Jets,Cincinnati Bengals,New York Jets,280,Cincinnati Bengals,-355,45.5,7.5,-110,-7.5,-110
+1745,2025-09-04 09:31:13 EDT,3536a3e857050d2dd6e2019ceb668f67,2025-10-26,13:0,Cleveland Browns,New England Patriots,Cleveland Browns,195,New England Patriots,-238,42.5,5.5,-108,-5.5,-112
+1746,2025-09-04 09:31:13 EDT,abc4104a9ac597ce37d703613256fd6c,2025-10-26,13:0,San Francisco 49ers,Houston Texans,Houston Texans,105,San Francisco 49ers,-125,45.5,-1.5,-108,1.5,-112
+1747,2025-09-04 09:31:13 EDT,a8ebe01e05675c109b53a97f653f8653,2025-10-26,13:0,New York Giants,Philadelphia Eagles,New York Giants,400,Philadelphia Eagles,-535,43.5,10.5,-110,-10.5,-110
+1748,2025-09-04 09:31:13 EDT,a8dd9bb0681692540d067bd0e9e66989,2025-10-26,16:5,Tampa Bay Buccaneers,New Orleans Saints,New Orleans Saints,200,Tampa Bay Buccaneers,-245,45.5,-5.5,-112,5.5,-108
+1749,2025-09-04 09:31:13 EDT,40c2ebd9ddd5ce8ff5b1ada730bb1785,2025-10-26,16:25,Dallas Cowboys,Denver Broncos,Dallas Cowboys,195,Denver Broncos,-238,45.5,5.5,-110,-5.5,-110
+1750,2025-09-04 09:31:13 EDT,88187a33b007c088d75c6cd14c83086c,2025-10-26,16:25,Tennessee Titans,Indianapolis Colts,Tennessee Titans,154,Indianapolis Colts,-185,44.5,3.5,-110,-3.5,-110
+1751,2025-09-04 09:31:13 EDT,fb900eef07307ebf5c1930341ecd852a,2025-10-26,20:20,Green Bay Packers,Pittsburgh Steelers,Pittsburgh Steelers,114,Green Bay Packers,-135,44.5,-2.5,-110,2.5,-110
+1752,2025-09-04 09:31:13 EDT,7e3361e84d5223a8d210a887b249f247,2025-10-27,20:15,Washington Commanders,Kansas City Chiefs,Washington Commanders,164,Kansas City Chiefs,-198,48.5,3.5,-105,-3.5,-115
+1753,2025-09-04 09:31:13 EDT,677dbbb6ad96fc5f5b36bb20b43139dd,2025-10-30,20:15,Baltimore Ravens,Miami Dolphins,Miami Dolphins,200,Baltimore Ravens,-245,47.5,-5.5,-110,5.5,-110
+1754,2025-09-04 09:31:13 EDT,6dd3b8a705ed0db85d59fa19b9062cc8,2025-11-2,13:0,Atlanta Falcons,New England Patriots,Atlanta Falcons,140,New England Patriots,-166,44.5,3.0,-110,-3.0,-110
+1755,2025-09-04 09:31:13 EDT,6031b513e188fc19a2311499566c9258,2025-11-2,13:0,Carolina Panthers,Green Bay Packers,Carolina Panthers,280,Green Bay Packers,-355,45.5,7.5,-110,-7.5,-110
+1756,2025-09-04 09:31:13 EDT,016f76d8237e8d4eb62b9c2ef68381bb,2025-11-2,13:0,Chicago Bears,Cincinnati Bengals,Chicago Bears,142,Cincinnati Bengals,-170,48.5,3.0,-105,-3.0,-115
+1757,2025-09-04 09:31:13 EDT,72e2ce6652bbb3901f60b38bec05bf5f,2025-11-2,13:0,Denver Broncos,Houston Texans,Houston Texans,100,Denver Broncos,-120,45.5,-1.5,-102,1.5,-118
+1758,2025-09-04 09:31:13 EDT,cf95657d78ab3e515203df1d19c3b0c2,2025-11-2,13:0,Minnesota Vikings,Detroit Lions,Minnesota Vikings,170,Detroit Lions,-205,47.5,4.5,-110,-4.5,-110
+1759,2025-09-04 09:31:13 EDT,2340a6e0794d5688996dcf8aaf634742,2025-11-2,13:0,Indianapolis Colts,Pittsburgh Steelers,Indianapolis Colts,154,Pittsburgh Steelers,-185,44.5,3.5,-110,-3.5,-110
+1760,2025-09-04 09:31:13 EDT,b60025aea576e2e89ef7bc7303f847ec,2025-11-2,13:0,Los Angeles Chargers,Tennessee Titans,Tennessee Titans,170,Los Angeles Chargers,-205,44.5,-4.5,-110,4.5,-110
+1761,2025-09-04 09:31:13 EDT,a788e7cebff4b5fe10034710090e4529,2025-11-2,13:0,San Francisco 49ers,New York Giants,New York Giants,160,San Francisco 49ers,-192,44.5,-3.5,-110,3.5,-110
+1762,2025-09-04 09:31:13 EDT,d0bf341e7959d69b55f1a8ff09065234,2025-11-2,16:5,Jacksonville Jaguars,Las Vegas Raiders,Jacksonville Jaguars,105,Las Vegas Raiders,-125,45.5,1.5,-110,-1.5,-110
+1763,2025-09-04 09:31:13 EDT,b08df670a95f1809707b335dc75081c6,2025-11-2,16:5,New Orleans Saints,Los Angeles Rams,New Orleans Saints,340,Los Angeles Rams,-440,44.5,9.5,-110,-9.5,-110
+1764,2025-09-04 09:31:13 EDT,61531628516decd1ee8116da5f6f9056,2025-11-2,16:25,Kansas City Chiefs,Buffalo Bills,Kansas City Chiefs,124,Buffalo Bills,-148,48.5,2.5,-105,-2.5,-115
+1765,2025-09-04 09:31:13 EDT,c2fd8a23091a954fb21ff6d3537db826,2025-11-2,20:20,Seattle Seahawks,Washington Commanders,Seattle Seahawks,205,Washington Commanders,-250,47.5,5.5,-115,-5.5,-105
+1766,2025-09-04 09:31:13 EDT,f3dfb574e0a542375a480534525ee6cf,2025-11-3,20:15,Arizona Cardinals,Dallas Cowboys,Arizona Cardinals,105,Dallas Cowboys,-125,47.5,1.5,-110,-1.5,-110
+1767,2025-09-04 09:31:13 EDT,13bdffda97e8fb13179fe3f2f69d66f8,2025-11-6,20:15,Las Vegas Raiders,Denver Broncos,Las Vegas Raiders,235,Denver Broncos,-290,43.5,6.5,-108,-6.5,-112
+1768,2025-09-04 09:31:13 EDT,42473c1ddf8f424069ff3f264dd8dca4,2025-11-9,9:30,Atlanta Falcons,Indianapolis Colts,Indianapolis Colts,-102,Atlanta Falcons,-118,44.5,-1.5,-102,1.5,-118
+1769,2025-09-04 09:31:13 EDT,9900b89c4776c5b47dd26ca4c755edf9,2025-11-9,13:0,Baltimore Ravens,Minnesota Vikings,Minnesota Vikings,154,Baltimore Ravens,-185,46.5,-3.5,-105,3.5,-115
+1770,2025-09-04 09:31:13 EDT,3c10bc18680995136017c3bfd3152334,2025-11-9,13:0,Buffalo Bills,Miami Dolphins,Miami Dolphins,200,Buffalo Bills,-245,48.5,-5.5,-110,5.5,-110
+1771,2025-09-04 09:31:13 EDT,21f47a328fb2ab65c01360a7a2bd9571,2025-11-9,13:0,New Orleans Saints,Carolina Panthers,New Orleans Saints,170,Carolina Panthers,-205,43.5,4.5,-115,-4.5,-105
+1772,2025-09-04 09:31:13 EDT,3b1a97366685a96e6e1940ae56cc4d31,2025-11-9,13:0,New York Giants,Chicago Bears,New York Giants,195,Chicago Bears,-238,43.5,5.5,-110,-5.5,-110
+1773,2025-09-04 09:31:13 EDT,844b89333f293f055f8e0c147fb9fec5,2025-11-9,13:0,Cleveland Browns,New York Jets,Cleveland Browns,120,New York Jets,-142,40.5,2.5,-110,-2.5,-110
+1774,2025-09-04 09:31:13 EDT,9dbf94f23521c7cae7fd89b2d33fc3bd,2025-11-9,13:0,Jacksonville Jaguars,Houston Texans,Jacksonville Jaguars,154,Houston Texans,-185,45.5,3.5,-110,-3.5,-110
+1775,2025-09-04 09:31:13 EDT,39e7c1f6e36d5bc4d2613ebf7bb83c10,2025-11-9,13:0,New England Patriots,Tampa Bay Buccaneers,New England Patriots,185,Tampa Bay Buccaneers,-225,46.5,4.5,-110,-4.5,-110
+1776,2025-09-04 09:31:13 EDT,740b843794cc89176c4ffe38b66d30d9,2025-11-9,16:5,Arizona Cardinals,Seattle Seahawks,Arizona Cardinals,105,Seattle Seahawks,-125,45.5,1.5,-110,-1.5,-110
+1777,2025-09-04 09:31:13 EDT,93365f943b3aa23705bc9e1c7b47d7f8,2025-11-9,16:25,Detroit Lions,Washington Commanders,Detroit Lions,105,Washington Commanders,-125,49.5,1.5,-110,-1.5,-110
+1778,2025-09-04 09:31:13 EDT,2710103fe4fb0170ae03b4e34bde8132,2025-11-9,16:25,Los Angeles Rams,San Francisco 49ers,Los Angeles Rams,105,San Francisco 49ers,-125,46.5,1.5,-110,-1.5,-110
+1779,2025-09-04 09:31:13 EDT,349d53a4f89591312ea528e81b786474,2025-11-9,20:20,Pittsburgh Steelers,Los Angeles Chargers,Pittsburgh Steelers,180,Los Angeles Chargers,-218,43.5,4.5,-110,-4.5,-110
+1780,2025-09-04 09:31:13 EDT,438868ff90501a1fe9a0fbecbee9dc12,2025-11-10,20:15,Philadelphia Eagles,Green Bay Packers,Green Bay Packers,102,Philadelphia Eagles,-122,45.5,-1.5,-108,1.5,-112
+1781,2025-09-04 09:31:13 EDT,32ec2bd4ac9e4c40f9f5cbed7e67f837,2025-11-13,20:15,New York Jets,New England Patriots,New York Jets,190,New England Patriots,-230,42.5,5.5,-110,-5.5,-110
+1782,2025-09-04 09:31:13 EDT,265f0188945bb81ec64751571eb724cb,2025-11-16,9:30,Washington Commanders,Miami Dolphins,Miami Dolphins,180,Washington Commanders,-218,48.5,-4.5,-110,4.5,-110
+1783,2025-09-04 09:31:13 EDT,0ae85bbc3711ad0cb94475a40e2364f0,2025-11-16,13:0,Carolina Panthers,Atlanta Falcons,Carolina Panthers,140,Atlanta Falcons,-166,45.5,3.0,-115,-3.0,-105
+1784,2025-09-04 09:31:13 EDT,96377d2fb55e3cef733cecccdecaed5f,2025-11-16,13:0,Tampa Bay Buccaneers,Buffalo Bills,Tampa Bay Buccaneers,195,Buffalo Bills,-238,49.5,5.5,-110,-5.5,-110
+1785,2025-09-04 09:31:13 EDT,229a5e9ce60dcb344a8cc3c97121154e,2025-11-16,13:0,Chicago Bears,Minnesota Vikings,Chicago Bears,114,Minnesota Vikings,-135,45.5,2.5,-110,-2.5,-110
+1786,2025-09-04 09:31:13 EDT,7147476b5d96c0ee874b838de3910ee3,2025-11-16,13:0,Cincinnati Bengals,Pittsburgh Steelers,Pittsburgh Steelers,105,Cincinnati Bengals,-125,46.5,-1.5,-108,1.5,-112
+1787,2025-09-04 09:31:13 EDT,5c06e82838fcfade9adf1e89b8bd3081,2025-11-16,13:0,Green Bay Packers,New York Giants,New York Giants,180,Green Bay Packers,-218,43.5,-4.5,-110,4.5,-110
+1788,2025-09-04 09:31:13 EDT,fd2f29289d6437a7c07d4780c5f04936,2025-11-16,13:0,Houston Texans,Tennessee Titans,Tennessee Titans,140,Houston Texans,-166,43.5,-3.0,-110,3.0,-110
+1789,2025-09-04 09:31:13 EDT,591fd7cff37201a14cbdfbd457592445,2025-11-16,13:0,Los Angeles Chargers,Jacksonville Jaguars,Jacksonville Jaguars,105,Los Angeles Chargers,-125,46.5,-1.5,-110,1.5,-110
+1790,2025-09-04 09:31:13 EDT,91630b9c62640117918fa30d2a62d2db,2025-11-16,16:5,San Francisco 49ers,Arizona Cardinals,Arizona Cardinals,105,San Francisco 49ers,-125,47.5,-1.5,-108,1.5,-112
+1791,2025-09-04 09:31:13 EDT,e926e654cedeb65fcfcc389a5158ef4e,2025-11-16,16:5,Seattle Seahawks,Los Angeles Rams,Seattle Seahawks,180,Los Angeles Rams,-218,45.5,4.5,-110,-4.5,-110
+1792,2025-09-04 09:31:13 EDT,cc60225b5a907bd9ba7c27c23131fc5c,2025-11-16,16:25,Baltimore Ravens,Cleveland Browns,Cleveland Browns,310,Baltimore Ravens,-395,44.5,-8.5,-115,8.5,-105
+1793,2025-09-04 09:31:13 EDT,96ce7785b0980b03282c7e10d4c58d4a,2025-11-16,16:25,Kansas City Chiefs,Denver Broncos,Denver Broncos,105,Kansas City Chiefs,-125,45.5,-1.5,-110,1.5,-110
+1794,2025-09-04 09:31:13 EDT,6d209e0e637f3b116ec958e0634f2a02,2025-11-16,20:20,Detroit Lions,Philadelphia Eagles,Detroit Lions,154,Philadelphia Eagles,-185,47.5,3.5,-110,-3.5,-110
+1795,2025-09-04 09:31:13 EDT,80d04ba917883a6438580ebae9fb0f22,2025-11-17,20:15,Dallas Cowboys,Las Vegas Raiders,Las Vegas Raiders,105,Dallas Cowboys,-125,45.5,-1.5,-105,1.5,-115
+1796,2025-09-04 09:31:13 EDT,cd2e0964817c30ad3f5144ea49b55f2b,2025-11-20,20:15,Buffalo Bills,Houston Texans,Houston Texans,154,Buffalo Bills,-185,46.5,-3.5,-110,3.5,-110
+1797,2025-09-04 09:31:13 EDT,7159d60c7a31c7d593167637723d7663,2025-11-23,13:0,New York Jets,Baltimore Ravens,New York Jets,455,Baltimore Ravens,-625,44.5,11.5,-110,-11.5,-110
+1798,2025-09-04 09:31:13 EDT,c8913b70b63ae247f23a4e1dec08c668,2025-11-23,13:0,Pittsburgh Steelers,Chicago Bears,Pittsburgh Steelers,114,Chicago Bears,-135,44.5,2.5,-110,-2.5,-110
+1799,2025-09-04 09:31:13 EDT,1a8f3d70399a5cad83c95196795ed77b,2025-11-23,13:0,New England Patriots,Cincinnati Bengals,New England Patriots,185,Cincinnati Bengals,-225,47.5,4.5,-110,-4.5,-110
+1800,2025-09-04 09:31:13 EDT,535bbe97d4e56494b039ade88459c338,2025-11-23,13:0,New York Giants,Detroit Lions,New York Giants,310,Detroit Lions,-395,45.5,8.5,-110,-8.5,-110
+1801,2025-09-04 09:31:13 EDT,91019a528f43cd28965fdc68a3f3ef85,2025-11-23,13:0,Minnesota Vikings,Green Bay Packers,Minnesota Vikings,154,Green Bay Packers,-185,45.5,3.5,-110,-3.5,-110
+1802,2025-09-04 09:31:13 EDT,8b39d8dc550ced94f9faa91878ebf6b6,2025-11-23,13:0,Indianapolis Colts,Kansas City Chiefs,Indianapolis Colts,350,Kansas City Chiefs,-455,45.5,9.5,-110,-9.5,-110
+1803,2025-09-04 09:31:13 EDT,0ff4e68cf39cc57ca7cf1276e4a44d2f,2025-11-23,13:0,Seattle Seahawks,Tennessee Titans,Tennessee Titans,105,Seattle Seahawks,-125,44.5,-1.5,-110,1.5,-110
+1804,2025-09-04 09:31:13 EDT,e32e0030899c06fdf2c74745ca27d85a,2025-11-23,16:5,Jacksonville Jaguars,Arizona Cardinals,Jacksonville Jaguars,136,Arizona Cardinals,-162,47.5,3.0,-110,-3.0,-110
+1805,2025-09-04 09:31:13 EDT,27f50ddbc4c3fbad10398c5187a28dc7,2025-11-23,16:5,Cleveland Browns,Las Vegas Raiders,Cleveland Browns,154,Las Vegas Raiders,-185,41.5,3.5,-110,-3.5,-110
+1806,2025-09-04 09:31:13 EDT,8c2d6a56aa63f42227f18a18fc3d2146,2025-11-23,16:25,Atlanta Falcons,New Orleans Saints,New Orleans Saints,110,Atlanta Falcons,-130,43.5,-1.5,-115,1.5,-105
+1807,2025-09-04 09:31:13 EDT,4553ba763cb3cfcfc33fd62672a2057f,2025-11-23,16:25,Philadelphia Eagles,Dallas Cowboys,Dallas Cowboys,200,Philadelphia Eagles,-245,46.5,-5.5,-110,5.5,-110
+1808,2025-09-04 09:31:13 EDT,9e7119f5a24471c39145663b84f100b2,2025-11-23,20:20,Tampa Bay Buccaneers,Los Angeles Rams,Tampa Bay Buccaneers,124,Los Angeles Rams,-148,47.5,2.5,-105,-2.5,-115
+1809,2025-09-04 09:31:13 EDT,90391be251d876bb41d36978a43c7ac2,2025-11-24,20:15,Carolina Panthers,San Francisco 49ers,Carolina Panthers,250,San Francisco 49ers,-310,46.5,7.0,-115,-7.0,-105
+1810,2025-09-04 09:31:13 EDT,fe2eb07797580740af78037ab498198e,2025-11-27,13:0,Green Bay Packers,Detroit Lions,Green Bay Packers,120,Detroit Lions,-142,48.5,2.5,-110,-2.5,-110
+1811,2025-09-04 09:31:13 EDT,de53b8a594fe830c5fd56484705cd756,2025-11-27,16:30,Kansas City Chiefs,Dallas Cowboys,Dallas Cowboys,200,Kansas City Chiefs,-245,47.5,-5.5,-112,5.5,-108
+1812,2025-09-04 09:31:13 EDT,883a79a306b312fad75ebf04b441b4da,2025-11-27,20:20,Cincinnati Bengals,Baltimore Ravens,Cincinnati Bengals,195,Baltimore Ravens,-238,49.5,5.5,-110,-5.5,-110
+1813,2025-09-04 09:31:13 EDT,52f539d9d080618aa8830a0b03846a80,2025-11-28,15:0,Chicago Bears,Philadelphia Eagles,Chicago Bears,260,Philadelphia Eagles,-325,46.5,7.0,-110,-7.0,-110
+1814,2025-09-04 09:31:13 EDT,c0d324e29ce58b36bdc77564f7aae56f,2025-11-30,13:0,Arizona Cardinals,Tampa Bay Buccaneers,Arizona Cardinals,154,Tampa Bay Buccaneers,-185,48.5,3.5,-110,-3.5,-110
+1815,2025-09-04 09:31:13 EDT,9da608f5bdae527b280abd61e47a110b,2025-11-30,13:0,Atlanta Falcons,New York Jets,New York Jets,105,Atlanta Falcons,-125,43.5,-1.5,-110,1.5,-110
+1816,2025-09-04 09:31:13 EDT,67e51d17848485bed8737bd7043a275a,2025-11-30,13:0,Los Angeles Rams,Carolina Panthers,Carolina Panthers,154,Los Angeles Rams,-185,45.5,-3.5,-110,3.5,-110
+1817,2025-09-04 09:31:13 EDT,36fcf5ca155a5dcd2f7a87fd2a985b02,2025-11-30,13:0,San Francisco 49ers,Cleveland Browns,Cleveland Browns,210,San Francisco 49ers,-258,42.5,-6.0,-110,6.0,-110
+1818,2025-09-04 09:31:13 EDT,fa46c661007f5f0cbbf6abf939ac9d51,2025-11-30,13:0,Houston Texans,Indianapolis Colts,Indianapolis Colts,105,Houston Texans,-125,44.5,-1.5,-110,1.5,-110
+1819,2025-09-04 09:31:13 EDT,61e1e459b2ddafd43e8808d4f40c01d9,2025-11-30,13:0,Jacksonville Jaguars,Tennessee Titans,Tennessee Titans,105,Jacksonville Jaguars,-125,45.5,-1.5,-110,1.5,-110
+1820,2025-09-04 09:31:13 EDT,e3c9bfba57bbe784481d881ea3b4519d,2025-11-30,13:0,New Orleans Saints,Miami Dolphins,New Orleans Saints,205,Miami Dolphins,-250,44.5,6.0,-110,-6.0,-110
+1821,2025-09-04 09:31:13 EDT,6f956074c4df48e7b07a3286a6c6ed2a,2025-11-30,16:5,Minnesota Vikings,Seattle Seahawks,Minnesota Vikings,105,Seattle Seahawks,-125,43.5,1.5,-115,-1.5,-105
+1822,2025-09-04 09:31:13 EDT,365a766a3862bc47a5455dc3b097421e,2025-11-30,16:25,Buffalo Bills,Pittsburgh Steelers,Pittsburgh Steelers,170,Buffalo Bills,-205,46.5,-4.5,-115,4.5,-105
+1823,2025-09-04 09:31:13 EDT,76ac5a8d2c8679ae6ea8861114791bd8,2025-11-30,16:25,Las Vegas Raiders,Los Angeles Chargers,Las Vegas Raiders,225,Los Angeles Chargers,-278,44.5,6.5,-110,-6.5,-110
+1824,2025-09-04 09:31:13 EDT,9c040de8f1dfc3ddee20e0d65c9402de,2025-11-30,20:20,Denver Broncos,Washington Commanders,Denver Broncos,120,Washington Commanders,-142,46.5,2.5,-110,-2.5,-110
+1825,2025-09-04 09:31:13 EDT,3e65786eddd4c7aee9e7f2504f6fdedc,2025-12-1,20:15,New York Giants,New England Patriots,New York Giants,140,New England Patriots,-166,42.5,3.0,-105,-3.0,-115
+1826,2025-09-04 09:31:13 EDT,81db991c5b34169eeeff8d734d8836d9,2025-12-4,20:15,Dallas Cowboys,Detroit Lions,Dallas Cowboys,215,Detroit Lions,-265,48.5,6.0,-110,-6.0,-110
+1827,2025-09-04 09:31:13 EDT,f0bdd27bbed46dfc3d0657500c95a96c,2025-12-7,13:0,Seattle Seahawks,Atlanta Falcons,Seattle Seahawks,105,Atlanta Falcons,-125,45.5,1.5,-108,-1.5,-112
+1828,2025-09-04 09:31:13 EDT,4fead7bd0592ec121cc3baf72e3e21e0,2025-12-7,13:0,Pittsburgh Steelers,Baltimore Ravens,Pittsburgh Steelers,320,Baltimore Ravens,-410,46.5,8.5,-110,-8.5,-110
+1829,2025-09-04 09:31:13 EDT,5b1211b476d0afa2b57133c9603583b6,2025-12-7,13:0,Chicago Bears,Green Bay Packers,Chicago Bears,164,Green Bay Packers,-198,46.5,3.5,-105,-3.5,-115
+1830,2025-09-04 09:31:13 EDT,f95be6b9bd8ce1208f766cbaae8a4822,2025-12-7,13:0,Tennessee Titans,Cleveland Browns,Tennessee Titans,105,Cleveland Browns,-125,41.5,1.5,-110,-1.5,-110
+1831,2025-09-04 09:31:13 EDT,4e289ac7d9b5663fd5a06881f2b1424d,2025-12-7,13:0,Indianapolis Colts,Jacksonville Jaguars,Indianapolis Colts,136,Jacksonville Jaguars,-162,46.5,3.0,-110,-3.0,-110
+1832,2025-09-04 09:31:13 EDT,c86a0783216d21040c87fce3aadd3336,2025-12-7,13:0,Miami Dolphins,New York Jets,New York Jets,105,Miami Dolphins,-125,43.5,-1.5,-110,1.5,-110
+1833,2025-09-04 09:31:13 EDT,58b16c4033587f5662ff365bce2dbb92,2025-12-7,13:0,Washington Commanders,Minnesota Vikings,Minnesota Vikings,105,Washington Commanders,-125,47.5,-1.5,-105,1.5,-115
+1834,2025-09-04 09:31:13 EDT,15555b4c7283dc6553e011dd6c8aea8d,2025-12-7,13:0,New Orleans Saints,Tampa Bay Buccaneers,New Orleans Saints,340,Tampa Bay Buccaneers,-440,45.5,9.5,-112,-9.5,-108
+1835,2025-09-04 09:31:13 EDT,d5fd126cbfea2ccd79962a17f0ef4463,2025-12-7,16:5,Denver Broncos,Las Vegas Raiders,Las Vegas Raiders,154,Denver Broncos,-185,43.5,-3.5,-110,3.5,-110
+1836,2025-09-04 09:31:13 EDT,12bbffdcd65d53436b56c68a811ca610,2025-12-7,16:25,Los Angeles Rams,Arizona Cardinals,Arizona Cardinals,102,Los Angeles Rams,-122,47.5,-1.5,-105,1.5,-115
+1837,2025-09-04 09:31:13 EDT,c67c327076a98a3a1c4a5eb32e5a80c2,2025-12-7,16:25,Cincinnati Bengals,Buffalo Bills,Cincinnati Bengals,200,Buffalo Bills,-245,49.5,5.5,-110,-5.5,-110
+1838,2025-09-04 09:31:13 EDT,4727a6cfcd3d604dbfcb898c5a4d40a6,2025-12-7,20:20,Houston Texans,Kansas City Chiefs,Houston Texans,225,Kansas City Chiefs,-278,45.5,6.5,-110,-6.5,-110
+1839,2025-09-04 09:31:13 EDT,5d7b12c34454df4ff2c59a15ca58e63f,2025-12-8,20:15,Philadelphia Eagles,Los Angeles Chargers,Los Angeles Chargers,114,Philadelphia Eagles,-135,45.5,-2.5,-110,2.5,-110
+1840,2025-09-04 09:31:13 EDT,08bfd9cd8115339250817cc66a8b3cba,2025-12-11,20:15,Atlanta Falcons,Tampa Bay Buccaneers,Atlanta Falcons,195,Tampa Bay Buccaneers,-238,47.5,5.5,-108,-5.5,-112
+1841,2025-09-04 09:31:13 EDT,a360e4c43576d22057ff90d818928066,2025-12-14,13:0,Arizona Cardinals,Houston Texans,Arizona Cardinals,114,Houston Texans,-135,45.5,2.5,-115,-2.5,-105
+1842,2025-09-04 09:31:13 EDT,1aa1fb046f11dadb32dad77d5baf552e,2025-12-14,13:0,Baltimore Ravens,Cincinnati Bengals,Cincinnati Bengals,114,Baltimore Ravens,-135,49.5,-2.5,-110,2.5,-110
+1843,2025-09-04 09:31:13 EDT,c127c7a2426ec655e18ca9c394068f6c,2025-12-14,13:0,Buffalo Bills,New England Patriots,New England Patriots,180,Buffalo Bills,-218,46.5,-4.5,-110,4.5,-110
+1844,2025-09-04 09:31:13 EDT,8261541e6b9b32537bd0821ef2c0a05d,2025-12-14,13:0,Cleveland Browns,Chicago Bears,Cleveland Browns,250,Chicago Bears,-310,42.5,7.0,-110,-7.0,-110
+1845,2025-09-04 09:31:13 EDT,0f0601c020a478f5d9f81f06a141c2c8,2025-12-14,13:0,New York Jets,Jacksonville Jaguars,New York Jets,170,Jacksonville Jaguars,-205,43.5,4.5,-110,-4.5,-110
+1846,2025-09-04 09:31:13 EDT,cd5151f8a1e7fcba4901929e77b94acd,2025-12-14,13:0,Los Angeles Chargers,Kansas City Chiefs,Los Angeles Chargers,180,Kansas City Chiefs,-218,45.5,4.5,-110,-4.5,-110
+1847,2025-09-04 09:31:13 EDT,813dab51d999b87c7968ac4890965f73,2025-12-14,13:0,Las Vegas Raiders,Philadelphia Eagles,Las Vegas Raiders,410,Philadelphia Eagles,-550,44.5,10.5,-110,-10.5,-110
+1848,2025-09-04 09:31:13 EDT,3aba4bb1fe41ecd45f934116fcc90c3f,2025-12-14,13:0,Washington Commanders,New York Giants,New York Giants,180,Washington Commanders,-218,45.5,-4.5,-110,4.5,-110
+1849,2025-09-04 09:31:13 EDT,f3fd2782d4d03bd12a177fbbad17005b,2025-12-14,16:25,Carolina Panthers,New Orleans Saints,New Orleans Saints,105,Carolina Panthers,-125,43.5,-1.5,-110,1.5,-110
+1850,2025-09-04 09:31:13 EDT,2ec8a387d0c337aeffac3f956c292e87,2025-12-14,16:25,Green Bay Packers,Denver Broncos,Green Bay Packers,102,Denver Broncos,-122,44.5,1.5,-112,-1.5,-108
+1851,2025-09-04 09:31:13 EDT,bd299b70476643cff05f2be58e12301a,2025-12-14,16:25,Detroit Lions,Los Angeles Rams,Los Angeles Rams,102,Detroit Lions,-122,48.5,-1.5,-105,1.5,-115
+1852,2025-09-04 09:31:13 EDT,f7343baf47dcf23e672799d00788173d,2025-12-14,16:25,Indianapolis Colts,Seattle Seahawks,Indianapolis Colts,154,Seattle Seahawks,-185,44.5,3.5,-110,-3.5,-110
+1853,2025-09-04 09:31:13 EDT,7ba03312d1012d9872de9999e496558f,2025-12-14,16:25,Tennessee Titans,San Francisco 49ers,Tennessee Titans,285,San Francisco 49ers,-360,45.5,7.5,-110,-7.5,-110
+1854,2025-09-04 09:31:13 EDT,3c74ebd1d005a7346c182daf6f7279dd,2025-12-14,20:20,Minnesota Vikings,Dallas Cowboys,Dallas Cowboys,114,Minnesota Vikings,-135,45.5,-2.5,-110,2.5,-110
+1855,2025-09-04 09:31:13 EDT,ba5d065a7e9ea9afe54642036f2ec83a,2025-12-15,20:15,Miami Dolphins,Pittsburgh Steelers,Miami Dolphins,130,Pittsburgh Steelers,-155,44.5,3.0,-110,-3.0,-110
+1856,2025-09-04 09:31:13 EDT,ac7881cc5a498c5b72680498d3fa8f6e,2025-12-18,20:15,Los Angeles Rams,Seattle Seahawks,Seattle Seahawks,105,Los Angeles Rams,-125,44.5,-1.5,-110,1.5,-110
+1857,2025-09-04 09:31:13 EDT,9f70d98bc6918dc8e21f329405b649fe,2025-12-20,13:0,Green Bay Packers,Chicago Bears,Chicago Bears,120,Green Bay Packers,-142,45.5,-2.5,-110,2.5,-110
+1858,2025-09-04 09:31:13 EDT,18fe4528a0bc43d9cd64bd09c0d5019f,2025-12-20,15:0,Philadelphia Eagles,Washington Commanders,Washington Commanders,105,Philadelphia Eagles,-125,47.5,-1.5,-110,1.5,-110
+1859,2025-09-04 09:31:13 EDT,a0476b027679a1670f21e8b75a860ab9,2025-12-21,13:0,New England Patriots,Baltimore Ravens,New England Patriots,320,Baltimore Ravens,-410,46.5,8.5,-110,-8.5,-110
+1860,2025-09-04 09:31:13 EDT,2557976e0e66ab698539b543de125469,2025-12-21,13:0,Buffalo Bills,Cleveland Browns,Cleveland Browns,320,Buffalo Bills,-410,43.5,-8.5,-110,8.5,-110
+1861,2025-09-04 09:31:13 EDT,d056f31082bdea4d018a26ba274b8430,2025-12-21,13:0,Tampa Bay Buccaneers,Carolina Panthers,Carolina Panthers,154,Tampa Bay Buccaneers,-185,47.5,-3.5,-110,3.5,-110
+1862,2025-09-04 09:31:13 EDT,aa9d0cf732b6adde4ad3ec04ca79825c,2025-12-21,13:0,Los Angeles Chargers,Dallas Cowboys,Dallas Cowboys,114,Los Angeles Chargers,-135,46.5,-2.5,-110,2.5,-110
+1863,2025-09-04 09:31:13 EDT,0cce34b9a49c4c6bdc1e65449e37a0f9,2025-12-21,13:0,Kansas City Chiefs,Tennessee Titans,Tennessee Titans,260,Kansas City Chiefs,-325,44.5,-7.0,-120,7.0,100
+1864,2025-09-04 09:31:13 EDT,3db6ba91d2a72ada8843d5a0517bff27,2025-12-21,13:0,Minnesota Vikings,New York Giants,New York Giants,114,Minnesota Vikings,-135,42.5,-2.5,-110,2.5,-110
+1865,2025-09-04 09:31:13 EDT,aa5b25e85d1ad6540d7a5ae04b73ddfd,2025-12-21,13:0,New York Jets,New Orleans Saints,New York Jets,105,New Orleans Saints,-125,41.5,1.5,-110,-1.5,-110
+1866,2025-09-04 09:31:13 EDT,7d71a0d3cc2a04eb35f1a725104217b5,2025-12-21,16:5,Atlanta Falcons,Arizona Cardinals,Atlanta Falcons,154,Arizona Cardinals,-185,46.5,3.5,-110,-3.5,-110
+1867,2025-09-04 09:31:13 EDT,93c002f0a42d1b57f3bbabdcfe24ab97,2025-12-21,16:5,Jacksonville Jaguars,Denver Broncos,Jacksonville Jaguars,200,Denver Broncos,-245,45.5,5.5,-110,-5.5,-110
+1868,2025-09-04 09:31:13 EDT,a03f89d3aaadf737deb09be24986d5bf,2025-12-21,16:25,Pittsburgh Steelers,Detroit Lions,Pittsburgh Steelers,210,Detroit Lions,-258,45.5,6.0,-110,-6.0,-110
+1869,2025-09-04 09:31:13 EDT,47a54fb60f7b79179bc80e18a7c5de81,2025-12-21,16:25,Las Vegas Raiders,Houston Texans,Las Vegas Raiders,170,Houston Texans,-205,43.5,4.5,-110,-4.5,-110
+1870,2025-09-04 09:31:13 EDT,945286798abb5081432aef109df29778,2025-12-21,20:20,Cincinnati Bengals,Miami Dolphins,Miami Dolphins,105,Cincinnati Bengals,-125,48.5,-1.5,-110,1.5,-110
+1871,2025-09-04 09:31:13 EDT,2dd4521ee298fa2c6f0ab009c182aae9,2025-12-22,20:15,San Francisco 49ers,Indianapolis Colts,Indianapolis Colts,142,San Francisco 49ers,-170,46.5,-3.0,-115,3.0,-105
+1872,2025-09-04 09:31:13 EDT,de07002921b9b2b2e1ee2928e4270a3c,2025-12-25,13:0,Dallas Cowboys,Washington Commanders,Dallas Cowboys,200,Washington Commanders,-245,48.5,5.5,-110,-5.5,-110
+1873,2025-09-04 09:31:13 EDT,29da148b927afea00a7774b2a8ee68e7,2025-12-25,16:30,Detroit Lions,Minnesota Vikings,Minnesota Vikings,120,Detroit Lions,-142,46.5,-2.5,-110,2.5,-110
+1874,2025-09-04 09:31:13 EDT,29164a99a917051c6e1778270033d362,2025-12-25,20:15,Denver Broncos,Kansas City Chiefs,Denver Broncos,170,Kansas City Chiefs,-205,44.5,4.5,-110,-4.5,-110
+1875,2025-09-04 09:31:13 EDT,7aeff5d5bb88b218c7d72f267a90eb7f,2025-12-28,13:0,Arizona Cardinals,Cincinnati Bengals,Arizona Cardinals,154,Cincinnati Bengals,-185,47.5,3.5,-110,-3.5,-110
+1876,2025-09-04 09:31:13 EDT,85bead6a72a1952cdd737dcecb55446b,2025-12-28,13:0,Baltimore Ravens,Green Bay Packers,Green Bay Packers,105,Baltimore Ravens,-125,46.5,-1.5,-110,1.5,-110
+1877,2025-09-04 09:31:13 EDT,8e7a26b4026e4eca7394cc523fa10a64,2025-12-28,13:0,Seattle Seahawks,Carolina Panthers,Carolina Panthers,105,Seattle Seahawks,-125,43.5,-1.5,-110,1.5,-110
+1878,2025-09-04 09:31:13 EDT,e6721ef0adb705a8abcbedc2ef6dfb3a,2025-12-28,13:0,Pittsburgh Steelers,Cleveland Browns,Cleveland Browns,114,Pittsburgh Steelers,-135,40.5,-2.5,-110,2.5,-110
+1879,2025-09-04 09:31:13 EDT,832c36c4b6d5132e88cf11391797c194,2025-12-28,13:0,Houston Texans,Los Angeles Chargers,Houston Texans,154,Los Angeles Chargers,-185,43.5,3.5,-110,-3.5,-110
+1880,2025-09-04 09:31:13 EDT,f960b282ac197513c9d80bd28baa7e38,2025-12-28,13:0,Jacksonville Jaguars,Indianapolis Colts,Jacksonville Jaguars,105,Indianapolis Colts,-125,45.5,1.5,-110,-1.5,-110
+1881,2025-09-04 09:31:13 EDT,374166780155b8c14e867face95885ee,2025-12-28,13:0,Tampa Bay Buccaneers,Miami Dolphins,Miami Dolphins,105,Tampa Bay Buccaneers,-125,47.5,-1.5,-110,1.5,-110
+1882,2025-09-04 09:31:13 EDT,95bdb9f5b22f0491bfba1381637c5009,2025-12-28,13:0,New England Patriots,New York Jets,New York Jets,105,New England Patriots,-125,41.5,-1.5,-110,1.5,-110
+1883,2025-09-04 09:31:13 EDT,d75c88e4fb7650ab0577264980bdf98f,2025-12-28,13:0,New Orleans Saints,Tennessee Titans,New Orleans Saints,145,Tennessee Titans,-175,42.5,3.5,-115,-3.5,-105
+1884,2025-09-04 09:31:13 EDT,596df6f5735277fee0cd78e61cd71060,2025-12-28,16:25,Philadelphia Eagles,Buffalo Bills,Philadelphia Eagles,105,Buffalo Bills,-125,46.5,1.5,-110,-1.5,-110
+1885,2025-09-04 09:31:13 EDT,dd4aec72c5175cb8cea67d5edc7b1990,2025-12-28,16:25,New York Giants,Las Vegas Raiders,New York Giants,114,Las Vegas Raiders,-135,42.5,2.5,-110,-2.5,-110
+1886,2025-09-04 09:31:13 EDT,b0dedebd28a82f8f38398033356e9015,2025-12-28,20:20,Chicago Bears,San Francisco 49ers,Chicago Bears,164,San Francisco 49ers,-198,46.5,3.5,-110,-3.5,-110
+1887,2025-09-04 09:31:13 EDT,ea5fe5f603483c8d46f83081cf780397,2025-12-29,20:20,Los Angeles Rams,Atlanta Falcons,Atlanta Falcons,140,Los Angeles Rams,-166,46.5,-3.0,-110,3.0,-110
+1888,2025-09-04 09:31:13 EDT,2f4cf01e2db22ed928eb8f0357a74007,2026-1-4,13:0,Arizona Cardinals,Los Angeles Rams,Arizona Cardinals,180,Los Angeles Rams,-218,45.5,4.5,-110,-4.5,-110
+1889,2025-09-04 09:31:13 EDT,7906052ca20e6daddf755c7fe3932887,2026-1-4,13:0,New Orleans Saints,Atlanta Falcons,New Orleans Saints,190,Atlanta Falcons,-230,,4.5,-105,-4.5,-115
+1890,2025-09-04 09:31:13 EDT,f609b38fe2bf0687644ad8603e28220b,2026-1-4,13:0,Baltimore Ravens,Pittsburgh Steelers,Pittsburgh Steelers,170,Baltimore Ravens,-205,,-4.5,-110,4.5,-110
+1891,2025-09-04 09:31:13 EDT,bd5134e8440a2b12cc8ac98ab4f18093,2026-1-4,13:0,New York Jets,Buffalo Bills,New York Jets,320,Buffalo Bills,-410,,9.5,-110,-9.5,-110
+1892,2025-09-04 09:31:13 EDT,4fd1173e2f647cbbebf6713d39693089,2026-1-4,13:0,Carolina Panthers,Tampa Bay Buccaneers,Carolina Panthers,250,Tampa Bay Buccaneers,-310,46.5,7.0,-115,-7.0,-105
+1893,2025-09-04 09:31:13 EDT,1a5451b8f0d74f90937c52bec447dc40,2026-1-4,13:0,Detroit Lions,Chicago Bears,Chicago Bears,105,Detroit Lions,-125,,-1.5,-110,1.5,-110
+1894,2025-09-04 09:31:13 EDT,dad5ec44b4df2b91138872aeb4454e1e,2026-1-4,13:0,Cleveland Browns,Cincinnati Bengals,Cleveland Browns,320,Cincinnati Bengals,-410,43.5,8.5,-110,-8.5,-110
+1895,2025-09-04 09:31:13 EDT,d48a44e7b45f563282fd042c2104da9b,2026-1-4,13:0,Dallas Cowboys,New York Giants,New York Giants,-105,Dallas Cowboys,-115,,-1.5,100,1.5,-120
+1896,2025-09-04 09:31:13 EDT,41fc7f3165cc9dfdb47c25a9decd7c9b,2026-1-4,13:0,Green Bay Packers,Minnesota Vikings,Minnesota Vikings,105,Green Bay Packers,-125,44.5,-1.5,-105,1.5,-115
+1897,2025-09-04 09:31:13 EDT,26b8cf55eeac1bb05b585132f7dcc0e3,2026-1-4,13:0,Indianapolis Colts,Houston Texans,Indianapolis Colts,180,Houston Texans,-218,,4.5,-110,-4.5,-110
+1898,2025-09-04 09:31:13 EDT,623e9172767ca231241e2313bbee095e,2026-1-4,13:0,Tennessee Titans,Jacksonville Jaguars,Tennessee Titans,180,Jacksonville Jaguars,-218,43.5,4.5,-110,-4.5,-110
+1899,2025-09-04 09:31:13 EDT,de4ae000f7f94eecf9d827eabff2991b,2026-1-4,13:0,Kansas City Chiefs,Las Vegas Raiders,Las Vegas Raiders,210,Kansas City Chiefs,-258,,-6.0,-110,6.0,-110
+1900,2025-09-04 09:31:13 EDT,d242576b25f56b3f598044c9abfb4df0,2026-1-4,13:0,Miami Dolphins,New England Patriots,Miami Dolphins,114,New England Patriots,-135,,2.5,-110,-2.5,-110
+1901,2025-09-04 09:31:13 EDT,b6eb23d78a4e1b3bf9946be7cfac0e6b,2026-1-4,13:0,Washington Commanders,Philadelphia Eagles,Washington Commanders,180,Philadelphia Eagles,-218,,4.5,-110,-4.5,-110
+1902,2025-09-04 09:31:13 EDT,c624c615075899bb7be6a39e5eea3b2b,2026-1-4,13:0,Seattle Seahawks,San Francisco 49ers,Seattle Seahawks,180,San Francisco 49ers,-218,44.5,4.5,-110,-4.5,-110
+1903,2025-09-04 09:31:13 EDT,30621f6a1072712bee795c15eafe9768,2026-1-4,16:5,Los Angeles Chargers,Denver Broncos,Los Angeles Chargers,120,Denver Broncos,-142,42.5,2.5,-110,-2.5,-110
+1904,2025-09-05 10:42:42 EDT,9535d3e3ee9d9fc83ea2b500ad0b587c,2025-9-5,20:0,Kansas City Chiefs,Los Angeles Chargers,Los Angeles Chargers,140,Kansas City Chiefs,-166,46.5,-3.0,-115,3.0,-105
+1905,2025-09-05 10:42:42 EDT,557d13ef8f4c1d21044f3a478cda6d0b,2025-9-7,13:0,Arizona Cardinals,New Orleans Saints,New Orleans Saints,240,Arizona Cardinals,-298,43.5,-6.5,-110,6.5,-110
+1906,2025-09-05 10:42:42 EDT,1e09eb3fe1385796c1a32000de48ac64,2025-9-7,13:0,Tampa Bay Buccaneers,Atlanta Falcons,Atlanta Falcons,110,Tampa Bay Buccaneers,-130,46.5,-1.5,-115,1.5,-105
+1907,2025-09-05 10:42:42 EDT,394256a6c3d0f5ecd1208fffaae6a72f,2025-9-7,13:0,Carolina Panthers,Jacksonville Jaguars,Carolina Panthers,154,Jacksonville Jaguars,-185,46.5,3.5,-115,-3.5,-105
+1908,2025-09-05 10:42:42 EDT,e2d3b0596efcebc1c19dab92009f5e26,2025-9-7,13:0,Cincinnati Bengals,Cleveland Browns,Cleveland Browns,205,Cincinnati Bengals,-250,48.5,-5.5,-110,5.5,-110
+1909,2025-09-05 10:42:42 EDT,b02a72c768a6c6dee87aa74f78e84176,2025-9-7,13:0,Miami Dolphins,Indianapolis Colts,Miami Dolphins,-108,Indianapolis Colts,-112,47.5,1.5,-118,-1.5,-102
+1910,2025-09-05 10:42:42 EDT,0b2455795dfcd692dd607503e4f20d04,2025-9-7,13:0,Las Vegas Raiders,New England Patriots,Las Vegas Raiders,130,New England Patriots,-155,44.5,2.5,-102,-2.5,-118
+1911,2025-09-05 10:42:42 EDT,4cce00ca468c67eca17a9a061f778fb2,2025-9-7,13:0,New York Giants,Washington Commanders,New York Giants,210,Washington Commanders,-255,45.5,5.5,-108,-5.5,-112
+1912,2025-09-05 10:42:42 EDT,5ed483bb614b18955f8b43f177746371,2025-9-7,13:0,Pittsburgh Steelers,New York Jets,New York Jets,136,Pittsburgh Steelers,-162,37.5,-3.0,-105,3.0,-115
+1913,2025-09-05 10:42:42 EDT,68397f3aa9eb847a421a49f990a11928,2025-9-7,16:5,Tennessee Titans,Denver Broncos,Tennessee Titans,350,Denver Broncos,-450,42.5,8.5,-112,-8.5,-108
+1914,2025-09-05 10:42:42 EDT,9f1ad249959aacae89e5e74e43429a4a,2025-9-7,16:5,San Francisco 49ers,Seattle Seahawks,Seattle Seahawks,108,San Francisco 49ers,-126,43.5,-1.5,-115,1.5,-105
+1915,2025-09-05 10:42:42 EDT,8e0e2d9237098222f9ca7554b11b12bb,2025-9-7,16:25,Detroit Lions,Green Bay Packers,Detroit Lions,114,Green Bay Packers,-134,47.5,2.5,-105,-2.5,-115
+1916,2025-09-05 10:42:42 EDT,dc0e3db61983a138098f28226788d2d3,2025-9-7,16:25,Houston Texans,Los Angeles Rams,Houston Texans,140,Los Angeles Rams,-166,43.5,3.0,-105,-3.0,-115
+1917,2025-09-05 10:42:42 EDT,dee0a41ed5e8201a96d457899adbe918,2025-9-7,20:20,Baltimore Ravens,Buffalo Bills,Buffalo Bills,-102,Baltimore Ravens,-116,50.5,-1.5,-110,1.5,-110
+1918,2025-09-05 10:42:42 EDT,c6d7807cee33d5e81c671527b9c8b3f1,2025-9-8,20:15,Minnesota Vikings,Chicago Bears,Chicago Bears,-102,Minnesota Vikings,-116,43.5,-1.5,-108,1.5,-112
+1919,2025-09-05 10:42:42 EDT,0c6e5d9821ce0d3e82f3e792879776a6,2025-9-11,20:15,Washington Commanders,Green Bay Packers,Washington Commanders,130,Green Bay Packers,-155,48.5,3.0,-115,-3.0,-105
+1920,2025-09-05 10:42:42 EDT,553edb8bf2452482b37dde58e832a6fb,2025-9-14,13:0,Cleveland Browns,Baltimore Ravens,Cleveland Browns,490,Baltimore Ravens,-675,44.5,12.5,-110,-12.5,-110
+1921,2025-09-05 10:42:42 EDT,cd0fd9335b5182d3bfed35ab8d5ab6fb,2025-9-14,13:0,Buffalo Bills,New York Jets,New York Jets,310,Buffalo Bills,-395,44.5,-8.5,-110,8.5,-110
+1922,2025-09-05 10:42:42 EDT,1ee9ea2c8256bc6be5dd92e60f6c17de,2025-9-14,13:0,Chicago Bears,Detroit Lions,Chicago Bears,185,Detroit Lions,-225,48.5,4.5,-105,-4.5,-115
+1923,2025-09-05 10:42:42 EDT,ec75e45d75691f810f347e0c5ff25d6e,2025-9-14,13:0,Jacksonville Jaguars,Cincinnati Bengals,Jacksonville Jaguars,195,Cincinnati Bengals,-238,49.5,5.5,-110,-5.5,-110
+1924,2025-09-05 10:42:42 EDT,05a5b084f4e19535b2d3f91ef5c00169,2025-9-14,13:0,New York Giants,Dallas Cowboys,New York Giants,140,Dallas Cowboys,-166,44.5,3.0,100,-3.0,-120
+1925,2025-09-05 10:42:42 EDT,0e6f68b30237afc04d1517a193213a65,2025-9-14,13:0,Los Angeles Rams,Tennessee Titans,Tennessee Titans,200,Los Angeles Rams,-245,45.5,-5.5,-110,5.5,-110
+1926,2025-09-05 10:42:42 EDT,575c1b169aab675ec72372ccb0f4c55f,2025-9-14,13:0,New England Patriots,Miami Dolphins,New England Patriots,114,Miami Dolphins,-135,45.5,2.5,-110,-2.5,-110
+1927,2025-09-05 10:42:42 EDT,866d7405986fb4d14897cdb6c0aa5926,2025-9-14,13:0,San Francisco 49ers,New Orleans Saints,New Orleans Saints,270,San Francisco 49ers,-340,44.5,-7.0,-110,7.0,-110
+1928,2025-09-05 10:42:42 EDT,82f9fd7001598d5cf9c1bdd57c66cae4,2025-9-14,13:0,Seattle Seahawks,Pittsburgh Steelers,Seattle Seahawks,114,Pittsburgh Steelers,-135,41.5,2.5,-110,-2.5,-110
+1929,2025-09-05 10:42:42 EDT,7e2ad5ef04493526707e0868f7b70c47,2025-9-14,16:5,Carolina Panthers,Arizona Cardinals,Carolina Panthers,180,Arizona Cardinals,-218,46.5,4.5,-110,-4.5,-110
+1930,2025-09-05 10:42:42 EDT,e217b38ef8bc6e98d3512cb42b90782e,2025-9-14,16:5,Denver Broncos,Indianapolis Colts,Indianapolis Colts,154,Denver Broncos,-185,44.5,-3.5,-110,3.5,-110
+1931,2025-09-05 10:42:42 EDT,bbec8d71145954cff67915c9b006bb6e,2025-9-14,16:25,Philadelphia Eagles,Kansas City Chiefs,Philadelphia Eagles,110,Kansas City Chiefs,-130,46.5,1.5,-110,-1.5,-110
+1932,2025-09-05 10:42:42 EDT,37d09ce5d357536d0e58dd4ba0ab4106,2025-9-14,20:20,Atlanta Falcons,Minnesota Vikings,Atlanta Falcons,185,Minnesota Vikings,-225,45.5,4.5,-110,-4.5,-110
+1933,2025-09-05 10:42:42 EDT,7d9a04f411031528d9c1d2df7b9a0453,2025-9-15,19:0,Tampa Bay Buccaneers,Houston Texans,Tampa Bay Buccaneers,110,Houston Texans,-130,46.5,1.5,-105,-1.5,-115
+1934,2025-09-05 10:42:42 EDT,bebae12f59f19bd877df7ac3cab05263,2025-9-15,22:0,Los Angeles Chargers,Las Vegas Raiders,Las Vegas Raiders,136,Los Angeles Chargers,-162,44.5,-3.0,-110,3.0,-110
+1935,2025-09-05 10:42:42 EDT,aca5234c57e31b1931e51d2d0d6046f5,2025-9-18,20:15,Miami Dolphins,Buffalo Bills,Miami Dolphins,320,Buffalo Bills,-410,48.5,8.5,-110,-8.5,-110
+1936,2025-09-05 10:42:42 EDT,5737e4dbf6879c5061bb23033a4d8a55,2025-9-21,13:0,Atlanta Falcons,Carolina Panthers,Atlanta Falcons,105,Carolina Panthers,-125,46.5,1.5,-112,-1.5,-108
+1937,2025-09-05 10:42:42 EDT,eefb7f130c8fc2c129e296fe5c6ba3e3,2025-9-21,13:0,Cincinnati Bengals,Minnesota Vikings,Cincinnati Bengals,105,Minnesota Vikings,-125,47.5,1.5,-115,-1.5,-105
+1938,2025-09-05 10:42:42 EDT,581955d1b79fe87a3a61a4885cd7ea67,2025-9-21,13:0,Green Bay Packers,Cleveland Browns,Cleveland Browns,245,Green Bay Packers,-305,43.5,-6.5,-110,6.5,-110
+1939,2025-09-05 10:42:42 EDT,97de7672b61dbddbce982711c121e76d,2025-9-21,13:0,Houston Texans,Jacksonville Jaguars,Jacksonville Jaguars,105,Houston Texans,-125,46.5,-1.5,-110,1.5,-110
+1940,2025-09-05 10:42:42 EDT,bb506016737825f4d0b1f9862f95c246,2025-9-21,13:0,Indianapolis Colts,Tennessee Titans,Indianapolis Colts,105,Tennessee Titans,-125,45.5,1.5,-110,-1.5,-110
+1941,2025-09-05 10:42:42 EDT,03a5eed2c8ef5d1c8a48866ea4b0d63a,2025-9-21,13:0,Las Vegas Raiders,Washington Commanders,Las Vegas Raiders,280,Washington Commanders,-355,47.5,7.5,-110,-7.5,-110
+1942,2025-09-05 10:42:42 EDT,c4c42918a645b1a4773f47d7eaa5cfcf,2025-9-21,13:0,Pittsburgh Steelers,New England Patriots,Pittsburgh Steelers,105,New England Patriots,-125,43.5,1.5,-110,-1.5,-110
+1943,2025-09-05 10:42:42 EDT,02522f48a7b7e7524881c1b1638cd94d,2025-9-21,13:0,New York Jets,Tampa Bay Buccaneers,New York Jets,270,Tampa Bay Buccaneers,-340,45.5,7.5,-112,-7.5,-108
+1944,2025-09-05 10:42:42 EDT,0ee3f5a0078c21cfdffd1b97002e7da5,2025-9-21,16:5,Denver Broncos,Los Angeles Chargers,Denver Broncos,105,Los Angeles Chargers,-125,44.5,1.5,-110,-1.5,-110
+1945,2025-09-05 10:42:42 EDT,311c411c2d53e36a902763dc7a2ef678,2025-9-21,16:5,New Orleans Saints,Seattle Seahawks,New Orleans Saints,230,Seattle Seahawks,-285,43.5,6.5,-105,-6.5,-115
+1946,2025-09-05 10:42:42 EDT,20b50dac292089c063b21e1410f172ef,2025-9-21,16:25,Arizona Cardinals,San Francisco 49ers,Arizona Cardinals,164,San Francisco 49ers,-198,47.5,3.5,-105,-3.5,-115
+1947,2025-09-05 10:42:42 EDT,ee840f13db8bd150fcdd8f6670fa7041,2025-9-21,20:20,Kansas City Chiefs,New York Giants,New York Giants,235,Kansas City Chiefs,-290,43.5,-6.5,-110,6.5,-110
+1948,2025-09-05 10:42:42 EDT,6e67ddae4bb01d1c2d3f461ee62d2666,2025-9-22,20:15,Detroit Lions,Baltimore Ravens,Detroit Lions,154,Baltimore Ravens,-185,49.5,3.5,-105,-3.5,-115
+1949,2025-09-05 10:42:42 EDT,4a08b89f07a4a395620f6df5c1d239f4,2025-9-25,20:15,Seattle Seahawks,Arizona Cardinals,Seattle Seahawks,114,Arizona Cardinals,-135,46.5,2.5,-112,-2.5,-108
+1950,2025-09-05 10:42:42 EDT,4dd631102a977fd398f7ea594ed208f2,2025-9-28,9:30,Minnesota Vikings,Pittsburgh Steelers,Pittsburgh Steelers,105,Minnesota Vikings,-125,42.5,-1.5,-110,1.5,-110
+1951,2025-09-05 10:42:42 EDT,b7934d72587b62de0f563ac9acbaa770,2025-9-28,13:0,Washington Commanders,Atlanta Falcons,Atlanta Falcons,154,Washington Commanders,-185,48.5,-3.5,-105,3.5,-115
+1952,2025-09-05 10:42:42 EDT,d16a43752aaac66e9ff8768d8590b662,2025-9-28,13:0,New Orleans Saints,Buffalo Bills,New Orleans Saints,470,Buffalo Bills,-650,46.5,12.5,-110,-12.5,-110
+1953,2025-09-05 10:42:42 EDT,f8fe40924827231233dc10f6999d8ff7,2025-9-28,13:0,Carolina Panthers,New England Patriots,Carolina Panthers,154,New England Patriots,-185,45.5,3.5,-105,-3.5,-115
+1954,2025-09-05 10:42:42 EDT,bcb1f89cf378a586097c50585e53acce,2025-9-28,13:0,Cleveland Browns,Detroit Lions,Cleveland Browns,410,Detroit Lions,-550,45.5,10.5,-112,-10.5,-108
+1955,2025-09-05 10:42:42 EDT,85c9b76cd6bd575b611cb4e8feb7a0b0,2025-9-28,13:0,Tennessee Titans,Houston Texans,Tennessee Titans,210,Houston Texans,-258,44.5,6.0,-110,-6.0,-110
+1956,2025-09-05 10:42:42 EDT,d921b1e86b0a30ad91000ffc360d302d,2025-9-28,13:0,Los Angeles Chargers,New York Giants,New York Giants,154,Los Angeles Chargers,-185,43.5,-3.5,-110,3.5,-110
+1957,2025-09-05 10:42:42 EDT,d90e0de2d5fa2d57e8812f31775ad0ba,2025-9-28,16:5,Indianapolis Colts,Los Angeles Rams,Indianapolis Colts,245,Los Angeles Rams,-305,46.5,6.5,-110,-6.5,-110
+1958,2025-09-05 10:42:42 EDT,09f55b4a19a83eb951a9400a11123477,2025-9-28,16:5,Jacksonville Jaguars,San Francisco 49ers,Jacksonville Jaguars,200,San Francisco 49ers,-245,48.5,5.5,-110,-5.5,-110
+1959,2025-09-05 10:42:42 EDT,051233db287b02fd3e7574955879ece2,2025-9-28,16:25,Baltimore Ravens,Kansas City Chiefs,Baltimore Ravens,105,Kansas City Chiefs,-125,48.5,1.5,-112,-1.5,-108
+1960,2025-09-05 10:42:42 EDT,af6fbb0a2e996613bc393115276c60e2,2025-9-28,16:25,Chicago Bears,Las Vegas Raiders,Las Vegas Raiders,105,Chicago Bears,-125,45.5,-1.5,-110,1.5,-110
+1961,2025-09-05 10:42:42 EDT,bc76fb8d846588ed46297aaab4e83de9,2025-9-29,19:15,New York Jets,Miami Dolphins,New York Jets,200,Miami Dolphins,-245,44.5,5.5,-110,-5.5,-110
+1962,2025-09-05 10:42:42 EDT,8dcb2a6bf542ccb7e6bc58f83c8fc2ac,2025-9-29,20:15,Cincinnati Bengals,Denver Broncos,Cincinnati Bengals,120,Denver Broncos,-142,47.5,2.5,-110,-2.5,-110
+1963,2025-09-05 10:42:42 EDT,c4b72eabb3d557e73022ec730d8e3944,2025-10-2,20:15,San Francisco 49ers,Los Angeles Rams,San Francisco 49ers,105,Los Angeles Rams,-125,47.5,1.5,-110,-1.5,-110
+1964,2025-09-05 10:42:42 EDT,6e206c7bc9379b07d27298a393305384,2025-10-5,9:30,Minnesota Vikings,Cleveland Browns,Cleveland Browns,275,Minnesota Vikings,-345,41.5,-7.0,-115,7.0,-105
+1965,2025-09-05 10:42:42 EDT,6eb8eeff6a052455649ddd2a50e0a188,2025-10-5,13:0,Houston Texans,Baltimore Ravens,Houston Texans,285,Baltimore Ravens,-360,47.5,7.5,-115,-7.5,-105
+1966,2025-09-05 10:42:42 EDT,ff8222149317a63ffe50fcda777d14c0,2025-10-5,13:0,Miami Dolphins,Carolina Panthers,Carolina Panthers,105,Miami Dolphins,-125,46.5,-1.5,-108,1.5,-112
+1967,2025-09-05 10:42:42 EDT,1e3d3526039030b96471845ade5992cf,2025-10-5,13:0,Las Vegas Raiders,Indianapolis Colts,Las Vegas Raiders,105,Indianapolis Colts,-125,44.5,1.5,-110,-1.5,-110
+1968,2025-09-05 10:42:42 EDT,1fe136913ef0e77717c0f0668163637f,2025-10-5,13:0,New York Giants,New Orleans Saints,New Orleans Saints,105,New York Giants,-125,42.5,-1.5,-110,1.5,-110
+1969,2025-09-05 10:42:42 EDT,8fa3fd86eaa7b432469d43b84904e1dc,2025-10-5,16:5,Tennessee Titans,Arizona Cardinals,Tennessee Titans,195,Arizona Cardinals,-238,46.5,5.5,-110,-5.5,-110
+1970,2025-09-05 10:42:42 EDT,6f5a22a3ca33478094cef1e9212ba0fc,2025-10-5,16:5,Tampa Bay Buccaneers,Seattle Seahawks,Seattle Seahawks,105,Tampa Bay Buccaneers,-125,47.5,-1.5,-108,1.5,-112
+1971,2025-09-05 10:42:42 EDT,e9de9c4390a28a90f437760050b23531,2025-10-5,16:25,Detroit Lions,Cincinnati Bengals,Cincinnati Bengals,102,Detroit Lions,-122,50.5,-1.5,-105,1.5,-115
+1972,2025-09-05 10:42:42 EDT,79c4e9f40e2647dc2a7b377cf61c48cd,2025-10-5,16:25,Washington Commanders,Los Angeles Chargers,Washington Commanders,105,Los Angeles Chargers,-125,47.5,1.5,-115,-1.5,-105
+1973,2025-09-05 10:42:42 EDT,ba826e757d625a676452b8d3d6971bb0,2025-10-5,20:20,New England Patriots,Buffalo Bills,New England Patriots,310,Buffalo Bills,-395,46.5,8.5,-110,-8.5,-110
+1974,2025-09-05 10:42:42 EDT,1910db6879dddf37e4f86f0bcf1c9547,2025-10-6,20:15,Kansas City Chiefs,Jacksonville Jaguars,Jacksonville Jaguars,180,Kansas City Chiefs,-218,47.5,-4.5,-110,4.5,-110
+1975,2025-09-05 10:42:42 EDT,e34812ee7fbf13bd75e4298bccfbdd10,2025-10-12,9:30,Denver Broncos,New York Jets,New York Jets,235,Denver Broncos,-290,42.5,-6.5,-110,6.5,-110
+1976,2025-09-05 10:42:42 EDT,dfa87b0532de1389297103c2e3195347,2025-10-12,13:0,Arizona Cardinals,Indianapolis Colts,Indianapolis Colts,105,Arizona Cardinals,-125,47.5,-1.5,-110,1.5,-110
+1977,2025-09-05 10:42:42 EDT,b235bc78609644cb28492cc1d6ad69fd,2025-10-12,13:0,Los Angeles Rams,Baltimore Ravens,Los Angeles Rams,205,Baltimore Ravens,-250,48.5,5.5,-108,-5.5,-112
+1978,2025-09-05 10:42:42 EDT,a11bbccb332241029ebaeb519b93b776,2025-10-12,13:0,Cleveland Browns,Pittsburgh Steelers,Cleveland Browns,230,Pittsburgh Steelers,-285,42.5,6.5,-115,-6.5,-105
+1979,2025-09-05 10:42:42 EDT,e5dd1fed586cfc0ec2d7c06f2a02c37a,2025-10-12,13:0,Seattle Seahawks,Jacksonville Jaguars,Seattle Seahawks,105,Jacksonville Jaguars,-125,46.5,1.5,-110,-1.5,-110
+1980,2025-09-05 10:42:42 EDT,a7211a87bbd5fb2ee473eb9c93ee2e68,2025-10-12,13:0,Los Angeles Chargers,Miami Dolphins,Miami Dolphins,120,Los Angeles Chargers,-142,45.5,-2.5,-112,2.5,-108
+1981,2025-09-05 10:42:42 EDT,9e705d669039f2ca8364f408b7792a8a,2025-10-12,13:0,San Francisco 49ers,Tampa Bay Buccaneers,San Francisco 49ers,110,Tampa Bay Buccaneers,-130,48.5,1.5,-110,-1.5,-110
+1982,2025-09-05 10:42:42 EDT,4963bff460a5f26cab46a8e5ea6db148,2025-10-12,16:5,Tennessee Titans,Las Vegas Raiders,Tennessee Titans,145,Las Vegas Raiders,-175,44.5,3.0,-105,-3.0,-115
+1983,2025-09-05 10:42:42 EDT,0c85b0939650e29689bb2651b33522eb,2025-10-12,16:25,Cincinnati Bengals,Green Bay Packers,Cincinnati Bengals,142,Green Bay Packers,-170,48.5,3.0,-105,-3.0,-115
+1984,2025-09-05 10:42:42 EDT,f2c642e1f95555424b9a9a4f03733b42,2025-10-12,16:25,New England Patriots,New Orleans Saints,New Orleans Saints,142,New England Patriots,-170,43.5,-3.0,-110,3.0,-110
+1985,2025-09-05 10:42:42 EDT,82e432d5d8bc0b5a6cbe0c324de90de3,2025-10-12,20:20,Detroit Lions,Kansas City Chiefs,Detroit Lions,136,Kansas City Chiefs,-162,48.5,3.0,-115,-3.0,-105
+1986,2025-09-05 10:42:42 EDT,33e0adf378d2856ffe5f8452e7d5512d,2025-10-13,19:15,Buffalo Bills,Atlanta Falcons,Atlanta Falcons,195,Buffalo Bills,-238,48.5,-5.5,-110,5.5,-110
+1987,2025-09-05 10:42:42 EDT,38366aa83a3eb6cef71a1134c4fceb2c,2025-10-13,20:15,Chicago Bears,Washington Commanders,Chicago Bears,180,Washington Commanders,-218,48.5,4.5,-115,-4.5,-105
+1988,2025-09-05 10:42:42 EDT,6076f9eab496770efc0ab7095b27c122,2025-10-16,20:15,Pittsburgh Steelers,Cincinnati Bengals,Pittsburgh Steelers,185,Cincinnati Bengals,-225,46.5,4.5,-110,-4.5,-110
+1989,2025-09-05 10:42:42 EDT,79de65f1b97c9145ebdcb019eb486500,2025-10-19,9:30,Los Angeles Rams,Jacksonville Jaguars,Jacksonville Jaguars,154,Los Angeles Rams,-185,47.5,-3.5,-110,3.5,-110
+1990,2025-09-05 10:42:42 EDT,ba4e8bfa1f4eeaa74c7b09f409361c0d,2025-10-19,13:0,Carolina Panthers,New York Jets,Carolina Panthers,105,New York Jets,-125,43.5,1.5,-112,-1.5,-108
+1991,2025-09-05 10:42:42 EDT,8f06a4b503cc7309cb0df4a8b67f9930,2025-10-19,13:0,New Orleans Saints,Chicago Bears,New Orleans Saints,280,Chicago Bears,-355,44.5,7.5,-110,-7.5,-110
+1992,2025-09-05 10:42:42 EDT,f0336c9a3749716250afba387d157377,2025-10-19,13:0,Miami Dolphins,Cleveland Browns,Cleveland Browns,105,Miami Dolphins,-125,43.5,-1.5,-110,1.5,-110
+1993,2025-09-05 10:42:42 EDT,3127c0dd6ed51a44354af51791bc3e5a,2025-10-19,13:0,Las Vegas Raiders,Kansas City Chiefs,Las Vegas Raiders,340,Kansas City Chiefs,-440,45.5,9.5,-110,-9.5,-110
+1994,2025-09-05 10:42:42 EDT,f7fa9341eeffb08f7e6e769398cd32e2,2025-10-19,13:0,New England Patriots,Tennessee Titans,Tennessee Titans,105,New England Patriots,-125,44.5,-1.5,-110,1.5,-110
+1995,2025-09-05 10:42:42 EDT,3be866344dfa050e602a6e69170b3cbe,2025-10-19,16:5,New York Giants,Denver Broncos,New York Giants,270,Denver Broncos,-340,42.5,7.5,-112,-7.5,-108
+1996,2025-09-05 10:42:42 EDT,a0ad5501e9d1d2ee9f61d9f293374f17,2025-10-19,16:5,Indianapolis Colts,Los Angeles Chargers,Indianapolis Colts,205,Los Angeles Chargers,-250,45.5,6.0,-110,-6.0,-110
+1997,2025-09-05 10:42:42 EDT,1036171316ac51350b388c99e000cfc1,2025-10-19,16:25,Green Bay Packers,Arizona Cardinals,Arizona Cardinals,114,Green Bay Packers,-135,47.5,-2.5,-110,2.5,-110
+1998,2025-09-05 10:42:42 EDT,7b2ded52498efcf97a08ef10ee99b0f3,2025-10-19,20:20,Atlanta Falcons,San Francisco 49ers,Atlanta Falcons,230,San Francisco 49ers,-285,47.5,6.5,-110,-6.5,-110
+1999,2025-09-05 10:42:42 EDT,b808059d3ccc754ace4a3d23b58e47e8,2025-10-20,19:0,Tampa Bay Buccaneers,Detroit Lions,Tampa Bay Buccaneers,164,Detroit Lions,-198,49.5,3.5,-110,-3.5,-110
+2000,2025-09-05 10:42:42 EDT,7ca953ab786f70b22cabbe4946d330fa,2025-10-20,22:0,Houston Texans,Seattle Seahawks,Houston Texans,105,Seattle Seahawks,-125,44.5,1.5,-110,-1.5,-110
+2001,2025-09-05 10:42:42 EDT,6439b16f4a038f1c351dc3f1aef27471,2025-10-23,20:15,Minnesota Vikings,Los Angeles Chargers,Minnesota Vikings,136,Los Angeles Chargers,-162,44.5,3.0,-110,-3.0,-110
+2002,2025-09-05 10:42:42 EDT,ac02b1b59aa0623845378a02bc530c68,2025-10-26,13:0,Miami Dolphins,Atlanta Falcons,Miami Dolphins,105,Atlanta Falcons,-125,46.5,1.5,-110,-1.5,-110
+2003,2025-09-05 10:42:42 EDT,a061e80d1f50eab193b34d19f8e59f62,2025-10-26,13:0,Chicago Bears,Baltimore Ravens,Chicago Bears,270,Baltimore Ravens,-340,48.5,7.0,-110,-7.0,-110
+2004,2025-09-05 10:42:42 EDT,53d4369464c66630f03a5d128cd39b08,2025-10-26,13:0,Buffalo Bills,Carolina Panthers,Carolina Panthers,260,Buffalo Bills,-325,47.5,-7.0,-110,7.0,-110
+2005,2025-09-05 10:42:42 EDT,9c1f73e48ca9750f6e7d5d64874057c2,2025-10-26,13:0,New York Jets,Cincinnati Bengals,New York Jets,280,Cincinnati Bengals,-355,45.5,7.5,-110,-7.5,-110
+2006,2025-09-05 10:42:42 EDT,3536a3e857050d2dd6e2019ceb668f67,2025-10-26,13:0,Cleveland Browns,New England Patriots,Cleveland Browns,195,New England Patriots,-238,42.5,5.5,-108,-5.5,-112
+2007,2025-09-05 10:42:42 EDT,abc4104a9ac597ce37d703613256fd6c,2025-10-26,13:0,San Francisco 49ers,Houston Texans,Houston Texans,105,San Francisco 49ers,-125,45.5,-1.5,-108,1.5,-112
+2008,2025-09-05 10:42:42 EDT,a8dd9bb0681692540d067bd0e9e66989,2025-10-26,16:5,Tampa Bay Buccaneers,New Orleans Saints,New Orleans Saints,195,Tampa Bay Buccaneers,-238,45.5,-5.5,-112,5.5,-108
+2009,2025-09-05 10:42:42 EDT,88187a33b007c088d75c6cd14c83086c,2025-10-26,16:25,Tennessee Titans,Indianapolis Colts,Tennessee Titans,154,Indianapolis Colts,-185,44.5,3.5,-110,-3.5,-110
+2010,2025-09-05 10:42:42 EDT,fb900eef07307ebf5c1930341ecd852a,2025-10-26,20:20,Green Bay Packers,Pittsburgh Steelers,Pittsburgh Steelers,114,Green Bay Packers,-135,44.5,-2.5,-110,2.5,-110
+2011,2025-09-05 10:42:42 EDT,7e3361e84d5223a8d210a887b249f247,2025-10-27,20:15,Washington Commanders,Kansas City Chiefs,Washington Commanders,164,Kansas City Chiefs,-198,48.5,3.5,-105,-3.5,-115
+2012,2025-09-05 10:42:42 EDT,677dbbb6ad96fc5f5b36bb20b43139dd,2025-10-30,20:15,Baltimore Ravens,Miami Dolphins,Miami Dolphins,200,Baltimore Ravens,-245,47.5,-5.5,-110,5.5,-110
+2013,2025-09-05 10:42:42 EDT,6dd3b8a705ed0db85d59fa19b9062cc8,2025-11-2,13:0,Atlanta Falcons,New England Patriots,Atlanta Falcons,140,New England Patriots,-166,44.5,3.0,-110,-3.0,-110
+2014,2025-09-05 10:42:42 EDT,6031b513e188fc19a2311499566c9258,2025-11-2,13:0,Carolina Panthers,Green Bay Packers,Carolina Panthers,285,Green Bay Packers,-360,45.5,7.5,-110,-7.5,-110
+2015,2025-09-05 10:42:42 EDT,016f76d8237e8d4eb62b9c2ef68381bb,2025-11-2,13:0,Chicago Bears,Cincinnati Bengals,Chicago Bears,142,Cincinnati Bengals,-170,48.5,3.0,-105,-3.0,-115
+2016,2025-09-05 10:42:42 EDT,72e2ce6652bbb3901f60b38bec05bf5f,2025-11-2,13:0,Denver Broncos,Houston Texans,Houston Texans,100,Denver Broncos,-120,45.5,-1.5,-102,1.5,-118
+2017,2025-09-05 10:42:42 EDT,cf95657d78ab3e515203df1d19c3b0c2,2025-11-2,13:0,Minnesota Vikings,Detroit Lions,Minnesota Vikings,180,Detroit Lions,-218,47.5,4.5,-110,-4.5,-110
+2018,2025-09-05 10:42:42 EDT,2340a6e0794d5688996dcf8aaf634742,2025-11-2,13:0,Indianapolis Colts,Pittsburgh Steelers,Indianapolis Colts,154,Pittsburgh Steelers,-185,44.5,3.5,-110,-3.5,-110
+2019,2025-09-05 10:42:42 EDT,b60025aea576e2e89ef7bc7303f847ec,2025-11-2,13:0,Los Angeles Chargers,Tennessee Titans,Tennessee Titans,170,Los Angeles Chargers,-205,44.5,-4.5,-110,4.5,-110
+2020,2025-09-05 10:42:42 EDT,a788e7cebff4b5fe10034710090e4529,2025-11-2,13:0,San Francisco 49ers,New York Giants,New York Giants,160,San Francisco 49ers,-192,44.5,-3.5,-110,3.5,-110
+2021,2025-09-05 10:42:42 EDT,d0bf341e7959d69b55f1a8ff09065234,2025-11-2,16:5,Jacksonville Jaguars,Las Vegas Raiders,Jacksonville Jaguars,105,Las Vegas Raiders,-125,45.5,1.5,-110,-1.5,-110
+2022,2025-09-05 10:42:42 EDT,b08df670a95f1809707b335dc75081c6,2025-11-2,16:5,New Orleans Saints,Los Angeles Rams,New Orleans Saints,340,Los Angeles Rams,-440,44.5,9.5,-110,-9.5,-110
+2023,2025-09-05 10:42:42 EDT,61531628516decd1ee8116da5f6f9056,2025-11-2,16:25,Kansas City Chiefs,Buffalo Bills,Kansas City Chiefs,124,Buffalo Bills,-148,48.5,2.5,-105,-2.5,-115
+2024,2025-09-05 10:42:42 EDT,c2fd8a23091a954fb21ff6d3537db826,2025-11-2,20:20,Seattle Seahawks,Washington Commanders,Seattle Seahawks,205,Washington Commanders,-250,47.5,5.5,-115,-5.5,-105
+2025,2025-09-05 10:42:42 EDT,13bdffda97e8fb13179fe3f2f69d66f8,2025-11-6,20:15,Las Vegas Raiders,Denver Broncos,Las Vegas Raiders,235,Denver Broncos,-290,43.5,6.5,-108,-6.5,-112
+2026,2025-09-05 10:42:42 EDT,42473c1ddf8f424069ff3f264dd8dca4,2025-11-9,9:30,Atlanta Falcons,Indianapolis Colts,Indianapolis Colts,-102,Atlanta Falcons,-118,44.5,-1.5,-102,1.5,-118
+2027,2025-09-05 10:42:42 EDT,9900b89c4776c5b47dd26ca4c755edf9,2025-11-9,13:0,Baltimore Ravens,Minnesota Vikings,Minnesota Vikings,154,Baltimore Ravens,-185,46.5,-3.5,-105,3.5,-115
+2028,2025-09-05 10:42:42 EDT,3c10bc18680995136017c3bfd3152334,2025-11-9,13:0,Buffalo Bills,Miami Dolphins,Miami Dolphins,200,Buffalo Bills,-245,48.5,-5.5,-110,5.5,-110
+2029,2025-09-05 10:42:42 EDT,21f47a328fb2ab65c01360a7a2bd9571,2025-11-9,13:0,New Orleans Saints,Carolina Panthers,New Orleans Saints,170,Carolina Panthers,-205,43.5,4.5,-115,-4.5,-105
+2030,2025-09-05 10:42:42 EDT,3b1a97366685a96e6e1940ae56cc4d31,2025-11-9,13:0,New York Giants,Chicago Bears,New York Giants,190,Chicago Bears,-230,43.5,5.5,-110,-5.5,-110
+2031,2025-09-05 10:42:42 EDT,844b89333f293f055f8e0c147fb9fec5,2025-11-9,13:0,Cleveland Browns,New York Jets,Cleveland Browns,120,New York Jets,-142,40.5,2.5,-110,-2.5,-110
+2032,2025-09-05 10:42:42 EDT,9dbf94f23521c7cae7fd89b2d33fc3bd,2025-11-9,13:0,Jacksonville Jaguars,Houston Texans,Jacksonville Jaguars,154,Houston Texans,-185,45.5,3.5,-110,-3.5,-110
+2033,2025-09-05 10:42:42 EDT,39e7c1f6e36d5bc4d2613ebf7bb83c10,2025-11-9,13:0,New England Patriots,Tampa Bay Buccaneers,New England Patriots,185,Tampa Bay Buccaneers,-225,46.5,4.5,-110,-4.5,-110
+2034,2025-09-05 10:42:42 EDT,740b843794cc89176c4ffe38b66d30d9,2025-11-9,16:5,Arizona Cardinals,Seattle Seahawks,Arizona Cardinals,105,Seattle Seahawks,-125,45.5,1.5,-110,-1.5,-110
+2035,2025-09-05 10:42:42 EDT,93365f943b3aa23705bc9e1c7b47d7f8,2025-11-9,16:25,Detroit Lions,Washington Commanders,Detroit Lions,105,Washington Commanders,-125,49.5,1.5,-110,-1.5,-110
+2036,2025-09-05 10:42:42 EDT,2710103fe4fb0170ae03b4e34bde8132,2025-11-9,16:25,Los Angeles Rams,San Francisco 49ers,Los Angeles Rams,105,San Francisco 49ers,-125,46.5,1.5,-110,-1.5,-110
+2037,2025-09-05 10:42:42 EDT,349d53a4f89591312ea528e81b786474,2025-11-9,20:20,Pittsburgh Steelers,Los Angeles Chargers,Pittsburgh Steelers,180,Los Angeles Chargers,-218,43.5,4.5,-110,-4.5,-110
+2038,2025-09-05 10:42:42 EDT,32ec2bd4ac9e4c40f9f5cbed7e67f837,2025-11-13,20:15,New York Jets,New England Patriots,New York Jets,190,New England Patriots,-230,42.5,5.5,-110,-5.5,-110
+2039,2025-09-05 10:42:42 EDT,265f0188945bb81ec64751571eb724cb,2025-11-16,9:30,Washington Commanders,Miami Dolphins,Miami Dolphins,185,Washington Commanders,-225,48.5,-4.5,-110,4.5,-110
+2040,2025-09-05 10:42:42 EDT,0ae85bbc3711ad0cb94475a40e2364f0,2025-11-16,13:0,Carolina Panthers,Atlanta Falcons,Carolina Panthers,140,Atlanta Falcons,-166,45.5,3.0,-115,-3.0,-105
+2041,2025-09-05 10:42:42 EDT,96377d2fb55e3cef733cecccdecaed5f,2025-11-16,13:0,Tampa Bay Buccaneers,Buffalo Bills,Tampa Bay Buccaneers,195,Buffalo Bills,-238,49.5,5.5,-110,-5.5,-110
+2042,2025-09-05 10:42:42 EDT,229a5e9ce60dcb344a8cc3c97121154e,2025-11-16,13:0,Chicago Bears,Minnesota Vikings,Chicago Bears,114,Minnesota Vikings,-135,45.5,2.5,-110,-2.5,-110
+2043,2025-09-05 10:42:42 EDT,7147476b5d96c0ee874b838de3910ee3,2025-11-16,13:0,Cincinnati Bengals,Pittsburgh Steelers,Pittsburgh Steelers,105,Cincinnati Bengals,-125,46.5,-1.5,-108,1.5,-112
+2044,2025-09-05 10:42:42 EDT,5c06e82838fcfade9adf1e89b8bd3081,2025-11-16,13:0,Green Bay Packers,New York Giants,New York Giants,180,Green Bay Packers,-218,43.5,-4.5,-110,4.5,-110
+2045,2025-09-05 10:42:42 EDT,fd2f29289d6437a7c07d4780c5f04936,2025-11-16,13:0,Houston Texans,Tennessee Titans,Tennessee Titans,140,Houston Texans,-166,43.5,-3.0,-110,3.0,-110
+2046,2025-09-05 10:42:42 EDT,591fd7cff37201a14cbdfbd457592445,2025-11-16,13:0,Los Angeles Chargers,Jacksonville Jaguars,Jacksonville Jaguars,105,Los Angeles Chargers,-125,46.5,-1.5,-110,1.5,-110
+2047,2025-09-05 10:42:42 EDT,91630b9c62640117918fa30d2a62d2db,2025-11-16,16:5,San Francisco 49ers,Arizona Cardinals,Arizona Cardinals,105,San Francisco 49ers,-125,47.5,-1.5,-108,1.5,-112
+2048,2025-09-05 10:42:42 EDT,e926e654cedeb65fcfcc389a5158ef4e,2025-11-16,16:5,Seattle Seahawks,Los Angeles Rams,Seattle Seahawks,180,Los Angeles Rams,-218,45.5,4.5,-110,-4.5,-110
+2049,2025-09-05 10:42:42 EDT,cc60225b5a907bd9ba7c27c23131fc5c,2025-11-16,16:25,Baltimore Ravens,Cleveland Browns,Cleveland Browns,320,Baltimore Ravens,-410,44.5,-8.5,-115,8.5,-105
+2050,2025-09-05 10:42:42 EDT,96ce7785b0980b03282c7e10d4c58d4a,2025-11-16,16:25,Kansas City Chiefs,Denver Broncos,Denver Broncos,105,Kansas City Chiefs,-125,45.5,-1.5,-110,1.5,-110
+2051,2025-09-05 10:42:42 EDT,cd2e0964817c30ad3f5144ea49b55f2b,2025-11-20,20:15,Buffalo Bills,Houston Texans,Houston Texans,160,Buffalo Bills,-192,46.5,-3.5,-110,3.5,-110
+2052,2025-09-05 10:42:42 EDT,7159d60c7a31c7d593167637723d7663,2025-11-23,13:0,New York Jets,Baltimore Ravens,New York Jets,455,Baltimore Ravens,-625,44.5,11.5,-110,-11.5,-110
+2053,2025-09-05 10:42:42 EDT,c8913b70b63ae247f23a4e1dec08c668,2025-11-23,13:0,Pittsburgh Steelers,Chicago Bears,Pittsburgh Steelers,114,Chicago Bears,-135,44.5,2.5,-110,-2.5,-110
+2054,2025-09-05 10:42:42 EDT,1a8f3d70399a5cad83c95196795ed77b,2025-11-23,13:0,New England Patriots,Cincinnati Bengals,New England Patriots,185,Cincinnati Bengals,-225,47.5,4.5,-110,-4.5,-110
+2055,2025-09-05 10:42:42 EDT,535bbe97d4e56494b039ade88459c338,2025-11-23,13:0,New York Giants,Detroit Lions,New York Giants,320,Detroit Lions,-410,45.5,8.5,-110,-8.5,-110
+2056,2025-09-05 10:42:42 EDT,91019a528f43cd28965fdc68a3f3ef85,2025-11-23,13:0,Minnesota Vikings,Green Bay Packers,Minnesota Vikings,154,Green Bay Packers,-185,45.5,3.5,-110,-3.5,-110
+2057,2025-09-05 10:42:42 EDT,8b39d8dc550ced94f9faa91878ebf6b6,2025-11-23,13:0,Indianapolis Colts,Kansas City Chiefs,Indianapolis Colts,350,Kansas City Chiefs,-455,45.5,9.5,-110,-9.5,-110
+2058,2025-09-05 10:42:42 EDT,0ff4e68cf39cc57ca7cf1276e4a44d2f,2025-11-23,13:0,Seattle Seahawks,Tennessee Titans,Tennessee Titans,105,Seattle Seahawks,-125,44.5,-1.5,-110,1.5,-110
+2059,2025-09-05 10:42:42 EDT,e32e0030899c06fdf2c74745ca27d85a,2025-11-23,16:5,Jacksonville Jaguars,Arizona Cardinals,Jacksonville Jaguars,136,Arizona Cardinals,-162,47.5,3.0,-110,-3.0,-110
+2060,2025-09-05 10:42:42 EDT,27f50ddbc4c3fbad10398c5187a28dc7,2025-11-23,16:5,Cleveland Browns,Las Vegas Raiders,Cleveland Browns,154,Las Vegas Raiders,-185,41.5,3.5,-110,-3.5,-110
+2061,2025-09-05 10:42:42 EDT,8c2d6a56aa63f42227f18a18fc3d2146,2025-11-23,16:25,Atlanta Falcons,New Orleans Saints,New Orleans Saints,110,Atlanta Falcons,-130,43.5,-1.5,-115,1.5,-105
+2062,2025-09-05 10:42:42 EDT,9e7119f5a24471c39145663b84f100b2,2025-11-23,20:20,Tampa Bay Buccaneers,Los Angeles Rams,Tampa Bay Buccaneers,120,Los Angeles Rams,-142,47.5,2.5,-105,-2.5,-115
+2063,2025-09-05 10:42:42 EDT,90391be251d876bb41d36978a43c7ac2,2025-11-24,20:15,Carolina Panthers,San Francisco 49ers,Carolina Panthers,250,San Francisco 49ers,-310,46.5,7.0,-115,-7.0,-105
+2064,2025-09-05 10:42:42 EDT,fe2eb07797580740af78037ab498198e,2025-11-27,13:0,Green Bay Packers,Detroit Lions,Green Bay Packers,124,Detroit Lions,-148,48.5,2.5,-110,-2.5,-110
+2065,2025-09-05 10:42:42 EDT,883a79a306b312fad75ebf04b441b4da,2025-11-27,20:20,Cincinnati Bengals,Baltimore Ravens,Cincinnati Bengals,200,Baltimore Ravens,-245,49.5,5.5,-110,-5.5,-110
+2066,2025-09-05 10:42:42 EDT,c0d324e29ce58b36bdc77564f7aae56f,2025-11-30,13:0,Arizona Cardinals,Tampa Bay Buccaneers,Arizona Cardinals,154,Tampa Bay Buccaneers,-185,48.5,3.5,-110,-3.5,-110
+2067,2025-09-05 10:42:42 EDT,9da608f5bdae527b280abd61e47a110b,2025-11-30,13:0,Atlanta Falcons,New York Jets,New York Jets,105,Atlanta Falcons,-125,43.5,-1.5,-110,1.5,-110
+2068,2025-09-05 10:42:42 EDT,67e51d17848485bed8737bd7043a275a,2025-11-30,13:0,Los Angeles Rams,Carolina Panthers,Carolina Panthers,154,Los Angeles Rams,-185,45.5,-3.5,-110,3.5,-110
+2069,2025-09-05 10:42:42 EDT,36fcf5ca155a5dcd2f7a87fd2a985b02,2025-11-30,13:0,San Francisco 49ers,Cleveland Browns,Cleveland Browns,210,San Francisco 49ers,-258,42.5,-6.0,-110,6.0,-110
+2070,2025-09-05 10:42:42 EDT,fa46c661007f5f0cbbf6abf939ac9d51,2025-11-30,13:0,Houston Texans,Indianapolis Colts,Indianapolis Colts,105,Houston Texans,-125,44.5,-1.5,-110,1.5,-110
+2071,2025-09-05 10:42:42 EDT,61e1e459b2ddafd43e8808d4f40c01d9,2025-11-30,13:0,Jacksonville Jaguars,Tennessee Titans,Tennessee Titans,105,Jacksonville Jaguars,-125,45.5,-1.5,-110,1.5,-110
+2072,2025-09-05 10:42:42 EDT,e3c9bfba57bbe784481d881ea3b4519d,2025-11-30,13:0,New Orleans Saints,Miami Dolphins,New Orleans Saints,210,Miami Dolphins,-258,44.5,6.0,-110,-6.0,-110
+2073,2025-09-05 10:42:42 EDT,6f956074c4df48e7b07a3286a6c6ed2a,2025-11-30,16:5,Minnesota Vikings,Seattle Seahawks,Minnesota Vikings,105,Seattle Seahawks,-125,43.5,1.5,-115,-1.5,-105
+2074,2025-09-05 10:42:42 EDT,365a766a3862bc47a5455dc3b097421e,2025-11-30,16:25,Buffalo Bills,Pittsburgh Steelers,Pittsburgh Steelers,180,Buffalo Bills,-218,46.5,-4.5,-115,4.5,-105
+2075,2025-09-05 10:42:42 EDT,76ac5a8d2c8679ae6ea8861114791bd8,2025-11-30,16:25,Las Vegas Raiders,Los Angeles Chargers,Las Vegas Raiders,225,Los Angeles Chargers,-278,44.5,6.5,-110,-6.5,-110
+2076,2025-09-05 10:42:42 EDT,9c040de8f1dfc3ddee20e0d65c9402de,2025-11-30,20:20,Denver Broncos,Washington Commanders,Denver Broncos,114,Washington Commanders,-135,46.5,2.5,-110,-2.5,-110
+2077,2025-09-05 10:42:42 EDT,3e65786eddd4c7aee9e7f2504f6fdedc,2025-12-1,20:15,New York Giants,New England Patriots,New York Giants,140,New England Patriots,-166,42.5,3.0,-105,-3.0,-115
+2078,2025-09-05 10:42:42 EDT,f0bdd27bbed46dfc3d0657500c95a96c,2025-12-7,13:0,Seattle Seahawks,Atlanta Falcons,Seattle Seahawks,105,Atlanta Falcons,-125,45.5,1.5,-108,-1.5,-112
+2079,2025-09-05 10:42:42 EDT,4fead7bd0592ec121cc3baf72e3e21e0,2025-12-7,13:0,Pittsburgh Steelers,Baltimore Ravens,Pittsburgh Steelers,320,Baltimore Ravens,-410,46.5,8.5,-110,-8.5,-110
+2080,2025-09-05 10:42:42 EDT,5b1211b476d0afa2b57133c9603583b6,2025-12-7,13:0,Chicago Bears,Green Bay Packers,Chicago Bears,164,Green Bay Packers,-198,46.5,3.5,-105,-3.5,-115
+2081,2025-09-05 10:42:42 EDT,f95be6b9bd8ce1208f766cbaae8a4822,2025-12-7,13:0,Tennessee Titans,Cleveland Browns,Tennessee Titans,105,Cleveland Browns,-125,41.5,1.5,-110,-1.5,-110
+2082,2025-09-05 10:42:42 EDT,4e289ac7d9b5663fd5a06881f2b1424d,2025-12-7,13:0,Indianapolis Colts,Jacksonville Jaguars,Indianapolis Colts,136,Jacksonville Jaguars,-162,46.5,3.0,-110,-3.0,-110
+2083,2025-09-05 10:42:42 EDT,c86a0783216d21040c87fce3aadd3336,2025-12-7,13:0,Miami Dolphins,New York Jets,New York Jets,105,Miami Dolphins,-125,43.5,-1.5,-110,1.5,-110
+2084,2025-09-05 10:42:42 EDT,58b16c4033587f5662ff365bce2dbb92,2025-12-7,13:0,Washington Commanders,Minnesota Vikings,Minnesota Vikings,105,Washington Commanders,-125,47.5,-1.5,-105,1.5,-115
+2085,2025-09-05 10:42:42 EDT,15555b4c7283dc6553e011dd6c8aea8d,2025-12-7,13:0,New Orleans Saints,Tampa Bay Buccaneers,New Orleans Saints,340,Tampa Bay Buccaneers,-440,45.5,9.5,-112,-9.5,-108
+2086,2025-09-05 10:42:42 EDT,d5fd126cbfea2ccd79962a17f0ef4463,2025-12-7,16:5,Denver Broncos,Las Vegas Raiders,Las Vegas Raiders,154,Denver Broncos,-185,43.5,-3.5,-110,3.5,-110
+2087,2025-09-05 10:42:42 EDT,12bbffdcd65d53436b56c68a811ca610,2025-12-7,16:25,Los Angeles Rams,Arizona Cardinals,Arizona Cardinals,102,Los Angeles Rams,-122,47.5,-1.5,-105,1.5,-115
+2088,2025-09-05 10:42:42 EDT,c67c327076a98a3a1c4a5eb32e5a80c2,2025-12-7,16:25,Cincinnati Bengals,Buffalo Bills,Cincinnati Bengals,200,Buffalo Bills,-245,49.5,5.5,-110,-5.5,-110
+2089,2025-09-05 10:42:42 EDT,4727a6cfcd3d604dbfcb898c5a4d40a6,2025-12-7,20:20,Houston Texans,Kansas City Chiefs,Houston Texans,225,Kansas City Chiefs,-278,45.5,6.5,-110,-6.5,-110
+2090,2025-09-05 10:42:42 EDT,08bfd9cd8115339250817cc66a8b3cba,2025-12-11,20:15,Atlanta Falcons,Tampa Bay Buccaneers,Atlanta Falcons,195,Tampa Bay Buccaneers,-238,47.5,5.5,-108,-5.5,-112
+2091,2025-09-05 10:42:42 EDT,a360e4c43576d22057ff90d818928066,2025-12-14,13:0,Arizona Cardinals,Houston Texans,Arizona Cardinals,114,Houston Texans,-135,45.5,2.5,-115,-2.5,-105
+2092,2025-09-05 10:42:42 EDT,1aa1fb046f11dadb32dad77d5baf552e,2025-12-14,13:0,Baltimore Ravens,Cincinnati Bengals,Cincinnati Bengals,114,Baltimore Ravens,-135,49.5,-2.5,-110,2.5,-110
+2093,2025-09-05 10:42:42 EDT,c127c7a2426ec655e18ca9c394068f6c,2025-12-14,13:0,Buffalo Bills,New England Patriots,New England Patriots,180,Buffalo Bills,-218,46.5,-4.5,-110,4.5,-110
+2094,2025-09-05 10:42:42 EDT,8261541e6b9b32537bd0821ef2c0a05d,2025-12-14,13:0,Cleveland Browns,Chicago Bears,Cleveland Browns,250,Chicago Bears,-310,42.5,7.0,-110,-7.0,-110
+2095,2025-09-05 10:42:42 EDT,0f0601c020a478f5d9f81f06a141c2c8,2025-12-14,13:0,New York Jets,Jacksonville Jaguars,New York Jets,180,Jacksonville Jaguars,-218,43.5,4.5,-110,-4.5,-110
+2096,2025-09-05 10:42:42 EDT,cd5151f8a1e7fcba4901929e77b94acd,2025-12-14,13:0,Los Angeles Chargers,Kansas City Chiefs,Los Angeles Chargers,180,Kansas City Chiefs,-218,45.5,4.5,-110,-4.5,-110
+2097,2025-09-05 10:42:42 EDT,3aba4bb1fe41ecd45f934116fcc90c3f,2025-12-14,13:0,Washington Commanders,New York Giants,New York Giants,180,Washington Commanders,-218,45.5,-4.5,-110,4.5,-110
+2098,2025-09-05 10:42:42 EDT,f3fd2782d4d03bd12a177fbbad17005b,2025-12-14,16:25,Carolina Panthers,New Orleans Saints,New Orleans Saints,105,Carolina Panthers,-125,43.5,-1.5,-110,1.5,-110
+2099,2025-09-05 10:42:42 EDT,2ec8a387d0c337aeffac3f956c292e87,2025-12-14,16:25,Green Bay Packers,Denver Broncos,Green Bay Packers,102,Denver Broncos,-122,44.5,1.5,-112,-1.5,-108
+2100,2025-09-05 10:42:42 EDT,bd299b70476643cff05f2be58e12301a,2025-12-14,16:25,Detroit Lions,Los Angeles Rams,Los Angeles Rams,102,Detroit Lions,-122,48.5,-1.5,-105,1.5,-115
+2101,2025-09-05 10:42:42 EDT,f7343baf47dcf23e672799d00788173d,2025-12-14,16:25,Indianapolis Colts,Seattle Seahawks,Indianapolis Colts,154,Seattle Seahawks,-185,44.5,3.5,-110,-3.5,-110
+2102,2025-09-05 10:42:42 EDT,7ba03312d1012d9872de9999e496558f,2025-12-14,16:25,Tennessee Titans,San Francisco 49ers,Tennessee Titans,285,San Francisco 49ers,-360,45.5,7.5,-110,-7.5,-110
+2103,2025-09-05 10:42:42 EDT,ba5d065a7e9ea9afe54642036f2ec83a,2025-12-15,20:15,Miami Dolphins,Pittsburgh Steelers,Miami Dolphins,130,Pittsburgh Steelers,-155,44.5,3.0,-110,-3.0,-110
+2104,2025-09-05 10:42:42 EDT,ac7881cc5a498c5b72680498d3fa8f6e,2025-12-18,20:15,Los Angeles Rams,Seattle Seahawks,Seattle Seahawks,105,Los Angeles Rams,-125,44.5,-1.5,-110,1.5,-110
+2105,2025-09-05 10:42:42 EDT,9f70d98bc6918dc8e21f329405b649fe,2025-12-20,13:0,Green Bay Packers,Chicago Bears,Chicago Bears,114,Green Bay Packers,-135,45.5,-2.5,-110,2.5,-110
+2106,2025-09-05 10:42:42 EDT,a0476b027679a1670f21e8b75a860ab9,2025-12-21,13:0,New England Patriots,Baltimore Ravens,New England Patriots,330,Baltimore Ravens,-425,46.5,8.5,-110,-8.5,-110
+2107,2025-09-05 10:42:42 EDT,2557976e0e66ab698539b543de125469,2025-12-21,13:0,Buffalo Bills,Cleveland Browns,Cleveland Browns,320,Buffalo Bills,-410,43.5,-8.5,-110,8.5,-110
+2108,2025-09-05 10:42:42 EDT,d056f31082bdea4d018a26ba274b8430,2025-12-21,13:0,Tampa Bay Buccaneers,Carolina Panthers,Carolina Panthers,154,Tampa Bay Buccaneers,-185,47.5,-3.5,-110,3.5,-110
+2109,2025-09-05 10:42:42 EDT,0cce34b9a49c4c6bdc1e65449e37a0f9,2025-12-21,13:0,Kansas City Chiefs,Tennessee Titans,Tennessee Titans,260,Kansas City Chiefs,-325,44.5,-7.0,-120,7.0,100
+2110,2025-09-05 10:42:42 EDT,3db6ba91d2a72ada8843d5a0517bff27,2025-12-21,13:0,Minnesota Vikings,New York Giants,New York Giants,114,Minnesota Vikings,-135,42.5,-2.5,-110,2.5,-110
+2111,2025-09-05 10:42:42 EDT,aa5b25e85d1ad6540d7a5ae04b73ddfd,2025-12-21,13:0,New York Jets,New Orleans Saints,New York Jets,105,New Orleans Saints,-125,41.5,1.5,-110,-1.5,-110
+2112,2025-09-05 10:42:42 EDT,7d71a0d3cc2a04eb35f1a725104217b5,2025-12-21,16:5,Atlanta Falcons,Arizona Cardinals,Atlanta Falcons,154,Arizona Cardinals,-185,46.5,3.5,-110,-3.5,-110
+2113,2025-09-05 10:42:42 EDT,93c002f0a42d1b57f3bbabdcfe24ab97,2025-12-21,16:5,Jacksonville Jaguars,Denver Broncos,Jacksonville Jaguars,200,Denver Broncos,-245,45.5,5.5,-110,-5.5,-110
+2114,2025-09-05 10:42:42 EDT,a03f89d3aaadf737deb09be24986d5bf,2025-12-21,16:25,Pittsburgh Steelers,Detroit Lions,Pittsburgh Steelers,210,Detroit Lions,-258,45.5,6.0,-110,-6.0,-110
+2115,2025-09-05 10:42:42 EDT,47a54fb60f7b79179bc80e18a7c5de81,2025-12-21,16:25,Las Vegas Raiders,Houston Texans,Las Vegas Raiders,170,Houston Texans,-205,43.5,4.5,-110,-4.5,-110
+2116,2025-09-05 10:42:42 EDT,945286798abb5081432aef109df29778,2025-12-21,20:20,Cincinnati Bengals,Miami Dolphins,Miami Dolphins,105,Cincinnati Bengals,-125,48.5,-1.5,-110,1.5,-110
+2117,2025-09-05 10:42:42 EDT,2dd4521ee298fa2c6f0ab009c182aae9,2025-12-22,20:15,San Francisco 49ers,Indianapolis Colts,Indianapolis Colts,140,San Francisco 49ers,-166,46.5,-3.0,-115,3.0,-105
+2118,2025-09-05 10:42:42 EDT,29da148b927afea00a7774b2a8ee68e7,2025-12-25,16:30,Detroit Lions,Minnesota Vikings,Minnesota Vikings,120,Detroit Lions,-142,46.5,-2.5,-110,2.5,-110
+2119,2025-09-05 10:42:42 EDT,29164a99a917051c6e1778270033d362,2025-12-25,20:15,Denver Broncos,Kansas City Chiefs,Denver Broncos,170,Kansas City Chiefs,-205,44.5,4.5,-110,-4.5,-110
+2120,2025-09-05 10:42:42 EDT,7aeff5d5bb88b218c7d72f267a90eb7f,2025-12-28,13:0,Arizona Cardinals,Cincinnati Bengals,Arizona Cardinals,154,Cincinnati Bengals,-185,47.5,3.5,-110,-3.5,-110
+2121,2025-09-05 10:42:42 EDT,85bead6a72a1952cdd737dcecb55446b,2025-12-28,13:0,Baltimore Ravens,Green Bay Packers,Green Bay Packers,105,Baltimore Ravens,-125,46.5,-1.5,-110,1.5,-110
+2122,2025-09-05 10:42:42 EDT,8e7a26b4026e4eca7394cc523fa10a64,2025-12-28,13:0,Seattle Seahawks,Carolina Panthers,Carolina Panthers,105,Seattle Seahawks,-125,43.5,-1.5,-110,1.5,-110
+2123,2025-09-05 10:42:42 EDT,e6721ef0adb705a8abcbedc2ef6dfb3a,2025-12-28,13:0,Pittsburgh Steelers,Cleveland Browns,Cleveland Browns,114,Pittsburgh Steelers,-135,40.5,-2.5,-110,2.5,-110
+2124,2025-09-05 10:42:42 EDT,832c36c4b6d5132e88cf11391797c194,2025-12-28,13:0,Houston Texans,Los Angeles Chargers,Houston Texans,154,Los Angeles Chargers,-185,43.5,3.5,-110,-3.5,-110
+2125,2025-09-05 10:42:42 EDT,f960b282ac197513c9d80bd28baa7e38,2025-12-28,13:0,Jacksonville Jaguars,Indianapolis Colts,Jacksonville Jaguars,105,Indianapolis Colts,-125,45.5,1.5,-110,-1.5,-110
+2126,2025-09-05 10:42:42 EDT,374166780155b8c14e867face95885ee,2025-12-28,13:0,Tampa Bay Buccaneers,Miami Dolphins,Miami Dolphins,105,Tampa Bay Buccaneers,-125,47.5,-1.5,-110,1.5,-110
+2127,2025-09-05 10:42:42 EDT,95bdb9f5b22f0491bfba1381637c5009,2025-12-28,13:0,New England Patriots,New York Jets,New York Jets,105,New England Patriots,-125,41.5,-1.5,-110,1.5,-110
+2128,2025-09-05 10:42:42 EDT,d75c88e4fb7650ab0577264980bdf98f,2025-12-28,13:0,New Orleans Saints,Tennessee Titans,New Orleans Saints,145,Tennessee Titans,-175,42.5,3.5,-115,-3.5,-105
+2129,2025-09-05 10:42:42 EDT,dd4aec72c5175cb8cea67d5edc7b1990,2025-12-28,16:25,New York Giants,Las Vegas Raiders,New York Giants,114,Las Vegas Raiders,-135,42.5,2.5,-110,-2.5,-110
+2130,2025-09-05 10:42:42 EDT,b0dedebd28a82f8f38398033356e9015,2025-12-28,20:20,Chicago Bears,San Francisco 49ers,Chicago Bears,160,San Francisco 49ers,-192,46.5,3.5,-110,-3.5,-110
+2131,2025-09-05 10:42:42 EDT,ea5fe5f603483c8d46f83081cf780397,2025-12-29,20:20,Los Angeles Rams,Atlanta Falcons,Atlanta Falcons,140,Los Angeles Rams,-166,46.5,-3.0,-110,3.0,-110
+2132,2025-09-05 10:42:42 EDT,2f4cf01e2db22ed928eb8f0357a74007,2026-1-4,13:0,Arizona Cardinals,Los Angeles Rams,Arizona Cardinals,170,Los Angeles Rams,-205,45.5,4.5,-110,-4.5,-110
+2133,2025-09-05 10:42:42 EDT,7906052ca20e6daddf755c7fe3932887,2026-1-4,13:0,New Orleans Saints,Atlanta Falcons,New Orleans Saints,190,Atlanta Falcons,-230,,4.5,-105,-4.5,-115
+2134,2025-09-05 10:42:42 EDT,f609b38fe2bf0687644ad8603e28220b,2026-1-4,13:0,Baltimore Ravens,Pittsburgh Steelers,Pittsburgh Steelers,180,Baltimore Ravens,-218,,-4.5,-110,4.5,-110
+2135,2025-09-05 10:42:42 EDT,bd5134e8440a2b12cc8ac98ab4f18093,2026-1-4,13:0,New York Jets,Buffalo Bills,New York Jets,320,Buffalo Bills,-410,,9.5,-110,-9.5,-110
+2136,2025-09-05 10:42:42 EDT,4fd1173e2f647cbbebf6713d39693089,2026-1-4,13:0,Carolina Panthers,Tampa Bay Buccaneers,Carolina Panthers,245,Tampa Bay Buccaneers,-305,46.5,7.0,-115,-7.0,-105
+2137,2025-09-05 10:42:42 EDT,1a5451b8f0d74f90937c52bec447dc40,2026-1-4,13:0,Detroit Lions,Chicago Bears,Chicago Bears,105,Detroit Lions,-125,,-1.5,-110,1.5,-110
+2138,2025-09-05 10:42:42 EDT,dad5ec44b4df2b91138872aeb4454e1e,2026-1-4,13:0,Cleveland Browns,Cincinnati Bengals,Cleveland Browns,320,Cincinnati Bengals,-410,43.5,8.5,-110,-8.5,-110
+2139,2025-09-05 10:42:42 EDT,41fc7f3165cc9dfdb47c25a9decd7c9b,2026-1-4,13:0,Green Bay Packers,Minnesota Vikings,Minnesota Vikings,105,Green Bay Packers,-125,44.5,-1.5,-105,1.5,-115
+2140,2025-09-05 10:42:42 EDT,26b8cf55eeac1bb05b585132f7dcc0e3,2026-1-4,13:0,Indianapolis Colts,Houston Texans,Indianapolis Colts,180,Houston Texans,-218,,4.5,-110,-4.5,-110
+2141,2025-09-05 10:42:42 EDT,623e9172767ca231241e2313bbee095e,2026-1-4,13:0,Tennessee Titans,Jacksonville Jaguars,Tennessee Titans,180,Jacksonville Jaguars,-218,43.5,4.5,-110,-4.5,-110
+2142,2025-09-05 10:42:42 EDT,de4ae000f7f94eecf9d827eabff2991b,2026-1-4,13:0,Kansas City Chiefs,Las Vegas Raiders,Las Vegas Raiders,205,Kansas City Chiefs,-250,,-6.0,-110,6.0,-110
+2143,2025-09-05 10:42:42 EDT,d242576b25f56b3f598044c9abfb4df0,2026-1-4,13:0,Miami Dolphins,New England Patriots,Miami Dolphins,114,New England Patriots,-135,,2.5,-110,-2.5,-110
+2144,2025-09-05 10:42:42 EDT,c624c615075899bb7be6a39e5eea3b2b,2026-1-4,13:0,Seattle Seahawks,San Francisco 49ers,Seattle Seahawks,180,San Francisco 49ers,-218,44.5,4.5,-110,-4.5,-110
+2145,2025-09-05 10:42:42 EDT,30621f6a1072712bee795c15eafe9768,2026-1-4,16:5,Los Angeles Chargers,Denver Broncos,Los Angeles Chargers,114,Denver Broncos,-135,42.5,2.5,-110,-2.5,-110
