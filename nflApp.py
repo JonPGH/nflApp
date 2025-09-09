@@ -207,8 +207,10 @@ if check_password():
         implied_totals = pd.read_csv(f'{file_path}/implied_totals.csv')
         nfl_week_maps = pd.read_csv(f'{file_path}/nfl_week_mapping.csv')
         team_name_change = pd.read_csv(f'{file_path}/nflteamnamechange.csv')
+        saltrack = pd.read_csv(f'{file_path}/DKSalTracking.csv')
+        saltrack2 = pd.read_csv(f'{file_path}/DKSalTracking2.csv')
 
-        return logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change
+        return logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2
     
     def load_team_logos_dumb():
         base_dir = os.path.dirname(__file__)
@@ -281,7 +283,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change = load_data()
+    logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2 = load_data()
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
 
     all_game_times = schedule[['ID','Date','Time']]
@@ -340,7 +342,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game", "Season Projections","Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game", "Season Projections","Salary Tracking", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -670,6 +672,52 @@ if check_password():
         st.dataframe(show_filtered_data, hide_index=True, height=750)
         csv = convert_df_to_csv(show_filtered_data)
         st.download_button(label="Download CSV", data=csv, file_name='JA Projections.csv', mime='text/csv')
+
+    if tab == "Salary Tracking":
+        st.markdown("<h1><center>DraftKings Salary Tracking</h1></center>", unsafe_allow_html=True)
+        saltrack = saltrack.drop(['Unnamed: 0'],axis=1)
+        saltrack2 = saltrack2.drop(['Unnamed: 0'],axis=1)
+
+        #st.markdown("<h3><center>Full Table</h3></center>", unsafe_allow_html=True)
+        player_name_list = list(saltrack['Player'])
+        b1,b2,b3 = st.columns([1,1,1])
+        with b2:
+            sal_select = st.selectbox('Select Player', ['All'] + player_name_list)
+        if sal_select == 'All':
+            st.dataframe(saltrack, hide_index=True, height=1000)
+        else:
+            psaldf = saltrack[saltrack['Player']==sal_select]
+            psaldf2 = saltrack2[saltrack2['Player']==sal_select]
+            minsal = np.min(psaldf2['Sal'])
+            maxsal = np.max(psaldf2['Sal'])
+            p_weeklist = list(psaldf2['Week'])
+            st.dataframe(psaldf, hide_index=True)
+
+            sal_plot_col1, sal_plot_col2, sal_plot_col3 = st.columns([1,2,1])
+            with sal_plot_col2:
+                fig, ax = plt.subplots(figsize=(10, 4))
+                ax.plot(psaldf2['Week'], psaldf2['Sal'], color='red', linewidth=3, marker='o')  # Thicker red line
+                ax.set_xlabel('Week')
+                ax.set_ylabel('Salary')
+                ax.set_title(f'{sal_select} Price by Week')
+                ax.set_ylim(minsal-500, maxsal+500)
+                ax.grid(True)
+                ax.set_xticks(p_weeklist)
+
+                # Add annotations for salary values
+                for i, row in psaldf2.iterrows():
+                    ax.annotate(row['Sal'], (row['Week'], row['Sal']), textcoords="offset points", xytext=(0,10), ha='center')
+
+                # Display the plot in Streamlit
+                st.pyplot(fig)
+
+                        
+
+            
+        
+
+
+
 
     if tab == "ADP Data":
         adp_data = adp_data.sort_values(by='Date')
