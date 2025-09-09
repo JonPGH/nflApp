@@ -1,0 +1,818 @@
+,Player,Pos,1,2
+0,49ers,DST,2900.0,3600.0
+1,A.J. Brown,WR,6900.0,6600.0
+2,A.J. Dillon,RB,4000.0,4100.0
+3,A.J. Henning,WR,3000.0,3000.0
+4,A.T. Perry,WR,3000.0,3000.0
+5,AJ Barner,TE,2800.0,2800.0
+6,Aaron Jones Sr.,RB,5500.0,5300.0
+7,Aaron Rodgers,QB,5200.0,5500.0
+8,Adam Prentice,RB,4000.0,4000.0
+9,Adam Thielen,WR,4700.0,4800.0
+10,Adam Trautman,TE,2800.0,3000.0
+11,Adonai Mitchell,WR,3400.0,3100.0
+12,Adrian Martinez,QB,,4000.0
+13,Ahmani Marshall,RB,4000.0,4000.0
+14,Aidan O'Connell,QB,4200.0,4000.0
+15,Ainias Smith,WR,3000.0,3000.0
+16,Albert Okwuegbunam Jr.,TE,2500.0,2500.0
+17,Alec Ingold,RB,4000.0,4000.0
+18,Alec Pierce,WR,4400.0,4100.0
+19,Alex Bachman,WR,3000.0,3000.0
+20,Alexander Mattison,RB,4400.0,4000.0
+21,Allen Lazard,WR,3900.0,3400.0
+22,Alvin Kamara,RB,6300.0,6100.0
+23,Amar Johnson,RB,,4000.0
+24,Amari Cooper,WR,4600.0,
+25,Amon-Ra St. Brown,WR,7100.0,7000.0
+26,Andre Baccellia,WR,3000.0,3000.0
+27,Andrei Iosivas,WR,3700.0,3500.0
+28,Andrew Beck,RB,4000.0,4000.0
+29,Andrew DePaola,TE,2500.0,2500.0
+30,Andy Dalton,QB,4700.0,4100.0
+31,Anthony Gould,WR,3000.0,3000.0
+32,Anthony Miller,WR,3000.0,3000.0
+33,Anthony Richardson Sr.,QB,5100.0,4700.0
+34,Anthony Tyus III,RB,4000.0,
+35,Antonio Gibson,RB,4500.0,4500.0
+36,Arian Smith,WR,3000.0,3000.0
+37,Ashton Dulin,WR,3000.0,3000.0
+38,Ashton Jeanty,RB,7000.0,7000.0
+39,Audric Estime,RB,,4000.0
+40,Austin Ekeler,RB,4800.0,4800.0
+41,Austin Hooper,TE,2900.0,3000.0
+42,Austin Trammell,WR,,3000.0
+43,Bailey Zappe,QB,4000.0,4000.0
+44,Baker Mayfield,QB,6600.0,6500.0
+45,Bears,DST,2400.0,2500.0
+46,Beaux Collins,WR,3000.0,3000.0
+47,Ben Sims,TE,2500.0,2500.0
+48,Ben Sinnott,TE,2500.0,2500.0
+49,Ben Skowronek,WR,3000.0,3300.0
+50,Ben VanSumeren,RB,4000.0,4000.0
+51,Ben Yurosek,TE,2500.0,2500.0
+52,Bengals,DST,3600.0,2900.0
+53,Bhayshul Tuten,RB,4400.0,4200.0
+54,Bijan Robinson,RB,8000.0,7900.0
+55,Bills,DST,3000.0,3300.0
+56,Blake Corum,RB,4500.0,4300.0
+57,Blake Whiteheart,TE,2500.0,2500.0
+58,Bo Nix,QB,6300.0,6100.0
+59,Brady Cook,QB,4000.0,4000.0
+60,Brady Russell,RB,4000.0,4000.0
+61,Braelon Allen,RB,4900.0,5200.0
+62,Brandin Cooks,WR,4100.0,4000.0
+63,Brandon Aiyuk,WR,4800.0,3000.0
+64,Brandon Allen,QB,4000.0,4000.0
+65,Brandon Johnson,WR,3000.0,
+66,Brandon Smith,WR,3000.0,3000.0
+67,Brashard Smith,RB,4000.0,4000.0
+68,Braxton Berrios,WR,3000.0,3000.0
+69,Brayden Willis,TE,2500.0,2500.0
+70,Breece Hall,RB,6400.0,6200.0
+71,Brenden Bates,TE,,2500.0
+72,Brennan Presley,WR,3000.0,3000.0
+73,Brenton Strange,TE,3300.0,3600.0
+74,Brett Rypien,QB,4000.0,4000.0
+75,Brevin Jordan,TE,2500.0,2500.0
+76,Brevyn Spann-Ford,TE,2500.0,2500.0
+77,Brian Robinson Jr.,RB,5800.0,5000.0
+78,Brian Thomas Jr.,WR,6800.0,6700.0
+79,Britain Covey,WR,,3000.0
+80,British Brooks,RB,4000.0,4000.0
+81,Brittain Brown,RB,4000.0,4000.0
+82,Brock Bowers,TE,6500.0,6300.0
+83,Brock Lampe,RB,4000.0,4000.0
+84,Brock Purdy,QB,6200.0,6300.0
+85,Brock Wright,TE,2500.0,2500.0
+86,Broncos,DST,3800.0,3500.0
+87,Browns,DST,2300.0,2200.0
+88,Bryce Ford-Wheaton,WR,3000.0,3000.0
+89,Bryce Oliver,WR,3000.0,3000.0
+90,Bryce Pierre,TE,2500.0,2500.0
+91,Bryce Young,QB,5700.0,5100.0
+92,Brycen Tremayne,WR,3000.0,3000.0
+93,Bryson Nesbit,TE,2500.0,2500.0
+94,Bub Means,WR,3100.0,3000.0
+95,Buccaneers,DST,3000.0,2800.0
+96,Bucky Irving,RB,7100.0,7200.0
+97,C.J. Beathard,QB,,4000.0
+98,C.J. Ham,RB,4000.0,4000.0
+99,C.J. Stroud,QB,6000.0,5500.0
+100,CJ Dippre,TE,2500.0,2500.0
+101,Cade McDonald,WR,3000.0,3000.0
+102,Cade Otton,TE,3800.0,3500.0
+103,Cade Stover,TE,2600.0,2700.0
+104,Caleb Lohner,TE,2500.0,2500.0
+105,Caleb Williams,QB,5700.0,5400.0
+106,Calvin Austin III,WR,4400.0,4700.0
+107,Calvin Ridley,WR,5000.0,4900.0
+108,Cam Grandy,TE,2500.0,2500.0
+109,Cam Miller,QB,4000.0,4000.0
+110,Cam Skattebo,RB,5100.0,4800.0
+111,Cam Ward,QB,5000.0,4900.0
+112,Cameron Latu,TE,2500.0,2500.0
+113,Cardinals,DST,3500.0,3400.0
+114,Carlos Washington Jr.,RB,4000.0,4000.0
+115,Carson Steele,RB,4000.0,4000.0
+116,Carson Wentz,QB,4000.0,4000.0
+117,Carter Bradley,QB,4000.0,
+118,Carter Runyon,TE,2500.0,2500.0
+119,Case Keenum,QB,4000.0,4000.0
+120,Casey Washington,WR,3000.0,3100.0
+121,Cedric Tillman,WR,4400.0,4300.0
+122,Cedrick Wilson Jr.,WR,3000.0,3000.0
+123,CeeDee Lamb,WR,7900.0,7800.0
+124,Chandler Brayboy,WR,3000.0,3000.0
+125,Chargers,DST,2600.0,3200.0
+126,Charlie Jones,WR,3000.0,3000.0
+127,Charlie Kolar,TE,2500.0,2500.0
+128,Charlie Woerner,TE,2500.0,2500.0
+129,Chase Brown,RB,6600.0,6800.0
+130,Chiefs,DST,3100.0,2800.0
+131,Chig Okonkwo,TE,3400.0,3300.0
+132,Chimere Dike,WR,3000.0,3000.0
+133,Chris Blair,WR,3000.0,3000.0
+134,Chris Brooks,RB,4000.0,4000.0
+135,Chris Collier,RB,4000.0,4000.0
+136,Chris Godwin Jr.,WR,5600.0,5500.0
+137,Chris Manhertz,TE,2500.0,2500.0
+138,Chris Moore,WR,3000.0,3000.0
+139,Chris Oladokun,QB,4000.0,4000.0
+140,Chris Olave,WR,5100.0,4900.0
+141,Chris Rodriguez Jr.,RB,4000.0,4000.0
+142,Christian Kirk,WR,4700.0,4700.0
+143,Christian McCaffrey,RB,7300.0,7500.0
+144,Christian Watson,WR,4000.0,3000.0
+145,Chuba Hubbard,RB,6000.0,6000.0
+146,Clayton Tune,QB,,4000.0
+147,Clyde Edwards-Helaire,RB,,4000.0
+148,Cody Schrader,RB,4000.0,4000.0
+149,Cody White,WR,3000.0,3000.0
+150,Colby Parkinson,TE,2500.0,2500.0
+151,Cole Kmet,TE,3300.0,3200.0
+152,Coleman Owen,WR,3000.0,3000.0
+153,Colson Yankoff,TE,2500.0,2500.0
+154,Colston Loveland,TE,3800.0,3700.0
+155,Colts,DST,2800.0,2600.0
+156,Commanders,DST,3700.0,2700.0
+157,Connor Bazelak,QB,4000.0,4000.0
+158,Connor Heyward,TE,2500.0,2500.0
+159,Cooper Kupp,WR,5300.0,5000.0
+160,Cooper Rush,QB,4000.0,4000.0
+161,Courtland Sutton,WR,6000.0,6300.0
+162,Courtney Jackson,WR,,3000.0
+163,Cowboys,DST,2500.0,3000.0
+164,Craig Reynolds,RB,4000.0,4000.0
+165,Curtis Samuel,WR,3300.0,3200.0
+166,D'Andre Swift,RB,5900.0,5700.0
+167,D'Ernest Johnson,RB,4000.0,4000.0
+168,D.J. Montgomery,WR,3000.0,3000.0
+169,DJ Giddens,RB,4800.0,4700.0
+170,DJ Moore,WR,6100.0,5600.0
+171,DJ Uiagalelei,QB,4000.0,4000.0
+172,DK Metcalf,WR,5900.0,5900.0
+173,Da'Quan Felton,WR,3000.0,3000.0
+174,Dak Prescott,QB,6000.0,5900.0
+175,Dalevon Campbell,WR,3000.0,3000.0
+176,Dallas Goedert,TE,4000.0,3800.0
+177,Dalton Kincaid,TE,3700.0,3700.0
+178,Dalton Schultz,TE,3500.0,3200.0
+179,Dameon Pierce,RB,4700.0,4200.0
+180,Damien Martinez,RB,4000.0,4000.0
+181,Daniel Bellinger,TE,2500.0,2500.0
+182,Daniel Jones,QB,5100.0,5200.0
+183,Dante Miller,RB,4000.0,4000.0
+184,Dare Ogunbowale,RB,4000.0,4000.0
+185,Dareke Young,WR,3000.0,3000.0
+186,Darius Cooper,WR,3000.0,3000.0
+187,Darius Slayton,WR,4000.0,3400.0
+188,Darnell Mooney,WR,5000.0,5000.0
+189,Darnell Washington,TE,2500.0,2500.0
+190,Darren Waller,TE,3500.0,3500.0
+191,Davante Adams,WR,6100.0,5900.0
+192,David Bell,WR,3000.0,3000.0
+193,David Martin-Robinson,TE,2500.0,2500.0
+194,David Montgomery,RB,5700.0,5400.0
+195,David Moore,WR,3000.0,3000.0
+196,David Njoku,TE,4700.0,4400.0
+197,David Sills V,WR,3000.0,3000.0
+198,Davis Allen,TE,2500.0,2600.0
+199,Davis Mills,QB,4500.0,4000.0
+200,Dawson Knox,TE,2700.0,2700.0
+201,Dayton Wade,WR,3000.0,3000.0
+202,De'Von Achane,RB,6900.0,6900.0
+203,DeAndre Carter,WR,3000.0,3000.0
+204,DeAndre Hopkins,WR,4200.0,4200.0
+205,DeMario Douglas,WR,4200.0,4300.0
+206,DeVonta Smith,WR,5900.0,5600.0
+207,Dee Eskridge,WR,3000.0,3000.0
+208,DeeJay Dallas,RB,,4000.0
+209,Deebo Samuel Sr.,WR,5200.0,5600.0
+210,Deion Hankins,RB,4000.0,4000.0
+211,Demarcus Robinson,WR,3900.0,3000.0
+212,Deneric Prince,RB,4000.0,4000.0
+213,Dennis Houston,WR,3000.0,3000.0
+214,Derius Davis,WR,3000.0,3000.0
+215,Derrick Henry,RB,7200.0,8200.0
+216,Deshaun Watson,QB,4000.0,4000.0
+217,Devaughn Vele,WR,3900.0,3200.0
+218,Devin Culp,TE,2500.0,2500.0
+219,Devin Duvernay,WR,,3000.0
+220,Devin Neal,RB,4000.0,4000.0
+221,Devin Singletary,RB,4600.0,4300.0
+222,Devontez Walker,WR,3000.0,3000.0
+223,Dillon Gabriel,QB,4900.0,4500.0
+224,Dolphins,DST,2700.0,2900.0
+225,Dominic Lovett,WR,3000.0,3000.0
+226,Donald Parham Jr.,TE,2500.0,2500.0
+227,Donovan Edwards,RB,4000.0,4000.0
+228,Dont'e Thornton Jr.,WR,3600.0,3900.0
+229,Dontae Fleming,WR,3000.0,3000.0
+230,Dontayvion Wicks,WR,3400.0,3200.0
+231,Dorian Singer,WR,3000.0,
+232,Drake Dabney,TE,,2500.0
+233,Drake London,WR,6500.0,6500.0
+234,Drake Maye,QB,5500.0,5200.0
+235,Drew Lock,QB,4300.0,4000.0
+236,Drew Ogletree,TE,2500.0,2500.0
+237,Drew Sample,TE,2500.0,2500.0
+238,Durham Smythe,TE,2500.0,2500.0
+239,Dyami Brown,WR,4300.0,4200.0
+240,Dylan Drummond,WR,3000.0,3000.0
+241,Dylan Laube,RB,4000.0,4000.0
+242,Dylan Sampson,RB,4900.0,5200.0
+243,E.J. Jenkins,TE,2500.0,2500.0
+244,Eagles,DST,3500.0,3000.0
+245,Easton Stick,QB,4000.0,4000.0
+246,Efton Chism III,WR,3000.0,3000.0
+247,Eli Pancol,WR,3000.0,
+248,Elic Ayomanor,WR,3100.0,3200.0
+249,Elijah Arroyo,TE,2700.0,2600.0
+250,Elijah Cooks,WR,3000.0,3000.0
+251,Elijah Higgins,TE,2500.0,2500.0
+252,Elijah Mitchell,RB,4000.0,4000.0
+253,Elijah Moore,WR,3500.0,3400.0
+254,Emanuel Wilson,RB,4200.0,4100.0
+255,Emari Demercado,RB,4000.0,4000.0
+256,Emeka Egbuka,WR,4600.0,5800.0
+257,Emory Jones,QB,4000.0,4000.0
+258,Eric Gray,RB,4000.0,4000.0
+259,Eric Saubert,TE,2500.0,2500.0
+260,Erick All Jr.,TE,2500.0,2500.0
+261,Erik Ezukanma,WR,3000.0,3000.0
+262,Evan Deckers,TE,2500.0,2500.0
+263,Evan Engram,TE,4500.0,4200.0
+264,Falcons,DST,2600.0,2500.0
+265,Feleipe Franks,TE,2500.0,2500.0
+266,Foster Moreau,TE,2700.0,2500.0
+267,Frank Gore Jr.,RB,4000.0,4000.0
+268,Gage Larvadain,WR,3000.0,3000.0
+269,Gardner Minshew II,QB,4000.0,4000.0
+270,Garrett Greene,WR,3000.0,3000.0
+271,Garrett Wilson,WR,6300.0,6500.0
+272,Gary Brightwell,RB,4000.0,4000.0
+273,Gavin Bartholomew,TE,2500.0,2500.0
+274,Gee Scott Jr.,TE,2500.0,
+275,Geno Smith,QB,5200.0,5300.0
+276,George Holani,RB,4000.0,4000.0
+277,George Kittle,TE,5800.0,5500.0
+278,George Pickens,WR,5800.0,5800.0
+279,Giants,DST,2300.0,2600.0
+280,Graham Mertz,QB,4000.0,4000.0
+281,Grant Calcaterra,TE,2700.0,2500.0
+282,Greg Dortch,WR,3500.0,3300.0
+283,Greg Dulcich,TE,2500.0,2500.0
+284,Gunnar Helm,TE,2600.0,2800.0
+285,Gunner Olszewski,WR,,3000.0
+286,Hal Presley III,WR,3000.0,
+287,Harold Fannin Jr.,TE,3100.0,3100.0
+288,Harrison Bryant,TE,2500.0,2500.0
+289,Hassan Haskins,RB,4000.0,4000.0
+290,Hayden Rucci,TE,2500.0,2500.0
+291,Hendon Hooker,QB,4000.0,4000.0
+292,Hollywood Brown,WR,4000.0,5200.0
+293,Hunter Dekkers,QB,4000.0,
+294,Hunter Henry,TE,3900.0,4000.0
+295,Hunter Long,TE,2500.0,2600.0
+296,Hunter Luepke,RB,4000.0,4000.0
+297,Hunter Renfrow,WR,,3400.0
+298,Ian Thomas,TE,2500.0,2500.0
+299,Ian Wheeler,RB,4000.0,
+300,Ihmir Smith-Marsette,WR,3000.0,3000.0
+301,Irv Smith Jr.,TE,2500.0,2500.0
+302,Irvin Charles,WR,3000.0,3000.0
+303,Isaac Guerendo,RB,5300.0,4500.0
+304,Isaac TeSlaa,WR,3100.0,3300.0
+305,Isaiah Bond,WR,3900.0,3300.0
+306,Isaiah Davis,RB,4000.0,4000.0
+307,Isaiah Likely,TE,3400.0,3200.0
+308,Isaiah Neyor,WR,3000.0,3000.0
+309,Isaiah Williams,WR,3000.0,3000.0
+310,Isiah Pacheco,RB,5700.0,5500.0
+311,Israel Abanikanda,RB,4000.0,4000.0
+312,J.J. McCarthy,QB,5500.0,5400.0
+313,J.K. Dobbins,RB,5500.0,5600.0
+314,JJ Galbreath,TE,2500.0,2500.0
+315,JP Richardson,WR,3000.0,3000.0
+316,Ja'Corey Brooks,WR,3000.0,3000.0
+317,Ja'Lynn Polk,WR,3000.0,3000.0
+318,Ja'Marr Chase,WR,8100.0,8100.0
+319,Ja'Quinden Jackson,RB,4000.0,4000.0
+320,Ja'Tavion Sanders,TE,2900.0,3100.0
+321,Ja'seem Reed,WR,3000.0,3000.0
+322,JaMycal Hasty,RB,4000.0,4000.0
+323,JaQuae Jackson,WR,3000.0,3000.0
+324,Jacardia Wright,RB,4000.0,4000.0
+325,Jack Bech,WR,4100.0,3600.0
+326,Jack Stoll,TE,2500.0,2500.0
+327,Jack Westover,RB,,4000.0
+328,Jack Westover,TE,2500.0,
+329,Jackson Hawes,TE,2500.0,2500.0
+330,Jackson Meeks,WR,3000.0,3000.0
+331,Jacob Cowing,WR,3500.0,3300.0
+332,Jacob Saylors,RB,4000.0,4000.0
+333,Jacoby Brissett,QB,4400.0,4000.0
+334,Jacoby Jones,WR,3000.0,3000.0
+335,Jacory Croskey-Merritt,RB,4000.0,5000.0
+336,Jaden Smith,WR,3000.0,3000.0
+337,Jaguars,DST,3200.0,2700.0
+338,Jahan Dotson,WR,3400.0,3600.0
+339,Jahdae Walker,WR,3000.0,3000.0
+340,Jahmyr Gibbs,RB,7700.0,7400.0
+341,Jake Bobo,WR,3000.0,3000.0
+342,Jake Briningstool,TE,2500.0,2500.0
+343,Jake Browning,QB,4400.0,4000.0
+344,Jake Ferguson,TE,3600.0,3800.0
+345,Jake Haener,QB,4800.0,
+346,Jake Tonges,TE,2500.0,3200.0
+347,Jakob Johnson,TE,2500.0,2500.0
+348,Jakobi Meyers,WR,5100.0,4900.0
+349,Jaleel McLaughlin,RB,4800.0,4300.0
+350,Jalen Brooks,WR,3000.0,3000.0
+351,Jalen Coker,WR,3700.0,3000.0
+352,Jalen Cropper,WR,3000.0,3000.0
+353,Jalen Hurts,QB,7100.0,6800.0
+354,Jalen McMillan,WR,4100.0,3000.0
+355,Jalen Milroe,QB,4300.0,4000.0
+356,Jalen Nailor,WR,3700.0,3700.0
+357,Jalen Reagor,WR,3000.0,
+358,Jalen Royals,WR,3200.0,3500.0
+359,Jalen Tolbert,WR,3800.0,3300.0
+360,Jalin Conyers,TE,2500.0,2500.0
+361,Jalin Hyatt,WR,3000.0,3000.0
+362,Jamaal Pritchett,WR,3000.0,3000.0
+363,Jamal Agnew,WR,3000.0,3000.0
+364,Jamari Thrash,WR,3000.0,3100.0
+365,Jameis Winston,QB,4500.0,4600.0
+366,James Conner,RB,6100.0,6600.0
+367,James Cook,RB,6200.0,6400.0
+368,James Mitchell,TE,2500.0,2500.0
+369,James Proche II,WR,3000.0,3000.0
+370,James Winchester,TE,2500.0,2500.0
+371,Jameson Williams,WR,5500.0,5700.0
+372,Jared Goff,QB,6500.0,6000.0
+373,Jared Wayne,WR,3000.0,3000.0
+374,Jared Wiley,TE,2500.0,2500.0
+375,Jarquez Hunter,RB,4500.0,4000.0
+376,Jarrett Stidham,QB,4300.0,4000.0
+377,Jason Brownlee,WR,3000.0,3000.0
+378,Jauan Jennings,WR,4900.0,4800.0
+379,Javon Baker,WR,,3000.0
+380,Javonte Williams,RB,5500.0,5800.0
+381,Jawhar Jordan,RB,4000.0,4000.0
+382,Jaxon Smith-Njigba,WR,5800.0,6000.0
+383,Jaxson Dart,QB,4500.0,4600.0
+384,Jayden Daniels,QB,7000.0,6700.0
+385,Jayden Higgins,WR,4800.0,4300.0
+386,Jayden Reed,WR,5400.0,5300.0
+387,Jaydon Blue,RB,5000.0,4800.0
+388,Jaylen Waddle,WR,5700.0,5400.0
+389,Jaylen Warren,RB,5200.0,5400.0
+390,Jaylen Wright,RB,4900.0,4900.0
+391,Jaylin Lane,WR,3700.0,3400.0
+392,Jaylin Noel,WR,3800.0,3300.0
+393,Jeff Driskel,QB,,4000.0
+394,Jeff Wilson Jr.,RB,4000.0,4000.0
+395,Jelani Woods,TE,2500.0,2500.0
+396,Jeremiah Webb,WR,3000.0,3000.0
+397,Jeremy McNichols,RB,4000.0,4300.0
+398,Jeremy Ruckert,TE,2500.0,2500.0
+399,Jermaine Burton,WR,3100.0,3000.0
+400,Jermaine Terry II,TE,2500.0,
+401,Jermar Jefferson,RB,4000.0,
+402,Jerome Ford,RB,5600.0,4600.0
+403,Jerry Jeudy,WR,5400.0,5300.0
+404,Jeshaun Jones,WR,3000.0,3000.0
+405,Jets,DST,2800.0,2400.0
+406,Jimmy Garoppolo,QB,4400.0,4300.0
+407,Jimmy Holiday,WR,3000.0,3000.0
+408,Jimmy Horn Jr.,WR,3000.0,3000.0
+409,Joe Burrow,QB,6900.0,6600.0
+410,Joe Flacco,QB,4900.0,5000.0
+411,Joe Milton III,QB,4500.0,4000.0
+412,Joe Mixon,RB,6200.0,4000.0
+413,John Bates,TE,2500.0,2500.0
+414,John FitzPatrick,TE,2500.0,2500.0
+415,John Jiles,WR,3000.0,3000.0
+416,John Metchie III,WR,3600.0,3300.0
+417,John Rhys Plumlee,WR,3000.0,
+418,John Stephens Jr.,TE,,2500.0
+419,Johnny Mundt,TE,2500.0,2500.0
+420,Johnny Wilson,WR,3000.0,3000.0
+421,Jonathan Mingo,WR,3100.0,3000.0
+422,Jonathan Taylor,RB,6800.0,6700.0
+423,Jonathon Brooks,RB,4000.0,4000.0
+424,Jonnu Smith,TE,4200.0,3900.0
+425,Jordan Addison,WR,5800.0,3000.0
+426,Jordan James,RB,4300.0,4000.0
+427,Jordan Love,QB,6100.0,6000.0
+428,Jordan Mason,RB,5300.0,5100.0
+429,Jordan Mims,RB,4000.0,4000.0
+430,Jordan Moore,WR,3000.0,3000.0
+431,Jordan Watkins,WR,3300.0,3000.0
+432,Jordan Whittington,WR,3100.0,3000.0
+433,Josh Allen,QB,7200.0,7100.0
+434,Josh Downs,WR,4600.0,4600.0
+435,Josh Jacobs,RB,6700.0,6500.0
+436,Josh Johnson,QB,4000.0,4000.0
+437,Josh Kelly,WR,3000.0,3000.0
+438,Josh Oliver,TE,2500.0,2500.0
+439,Josh Reynolds,WR,3300.0,3500.0
+440,Josh Whyle,TE,,2500.0
+441,Josh Williams,RB,4000.0,4000.0
+442,Joshua Cephus,WR,3000.0,3000.0
+443,Joshua Dobbs,QB,4500.0,4000.0
+444,Joshua Palmer,WR,4500.0,4400.0
+445,Joshua Simon,TE,2500.0,2500.0
+446,Josiah Deguara,TE,2500.0,2500.0
+447,JuJu Smith-Schuster,WR,3500.0,4000.0
+448,Julian Hill,TE,2700.0,2500.0
+449,Julius Chestnut,RB,4000.0,4000.0
+450,Junior Bergen,WR,3000.0,3000.0
+451,Justice Hill,RB,4200.0,4200.0
+452,Justin Fields,QB,5400.0,5700.0
+453,Justin Herbert,QB,5800.0,5900.0
+454,Justin Jefferson,WR,7800.0,7700.0
+455,Justin Shorter,TE,2500.0,2500.0
+456,Justin Watson,WR,3000.0,3100.0
+457,Juwan Johnson,TE,3300.0,3600.0
+458,Juwann Winfree,WR,3000.0,
+459,KaVontae Turpin,WR,3300.0,3600.0
+460,Kaden Davis,WR,3000.0,3000.0
+461,Kaden Prather,WR,3000.0,
+462,Kaleb Johnson,RB,5300.0,4900.0
+463,Kalel Mullings,RB,4000.0,4000.0
+464,Kalif Raymond,WR,3200.0,3200.0
+465,Kameron Johnson,WR,3000.0,3000.0
+466,Kareem Hunt,RB,4700.0,4500.0
+467,Kayshon Boutte,WR,3800.0,4500.0
+468,Ke'Shawn Williams,WR,3000.0,3000.0
+469,KeAndre Lambert-Smith,WR,3000.0,3000.0
+470,Keaontay Ingram,RB,4000.0,4000.0
+471,Keaton Mitchell,RB,4000.0,4000.0
+472,Kedon Slovis,QB,,4000.0
+473,Keenan Allen,WR,4700.0,4800.0
+474,Keith Kirkwood,WR,3000.0,3000.0
+475,Keleki Latu,TE,2500.0,2500.0
+476,Kendall Milton,RB,4000.0,4000.0
+477,Kendre Miller,RB,4300.0,4100.0
+478,Kene Nwangwu,RB,4000.0,4000.0
+479,Kenneth Gainwell,RB,4200.0,4400.0
+480,Kenneth Walker III,RB,5900.0,5600.0
+481,Kenny McIntosh,RB,4400.0,4000.0
+482,Kenny Pickett,QB,4900.0,4000.0
+483,Kenny Yeboah,TE,2500.0,2500.0
+484,Keon Coleman,WR,5200.0,5100.0
+485,Kevin Austin Jr.,WR,3000.0,3000.0
+486,KhaDarel Hodge,WR,3200.0,3200.0
+487,Khalil Herbert,RB,4300.0,4000.0
+488,Khalil Shakir,WR,5600.0,5500.0
+489,Kimani Vidal,RB,4000.0,4000.0
+490,Kirk Cousins,QB,4600.0,4600.0
+491,Ko Kieft,TE,2500.0,2500.0
+492,Konata Mumpfield,WR,3000.0,3000.0
+493,Kristian Wilkerson,WR,3000.0,3000.0
+494,Kurtis Rourke,QB,4000.0,4000.0
+495,Kye Robichaux,RB,4000.0,4000.0
+496,Kyle Allen,QB,4000.0,4000.0
+497,Kyle Juszczyk,RB,4000.0,4000.0
+498,Kyle McCord,QB,4000.0,4000.0
+499,Kyle Monangai,RB,4000.0,4200.0
+500,Kyle Pitts Sr.,TE,4300.0,4100.0
+501,Kyle Williams,WR,4300.0,3800.0
+502,Kylen Granson,TE,2500.0,2500.0
+503,Kyler Murray,QB,6400.0,6400.0
+504,Kyren Williams,RB,6500.0,6300.0
+505,LaJohntay Wester,WR,3000.0,3000.0
+506,Ladd McConkey,WR,6700.0,6900.0
+507,Lamar Jackson,QB,7300.0,7000.0
+508,Lan Larison,RB,4000.0,4000.0
+509,Lance McCutcheon,WR,,3000.0
+510,Laquon Treadwell,WR,,3000.0
+511,Lawrance Toafili,RB,,4000.0
+512,Lawrence Cager,TE,2500.0,2500.0
+513,LeQuint Allen Jr.,RB,4000.0,4000.0
+514,Lew Nichols,RB,4000.0,4000.0
+515,Lil'Jordan Humphrey,WR,3000.0,3000.0
+516,Lions,DST,2700.0,3200.0
+517,Lucas Krull,TE,2500.0,2500.0
+518,Lucas Scott,RB,4000.0,4000.0
+519,Lucky Jackson,WR,3000.0,3000.0
+520,Luke Farrell,TE,2500.0,3500.0
+521,Luke Grimm,WR,,3000.0
+522,Luke Lachey,TE,2500.0,2500.0
+523,Luke McCaffrey,WR,3500.0,3300.0
+524,Luke Musgrave,TE,2800.0,2700.0
+525,Luke Schoonmaker,TE,2600.0,2500.0
+526,Luther Burden III,WR,4600.0,4700.0
+527,Mac Jones,QB,4200.0,4000.0
+528,Mack Hollins,WR,3100.0,3000.0
+529,Malachi Corley,WR,3000.0,3000.0
+530,Malik Davis,RB,4000.0,4000.0
+531,Malik Heath,WR,3000.0,3000.0
+532,Malik Nabers,WR,7000.0,7100.0
+533,Malik Turner,WR,3000.0,3000.0
+534,Malik Washington,WR,3200.0,3300.0
+535,Malik Willis,QB,4600.0,4000.0
+536,MarShawn Lloyd,RB,4700.0,4000.0
+537,Marcus Mariota,QB,4500.0,4000.0
+538,Mark Andrews,TE,4900.0,4700.0
+539,Mark Redman,TE,2500.0,2500.0
+540,Marquez Valdes-Scantling,WR,3800.0,3800.0
+541,Marvin Harrison Jr.,WR,5500.0,5800.0
+542,Marvin Mims Jr.,WR,4500.0,4100.0
+543,Mason Kinsey,WR,3000.0,3000.0
+544,Mason Pline,TE,2500.0,2500.0
+545,Mason Rudolph,QB,4200.0,4000.0
+546,Mason Taylor,TE,3100.0,2900.0
+547,Mason Tipton,WR,3000.0,3000.0
+548,Matt Landers,WR,3000.0,
+549,Matthew Golden,WR,4900.0,4800.0
+550,Matthew Stafford,QB,5900.0,5800.0
+551,Maurice Alexander,WR,3000.0,3000.0
+552,Max Brosmer,QB,4000.0,4000.0
+553,Max Hurleman,RB,4000.0,
+554,Max Hurleman,WR,,3000.0
+555,Maximilian Mang,TE,2500.0,2500.0
+556,Mecole Hardman,WR,3000.0,3000.0
+557,Michael Bandy,WR,3000.0,3000.0
+558,Michael Burton,RB,4000.0,4000.0
+559,Michael Carter,RB,4100.0,4000.0
+560,Michael Mayer,TE,3000.0,3300.0
+561,Michael Penix Jr.,QB,5600.0,5600.0
+562,Michael Pittman Jr.,WR,4900.0,5100.0
+563,Michael Wilson,WR,4200.0,3700.0
+564,Mike Evans,WR,6600.0,6800.0
+565,Mike Gesicki,TE,3600.0,3400.0
+566,Miles Boykin,WR,3000.0,3000.0
+567,Miles Sanders,RB,4500.0,4300.0
+568,Mitchell Evans,TE,2500.0,2500.0
+569,Mitchell Fraboni,TE,2500.0,2500.0
+570,Mitchell Tinsley,WR,3000.0,3000.0
+571,Mitchell Trubisky,QB,4000.0,4000.0
+572,Mo Alie-Cox,TE,2500.0,2500.0
+573,Moliki Matavao,TE,2500.0,2500.0
+574,Myles Price,WR,3000.0,3000.0
+575,Najee Harris,RB,5000.0,4800.0
+576,Nate Adkins,TE,2500.0,2500.0
+577,Nathan Carter,RB,4000.0,4000.0
+578,Nick Chubb,RB,5200.0,5000.0
+579,Nick Kallerup,TE,2500.0,2500.0
+580,Nick Mullens,QB,4300.0,4000.0
+581,Nick Nash,WR,3000.0,3000.0
+582,Nick Vannett,TE,2500.0,2500.0
+583,Nick Westbrook-Ikhine,WR,3500.0,3200.0
+584,Nico Collins,WR,7400.0,7300.0
+585,Nikko Remigio,WR,3000.0,3000.0
+586,Nikola Kalinic,TE,,2500.0
+587,Noah Brown,WR,3100.0,3100.0
+588,Noah Fant,TE,3900.0,3300.0
+589,Noah Gray,TE,2700.0,3000.0
+590,Nyheim Miller-Hines,RB,4000.0,4000.0
+591,Olamide Zaccheaus,WR,3600.0,3600.0
+592,Ollie Gordon II,RB,4200.0,4400.0
+593,Omarion Hampton,RB,6000.0,5800.0
+594,Oronde Gadsden II,TE,2700.0,2700.0
+595,Packers,DST,2900.0,2900.0
+596,Panthers,DST,2400.0,2300.0
+597,Parker Washington,WR,3800.0,3300.0
+598,Pat Bryant,WR,3400.0,3200.0
+599,Pat Freiermuth,TE,3200.0,3400.0
+600,Patrick Herbert,TE,2500.0,2500.0
+601,Patrick Mahomes,QB,5900.0,6200.0
+602,Patrick Murtagh,TE,,2500.0
+603,Patrick Ricard,RB,4000.0,4000.0
+604,Patrick Taylor Jr.,RB,4000.0,4000.0
+605,Patriots,DST,3100.0,2800.0
+606,Payne Durham,TE,2600.0,2500.0
+607,Phil Mafah,RB,4200.0,4000.0
+608,Phillip Dorsett II,WR,,3000.0
+609,Pierre Strong Jr.,RB,4400.0,
+610,Princeton Fant,TE,2500.0,2500.0
+611,Puka Nacua,WR,7600.0,7600.0
+612,Qadir Ismail,TE,,2500.0
+613,Quentin Johnston,WR,4300.0,5400.0
+614,Quentin Skinner,WR,3000.0,3000.0
+615,Quinn Ewers,QB,4000.0,4000.0
+616,Quinshon Judkins,RB,5100.0,5100.0
+617,Quintin Morris,TE,2500.0,2500.0
+618,RJ Harvey,RB,5800.0,5300.0
+619,Rachaad White,RB,5100.0,4700.0
+620,Raheem Mostert,RB,5000.0,4500.0
+621,Raheim Sanders,RB,4000.0,4100.0
+622,Raiders,DST,2600.0,2600.0
+623,Rams,DST,3400.0,3100.0
+624,Rashee Rice,WR,6000.0,3000.0
+625,Rasheen Ali,RB,4000.0,4000.0
+626,Rashid Shaheed,WR,4600.0,4500.0
+627,Rashod Bateman,WR,4700.0,4600.0
+628,Ravens,DST,2700.0,3700.0
+629,Ray Davis,RB,4200.0,4400.0
+630,Ray-Ray McCloud III,WR,3700.0,4000.0
+631,Reggie Gilliam,RB,4000.0,4000.0
+632,Rhamondre Stevenson,RB,5400.0,5000.0
+633,Ricky Pearsall,WR,4500.0,5300.0
+634,Ricky White III,WR,3000.0,3000.0
+635,Rico Dowdle,RB,5000.0,4500.0
+636,Riley Leonard,QB,4100.0,4000.0
+637,Rivaldo Fairweather,TE,2500.0,2500.0
+638,Robbie Chosen,WR,3000.0,3000.0
+639,Robbie Ouzts,RB,4000.0,4000.0
+640,Robert Tonyan,TE,2500.0,2500.0
+641,Robert Woods,WR,3400.0,
+642,Roman Wilson,WR,3000.0,3000.0
+643,Rome Odunze,WR,5100.0,4800.0
+644,Romeo Doubs,WR,4300.0,4300.0
+645,Rondale Moore,WR,3000.0,3000.0
+646,Ronnie Bell,WR,3000.0,3000.0
+647,Ronnie Rivers,RB,4000.0,4000.0
+648,Roschon Johnson,RB,4200.0,4900.0
+649,Russell Gage Jr.,WR,,3100.0
+650,Russell Wilson,QB,5000.0,5100.0
+651,Ryan Flournoy,WR,3000.0,3000.0
+652,Ryan Miller,WR,3000.0,3000.0
+653,Saints,DST,2400.0,2500.0
+654,Sal Cannella,TE,2500.0,2500.0
+655,Salvon Ahmed,RB,4000.0,4000.0
+656,Sam Darnold,QB,5300.0,5000.0
+657,Sam Ehlinger,QB,4000.0,4000.0
+658,Sam Hartman,QB,4000.0,4000.0
+659,Sam Howell,QB,4000.0,4000.0
+660,Sam LaPorta,TE,5000.0,4800.0
+661,Samaje Perine,RB,4100.0,4300.0
+662,Saquon Barkley,RB,8200.0,8000.0
+663,Savion Williams,WR,3300.0,3100.0
+664,Scott Matlock,RB,4000.0,4000.0
+665,Scotty Miller,WR,3000.0,3000.0
+666,Seahawks,DST,2500.0,2700.0
+667,Sean McKeon,TE,2500.0,2500.0
+668,Sean Tucker,RB,4000.0,4000.0
+669,Seth Henigan,QB,4000.0,4000.0
+670,Shane Buechele,QB,4000.0,4000.0
+671,Shane Zylstra,TE,2500.0,2500.0
+672,Shedeur Sanders,QB,4900.0,4500.0
+673,Shedrick Jackson,WR,3000.0,3000.0
+674,Silas Bolden,WR,,3000.0
+675,Simi Fehoko,WR,3000.0,3000.0
+676,Sincere McCormick,RB,,4000.0
+677,Sione Vaki,RB,4000.0,4000.0
+678,Skylar Thompson,QB,4000.0,4000.0
+679,Skyy Moore,WR,3100.0,3000.0
+680,Spencer Rattler,QB,4800.0,4800.0
+681,Steelers,DST,3300.0,3100.0
+682,Stefon Diggs,WR,5300.0,5000.0
+683,Stephen Carlson,TE,2500.0,2500.0
+684,Stephen Gosnell,WR,3000.0,3000.0
+685,Sterling Shepard,WR,3100.0,3100.0
+686,Stetson Bennett IV,QB,4000.0,4000.0
+687,Stone Smartt,TE,2500.0,2500.0
+688,T.J. Hockenson,TE,4600.0,4300.0
+689,Tahj Brooks,RB,4000.0,4000.0
+690,Tahj Washington,WR,3000.0,3000.0
+691,Tai Felton,WR,3200.0,3300.0
+692,Tank Bigsby,RB,4600.0,4700.0
+693,Tank Dell,WR,3200.0,3000.0
+694,Tanner Conner,TE,2500.0,2500.0
+695,Tanner Hudson,TE,2500.0,2500.0
+696,Tanner McKee,QB,4100.0,4000.0
+697,Tanner McLachlan,TE,2500.0,
+698,Tanner Mordecai,QB,4000.0,
+699,Tanner Taula,TE,2500.0,2500.0
+700,Taysom Hill,TE,3700.0,2500.0
+701,Teagan Quitoriano,TE,2500.0,2500.0
+702,Teddy Bridgewater,QB,4000.0,4000.0
+703,Tee Higgins,WR,6400.0,6100.0
+704,Tejhaun Palmer,WR,3000.0,3000.0
+705,Terrace Marshall,WR,3200.0,3000.0
+706,Terrance Ferguson,TE,3200.0,2700.0
+707,Terrell Jennings,RB,4000.0,4000.0
+708,Terry McLaurin,WR,6200.0,5900.0
+709,Tetairoa McMillan,WR,5200.0,5400.0
+710,Texans,DST,2500.0,3000.0
+711,Tez Johnson,WR,3000.0,3000.0
+712,Thayer Thomas,WR,,3000.0
+713,Theo Johnson,TE,3000.0,2900.0
+714,Theo Wease Jr.,WR,3000.0,3000.0
+715,Thomas Fidone II,TE,2500.0,2500.0
+716,Thomas Odukoya,TE,2500.0,2500.0
+717,Thomas Yassmin,TE,2500.0,2500.0
+718,Tim Jones,WR,3000.0,3000.0
+719,Tim Patrick,WR,3600.0,3200.0
+720,Tip Reiman,TE,2500.0,2500.0
+721,Titans,DST,2200.0,2400.0
+722,Tom Kennedy,WR,3000.0,3000.0
+723,Tommy DeVito,QB,4000.0,4000.0
+724,Tommy Mellott,WR,,3000.0
+725,Tommy Tremble,TE,2500.0,2500.0
+726,Tony Pollard,RB,5700.0,5900.0
+727,Tory Horton,WR,3000.0,3100.0
+728,Traeshon Holden,WR,3000.0,3000.0
+729,Travis Etienne Jr.,RB,5400.0,5700.0
+730,Travis Homer,RB,4000.0,4000.0
+731,Travis Hunter,WR,5000.0,5200.0
+732,Travis Kelce,TE,5200.0,5000.0
+733,Travis Vokolek,TE,2500.0,2500.0
+734,Trayveon Williams,RB,4700.0,4000.0
+735,Tre Tucker,WR,3100.0,3300.0
+736,Tre Watson,TE,2500.0,2500.0
+737,Tre' Harris,WR,3300.0,3100.0
+738,TreVeyon Henderson,RB,5500.0,5500.0
+739,Trent Sherfield Sr.,WR,3000.0,3000.0
+740,Trent Taylor,WR,3000.0,3000.0
+741,Trevor Etienne,RB,4500.0,4000.0
+742,Trevor Lawrence,QB,5300.0,5600.0
+743,Trevor Siemian,QB,4000.0,4000.0
+744,Trey Benson,RB,4600.0,4600.0
+745,Trey Lance,QB,4300.0,4000.0
+746,Trey McBride,TE,6200.0,6000.0
+747,Trey Palmer,WR,3000.0,3000.0
+748,Trey Sermon,RB,4000.0,4000.0
+749,Treylon Burks,WR,3200.0,3000.0
+750,Treyton Welch,TE,2500.0,2500.0
+751,Trishton Jackson,WR,3000.0,3000.0
+752,Troy Franklin,WR,3500.0,3700.0
+753,Tru Edwards,WR,3000.0,3000.0
+754,Tua Tagovailoa,QB,5800.0,5300.0
+755,Tucker Fisk,TE,2500.0,2500.0
+756,Tucker Kraft,TE,4000.0,3700.0
+757,Tutu Atwell,WR,3600.0,3500.0
+758,Ty Chandler,RB,4000.0,4000.0
+759,Ty Johnson,RB,4000.0,4200.0
+760,Tyjae Spears,RB,4700.0,4000.0
+761,Tylan Wallace,WR,3000.0,3000.0
+762,Tyler Allgeier,RB,5000.0,4400.0
+763,Tyler Badie,RB,4000.0,4100.0
+764,Tyler Conklin,TE,3100.0,2900.0
+765,Tyler Goodson,RB,4000.0,4000.0
+766,Tyler Higbee,TE,3400.0,3100.0
+767,Tyler Huntley,QB,4000.0,4000.0
+768,Tyler Johnson,WR,3000.0,3200.0
+769,Tyler Kahmann,WR,3000.0,
+770,Tyler Lockett,WR,4000.0,3900.0
+771,Tyler Ott,TE,2500.0,2500.0
+772,Tyler Scott,WR,3000.0,3000.0
+773,Tyler Shough,QB,4800.0,4300.0
+774,Tyler Warren,TE,4400.0,4500.0
+775,Tyquan Thornton,WR,3100.0,3600.0
+776,Tyree Jackson,TE,2500.0,2500.0
+777,Tyreek Hill,WR,6700.0,6400.0
+778,Tyrell Shavers,WR,3000.0,3000.0
+779,Tyrod Taylor,QB,4400.0,4000.0
+780,Tyrone Broden,WR,3000.0,3000.0
+781,Tyrone Tracy Jr.,RB,5600.0,5300.0
+782,Tyson Bagent,QB,4000.0,4400.0
+783,Ulysses Bentley IV,RB,4000.0,4000.0
+784,Van Jefferson,WR,3400.0,3100.0
+785,Velus Jones Jr.,RB,4000.0,4000.0
+786,Vikings,DST,3200.0,3300.0
+787,Wan'Dale Robinson,WR,4500.0,4400.0
+788,Wesley Steiner,RB,4000.0,
+789,Will Dissly,TE,2900.0,2700.0
+790,Will Grier,QB,4000.0,4000.0
+791,Will Howard,QB,4000.0,4000.0
+792,Will Levis,QB,4000.0,4000.0
+793,Will Mallory,TE,2500.0,2500.0
+794,Will Sheppard,WR,3000.0,3000.0
+795,Will Shipley,RB,4200.0,4400.0
+796,William Wagner,TE,2500.0,2500.0
+797,Woody Marks,RB,5200.0,4500.0
+798,Xavier Gipson,WR,3000.0,3000.0
+799,Xavier Hutchinson,WR,3000.0,3200.0
+800,Xavier Legette,WR,4200.0,3900.0
+801,Xavier Restrepo,WR,3300.0,3000.0
+802,Xavier Smith,WR,3000.0,3000.0
+803,Xavier Weaver,WR,3000.0,3000.0
+804,Xavier Worthy,WR,5500.0,5700.0
+805,Xazavian Valladay,RB,4000.0,4000.0
+806,Zach Charbonnet,RB,4900.0,5100.0
+807,Zach Ertz,TE,4100.0,3900.0
+808,Zach Horton,TE,2500.0,2500.0
+809,Zach Wilson,QB,4300.0,4000.0
+810,Zach Wood,TE,2500.0,2500.0
+811,Zaire Mitchell-Paden,TE,2500.0,2500.0
+812,Zamir White,RB,4000.0,4000.0
+813,Zavier Scott,RB,4000.0,4000.0
+814,Zay Flowers,WR,5700.0,6200.0
+815,Zay Jones,WR,3300.0,3200.0
+816,Zonovan Knight,RB,4000.0,4000.0
