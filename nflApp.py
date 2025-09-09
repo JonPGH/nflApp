@@ -283,8 +283,23 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
+
     logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2 = load_data()
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
+    check_matchups_dk = dict(zip(dkdata.Team,dkdata.Opp))
+    check_matchups_proj = dict(zip(weekproj.Team,weekproj.Opp))
+
+    this_week_number = dkdata['Week'].iloc[0]
+
+    check_team = dkdata['Team'].iloc[0]
+    check_team_dk = check_matchups_dk.get(check_team)
+    check_team_proj = check_matchups_proj.get(check_team)
+
+    if check_team_dk == check_team_proj:
+        proj_are_good = 'Y'
+    else:
+        proj_are_good = 'N'
+   
 
     all_game_times = schedule[['ID','Date','Time']]
     all_game_times['Date'] = pd.to_datetime(all_game_times['Date'])
@@ -460,218 +475,223 @@ if check_password():
         home_projections = weekproj[weekproj['Team']==home_team_short]
         home_implied = implied_totals[implied_totals['Team']==home_team_short]['Implied'].iloc[0]
         home_implied_rank = implied_totals[implied_totals['Team']==home_team_short]['Rank'].iloc[0]
+        
+        if proj_are_good == 'N':
+            st.markdown(f'<h2><center>Projections for week {this_week_number} are not yet available</center></h2>',unsafe_allow_html=True)
+            pass
+        else:
 
-        #img_col1, img_col2 = st.columns([1,1])
-        #with img_col1:
-            #st.image(team_logos.get(road_team_short_lower),width=200)
-        #with img_col2:
-            #st.image(team_logos.get(home_team_short_lower),width=200)
-        projcol1, projcol2 = st.columns([1,1])
+            projcol1, projcol2 = st.columns([1,1])
 
-        with projcol1:
-            st.markdown(f"<h1><center>{road_team}</h1><h5><center>Implied for {road_implied} points, ranked #{int(road_implied_rank)} of {len(implied_totals)}</h5></center>", unsafe_allow_html=True)
-            #st.image(team_logos.get(road_team_short_lower),width=200)
-            st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-            road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
-            st.dataframe(road_qb_proj, hide_index=True, width=630)
-            st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-            road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
-            st.dataframe(road_rb_proj, hide_index=True, width=600,height=150)
-            st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-            road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
-            if len(road_rec_proj) > 7:
-                st.dataframe(road_rec_proj, hide_index=True, width=600,height=325)
-            else:
-                st.dataframe(road_rec_proj, hide_index=True, width=600)
+            with projcol1:
+                st.markdown(f"<h1><center>{road_team}</h1><h5><center>Implied for {road_implied} points, ranked #{int(road_implied_rank)} of {len(implied_totals)}</h5></center>", unsafe_allow_html=True)
+                #st.image(team_logos.get(road_team_short_lower),width=200)
+                st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
+                road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+                st.dataframe(road_qb_proj, hide_index=True, width=630)
+                st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
+                road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+                st.dataframe(road_rb_proj, hide_index=True, width=600,height=150)
+                st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
+                road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+                if len(road_rec_proj) > 7:
+                    st.dataframe(road_rec_proj, hide_index=True, width=600,height=325)
+                else:
+                    st.dataframe(road_rec_proj, hide_index=True, width=600)
 
-        with projcol2:
-            st.markdown(f"<h1><center>{home_team}</h1><h5><center>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</h5></center></center>", unsafe_allow_html=True)
-            st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-            home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
-            st.dataframe(home_qb_proj, hide_index=True, width=630)
-            st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-            home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
-            st.dataframe(home_rb_proj, hide_index=True, width=600,height=150)
-            st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-            home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
-            if len(home_rec_proj) > 7:
-                st.dataframe(home_rec_proj, hide_index=True, width=600,height=325)
-            else:
-                st.dataframe(home_rec_proj, hide_index=True, width=600)
+            with projcol2:
+                st.markdown(f"<h1><center>{home_team}</h1><h5><center>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</h5></center></center>", unsafe_allow_html=True)
+                st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
+                home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+                st.dataframe(home_qb_proj, hide_index=True, width=630)
+                st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
+                home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+                st.dataframe(home_rb_proj, hide_index=True, width=600,height=150)
+                st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
+                home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+                if len(home_rec_proj) > 7:
+                    st.dataframe(home_rec_proj, hide_index=True, width=600,height=325)
+                else:
+                    st.dataframe(home_rec_proj, hide_index=True, width=600)
 
     if tab == "Weekly Projections":
         st.markdown("<h3><center>Weekly Projections & Ranks</h3></center>", unsafe_allow_html=True)
 
-        # Initialize session state for scoring settings
-        if 'scoring_settings' not in st.session_state:
-            st.session_state.scoring_settings = {
-                'pass_yards': 25.0,
-                'pass_td': 4.0,
-                'interception': -1.0,
-                'rush_yards': 10.0,
-                'rush_td': 6.0,
-                'rec_yards': 10.0,
-                'reception': 1.0,
-                'rec_td': 6.0
-            }
+        if proj_are_good == 'N':
+            st.markdown(f'<h2><center>Projections for week {this_week_number} are not yet available</center></h2>',unsafe_allow_html=True)
+            pass
+        else:
 
-        # Position filter
-        weekprojcol1, weekprojcol2, weekprojcol3 = st.columns([1,1,1])
-        with weekprojcol1:
-            positions = ['All', 'QB', 'RB', 'WR', 'TE', 'FLEX']
-            selected_position = st.selectbox("Select Position", positions)
-        with weekprojcol2:
-            # Team filter
-            teams = ['All'] + sorted(weekproj['Team'].unique().tolist())
-            selected_team = st.selectbox("Select Team", teams)
-        with weekprojcol3:
-            mainslateselect = st.selectbox('Show Main Slate Only', ['No','Yes'])
-        
-        # Button to toggle scoring settings
-        show_scoring = st.button("Customize Scoring System", key="toggle_scoring")
+            # Initialize session state for scoring settings
+            if 'scoring_settings' not in st.session_state:
+                st.session_state.scoring_settings = {
+                    'pass_yards': 25.0,
+                    'pass_td': 4.0,
+                    'interception': -1.0,
+                    'rush_yards': 10.0,
+                    'rush_td': 6.0,
+                    'rec_yards': 10.0,
+                    'reception': 1.0,
+                    'rec_td': 6.0
+                }
 
-        # Show scoring settings if button is clicked
-        if show_scoring or st.session_state.get('show_settings', False):
-            st.session_state.show_settings = True
-            with st.expander("Scoring Settings", expanded=True):
-                col1, col2, col3 = st.columns(3)
+            # Position filter
+            weekprojcol1, weekprojcol2, weekprojcol3 = st.columns([1,1,1])
+            with weekprojcol1:
+                positions = ['All', 'QB', 'RB', 'WR', 'TE', 'FLEX']
+                selected_position = st.selectbox("Select Position", positions)
+            with weekprojcol2:
+                # Team filter
+                teams = ['All'] + sorted(weekproj['Team'].unique().tolist())
+                selected_team = st.selectbox("Select Team", teams)
+            with weekprojcol3:
+                mainslateselect = st.selectbox('Show Main Slate Only', ['No','Yes'])
+            
+            # Button to toggle scoring settings
+            show_scoring = st.button("Customize Scoring System", key="toggle_scoring")
 
-                with col1:
-                    st.session_state.scoring_settings['pass_yards'] = st.number_input(
-                        "Pass Yards per Point", 
-                        value=st.session_state.scoring_settings['pass_yards'], 
-                        step=0.1, 
-                        key="pass_yards"
-                    )
-                    st.session_state.scoring_settings['pass_td'] = st.number_input(
-                        "Pass TD Points", 
-                        value=st.session_state.scoring_settings['pass_td'], 
-                        step=0.1, 
-                        key="pass_td"
-                    )
-                    st.session_state.scoring_settings['interception'] = st.number_input(
-                        "Interception Points", 
-                        value=st.session_state.scoring_settings['interception'], 
-                        step=0.1, 
-                        key="interception"
-                    )
+            # Show scoring settings if button is clicked
+            if show_scoring or st.session_state.get('show_settings', False):
+                st.session_state.show_settings = True
+                with st.expander("Scoring Settings", expanded=True):
+                    col1, col2, col3 = st.columns(3)
 
-                with col2:
-                    st.session_state.scoring_settings['rush_yards'] = st.number_input(
-                        "Rush Yards per Point", 
-                        value=st.session_state.scoring_settings['rush_yards'], 
-                        step=0.1, 
-                        key="rush_yards"
-                    )
-                    st.session_state.scoring_settings['rush_td'] = st.number_input(
-                        "Rush TD Points", 
-                        value=st.session_state.scoring_settings['rush_td'], 
-                        step=0.1, 
-                        key="rush_td"
-                    )
+                    with col1:
+                        st.session_state.scoring_settings['pass_yards'] = st.number_input(
+                            "Pass Yards per Point", 
+                            value=st.session_state.scoring_settings['pass_yards'], 
+                            step=0.1, 
+                            key="pass_yards"
+                        )
+                        st.session_state.scoring_settings['pass_td'] = st.number_input(
+                            "Pass TD Points", 
+                            value=st.session_state.scoring_settings['pass_td'], 
+                            step=0.1, 
+                            key="pass_td"
+                        )
+                        st.session_state.scoring_settings['interception'] = st.number_input(
+                            "Interception Points", 
+                            value=st.session_state.scoring_settings['interception'], 
+                            step=0.1, 
+                            key="interception"
+                        )
 
-                with col3:
-                    st.session_state.scoring_settings['rec_yards'] = st.number_input(
-                        "Receiving Yards per Point", 
-                        value=st.session_state.scoring_settings['rec_yards'], 
-                        step=0.1, 
-                        key="rec_yards"
-                    )
-                    st.session_state.scoring_settings['reception'] = st.number_input(
-                        "Reception Points", 
-                        value=st.session_state.scoring_settings['reception'], 
-                        step=0.1, 
-                        key="reception"
-                    )
-                    st.session_state.scoring_settings['rec_td'] = st.number_input(
-                        "Receiving TD Points", 
-                        value=st.session_state.scoring_settings['rec_td'], 
-                        step=0.1, 
-                        key="rec_td"
-                    )
+                    with col2:
+                        st.session_state.scoring_settings['rush_yards'] = st.number_input(
+                            "Rush Yards per Point", 
+                            value=st.session_state.scoring_settings['rush_yards'], 
+                            step=0.1, 
+                            key="rush_yards"
+                        )
+                        st.session_state.scoring_settings['rush_td'] = st.number_input(
+                            "Rush TD Points", 
+                            value=st.session_state.scoring_settings['rush_td'], 
+                            step=0.1, 
+                            key="rush_td"
+                        )
 
-        # Calculate fantasy points based on scoring settings
-        weekproj['FPts'] = (
-            (weekproj['Pass Yards'] / st.session_state.scoring_settings['pass_yards']) +
-            (weekproj['Pass TD'] * st.session_state.scoring_settings['pass_td']) +
-            (weekproj['Int'] * st.session_state.scoring_settings['interception']) +
-            (weekproj['Rush Yds'] / st.session_state.scoring_settings['rush_yards']) +
-            (weekproj['Rec Yds'] / st.session_state.scoring_settings['rec_yards']) +
-            (weekproj['Rec'] * st.session_state.scoring_settings['reception']) +
-            (weekproj['Rush TD'] * st.session_state.scoring_settings['rush_td']) +
-            (weekproj['Rec TD'] * st.session_state.scoring_settings['rec_td'])
-        )
+                    with col3:
+                        st.session_state.scoring_settings['rec_yards'] = st.number_input(
+                            "Receiving Yards per Point", 
+                            value=st.session_state.scoring_settings['rec_yards'], 
+                            step=0.1, 
+                            key="rec_yards"
+                        )
+                        st.session_state.scoring_settings['reception'] = st.number_input(
+                            "Reception Points", 
+                            value=st.session_state.scoring_settings['reception'], 
+                            step=0.1, 
+                            key="reception"
+                        )
+                        st.session_state.scoring_settings['rec_td'] = st.number_input(
+                            "Receiving TD Points", 
+                            value=st.session_state.scoring_settings['rec_td'], 
+                            step=0.1, 
+                            key="rec_td"
+                        )
 
-        # ranking
-        if mainslateselect == 'Yes':
-            weekproj = weekproj[weekproj['Team'].isin(main_slate_team_list)]
-        weekproj['Pos Rank'] = weekproj.groupby('Pos')['FPts'].rank(ascending=False)
+            # Calculate fantasy points based on scoring settings
+            weekproj['FPts'] = (
+                (weekproj['Pass Yards'] / st.session_state.scoring_settings['pass_yards']) +
+                (weekproj['Pass TD'] * st.session_state.scoring_settings['pass_td']) +
+                (weekproj['Int'] * st.session_state.scoring_settings['interception']) +
+                (weekproj['Rush Yds'] / st.session_state.scoring_settings['rush_yards']) +
+                (weekproj['Rec Yds'] / st.session_state.scoring_settings['rec_yards']) +
+                (weekproj['Rec'] * st.session_state.scoring_settings['reception']) +
+                (weekproj['Rush TD'] * st.session_state.scoring_settings['rush_td']) +
+                (weekproj['Rec TD'] * st.session_state.scoring_settings['rec_td'])
+            )
 
-        dfs_sals_check = st.checkbox('Show DFS Info?')
-        dfs_sals_dict = dict(zip(dkdata.Player,dkdata.Sal))
+            # ranking
+            if mainslateselect == 'Yes':
+                weekproj = weekproj[weekproj['Team'].isin(main_slate_team_list)]
+            weekproj['Pos Rank'] = weekproj.groupby('Pos')['FPts'].rank(ascending=False)
 
-        # Filter data based on selections
-        filtered_data = weekproj.copy()
-        
-        if selected_position != 'All':
-            if selected_position == 'FLEX':
-                filtered_data = filtered_data[filtered_data['Pos'].isin(['RB', 'WR', 'TE'])]
-            else:
-                filtered_data = filtered_data[filtered_data['Pos'] == selected_position]
-        
-        if selected_team != 'All':
-            filtered_data = filtered_data[filtered_data['Team'] == selected_team]
+            dfs_sals_check = st.checkbox('Show DFS Info?')
+            dfs_sals_dict = dict(zip(dkdata.Player,dkdata.Sal))
 
-        # Round and sort
-        filtered_data = filtered_data.round(2)
-        filtered_data = filtered_data.sort_values(by='FPts', ascending=False)
-        filtered_data['Sal'] = filtered_data['Player'].map(dfs_sals_dict)
-        filtered_data['Sal'] = filtered_data['Sal'].fillna(0)
+            # Filter data based on selections
+            filtered_data = weekproj.copy()
+            
+            if selected_position != 'All':
+                if selected_position == 'FLEX':
+                    filtered_data = filtered_data[filtered_data['Pos'].isin(['RB', 'WR', 'TE'])]
+                else:
+                    filtered_data = filtered_data[filtered_data['Pos'] == selected_position]
+            
+            if selected_team != 'All':
+                filtered_data = filtered_data[filtered_data['Team'] == selected_team]
 
-        mask = pd.to_numeric(filtered_data['Sal'], errors='coerce').isna()
-        rows_with_strings = filtered_data[mask]
+            # Round and sort
+            filtered_data = filtered_data.round(2)
+            filtered_data = filtered_data.sort_values(by='FPts', ascending=False)
+            filtered_data['Sal'] = filtered_data['Player'].map(dfs_sals_dict)
+            filtered_data['Sal'] = filtered_data['Sal'].fillna(0)
 
-        # Replace non-numeric values in 'Sal' with 0
-        filtered_data.loc[mask, 'Sal'] = 0
+            mask = pd.to_numeric(filtered_data['Sal'], errors='coerce').isna()
+            rows_with_strings = filtered_data[mask]
 
-        filtered_data['Sal'] = pd.to_numeric(filtered_data['Sal'])
+            # Replace non-numeric values in 'Sal' with 0
+            filtered_data.loc[mask, 'Sal'] = 0
 
-        # Now the calculation should work
-        filtered_data['Val'] = filtered_data['FPts'] / (filtered_data['Sal'] / 1000)
-        filtered_data['Val'] = round(filtered_data['Val'],2)
+            filtered_data['Sal'] = pd.to_numeric(filtered_data['Sal'])
 
-        filtered_data = filtered_data[filtered_data['FPts']>0]
+            # Now the calculation should work
+            filtered_data['Val'] = filtered_data['FPts'] / (filtered_data['Sal'] / 1000)
+            filtered_data['Val'] = round(filtered_data['Val'],2)
 
-        #filtered_data['Sal'] = filtered_data['Sal'].apply(lambda x: f"${int(x):,}")
-        #filtered_data['Val'] = round(filtered_data['FPts']/(filtered_data['Sal']/1000),2)
+            filtered_data = filtered_data[filtered_data['FPts']>0]
 
-        # display based on position selection
-        if selected_position == 'All':
-            if dfs_sals_check:
-                proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
-            else:
-                proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
-        elif selected_position == 'QB':
-            if dfs_sals_check:
-                proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
-            else:
-                proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
-        elif selected_position in ['WR','TE']:
-            if dfs_sals_check:
-                proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
-            else:
-                proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
-        elif selected_position in ['RB','WR','TE','FLEX']:
-            if dfs_sals_check:
-                proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
-            else:
-                proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+            #filtered_data['Sal'] = filtered_data['Sal'].apply(lambda x: f"${int(x):,}")
+            #filtered_data['Val'] = round(filtered_data['FPts']/(filtered_data['Sal']/1000),2)
 
-        # Display the filtered dataframe
-        show_filtered_data = filtered_data[proj_show_cols]
-        st.dataframe(show_filtered_data, hide_index=True, height=750)
-        csv = convert_df_to_csv(show_filtered_data)
-        st.download_button(label="Download CSV", data=csv, file_name='JA Projections.csv', mime='text/csv')
+            # display based on position selection
+            if selected_position == 'All':
+                if dfs_sals_check:
+                    proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+                else:
+                    proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+            elif selected_position == 'QB':
+                if dfs_sals_check:
+                    proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
+                else:
+                    proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
+            elif selected_position in ['WR','TE']:
+                if dfs_sals_check:
+                    proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
+                else:
+                    proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
+            elif selected_position in ['RB','WR','TE','FLEX']:
+                if dfs_sals_check:
+                    proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+                else:
+                    proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+
+            # Display the filtered dataframe
+            show_filtered_data = filtered_data[proj_show_cols]
+            st.dataframe(show_filtered_data, hide_index=True, height=750)
+            csv = convert_df_to_csv(show_filtered_data)
+            st.download_button(label="Download CSV", data=csv, file_name='JA Projections.csv', mime='text/csv')
 
     if tab == "Salary Tracking":
         st.markdown("<h1><center>DraftKings Salary Tracking</h1></center>", unsafe_allow_html=True)
