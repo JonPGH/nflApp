@@ -209,9 +209,10 @@ if check_password():
         team_name_change = pd.read_csv(f'{file_path}/nflteamnamechange.csv')
         saltrack = pd.read_csv(f'{file_path}/DKSalTracking.csv')
         saltrack2 = pd.read_csv(f'{file_path}/DKSalTracking2.csv')
+        xfp = pd.read_csv(f'{file_path}/xFPData.csv')
 
-        return logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2
-    
+        return xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2
+        
     def load_team_logos_dumb():
         base_dir = os.path.dirname(__file__)
         file_path = os.path.join(base_dir, 'Data', 'logos')
@@ -283,8 +284,9 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
+    xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2 = load_data()
 
-    logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2 = load_data()
+        
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
     check_matchups_dk = dict(zip(dkdata.Team,dkdata.Opp))
     check_matchups_proj = dict(zip(weekproj.Team,weekproj.Opp))
@@ -357,7 +359,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game", "Season Projections","Salary Tracking", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game", "Season Projections","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -368,6 +370,35 @@ if check_password():
 
     # Main content
     st.markdown(f"<center><h1>Follow The Money Fantasy Football Web App</h1></center>", unsafe_allow_html=True)
+
+    if tab == "Expected Fantasy Points":
+        st.markdown("<h1><center>Expected Fantasy Points Model</h1></center>", unsafe_allow_html=True)
+        st.markdown("<i><center><h3>work in progress...</i></h3></center>", unsafe_allow_html=True)
+        xpc1,xpc2,xpc3 = st.columns([1,1,1])
+        with xpc1:
+            selected_team = st.selectbox("Select Team", ["All"] + sorted(xfp['Team'].unique().tolist()))
+        with xpc2:
+            selected_pos = st.selectbox("Select Position", ["All"] + sorted(xfp['Pos'].unique().tolist()))
+        with xpc3:
+            selected_player = st.selectbox("Select Player", ["All"] + sorted(xfp['Player'].unique().tolist()))
+
+        # Week slider for custom range
+        #week_range = st.slider("Select Week Range", min_value=int(xfp['Week'].min()), max_value=int(xfp['Week'].max()),value=(int(xfp['Week'].min()), int(xfp['Week'].max())))
+
+        # Filter the dataframe based on selections
+        filtered_xfp = xfp.copy()
+        if selected_team != "All":
+            filtered_xfp = filtered_xfp[filtered_xfp['Team'] == selected_team]
+        if selected_pos != "All":
+            filtered_xfp = filtered_xfp[filtered_xfp['Pos'] == selected_pos]
+        if selected_player != "All":
+            filtered_xfp = filtered_xfp[filtered_xfp['Player'] == selected_player]
+        #filtered_xfp = filtered_xfp[(filtered_xfp['Week'] >= week_range[0]) & (filtered_xfp['Week'] <= week_range[1])]
+
+        # Display the filtered table
+        st.dataframe(filtered_xfp[['Player', 'Pos', 'Team', 'Week', 'Passing', 'Rushing', 'Receiving', 'xFP']],hide_index=True)
+        
+
 
     if tab == "Game by Game":
         st.markdown("<h1><center>Game by Game Preview</h1></center>", unsafe_allow_html=True)
@@ -410,7 +441,7 @@ if check_password():
 
         selected_gameid = selectedgamedata['ID'].iloc[0]
         game_line_log = schedule[schedule['ID']==selected_gameid]
-  
+
         selectedgamedata = selectedgamedata[selectedgamedata['Timestamp']==np.max(selectedgamedata['Timestamp'])]
 
         road_team = selectedgamedata['Away'].iloc[0]
@@ -442,13 +473,23 @@ if check_password():
         
         line_move_check = st.checkbox('Show Line Movements', value=False)
         if line_move_check:
+            ndcol1,ndcol2 = st.columns([1,6])
+            with ndcol1:
+                numdays = st.number_input('Number of days back',3,10,value=7)
+                game_line_log = game_line_log.tail(numdays)
+
             # Create smaller line plots with reduced text sizes
             plotcol1, plotcol2 = st.columns([1, 1])
+            min_ou = np.min(game_line_log['OU'])
+            max_ou = np.max(game_line_log['OU'])
+            min_spread = np.min(game_line_log['Home Spread'])
+            max_spread = np.max(game_line_log['Home Spread'])
             with plotcol1:
                 fig, ax = plt.subplots(figsize=(2.4, 1.5))  # Smaller figure size
                 game_line_log.plot.line(x='Timestamp', y='OU', ax=ax, linewidth=1)
                 ax.get_legend().remove()  # Hide the legend
                 ax.set_xlabel("Timestamp", fontsize=4)
+                ax.set_ylim([min_ou-2,max_ou+2])
                 ax.set_ylabel("OU", fontsize=4)
                 ax.set_title("OU Over Time", fontsize=6)
                 ax.tick_params(axis='both', labelsize=3)  # Smaller tick labels
@@ -461,6 +502,7 @@ if check_password():
                 game_line_log.plot.line(x='Timestamp', y='Home Spread', ax=ax, linewidth=1)
                 ax.get_legend().remove()  # Hide the legend
                 ax.set_xlabel("Timestamp", fontsize=4)
+                ax.set_ylim([min_spread-1,max_spread+1])
                 ax.set_ylabel("Spread", fontsize=4)  # Corrected label to match data
                 ax.set_title("Spread Over Time", fontsize=6)  # Corrected title
                 ax.tick_params(axis='both', labelsize=3)  # Smaller tick labels
@@ -484,7 +526,7 @@ if check_password():
             projcol1, projcol2 = st.columns([1,1])
 
             with projcol1:
-                st.markdown(f"<h1><center>{road_team}</h1><h5><center>Implied for {road_implied} points, ranked #{int(road_implied_rank)} of {len(implied_totals)}</h5></center>", unsafe_allow_html=True)
+                st.markdown(f"<center><font size=13><b>{road_team}</b></font><br><font size=4><i>Implied for {road_implied} points, ranked #{int(road_implied_rank)} of {len(implied_totals)}</i></center><hr>", unsafe_allow_html=True)
                 #st.image(team_logos.get(road_team_short_lower),width=200)
                 st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
                 road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
@@ -500,7 +542,7 @@ if check_password():
                     st.dataframe(road_rec_proj, hide_index=True, width=600)
 
             with projcol2:
-                st.markdown(f"<h1><center>{home_team}</h1><h5><center>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</h5></center></center>", unsafe_allow_html=True)
+                st.markdown(f"<center><font size=13><b>{home_team}</b></font><br><font size=4><i>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</i></center><hr>", unsafe_allow_html=True)
                 st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
                 home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
                 st.dataframe(home_qb_proj, hide_index=True, width=630)
