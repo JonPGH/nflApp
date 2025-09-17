@@ -286,7 +286,11 @@ if check_password():
 
     xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2 = load_data()
 
-        
+    dkdata['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(dkdata))
+    dkdata['Own'] = round(dkdata['Own'] * dkdata['Rand'],0)
+
+    own_dict = dict(zip(dkdata.Player,dkdata.Own))
+
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
     check_matchups_dk = dict(zip(dkdata.Team,dkdata.Opp))
     check_matchups_proj = dict(zip(weekproj.Team,weekproj.Opp))
@@ -302,7 +306,6 @@ if check_password():
     else:
         proj_are_good = 'N'
    
-
     all_game_times = schedule[['ID','Date','Time']]
     all_game_times['Date'] = pd.to_datetime(all_game_times['Date'])
     all_game_times['Date'] = all_game_times['Date'].dt.date
@@ -664,6 +667,8 @@ if check_password():
                 (weekproj['Rec TD'] * st.session_state.scoring_settings['rec_td'])
             )
 
+            weekproj['Own'] = weekproj['Player'].map(own_dict)
+
             # ranking
             if mainslateselect == 'Yes':
                 weekproj = weekproj[weekproj['Team'].isin(main_slate_team_list)]
@@ -710,22 +715,22 @@ if check_password():
             # display based on position selection
             if selected_position == 'All':
                 if dfs_sals_check:
-                    proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
                 else:
                     proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
             elif selected_position == 'QB':
                 if dfs_sals_check:
-                    proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
+                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
                 else:
                     proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
             elif selected_position in ['WR','TE']:
                 if dfs_sals_check:
-                    proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
+                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
                 else:
                     proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
             elif selected_position in ['RB','WR','TE','FLEX']:
                 if dfs_sals_check:
-                    proj_show_cols = ['Player','Team','Opp','Sal','FPts','Val','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
                 else:
                     proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
 
