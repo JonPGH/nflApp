@@ -210,8 +210,11 @@ if check_password():
         saltrack = pd.read_csv(f'{file_path}/DKSalTracking.csv')
         saltrack2 = pd.read_csv(f'{file_path}/DKSalTracking2.csv')
         xfp = pd.read_csv(f'{file_path}/xFPData.csv')
+        mainslate = pd.read_csv(f'{file_path}/mainslate.csv')
+        shootout_teams = pd.read_csv(f'{file_path}/shootout_team_data.csv')
+        shootout_matchups = pd.read_csv(f'{file_path}/shootout_game_data.csv')
 
-        return xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2
+        return mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2
         
     def load_team_logos_dumb():
         base_dir = os.path.dirname(__file__)
@@ -284,12 +287,11 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2 = load_data()
+    mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2 = load_data()
+    mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
+    mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
-    dkdata['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(dkdata))
-    dkdata['Own'] = round(dkdata['Own'] * dkdata['Rand'],0)
-
-    own_dict = dict(zip(dkdata.Player,dkdata.Own))
+    own_dict = dict(zip(mainslate.name,mainslate.proj_own))
 
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
     check_matchups_dk = dict(zip(dkdata.Team,dkdata.Opp))
@@ -316,6 +318,7 @@ if check_password():
 
     # this week
     get_this_week_number = dkdata['Week'].iloc[0]
+
 
     nfl_week_maps['Date'] = pd.to_datetime(nfl_week_maps['Date'])
     nfl_week_maps['Date'] = nfl_week_maps['Date'].dt.date
@@ -346,6 +349,10 @@ if check_password():
     adp_data['Player'] = adp_data['Player'].replace(namemapdict)
     season_proj['Player'] = season_proj['Player'].replace(namemapdict)
     implied_totals['Rank'] = implied_totals['Implied'].rank(ascending=False)
+
+    shootout_matchups['GameSS'] = round(shootout_matchups['Game SS'],0)
+
+    game_ss_dict = dict(zip(shootout_matchups.Team,shootout_matchups.GameSS))
     
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
 
@@ -362,7 +369,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game", "Season Projections","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -408,13 +415,25 @@ if check_password():
 
         dksalsdf = dkdata[['Player','Sal']]
 
-        show_all_game_info = st.checkbox('Show Game Info', value=False)
+        g_checkcol1, g_checkcol2, g_checkcol3 = st.columns([1,1,4])
+
+        with g_checkcol1:
+            show_all_game_info = st.checkbox('Show Full Slate Game Info', value=False)
+        with g_checkcol2:
+            show_shootout_info = st.checkbox('Show Shootout Game Info', value=False)
         if show_all_game_info:
             show_schedule = implied_totals[['Team','Opp','OU','Spread','Implied']].sort_values(by='OU',ascending=False)
             show_schedule['MainSlate'] = np.where(show_schedule['Team'].isin(main_slate_team_list),"Y","N")
             scol1, scol2, scol3 = st.columns([1,1,1])
             with scol2:
                 st.dataframe(show_schedule, width=800,height=900, hide_index=True)
+        if show_shootout_info:
+            show_shooty_matchups = shootout_matchups[['Team','Opp','Game SS']]
+            show_shooty_matchups['Game SS'] = show_shooty_matchups['Game SS'].astype(int)
+            show_shooty_matchups.columns=['Team','Opp','Game Shootout Score']
+            sscol1, sscol2, sscol3 = st.columns([1,1,1])
+            with sscol2:
+                st.dataframe(show_shooty_matchups, width=460, height=1200, hide_index=True)
 
         get_this_week_number = dkdata['Week'].iloc[0]
         try:
@@ -450,7 +469,11 @@ if check_password():
         road_team = selectedgamedata['Away'].iloc[0]
         home_team = selectedgamedata['Home'].iloc[0]
 
+
         road_team_short = teamnamechangedict.get(road_team)
+        game_ss_value = game_ss_dict.get(road_team_short)
+        game_ss_value = int(game_ss_value)
+
         road_team_short_lower = road_team_short.lower()
         home_team_short = teamnamechangedict.get(home_team)
         home_team_short_lower = home_team_short.lower()
@@ -471,7 +494,9 @@ if check_password():
         st.markdown(f"""<center><font size=25 face=Futura><b>{road_team} vs. {home_team}</b></font><br>
                         <center><font size=6 face=Futura><u>{date_to_show} at {time_to_show}</u></center></font>
                         <font size=6 face=Futura><i><b>{favored_team} {favored_spread}</font><br>
-                        <font size=6 face=Futura>Over/Under: {game_ou}</center></font><br>
+                        <font size=6 face=Futura>Over/Under: {game_ou}</font><br>
+                        <font size=6 face=Futura>Shootout Score: {game_ss_value}</font><br>
+                        <font size=3 face=Arial><i>100 = league average shootout score</i></font></center>
                     """, unsafe_allow_html=True)
         
         line_move_check = st.checkbox('Show Line Movements', value=False)
@@ -558,7 +583,9 @@ if check_password():
                     st.dataframe(home_rec_proj, hide_index=True, width=600,height=325)
                 else:
                     st.dataframe(home_rec_proj, hide_index=True, width=600)
-
+    if tab == "Line Movement":
+        st.write(this_week_schedule.sort_values(by=['Home','Timestamp']))
+    
     if tab == "Weekly Projections":
         st.markdown("<h3><center>Weekly Projections & Ranks</h3></center>", unsafe_allow_html=True)
 
