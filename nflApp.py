@@ -383,7 +383,6 @@ if check_password():
     st.markdown(f"<center><h1>Follow The Money Fantasy Football Web App</h1></center>", unsafe_allow_html=True)
 
     if tab == "Book Based Proj":
-        st.write(bookproj)
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Book Based Projections<br></b><font size=3 face=Futura>These are projections derived from the betting lines taken out of the major sports books</font></center>
                      """, unsafe_allow_html=True)
         
