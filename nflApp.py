@@ -213,8 +213,9 @@ if check_password():
         mainslate = pd.read_csv(f'{file_path}/mainslate.csv')
         shootout_teams = pd.read_csv(f'{file_path}/shootout_team_data.csv')
         shootout_matchups = pd.read_csv(f'{file_path}/shootout_game_data.csv')
+        bookproj = pd.read_csv(f'{file_path}/bookproj.csv')
 
-        return mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2
+        return mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
         
     def load_team_logos_dumb():
         base_dir = os.path.dirname(__file__)
@@ -287,7 +288,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2 = load_data()
+    mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -369,7 +370,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","Book Based Proj","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -381,9 +382,38 @@ if check_password():
     # Main content
     st.markdown(f"<center><h1>Follow The Money Fantasy Football Web App</h1></center>", unsafe_allow_html=True)
 
+    if tab == "Book Based Proj":
+        st.markdown(f"""<br><center><font size=10 face=Futura><b>Book Based Projections<br></b><font size=3 face=Futura>These are projections derived from the betting lines taken out of the major sports books</font></center>
+                     """, unsafe_allow_html=True)
+        
+        game_select_list = ['All'] + list(bookproj['Game'].unique())
+        player_select_list = ['All'] + list(bookproj['Player'])
+
+        bookcol1, bookcol2 = st.columns([1,1])
+        with bookcol1:
+            game_selection_box = st.selectbox('Select a Game', game_select_list)
+        with bookcol2:
+            player_selection_box = st.selectbox('Select a Player', player_select_list)
+        
+        if game_selection_box == 'All':
+             show_df = bookproj.copy()
+        else:
+            filtered_df = bookproj[bookproj['Game']==game_selection_box]
+            show_df = filtered_df.copy()
+
+        if player_selection_box == 'All':
+            pass
+        else:
+            filtered_df = bookproj[bookproj['Player']==player_selection_box]
+            show_df = filtered_df.copy()
+
+        show_df = show_df[['Player','Team','Opp','Game','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yds','Rec','Rec Yds','Rush Rec TD']]
+        st.dataframe(show_df,hide_index=True, width=1250)
+    
     if tab == "Expected Fantasy Points":
         st.markdown("<h1><center>Expected Fantasy Points Model</h1></center>", unsafe_allow_html=True)
         st.markdown("<i><center><h3>work in progress...</i></h3></center>", unsafe_allow_html=True)
+        st.markdown("<center><a href='https://docs.google.com/spreadsheets/d/106Wj9ncKwDnfDuUQUc5CHHX3sg_hE0Fkm4L75H_jC0E/edit?usp=sharing'>View Model Results Here</a></center><br>",unsafe_allow_html=True)
         xpc1,xpc2,xpc3 = st.columns([1,1,1])
         with xpc1:
             selected_team = st.selectbox("Select Team", ["All"] + sorted(xfp['Team'].unique().tolist()))
