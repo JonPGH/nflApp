@@ -214,8 +214,13 @@ if check_password():
         shootout_teams = pd.read_csv(f'{file_path}/shootout_team_data.csv')
         shootout_matchups = pd.read_csv(f'{file_path}/shootout_game_data.csv')
         bookproj = pd.read_csv(f'{file_path}/bookproj.csv')
+        qb_grades = pd.read_csv(f'{file_path}/qb_grades.csv')
+        rb_grades = pd.read_csv(f'{file_path}/rb_grades.csv')
+        wr_grades = pd.read_csv(f'{file_path}/wr_grades.csv')
+        te_grades = pd.read_csv(f'{file_path}/te_grades.csv')
+        team_grades = pd.read_csv(f'{file_path}/team_grading.csv')
 
-        return mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
+        return team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
         
     def load_team_logos_dumb():
         base_dir = os.path.dirname(__file__)
@@ -288,10 +293,27 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
+    qb_grades['Rk'] = qb_grades['Season'].rank().astype(int)
+    qb_grade_dict = dict(zip(qb_grades.QB,qb_grades.Rk))
+    
+    rb_grades = rb_grades[rb_grades['Season']>1]
+    rb_grades['Rk'] = rb_grades['Season'].rank().astype(int)
+    rb_grade_dict = dict(zip(rb_grades.RB,rb_grades.Rk))
+    
+    wr_grades = wr_grades[wr_grades['Season']>1]
+    wr_grades['Rk'] = wr_grades['Season'].rank().astype(int)
+    wr_grade_dict = dict(zip(wr_grades.WR,wr_grades.Rk))
+    
+    te_grades = te_grades[te_grades['Season']>1]
+    te_grades['Rk'] = te_grades['Season'].rank().astype(int)
+    te_grade_dict = dict(zip(te_grades.TE,te_grades.Rk))
+
+    all_grade_rank_dict = qb_grade_dict | rb_grade_dict | wr_grade_dict | te_grade_dict    
+    
     own_dict = dict(zip(mainslate.name,mainslate.proj_own))
 
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
@@ -370,7 +392,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","Book Based Proj","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -382,6 +404,145 @@ if check_password():
     # Main content
     st.markdown(f"<center><h1>Follow The Money Fantasy Football Web App</h1></center>", unsafe_allow_html=True)
 
+    def color_season(val):
+        if pd.isna(val) or val == 'None' or not isinstance(val, (int, float, str)):
+            return 'white'
+        try:
+            val = float(val)
+            if val >= 100:
+                r = int(255 * (1 - (val - 100) / 100))  # Green increases above 100
+                g = 255
+                b = int(255 * ((val - 100) / 100))
+            else:
+                r = 255
+                g = int(255 * (val / 100))  # Red increases below 100
+                b = int(255 * (val / 100))
+                return f'rgb({r}, {g}, {b})'
+        except (ValueError, TypeError):
+            return 'white'
+
+
+    if tab == "Player Grades":
+
+        st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money Player Grades<br></b><font size=3 face=Futura>Algorithmic player rankings using inputs that are more important to fantasy football success</font></center>""", unsafe_allow_html=True)
+
+        gradebox1, gradebox2 = st.columns([1, 3])
+        with gradebox1:
+            select_pos = st.selectbox('Select a Position', ['QB', 'RB', 'WR', 'TE'])
+            #show_weekly = st.checkbox('Show Weekly Data', value=False)
+
+        if select_pos == 'QB':
+            # Assuming qb_grades is your DataFrame
+            df = qb_grades.copy()
+            df['Season'] = df['Season'].astype(int)
+
+            # Add rank column based on Season grade
+            df = df.sort_values('Season', ascending=False)
+            df['Rank'] = range(1, len(df) + 1)
+
+            # Select columns based on checkbox
+            #if not show_weekly:
+            df_display = df[['Rank', 'QB', 'Team', 'Season']].copy()
+            #else:
+                #df_display = df[['Rank', 'QB', 'Team', 'Season', 1, 2, 3]].copy()           
+
+            # Display the styled DataFrame
+            showcol1,showcol2,showcol3 = st.columns([1,2,1])
+            with showcol2: 
+                st.dataframe(df_display, use_container_width=False, width=800, height=1100, hide_index=True)
+
+            # Add some visual flair
+            st.markdown("<style>body {background-color: #white;}</style>", unsafe_allow_html=True)
+            st.markdown("<style>.stApp {background-color: #white;}</style>", unsafe_allow_html=True)
+        
+        if select_pos == 'RB':
+            # Assuming qb_grades is your DataFrame
+            df = rb_grades.copy()
+            df = df[df['Season']>10]
+
+            df['Season'] = df['Season'].astype(int)
+
+            # Add rank column based on Season grade
+            df = df.sort_values('Season', ascending=False)
+            df['Rank'] = range(1, len(df) + 1)
+
+            # Select columns based on checkbox
+            #if not show_weekly:
+            df_display = df[['Rank', 'RB', 'Team', 'Season']].copy()
+            #else:
+                #df_display = df[['Rank', 'QB', 'Team', 'Season', 1, 2, 3]].copy()           
+
+            # Display the styled DataFrame
+            showcol1,showcol2,showcol3 = st.columns([1,2,1])
+            with showcol2: 
+                st.dataframe(df_display, use_container_width=False, width=800, height=1100, hide_index=True)
+
+            # Add some visual flair
+            st.markdown("<style>body {background-color: #white;}</style>", unsafe_allow_html=True)
+            st.markdown("<style>.stApp {background-color: #white;}</style>", unsafe_allow_html=True)
+        if select_pos == 'WR':
+            # Assuming qb_grades is your DataFrame
+            df = wr_grades.copy()
+            df = df[df['Season']>10]
+
+            df['Season'] = df['Season'].astype(int)
+
+            # Add rank column based on Season grade
+            df = df.sort_values('Season', ascending=False)
+            df['Rank'] = range(1, len(df) + 1)
+
+            # Select columns based on checkbox
+            #if not show_weekly:
+            df_display = df[['Rank', 'WR', 'Team', 'Season']].copy()
+            #else:
+                #df_display = df[['Rank', 'QB', 'Team', 'Season', 1, 2, 3]].copy()           
+
+            # Display the styled DataFrame
+            showcol1,showcol2,showcol3 = st.columns([1,2,1])
+            with showcol2: 
+                st.dataframe(df_display, use_container_width=False, width=800, height=1100, hide_index=True)
+
+            # Add some visual flair
+            st.markdown("<style>body {background-color: #white;}</style>", unsafe_allow_html=True)
+            st.markdown("<style>.stApp {background-color: #white;}</style>", unsafe_allow_html=True)
+        if select_pos == 'TE':
+            # Assuming qb_grades is your DataFrame
+            df = te_grades.copy()
+            df = df[df['Season']>10]
+
+            df['Season'] = df['Season'].astype(int)
+
+            # Add rank column based on Season grade
+            df = df.sort_values('Season', ascending=False)
+            df['Rank'] = range(1, len(df) + 1)
+
+            # Select columns based on checkbox
+            #if not show_weekly:
+            df_display = df[['Rank', 'TE', 'Team', 'Season']].copy()
+            #else:
+                #df_display = df[['Rank', 'QB', 'Team', 'Season', 1, 2, 3]].copy()           
+
+            # Display the styled DataFrame
+            showcol1,showcol2,showcol3 = st.columns([1,2,1])
+            with showcol2: 
+                st.dataframe(df_display, use_container_width=False, width=800, height=8500, hide_index=True)
+
+            # Add some visual flair
+            st.markdown("<style>body {background-color: #white;}</style>", unsafe_allow_html=True)
+            st.markdown("<style>.stApp {background-color: #white;}</style>", unsafe_allow_html=True)
+
+
+    if tab == "Player Grades2":
+        st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money Player Grades<br></b><font size=3 face=Futura>Algorithmic player rankings using inputs that are more important to fantasy football success</font></center>
+                     """, unsafe_allow_html=True)
+
+        gradebox1, gradebox2 = st.columns([1,3])
+        with gradebox1:
+            select_pos = st.selectbox('Select a Position', ['QB','RB','WR','TE'])
+
+        if select_pos == 'QB':
+            st.dataframe(qb_grades)
+    
     if tab == "Book Based Proj":
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Book Based Projections<br></b><font size=3 face=Futura>These are projections derived from the betting lines taken out of the major sports books</font></center>
                      """, unsafe_allow_html=True)
@@ -477,6 +638,9 @@ if check_password():
         schedule = pd.merge(schedule,nfl_week_maps, on='Date',how='left')
 
         this_week = schedule[schedule['Week']==get_this_week_number]
+        from datetime import datetime
+        check_today = datetime.today().date()
+        this_week = this_week[this_week['Date']>=check_today]
         this_week['Game Name'] =this_week['Away'] + ' @ ' + this_week['Home']
         game_selection_list = list(this_week['Game Name'].unique())
         game_selection = st.selectbox('Select A Game', game_selection_list)
@@ -569,6 +733,7 @@ if check_password():
                 st.pyplot(fig)
 
         weekproj = pd.merge(weekproj,dksalsdf,how='left',on='Player')
+        weekproj['JA Rk'] = weekproj['Player'].map(all_grade_rank_dict)
         road_projections = weekproj[weekproj['Team']==road_team_short]
         road_implied = implied_totals[implied_totals['Team']==road_team_short]['Implied'].iloc[0]
         road_implied_rank = implied_totals[implied_totals['Team']==road_team_short]['Rank'].iloc[0]
@@ -584,35 +749,42 @@ if check_password():
             projcol1, projcol2 = st.columns([1,1])
 
             with projcol1:
-                st.markdown(f"<center><font size=13><b>{road_team}</b></font><br><font size=4><i>Implied for {road_implied} points, ranked #{int(road_implied_rank)} of {len(implied_totals)}</i></center><hr>", unsafe_allow_html=True)
-                #st.image(team_logos.get(road_team_short_lower),width=200)
+                road_def_grade = team_grades[team_grades['Team']==road_team_short]['Defense Grade'].iloc[0].astype(int)
+                road_off_grade = team_grades[team_grades['Team']==road_team_short]['Offense Grade'].iloc[0].astype(int)
+                home_def_grade = team_grades[team_grades['Team']==home_team_short]['Defense Grade'].iloc[0].astype(int)
+                home_off_grade = team_grades[team_grades['Team']==home_team_short]['Offense Grade'].iloc[0].astype(int)
+
+                st.markdown(f"<center><font size=13><b>{road_team}</b></font><br><font size=4><i>Implied for <font size=6 color=red><b>{road_implied}</b></font> points, ranked #<font size = 6 color=red><b>{int(road_implied_rank)}</b></font> of {len(implied_totals)}</i><br><i>D Grade: <b><font size=6 color=red>{road_def_grade}</font></b>   |   O Grade: <b><font size = 6 color=red>{road_off_grade}</font></b></i><hr>", unsafe_allow_html=True)
+
                 st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-                road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
-                st.dataframe(road_qb_proj, hide_index=True, width=630)
+                road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','JA Rk','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+                st.dataframe(road_qb_proj, hide_index=True, width=750)
                 st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-                road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
-                st.dataframe(road_rb_proj, hide_index=True, width=600,height=150)
+                road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','JA Rk','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+                st.dataframe(road_rb_proj, hide_index=True, width=650,height=150)
                 st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-                road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+                road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','JA Rk','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
                 if len(road_rec_proj) > 7:
-                    st.dataframe(road_rec_proj, hide_index=True, width=600,height=325)
+                    st.dataframe(road_rec_proj, hide_index=True, width=650,height=325)
                 else:
-                    st.dataframe(road_rec_proj, hide_index=True, width=600)
+                    st.dataframe(road_rec_proj, hide_index=True, width=650)
 
             with projcol2:
-                st.markdown(f"<center><font size=13><b>{home_team}</b></font><br><font size=4><i>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</i></center><hr>", unsafe_allow_html=True)
+                #st.markdown(f"<center><font size=13><b>{home_team}</b></font><br><font size=4><i>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</i></center><hr>", unsafe_allow_html=True)
+                st.markdown(f"<center><font size=13><b>{home_team}</b></font><br><font size=4><i>Implied for <font size=6 color=red><b>{home_implied}</b></font> points, ranked #<font size = 6 color=red><b>{int(home_implied_rank)}</b></font> of {len(implied_totals)}</i><br><i>D Grade: <b><font size=6 color=red>{home_def_grade}</font></b>   |   O Grade: <b><font size = 6 color=red>{home_off_grade}</font></b></i><hr>", unsafe_allow_html=True)
+
                 st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-                home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
-                st.dataframe(home_qb_proj, hide_index=True, width=630)
+                home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','JA Rk','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+                st.dataframe(home_qb_proj, hide_index=True, width=750)
                 st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-                home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
-                st.dataframe(home_rb_proj, hide_index=True, width=600,height=150)
+                home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','JA Rk','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+                st.dataframe(home_rb_proj, hide_index=True, width=650,height=150)
                 st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-                home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+                home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','JA Rk','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
                 if len(home_rec_proj) > 7:
-                    st.dataframe(home_rec_proj, hide_index=True, width=600,height=325)
+                    st.dataframe(home_rec_proj, hide_index=True, width=650,height=325)
                 else:
-                    st.dataframe(home_rec_proj, hide_index=True, width=600)
+                    st.dataframe(home_rec_proj, hide_index=True, width=650)
     if tab == "Line Movement":
         st.write(this_week_schedule.sort_values(by=['Home','Timestamp']))
     
