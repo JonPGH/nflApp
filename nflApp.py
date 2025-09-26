@@ -297,19 +297,19 @@ if check_password():
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
-    qb_grades['Rk'] = qb_grades['Season'].rank().astype(int)
+    qb_grades['Rk'] = qb_grades['Season'].rank(ascending=False).astype(int)
     qb_grade_dict = dict(zip(qb_grades.QB,qb_grades.Rk))
     
     rb_grades = rb_grades[rb_grades['Season']>1]
-    rb_grades['Rk'] = rb_grades['Season'].rank().astype(int)
+    rb_grades['Rk'] = rb_grades['Season'].rank(ascending=False).astype(int)
     rb_grade_dict = dict(zip(rb_grades.RB,rb_grades.Rk))
     
     wr_grades = wr_grades[wr_grades['Season']>1]
-    wr_grades['Rk'] = wr_grades['Season'].rank().astype(int)
+    wr_grades['Rk'] = wr_grades['Season'].rank(ascending=False).astype(int)
     wr_grade_dict = dict(zip(wr_grades.WR,wr_grades.Rk))
     
     te_grades = te_grades[te_grades['Season']>1]
-    te_grades['Rk'] = te_grades['Season'].rank().astype(int)
+    te_grades['Rk'] = te_grades['Season'].rank(ascending=False).astype(int)
     te_grade_dict = dict(zip(te_grades.TE,te_grades.Rk))
 
     all_grade_rank_dict = qb_grade_dict | rb_grade_dict | wr_grade_dict | te_grade_dict    
