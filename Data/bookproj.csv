@@ -1,7 +1,7 @@
 ,Player,Team,Opp,Game,Pass Att,Pass Yards,Int,Pass TD,Rush Att,Rush Yds,Rec,Rec Yds,Rush Rec TD,System
-0,Brock Purdy,SFO,,,33.17,239.03,0.0,1.46,0.0,0.0,0.0,0.0,0.17,Sportsbooks
-1,Matthew Stafford,LAR,SF,SF@LAR,31.7,235.67,0.58,1.89,1.5,1.51,0.0,0.0,0.05,Sportsbooks
-2,Kyren Williams,LAR,SF,SF@LAR,0.0,0.0,0.0,0.0,16.5,67.49,2.0,9.21,0.98,Sportsbooks
-3,Christian McCaffrey,SFO,,,0.0,0.0,0.0,0.0,16.5,59.44,0.0,0.0,0.83,Sportsbooks
-7,Puka Nacua,LAR,SF,SF@LAR,0.0,0.0,0.0,0.0,0.0,2.79,8.25,96.57,0.66,Sportsbooks
-8,Davante Adams,LAR,SF,SF@LAR,0.0,0.0,0.0,0.0,0.0,0.0,4.71,53.91,0.6,Sportsbooks
+0,Brock Purdy,SFO,,,33.18,238.51,0.76,1.47,0.0,0.0,0.0,0.0,0.16,Sportsbooks
+1,Matthew Stafford,LAR,SF,SF@LAR,31.73,235.73,0.59,1.89,1.5,0.35,0.0,0.0,0.06,Sportsbooks
+2,Kyren Williams,LAR,SF,SF@LAR,0.0,0.0,0.0,0.0,16.5,67.55,2.05,9.24,1.0,Sportsbooks
+3,Christian McCaffrey,SFO,,,0.0,0.0,0.0,0.0,16.5,60.12,0.0,0.0,0.82,Sportsbooks
+7,Puka Nacua,LAR,SF,SF@LAR,0.0,0.0,0.0,0.0,0.0,2.28,8.19,96.04,0.67,Sportsbooks
+8,Davante Adams,LAR,SF,SF@LAR,0.0,0.0,0.0,0.0,0.0,0.0,4.75,53.61,0.6,Sportsbooks
