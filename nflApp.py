@@ -888,7 +888,188 @@ if check_password():
                     )
 
 
+
+
     if tab == "Player Grades":
+        # ---------- Header ----------
+        st.markdown(
+            """<div style="text-align:center; line-height:1.3">
+                <div style="font-family:Futura; font-weight:800; font-size:44px;">Follow The Money Player Grades</div>
+                <div style="font-family:Futura; font-size:14px; opacity:.8;">
+                    Algorithmic player rankings using inputs that are more important to fantasy football success
+                </div>
+            </div><br>""",
+            unsafe_allow_html=True,
+        )
+
+        # ---------- Helper to prep each position df ----------
+        def prep_pos_df(pos: str) -> pd.DataFrame:
+            src = {"QB": qb_grades, "RB": rb_grades, "WR": wr_grades, "TE": te_grades}[pos].copy()
+
+            # Normalize types
+            src["Season"] = pd.to_numeric(src["Season"], errors="coerce")
+            # Map position-specific name column to a unified "Player"
+            name_col = pos
+            src = src.rename(columns={name_col: "Player"})
+            # Identify week columns if present (1,2,3 ... or "1","2",...)
+            week_cols = []
+            for c in src.columns:
+                if isinstance(c, (int, np.integer)):
+                    week_cols.append(int(c))
+                elif isinstance(c, str) and c.isdigit():
+                    week_cols.append(int(c))
+            week_cols = sorted(list(set(week_cols)))
+            # Keep only sensible columns
+            keep_cols = ["Player", "Team", "Season"] + [str(w) for w in week_cols]
+            keep_cols = [c for c in keep_cols if c in src.columns]
+            src = src[keep_cols].dropna(subset=["Player", "Team", "Season"])
+            return src, week_cols
+
+        # ---------- Controls ----------
+        c1, c2, c3, c4 = st.columns([1, 1, 1.4, 1.6])
+        with c1:
+            select_pos = st.selectbox("Position", ["QB", "RB", "WR", "TE"])
+        df_raw, all_weeks = prep_pos_df(select_pos)
+
+        # Reasonable default min grade threshold (your old code used >10 for RB/WR/TE)
+        default_min = 0 if select_pos == "QB" else 10
+        with c2:
+            min_grade = st.slider("Min season grade", 0, 100, int(default_min), step=1)
+        with c3:
+            team_options = ["All"] + sorted(df_raw["Team"].unique().tolist())
+            team_choice = st.selectbox("Team filter", team_options, index=0)
+        with c4:
+            search_name = st.text_input("Search player", placeholder="Type a name…")
+
+        # Week selection row
+        show_weekly = st.checkbox("Show weekly grades", value=False)
+        chosen_weeks = []
+        if show_weekly and all_weeks:
+            # Default: last 4 weeks (or all if <4)
+            default_weeks = all_weeks[-min(4, len(all_weeks)):]
+            chosen_weeks = st.multiselect(
+                "Weeks to show",
+                options=all_weeks,
+                default=default_weeks,
+                help="These columns will be added to the table and colored independently."
+            )
+            chosen_weeks = [str(w) for w in chosen_weeks if str(w) in df_raw.columns]
+
+        # Top-N selector
+        top_n = st.slider("Show top N", 10, 300, min(50, len(df_raw)), step=5)
+
+        # ---------- Filtering ----------
+        df = df_raw.copy()
+        df = df[df["Season"] >= min_grade]
+        if team_choice != "All":
+            df = df[df["Team"] == team_choice]
+        if search_name:
+            df = df[df["Player"].str.contains(search_name, case=False, na=False)]
+
+        # Rank & sort
+        df = df.sort_values("Season", ascending=False).reset_index(drop=True)
+        df.insert(0, "Rank", np.arange(1, len(df) + 1))
+        display_cols = ["Rank", "Player", "Team", "Season"] + chosen_weeks
+        df_display = df[display_cols].head(top_n)
+
+        # ---------- Styling (2 decimals + gradients) ----------
+        def style_table(df_show: pd.DataFrame) -> pd.io.formats.style.Styler:
+            numeric_cols = df_show.select_dtypes(include="number").columns.tolist()
+            fmt = {col: "{:.2f}" for col in numeric_cols}
+
+            styler = df_show.style.format(fmt)
+            # Green (good) -> red (bad). Use 'RdYlGn' reversed for "higher=better"
+            try:
+                styler = styler.background_gradient(
+                    cmap="RdYlGn_r", subset=["Season"]
+                )
+            except Exception:
+                pass
+            for wk in chosen_weeks:
+                if wk in df_show.columns:
+                    try:
+                        styler = styler.background_gradient(cmap="RdYlGn_r", subset=[wk])
+                    except Exception:
+                        pass
+
+            # Make Rank column tighter & bold
+            def bold_rank(col):
+                return ["font-weight:700; width:1px;"] * len(col)
+            if "Rank" in df_show.columns:
+                styler = styler.set_properties(subset=["Rank"], **{"font-weight": "700", "text-align": "center"})
+
+            # Align text
+            styler = styler.set_properties(subset=["Player", "Team"], **{"white-space": "nowrap"})
+            styler = styler.set_table_styles([
+                {"selector": "th", "props": [("font-weight", "700"), ("text-transform", "uppercase")]},
+                {"selector": "thead tr th", "props": [("text-align", "center")]},
+            ])
+            return styler
+
+        tcol1, tcol2, tcol3 = st.columns([1, 3, 1])
+        with tcol2:
+            st.dataframe(
+                style_table(df_display),
+                use_container_width=True,
+                hide_index=True,
+                height=700 if not show_weekly else 900
+            )
+
+        # ---------- Quick chart of top players ----------
+        if len(df_display) >= 3:
+            st.markdown("##### Top players (Season grade)")
+            chart_df = df_display[["Player", "Season"]].set_index("Player").head(15)
+            st.bar_chart(chart_df)
+
+        # ---------- Download ----------
+        csv = df_display.to_csv(index=False)
+        st.download_button(
+            "Download current table (CSV)",
+            data=csv,
+            file_name=f"player_grades_{select_pos.lower()}.csv",
+            mime="text/csv",
+            use_container_width=True,
+        )
+
+        # ---------- Light UI polish ----------
+        st.markdown(
+            """
+            <style>
+            /* soften the container a bit */
+            .stDataFrame thead tr th { text-align:center; }
+            .stDataFrame tbody tr td { vertical-align: middle; }
+            .st-emotion-cache-10trblm p { margin: 0; }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if tab == "Player Grades2":
 
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money Player Grades<br></b><font size=3 face=Futura>Algorithmic player rankings using inputs that are more important to fantasy football success</font></center>""", unsafe_allow_html=True)
 
@@ -997,17 +1178,6 @@ if check_password():
             st.markdown("<style>body {background-color: #white;}</style>", unsafe_allow_html=True)
             st.markdown("<style>.stApp {background-color: #white;}</style>", unsafe_allow_html=True)
 
-
-    if tab == "Player Grades2":
-        st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money Player Grades<br></b><font size=3 face=Futura>Algorithmic player rankings using inputs that are more important to fantasy football success</font></center>
-                     """, unsafe_allow_html=True)
-
-        gradebox1, gradebox2 = st.columns([1,3])
-        with gradebox1:
-            select_pos = st.selectbox('Select a Position', ['QB','RB','WR','TE'])
-
-        if select_pos == 'QB':
-            st.dataframe(qb_grades)
     
     if tab == "Book Based Proj":
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Book Based Projections<br></b><font size=3 face=Futura>These are projections derived from the betting lines taken out of the major sports books</font></center>
