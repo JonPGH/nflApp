@@ -1,11 +1,13 @@
 import streamlit as st
+from matplotlib.colors import LinearSegmentedColormap
 import pandas as pd
 import os
-import warnings
+import warnings, io
 warnings.filterwarnings("ignore")
 import numpy as np
 import streamlit.components.v1 as components
 import matplotlib.pyplot as plt
+import os, shutil, math
 
 # Initialize session state for authentication
 if 'authenticated' not in st.session_state:
@@ -219,8 +221,9 @@ if check_password():
         wr_grades = pd.read_csv(f'{file_path}/wr_grades.csv')
         te_grades = pd.read_csv(f'{file_path}/te_grades.csv')
         team_grades = pd.read_csv(f'{file_path}/team_grading.csv')
+        optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')#
 
-        return team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
+        return optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
         
     def load_team_logos_dumb():
         base_dir = os.path.dirname(__file__)
@@ -293,7 +296,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -392,7 +395,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","DFS Optimizer","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -420,6 +423,399 @@ if check_password():
                 return f'rgb({r}, {g}, {b})'
         except (ValueError, TypeError):
             return 'white'
+
+    if tab == "DFS Optimizer":
+        st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money DFS Tool<br></b>
+        <font size=3 face=Futura>These projections are tweaked slightly for more DFS friendly projections, including ceiling and positional adjustments.</font></center>""", unsafe_allow_html=True)
+        
+        show_projections_check = st.checkbox('Show Projections?', value=True)
+        
+        try:
+            optimizer_proj = optimizer_proj.rename({'DK ID':'DKID'},axis=1)
+        except:
+            pass
+        dk_id_dict = dict(zip(optimizer_proj.Player,optimizer_proj.DKID))
+
+        account_for_ceiling_check = st.checkbox('Adjust for Ceiling', value=True)
+
+        if account_for_ceiling_check:
+            optimizer_proj = optimizer_proj[['Player', 'Pos','Team','Opp','Sal','wProj_ceil']]
+            optimizer_proj.columns=['Player','Pos','Team','Opp','Sal','Proj']
+            optimizer_proj['Value'] = optimizer_proj['Proj'] / (optimizer_proj['Sal']/1000)
+        else:
+            optimizer_proj = optimizer_proj[['Player', 'Pos','Team','Opp','Sal','wProj1']]
+            optimizer_proj.columns=['Player','Pos','Team','Opp','Sal','Proj']
+            optimizer_proj['Value'] = optimizer_proj['Proj'] / (optimizer_proj['Sal']/1000)
+
+        # positional adjustment
+        pos_value_medians = optimizer_proj.groupby('Pos',as_index=False)['Value'].median()
+        pos_value_medians.columns=['Pos','PosV']
+        optimizer_proj = pd.merge(optimizer_proj,pos_value_medians,on='Pos')
+        optimizer_proj["Value"] = optimizer_proj.groupby("Pos")["Value"].transform(
+            lambda x: (x - x.mean()) / x.std()
+        )
+        optimizer_proj = optimizer_proj.drop(['PosV'],axis=1)
+        optimizer_proj = optimizer_proj.round(2)
+
+        # ------------------ FILTER CONTROLS ------------------
+        # Three columns: Pos dropdown | Salary slider | Player search
+        col1, col2, col3 = st.columns([1, 2, 2])
+
+        # 1) Position dropdown (with "All")
+        pos_options = ["All"] + sorted(optimizer_proj["Pos"].unique().tolist())
+        pos_choice = col1.selectbox("Filter by Position:", pos_options, index=0)
+
+        # Salary slider uses global min/max (int)
+        sal_min = int(optimizer_proj["Sal"].min())
+        sal_max = int(optimizer_proj["Sal"].max())
+        salary_range = col2.slider(
+            "Salary range ($)",
+            min_value=sal_min,
+            max_value=sal_max,
+            value=(sal_min, sal_max),
+            step=100
+        )
+
+        # 3) Player search
+        player_search = col3.text_input("Search for Player:")
+
+        # ------------------ APPLY FILTERS ------------------
+        filtered = optimizer_proj.copy()
+
+        # Position filter
+        if pos_choice != "All":
+            filtered = filtered[filtered["Pos"] == pos_choice]
+
+        # Salary filter
+        filtered = filtered[(filtered["Sal"] >= salary_range[0]) & (filtered["Sal"] <= salary_range[1])]
+
+        # Player search (case-insensitive)
+        if player_search:
+            filtered = filtered[filtered["Player"].str.contains(player_search, case=False, na=False)]
+
+        # Sort by Value desc
+        filtered = filtered.sort_values(by='Value', ascending=False)
+
+        # --- Row colors by position ---
+        pos_colors = {
+            "QB": "#e0f7fa",
+            "RB": "#f1f8e9",
+            "WR": "#fff3e0",
+            "TE": "#fce4ec",
+            "DST": "#ede7f6"
+        }
+
+        def highlight_rows(row):
+            color = pos_colors.get(row["Pos"], "#ffffff")
+            return [f"background-color: {color}"] * len(row)
+
+        # --- Formatting: all numeric → 2 decimals; Sal → currency no decimals ---
+        numeric_cols = filtered.select_dtypes(include="number").columns.tolist()
+        fmt = {col: "{:.2f}" for col in numeric_cols}
+        if "Sal" in fmt:
+            fmt["Sal"] = "${:,.0f}"
+
+        styler = (
+            filtered.style
+                .apply(highlight_rows, axis=1)
+                .format(fmt)
+        )
+
+        showprojcol1, showprojcol2, showprojcol3 = st.columns([1,5,1])
+        with showprojcol2:
+            st.dataframe(styler, height=500, use_container_width=True, hide_index=True)
+
+        st.markdown("<hr>", unsafe_allow_html=True)
+        ### OPTIMIZER CODE #################
+
+        try:
+            import pulp
+        except Exception:
+            pulp = None
+
+        st.markdown("### 🧮 DFS Optimizer (DraftKings NFL)")
+
+        with st.expander("Optimizer Settings", expanded=True):
+            n_lineups = st.number_input("How many lineups to generate?", min_value=1, max_value=150, value=10, step=1)
+            variance_pct = st.slider("Projection variance (±%) per lineup", 0, 50, 10, 1)
+            max_exposure_pct = st.slider("Max player exposure (%)", 0, 100, 60, 5)
+            dk_salary_cap = st.number_input("Salary Cap ($)", 30000, 70000, 50000, 500)
+            # NEW: Exclude players control (options drawn from the current filtered table)
+            exclude_players = st.multiselect(
+                "Exclude players (optional):",
+                sorted(filtered["Player"].dropna().unique().tolist())
+            )
+
+        # ---- Solver discovery: CBC -> HiGHS -> None
+        def get_solver():
+            if pulp is None: 
+                return None
+            for p in ["/opt/homebrew/bin/cbc", "/usr/local/bin/cbc", shutil.which("cbc")]:
+                if p and os.path.exists(p):
+                    return pulp.PULP_CBC_CMD(path=p, msg=False)
+            try:
+                return pulp.PULP_CBC_CMD(msg=False)
+            except Exception:
+                pass
+            try:
+                return pulp.apis.HiGHS_CMD(msg=False)
+            except Exception:
+                return None
+
+        solver = get_solver()
+
+        required_cols = {"Player","Pos","Team","Opp","Sal","Proj"}
+        missing_cols = required_cols - set(filtered.columns)
+        if missing_cols:
+            st.error(f"Optimizer cannot run. Missing columns: {sorted(missing_cols)}")
+        elif pulp is None or solver is None:
+            st.warning("No MILP solver available. On macOS: `brew install cbc` (recommended) or `pip install highspy`.")
+        else:
+            pool = filtered.copy()
+            pool = pool.dropna(subset=["Player","Pos","Sal","Proj"])
+            pool = pool[(pool["Sal"] > 0) & (pool["Pos"].isin(["QB","RB","WR","TE","DST"]))].reset_index(drop=True)
+
+            # NEW: Apply user exclusions
+            if exclude_players:
+                pool = pool[~pool["Player"].isin(exclude_players)].reset_index(drop=True)
+
+            if len(pool) < 9:
+                st.warning("Not enough players in the pool to build a lineup (need at least 9 across valid positions).")
+            else:
+                allowed_per_player = math.ceil(max_exposure_pct / 100.0 * n_lineups)
+                if allowed_per_player == 0 and n_lineups > 0:
+                    st.error("Max exposure of 0% with ≥1 lineup is infeasible. Increase exposure or reduce # of lineups.")
+                else:
+                    rng = np.random.default_rng()
+                    lineups = []
+                    banned_lineups = []                         # exact-lineup bans
+                    used_counts = {i: 0 for i in pool.index}    # exposure counts
+
+                    idx_all = pool.index.tolist()
+                    idx_qb  = pool.index[pool["Pos"] == "QB"].tolist()
+                    idx_rb  = pool.index[pool["Pos"] == "RB"].tolist()
+                    idx_wr  = pool.index[pool["Pos"] == "WR"].tolist()
+                    idx_te  = pool.index[pool["Pos"] == "TE"].tolist()
+                    idx_dst = pool.index[pool["Pos"] == "DST"].tolist()
+                    idx_rwt = pool.index[pool["Pos"].isin(["RB","WR","TE"])].tolist()
+
+                    feasible = (len(idx_qb)>=1 and len(idx_rb)>=2 and len(idx_wr)>=3 and len(idx_te)>=1 and len(idx_dst)>=1 and len(idx_rwt)>=7)
+                    if not feasible:
+                        st.error("Pool does not have enough players per position to satisfy DK roster rules (after exclusions).")
+                    else:
+                        def build_one_lineup(scrambled_proj, banned_sets, banned_player_idx):
+                            prob = pulp.LpProblem("DK_NFL_Optimizer", pulp.LpMaximize)
+                            x = pulp.LpVariable.dicts("x", idx_all, lowBound=0, upBound=1, cat="Binary")
+
+                            # Objective
+                            prob += pulp.lpSum(scrambled_proj[i] * x[i] for i in idx_all)
+
+                            # Cap + roster rules
+                            prob += pulp.lpSum(pool.loc[i, "Sal"] * x[i] for i in idx_all) <= dk_salary_cap
+                            prob += pulp.lpSum(x[i] for i in idx_qb)  == 1
+                            prob += pulp.lpSum(x[i] for i in idx_rb)  >= 2
+                            prob += pulp.lpSum(x[i] for i in idx_wr)  >= 3
+                            prob += pulp.lpSum(x[i] for i in idx_te)  >= 1
+                            prob += pulp.lpSum(x[i] for i in idx_dst) == 1
+                            prob += pulp.lpSum(x[i] for i in idx_rwt) == 7
+                            prob += pulp.lpSum(x[i] for i in idx_all) == 9
+
+                            # Prevent exact duplicates
+                            for chosen_set in banned_sets:
+                                prob += pulp.lpSum([x[i] for i in chosen_set]) <= 8
+
+                            # Enforce max exposure in this lineup
+                            for i in banned_player_idx:
+                                prob += x[i] == 0
+
+                            prob.solve(solver)
+                            status = pulp.LpStatus[prob.status]
+                            if status != "Optimal":
+                                return status, None
+                            chosen = [i for i in idx_all if pulp.value(x[i]) == 1]
+                            return status, chosen
+
+                        attempts, max_attempts = 0, n_lineups * 6
+                        while len(lineups) < n_lineups and attempts < max_attempts:
+                            attempts += 1
+                            # Ban players already at exposure cap
+                            banned_player_idx = [i for i, c in used_counts.items() if c >= allowed_per_player]
+
+                            # Scramble projections
+                            v = variance_pct / 100.0
+                            multipliers = rng.uniform(1.0 - v, 1.0 + v, size=len(pool))
+                            scrambled = pd.Series(pool["Proj"].values * multipliers, index=pool.index)
+
+                            status, chosen = build_one_lineup(scrambled, banned_lineups, banned_player_idx)
+                            if status != "Optimal" or chosen is None:
+                                continue
+
+                            chosen_set = frozenset(chosen)
+                            if chosen_set in banned_lineups:
+                                continue
+
+                            # Update exposure counts
+                            for i in chosen:
+                                used_counts[i] += 1
+
+                            # Store lineup
+                            lu = pool.loc[chosen, ["Player","Pos","Team","Opp","Sal","Proj"]].copy()
+                            lu["Proj Used"] = scrambled.loc[chosen].round(2)   # keep your column name + rounding
+                            lineups.append({
+                                "players_df": lu.copy(),
+                                "total_proj": float(lu["Proj Used"].sum()),
+                                "total_sal": int(lu["Sal"].sum()),
+                                "scrambled_series": scrambled
+                            })
+                            banned_lineups.append(chosen_set)
+
+                        if len(lineups) == 0:
+                            st.error("No feasible lineups found. Loosen exposure caps/filters, reduce variance, or remove fewer players.")
+                        else:
+                            if len(lineups) < n_lineups:
+                                st.warning(f"Built {len(lineups)} lineup(s), fewer than requested {n_lineups}. Exposure/filters/exclusions may be tight.")
+
+                            # Totals
+                            totals = pd.DataFrame(
+                                [{"Lineup #": i+1,
+                                "Total Salary": f"${lu['total_sal']:,.0f}",
+                                "Total Proj (scrambled)": round(lu["total_proj"], 2)}
+                                for i, lu in enumerate(lineups)]
+                            )
+                            st.markdown("#### Lineup Totals")
+                            totcol1, totcol2, totcol3 = st.columns([1,1,1])
+                            with totcol2:
+                                st.dataframe(totals, use_container_width=True, hide_index=True)
+
+                            # ---------- Build DK upload matrix (one row per lineup, using DK IDs) ----------
+                            def dk_id(name: str):
+                                return dk_id_dict.get(name)
+
+                            def lineup_to_row_ids(players_df, scrambled_series):
+                                # Slot assignment: QB, RB1, RB2, WR1, WR2, WR3, TE, FLEX, DST
+                                qbs = players_df[players_df["Pos"]=="QB"]["Player"].tolist()
+                                rbs = players_df[players_df["Pos"]=="RB"]["Player"].tolist()
+                                wrs = players_df[players_df["Pos"]=="WR"]["Player"].tolist()
+                                tes = players_df[players_df["Pos"]=="TE"]["Player"].tolist()
+                                dst = players_df[players_df["Pos"]=="DST"]["Player"].tolist()
+
+                                rb_main, wr_main, te_main = rbs[:2], wrs[:3], tes[:1]
+                                extras = []
+                                if len(rbs) > 2: extras += rbs[2:]
+                                if len(wrs) > 3: extras += wrs[3:]
+                                if len(tes) > 1: extras += tes[1:]
+
+                                # Choose FLEX: highest scrambled among extras
+                                if extras:
+                                    name_to_idx = {pool.loc[idx,"Player"]: idx for idx in pool.index}
+                                    flex = max(extras, key=lambda nm: scrambled_series[name_to_idx[nm]])
+                                else:
+                                    flex = wr_main[-1] if wr_main else ""
+
+                                row_names = {
+                                    "QB":  qbs[0] if qbs else "",
+                                    "RB":  rb_main[0] if len(rb_main)>0 else "",
+                                    "RB2": rb_main[1] if len(rb_main)>1 else "",
+                                    "WR":  wr_main[0] if len(wr_main)>0 else "",
+                                    "WR2": wr_main[1] if len(wr_main)>1 else "",
+                                    "WR3": wr_main[2] if len(wr_main)>2 else "",
+                                    "TE":  te_main[0] if te_main else "",
+                                    "FLEX": flex,
+                                    "DST": dst[0] if dst else "",
+                                }
+                                row_ids = {slot: dk_id(pname) for slot, pname in row_names.items()}
+                                return row_names, row_ids
+
+                            upload_rows_ids = []
+                            details_rows = []
+                            missing_names = set()
+
+                            for k, lu in enumerate(lineups, start=1):
+                                players_df = lu["players_df"].sort_values(["Pos","Player"]).copy()
+                                players_df["Lineup #"] = k
+                                players_df["DK ID"] = players_df["Player"].map(lambda n: dk_id_dict.get(n))
+                                details_rows.append(players_df)
+
+                                row_names, row_ids = lineup_to_row_ids(players_df, lu["scrambled_series"])
+                                for pname, pid in row_ids.items():
+                                    if row_names[pname] and (pid is None):
+                                        missing_names.add(row_names[pname])
+
+                                upload_rows_ids.append({**row_ids, "Lineup #": k})
+
+                            out_df = pd.concat(details_rows, ignore_index=True)
+                            out_df_display = out_df.copy()
+                            out_df_display["Sal"] = out_df_display["Sal"].map(lambda x: f"${x:,.0f}")
+                            out_df_display = out_df_display[["Lineup #","Player","DK ID","Pos","Team","Opp","Sal","Proj","Proj Used"]]
+
+                            st.markdown("#### Lineup Details")
+                            st.dataframe(out_df_display, use_container_width=True, hide_index=True, height=420)
+
+                            # DK upload CSV (IDs only; one row per lineup)
+                            upload_df = pd.DataFrame(upload_rows_ids).sort_values("Lineup #")
+                            upload_df = upload_df[["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]]  # exact DK order
+                            if missing_names:
+                                st.warning(
+                                    "Some players were missing DK IDs in your `dk_id_dict` and appear as empty in the CSV: "
+                                    + ", ".join(sorted(missing_names))
+                                )
+
+                            csv_buf = io.StringIO()
+                            upload_df.to_csv(csv_buf, index=False)
+                            st.download_button(
+                                "Download DK Upload CSV (IDs)",
+                                data=csv_buf.getvalue(),
+                                file_name="dk_lineups.csv",
+                                mime="text/csv"
+                            )
+
+                            # ---------- Player exposure table (optional) ----------
+                            show_exposure = st.checkbox("Show player exposure table")
+                            if show_exposure:
+                                total = len(lineups)
+                                exp_df = (
+                                    pd.DataFrame({"idx": list(used_counts.keys()), "Times Used": list(used_counts.values())})
+                                    .merge(
+                                        pool[["Player","Pos"]].reset_index().rename(columns={"index":"idx"}),
+                                        on="idx", how="left"
+                                    )
+                                    .drop(columns=["idx"])
+                                )
+                                exp_df["Exposure %"] = (exp_df["Times Used"] / max(total,1) * 100).round(1)
+                                exp_df = exp_df.sort_values(["Exposure %","Times Used","Player"], ascending=[False,False,True])
+                                exp_df = exp_df[exp_df['Times Used'] > 0]
+                                st.markdown("#### Player Exposure")
+                                expcol1, expcol2, expcol3 = st.columns([1,2,1])
+                                with expcol2:
+                                    st.dataframe(exp_df[["Player","Pos","Times Used","Exposure %"]],
+                                                height=900, use_container_width=True, hide_index=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ########################
 
 
     if tab == "Player Grades":
@@ -903,8 +1299,9 @@ if check_password():
                 weekproj = weekproj[weekproj['Team'].isin(main_slate_team_list)]
             weekproj['Pos Rank'] = weekproj.groupby('Pos')['FPts'].rank(ascending=False)
 
-            dfs_sals_check = st.checkbox('Show DFS Info?')
+            #dfs_sals_check = st.checkbox('Show DFS Info?', value=True)
             dfs_sals_dict = dict(zip(dkdata.Player,dkdata.Sal))
+            dfs_sals_check = True
 
             # Filter data based on selections
             filtered_data = weekproj.copy()
@@ -965,7 +1362,94 @@ if check_password():
 
             # Display the filtered dataframe
             show_filtered_data = filtered_data[proj_show_cols]
-            st.dataframe(show_filtered_data, hide_index=True, height=750)
+            
+            ## current way
+            #st.dataframe(show_filtered_data, hide_index=True, height=750)
+
+            ## new way
+            # Apply a gradient to the Age column and bold text for Status
+            columns_to_round = ['FPts', 'Val', 'Pos Rank', 'Pass Comp', 'Pass Att', 'Pass Yards', 'Pass TD', 'Int', 'Rush Att']
+
+            show_filtered_data_reset = show_filtered_data.reset_index(drop=True)
+
+            styled_df = show_filtered_data.style.background_gradient(subset=['FPts'], cmap='Blues')\
+            .set_properties(**{'font-weight': 'bold'}, subset=['FPts'])\
+            .format({
+                'FPts': '{:.1f}', 'Own': '{:.0f}',
+                'Val': '{:.1f}','Sal': '{:.0f}',
+                'Pos Rank': '{:.1f}','Rush Yds': '{:.1f}',
+                'Pass Comp': '{:.1f}','Rush TD': '{:.1f}',
+                'Pass Att': '{:.1f}','Tgt': '{:.1f}',
+                'Pass Yards': '{:.1f}','Rec': '{:.1f}',
+                'Pass TD': '{:.1f}','Rec Yds': '{:.1f}',
+                'Int': '{:.1f}','Rec TD': '{:.1f}',
+                'Rush Att': '{:.1f}'
+            })
+            
+            #st.table(styled_df)
+            #st.dataframe(show_filtered_data_reset, hide_index=True, height=1000,use_container_width=True)
+            
+            df = show_filtered_data_reset.copy()
+
+            # -------- helpers --------
+            def safe_minmax(s: pd.Series, pad=0.0):
+                """Return (vmin, vmax) with a tiny spread if the column is constant."""
+                vmin, vmax = float(s.min()), float(s.max())
+                if vmin == vmax:
+                    eps = 1e-9 if vmin == 0 else abs(vmin) * 1e-6
+                    vmin, vmax = vmin - eps, vmax + eps
+                return vmin - pad, vmax + pad
+
+            # Independent ranges (each column scaled only to itself)
+            vmin_fpts, vmax_fpts = safe_minmax(df["FPts"])
+            vmin_val,  vmax_val  = safe_minmax(df["Val"])
+
+            # -------- table styles (readability) --------
+            table_styles = [
+                {"selector": "th.col_heading",
+                "props": [("font-weight", "700"), ("font-size", "14px"),
+                        ("background-color", "#f6f8fa"), ("color", "#111827"),
+                        ("border-bottom", "1px solid #e5e7eb")]},
+                {"selector": "td",
+                "props": [("font-size", "14px"), ("color", "#0f172a"),
+                        ("font-family", "Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"),
+                        ("white-space", "nowrap")]},
+                {"selector": "tbody tr:hover",
+                "props": [("background-color", "#fafafa")]},
+            ]
+
+            # -------- formatting: 2 decimals globally, special cases override --------
+            fmt = {col: "{:.2f}" for col in df.select_dtypes(include="number").columns}
+            if "Sal" in df:       fmt["Sal"] = "${:,.0f}"   # currency, no decimals
+            if "Pos Rank" in df:  fmt["Pos Rank"] = "{:.0f}"  # integer, no decimals
+
+            styler = (
+                df.style
+                .format(fmt)
+                .set_table_styles(table_styles)
+                .hide(axis="index")
+                # color gradients (independent & softened)
+                .background_gradient(
+                    cmap="RdYlGn", subset=["FPts"], vmin=vmin_fpts, vmax=vmax_fpts,
+                    low=0.15, high=0.85
+                )
+            )
+
+            st.dataframe(
+                styler,
+                use_container_width=True,
+                height=1000,
+                hide_index=True
+            )
+
+
+
+
+            ##############################
+
+
+
+            
             csv = convert_df_to_csv(show_filtered_data)
             st.download_button(label="Download CSV", data=csv, file_name='JA Projections.csv', mime='text/csv')
 
