@@ -540,15 +540,15 @@ if check_password():
             variance_pct = st.slider("Projection variance (±%) per lineup", 0, 50, 10, 1)
             max_exposure_pct = st.slider("Max player exposure (%)", 0, 100, 60, 5)
             dk_salary_cap = st.number_input("Salary Cap ($)", 30000, 70000, 50000, 500)
-            # NEW: Exclude players control (options drawn from the current filtered table)
-            exclude_players = st.multiselect(
-                "Exclude players (optional):",
-                sorted(filtered["Player"].dropna().unique().tolist())
-            )
+
+            # NEW: Exclude + Lock controls (options pulled from filtered table)
+            all_player_opts = sorted(filtered["Player"].dropna().unique().tolist())
+            exclude_players = st.multiselect("Exclude players (optional):", all_player_opts)
+            lock_players = st.multiselect("LOCK players (optional, forced into every lineup):", all_player_opts)
 
         # ---- Solver discovery: CBC -> HiGHS -> None
         def get_solver():
-            if pulp is None: 
+            if pulp is None:
                 return None
             for p in ["/opt/homebrew/bin/cbc", "/usr/local/bin/cbc", shutil.which("cbc")]:
                 if p and os.path.exists(p):
@@ -575,255 +575,281 @@ if check_password():
             pool = pool.dropna(subset=["Player","Pos","Sal","Proj"])
             pool = pool[(pool["Sal"] > 0) & (pool["Pos"].isin(["QB","RB","WR","TE","DST"]))].reset_index(drop=True)
 
-            # NEW: Apply user exclusions
+            # Apply user exclusions
             if exclude_players:
                 pool = pool[~pool["Player"].isin(exclude_players)].reset_index(drop=True)
 
+            # Resolve locks against exclusions
+            if lock_players and exclude_players:
+                conflicted = sorted(set(lock_players).intersection(exclude_players))
+                if conflicted:
+                    st.warning("These players were both LOCKED and EXCLUDED; removing from locks: " + ", ".join(conflicted))
+                    lock_players = [p for p in lock_players if p not in conflicted]
+
+            # Map locks to current pool indices; warn if a locked player is not in the pool after filters/exclusions
+            name_to_idx = {pool.loc[i, "Player"]: i for i in pool.index}
+            locked_idx = [name_to_idx[p] for p in lock_players if p in name_to_idx]
+            missing_locked_names = [p for p in lock_players if p not in name_to_idx]
+            if missing_locked_names:
+                st.warning("Locked player(s) not found in current pool and will be ignored: " + ", ".join(missing_locked_names))
+
+            # Feasibility checks for locks under DK roster rules
             if len(pool) < 9:
                 st.warning("Not enough players in the pool to build a lineup (need at least 9 across valid positions).")
             else:
-                allowed_per_player = math.ceil(max_exposure_pct / 100.0 * n_lineups)
-                if allowed_per_player == 0 and n_lineups > 0:
-                    st.error("Max exposure of 0% with ≥1 lineup is infeasible. Increase exposure or reduce # of lineups.")
+                # Count locks by position
+                L_qb  = sum(pool.loc[i, "Pos"] == "QB" for i in locked_idx)
+                L_rb  = sum(pool.loc[i, "Pos"] == "RB" for i in locked_idx)
+                L_wr  = sum(pool.loc[i, "Pos"] == "WR" for i in locked_idx)
+                L_te  = sum(pool.loc[i, "Pos"] == "TE" for i in locked_idx)
+                L_dst = sum(pool.loc[i, "Pos"] == "DST" for i in locked_idx)
+                L_rwt = L_rb + L_wr + L_te
+
+                feasible_lock = True
+                msgs = []
+
+                if L_qb > 1:  feasible_lock, msgs = False, msgs + ["You locked more than one QB."]
+                if L_dst > 1: feasible_lock, msgs = False, msgs + ["You locked more than one DST."]
+                if L_rwt > 7: feasible_lock, msgs = False, msgs + ["You locked more than 7 total among RB/WR/TE (RWT slots)."]
+                if len(locked_idx) > 9: feasible_lock, msgs = False, msgs + ["You locked more than 9 total players."]
+
+                # Must still be able to satisfy RB>=2, WR>=3, TE>=1 within remaining RWT slots
+                rem_rwt = 7 - L_rwt
+                deficit_rb = max(0, 2 - L_rb)
+                deficit_wr = max(0, 3 - L_wr)
+                deficit_te = max(0, 1 - L_te)
+                if rem_rwt < (deficit_rb + deficit_wr + deficit_te):
+                    feasible_lock = False
+                    msgs.append("Locked RB/WR/TE mix makes it impossible to meet the per-position minimums.")
+
+                if not feasible_lock:
+                    st.error("Lock selection infeasible: " + " ".join(msgs))
+
                 else:
-                    rng = np.random.default_rng()
-                    lineups = []
-                    banned_lineups = []                         # exact-lineup bans
-                    used_counts = {i: 0 for i in pool.index}    # exposure counts
-
-                    idx_all = pool.index.tolist()
-                    idx_qb  = pool.index[pool["Pos"] == "QB"].tolist()
-                    idx_rb  = pool.index[pool["Pos"] == "RB"].tolist()
-                    idx_wr  = pool.index[pool["Pos"] == "WR"].tolist()
-                    idx_te  = pool.index[pool["Pos"] == "TE"].tolist()
-                    idx_dst = pool.index[pool["Pos"] == "DST"].tolist()
-                    idx_rwt = pool.index[pool["Pos"].isin(["RB","WR","TE"])].tolist()
-
-                    feasible = (len(idx_qb)>=1 and len(idx_rb)>=2 and len(idx_wr)>=3 and len(idx_te)>=1 and len(idx_dst)>=1 and len(idx_rwt)>=7)
-                    if not feasible:
-                        st.error("Pool does not have enough players per position to satisfy DK roster rules (after exclusions).")
+                    allowed_per_player = math.ceil(max_exposure_pct / 100.0 * n_lineups)
+                    if allowed_per_player == 0 and n_lineups > 0 and len(locked_idx) == 0:
+                        st.error("Max exposure of 0% with ≥1 lineup is infeasible. Increase exposure or reduce # of lineups.")
                     else:
-                        def build_one_lineup(scrambled_proj, banned_sets, banned_player_idx):
-                            prob = pulp.LpProblem("DK_NFL_Optimizer", pulp.LpMaximize)
-                            x = pulp.LpVariable.dicts("x", idx_all, lowBound=0, upBound=1, cat="Binary")
+                        rng = np.random.default_rng()
+                        lineups = []
+                        banned_lineups = []                         # exact-lineup bans
+                        used_counts = {i: 0 for i in pool.index}    # exposure counts
 
-                            # Objective
-                            prob += pulp.lpSum(scrambled_proj[i] * x[i] for i in idx_all)
+                        idx_all = pool.index.tolist()
+                        idx_qb  = pool.index[pool["Pos"] == "QB"].tolist()
+                        idx_rb  = pool.index[pool["Pos"] == "RB"].tolist()
+                        idx_wr  = pool.index[pool["Pos"] == "WR"].tolist()
+                        idx_te  = pool.index[pool["Pos"] == "TE"].tolist()
+                        idx_dst = pool.index[pool["Pos"] == "DST"].tolist()
+                        idx_rwt = pool.index[pool["Pos"].isin(["RB","WR","TE"])].tolist()
 
-                            # Cap + roster rules
-                            prob += pulp.lpSum(pool.loc[i, "Sal"] * x[i] for i in idx_all) <= dk_salary_cap
-                            prob += pulp.lpSum(x[i] for i in idx_qb)  == 1
-                            prob += pulp.lpSum(x[i] for i in idx_rb)  >= 2
-                            prob += pulp.lpSum(x[i] for i in idx_wr)  >= 3
-                            prob += pulp.lpSum(x[i] for i in idx_te)  >= 1
-                            prob += pulp.lpSum(x[i] for i in idx_dst) == 1
-                            prob += pulp.lpSum(x[i] for i in idx_rwt) == 7
-                            prob += pulp.lpSum(x[i] for i in idx_all) == 9
-
-                            # Prevent exact duplicates
-                            for chosen_set in banned_sets:
-                                prob += pulp.lpSum([x[i] for i in chosen_set]) <= 8
-
-                            # Enforce max exposure in this lineup
-                            for i in banned_player_idx:
-                                prob += x[i] == 0
-
-                            prob.solve(solver)
-                            status = pulp.LpStatus[prob.status]
-                            if status != "Optimal":
-                                return status, None
-                            chosen = [i for i in idx_all if pulp.value(x[i]) == 1]
-                            return status, chosen
-
-                        attempts, max_attempts = 0, n_lineups * 6
-                        while len(lineups) < n_lineups and attempts < max_attempts:
-                            attempts += 1
-                            # Ban players already at exposure cap
-                            banned_player_idx = [i for i, c in used_counts.items() if c >= allowed_per_player]
-
-                            # Scramble projections
-                            v = variance_pct / 100.0
-                            multipliers = rng.uniform(1.0 - v, 1.0 + v, size=len(pool))
-                            scrambled = pd.Series(pool["Proj"].values * multipliers, index=pool.index)
-
-                            status, chosen = build_one_lineup(scrambled, banned_lineups, banned_player_idx)
-                            if status != "Optimal" or chosen is None:
-                                continue
-
-                            chosen_set = frozenset(chosen)
-                            if chosen_set in banned_lineups:
-                                continue
-
-                            # Update exposure counts
-                            for i in chosen:
-                                used_counts[i] += 1
-
-                            # Store lineup
-                            lu = pool.loc[chosen, ["Player","Pos","Team","Opp","Sal","Proj"]].copy()
-                            lu["Proj Used"] = scrambled.loc[chosen].round(2)   # keep your column name + rounding
-                            lineups.append({
-                                "players_df": lu.copy(),
-                                "total_proj": float(lu["Proj Used"].sum()),
-                                "total_sal": int(lu["Sal"].sum()),
-                                "scrambled_series": scrambled
-                            })
-                            banned_lineups.append(chosen_set)
-
-                        if len(lineups) == 0:
-                            st.error("No feasible lineups found. Loosen exposure caps/filters, reduce variance, or remove fewer players.")
+                        # Final feasibility check for position availability (after exclusions/locks)
+                        feasible = (len(idx_qb)>=1 and len(idx_rb)>=2 and len(idx_wr)>=3 and len(idx_te)>=1 and len(idx_dst)>=1 and len(idx_rwt)>=7)
+                        if not feasible:
+                            st.error("Pool does not have enough players per position to satisfy DK roster rules (after exclusions/locks).")
                         else:
-                            if len(lineups) < n_lineups:
-                                st.warning(f"Built {len(lineups)} lineup(s), fewer than requested {n_lineups}. Exposure/filters/exclusions may be tight.")
+                            def build_one_lineup(scrambled_proj, banned_sets, banned_player_idx, locked_idx_in):
+                                prob = pulp.LpProblem("DK_NFL_Optimizer", pulp.LpMaximize)
+                                x = pulp.LpVariable.dicts("x", idx_all, lowBound=0, upBound=1, cat="Binary")
 
-                            # Totals
-                            totals = pd.DataFrame(
-                                [{"Lineup #": i+1,
-                                "Total Salary": f"${lu['total_sal']:,.0f}",
-                                "Total Proj (scrambled)": round(lu["total_proj"], 2)}
-                                for i, lu in enumerate(lineups)]
-                            )
-                            st.markdown("#### Lineup Totals")
-                            totcol1, totcol2, totcol3 = st.columns([1,1,1])
-                            with totcol2:
-                                st.dataframe(totals, use_container_width=True, hide_index=True)
+                                # Objective
+                                prob += pulp.lpSum(scrambled_proj[i] * x[i] for i in idx_all)
 
-                            # ---------- Build DK upload matrix (one row per lineup, using DK IDs) ----------
-                            def dk_id(name: str):
-                                return dk_id_dict.get(name)
+                                # Cap + roster rules
+                                prob += pulp.lpSum(pool.loc[i, "Sal"] * x[i] for i in idx_all) <= dk_salary_cap
+                                prob += pulp.lpSum(x[i] for i in idx_qb)  == 1
+                                prob += pulp.lpSum(x[i] for i in idx_rb)  >= 2
+                                prob += pulp.lpSum(x[i] for i in idx_wr)  >= 3
+                                prob += pulp.lpSum(x[i] for i in idx_te)  >= 1
+                                prob += pulp.lpSum(x[i] for i in idx_dst) == 1
+                                prob += pulp.lpSum(x[i] for i in idx_rwt) == 7
+                                prob += pulp.lpSum(x[i] for i in idx_all) == 9
 
-                            def lineup_to_row_display(players_df, scrambled_series):
-                                # Slot assignment: QB, RB1, RB2, WR1, WR2, WR3, TE, FLEX, DST
-                                qbs = players_df[players_df["Pos"]=="QB"]["Player"].tolist()
-                                rbs = players_df[players_df["Pos"]=="RB"]["Player"].tolist()
-                                wrs = players_df[players_df["Pos"]=="WR"]["Player"].tolist()
-                                tes = players_df[players_df["Pos"]=="TE"]["Player"].tolist()
-                                dst = players_df[players_df["Pos"]=="DST"]["Player"].tolist()
+                                # Prevent exact duplicates
+                                for chosen_set in banned_sets:
+                                    prob += pulp.lpSum([x[i] for i in chosen_set]) <= 8
 
-                                rb_main, wr_main, te_main = rbs[:2], wrs[:3], tes[:1]
-                                extras = []
-                                if len(rbs) > 2: extras += rbs[2:]
-                                if len(wrs) > 3: extras += wrs[3:]
-                                if len(tes) > 1: extras += tes[1:]
+                                # Enforce max exposure in this lineup (skip locked)
+                                for i in banned_player_idx:
+                                    prob += x[i] == 0
 
-                                # Choose FLEX: highest scrambled among extras
-                                if extras:
-                                    name_to_idx = {pool.loc[idx,"Player"]: idx for idx in pool.index}
-                                    flex = max(extras, key=lambda nm: scrambled_series[name_to_idx[nm]])
-                                else:
-                                    flex = wr_main[-1] if wr_main else ""
+                                # NEW: Force locked players in this lineup
+                                for i in locked_idx_in:
+                                    prob += x[i] == 1
 
-                                # Base names per slot
-                                row_names = {
-                                    "QB":  qbs[0] if qbs else "",
-                                    "RB":  rb_main[0] if len(rb_main)>0 else "",
-                                    "RB2": rb_main[1] if len(rb_main)>1 else "",
-                                    "WR":  wr_main[0] if len(wr_main)>0 else "",
-                                    "WR2": wr_main[1] if len(wr_main)>1 else "",
-                                    "WR3": wr_main[2] if len(wr_main)>2 else "",
-                                    "TE":  te_main[0] if te_main else "",
-                                    "FLEX": flex,
-                                    "DST": dst[0] if dst else "",
-                                }
+                                prob.solve(solver)
+                                status = pulp.LpStatus[prob.status]
+                                if status != "Optimal":
+                                    return status, None
+                                chosen = [i for i in idx_all if pulp.value(x[i]) == 1]
+                                return status, chosen
 
-                                # Map to IDs and build "Name (ID)" strings
-                                row_ids = {slot: dk_id(pname) for slot, pname in row_names.items()}
-                                row_display = {}
-                                for slot in ["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]:
-                                    name = row_names.get(slot, "")
-                                    pid  = row_ids.get(slot)
-                                    if name and pid:
-                                        row_display[slot] = f"{name} ({pid})"
-                                    elif name:
-                                        row_display[slot] = name           # still show the name if ID missing
+                            attempts, max_attempts = 0, n_lineups * 6
+                            while len(lineups) < n_lineups and attempts < max_attempts:
+                                attempts += 1
+                                # Ban players at exposure cap (do NOT ban locked indices)
+                                banned_player_idx = [i for i, c in used_counts.items()
+                                                    if (i not in locked_idx) and (allowed_per_player > 0) and (c >= allowed_per_player)]
+
+                                # Scramble projections
+                                v = variance_pct / 100.0
+                                multipliers = rng.uniform(1.0 - v, 1.0 + v, size=len(pool))
+                                scrambled = pd.Series(pool["Proj"].values * multipliers, index=pool.index)
+
+                                status, chosen = build_one_lineup(scrambled, banned_lineups, banned_player_idx, locked_idx)
+                                if status != "Optimal" or chosen is None:
+                                    continue
+
+                                chosen_set = frozenset(chosen)
+                                if chosen_set in banned_lineups:
+                                    continue
+
+                                # Update exposure counts
+                                for i in chosen:
+                                    used_counts[i] += 1
+
+                                # Store lineup
+                                lu = pool.loc[chosen, ["Player","Pos","Team","Opp","Sal","Proj"]].copy()
+                                lu["Proj Used"] = scrambled.loc[chosen].round(2)
+                                lineups.append({
+                                    "players_df": lu.copy(),
+                                    "total_proj": float(lu["Proj Used"].sum()),
+                                    "total_sal": int(lu["Sal"].sum()),
+                                    "scrambled_series": scrambled
+                                })
+                                banned_lineups.append(chosen_set)
+
+                            if len(lineups) == 0:
+                                st.error("No feasible lineups found. Loosen exposure caps/filters, adjust locks, or reduce variance.")
+                            else:
+                                if len(lineups) < n_lineups:
+                                    st.warning(f"Built {len(lineups)} lineup(s), fewer than requested {n_lineups}. "
+                                            "Exposure/filters/locks may be tight.")
+
+                                # Totals
+                                totals = pd.DataFrame(
+                                    [{"Lineup #": i+1,
+                                    "Total Salary": f"${lu['total_sal']:,.0f}",
+                                    "Total Proj (scrambled)": round(lu["total_proj"], 2)}
+                                    for i, lu in enumerate(lineups)]
+                                )
+                                st.markdown("#### Lineup Totals")
+                                totcol1, totcol2, totcol3 = st.columns([1,1,1])
+                                with totcol2:
+                                    st.dataframe(totals, use_container_width=True, hide_index=True)
+
+                                # ---------- Build DK upload matrix (one row per lineup, Name + ID) ----------
+                                def dk_id(name: str):
+                                    return dk_id_dict.get(name)
+
+                                def lineup_to_row_display(players_df, scrambled_series):
+                                    # Slot assignment: QB, RB1, RB2, WR1, WR2, WR3, TE, FLEX, DST
+                                    qbs = players_df[players_df["Pos"]=="QB"]["Player"].tolist()
+                                    rbs = players_df[players_df["Pos"]=="RB"]["Player"].tolist()
+                                    wrs = players_df[players_df["Pos"]=="WR"]["Player"].tolist()
+                                    tes = players_df[players_df["Pos"]=="TE"]["Player"].tolist()
+                                    dst = players_df[players_df["Pos"]=="DST"]["Player"].tolist()
+
+                                    rb_main, wr_main, te_main = rbs[:2], wrs[:3], tes[:1]
+                                    extras = []
+                                    if len(rbs) > 2: extras += rbs[2:]
+                                    if len(wrs) > 3: extras += wrs[3:]
+                                    if len(tes) > 1: extras += tes[1:]
+
+                                    # Choose FLEX: highest scrambled among extras
+                                    if extras:
+                                        name_to_idx2 = {pool.loc[idx,"Player"]: idx for idx in pool.index}
+                                        flex = max(extras, key=lambda nm: scrambled_series[name_to_idx2[nm]])
                                     else:
-                                        row_display[slot] = ""
-                                return row_names, row_ids, row_display
+                                        flex = wr_main[-1] if wr_main else ""
 
-                            upload_rows_display = []
-                            details_rows = []
-                            missing_names = set()
+                                    row_names = {
+                                        "QB":  qbs[0] if qbs else "",
+                                        "RB":  rb_main[0] if len(rb_main)>0 else "",
+                                        "RB2": rb_main[1] if len(rb_main)>1 else "",
+                                        "WR":  wr_main[0] if len(wr_main)>0 else "",
+                                        "WR2": wr_main[1] if len(wr_main)>1 else "",
+                                        "WR3": wr_main[2] if len(wr_main)>2 else "",
+                                        "TE":  te_main[0] if te_main else "",
+                                        "FLEX": flex,
+                                        "DST": dst[0] if dst else "",
+                                    }
+                                    # Map to IDs and build "Name (ID)"
+                                    row_ids = {slot: dk_id(pname) for slot, pname in row_names.items()}
+                                    row_display = {}
+                                    for slot in ["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]:
+                                        name = row_names.get(slot, "")
+                                        pid  = row_ids.get(slot)
+                                        if name and pid:
+                                            row_display[slot] = f"{name} ({pid})"
+                                        elif name:
+                                            row_display[slot] = name
+                                        else:
+                                            row_display[slot] = ""
+                                    return row_names, row_ids, row_display
 
-                            for k, lu in enumerate(lineups, start=1):
-                                players_df = lu["players_df"].sort_values(["Pos","Player"]).copy()
-                                players_df["Lineup #"] = k
-                                players_df["DK ID"] = players_df["Player"].map(lambda n: dk_id_dict.get(n))
-                                details_rows.append(players_df)
+                                upload_rows_display, details_rows, missing_names = [], [], set()
+                                for k, lu in enumerate(lineups, start=1):
+                                    players_df = lu["players_df"].sort_values(["Pos","Player"]).copy()
+                                    players_df["Lineup #"] = k
+                                    players_df["DK ID"] = players_df["Player"].map(lambda n: dk_id_dict.get(n))
+                                    details_rows.append(players_df)
 
-                                row_names, row_ids, row_display = lineup_to_row_display(players_df, lu["scrambled_series"])
-                                for slot, pid in row_ids.items():
-                                    if row_names[slot] and (pid is None):
-                                        missing_names.add(row_names[slot])
+                                    row_names, row_ids, row_display = lineup_to_row_display(players_df, lu["scrambled_series"])
+                                    for slot, pid in row_ids.items():
+                                        if row_names[slot] and (pid is None):
+                                            missing_names.add(row_names[slot])
 
-                                upload_rows_display.append({**row_display, "Lineup #": k})
+                                    upload_rows_display.append({**row_display, "Lineup #": k})
 
-                            # Details table (unchanged)
-                            out_df = pd.concat(details_rows, ignore_index=True)
-                            out_df_display = out_df.copy()
-                            out_df_display["Sal"] = out_df_display["Sal"].map(lambda x: f"${x:,.0f}")
-                            out_df_display = out_df_display[["Lineup #","Player","DK ID","Pos","Team","Opp","Sal","Proj","Proj Used"]]
+                                out_df = pd.concat(details_rows, ignore_index=True)
+                                out_df_display = out_df.copy()
+                                out_df_display["Sal"] = out_df_display["Sal"].map(lambda x: f"${x:,.0f}")
+                                out_df_display = out_df_display[["Lineup #","Player","DK ID","Pos","Team","Opp","Sal","Proj","Proj Used"]]
 
-                            st.markdown("#### Lineup Details")
-                            st.dataframe(out_df_display, use_container_width=True, hide_index=True, height=420)
+                                st.markdown("#### Lineup Details")
+                                st.dataframe(out_df_display, use_container_width=True, hide_index=True, height=420)
 
-                            # DK upload CSV (Name + ID; one row per lineup)
-                            upload_df = pd.DataFrame(upload_rows_display).sort_values("Lineup #")
-                            upload_df = upload_df[["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]]  # exact DK order
+                                upload_df = pd.DataFrame(upload_rows_display).sort_values("Lineup #")
+                                upload_df = upload_df[["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]]  # DK order
 
-                            if missing_names:
-                                st.warning(
-                                    "Some players were missing DK IDs in your `dk_id_dict` and appear without an ID in the CSV: "
-                                    + ", ".join(sorted(missing_names))
-                                )
-
-                            csv_buf = io.StringIO()
-                            upload_df.to_csv(csv_buf, index=False)
-                            st.download_button(
-                                "Download DK Upload CSV (Name + ID)",
-                                data=csv_buf.getvalue(),
-                                file_name="dk_lineups.csv",
-                                mime="text/csv"
-                            )
-
-                            # ---------- Player exposure table (optional) ----------
-                            show_exposure = st.checkbox("Show player exposure table")
-                            if show_exposure:
-                                total = len(lineups)
-                                exp_df = (
-                                    pd.DataFrame({"idx": list(used_counts.keys()), "Times Used": list(used_counts.values())})
-                                    .merge(
-                                        pool[["Player","Pos"]].reset_index().rename(columns={"index":"idx"}),
-                                        on="idx", how="left"
+                                if missing_names:
+                                    st.warning(
+                                        "Some players were missing DK IDs in your `dk_id_dict` and appear without an ID in the CSV: "
+                                        + ", ".join(sorted(missing_names))
                                     )
-                                    .drop(columns=["idx"])
+
+                                csv_buf = io.StringIO()
+                                upload_df.to_csv(csv_buf, index=False)
+                                st.download_button(
+                                    "Download DK Upload CSV (Name + ID)",
+                                    data=csv_buf.getvalue(),
+                                    file_name="dk_lineups.csv",
+                                    mime="text/csv"
                                 )
-                                exp_df["Exposure %"] = (exp_df["Times Used"] / max(total,1) * 100).round(1)
-                                exp_df = exp_df.sort_values(["Exposure %","Times Used","Player"], ascending=[False,False,True])
-                                exp_df = exp_df[exp_df['Times Used'] > 0]
-                                st.markdown("#### Player Exposure")
-                                expcol1, expcol2, expcol3 = st.columns([1,2,1])
-                                with expcol2:
-                                    st.dataframe(exp_df[["Player","Pos","Times Used","Exposure %"]],
-                                                height=900, use_container_width=True, hide_index=True)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                # ---------- Player exposure table (optional) ----------
+                                show_exposure = st.checkbox("Show player exposure table")
+                                if show_exposure:
+                                    total = len(lineups)
+                                    exp_df = (
+                                        pd.DataFrame({"idx": list(used_counts.keys()), "Times Used": list(used_counts.values())})
+                                        .merge(
+                                            pool[["Player","Pos"]].reset_index().rename(columns={"index":"idx"}),
+                                            on="idx", how="left"
+                                        )
+                                        .drop(columns=["idx"])
+                                    )
+                                    exp_df["Exposure %"] = (exp_df["Times Used"] / max(total,1) * 100).round(1)
+                                    exp_df = exp_df.sort_values(["Exposure %","Times Used","Player"], ascending=[False,False,True])
+                                    exp_df = exp_df[exp_df['Times Used'] > 0]
+                                    st.markdown("#### Player Exposure")
+                                    expcol1, expcol2, expcol3 = st.columns([1,2,1])
+                                    with expcol2:
+                                        st.dataframe(
+                                            exp_df[["Player","Pos","Times Used","Exposure %"]],
+                                            height=900, use_container_width=True, hide_index=True
+                                        )
 
 
 
