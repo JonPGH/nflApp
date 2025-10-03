@@ -691,7 +691,7 @@ if check_password():
                             def dk_id(name: str):
                                 return dk_id_dict.get(name)
 
-                            def lineup_to_row_ids(players_df, scrambled_series):
+                            def lineup_to_row_display(players_df, scrambled_series):
                                 # Slot assignment: QB, RB1, RB2, WR1, WR2, WR3, TE, FLEX, DST
                                 qbs = players_df[players_df["Pos"]=="QB"]["Player"].tolist()
                                 rbs = players_df[players_df["Pos"]=="RB"]["Player"].tolist()
@@ -712,6 +712,7 @@ if check_password():
                                 else:
                                     flex = wr_main[-1] if wr_main else ""
 
+                                # Base names per slot
                                 row_names = {
                                     "QB":  qbs[0] if qbs else "",
                                     "RB":  rb_main[0] if len(rb_main)>0 else "",
@@ -723,10 +724,22 @@ if check_password():
                                     "FLEX": flex,
                                     "DST": dst[0] if dst else "",
                                 }
-                                row_ids = {slot: dk_id(pname) for slot, pname in row_names.items()}
-                                return row_names, row_ids
 
-                            upload_rows_ids = []
+                                # Map to IDs and build "Name (ID)" strings
+                                row_ids = {slot: dk_id(pname) for slot, pname in row_names.items()}
+                                row_display = {}
+                                for slot in ["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]:
+                                    name = row_names.get(slot, "")
+                                    pid  = row_ids.get(slot)
+                                    if name and pid:
+                                        row_display[slot] = f"{name} ({pid})"
+                                    elif name:
+                                        row_display[slot] = name           # still show the name if ID missing
+                                    else:
+                                        row_display[slot] = ""
+                                return row_names, row_ids, row_display
+
+                            upload_rows_display = []
                             details_rows = []
                             missing_names = set()
 
@@ -736,13 +749,14 @@ if check_password():
                                 players_df["DK ID"] = players_df["Player"].map(lambda n: dk_id_dict.get(n))
                                 details_rows.append(players_df)
 
-                                row_names, row_ids = lineup_to_row_ids(players_df, lu["scrambled_series"])
-                                for pname, pid in row_ids.items():
-                                    if row_names[pname] and (pid is None):
-                                        missing_names.add(row_names[pname])
+                                row_names, row_ids, row_display = lineup_to_row_display(players_df, lu["scrambled_series"])
+                                for slot, pid in row_ids.items():
+                                    if row_names[slot] and (pid is None):
+                                        missing_names.add(row_names[slot])
 
-                                upload_rows_ids.append({**row_ids, "Lineup #": k})
+                                upload_rows_display.append({**row_display, "Lineup #": k})
 
+                            # Details table (unchanged)
                             out_df = pd.concat(details_rows, ignore_index=True)
                             out_df_display = out_df.copy()
                             out_df_display["Sal"] = out_df_display["Sal"].map(lambda x: f"${x:,.0f}")
@@ -751,19 +765,20 @@ if check_password():
                             st.markdown("#### Lineup Details")
                             st.dataframe(out_df_display, use_container_width=True, hide_index=True, height=420)
 
-                            # DK upload CSV (IDs only; one row per lineup)
-                            upload_df = pd.DataFrame(upload_rows_ids).sort_values("Lineup #")
+                            # DK upload CSV (Name + ID; one row per lineup)
+                            upload_df = pd.DataFrame(upload_rows_display).sort_values("Lineup #")
                             upload_df = upload_df[["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]]  # exact DK order
+
                             if missing_names:
                                 st.warning(
-                                    "Some players were missing DK IDs in your `dk_id_dict` and appear as empty in the CSV: "
+                                    "Some players were missing DK IDs in your `dk_id_dict` and appear without an ID in the CSV: "
                                     + ", ".join(sorted(missing_names))
                                 )
 
                             csv_buf = io.StringIO()
                             upload_df.to_csv(csv_buf, index=False)
                             st.download_button(
-                                "Download DK Upload CSV (IDs)",
+                                "Download DK Upload CSV (Name + ID)",
                                 data=csv_buf.getvalue(),
                                 file_name="dk_lineups.csv",
                                 mime="text/csv"
