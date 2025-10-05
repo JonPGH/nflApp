@@ -8,6 +8,8 @@ import numpy as np
 import streamlit.components.v1 as components
 import matplotlib.pyplot as plt
 import os, shutil, math
+from math import erf, sqrt
+
 
 # Initialize session state for authentication
 if 'authenticated' not in st.session_state:
@@ -221,10 +223,197 @@ if check_password():
         wr_grades = pd.read_csv(f'{file_path}/wr_grades.csv')
         te_grades = pd.read_csv(f'{file_path}/te_grades.csv')
         team_grades = pd.read_csv(f'{file_path}/team_grading.csv')
-        optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')#
+        optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')
+        best_bet_data = pd.read_csv(f'{file_path}/PropCompSheet.csv')
 
-        return optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
-        
+        return best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
+
+    # ---------- Best Bets helpers ----------
+    def _std_norm_cdf(x: float) -> float:
+        return 0.5 * (1.0 + erf(x / sqrt(2.0)))
+
+    def _american_to_decimal(american):
+        if pd.isna(american): return np.nan
+        a = int(american)
+        return 1 + (100/abs(a) if a < 0 else a/100)
+
+    def _implied_prob(american):
+        if pd.isna(american): return np.nan
+        a = int(american)
+        return (abs(a) / (abs(a) + 100)) if a < 0 else (100 / (a + 100))
+
+    def _your_win_prob(proj, line, ou, sigma):
+        if any(pd.isna(x) for x in [proj, line, sigma]) or sigma <= 0:
+            return np.nan
+        z = (line - proj) / sigma
+        return (1 - _std_norm_cdf(z)) if ou == "Over" else _std_norm_cdf(z)
+
+    def _kelly(p, dec_odds):
+        if pd.isna(p) or pd.isna(dec_odds) or p <= 0 or p >= 1 or dec_odds <= 1:
+            return 0.0
+        b = dec_odds - 1.0
+        frac = (b*p - (1-p)) / b
+        return max(0.0, frac)
+
+    def _grade_from_roi(roi):
+        if pd.isna(roi): return "—"
+        if roi >= 0.06: return "A"
+        if roi >= 0.04: return "B"
+        if roi >= 0.02: return "C"
+        if roi >= 0.00: return "D"
+        return "F"
+
+    def render_best_bets_view(props_df: pd.DataFrame):
+        st.markdown("### Best Bets (Model vs. Books)")
+        st.caption("Sortable EV view using your projections vs. book lines/odds. Tune σ by market in the sidebar.")
+
+        # Normalize expected columns from your CSV/screenshot
+        rename = {}
+        for c in props_df.columns:
+            lc = c.strip().lower()
+            if lc in {"player"}: rename[c] = "Player"
+            elif lc in {"team"}: rename[c] = "Team"
+            elif lc in {"opp","opponent"}: rename[c] = "Opp"
+            elif lc in {"book"}: rename[c] = "Book"
+            elif lc in {"market"}: rename[c] = "Market"
+            elif lc in {"ou","o/u","overunder"}: rename[c] = "OU"
+            elif lc in {"line"}: rename[c] = "Line"
+            elif lc in {"price","odds","american"}: rename[c] = "Price"
+            elif lc.startswith("projection"): rename[c] = "Projection"
+            elif lc in {"delta","projminusline"}: rename[c] = "Delta"
+        df = props_df.rename(columns=rename).copy()
+
+        # Types + convenience columns
+        for col in ["Line", "Projection", "Delta"]:
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors="coerce")
+        if "Price" in df.columns:
+            df["Price"] = pd.to_numeric(df["Price"], errors="coerce").astype("Int64")
+        if {"Team","Opp"}.issubset(df.columns):
+            df["Game"] = df["Team"].astype(str).str.upper() + " @ " + df["Opp"].astype(str).str.upper()
+        if "OU" in df.columns:
+            df["OU"] = df["OU"].astype(str).str.title().str.strip()
+
+        # --- Sidebar: σ per market (tunable) ---
+        markets = sorted(df.get("Market", pd.Series(dtype=str)).dropna().unique().tolist())
+        default_sigmas = {
+            "Pass Comp": 4.5, "Pass Attempts": 5.5, "Pass Yds": 35.0, "Pass Tds": 0.75, "Pass Int": 0.6,
+            "Rush Att": 4.0, "Rush Yds": 18.0, "Rush Tds": 0.55,
+            "Rec": 1.4, "Rec Yds": 17.0, "Rec Tds": 0.45,
+            "Receptions": 1.4, "Longest Rec": 7.5, "Longest Rush": 7.0, "Anytime TD": 0.5
+        }
+        sigma_map = {}
+        with st.sidebar.expander("Set market σ (volatility)", expanded=False):
+            for m in markets:
+                sigma_map[m] = st.number_input(
+                    m, value=float(default_sigmas.get(m, 10.0)),
+                    min_value=0.1, step=0.1, format="%.1f", key=f"sigma_{m}"
+                )
+
+        # --- Primary filters ---
+        games = ["All Games"] + sorted(df.get("Game", pd.Series(dtype=str)).dropna().unique().tolist())
+        sel_game = st.selectbox("Game", games, index=0)
+        player_search = st.text_input("Search player", placeholder="Type a name…")
+
+        c1, c2, c3, c4 = st.columns([1.2, 1.2, 1, 1.2])
+        with c1:
+            sel_books = st.multiselect("Books", sorted(df.get("Book", pd.Series(dtype=str)).dropna().unique().tolist()))
+        with c2:
+            sel_markets = st.multiselect("Markets", markets)
+        with c3:
+            sel_ou = st.multiselect("O/U", ["Over", "Under"], default=["Over", "Under"])
+        with c4:
+            min_roi = st.slider("Min ROI %", -10, 20, 0, 1) / 100.0
+
+        # Apply filters
+        filt = df.copy()
+        if sel_game != "All Games":
+            filt = filt[filt["Game"] == sel_game]
+        if player_search.strip():
+            s = player_search.strip().lower()
+            filt = filt[filt["Player"].str.lower().str.contains(s, na=False)]
+        if sel_books:
+            filt = filt[filt["Book"].isin(sel_books)]
+        if sel_markets:
+            filt = filt[filt["Market"].isin(sel_markets)]
+        if sel_ou:
+            filt = filt[filt["OU"].isin(sel_ou)]
+
+        if filt.empty:
+            st.info("No rows match your filters.")
+            return
+
+        # Pricing math
+        tmp = filt.copy()
+        tmp["DecimalOdds"] = tmp["Price"].apply(_american_to_decimal)
+        tmp["ImpliedProb"] = tmp["Price"].apply(_implied_prob)
+        tmp["Sigma"] = tmp["Market"].map(sigma_map).astype(float) if "Market" in tmp.columns else 10.0
+        tmp["YourWinProb"] = tmp.apply(lambda r: _your_win_prob(r.get("Projection"), r.get("Line"), r.get("OU"), r.get("Sigma")), axis=1)
+        tmp["ROI"] = tmp["YourWinProb"] * tmp["DecimalOdds"] - 1.0
+        tmp["EV_per_$100"] = tmp["ROI"] * 100.0
+        tmp["Kelly_%"] = tmp.apply(lambda r: 100.0 * _kelly(r["YourWinProb"], r["DecimalOdds"]), axis=1)
+        tmp["Grade"] = tmp["ROI"].apply(_grade_from_roi)
+        tmp["Edge_vs_Implied_%"] = 100 * (tmp["YourWinProb"] - tmp["ImpliedProb"])
+        tmp["ImpliedProb_%"] = 100 * tmp["ImpliedProb"]
+        tmp["YourWinProb_%"] = 100 * tmp["YourWinProb"]
+        try:
+            tmp["ProjMinusLine"] = (tmp["Projection"] - tmp["Line"]).round(2)
+        except Exception:
+            pass
+
+        tmp = tmp[tmp["ROI"] >= min_roi]
+
+        sort_cols = st.multiselect(
+            "Sort by",
+            ["ROI", "EV_per_$100", "Kelly_%", "Edge_vs_Implied_%", "YourWinProb_%", "ImpliedProb_%", "ProjMinusLine"],
+            default=["ROI","Kelly_%"]
+        )
+        asc = st.toggle("Ascending sort", value=False)
+        if sort_cols:
+            tmp = tmp.sort_values(sort_cols, ascending=asc)
+
+        show_cols = [
+            "Grade","Player","Team","Opp","Game","Market","OU","Line","Projection","ProjMinusLine",
+            "Book","Price","YourWinProb_%","ImpliedProb_%","Edge_vs_Implied_%","DecimalOdds","ROI","EV_per_$100","Kelly_%"
+        ]
+        view = tmp[[c for c in show_cols if c in tmp.columns]].copy()
+
+        # Pretty formatting
+        if "ROI" in view.columns: view["ROI"] = (view["ROI"]*100).round(2)
+        for c in ["YourWinProb_%","ImpliedProb_%","Edge_vs_Implied_%","Kelly_%"]:
+            if c in view.columns: view[c] = view[c].round(2)
+        if "EV_per_$100" in view.columns: view["EV_per_$100"] = view["EV_per_$100"].round(2)
+        if "DecimalOdds" in view.columns: view["DecimalOdds"] = view["DecimalOdds"].round(3)
+
+        st.dataframe(
+            view.style
+                .hide(axis="index")
+                .background_gradient(subset=["ROI"], cmap="Greens")
+                .format({
+                    "YourWinProb_%": "{:.2f}%",
+                    "ImpliedProb_%": "{:.2f}%",
+                    "Edge_vs_Implied_%": "{:+.2f}%",
+                    "ROI": "{:.2f}%",
+                    "Kelly_%": "{:.2f}%",
+                    "EV_per_$100": "${:.2f}",
+                    "Line": "{:,.2f}",
+                    "Projection": "{:,.2f}",
+                    "ProjMinusLine": "{:+.2f}",
+                    "DecimalOdds": "{:.3f}",
+                    "Price": "{:+d}"
+                }, na_rep="—"),
+            use_container_width=True, height=650, hide_index=True
+        )
+
+        st.download_button(
+            "Download table (CSV)",
+            data=view.to_csv(index=False),
+            file_name="best_bets.csv",
+            mime="text/csv",
+            use_container_width=True
+        )
+
+    
     def load_team_logos_dumb():
         base_dir = os.path.dirname(__file__)
         file_path = os.path.join(base_dir, 'Data', 'logos')
@@ -296,7 +485,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -395,7 +584,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","DFS Optimizer","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -1044,29 +1233,9 @@ if check_password():
             unsafe_allow_html=True,
         )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if tab == "Best Bets":
+        # uses the allproplines DataFrame already returned by load_data()
+        render_best_bets_view(best_bet_data)
 
 
     if tab == "Player Grades2":
@@ -1935,7 +2104,6 @@ if check_password():
         plt.xticks(rotation=45)
         plt.tight_layout()  # Adjust layout to prevent clipping
         st.pyplot(fig)
-
 
 
     
