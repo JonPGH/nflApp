@@ -402,7 +402,7 @@ if check_password():
                     "DecimalOdds": "{:.3f}",
                     "Price": "{:+d}"
                 }, na_rep="—"),
-            use_container_width=True, height=650, hide_index=
+            use_container_width=True, height=650, hide_index=True
         )
 
         st.download_button(
