@@ -298,7 +298,7 @@ if check_password():
         markets = sorted(df.get("Market", pd.Series(dtype=str)).dropna().unique().tolist())
         default_sigmas = {
             "Pass Comp": 4.5, "Pass Attempts": 5.5, "Pass Yds": 35.0, "Pass Tds": 0.75, "Pass Int": 0.6,
-            "Rush Att": 4.0, "Rush Yds": 18.0, "Rush Tds": 0.55,
+            "Rush Att": 4.0, "Rush Yds": 18.0, "Rush Tds": 0.55, "Pass Yards": 35.0, "Int": 0.6,  "Pass Att": 5.5, 
             "Rec": 1.4, "Rec Yds": 17.0, "Rec Tds": 0.45,
             "Receptions": 1.4, "Longest Rec": 7.5, "Longest Rush": 7.0, "Anytime TD": 0.5
         }
@@ -402,7 +402,7 @@ if check_password():
                     "DecimalOdds": "{:.3f}",
                     "Price": "{:+d}"
                 }, na_rep="—"),
-            use_container_width=True, height=650, hide_index=True
+            use_container_width=True, height=650, hide_index=
         )
 
         st.download_button(
