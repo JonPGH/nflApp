@@ -1499,43 +1499,126 @@ if check_password():
                     """, unsafe_allow_html=True)
         
         line_move_check = st.checkbox('Show Line Movements', value=False)
+        
         if line_move_check:
-            ndcol1,ndcol2 = st.columns([1,6])
-            with ndcol1:
-                numdays = st.number_input('Number of days back',3,10,value=7)
-                game_line_log = game_line_log.tail(numdays)
+            import re, math
+            import numpy as np
+            import pandas as pd
+            import matplotlib.pyplot as plt
+            import matplotlib.dates as mdates
+            from datetime import datetime, timedelta, timezone
+            from dateutil import parser as dtparser  # robust fallback parser
 
-            # Create smaller line plots with reduced text sizes
-            plotcol1, plotcol2 = st.columns([1, 1])
-            min_ou = np.min(game_line_log['OU'])
-            max_ou = np.max(game_line_log['OU'])
-            min_spread = np.min(game_line_log['Home Spread'])
-            max_spread = np.max(game_line_log['Home Spread'])
-            with plotcol1:
-                fig, ax = plt.subplots(figsize=(2.4, 1.5))  # Smaller figure size
-                game_line_log.plot.line(x='Timestamp', y='OU', ax=ax, linewidth=1)
-                ax.get_legend().remove()  # Hide the legend
-                ax.set_xlabel("Timestamp", fontsize=4)
-                ax.set_ylim([min_ou-2,max_ou+2])
-                ax.set_ylabel("OU", fontsize=4)
-                ax.set_title("OU Over Time", fontsize=6)
-                ax.tick_params(axis='both', labelsize=3)  # Smaller tick labels
-                plt.xticks(rotation=45)
-                plt.tight_layout()  # Adjust layout to prevent clipping
-                st.pyplot(fig)
+            # ========= Center the whole section (one level of nesting only) =========
+            padL, mid, padR = st.columns([1, 2, 1])
+            with mid:
+                # ----- Controls (centered by spacers) -----
+                cL, cC, cR = st.columns([1, 2, 1])
+                with cC:
+                    numdays = st.number_input("Days back", min_value=3, max_value=14, value=7, step=1)
 
-            with plotcol2:
-                fig, ax = plt.subplots(figsize=(2.4, 1.5))  # Smaller figure size
-                game_line_log.plot.line(x='Timestamp', y='Home Spread', ax=ax, linewidth=1)
-                ax.get_legend().remove()  # Hide the legend
-                ax.set_xlabel("Timestamp", fontsize=4)
-                ax.set_ylim([min_spread-1,max_spread+1])
-                ax.set_ylabel("Spread", fontsize=4)  # Corrected label to match data
-                ax.set_title("Spread Over Time", fontsize=6)  # Corrected title
-                ax.tick_params(axis='both', labelsize=3)  # Smaller tick labels
-                plt.xticks(rotation=45)
-                plt.tight_layout()  # Adjust layout to prevent clipping
-                st.pyplot(fig)
+                # ----- Data prep (robust timestamp parsing) -----
+                gll = game_line_log.copy()
+                ts_candidates = [c for c in gll.columns if c and isinstance(c, str) and c.lower() in {"timestamp","time","date","datetime","ts"}]
+                if not ts_candidates:
+                    st.error("No timestamp column found. Expected one of: Timestamp, Time, Date, DateTime, ts.")
+                    st.stop()
+                ts_col = ts_candidates[0]
+
+                def safe_parse_one(x):
+                    if x is None: return pd.NaT
+                    if isinstance(x, float) and math.isnan(x): return pd.NaT
+                    if isinstance(x, (pd.Timestamp, datetime)):
+                        return pd.Timestamp(x).tz_localize(None) if getattr(x, "tzinfo", None) else pd.Timestamp(x)
+                    s = str(x).strip()
+                    if not s: return pd.NaT
+                    s = re.sub(r"\s+[A-Za-z]{2,5}$", "", s)  # strip trailing TZ abbrev
+                    try:
+                        return pd.to_datetime(s, errors="raise")
+                    except Exception:
+                        try:
+                            return pd.Timestamp(dtparser.parse(s, ignoretz=True))
+                        except Exception:
+                            return pd.NaT
+
+                gll["__ts"] = gll[ts_col].apply(safe_parse_one)
+                gll = gll.dropna(subset=["__ts"]).sort_values("__ts")
+                cutoff = pd.Timestamp.utcnow() - pd.Timedelta(days=int(numdays))
+                gll = gll[gll["__ts"] >= cutoff.tz_localize(None)]
+
+                for need in ["OU", "Home Spread"]:
+                    if need not in gll.columns:
+                        st.error(f"Missing column: '{need}'."); st.stop()
+
+                gll["OU"] = pd.to_numeric(gll["OU"], errors="coerce")
+                gll["Home Spread"] = pd.to_numeric(gll["Home Spread"], errors="coerce")
+                gll = gll.dropna(subset=["OU", "Home Spread"])
+
+                if len(gll) < 2:
+                    st.info("Not enough history in the selected window to plot yet.")
+                    st.dataframe(gll.tail(10))
+                    st.stop()
+
+                # ----- Compact, centered metrics -----
+                mPadL, m1, m2, mPadR = st.columns([1, 1, 1, 1])
+                with m1:
+                    st.metric("OU (current)",
+                            f'{gll["OU"].iloc[-1]:.1f}',
+                            f'{(gll["OU"].iloc[-1] - gll["OU"].iloc[0]):+.1f}')
+                with m2:
+                    st.metric("Home Spread (current)",
+                            f'{gll["Home Spread"].iloc[-1]:.1f}',
+                            f'{(gll["Home Spread"].iloc[-1] - gll["Home Spread"].iloc[0]):+.1f}')
+
+                # ----- Plot helpers -----
+                def nice_limits(series, pad_frac=0.08):
+                    smin = float(np.nanmin(series)); smax = float(np.nanmax(series))
+                    if smin == smax: smin -= 1.0; smax += 1.0
+                    pad = (smax - smin) * pad_frac
+                    return smin - pad, smax + pad
+
+                ou_min, ou_max = nice_limits(gll["OU"])
+                sp_min, sp_max = nice_limits(gll["Home Spread"])
+                x_locator = mdates.AutoDateLocator(minticks=3, maxticks=6)
+                x_fmt = mdates.ConciseDateFormatter(x_locator)
+
+                # ----- Smaller plots, centered (still only one nesting level) -----
+                p1, p2 = st.columns([1, 1])
+
+                with p1:
+                    fig, ax = plt.subplots(figsize=(3.6, 2.1), dpi=180)   # smaller
+                    ax.plot(gll["__ts"], gll["OU"], linewidth=2)
+                    ax.set_title("OU over time", fontsize=11, pad=6)
+                    ax.set_xlabel(""); ax.set_ylabel("OU", fontsize=9)
+                    ax.set_ylim(ou_min, ou_max)
+                    ax.xaxis.set_major_locator(x_locator); ax.xaxis.set_major_formatter(x_fmt)
+                    ax.grid(True, linestyle="--", linewidth=0.6, alpha=0.35)
+                    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+                    ax.annotate(f'{gll["OU"].iloc[-1]:.1f}',
+                                xy=(gll["__ts"].iloc[-1], gll["OU"].iloc[-1]),
+                                xytext=(6, 0), textcoords="offset points",
+                                fontsize=8, va="center")
+                    st.pyplot(fig, use_container_width=False)
+
+                with p2:
+                    fig, ax = plt.subplots(figsize=(3.6, 2.1), dpi=180)   # smaller
+                    ax.plot(gll["__ts"], gll["Home Spread"], linewidth=2)
+                    ax.set_title("Home spread over time", fontsize=11, pad=6)
+                    ax.set_xlabel(""); ax.set_ylabel("Spread", fontsize=9)
+                    ax.set_ylim(sp_min, sp_max)
+                    ax.xaxis.set_major_locator(x_locator); ax.xaxis.set_major_formatter(x_fmt)
+                    ax.grid(True, linestyle="--", linewidth=0.6, alpha=0.35)
+                    ax.axhline(0, linewidth=1, alpha=0.5)
+                    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+                    ax.annotate(f'{gll["Home Spread"].iloc[-1]:.1f}',
+                                xy=(gll["__ts"].iloc[-1], gll["Home Spread"].iloc[-1]),
+                                xytext=(6, 0), textcoords="offset points",
+                                fontsize=8, va="center")
+                    st.pyplot(fig, use_container_width=False)
+
+                st.caption("Centered view. Window is filtered by the selected number of days; metrics show change across the window.")
+
+
 
         weekproj = pd.merge(weekproj,dksalsdf,how='left',on='Player')
         weekproj['JA Rk'] = weekproj['Player'].map(all_grade_rank_dict)
