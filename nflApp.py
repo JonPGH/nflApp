@@ -267,7 +267,7 @@ if check_password():
         st.markdown("### Best Bets (Model vs. Books)")
         st.caption("Sortable EV view using your projections vs. book lines/odds. Tune σ by market in the sidebar.")
 
-        # Normalize expected columns from your CSV/screenshot
+        # --- Normalize expected columns ---
         rename = {}
         for c in props_df.columns:
             lc = c.strip().lower()
@@ -281,16 +281,28 @@ if check_password():
             elif lc in {"price","odds","american"}: rename[c] = "Price"
             elif lc.startswith("projection"): rename[c] = "Projection"
             elif lc in {"delta","projminusline"}: rename[c] = "Delta"
+
         df = props_df.rename(columns=rename).copy()
 
-        # Types + convenience columns
+        # --- Types + convenience columns ---
         for col in ["Line", "Projection", "Delta"]:
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors="coerce")
         if "Price" in df.columns:
             df["Price"] = pd.to_numeric(df["Price"], errors="coerce").astype("Int64")
+
+        # Canonical game (order-independent): e.g., "LAC @ MIA" no matter who is home/away
         if {"Team","Opp"}.issubset(df.columns):
-            df["Game"] = df["Team"].astype(str).str.upper() + " @ " + df["Opp"].astype(str).str.upper()
+            def _canon_game(t, o):
+                t = str(t).strip().upper()
+                o = str(o).strip().upper()
+                a, b = sorted([t, o])          # alphabetize to remove directionality
+                return f"{a} @ {b}"
+
+            df["GameKey"] = df.apply(lambda r: _canon_game(r["Team"], r["Opp"]), axis=1)
+            # Use the canonical value as the displayed "Game" too
+            df["Game"] = df["GameKey"]
+
         if "OU" in df.columns:
             df["OU"] = df["OU"].astype(str).str.title().str.strip()
 
@@ -311,7 +323,7 @@ if check_password():
                 )
 
         # --- Primary filters ---
-        games = ["All Games"] + sorted(df.get("Game", pd.Series(dtype=str)).dropna().unique().tolist())
+        games = ["All Games"] + sorted(df.get("GameKey", pd.Series(dtype=str)).dropna().unique().tolist())
         sel_game = st.selectbox("Game", games, index=0)
         player_search = st.text_input("Search player", placeholder="Type a name…")
 
@@ -325,10 +337,10 @@ if check_password():
         with c4:
             min_roi = st.slider("Min ROI %", -10, 20, 0, 1) / 100.0
 
-        # Apply filters
+        # Apply filters (filter on GameKey so both sides of the matchup show together)
         filt = df.copy()
         if sel_game != "All Games":
-            filt = filt[filt["Game"] == sel_game]
+            filt = filt[filt["GameKey"] == sel_game]
         if player_search.strip():
             s = player_search.strip().lower()
             filt = filt[filt["Player"].str.lower().str.contains(s, na=False)]
@@ -343,7 +355,7 @@ if check_password():
             st.info("No rows match your filters.")
             return
 
-        # Pricing math
+        # --- Pricing math (unchanged) ---
         tmp = filt.copy()
         tmp["DecimalOdds"] = tmp["Price"].apply(_american_to_decimal)
         tmp["ImpliedProb"] = tmp["Price"].apply(_implied_prob)
