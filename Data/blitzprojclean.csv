@@ -19,7 +19,7 @@
 17,Baker Mayfield,TB,SF,31.89,249.26,1.71,3.43,18.01,,,Blitz
 18,Ben Sinnott,WAS,CHI,,,,,,,,Blitz
 19,Ben Skowronek,PIT,CLE,,,,,,,,Blitz
-20,Bhayshul Tuten,JAX,SEA,,,,,21.03,,,Blitz
+20,Bhayshul Tuten,JAX,SEA,,,,,21.03,,7.29,Blitz
 21,Bijan Robinson,ATL,BUF,,,,14.1,63.15,4.01,32.87,Blitz
 22,Blake Corum,LA,BAL,,,,6.27,26.14,0.86,6.54,Blitz
 23,Blake Whiteheart,CLE,PIT,,,,,,,,Blitz
@@ -30,7 +30,7 @@
 28,Brayden Willis,SF,TB,,,,,,,,Blitz
 29,Breece Hall,NYJ,DEN,,,,16.8,68.62,2.85,22.58,Blitz
 30,Brevyn Spann-Ford,DAL,CAR,,,,,,,,Blitz
-31,Brian Robinson,SF,TB,,,,,,,,Blitz
+31,Brian Robinson,SF,TB,,,,,19.55,,,Blitz
 32,Brian Thomas,JAX,SEA,,,,,,4.81,67.35,Blitz
 33,Brock Wright,DET,KC,,,,,,,,Blitz
 34,Bryce Oliver,TEN,LV,,,,,,,,Blitz
@@ -51,7 +51,7 @@
 49,Chris Moore,WAS,CHI,,,,,,,,Blitz
 50,Chris Olave,NO,NE,,,,,,6.07,70.21,Blitz
 51,Chris Rodriguez,WAS,CHI,,,,,,,,Blitz
-52,Christian McCaffrey,SF,TB,,,,,66.96,5.72,50.61,Blitz
+52,Christian McCaffrey,SF,TB,,,,16.39,66.96,5.72,50.61,Blitz
 53,Colby Parkinson,LA,BAL,,,,,,,,Blitz
 54,Cole Kmet,CHI,WAS,,,,,,2.33,,Blitz
 55,Colston Loveland,CHI,WAS,,,,,,1.39,,Blitz
@@ -64,7 +64,7 @@
 62,DJ Giddens,IND,ARI,,,,,,,,Blitz
 63,DJ Moore,CHI,WAS,,,,,,3.51,37.55,Blitz
 64,DK Metcalf,PIT,CLE,,,,,,3.68,57.01,Blitz
-65,Dak Prescott,DAL,CAR,32.67,243.91,1.78,,7.44,,,Blitz
+65,Dak Prescott,DAL,CAR,32.67,243.91,1.78,2.45,7.44,,,Blitz
 66,Dalton Kincaid,BUF,ATL,,,,,,3.81,41.96,Blitz
 67,Daniel Jones,IND,ARI,32.03,254.25,1.58,5.68,25.63,,,Blitz
 68,Dareke Young,SEA,JAX,,,,,,,,Blitz
@@ -91,10 +91,10 @@
 89,Devin Culp,TB,SF,,,,,,,,Blitz
 90,Devontez Walker,BAL,LA,,,,,,,,Blitz
 91,Dillon Gabriel,CLE,PIT,30.53,185.76,0.63,3.09,11.96,,,Blitz
-92,Dont'e Thornton,LV,TEN,,,,,,,26.37,Blitz
+92,Dont'e Thornton,LV,TEN,,,,,,1.79,26.37,Blitz
 93,Dontayvion Wicks,GB,CIN,,,,,,3.19,41.88,Blitz
 94,Drake London,ATL,BUF,,,,,,6.2,81.18,Blitz
-95,Drake Maye,NE,NO,33.52,243.72,1.68,,34.85,,,Blitz
+95,Drake Maye,NE,NO,33.52,243.72,1.68,6.25,34.85,,,Blitz
 96,Drew Sample,CIN,GB,,,,,,,,Blitz
 97,Dyami Brown,JAX,SEA,,,,,,3.15,38.31,Blitz
 98,Dylan Laube,LV,TEN,,,,,,,,Blitz
@@ -110,7 +110,7 @@
 108,Foster Moreau,NO,NE,,,,,,,,Blitz
 109,Gage Larvadain,CLE,PIT,,,,,,,,Blitz
 110,Garrett Wilson,NYJ,DEN,,,,,,5.46,67.2,Blitz
-111,Geno Smith,LV,TEN,31.94,254.03,1.33,,14.64,,,Blitz
+111,Geno Smith,LV,TEN,31.94,254.03,1.33,3.8,14.64,,,Blitz
 112,George Pickens,DAL,CAR,,,,,,4.84,75.1,Blitz
 113,Greg Dortch,ARI,IND,,,,,,,,Blitz
 114,Gunnar Helm,TEN,LV,,,,,,2.63,29.12,Blitz
@@ -129,7 +129,7 @@
 127,J.K. Dobbins,DEN,NYJ,,,,15.0,63.42,1.74,11.36,Blitz
 128,Ja'Marr Chase,CIN,GB,,,,,,6.55,77.81,Blitz
 129,Ja'Tavion Sanders,CAR,DAL,,,,,,2.79,28.95,Blitz
-130,Jack Bech,LV,TEN,,,,,,,22.95,Blitz
+130,Jack Bech,LV,TEN,,,,,,1.71,22.95,Blitz
 131,Jack Stoll,NO,NE,,,,,,,,Blitz
 132,Jack Westover,NE,NO,,,,,,,,Blitz
 133,Jackson Hawes,BUF,ATL,,,,,,,,Blitz
@@ -150,7 +150,7 @@
 148,Javonte Williams,DAL,CAR,,,,15.59,63.06,2.4,15.71,Blitz
 149,Jaxon Smith-Njigba,SEA,JAX,,,,,,6.62,86.49,Blitz
 150,Jayden Daniels,WAS,CHI,33.02,232.72,1.73,8.65,54.37,,,Blitz
-151,Jaydon Blue,DAL,CAR,,,,,,,,Blitz
+151,Jaydon Blue,DAL,CAR,,,,,12.55,,,Blitz
 152,Jaylen Waddle,MIA,LAC,,,,,,5.34,71.75,Blitz
 153,Jaylen Warren,PIT,CLE,,,,16.16,66.28,3.33,22.73,Blitz
 154,Jaylen Wright,MIA,LAC,,,,,,,,Blitz
@@ -189,12 +189,12 @@
 187,Keenan Allen,LAC,MIA,,,,,,4.98,51.81,Blitz
 188,Kendre Miller,NO,NE,,,,,24.65,,,Blitz
 189,Kendrick Bourne,SF,TB,,,,,,,,Blitz
-190,Kenneth Gainwell,PIT,CLE,,,,,33.12,,,Blitz
+190,Kenneth Gainwell,PIT,CLE,,,,8.37,33.12,2.65,17.37,Blitz
 191,Kenneth Walker,SEA,JAX,,,,12.82,56.47,1.79,13.19,Blitz
 192,Keon Coleman,BUF,ATL,,,,,,3.7,52.53,Blitz
 193,Khalil Herbert,NYJ,DEN,,,,,,,,Blitz
 194,Khalil Shakir,BUF,ATL,,,,,,5.08,60.41,Blitz
-195,Kimani Vidal,LAC,MIA,,,,,36.21,1.6,11.37,Blitz
+195,Kimani Vidal,LAC,MIA,,,,8.56,36.21,1.6,11.37,Blitz
 196,Konata Mumpfield,LA,BAL,,,,,,,,Blitz
 197,Kyle Juszczyk,SF,TB,,,,,,,,Blitz
 198,Kyle Monangai,CHI,WAS,,,,,,,,Blitz
@@ -267,14 +267,14 @@
 265,Romeo Doubs,GB,CIN,,,,,,3.76,51.63,Blitz
 266,Ryan Flournoy,DAL,CAR,,,,,,2.43,31.12,Blitz
 267,Ryan Miller,TB,SF,,,,,,,15.86,Blitz
-268,Sam Darnold,SEA,JAX,30.43,233.89,1.36,,9.21,,,Blitz
+268,Sam Darnold,SEA,JAX,30.43,233.89,1.36,1.82,9.21,,,Blitz
 269,Sam LaPorta,DET,KC,,,,,,4.04,45.46,Blitz
 270,Samaje Perine,CIN,GB,,,,,,,,Blitz
 271,Savion Williams,GB,CIN,,,,,,,,Blitz
-272,Scotty Miller,PIT,CLE,,,,,,,,Blitz
+272,Scotty Miller,PIT,CLE,,,,,,1.11,14.55,Blitz
 273,Sean Tucker,TB,SF,,,,,19.68,,11.34,Blitz
 274,Skyy Moore,SF,TB,,,,,,,,Blitz
-275,Spencer Rattler,NO,NE,35.61,233.79,1.38,,21.85,,,Blitz
+275,Spencer Rattler,NO,NE,35.61,233.79,1.38,4.63,21.85,,,Blitz
 276,Stefon Diggs,NE,NO,,,,,,5.2,65.7,Blitz
 277,Sterling Shepard,TB,SF,,,,,,3.59,42.57,Blitz
 278,Tahj Brooks,CIN,GB,,,,,,,,Blitz
@@ -299,7 +299,7 @@
 297,TreVeyon Henderson,NE,NO,,,,11.15,48.07,3.16,23.36,Blitz
 298,Trent Sherfield,DEN,NYJ,,,,,,,,Blitz
 299,Trevor Etienne,CAR,DAL,,,,,,,,Blitz
-300,Trevor Lawrence,JAX,SEA,34.31,243.76,1.62,,24.1,,,Blitz
+300,Trevor Lawrence,JAX,SEA,34.31,243.76,1.62,4.92,24.1,,,Blitz
 301,Trey McBride,ARI,IND,,,,,,6.85,68.93,Blitz
 302,Troy Franklin,DEN,NYJ,,,,,,3.61,47.9,Blitz
 303,Tua Tagovailoa,MIA,LAC,34.05,253.47,1.18,2.03,7.71,,,Blitz
@@ -312,7 +312,7 @@
 310,Tyler Badie,DEN,NYJ,,,,,,,,Blitz
 311,Tyler Conklin,LAC,MIA,,,,,,,,Blitz
 312,Tyler Goodson,IND,ARI,,,,,,,,Blitz
-313,Tyler Higbee,LA,BAL,,,,,,,,Blitz
+313,Tyler Higbee,LA,BAL,,,,,,1.56,15.46,Blitz
 314,Tyler Johnson,NYJ,DEN,,,,,,,,Blitz
 315,Tyler Lockett,TEN,LV,,,,,,,,Blitz
 316,Tyler Warren,IND,ARI,,,,,,5.22,56.82,Blitz
