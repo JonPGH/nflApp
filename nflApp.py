@@ -205,6 +205,7 @@ if check_password():
         season_proj = pd.read_csv(f'{file_path}/JA_Season_Projections.csv')
         name_change = pd.read_csv(f'{file_path}/nflnamechange.csv')
         allproplines = pd.read_csv(f'{file_path}/AllPropsData.csv')
+        allproplines_history = pd.read_csv(f'{file_path}/AllPropsData_History.csv')
         weekproj = pd.read_csv(f'{file_path}/ja_proj.csv')
         schedule = pd.read_csv(f'{file_path}/nfl_schedule_tracking.csv')
         dkdata = pd.read_csv(f'{file_path}/DKData.csv')
@@ -226,7 +227,7 @@ if check_password():
         optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')
         best_bet_data = pd.read_csv(f'{file_path}/PropCompSheet.csv')
 
-        return best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
+        return allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
 
     # ---------- Best Bets helpers ----------
     def _std_norm_cdf(x: float) -> float:
@@ -497,7 +498,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -596,7 +597,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -625,6 +626,132 @@ if check_password():
         except (ValueError, TypeError):
             return 'white'
 
+    if tab == "Closing Lines":
+        st.markdown(f"""<br><center><font size=10 face=Futura><b>Closing Lines - 2025 NFL<br></b>""", unsafe_allow_html=True)
+        import altair as alt
+
+
+        def render_closing_lines_tab(allproplines: pd.DataFrame):
+            st.markdown("## Weekly Closing Lines")
+            st.caption("Pick a player, market, and book to see the final (last-scraped) line each NFL week.")
+
+            if allproplines is None or allproplines.empty:
+                st.warning("No data found in `allproplines`.")
+                return
+
+            df = allproplines_history.copy()
+
+            # --- column detection helpers ---
+            def _pick_col(cands):
+                cl = {c.lower(): c for c in df.columns}
+                for c in cands:
+                    if c in cl: 
+                        return cl[c]
+                return None
+
+            week_col   = _pick_col({"week"})
+            player_col = _pick_col({"player","player_name","name"})
+            market_col = _pick_col({"market","prop","prop_market","bet_type"})
+            book_col   = _pick_col({"sportsbook","book","sports_book","sportsbook_name"})
+            line_col   = _pick_col({"line","prop_line","number","final_line","closing_line","price"})
+            odds_col   = _pick_col({"odds","american_odds","price_american","price_usa"})  # optional
+            ts_col     = _pick_col({"timestamp","scraped_at","asof","updated_at","time","datetime","created_at"})
+
+            missing = [lbl for lbl,val in {
+                "Week":week_col, "Player":player_col, "Market":market_col, 
+                "Sportsbook":book_col, "Line":line_col
+            }.items() if val is None]
+            if missing:
+                st.error(f"Missing expected columns: {', '.join(missing)}.")
+                st.stop()
+
+            # --- typing / cleaning ---
+            df[week_col] = pd.to_numeric(df[week_col], errors="coerce").astype("Int64")
+
+            if ts_col:
+                df["_ts"] = pd.to_datetime(df[ts_col], errors="coerce")
+            else:
+                df["_ts"] = pd.to_datetime(np.arange(len(df)), unit="s")
+
+            for c in [player_col, market_col, book_col]:
+                df[c] = df[c].astype(str).str.strip()
+
+            df["_line"] = pd.to_numeric(df[line_col], errors="coerce")
+            df["_line_display"] = df[line_col].astype(str)
+            if odds_col:
+                df["_odds"] = pd.to_numeric(df[odds_col], errors="coerce")
+            else:
+                df["_odds"] = np.nan
+
+            df = df.dropna(subset=[week_col, "_ts"])
+
+            # --- UI controls ---
+            all_players = sorted(df[player_col].dropna().unique().tolist())
+            search_text = st.text_input("Search player", value="", placeholder="Type a player name (e.g., Patrick Mahomes)")
+            player_opts = [p for p in all_players if search_text.lower() in p.lower()] if search_text else all_players
+            if not player_opts:
+                st.info("No players match your search. Showing all players.")
+                player_opts = all_players
+
+            colA, colB, colC = st.columns([2,2,2])
+            with colA:
+                sel_player = st.selectbox("Player", player_opts)
+            with colB:
+                markets = sorted(df.loc[df[player_col]==sel_player, market_col].dropna().unique().tolist())
+                sel_market = st.selectbox("Prop Market", markets)
+            with colC:
+                books = sorted(df.loc[(df[player_col]==sel_player) & (df[market_col]==sel_market), book_col].dropna().unique().tolist())
+                sel_book = st.selectbox("Sportsbook", books)
+
+            st.divider()
+
+            # --- Filter + compute weekly closing (last seen by timestamp) ---
+            f = df[(df[player_col]==sel_player) & (df[market_col]==sel_market) & (df[book_col]==sel_book)].copy()
+            if f.empty:
+                st.warning("No rows for that Player/Market/Book combo.")
+                return
+
+            f = f.sort_values("_ts")
+            closing = f.groupby(week_col, as_index=False).tail(1)
+
+            closing_out = closing.sort_values(week_col)[[week_col, "_line", "_line_display"]].rename(columns={
+                week_col: "Week",
+                "_line": "Closing Line (num)",
+                "_line_display": "Closing Line"
+            })
+
+            # show only Week + Closing Line (your request)
+            table_df = closing_out[["Week", "Closing Line"]].reset_index(drop=True)
+            st.markdown(f"**{sel_player} — {sel_market} @ {sel_book}**")
+            st.dataframe(table_df, use_container_width=True, hide_index=True)
+
+            # --- Trend chart with non-zero baseline + bigger line/axis text ---
+            with st.expander("Show week-by-week line trend"):
+                numeric = closing_out[["Week","Closing Line (num)"]].dropna()
+                if numeric.empty:
+                    st.info("No numeric line values available to plot.")
+                else:
+                    chart = (
+                        alt.Chart(numeric)
+                        .mark_line(size=4)                          # thicker line
+                        .encode(
+                            x=alt.X("Week:Q",
+                                    axis=alt.Axis(title="Week", labelFontSize=14, titleFontSize=16)),
+                            y=alt.Y("Closing Line (num):Q",
+                                    axis=alt.Axis(title="Closing Line", labelFontSize=14, titleFontSize=16),
+                                    scale=alt.Scale(zero=False)),     # <-- do NOT force start at 0
+                            tooltip=["Week","Closing Line (num)"]
+                        )
+                        .properties(height=280)
+                        .configure_axis(grid=True, labelFontSize=14, titleFontSize=16)
+                        .configure_view(strokeWidth=0)
+                    )
+                    st.altair_chart(chart, use_container_width=True)
+        
+        render_closing_lines_tab(allproplines)
+
+
+    
     if tab == "DFS Optimizer":
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money DFS Tool<br></b>
         <font size=3 face=Futura>These projections are tweaked slightly for more DFS friendly projections, including ceiling and positional adjustments.</font></center>""", unsafe_allow_html=True)
