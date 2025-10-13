@@ -49,14 +49,14 @@
 70,Amon-Ra St. Brown,DET,KAN,DET@KAN,0.0,0.0,0.0,0.0,0.0,0.0,6.7,71.63,0.65,Sportsbooks
 71,Xavier Worthy,KAN,DET,DET@KAN,0.0,0.0,0.0,0.0,0.0,6.14,5.15,62.39,0.51,Sportsbooks
 72,Travis Kelce,KAN,DET,DET@KAN,0.0,0.0,0.0,0.0,0.0,0.0,4.7,43.85,0.53,Sportsbooks
-73,James Cook,BUF,ATL,BUF@ATL,0.0,0.0,0.0,0.0,16.5,73.47,2.65,14.09,0.9,Sportsbooks
-74,Bijan Robinson,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,15.5,75.76,4.14,28.58,0.92,Sportsbooks
-75,Josh Allen,BUF,ATL,BUF@ATL,30.11,229.45,0.56,1.76,6.5,33.11,0.0,0.0,0.73,Sportsbooks
-76,Drake London,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,6.04,70.58,0.51,Sportsbooks
-77,D'Andre Swift,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,14.5,48.41,3.05,18.28,0.6,Sportsbooks
-78,Jacory Croskey-Merritt,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,14.5,65.73,1.84,8.5,0.82,Sportsbooks
-79,Deebo Samuel,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,1.5,7.44,6.03,56.97,0.58,Sportsbooks
-80,Rome Odunze,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,4.91,66.6,0.53,Sportsbooks
+73,James Cook,BUF,ATL,BUF@ATL,0.0,0.0,0.0,0.0,15.5,72.84,2.64,14.13,0.9,Sportsbooks
+74,Bijan Robinson,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,15.5,75.06,4.15,29.07,0.92,Sportsbooks
+75,Josh Allen,BUF,ATL,BUF@ATL,30.09,229.43,0.56,1.77,6.5,33.21,0.0,0.0,0.72,Sportsbooks
+76,Drake London,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,6.08,70.58,0.51,Sportsbooks
+77,D'Andre Swift,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,13.5,48.47,3.05,18.27,0.6,Sportsbooks
+78,Jacory Croskey-Merritt,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,14.5,65.8,1.85,8.63,0.83,Sportsbooks
+79,Deebo Samuel,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,1.5,7.46,6.04,57.19,0.58,Sportsbooks
+80,Rome Odunze,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,4.91,66.59,0.53,Sportsbooks
 94,Kyren Williams,LAR,BAL,LAR@BAL,0.0,0.0,0.0,0.0,16.5,71.14,2.44,13.18,0.96,Sportsbooks
 95,Puka Nacua,LAR,BAL,LAR@BAL,0.0,0.0,0.0,0.0,0.0,0.0,8.25,97.59,0.8,Sportsbooks
 96,Davante Adams,LAR,BAL,LAR@BAL,0.0,0.0,0.0,0.0,0.0,0.0,5.01,64.54,0.63,Sportsbooks
@@ -86,13 +86,13 @@
 120,Hunter Henry,NWE,NOR,NWE@NOR,0.0,0.0,0.0,0.0,0.0,0.0,3.88,41.47,0.44,Sportsbooks
 121,Jared Goff,DET,KAN,DET@KAN,32.16,239.19,0.69,1.82,1.5,0.0,0.0,0.0,0.07,Sportsbooks
 122,Patrick Mahomes,KAN,DET,DET@KAN,37.18,264.51,0.69,2.14,4.5,28.53,0.0,0.0,0.3,Sportsbooks
-123,Michael Penix Jr.,ATL,BUF,BUF@ATL,31.04,220.07,0.75,1.39,2.5,7.41,0.0,0.0,0.13,Sportsbooks
-124,Kyle Pitts,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,3.85,38.83,0.32,Sportsbooks
-125,Keon Coleman,BUF,ATL,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,3.36,38.9,0.38,Sportsbooks
+123,Michael Penix Jr.,ATL,BUF,BUF@ATL,31.07,221.59,0.75,1.39,2.5,7.45,0.0,0.0,0.13,Sportsbooks
+124,Kyle Pitts,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,3.91,40.08,0.33,Sportsbooks
+125,Keon Coleman,BUF,ATL,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,3.37,38.94,0.38,Sportsbooks
 126,Dalton Kincaid,BUF,ATL,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,3.68,36.01,0.35,Sportsbooks
-127,Khalil Shakir,BUF,ATL,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,4.63,47.96,0.38,Sportsbooks
-128,Caleb Williams,CHI,WAS,CHI@WAS,32.14,234.54,0.61,1.59,5.5,23.93,0.0,0.0,0.26,Sportsbooks
-129,Jayden Daniels,WAS,CHI,CHI@WAS,29.65,218.26,0.59,1.54,7.5,43.17,0.0,0.0,0.58,Sportsbooks
+127,Khalil Shakir,BUF,ATL,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,4.63,47.95,0.38,Sportsbooks
+128,Caleb Williams,CHI,WAS,CHI@WAS,32.16,233.86,0.61,1.59,5.5,24.11,0.0,0.0,0.26,Sportsbooks
+129,Jayden Daniels,WAS,CHI,CHI@WAS,29.65,218.27,0.6,1.54,8.5,44.45,0.0,0.0,0.57,Sportsbooks
 130,Josh Downs,IND,ARI,ARI@IND,0.0,0.0,0.0,0.0,0.0,0.0,4.02,38.21,0.3,Sportsbooks
 131,Michael Pittman Jr.,IND,ARI,ARI@IND,0.0,0.0,0.0,0.0,0.0,0.0,4.99,50.89,0.47,Sportsbooks
 132,Michael Carter,ARI,IND,ARI@IND,0.0,0.0,0.0,0.0,11.5,46.74,3.18,14.8,0.41,Sportsbooks
@@ -150,8 +150,7 @@
 268,David Montgomery,DET,KAN,DET@KAN,0.0,0.0,0.0,0.0,10.5,42.98,0.0,6.8,0.74,Sportsbooks
 269,Jameson Williams,DET,KAN,DET@KAN,0.0,0.0,0.0,0.0,0.0,0.0,3.09,45.03,0.4,Sportsbooks
 270,Sam LaPorta,DET,KAN,DET@KAN,0.0,0.0,0.0,0.0,0.0,0.0,4.46,43.5,0.35,Sportsbooks
-286,Tyler Allgeier,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,7.5,30.88,0.0,0.0,0.46,Sportsbooks
-290,Ray-Ray McCloud,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,0.0,0.0,2.43,18.94,0.19,Sportsbooks
+286,Tyler Allgeier,ATL,BUF,BUF@ATL,0.0,0.0,0.0,0.0,7.5,30.88,0.71,0.0,0.45,Sportsbooks
 306,Terry McLaurin,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,4.09,48.68,0.49,Sportsbooks
 308,Tyler Higbee,LAR,BAL,LAR@BAL,0.0,0.0,0.0,0.0,0.0,0.0,2.08,17.27,0.34,Sportsbooks
 310,Blake Corum,LAR,BAL,LAR@BAL,0.0,0.0,0.0,0.0,6.5,25.42,0.86,0.62,0.26,Sportsbooks
@@ -174,8 +173,9 @@
 370,Gunnar Helm,TEN,LVR,TEN@LVR,0.0,0.0,0.0,0.0,0.0,0.0,2.49,19.06,0.15,Sportsbooks
 372,Michael Mayer,LVR,TEN,TEN@LVR,0.0,0.0,0.0,0.0,0.0,0.0,3.59,31.63,0.4,Sportsbooks
 382,Taysom Hill,NOR,NWE,NWE@NOR,0.0,0.0,0.0,0.0,3.5,14.17,0.0,0.0,0.41,Sportsbooks
-385,DJ Moore,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,6.71,3.87,39.53,0.42,Sportsbooks
-386,Olamide Zaccheaus,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,2.91,26.57,0.24,Sportsbooks
-387,Zach Ertz,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,3.62,28.86,0.39,Sportsbooks
-391,Cole Kmet,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,2.0,18.12,0.28,Sportsbooks
-394,Luke McCaffrey,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,2.17,25.53,0.24,Sportsbooks
+385,DJ Moore,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,6.63,3.88,39.52,0.41,Sportsbooks
+386,Olamide Zaccheaus,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,2.91,26.5,0.24,Sportsbooks
+387,Zach Ertz,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,3.63,29.68,0.38,Sportsbooks
+390,Colston Loveland,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,2.02,18.42,0.27,Sportsbooks
+391,Cole Kmet,CHI,WAS,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,2.0,18.02,0.28,Sportsbooks
+394,Luke McCaffrey,WAS,CHI,CHI@WAS,0.0,0.0,0.0,0.0,0.0,0.0,2.16,26.97,0.24,Sportsbooks
