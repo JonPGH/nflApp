@@ -215,6 +215,7 @@ if check_password():
         saltrack = pd.read_csv(f'{file_path}/DKSalTracking.csv')
         saltrack2 = pd.read_csv(f'{file_path}/DKSalTracking2.csv')
         xfp = pd.read_csv(f'{file_path}/xFPData.csv')
+        xfp_comp = pd.read_csv(f'{file_path}/xfp_comp.csv')
         mainslate = pd.read_csv(f'{file_path}/mainslate.csv')
         shootout_teams = pd.read_csv(f'{file_path}/shootout_team_data.csv')
         shootout_matchups = pd.read_csv(f'{file_path}/shootout_game_data.csv')
@@ -227,7 +228,7 @@ if check_password():
         optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')
         best_bet_data = pd.read_csv(f'{file_path}/PropCompSheet.csv')
 
-        return allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
+        return xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
 
     # ---------- Best Bets helpers ----------
     def _std_norm_cdf(x: float) -> float:
@@ -498,7 +499,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -1516,33 +1517,258 @@ if check_password():
         st.dataframe(show_df,hide_index=True, width=1250)
     
     if tab == "Expected Fantasy Points":
+        import altair as alt
+
         st.markdown("<h1><center>Expected Fantasy Points Model</h1></center>", unsafe_allow_html=True)
-        st.markdown("<i><center><h3>work in progress...</i></h3></center>", unsafe_allow_html=True)
-        st.markdown("<center><a href='https://docs.google.com/spreadsheets/d/106Wj9ncKwDnfDuUQUc5CHHX3sg_hE0Fkm4L75H_jC0E/edit?usp=sharing'>View Model Results Here</a></center><br>",unsafe_allow_html=True)
-        xpc1,xpc2,xpc3 = st.columns([1,1,1])
-        with xpc1:
-            selected_team = st.selectbox("Select Team", ["All"] + sorted(xfp['Team'].unique().tolist()))
-        with xpc2:
-            selected_pos = st.selectbox("Select Position", ["All"] + sorted(xfp['Pos'].unique().tolist()))
-        with xpc3:
-            selected_player = st.selectbox("Select Player", ["All"] + sorted(xfp['Player'].unique().tolist()))
+    
+        def _standardize_cols(df: pd.DataFrame) -> pd.DataFrame:
+            """Rename common variants to ['Player','Week','xFP','FPts']."""
+            rename = {}
+            lcmap = {c.lower(): c for c in df.columns}
 
-        # Week slider for custom range
-        #week_range = st.slider("Select Week Range", min_value=int(xfp['Week'].min()), max_value=int(xfp['Week'].max()),value=(int(xfp['Week'].min()), int(xfp['Week'].max())))
+            # Player
+            for key in ['player','name','player_name']:
+                if key in lcmap: rename[lcmap[key]] = 'Player'; break
 
-        # Filter the dataframe based on selections
-        filtered_xfp = xfp.copy()
-        if selected_team != "All":
-            filtered_xfp = filtered_xfp[filtered_xfp['Team'] == selected_team]
-        if selected_pos != "All":
-            filtered_xfp = filtered_xfp[filtered_xfp['Pos'] == selected_pos]
-        if selected_player != "All":
-            filtered_xfp = filtered_xfp[filtered_xfp['Player'] == selected_player]
-        #filtered_xfp = filtered_xfp[(filtered_xfp['Week'] >= week_range[0]) & (filtered_xfp['Week'] <= week_range[1])]
+            # Week (may contain 'All')
+            for key in ['week','wk']:
+                if key in lcmap: rename[lcmap[key]] = 'Week'; break
 
-        # Display the filtered table
-        st.dataframe(filtered_xfp[['Player', 'Pos', 'Team', 'Week', 'Passing', 'Rushing', 'Receiving', 'xFP']],hide_index=True)
-        
+            # Expected fantasy points
+            for key in ['xfp','x_fp','xFpts'.lower(),'expected','expected_fpts','expected_points']:
+                if key in lcmap: rename[lcmap[key]] = 'xFP'; break
+
+            # Actual fantasy points
+            for key in ['fpts','fp','actual','fantasy_points','points','fp_ts','fppts']:
+                if key in lcmap: rename[lcmap[key]] = 'FPts'; break
+
+            out = df.rename(columns=rename).copy()
+
+            # Ensure present
+            required = {'Player','Week','xFP','FPts'}
+            missing = required - set(out.columns)
+            if missing:
+                st.error(f"Missing required columns: {sorted(missing)}")
+                st.stop()
+
+            # Normalize types
+            out['Player'] = out['Player'].astype(str)
+            out['Week'] = out['Week'].astype(str)
+            # Keep numeric for xFP / FPts
+            for c in ['xFP','FPts']:
+                out[c] = pd.to_numeric(out[c], errors='coerce')
+            return out
+
+        def _split_weeks(df: pd.DataFrame):
+            """Return numeric-week rows and (optional) 'All' season rows."""
+            # Numeric weeks
+            is_num = df['Week'].str.fullmatch(r'\d+')
+            wk_df = df.loc[is_num].copy()
+            wk_df['Week'] = wk_df['Week'].astype(int)
+
+            # Season 'All' rows, if present
+            season_df = df.loc[df['Week'].str.lower().eq('all')].copy()
+            return wk_df, season_df
+
+        def render_xfp_vs_actual(xfp_df: pd.DataFrame | None = None):
+            """
+            Renders the xFP vs Actual explorer:
+            - Player search + week range filter
+            - Results table with delta
+            - Player detail: season bar (xFP vs FPts) + weekly line (xFP & FPts)
+            """
+            # -------- Load/standardize --------
+            if xfp_df is None:
+                try:
+                    xfp_df = xfp_comp.copy()#pd.read_csv("/mnt/data/xfp_comp.csv")
+                except Exception as e:
+                    st.error(f"Could not read /mnt/data/xfp_comp.csv: {e}")
+                    st.stop()
+
+            df = _standardize_cols(xfp_df)
+            wk_df, season_df = _split_weeks(df)
+
+            if wk_df.empty and season_df.empty:
+                st.warning("No weekly or season ('All') rows found.")
+                return
+
+            # -------- Sidebar / Controls --------
+            st.markdown("### xFP vs. Actual (FPts)")
+            st.caption("Search players, set a week range, then explore season and weekly performance.")
+
+            # Player search (multi) for table view
+            players = sorted(df['Player'].unique())
+            c1, c2 = st.columns([2,1])
+            with c1:
+                search = st.text_input("Search players", value="", placeholder="Type a player name...")
+                if search.strip():
+                    filtered_players = [p for p in players if search.lower() in p.lower()]
+                else:
+                    filtered_players = players
+                multi_players = st.multiselect("Filter player list", filtered_players, default=filtered_players[:10])
+            with c2:
+                if wk_df.empty:
+                    min_wk = 1; max_wk = 1
+                else:
+                    min_wk, max_wk = int(wk_df['Week'].min()), int(wk_df['Week'].max())
+                wk_range = st.slider("Week range", min_wk, max_wk, (min_wk, max_wk), step=1)
+
+            # -------- Filtered table (weekly) --------
+            tbl = wk_df[(wk_df['Week'] >= wk_range[0]) & (wk_df['Week'] <= wk_range[1])]
+            if multi_players:
+                tbl = tbl[tbl['Player'].isin(multi_players)]
+            tbl = tbl.assign(Delta=lambda d: d['FPts'] - d['xFP']).sort_values(['Player','Week'])
+            st.dataframe(
+                tbl[['Player','Week','xFP','FPts','Delta']].round({'xFP':2,'FPts':2,'Delta':2}),
+                use_container_width=True,
+                hide_index=True
+            )
+
+            st.divider()
+
+
+            # ===== NEW: Week/All Leaderboard (filter by single week OR All, with sorting) =====
+            st.subheader("Week/All Leaderboard")
+
+            lc1, lc2, lc3 = st.columns([1,1,1])
+            with lc1:
+                week_options = ["All"] + (sorted(wk_df['Week'].unique().tolist()) if not wk_df.empty else [])
+                selected_week = st.selectbox("Select week", week_options, index=0)
+            with lc2:
+                sort_by = st.selectbox("Sort by", ["Diff", "FPts", "xFP"], index=0)
+            with lc3:
+                order = st.radio("Order", ["Ascending", "Descending"], index=0, horizontal=True)
+            ascending = (order == "Ascending")
+
+            # Build leaderboard table
+            if selected_week == "All":
+                if not season_df.empty:
+                    lead = season_df[['Player','xFP','FPts']].copy()
+                else:
+                    # Fallback: sum across all numeric weeks
+                    lead = wk_df.groupby('Player', as_index=False)[['xFP','FPts']].sum()
+            else:
+                lead = wk_df[wk_df['Week'] == int(selected_week)][['Player','xFP','FPts']].copy()
+
+            lead['Diff'] = lead['FPts'] - lead['xFP']
+            lead = lead.sort_values(sort_by, ascending=ascending).reset_index(drop=True)
+
+            # Build & style leaderboard view
+            lead_view = lead[['Player','xFP','FPts','Diff']].copy()
+            num_cols = ['xFP','FPts','Diff']
+            lead_view[num_cols] = lead_view[num_cols].round(2)
+
+            # Pandas Styler: center values + per-column gradients
+            styler = (
+                lead_view.style
+                    .format({c: "{:.2f}" for c in num_cols})
+                    # center all cells (including header)
+                    .set_properties(subset=lead_view.columns, **{'text-align': 'center'})
+                    .set_table_styles([dict(selector='th', props=[('text-align', 'center')])])
+            )
+
+            # Apply column-wise gradients
+            # xFP / FPts: single-hue (relative to that column's range)
+            for col in ['xFP', 'FPts']:
+                if not lead_view.empty:
+                    vmin = float(lead_view[col].min())
+                    vmax = float(lead_view[col].max())
+                    styler = styler.background_gradient(subset=[col], cmap='Blues', vmin=vmin, vmax=vmax)
+
+            # Diff: diverging centered at 0 (green = outperformed, red = underperformed)
+            if not lead_view.empty:
+                lo, hi = float(lead_view['Diff'].min()), float(lead_view['Diff'].max())
+                span = max(abs(lo), abs(hi))
+                styler = styler.background_gradient(subset=['Diff'], cmap='RdYlGn', vmin=-span, vmax=span)
+
+            xfpcompcol1,xfpcompcol2,xfpcompcol3 = st.columns([1,2,1])
+            with xfpcompcol2:
+                st.dataframe(styler, width=800, height=600,use_container_width=False, hide_index=True)
+
+
+
+            #st.dataframe(
+            #    lead[['Player','xFP','FPts','Diff']].round(2),
+            #    use_container_width=True,
+            #    hide_index=True
+            #)
+
+            st.divider()
+            # ===== End NEW section =====
+
+
+
+
+
+
+
+            # -------- Player detail selection --------
+            # Choose one player to plot
+            default_player = multi_players[0] if multi_players else (players[0] if players else None)
+            selected_player = st.selectbox("Select a player for charts", players, index=(players.index(default_player) if default_player in players else 0))
+
+            # Build season row for the selected player:
+            # prefer 'All' if present; otherwise sum over currently selected week range
+            season_row = None
+            if not season_df.empty:
+                s = season_df[season_df['Player'] == selected_player]
+                if not s.empty:
+                    season_row = s[['xFP','FPts']].sum(numeric_only=True).to_dict()
+
+            if season_row is None:
+                # fallback: sum across filtered weeks for that player
+                s = tbl[tbl['Player'] == selected_player]
+                season_row = s[['xFP','FPts']].sum(numeric_only=True).to_dict()
+
+            # Weekly series for the selected player (line chart)
+            pl_wk = wk_df[wk_df['Player'] == selected_player].copy()
+            if not pl_wk.empty:
+                pl_wk = pl_wk[(pl_wk['Week'] >= wk_range[0]) & (pl_wk['Week'] <= wk_range[1])]
+            else:
+                pl_wk = pd.DataFrame(columns=['Week','xFP','FPts'])
+
+            # -------- Charts (bar left, line right) --------
+            left, right = st.columns([1, 2], vertical_alignment="top")
+
+            # Season bar: vertical bars for xFP vs FPts
+            with left:
+                season_bar_df = pd.DataFrame({
+                    'Metric': ['xFP','FPts'],
+                    'Value': [season_row.get('xFP', np.nan), season_row.get('FPts', np.nan)]
+                })
+                bar = (
+                    alt.Chart(season_bar_df)
+                    .mark_bar()
+                    .encode(
+                        x=alt.X('Metric:N', title=None, axis=alt.Axis(labelFontSize=12, titleFontSize=12)),
+                        y=alt.Y('Value:Q', title='Season Total', axis=alt.Axis(labelFontSize=12, titleFontSize=12)),
+                        tooltip=[alt.Tooltip('Metric:N'), alt.Tooltip('Value:Q', format='.2f')]
+                    )
+                    .properties(height=300, width='container')
+                )
+                st.altair_chart(bar, use_container_width=True)
+
+            # Weekly line: two series (xFP and FPts) by week
+            with right:
+                if pl_wk.empty:
+                    st.info("No weekly data available for this player in the selected range.")
+                else:
+                    line_df = pl_wk[['Week','xFP','FPts']].sort_values('Week')
+                    folded = line_df.melt(id_vars='Week', value_vars=['xFP','FPts'], var_name='Metric', value_name='Value')
+                    line = (
+                        alt.Chart(folded)
+                        .mark_line(point=True)
+                        .encode(
+                            x=alt.X('Week:Q', axis=alt.Axis(format='d', title='Week', labelFontSize=12, titleFontSize=12)),
+                            y=alt.Y('Value:Q', title='Points', axis=alt.Axis(labelFontSize=12, titleFontSize=12), scale=alt.Scale(zero=False)),
+                            color=alt.Color('Metric:N', legend=alt.Legend(title=None, orient='top')),
+                            tooltip=[alt.Tooltip('Week:Q', format='d'), 'Metric:N', alt.Tooltip('Value:Q', format='.2f')]
+                        )
+                        .properties(height=300, width='container')
+                    )
+                    st.altair_chart(line, use_container_width=True)
+
+        render_xfp_vs_actual()
 
 
     if tab == "Game by Game":
