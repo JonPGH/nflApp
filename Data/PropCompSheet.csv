@@ -1,1152 +1,571 @@
 ,Player,Team,Opp,Book,Market,OU,Line,Price,Projection,Delta,% Delta
-0,Josh Allen,BUF,ATL,DraftKings,Pass Comp,Over,20.5,-105,20.0,-0.5,0.976
-1,Josh Allen,BUF,ATL,DraftKings,Pass Comp,Under,20.5,-121,20.0,-0.5,0.976
-2,Michael Penix Jr.,ATL,BUF,DraftKings,Pass Comp,Over,19.5,-130,21.0,1.5,1.077
-3,Michael Penix Jr.,ATL,BUF,DraftKings,Pass Comp,Under,19.5,102,21.0,1.5,1.077
-4,Josh Allen,BUF,ATL,FanDuel,Pass Comp,Over,20.5,108,20.0,-0.5,0.976
-5,Josh Allen,BUF,ATL,FanDuel,Pass Comp,Under,20.5,-138,20.0,-0.5,0.976
-6,Michael Penix Jr.,ATL,BUF,FanDuel,Pass Comp,Over,19.5,-120,21.0,1.5,1.077
-7,Michael Penix Jr.,ATL,BUF,FanDuel,Pass Comp,Under,19.5,-106,21.0,1.5,1.077
-8,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Pass Comp,Under,19.5,105,21.0,1.5,1.077
-9,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Pass Comp,Over,19.5,-135,21.0,1.5,1.077
-10,Josh Allen,BUF,ATL,BetOnline.ag,Pass Comp,Over,20.5,-103,20.0,-0.5,0.976
-11,Josh Allen,BUF,ATL,BetOnline.ag,Pass Comp,Under,20.5,-125,20.0,-0.5,0.976
-12,Michael Penix Jr.,ATL,BUF,BetRivers,Pass Comp,Over,19.5,-124,21.0,1.5,1.077
-13,Michael Penix Jr.,ATL,BUF,BetRivers,Pass Comp,Under,19.5,-108,21.0,1.5,1.077
-14,Josh Allen,BUF,ATL,BetRivers,Pass Comp,Over,20.5,-115,20.0,-0.5,0.976
-15,Josh Allen,BUF,ATL,BetRivers,Pass Comp,Under,20.5,-115,20.0,-0.5,0.976
-16,Josh Allen,BUF,ATL,Bovada,Pass Comp,Over,20.5,-110,20.0,-0.5,0.976
-17,Josh Allen,BUF,ATL,Bovada,Pass Comp,Under,20.5,-120,20.0,-0.5,0.976
-18,Michael Penix Jr.,ATL,BUF,Bovada,Pass Comp,Over,19.5,-145,21.0,1.5,1.077
-19,Michael Penix Jr.,ATL,BUF,Bovada,Pass Comp,Under,19.5,110,21.0,1.5,1.077
-20,Michael Penix Jr.,ATL,BUF,Fanatics,Pass Comp,Over,19.5,-120,21.0,1.5,1.077
-21,Michael Penix Jr.,ATL,BUF,Fanatics,Pass Comp,Under,19.5,-110,21.0,1.5,1.077
-22,Josh Allen,BUF,ATL,Fanatics,Pass Comp,Over,20.5,105,20.0,-0.5,0.976
-23,Josh Allen,BUF,ATL,Fanatics,Pass Comp,Under,20.5,-140,20.0,-0.5,0.976
-24,Michael Penix Jr.,ATL,BUF,BetMGM,Pass Comp,Over,20.5,-110,21.0,0.5,1.024
-25,Michael Penix Jr.,ATL,BUF,BetMGM,Pass Comp,Under,20.5,-118,21.0,0.5,1.024
-26,Josh Allen,BUF,ATL,BetMGM,Pass Comp,Over,20.5,-110,20.0,-0.5,0.976
-27,Josh Allen,BUF,ATL,BetMGM,Pass Comp,Under,20.5,-118,20.0,-0.5,0.976
-28,Michael Penix Jr.,ATL,BUF,DraftKings,Pass Att,Over,31.5,-112,31.77,0.27,1.009
-29,Michael Penix Jr.,ATL,BUF,DraftKings,Pass Att,Under,31.5,-113,31.77,0.27,1.009
-30,Josh Allen,BUF,ATL,DraftKings,Pass Att,Over,30.5,-108,29.67,-0.83,0.973
-31,Josh Allen,BUF,ATL,DraftKings,Pass Att,Under,30.5,-119,29.67,-0.83,0.973
-32,Michael Penix Jr.,ATL,BUF,FanDuel,Pass Att,Over,31.5,-106,31.77,0.27,1.009
-33,Michael Penix Jr.,ATL,BUF,FanDuel,Pass Att,Under,31.5,-122,31.77,0.27,1.009
-34,Josh Allen,BUF,ATL,FanDuel,Pass Att,Over,30.5,102,29.67,-0.83,0.973
-35,Josh Allen,BUF,ATL,FanDuel,Pass Att,Under,30.5,-132,29.67,-0.83,0.973
-36,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Pass Att,Under,31.5,-119,31.77,0.27,1.009
-37,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Pass Att,Over,31.5,-109,31.77,0.27,1.009
-38,Josh Allen,BUF,ATL,BetOnline.ag,Pass Att,Over,30.5,-108,29.67,-0.83,0.973
-39,Josh Allen,BUF,ATL,BetOnline.ag,Pass Att,Under,30.5,-120,29.67,-0.83,0.973
-40,Michael Penix Jr.,ATL,BUF,BetRivers,Pass Att,Over,30.5,-120,31.77,1.27,1.042
-41,Michael Penix Jr.,ATL,BUF,BetRivers,Pass Att,Under,30.5,-112,31.77,1.27,1.042
-42,Josh Allen,BUF,ATL,BetRivers,Pass Att,Over,30.5,-109,29.67,-0.83,0.973
-43,Josh Allen,BUF,ATL,BetRivers,Pass Att,Under,30.5,-122,29.67,-0.83,0.973
-44,Josh Allen,BUF,ATL,Bovada,Pass Att,Over,30.5,-105,29.67,-0.83,0.973
-45,Josh Allen,BUF,ATL,Bovada,Pass Att,Under,30.5,-125,29.67,-0.83,0.973
-46,Michael Penix Jr.,ATL,BUF,Bovada,Pass Att,Over,31.5,100,31.77,0.27,1.009
-47,Michael Penix Jr.,ATL,BUF,Bovada,Pass Att,Under,31.5,-130,31.77,0.27,1.009
-48,Michael Penix Jr.,ATL,BUF,Fanatics,Pass Att,Over,30.5,-120,31.77,1.27,1.042
-49,Michael Penix Jr.,ATL,BUF,Fanatics,Pass Att,Under,30.5,-110,31.77,1.27,1.042
-50,Josh Allen,BUF,ATL,Fanatics,Pass Att,Over,29.5,-110,29.67,0.17,1.006
-51,Josh Allen,BUF,ATL,Fanatics,Pass Att,Under,29.5,-120,29.67,0.17,1.006
-52,Michael Penix Jr.,ATL,BUF,BetMGM,Pass Att,Over,31.5,-120,31.77,0.27,1.009
-53,Michael Penix Jr.,ATL,BUF,BetMGM,Pass Att,Under,31.5,-110,31.77,0.27,1.009
-54,Josh Allen,BUF,ATL,BetMGM,Pass Att,Over,30.5,-120,29.67,-0.83,0.973
-55,Josh Allen,BUF,ATL,BetMGM,Pass Att,Under,30.5,-110,29.67,-0.83,0.973
-56,Josh Allen,BUF,ATL,DraftKings,Pass Yards,Over,230.5,-111,226.61,-3.89,0.983
-57,Josh Allen,BUF,ATL,DraftKings,Pass Yards,Under,230.5,-113,226.61,-3.89,0.983
-58,Michael Penix Jr.,ATL,BUF,DraftKings,Pass Yards,Over,227.5,-111,242.16,14.66,1.064
-59,Michael Penix Jr.,ATL,BUF,DraftKings,Pass Yards,Under,227.5,-113,242.16,14.66,1.064
-60,Josh Allen,BUF,ATL,Caesars,Pass Yards,Over,229.5,-115,226.61,-2.89,0.987
-61,Josh Allen,BUF,ATL,Caesars,Pass Yards,Under,229.5,-118,226.61,-2.89,0.987
-62,Michael Penix Jr.,ATL,BUF,Caesars,Pass Yards,Over,226.5,-117,242.16,15.66,1.069
-63,Michael Penix Jr.,ATL,BUF,Caesars,Pass Yards,Under,226.5,-115,242.16,15.66,1.069
-64,Michael Penix Jr.,ATL,BUF,FanDuel,Pass Yards,Over,225.5,-112,242.16,16.66,1.074
-65,Michael Penix Jr.,ATL,BUF,FanDuel,Pass Yards,Under,225.5,-112,242.16,16.66,1.074
-66,Josh Allen,BUF,ATL,FanDuel,Pass Yards,Over,228.5,-112,226.61,-1.89,0.992
-67,Josh Allen,BUF,ATL,FanDuel,Pass Yards,Under,228.5,-112,226.61,-1.89,0.992
-68,Josh Allen,BUF,ATL,BetOnline.ag,Pass Yards,Over,228.5,-122,226.61,-1.89,0.992
-69,Josh Allen,BUF,ATL,BetOnline.ag,Pass Yards,Under,228.5,-106,226.61,-1.89,0.992
-70,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Pass Yards,Under,227.5,-114,242.16,14.66,1.064
-71,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Pass Yards,Over,227.5,-114,242.16,14.66,1.064
-72,Michael Penix Jr.,ATL,BUF,BetRivers,Pass Yards,Over,227.5,-117,242.16,14.66,1.064
-73,Michael Penix Jr.,ATL,BUF,BetRivers,Pass Yards,Under,227.5,-114,242.16,14.66,1.064
-74,Josh Allen,BUF,ATL,BetRivers,Pass Yards,Over,231.5,-114,226.61,-4.89,0.979
-75,Josh Allen,BUF,ATL,BetRivers,Pass Yards,Under,231.5,-117,226.61,-4.89,0.979
-76,Josh Allen,BUF,ATL,Bovada,Pass Yards,Over,228.5,-125,226.61,-1.89,0.992
-77,Josh Allen,BUF,ATL,Bovada,Pass Yards,Under,228.5,-105,226.61,-1.89,0.992
-78,Michael Penix Jr.,ATL,BUF,Bovada,Pass Yards,Over,223.5,-135,242.16,18.66,1.083
-79,Michael Penix Jr.,ATL,BUF,Bovada,Pass Yards,Under,223.5,105,242.16,18.66,1.083
-80,Josh Allen,BUF,ATL,Fanatics,Pass Yards,Over,225.5,-115,226.61,1.11,1.005
-81,Josh Allen,BUF,ATL,Fanatics,Pass Yards,Under,225.5,-115,226.61,1.11,1.005
-82,Michael Penix Jr.,ATL,BUF,Fanatics,Pass Yards,Over,225.5,-115,242.16,16.66,1.074
-83,Michael Penix Jr.,ATL,BUF,Fanatics,Pass Yards,Under,225.5,-115,242.16,16.66,1.074
-84,Josh Allen,BUF,ATL,BetMGM,Pass Yards,Over,228.5,-115,226.61,-1.89,0.992
-85,Josh Allen,BUF,ATL,BetMGM,Pass Yards,Under,228.5,-115,226.61,-1.89,0.992
-86,Michael Penix Jr.,ATL,BUF,BetMGM,Pass Yards,Over,226.5,-115,242.16,15.66,1.069
-87,Michael Penix Jr.,ATL,BUF,BetMGM,Pass Yards,Under,226.5,-115,242.16,15.66,1.069
-88,Josh Allen,BUF,ATL,DraftKings,Int,Over,0.5,123,0.49,-0.01,0.98
-89,Josh Allen,BUF,ATL,DraftKings,Int,Under,0.5,-157,0.49,-0.01,0.98
-90,Michael Penix Jr.,ATL,BUF,DraftKings,Int,Over,0.5,-126,0.74,0.24,1.48
-91,Michael Penix Jr.,ATL,BUF,DraftKings,Int,Under,0.5,-101,0.74,0.24,1.48
-92,Michael Penix Jr.,ATL,BUF,FanDuel,Int,Over,0.5,-130,0.74,0.24,1.48
-93,Michael Penix Jr.,ATL,BUF,FanDuel,Int,Under,0.5,100,0.74,0.24,1.48
-94,Josh Allen,BUF,ATL,FanDuel,Int,Over,0.5,125,0.49,-0.01,0.98
-95,Josh Allen,BUF,ATL,FanDuel,Int,Under,0.5,-164,0.49,-0.01,0.98
-96,Josh Allen,BUF,ATL,BetOnline.ag,Int,Over,0.5,117,0.49,-0.01,0.98
-97,Josh Allen,BUF,ATL,BetOnline.ag,Int,Under,0.5,-152,0.49,-0.01,0.98
-98,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Int,Over,0.5,-127,0.74,0.24,1.48
-99,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Int,Under,0.5,-102,0.74,0.24,1.48
-100,Michael Penix Jr.,ATL,BUF,BetRivers,Int,Over,0.5,-125,0.74,0.24,1.48
-101,Michael Penix Jr.,ATL,BUF,BetRivers,Int,Under,0.5,-107,0.74,0.24,1.48
-102,Josh Allen,BUF,ATL,BetRivers,Int,Over,0.5,114,0.49,-0.01,0.98
-103,Josh Allen,BUF,ATL,BetRivers,Int,Under,0.5,-152,0.49,-0.01,0.98
-104,Michael Penix Jr.,ATL,BUF,BetMGM,Int,Over,0.5,-125,0.74,0.24,1.48
-105,Michael Penix Jr.,ATL,BUF,BetMGM,Int,Under,0.5,-105,0.74,0.24,1.48
-106,Josh Allen,BUF,ATL,BetMGM,Int,Over,0.5,110,0.49,-0.01,0.98
-107,Josh Allen,BUF,ATL,BetMGM,Int,Under,0.5,-150,0.49,-0.01,0.98
-108,Josh Allen,BUF,ATL,DraftKings,Pass TD,Over,1.5,-133,1.74,0.24,1.16
-109,Josh Allen,BUF,ATL,DraftKings,Pass TD,Under,1.5,104,1.74,0.24,1.16
-110,Michael Penix Jr.,ATL,BUF,DraftKings,Pass TD,Over,1.5,127,1.21,-0.29,0.807
-111,Michael Penix Jr.,ATL,BUF,DraftKings,Pass TD,Under,1.5,-163,1.21,-0.29,0.807
-112,Michael Penix Jr.,ATL,BUF,Caesars,Pass TD,Over,1.5,128,1.21,-0.29,0.807
-113,Michael Penix Jr.,ATL,BUF,Caesars,Pass TD,Under,1.5,-180,1.21,-0.29,0.807
-114,Josh Allen,BUF,ATL,Caesars,Pass TD,Over,1.5,-137,1.74,0.24,1.16
-115,Josh Allen,BUF,ATL,Caesars,Pass TD,Under,1.5,102,1.74,0.24,1.16
-116,Michael Penix Jr.,ATL,BUF,FanDuel,Pass TD,Over,1.5,148,1.21,-0.29,0.807
-117,Michael Penix Jr.,ATL,BUF,FanDuel,Pass TD,Under,1.5,-190,1.21,-0.29,0.807
-118,Josh Allen,BUF,ATL,FanDuel,Pass TD,Over,1.5,-128,1.74,0.24,1.16
-119,Josh Allen,BUF,ATL,FanDuel,Pass TD,Under,1.5,100,1.74,0.24,1.16
-120,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Pass TD,Under,1.5,-169,1.21,-0.29,0.807
-121,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Pass TD,Over,1.5,130,1.21,-0.29,0.807
-122,Josh Allen,BUF,ATL,BetOnline.ag,Pass TD,Under,1.5,106,1.74,0.24,1.16
-123,Josh Allen,BUF,ATL,BetOnline.ag,Pass TD,Over,1.5,-137,1.74,0.24,1.16
-124,Michael Penix Jr.,ATL,BUF,BetRivers,Pass TD,Over,1.5,128,1.21,-0.29,0.807
-125,Michael Penix Jr.,ATL,BUF,BetRivers,Pass TD,Under,1.5,-167,1.21,-0.29,0.807
-126,Josh Allen,BUF,ATL,BetRivers,Pass TD,Over,1.5,-136,1.74,0.24,1.16
-127,Josh Allen,BUF,ATL,BetRivers,Pass TD,Under,1.5,102,1.74,0.24,1.16
-128,Josh Allen,BUF,ATL,Bovada,Pass TD,Over,1.5,-135,1.74,0.24,1.16
-129,Josh Allen,BUF,ATL,Bovada,Pass TD,Under,1.5,105,1.74,0.24,1.16
-130,Michael Penix Jr.,ATL,BUF,Bovada,Pass TD,Over,1.5,135,1.21,-0.29,0.807
-131,Michael Penix Jr.,ATL,BUF,Bovada,Pass TD,Under,1.5,-180,1.21,-0.29,0.807
-132,Josh Allen,BUF,ATL,Fanatics,Pass TD,Over,1.5,-140,1.74,0.24,1.16
-133,Josh Allen,BUF,ATL,Fanatics,Pass TD,Under,1.5,105,1.74,0.24,1.16
-134,Michael Penix Jr.,ATL,BUF,Fanatics,Pass TD,Over,1.5,140,1.21,-0.29,0.807
-135,Michael Penix Jr.,ATL,BUF,Fanatics,Pass TD,Under,1.5,-180,1.21,-0.29,0.807
-136,Michael Penix Jr.,ATL,BUF,BetMGM,Pass TD,Over,1.5,115,1.21,-0.29,0.807
-137,Michael Penix Jr.,ATL,BUF,BetMGM,Pass TD,Under,1.5,-155,1.21,-0.29,0.807
-138,Josh Allen,BUF,ATL,BetMGM,Pass TD,Over,1.5,-135,1.74,0.24,1.16
-139,Josh Allen,BUF,ATL,BetMGM,Pass TD,Under,1.5,100,1.74,0.24,1.16
-140,James Cook,BUF,ATL,DraftKings,Rush Att,Over,15.5,-116,16.27,0.77,1.05
-141,James Cook,BUF,ATL,DraftKings,Rush Att,Under,15.5,-110,16.27,0.77,1.05
-142,Bijan Robinson,ATL,BUF,DraftKings,Rush Att,Over,15.5,101,15.41,-0.09,0.994
-143,Bijan Robinson,ATL,BUF,DraftKings,Rush Att,Under,15.5,-129,15.41,-0.09,0.994
-144,Tyler Allgeier,ATL,BUF,DraftKings,Rush Att,Over,7.5,-122,10.05,2.55,1.34
-145,Tyler Allgeier,ATL,BUF,DraftKings,Rush Att,Under,7.5,-105,10.05,2.55,1.34
-146,Josh Allen,BUF,ATL,DraftKings,Rush Att,Over,6.5,-135,6.77,0.27,1.042
-147,Josh Allen,BUF,ATL,DraftKings,Rush Att,Under,6.5,106,6.77,0.27,1.042
-148,James Cook,BUF,ATL,FanDuel,Rush Att,Over,16.5,102,16.27,-0.23,0.986
-149,James Cook,BUF,ATL,FanDuel,Rush Att,Under,16.5,-136,16.27,-0.23,0.986
-150,Bijan Robinson,ATL,BUF,FanDuel,Rush Att,Over,15.5,-114,15.41,-0.09,0.994
-151,Bijan Robinson,ATL,BUF,FanDuel,Rush Att,Under,15.5,-114,15.41,-0.09,0.994
-152,Tyler Allgeier,ATL,BUF,FanDuel,Rush Att,Over,7.5,-122,10.05,2.55,1.34
-153,Tyler Allgeier,ATL,BUF,FanDuel,Rush Att,Under,7.5,-108,10.05,2.55,1.34
-154,Josh Allen,BUF,ATL,FanDuel,Rush Att,Over,6.5,-138,6.77,0.27,1.042
-155,Josh Allen,BUF,ATL,FanDuel,Rush Att,Under,6.5,104,6.77,0.27,1.042
-156,Josh Allen,BUF,ATL,BetOnline.ag,Rush Att,Over,6.5,-143,6.77,0.27,1.042
-157,Josh Allen,BUF,ATL,BetOnline.ag,Rush Att,Under,6.5,110,6.77,0.27,1.042
-158,Bijan Robinson,ATL,BUF,BetOnline.ag,Rush Att,Under,15.5,-114,15.41,-0.09,0.994
-159,Bijan Robinson,ATL,BUF,BetOnline.ag,Rush Att,Over,15.5,-114,15.41,-0.09,0.994
-160,Tyler Allgeier,ATL,BUF,BetOnline.ag,Rush Att,Under,7.5,-109,10.05,2.55,1.34
-161,Tyler Allgeier,ATL,BUF,BetOnline.ag,Rush Att,Over,7.5,-119,10.05,2.55,1.34
-162,James Cook,BUF,ATL,BetOnline.ag,Rush Att,Under,15.5,-114,16.27,0.77,1.05
-163,James Cook,BUF,ATL,BetOnline.ag,Rush Att,Over,15.5,-114,16.27,0.77,1.05
-164,Tyler Allgeier,ATL,BUF,BetRivers,Rush Att,Over,7.5,-120,10.05,2.55,1.34
-165,Tyler Allgeier,ATL,BUF,BetRivers,Rush Att,Under,7.5,-112,10.05,2.55,1.34
-166,James Cook,BUF,ATL,BetRivers,Rush Att,Over,15.5,-113,16.27,0.77,1.05
-167,James Cook,BUF,ATL,BetRivers,Rush Att,Under,15.5,-118,16.27,0.77,1.05
-168,Josh Allen,BUF,ATL,BetRivers,Rush Att,Over,6.5,-132,6.77,0.27,1.042
-169,Josh Allen,BUF,ATL,BetRivers,Rush Att,Under,6.5,100,6.77,0.27,1.042
-170,Bijan Robinson,ATL,BUF,BetRivers,Rush Att,Over,15.5,-106,15.41,-0.09,0.994
-171,Bijan Robinson,ATL,BUF,BetRivers,Rush Att,Under,15.5,-125,15.41,-0.09,0.994
-172,Bijan Robinson,ATL,BUF,Bovada,Rush Att,Over,15.5,-105,15.41,-0.09,0.994
-173,Bijan Robinson,ATL,BUF,Bovada,Rush Att,Under,15.5,-125,15.41,-0.09,0.994
-174,James Cook,BUF,ATL,Bovada,Rush Att,Over,15.5,-105,16.27,0.77,1.05
-175,James Cook,BUF,ATL,Bovada,Rush Att,Under,15.5,-125,16.27,0.77,1.05
-176,Josh Allen,BUF,ATL,Bovada,Rush Att,Over,6.5,-150,6.77,0.27,1.042
-177,Josh Allen,BUF,ATL,Bovada,Rush Att,Under,6.5,115,6.77,0.27,1.042
-178,Tyler Allgeier,ATL,BUF,Bovada,Rush Att,Over,7.5,-120,10.05,2.55,1.34
-179,Tyler Allgeier,ATL,BUF,Bovada,Rush Att,Under,7.5,-110,10.05,2.55,1.34
-180,Josh Allen,BUF,ATL,Fanatics,Rush Att,Over,7.5,120,6.77,-0.73,0.903
-181,Josh Allen,BUF,ATL,Fanatics,Rush Att,Under,7.5,-165,6.77,-0.73,0.903
-182,James Cook,BUF,ATL,Fanatics,Rush Att,Over,15.5,-120,16.27,0.77,1.05
-183,James Cook,BUF,ATL,Fanatics,Rush Att,Under,15.5,-110,16.27,0.77,1.05
-184,Tyler Allgeier,ATL,BUF,Fanatics,Rush Att,Over,7.5,-120,10.05,2.55,1.34
-185,Tyler Allgeier,ATL,BUF,Fanatics,Rush Att,Under,7.5,-110,10.05,2.55,1.34
-186,Bijan Robinson,ATL,BUF,Fanatics,Rush Att,Over,15.5,-105,15.41,-0.09,0.994
-187,Bijan Robinson,ATL,BUF,Fanatics,Rush Att,Under,15.5,-125,15.41,-0.09,0.994
-188,Josh Allen,BUF,ATL,BetMGM,Rush Att,Over,6.5,-140,6.77,0.27,1.042
-189,Josh Allen,BUF,ATL,BetMGM,Rush Att,Under,6.5,105,6.77,0.27,1.042
-190,James Cook,BUF,ATL,BetMGM,Rush Att,Over,16.5,100,16.27,-0.23,0.986
-191,James Cook,BUF,ATL,BetMGM,Rush Att,Under,16.5,-135,16.27,-0.23,0.986
-192,Bijan Robinson,ATL,BUF,BetMGM,Rush Att,Over,16.5,115,15.41,-1.09,0.934
-193,Bijan Robinson,ATL,BUF,BetMGM,Rush Att,Under,16.5,-155,15.41,-1.09,0.934
-194,Tyler Allgeier,ATL,BUF,BetMGM,Rush Att,Over,7.5,-130,10.05,2.55,1.34
-195,Tyler Allgeier,ATL,BUF,BetMGM,Rush Att,Under,7.5,-105,10.05,2.55,1.34
-196,Michael Penix Jr.,ATL,BUF,BetMGM,Rush Att,Over,2.5,-130,2.73,0.23,1.092
-197,Michael Penix Jr.,ATL,BUF,BetMGM,Rush Att,Under,2.5,100,2.73,0.23,1.092
-198,Bijan Robinson,ATL,BUF,DraftKings,Rush Yds,Over,73.5,-115,75.01,1.51,1.021
-199,Bijan Robinson,ATL,BUF,DraftKings,Rush Yds,Under,73.5,-109,75.01,1.51,1.021
-200,James Cook,BUF,ATL,DraftKings,Rush Yds,Over,71.5,-110,77.4,5.9,1.083
-201,James Cook,BUF,ATL,DraftKings,Rush Yds,Under,71.5,-114,77.4,5.9,1.083
-202,Josh Allen,BUF,ATL,DraftKings,Rush Yds,Over,34.5,-110,38.2,3.7,1.107
-203,Josh Allen,BUF,ATL,DraftKings,Rush Yds,Under,34.5,-114,38.2,3.7,1.107
-204,Tyler Allgeier,ATL,BUF,DraftKings,Rush Yds,Over,30.5,-112,43.19,12.69,1.416
-205,Tyler Allgeier,ATL,BUF,DraftKings,Rush Yds,Under,30.5,-112,43.19,12.69,1.416
-206,Michael Penix Jr.,ATL,BUF,DraftKings,Rush Yds,Over,7.5,-119,8.57,1.07,1.143
-207,Michael Penix Jr.,ATL,BUF,DraftKings,Rush Yds,Under,7.5,-105,8.57,1.07,1.143
-208,Tyler Allgeier,ATL,BUF,Caesars,Rush Yds,Over,30.5,-113,43.19,12.69,1.416
-209,Tyler Allgeier,ATL,BUF,Caesars,Rush Yds,Under,30.5,-120,43.19,12.69,1.416
-210,Josh Allen,BUF,ATL,Caesars,Rush Yds,Over,34.5,-112,38.2,3.7,1.107
-211,Josh Allen,BUF,ATL,Caesars,Rush Yds,Under,34.5,-120,38.2,3.7,1.107
-212,Bijan Robinson,ATL,BUF,Caesars,Rush Yds,Over,73.5,-110,75.01,1.51,1.021
-213,Bijan Robinson,ATL,BUF,Caesars,Rush Yds,Under,73.5,-125,75.01,1.51,1.021
-214,Michael Penix Jr.,ATL,BUF,Caesars,Rush Yds,Over,7.5,-121,8.57,1.07,1.143
-215,Michael Penix Jr.,ATL,BUF,Caesars,Rush Yds,Under,7.5,-110,8.57,1.07,1.143
-216,James Cook,BUF,ATL,Caesars,Rush Yds,Over,71.5,-117,77.4,5.9,1.083
-217,James Cook,BUF,ATL,Caesars,Rush Yds,Under,71.5,-114,77.4,5.9,1.083
-218,Josh Allen,BUF,ATL,FanDuel,Rush Yds,Over,33.5,-112,38.2,4.7,1.14
-219,Josh Allen,BUF,ATL,FanDuel,Rush Yds,Under,33.5,-112,38.2,4.7,1.14
-220,James Cook,BUF,ATL,FanDuel,Rush Yds,Over,70.5,-112,77.4,6.9,1.098
-221,James Cook,BUF,ATL,FanDuel,Rush Yds,Under,70.5,-112,77.4,6.9,1.098
-222,Tyler Allgeier,ATL,BUF,FanDuel,Rush Yds,Over,30.5,-112,43.19,12.69,1.416
-223,Tyler Allgeier,ATL,BUF,FanDuel,Rush Yds,Under,30.5,-112,43.19,12.69,1.416
-224,Michael Penix Jr.,ATL,BUF,FanDuel,Rush Yds,Over,7.5,-118,8.57,1.07,1.143
-225,Michael Penix Jr.,ATL,BUF,FanDuel,Rush Yds,Under,7.5,-108,8.57,1.07,1.143
-226,Bijan Robinson,ATL,BUF,FanDuel,Rush Yds,Over,73.5,-112,75.01,1.51,1.021
-227,Bijan Robinson,ATL,BUF,FanDuel,Rush Yds,Under,73.5,-112,75.01,1.51,1.021
-228,Tyler Allgeier,ATL,BUF,BetOnline.ag,Rush Yds,Over,30.5,-118,43.19,12.69,1.416
-229,Tyler Allgeier,ATL,BUF,BetOnline.ag,Rush Yds,Under,30.5,-110,43.19,12.69,1.416
-230,Bijan Robinson,ATL,BUF,BetOnline.ag,Rush Yds,Under,75.5,-114,75.01,-0.49,0.994
-231,Bijan Robinson,ATL,BUF,BetOnline.ag,Rush Yds,Over,75.5,-114,75.01,-0.49,0.994
-232,James Cook,BUF,ATL,BetOnline.ag,Rush Yds,Over,72.5,-120,77.4,4.9,1.068
-233,James Cook,BUF,ATL,BetOnline.ag,Rush Yds,Under,72.5,-108,77.4,4.9,1.068
-234,Michael Penix Jr.,ATL,BUF,BetOnline.ag,Rush Yds,Under,8.5,100,8.57,0.07,1.008
-235,Josh Allen,BUF,ATL,BetOnline.ag,Rush Yds,Over,35.5,-114,38.2,2.7,1.076
-236,Josh Allen,BUF,ATL,BetOnline.ag,Rush Yds,Under,35.5,-114,38.2,2.7,1.076
-237,James Cook,BUF,ATL,BetRivers,Rush Yds,Over,68.5,-113,77.4,8.9,1.13
-238,James Cook,BUF,ATL,BetRivers,Rush Yds,Under,68.5,-117,77.4,8.9,1.13
-239,Michael Penix Jr.,ATL,BUF,BetRivers,Rush Yds,Over,7.5,-118,8.57,1.07,1.143
-240,Michael Penix Jr.,ATL,BUF,BetRivers,Rush Yds,Under,7.5,-113,8.57,1.07,1.143
-241,Josh Allen,BUF,ATL,BetRivers,Rush Yds,Over,34.5,-113,38.2,3.7,1.107
-242,Josh Allen,BUF,ATL,BetRivers,Rush Yds,Under,34.5,-118,38.2,3.7,1.107
-243,Tyler Allgeier,ATL,BUF,BetRivers,Rush Yds,Over,29.5,-117,43.19,13.69,1.464
-244,Tyler Allgeier,ATL,BUF,BetRivers,Rush Yds,Under,29.5,-114,43.19,13.69,1.464
-245,Bijan Robinson,ATL,BUF,BetRivers,Rush Yds,Over,71.5,-117,75.01,3.51,1.049
-246,Bijan Robinson,ATL,BUF,BetRivers,Rush Yds,Under,71.5,-113,75.01,3.51,1.049
-247,Bijan Robinson,ATL,BUF,Bovada,Rush Yds,Over,74.5,100,75.01,0.51,1.007
-248,Bijan Robinson,ATL,BUF,Bovada,Rush Yds,Under,74.5,-130,75.01,0.51,1.007
-249,James Cook,BUF,ATL,Bovada,Rush Yds,Over,70.5,-130,77.4,6.9,1.098
-250,James Cook,BUF,ATL,Bovada,Rush Yds,Under,70.5,100,77.4,6.9,1.098
-251,Josh Allen,BUF,ATL,Bovada,Rush Yds,Over,33.5,-130,38.2,4.7,1.14
-252,Josh Allen,BUF,ATL,Bovada,Rush Yds,Under,33.5,100,38.2,4.7,1.14
-253,Michael Penix Jr.,ATL,BUF,Bovada,Rush Yds,Over,7.5,-130,8.57,1.07,1.143
-254,Michael Penix Jr.,ATL,BUF,Bovada,Rush Yds,Under,7.5,100,8.57,1.07,1.143
-255,Tyler Allgeier,ATL,BUF,Bovada,Rush Yds,Over,30.5,100,43.19,12.69,1.416
-256,Tyler Allgeier,ATL,BUF,Bovada,Rush Yds,Under,30.5,-130,43.19,12.69,1.416
-257,Bijan Robinson,ATL,BUF,Fanatics,Rush Yds,Over,70.5,-135,75.01,4.51,1.064
-258,Bijan Robinson,ATL,BUF,Fanatics,Rush Yds,Under,70.5,100,75.01,4.51,1.064
-259,James Cook,BUF,ATL,Fanatics,Rush Yds,Over,70.5,-110,77.4,6.9,1.098
-260,James Cook,BUF,ATL,Fanatics,Rush Yds,Under,70.5,-120,77.4,6.9,1.098
-261,Josh Allen,BUF,ATL,Fanatics,Rush Yds,Over,30.5,-140,38.2,7.7,1.252
-262,Josh Allen,BUF,ATL,Fanatics,Rush Yds,Under,30.5,105,38.2,7.7,1.252
-263,Tyler Allgeier,ATL,BUF,Fanatics,Rush Yds,Over,30.5,-115,43.19,12.69,1.416
-264,Tyler Allgeier,ATL,BUF,Fanatics,Rush Yds,Under,30.5,-115,43.19,12.69,1.416
-265,Ty Johnson,BUF,ATL,Fanatics,Rush Yds,Over,5.5,-170,9.71,4.21,1.765
-266,Ty Johnson,BUF,ATL,Fanatics,Rush Yds,Under,5.5,125,9.71,4.21,1.765
-267,Josh Allen,BUF,ATL,BetMGM,Rush Yds,Over,34.5,-115,38.2,3.7,1.107
-268,Josh Allen,BUF,ATL,BetMGM,Rush Yds,Under,34.5,-115,38.2,3.7,1.107
-269,Tyler Allgeier,ATL,BUF,BetMGM,Rush Yds,Over,30.5,-110,43.19,12.69,1.416
-270,Tyler Allgeier,ATL,BUF,BetMGM,Rush Yds,Under,30.5,-118,43.19,12.69,1.416
-271,James Cook,BUF,ATL,BetMGM,Rush Yds,Over,72.5,-115,77.4,4.9,1.068
-272,James Cook,BUF,ATL,BetMGM,Rush Yds,Under,72.5,-118,77.4,4.9,1.068
-273,Michael Penix Jr.,ATL,BUF,BetMGM,Rush Yds,Over,8.5,-110,8.57,0.07,1.008
-274,Michael Penix Jr.,ATL,BUF,BetMGM,Rush Yds,Under,8.5,-120,8.57,0.07,1.008
-275,Ty Johnson,BUF,ATL,BetMGM,Rush Yds,Over,8.5,-105,9.71,1.21,1.142
-276,Ty Johnson,BUF,ATL,BetMGM,Rush Yds,Under,8.5,-125,9.71,1.21,1.142
-277,Bijan Robinson,ATL,BUF,BetMGM,Rush Yds,Over,72.5,-115,75.01,2.51,1.035
-278,Bijan Robinson,ATL,BUF,BetMGM,Rush Yds,Under,72.5,-115,75.01,2.51,1.035
-279,Drake London,ATL,BUF,DraftKings,Rec,Over,6.5,116,6.35,-0.15,0.977
-280,Drake London,ATL,BUF,DraftKings,Rec,Under,6.5,-148,6.35,-0.15,0.977
-281,Khalil Shakir,BUF,ATL,DraftKings,Rec,Over,4.5,-105,4.5,0.0,1.0
-282,Khalil Shakir,BUF,ATL,DraftKings,Rec,Under,4.5,-122,4.5,0.0,1.0
-283,Bijan Robinson,ATL,BUF,DraftKings,Rec,Over,4.5,115,4.4,-0.1,0.978
-284,Bijan Robinson,ATL,BUF,DraftKings,Rec,Under,4.5,-147,4.4,-0.1,0.978
-285,Kyle Pitts,ATL,BUF,DraftKings,Rec,Over,3.5,-149,4.4,0.9,1.257
-286,Kyle Pitts,ATL,BUF,DraftKings,Rec,Under,3.5,117,4.4,0.9,1.257
-287,Keon Coleman,BUF,ATL,DraftKings,Rec,Over,3.5,119,3.64,0.14,1.04
-288,Keon Coleman,BUF,ATL,DraftKings,Rec,Under,3.5,-152,3.64,0.14,1.04
-289,James Cook,BUF,ATL,DraftKings,Rec,Over,2.5,-103,2.29,-0.21,0.916
-290,James Cook,BUF,ATL,DraftKings,Rec,Under,2.5,-124,2.29,-0.21,0.916
-291,Ray-Ray McCloud,ATL,BUF,DraftKings,Rec,Over,2.5,126,2.34,-0.16,0.936
-292,Ray-Ray McCloud,ATL,BUF,DraftKings,Rec,Under,2.5,-161,2.34,-0.16,0.936
-293,Joshua Palmer,BUF,ATL,DraftKings,Rec,Over,1.5,-151,1.92,0.42,1.28
-294,Joshua Palmer,BUF,ATL,DraftKings,Rec,Under,1.5,118,1.92,0.42,1.28
-295,Keon Coleman,BUF,ATL,Caesars,Rec,Over,3.5,110,3.64,0.14,1.04
-296,Keon Coleman,BUF,ATL,Caesars,Rec,Under,3.5,-154,3.64,0.14,1.04
-297,James Cook,BUF,ATL,Caesars,Rec,Over,2.5,-110,2.29,-0.21,0.916
-298,James Cook,BUF,ATL,Caesars,Rec,Under,2.5,-122,2.29,-0.21,0.916
-299,Ray-Ray McCloud,ATL,BUF,Caesars,Rec,Over,2.5,121,2.34,-0.16,0.936
-300,Ray-Ray McCloud,ATL,BUF,Caesars,Rec,Under,2.5,-170,2.34,-0.16,0.936
-301,Kyle Pitts,ATL,BUF,Caesars,Rec,Over,3.5,-152,4.4,0.9,1.257
-302,Kyle Pitts,ATL,BUF,Caesars,Rec,Under,3.5,110,4.4,0.9,1.257
-303,Joshua Palmer,BUF,ATL,Caesars,Rec,Over,1.5,-157,1.92,0.42,1.28
-304,Joshua Palmer,BUF,ATL,Caesars,Rec,Under,1.5,115,1.92,0.42,1.28
-305,Drake London,ATL,BUF,Caesars,Rec,Over,6.5,-102,6.35,-0.15,0.977
-306,Drake London,ATL,BUF,Caesars,Rec,Under,6.5,-137,6.35,-0.15,0.977
-307,Bijan Robinson,ATL,BUF,Caesars,Rec,Over,4.5,107,4.4,-0.1,0.978
-308,Bijan Robinson,ATL,BUF,Caesars,Rec,Under,4.5,-145,4.4,-0.1,0.978
-309,Khalil Shakir,BUF,ATL,Caesars,Rec,Over,4.5,-115,4.5,0.0,1.0
-310,Khalil Shakir,BUF,ATL,Caesars,Rec,Under,4.5,-118,4.5,0.0,1.0
-311,Keon Coleman,BUF,ATL,FanDuel,Rec,Over,3.5,122,3.64,0.14,1.04
-312,Keon Coleman,BUF,ATL,FanDuel,Rec,Under,3.5,-154,3.64,0.14,1.04
-313,Joshua Palmer,BUF,ATL,FanDuel,Rec,Over,1.5,-144,1.92,0.42,1.28
-314,Joshua Palmer,BUF,ATL,FanDuel,Rec,Under,1.5,114,1.92,0.42,1.28
-315,Khalil Shakir,BUF,ATL,FanDuel,Rec,Over,4.5,-104,4.5,0.0,1.0
-316,Khalil Shakir,BUF,ATL,FanDuel,Rec,Under,4.5,-122,4.5,0.0,1.0
-317,Drake London,ATL,BUF,FanDuel,Rec,Over,5.5,-182,6.35,0.85,1.155
-318,Drake London,ATL,BUF,FanDuel,Rec,Under,5.5,142,6.35,0.85,1.155
-319,Bijan Robinson,ATL,BUF,FanDuel,Rec,Over,4.5,116,4.4,-0.1,0.978
-320,Bijan Robinson,ATL,BUF,FanDuel,Rec,Under,4.5,-148,4.4,-0.1,0.978
-321,Kyle Pitts,ATL,BUF,FanDuel,Rec,Over,3.5,-152,4.4,0.9,1.257
-322,Kyle Pitts,ATL,BUF,FanDuel,Rec,Under,3.5,120,4.4,0.9,1.257
-323,James Cook,BUF,ATL,FanDuel,Rec,Over,2.5,-116,2.29,-0.21,0.916
-324,James Cook,BUF,ATL,FanDuel,Rec,Under,2.5,-110,2.29,-0.21,0.916
-325,Ray-Ray McCloud,ATL,BUF,FanDuel,Rec,Over,2.5,130,2.34,-0.16,0.936
-326,Ray-Ray McCloud,ATL,BUF,FanDuel,Rec,Under,2.5,-166,2.34,-0.16,0.936
-327,Bijan Robinson,ATL,BUF,BetOnline.ag,Rec,Over,4.5,110,4.4,-0.1,0.978
-328,Bijan Robinson,ATL,BUF,BetOnline.ag,Rec,Under,4.5,-143,4.4,-0.1,0.978
-329,Keon Coleman,BUF,ATL,BetOnline.ag,Rec,Under,3.5,-147,3.64,0.14,1.04
-330,Keon Coleman,BUF,ATL,BetOnline.ag,Rec,Over,3.5,113,3.64,0.14,1.04
-331,Joshua Palmer,BUF,ATL,BetOnline.ag,Rec,Under,1.5,116,1.92,0.42,1.28
-332,Joshua Palmer,BUF,ATL,BetOnline.ag,Rec,Over,1.5,-152,1.92,0.42,1.28
-333,James Cook,BUF,ATL,BetOnline.ag,Rec,Under,2.5,-122,2.29,-0.21,0.916
-334,James Cook,BUF,ATL,BetOnline.ag,Rec,Over,2.5,-106,2.29,-0.21,0.916
-335,Khalil Shakir,BUF,ATL,BetOnline.ag,Rec,Over,4.5,-125,4.5,0.0,1.0
-336,Khalil Shakir,BUF,ATL,BetOnline.ag,Rec,Under,4.5,-103,4.5,0.0,1.0
-337,Dalton Kincaid,BUF,ATL,BetOnline.ag,Rec,Over,3.5,-112,3.34,-0.16,0.954
-338,Dalton Kincaid,BUF,ATL,BetOnline.ag,Rec,Under,3.5,-115,3.34,-0.16,0.954
-339,Drake London,ATL,BUF,BetOnline.ag,Rec,Under,6.5,-167,6.35,-0.15,0.977
-340,Drake London,ATL,BUF,BetOnline.ag,Rec,Over,6.5,128,6.35,-0.15,0.977
-341,Kyle Pitts,ATL,BUF,BetOnline.ag,Rec,Under,3.5,128,4.4,0.9,1.257
-342,Kyle Pitts,ATL,BUF,BetOnline.ag,Rec,Over,3.5,-167,4.4,0.9,1.257
-343,Ray-Ray McCloud,ATL,BUF,BetOnline.ag,Rec,Over,2.5,126,2.34,-0.16,0.936
-344,Ray-Ray McCloud,ATL,BUF,BetOnline.ag,Rec,Under,2.5,-164,2.34,-0.16,0.936
-345,Keon Coleman,BUF,ATL,BetRivers,Rec,Over,3.5,102,3.64,0.14,1.04
-346,Keon Coleman,BUF,ATL,BetRivers,Rec,Under,3.5,-137,3.64,0.14,1.04
-347,Joshua Palmer,BUF,ATL,BetRivers,Rec,Over,1.5,-157,1.92,0.42,1.28
-348,Joshua Palmer,BUF,ATL,BetRivers,Rec,Under,1.5,117,1.92,0.42,1.28
-349,Dalton Kincaid,BUF,ATL,BetRivers,Rec,Over,3.5,-109,3.34,-0.16,0.954
-350,Dalton Kincaid,BUF,ATL,BetRivers,Rec,Under,3.5,-122,3.34,-0.16,0.954
-351,Khalil Shakir,BUF,ATL,BetRivers,Rec,Over,4.5,-106,4.5,0.0,1.0
-352,Khalil Shakir,BUF,ATL,BetRivers,Rec,Under,4.5,-125,4.5,0.0,1.0
-353,Bijan Robinson,ATL,BUF,BetRivers,Rec,Over,4.5,125,4.4,-0.1,0.978
-354,Bijan Robinson,ATL,BUF,BetRivers,Rec,Under,4.5,-167,4.4,-0.1,0.978
-355,James Cook,BUF,ATL,BetRivers,Rec,Over,2.5,-113,2.29,-0.21,0.916
-356,James Cook,BUF,ATL,BetRivers,Rec,Under,2.5,-117,2.29,-0.21,0.916
-357,Ray-Ray McCloud,ATL,BUF,BetRivers,Rec,Over,2.5,114,2.34,-0.16,0.936
-358,Ray-Ray McCloud,ATL,BUF,BetRivers,Rec,Under,2.5,-152,2.34,-0.16,0.936
-359,Kyle Pitts,ATL,BUF,BetRivers,Rec,Over,3.5,-143,4.4,0.9,1.257
-360,Kyle Pitts,ATL,BUF,BetRivers,Rec,Under,3.5,107,4.4,0.9,1.257
-361,Drake London,ATL,BUF,BetRivers,Rec,Over,6.5,114,6.35,-0.15,0.977
-362,Drake London,ATL,BUF,BetRivers,Rec,Under,6.5,-150,6.35,-0.15,0.977
-363,Bijan Robinson,ATL,BUF,Bovada,Rec,Over,4.5,120,4.4,-0.1,0.978
-364,Bijan Robinson,ATL,BUF,Bovada,Rec,Under,4.5,-160,4.4,-0.1,0.978
-365,Drake London,ATL,BUF,Bovada,Rec,Over,5.5,-165,6.35,0.85,1.155
-366,Drake London,ATL,BUF,Bovada,Rec,Under,5.5,125,6.35,0.85,1.155
-367,James Cook,BUF,ATL,Bovada,Rec,Over,2.5,100,2.29,-0.21,0.916
-368,James Cook,BUF,ATL,Bovada,Rec,Under,2.5,-130,2.29,-0.21,0.916
-369,Joshua Palmer,BUF,ATL,Bovada,Rec,Over,1.5,-150,1.92,0.42,1.28
-370,Joshua Palmer,BUF,ATL,Bovada,Rec,Under,1.5,115,1.92,0.42,1.28
-371,Keon Coleman,BUF,ATL,Bovada,Rec,Over,3.5,110,3.64,0.14,1.04
-372,Keon Coleman,BUF,ATL,Bovada,Rec,Under,3.5,-145,3.64,0.14,1.04
-373,Khalil Shakir,BUF,ATL,Bovada,Rec,Over,4.5,-105,4.5,0.0,1.0
-374,Khalil Shakir,BUF,ATL,Bovada,Rec,Under,4.5,-125,4.5,0.0,1.0
-375,Bijan Robinson,ATL,BUF,Fanatics,Rec,Over,4.5,115,4.4,-0.1,0.978
-376,Bijan Robinson,ATL,BUF,Fanatics,Rec,Under,4.5,-155,4.4,-0.1,0.978
-377,Keon Coleman,BUF,ATL,Fanatics,Rec,Over,3.5,110,3.64,0.14,1.04
-378,Keon Coleman,BUF,ATL,Fanatics,Rec,Under,3.5,-150,3.64,0.14,1.04
-379,Khalil Shakir,BUF,ATL,Fanatics,Rec,Over,4.5,-110,4.5,0.0,1.0
-380,Khalil Shakir,BUF,ATL,Fanatics,Rec,Under,4.5,-120,4.5,0.0,1.0
-381,Joshua Palmer,BUF,ATL,Fanatics,Rec,Over,2.5,190,1.92,-0.58,0.768
-382,Joshua Palmer,BUF,ATL,Fanatics,Rec,Under,2.5,-280,1.92,-0.58,0.768
-383,James Cook,BUF,ATL,Fanatics,Rec,Over,2.5,-110,2.29,-0.21,0.916
-384,James Cook,BUF,ATL,Fanatics,Rec,Under,2.5,-120,2.29,-0.21,0.916
-385,Drake London,ATL,BUF,Fanatics,Rec,Over,6.5,100,6.35,-0.15,0.977
-386,Drake London,ATL,BUF,Fanatics,Rec,Under,6.5,-135,6.35,-0.15,0.977
-387,Kyle Pitts,ATL,BUF,Fanatics,Rec,Over,4.5,145,4.4,-0.1,0.978
-388,Kyle Pitts,ATL,BUF,Fanatics,Rec,Under,4.5,-205,4.4,-0.1,0.978
-389,Ray-Ray McCloud,ATL,BUF,Fanatics,Rec,Over,2.5,130,2.34,-0.16,0.936
-390,Ray-Ray McCloud,ATL,BUF,Fanatics,Rec,Under,2.5,-180,2.34,-0.16,0.936
-391,Drake London,ATL,BUF,BetMGM,Rec,Over,5.5,-160,6.35,0.85,1.155
-392,Drake London,ATL,BUF,BetMGM,Rec,Under,5.5,120,6.35,0.85,1.155
-393,Bijan Robinson,ATL,BUF,BetMGM,Rec,Over,4.5,110,4.4,-0.1,0.978
-394,Bijan Robinson,ATL,BUF,BetMGM,Rec,Under,4.5,-145,4.4,-0.1,0.978
-395,Kyle Pitts,ATL,BUF,BetMGM,Rec,Over,3.5,-145,4.4,0.9,1.257
-396,Kyle Pitts,ATL,BUF,BetMGM,Rec,Under,3.5,110,4.4,0.9,1.257
-397,James Cook,BUF,ATL,BetMGM,Rec,Over,2.5,100,2.29,-0.21,0.916
-398,James Cook,BUF,ATL,BetMGM,Rec,Under,2.5,-130,2.29,-0.21,0.916
-399,Khalil Shakir,BUF,ATL,BetMGM,Rec,Over,4.5,-130,4.5,0.0,1.0
-400,Khalil Shakir,BUF,ATL,BetMGM,Rec,Under,4.5,100,4.5,0.0,1.0
-401,Keon Coleman,BUF,ATL,BetMGM,Rec,Over,3.5,100,3.64,0.14,1.04
-402,Keon Coleman,BUF,ATL,BetMGM,Rec,Under,3.5,-135,3.64,0.14,1.04
-403,Dalton Kincaid,BUF,ATL,BetMGM,Rec,Over,3.5,-115,3.34,-0.16,0.954
-404,Dalton Kincaid,BUF,ATL,BetMGM,Rec,Under,3.5,-115,3.34,-0.16,0.954
-405,Joshua Palmer,BUF,ATL,BetMGM,Rec,Over,1.5,-150,1.92,0.42,1.28
-406,Joshua Palmer,BUF,ATL,BetMGM,Rec,Under,1.5,110,1.92,0.42,1.28
-407,Casey Washington,ATL,BUF,BetMGM,Rec,Over,2.5,110,2.49,-0.01,0.996
-408,Casey Washington,ATL,BUF,BetMGM,Rec,Under,2.5,-145,2.49,-0.01,0.996
-409,Ray-Ray McCloud,ATL,BUF,BetMGM,Rec,Over,2.5,130,2.34,-0.16,0.936
-410,Ray-Ray McCloud,ATL,BUF,BetMGM,Rec,Under,2.5,-175,2.34,-0.16,0.936
-411,Tyler Allgeier,ATL,BUF,BetMGM,Rec,Over,0.5,-118,0.49,-0.01,0.98
-412,Tyler Allgeier,ATL,BUF,BetMGM,Rec,Under,0.5,-110,0.49,-0.01,0.98
-413,Drake London,ATL,BUF,DraftKings,Rec Yds,Over,74.5,-111,82.28,7.78,1.104
-414,Drake London,ATL,BUF,DraftKings,Rec Yds,Under,74.5,-113,82.28,7.78,1.104
-415,Khalil Shakir,BUF,ATL,DraftKings,Rec Yds,Over,47.5,-110,50.68,3.18,1.067
-416,Khalil Shakir,BUF,ATL,DraftKings,Rec Yds,Under,47.5,-114,50.68,3.18,1.067
-417,Kyle Pitts,ATL,BUF,DraftKings,Rec Yds,Over,42.5,-114,50.3,7.8,1.184
-418,Kyle Pitts,ATL,BUF,DraftKings,Rec Yds,Under,42.5,-110,50.3,7.8,1.184
-419,Keon Coleman,BUF,ATL,DraftKings,Rec Yds,Over,40.5,-112,45.45,4.95,1.122
-420,Keon Coleman,BUF,ATL,DraftKings,Rec Yds,Under,40.5,-112,45.45,4.95,1.122
-421,Bijan Robinson,ATL,BUF,DraftKings,Rec Yds,Over,32.5,-111,39.69,7.19,1.221
-422,Bijan Robinson,ATL,BUF,DraftKings,Rec Yds,Under,32.5,-113,39.69,7.19,1.221
-423,Ray-Ray McCloud,ATL,BUF,DraftKings,Rec Yds,Over,19.5,-110,27.1,7.6,1.39
-424,Ray-Ray McCloud,ATL,BUF,DraftKings,Rec Yds,Under,19.5,-115,27.1,7.6,1.39
-425,Joshua Palmer,BUF,ATL,DraftKings,Rec Yds,Over,18.5,-112,26.21,7.71,1.417
-426,Joshua Palmer,BUF,ATL,DraftKings,Rec Yds,Under,18.5,-112,26.21,7.71,1.417
-427,James Cook,BUF,ATL,DraftKings,Rec Yds,Over,13.5,-114,17.31,3.81,1.282
-428,James Cook,BUF,ATL,DraftKings,Rec Yds,Under,13.5,-110,17.31,3.81,1.282
-429,James Cook,BUF,ATL,Caesars,Rec Yds,Over,13.5,-121,17.31,3.81,1.282
-430,James Cook,BUF,ATL,Caesars,Rec Yds,Under,13.5,-111,17.31,3.81,1.282
-431,Khalil Shakir,BUF,ATL,Caesars,Rec Yds,Over,48.5,-118,50.68,2.18,1.045
-432,Khalil Shakir,BUF,ATL,Caesars,Rec Yds,Under,48.5,-114,50.68,2.18,1.045
-433,Joshua Palmer,BUF,ATL,Caesars,Rec Yds,Over,19.5,-112,26.21,6.71,1.344
-434,Joshua Palmer,BUF,ATL,Caesars,Rec Yds,Under,19.5,-120,26.21,6.71,1.344
-435,Kyle Pitts,ATL,BUF,Caesars,Rec Yds,Over,42.5,-120,50.3,7.8,1.184
-436,Kyle Pitts,ATL,BUF,Caesars,Rec Yds,Under,42.5,-113,50.3,7.8,1.184
-437,Bijan Robinson,ATL,BUF,Caesars,Rec Yds,Over,31.5,-118,39.69,8.19,1.26
-438,Bijan Robinson,ATL,BUF,Caesars,Rec Yds,Under,31.5,-113,39.69,8.19,1.26
-439,Keon Coleman,BUF,ATL,Caesars,Rec Yds,Over,39.5,-118,45.45,5.95,1.151
-440,Keon Coleman,BUF,ATL,Caesars,Rec Yds,Under,39.5,-113,45.45,5.95,1.151
-441,Ray-Ray McCloud,ATL,BUF,Caesars,Rec Yds,Over,18.5,-120,27.1,8.6,1.465
-442,Ray-Ray McCloud,ATL,BUF,Caesars,Rec Yds,Under,18.5,-113,27.1,8.6,1.465
-443,Drake London,ATL,BUF,Caesars,Rec Yds,Over,74.5,-121,82.28,7.78,1.104
-444,Drake London,ATL,BUF,Caesars,Rec Yds,Under,74.5,-111,82.28,7.78,1.104
-445,Joshua Palmer,BUF,ATL,FanDuel,Rec Yds,Over,18.5,-112,26.21,7.71,1.417
-446,Joshua Palmer,BUF,ATL,FanDuel,Rec Yds,Under,18.5,-112,26.21,7.71,1.417
-447,Keon Coleman,BUF,ATL,FanDuel,Rec Yds,Over,38.5,-112,45.45,6.95,1.181
-448,Keon Coleman,BUF,ATL,FanDuel,Rec Yds,Under,38.5,-112,45.45,6.95,1.181
-449,Drake London,ATL,BUF,FanDuel,Rec Yds,Over,74.5,-112,82.28,7.78,1.104
-450,Drake London,ATL,BUF,FanDuel,Rec Yds,Under,74.5,-112,82.28,7.78,1.104
-451,James Cook,BUF,ATL,FanDuel,Rec Yds,Over,14.5,-112,17.31,2.81,1.194
-452,James Cook,BUF,ATL,FanDuel,Rec Yds,Under,14.5,-112,17.31,2.81,1.194
-453,Khalil Shakir,BUF,ATL,FanDuel,Rec Yds,Over,48.5,-112,50.68,2.18,1.045
-454,Khalil Shakir,BUF,ATL,FanDuel,Rec Yds,Under,48.5,-112,50.68,2.18,1.045
-455,Bijan Robinson,ATL,BUF,FanDuel,Rec Yds,Over,31.5,-112,39.69,8.19,1.26
-456,Bijan Robinson,ATL,BUF,FanDuel,Rec Yds,Under,31.5,-112,39.69,8.19,1.26
-457,Kyle Pitts,ATL,BUF,FanDuel,Rec Yds,Over,42.5,-112,50.3,7.8,1.184
-458,Kyle Pitts,ATL,BUF,FanDuel,Rec Yds,Under,42.5,-112,50.3,7.8,1.184
-459,Ray-Ray McCloud,ATL,BUF,FanDuel,Rec Yds,Over,18.5,-112,27.1,8.6,1.465
-460,Ray-Ray McCloud,ATL,BUF,FanDuel,Rec Yds,Under,18.5,-112,27.1,8.6,1.465
-461,James Cook,BUF,ATL,BetOnline.ag,Rec Yds,Over,13.5,-118,17.31,3.81,1.282
-462,James Cook,BUF,ATL,BetOnline.ag,Rec Yds,Under,13.5,-110,17.31,3.81,1.282
-463,Joshua Palmer,BUF,ATL,BetOnline.ag,Rec Yds,Over,18.5,-130,26.21,7.71,1.417
-464,Joshua Palmer,BUF,ATL,BetOnline.ag,Rec Yds,Under,18.5,100,26.21,7.71,1.417
-465,Keon Coleman,BUF,ATL,BetOnline.ag,Rec Yds,Over,39.5,-114,45.45,5.95,1.151
-466,Keon Coleman,BUF,ATL,BetOnline.ag,Rec Yds,Under,39.5,-114,45.45,5.95,1.151
-467,Khalil Shakir,BUF,ATL,BetOnline.ag,Rec Yds,Under,48.5,-114,50.68,2.18,1.045
-468,Khalil Shakir,BUF,ATL,BetOnline.ag,Rec Yds,Over,48.5,-114,50.68,2.18,1.045
-469,Dalton Kincaid,BUF,ATL,BetOnline.ag,Rec Yds,Over,38.5,-120,41.46,2.96,1.077
-470,Dalton Kincaid,BUF,ATL,BetOnline.ag,Rec Yds,Under,38.5,-108,41.46,2.96,1.077
-471,Bijan Robinson,ATL,BUF,BetOnline.ag,Rec Yds,Under,31.5,-108,39.69,8.19,1.26
-472,Bijan Robinson,ATL,BUF,BetOnline.ag,Rec Yds,Over,31.5,-120,39.69,8.19,1.26
-473,Ray-Ray McCloud,ATL,BUF,BetOnline.ag,Rec Yds,Under,19.5,-115,27.1,7.6,1.39
-474,Ray-Ray McCloud,ATL,BUF,BetOnline.ag,Rec Yds,Over,19.5,-112,27.1,7.6,1.39
-475,Drake London,ATL,BUF,BetOnline.ag,Rec Yds,Over,75.5,-120,82.28,6.78,1.09
-476,Drake London,ATL,BUF,BetOnline.ag,Rec Yds,Under,75.5,-108,82.28,6.78,1.09
-477,Kyle Pitts,ATL,BUF,BetOnline.ag,Rec Yds,Under,43.5,-112,50.3,6.8,1.156
-478,Kyle Pitts,ATL,BUF,BetOnline.ag,Rec Yds,Over,43.5,-115,50.3,6.8,1.156
-479,Keon Coleman,BUF,ATL,BetRivers,Rec Yds,Over,38.5,-115,45.45,6.95,1.181
-480,Keon Coleman,BUF,ATL,BetRivers,Rec Yds,Under,38.5,-115,45.45,6.95,1.181
-481,Ray-Ray McCloud,ATL,BUF,BetRivers,Rec Yds,Over,20.5,-120,27.1,6.6,1.322
-482,Ray-Ray McCloud,ATL,BUF,BetRivers,Rec Yds,Under,20.5,-112,27.1,6.6,1.322
-483,Kyle Pitts,ATL,BUF,BetRivers,Rec Yds,Over,41.5,-114,50.3,8.8,1.212
-484,Kyle Pitts,ATL,BUF,BetRivers,Rec Yds,Under,41.5,-117,50.3,8.8,1.212
-485,Drake London,ATL,BUF,BetRivers,Rec Yds,Over,75.5,-114,82.28,6.78,1.09
-486,Drake London,ATL,BUF,BetRivers,Rec Yds,Under,75.5,-117,82.28,6.78,1.09
-487,James Cook,BUF,ATL,BetRivers,Rec Yds,Over,12.5,-121,17.31,4.81,1.385
-488,James Cook,BUF,ATL,BetRivers,Rec Yds,Under,12.5,-110,17.31,4.81,1.385
-489,Dalton Kincaid,BUF,ATL,BetRivers,Rec Yds,Over,36.5,-114,41.46,4.96,1.136
-490,Dalton Kincaid,BUF,ATL,BetRivers,Rec Yds,Under,36.5,-117,41.46,4.96,1.136
-491,Bijan Robinson,ATL,BUF,BetRivers,Rec Yds,Over,31.5,-117,39.69,8.19,1.26
-492,Bijan Robinson,ATL,BUF,BetRivers,Rec Yds,Under,31.5,-114,39.69,8.19,1.26
-493,Khalil Shakir,BUF,ATL,BetRivers,Rec Yds,Over,45.5,-118,50.68,5.18,1.114
-494,Khalil Shakir,BUF,ATL,BetRivers,Rec Yds,Under,45.5,-113,50.68,5.18,1.114
-495,Joshua Palmer,BUF,ATL,BetRivers,Rec Yds,Over,18.5,-120,26.21,7.71,1.417
-496,Joshua Palmer,BUF,ATL,BetRivers,Rec Yds,Under,18.5,-112,26.21,7.71,1.417
-497,Bijan Robinson,ATL,BUF,Bovada,Rec Yds,Over,31.5,-120,39.69,8.19,1.26
-498,Bijan Robinson,ATL,BUF,Bovada,Rec Yds,Under,31.5,-110,39.69,8.19,1.26
-499,Drake London,ATL,BUF,Bovada,Rec Yds,Over,74.5,-105,82.28,7.78,1.104
-500,Drake London,ATL,BUF,Bovada,Rec Yds,Under,74.5,-125,82.28,7.78,1.104
-501,James Cook,BUF,ATL,Bovada,Rec Yds,Over,12.5,-135,17.31,4.81,1.385
-502,James Cook,BUF,ATL,Bovada,Rec Yds,Under,12.5,105,17.31,4.81,1.385
-503,Joshua Palmer,BUF,ATL,Bovada,Rec Yds,Over,18.5,-130,26.21,7.71,1.417
-504,Joshua Palmer,BUF,ATL,Bovada,Rec Yds,Under,18.5,100,26.21,7.71,1.417
-505,Keon Coleman,BUF,ATL,Bovada,Rec Yds,Over,38.5,-130,45.45,6.95,1.181
-506,Keon Coleman,BUF,ATL,Bovada,Rec Yds,Under,38.5,100,45.45,6.95,1.181
-507,Khalil Shakir,BUF,ATL,Bovada,Rec Yds,Over,48.5,-110,50.68,2.18,1.045
-508,Khalil Shakir,BUF,ATL,Bovada,Rec Yds,Under,48.5,-120,50.68,2.18,1.045
-509,Kyle Pitts,ATL,BUF,Fanatics,Rec Yds,Over,40.5,-120,50.3,9.8,1.242
-510,Kyle Pitts,ATL,BUF,Fanatics,Rec Yds,Under,40.5,-110,50.3,9.8,1.242
-511,James Cook,BUF,ATL,Fanatics,Rec Yds,Over,15.5,100,17.31,1.81,1.117
-512,James Cook,BUF,ATL,Fanatics,Rec Yds,Under,15.5,-135,17.31,1.81,1.117
-513,Khalil Shakir,BUF,ATL,Fanatics,Rec Yds,Over,50.5,-110,50.68,0.18,1.004
-514,Khalil Shakir,BUF,ATL,Fanatics,Rec Yds,Under,50.5,-120,50.68,0.18,1.004
-515,Keon Coleman,BUF,ATL,Fanatics,Rec Yds,Over,40.5,-115,45.45,4.95,1.122
-516,Keon Coleman,BUF,ATL,Fanatics,Rec Yds,Under,40.5,-115,45.45,4.95,1.122
-517,Bijan Robinson,ATL,BUF,Fanatics,Rec Yds,Over,30.5,-120,39.69,9.19,1.301
-518,Bijan Robinson,ATL,BUF,Fanatics,Rec Yds,Under,30.5,-110,39.69,9.19,1.301
-519,Joshua Palmer,BUF,ATL,Fanatics,Rec Yds,Over,20.5,-105,26.21,5.71,1.279
-520,Joshua Palmer,BUF,ATL,Fanatics,Rec Yds,Under,20.5,-125,26.21,5.71,1.279
-521,Drake London,ATL,BUF,Fanatics,Rec Yds,Over,75.5,-115,82.28,6.78,1.09
-522,Drake London,ATL,BUF,Fanatics,Rec Yds,Under,75.5,-115,82.28,6.78,1.09
-523,Casey Washington,ATL,BUF,Fanatics,Rec Yds,Over,25.5,100,31.96,6.46,1.253
-524,Casey Washington,ATL,BUF,Fanatics,Rec Yds,Under,25.5,-135,31.96,6.46,1.253
-525,Ray-Ray McCloud,ATL,BUF,Fanatics,Rec Yds,Over,20.5,105,27.1,6.6,1.322
-526,Ray-Ray McCloud,ATL,BUF,Fanatics,Rec Yds,Under,20.5,-140,27.1,6.6,1.322
-527,Tyler Allgeier,ATL,BUF,Fanatics,Rec Yds,Over,10.5,410,3.83,-6.67,0.365
-528,Tyler Allgeier,ATL,BUF,Fanatics,Rec Yds,Under,10.5,-800,3.83,-6.67,0.365
-529,Khalil Shakir,BUF,ATL,BetMGM,Rec Yds,Over,47.5,-115,50.68,3.18,1.067
-530,Khalil Shakir,BUF,ATL,BetMGM,Rec Yds,Under,47.5,-115,50.68,3.18,1.067
-531,Dalton Kincaid,BUF,ATL,BetMGM,Rec Yds,Over,38.5,-118,41.46,2.96,1.077
-532,Dalton Kincaid,BUF,ATL,BetMGM,Rec Yds,Under,38.5,-110,41.46,2.96,1.077
-533,James Cook,BUF,ATL,BetMGM,Rec Yds,Over,13.5,-115,17.31,3.81,1.282
-534,James Cook,BUF,ATL,BetMGM,Rec Yds,Under,13.5,-115,17.31,3.81,1.282
-535,Joshua Palmer,BUF,ATL,BetMGM,Rec Yds,Over,20.5,-118,26.21,5.71,1.279
-536,Joshua Palmer,BUF,ATL,BetMGM,Rec Yds,Under,20.5,-110,26.21,5.71,1.279
-537,Bijan Robinson,ATL,BUF,BetMGM,Rec Yds,Over,30.5,-115,39.69,9.19,1.301
-538,Bijan Robinson,ATL,BUF,BetMGM,Rec Yds,Under,30.5,-115,39.69,9.19,1.301
-539,Keon Coleman,BUF,ATL,BetMGM,Rec Yds,Over,41.5,-115,45.45,3.95,1.095
-540,Keon Coleman,BUF,ATL,BetMGM,Rec Yds,Under,41.5,-115,45.45,3.95,1.095
-541,Casey Washington,ATL,BUF,BetMGM,Rec Yds,Over,24.5,-115,31.96,7.46,1.304
-542,Casey Washington,ATL,BUF,BetMGM,Rec Yds,Under,24.5,-118,31.96,7.46,1.304
-543,Ray-Ray McCloud,ATL,BUF,BetMGM,Rec Yds,Over,18.5,-118,27.1,8.6,1.465
-544,Ray-Ray McCloud,ATL,BUF,BetMGM,Rec Yds,Under,18.5,-110,27.1,8.6,1.465
-545,Drake London,ATL,BUF,BetMGM,Rec Yds,Over,72.5,-118,82.28,9.78,1.135
-546,Drake London,ATL,BUF,BetMGM,Rec Yds,Under,72.5,-110,82.28,9.78,1.135
-547,Kyle Pitts,ATL,BUF,BetMGM,Rec Yds,Over,43.5,-115,50.3,6.8,1.156
-548,Kyle Pitts,ATL,BUF,BetMGM,Rec Yds,Under,43.5,-115,50.3,6.8,1.156
-549,Tyler Allgeier,ATL,BUF,BetMGM,Rec Yds,Over,0.5,110,3.83,3.33,7.66
-550,Tyler Allgeier,ATL,BUF,BetMGM,Rec Yds,Under,0.5,-145,3.83,3.33,7.66
-551,Caleb Williams,CHI,WAS,DraftKings,Pass Comp,Over,19.5,-127,21.0,1.5,1.077
-552,Caleb Williams,CHI,WAS,DraftKings,Pass Comp,Under,19.5,-101,21.0,1.5,1.077
-553,Jayden Daniels,WAS,CHI,DraftKings,Pass Comp,Over,19.5,-125,20.0,0.5,1.026
-554,Jayden Daniels,WAS,CHI,DraftKings,Pass Comp,Under,19.5,-102,20.0,0.5,1.026
-555,Caleb Williams,CHI,WAS,FanDuel,Pass Comp,Over,19.5,-120,21.0,1.5,1.077
-556,Caleb Williams,CHI,WAS,FanDuel,Pass Comp,Under,19.5,-106,21.0,1.5,1.077
-557,Jayden Daniels,WAS,CHI,FanDuel,Pass Comp,Over,19.5,-128,20.0,0.5,1.026
-558,Jayden Daniels,WAS,CHI,FanDuel,Pass Comp,Under,19.5,100,20.0,0.5,1.026
-559,Jayden Daniels,WAS,CHI,BetOnline.ag,Pass Comp,Over,19.5,-127,20.0,0.5,1.026
-560,Jayden Daniels,WAS,CHI,BetOnline.ag,Pass Comp,Under,19.5,-102,20.0,0.5,1.026
-561,Caleb Williams,CHI,WAS,BetOnline.ag,Pass Comp,Over,19.5,-125,21.0,1.5,1.077
-562,Caleb Williams,CHI,WAS,BetOnline.ag,Pass Comp,Under,19.5,-103,21.0,1.5,1.077
-563,Jayden Daniels,WAS,CHI,BetRivers,Pass Comp,Over,19.5,-132,20.0,0.5,1.026
-564,Jayden Daniels,WAS,CHI,BetRivers,Pass Comp,Under,19.5,100,20.0,0.5,1.026
-565,Caleb Williams,CHI,WAS,BetRivers,Pass Comp,Over,19.5,-137,21.0,1.5,1.077
-566,Caleb Williams,CHI,WAS,BetRivers,Pass Comp,Under,19.5,104,21.0,1.5,1.077
-567,Caleb Williams,CHI,WAS,Bovada,Pass Comp,Over,19.5,-125,21.0,1.5,1.077
-568,Caleb Williams,CHI,WAS,Bovada,Pass Comp,Under,19.5,-105,21.0,1.5,1.077
-569,Jayden Daniels,WAS,CHI,Bovada,Pass Comp,Over,19.5,-125,20.0,0.5,1.026
-570,Jayden Daniels,WAS,CHI,Bovada,Pass Comp,Under,19.5,-105,20.0,0.5,1.026
-571,Caleb Williams,CHI,WAS,BetMGM,Pass Comp,Over,20.5,105,21.0,0.5,1.024
-572,Caleb Williams,CHI,WAS,BetMGM,Pass Comp,Under,20.5,-140,21.0,0.5,1.024
-573,Jayden Daniels,WAS,CHI,BetMGM,Pass Comp,Over,19.5,-125,20.0,0.5,1.026
-574,Jayden Daniels,WAS,CHI,BetMGM,Pass Comp,Under,19.5,-105,20.0,0.5,1.026
-575,Jayden Daniels,WAS,CHI,Fanatics,Pass Comp,Over,20.5,115,20.0,-0.5,0.976
-576,Jayden Daniels,WAS,CHI,Fanatics,Pass Comp,Under,20.5,-150,20.0,-0.5,0.976
-577,Caleb Williams,CHI,WAS,Fanatics,Pass Comp,Over,19.5,-115,21.0,1.5,1.077
-578,Caleb Williams,CHI,WAS,Fanatics,Pass Comp,Under,19.5,-115,21.0,1.5,1.077
-579,Caleb Williams,CHI,WAS,DraftKings,Pass Att,Over,31.5,-125,32.95,1.45,1.046
-580,Caleb Williams,CHI,WAS,DraftKings,Pass Att,Under,31.5,-102,32.95,1.45,1.046
-581,Jayden Daniels,WAS,CHI,DraftKings,Pass Att,Over,29.5,-115,30.93,1.43,1.048
-582,Jayden Daniels,WAS,CHI,DraftKings,Pass Att,Under,29.5,-111,30.93,1.43,1.048
-583,Jayden Daniels,WAS,CHI,FanDuel,Pass Att,Over,29.5,-115,30.93,1.43,1.048
-584,Jayden Daniels,WAS,CHI,FanDuel,Pass Att,Under,29.5,-113,30.93,1.43,1.048
-585,Caleb Williams,CHI,WAS,FanDuel,Pass Att,Over,31.5,-118,32.95,1.45,1.046
-586,Caleb Williams,CHI,WAS,FanDuel,Pass Att,Under,31.5,-110,32.95,1.45,1.046
-587,Jayden Daniels,WAS,CHI,BetOnline.ag,Pass Att,Under,29.5,-108,30.93,1.43,1.048
-588,Jayden Daniels,WAS,CHI,BetOnline.ag,Pass Att,Over,29.5,-120,30.93,1.43,1.048
-589,Caleb Williams,CHI,WAS,BetOnline.ag,Pass Att,Under,31.5,-101,32.95,1.45,1.046
-590,Caleb Williams,CHI,WAS,BetOnline.ag,Pass Att,Over,31.5,-128,32.95,1.45,1.046
-591,Caleb Williams,CHI,WAS,BetRivers,Pass Att,Over,31.5,-127,32.95,1.45,1.046
-592,Caleb Williams,CHI,WAS,BetRivers,Pass Att,Under,31.5,-105,32.95,1.45,1.046
-593,Jayden Daniels,WAS,CHI,BetRivers,Pass Att,Over,29.5,-109,30.93,1.43,1.048
-594,Jayden Daniels,WAS,CHI,BetRivers,Pass Att,Under,29.5,-122,30.93,1.43,1.048
-595,Caleb Williams,CHI,WAS,Bovada,Pass Att,Over,31.5,-135,32.95,1.45,1.046
-596,Caleb Williams,CHI,WAS,Bovada,Pass Att,Under,31.5,105,32.95,1.45,1.046
-597,Jayden Daniels,WAS,CHI,Bovada,Pass Att,Over,29.5,-120,30.93,1.43,1.048
-598,Jayden Daniels,WAS,CHI,Bovada,Pass Att,Under,29.5,-110,30.93,1.43,1.048
-599,Jayden Daniels,WAS,CHI,BetMGM,Pass Att,Over,30.5,100,30.93,0.43,1.014
-600,Jayden Daniels,WAS,CHI,BetMGM,Pass Att,Under,30.5,-130,30.93,0.43,1.014
-601,Caleb Williams,CHI,WAS,BetMGM,Pass Att,Over,32.5,-125,32.95,0.45,1.014
-602,Caleb Williams,CHI,WAS,BetMGM,Pass Att,Under,32.5,-105,32.95,0.45,1.014
-603,Jayden Daniels,WAS,CHI,Fanatics,Pass Att,Over,28.5,-125,30.93,2.43,1.085
-604,Jayden Daniels,WAS,CHI,Fanatics,Pass Att,Under,28.5,-105,30.93,2.43,1.085
-605,Caleb Williams,CHI,WAS,Fanatics,Pass Att,Over,31.5,-110,32.95,1.45,1.046
-606,Caleb Williams,CHI,WAS,Fanatics,Pass Att,Under,31.5,-120,32.95,1.45,1.046
-607,Caleb Williams,CHI,WAS,DraftKings,Pass Yards,Over,233.5,-112,225.92,-7.58,0.968
-608,Caleb Williams,CHI,WAS,DraftKings,Pass Yards,Under,233.5,-112,225.92,-7.58,0.968
-609,Jayden Daniels,WAS,CHI,DraftKings,Pass Yards,Over,219.5,-113,219.99,0.49,1.002
-610,Jayden Daniels,WAS,CHI,DraftKings,Pass Yards,Under,219.5,-111,219.99,0.49,1.002
-611,Jayden Daniels,WAS,CHI,Caesars,Pass Yards,Over,221.5,-114,219.99,-1.51,0.993
-612,Jayden Daniels,WAS,CHI,Caesars,Pass Yards,Under,221.5,-117,219.99,-1.51,0.993
-613,Caleb Williams,CHI,WAS,Caesars,Pass Yards,Over,233.5,-115,225.92,-7.58,0.968
-614,Caleb Williams,CHI,WAS,Caesars,Pass Yards,Under,233.5,-115,225.92,-7.58,0.968
-615,Jayden Daniels,WAS,CHI,FanDuel,Pass Yards,Over,221.5,-112,219.99,-1.51,0.993
-616,Jayden Daniels,WAS,CHI,FanDuel,Pass Yards,Under,221.5,-112,219.99,-1.51,0.993
-617,Caleb Williams,CHI,WAS,FanDuel,Pass Yards,Over,234.5,-112,225.92,-8.58,0.963
-618,Caleb Williams,CHI,WAS,FanDuel,Pass Yards,Under,234.5,-112,225.92,-8.58,0.963
-619,Caleb Williams,CHI,WAS,BetOnline.ag,Pass Yards,Under,232.5,-114,225.92,-6.58,0.972
-620,Caleb Williams,CHI,WAS,BetOnline.ag,Pass Yards,Over,232.5,-114,225.92,-6.58,0.972
-621,Jayden Daniels,WAS,CHI,BetOnline.ag,Pass Yards,Under,223.5,-114,219.99,-3.51,0.984
-622,Jayden Daniels,WAS,CHI,BetOnline.ag,Pass Yards,Over,223.5,-114,219.99,-3.51,0.984
-623,Caleb Williams,CHI,WAS,BetRivers,Pass Yards,Over,227.5,-117,225.92,-1.58,0.993
-624,Caleb Williams,CHI,WAS,BetRivers,Pass Yards,Under,227.5,-114,225.92,-1.58,0.993
-625,Jayden Daniels,WAS,CHI,BetRivers,Pass Yards,Over,223.5,-115,219.99,-3.51,0.984
-626,Jayden Daniels,WAS,CHI,BetRivers,Pass Yards,Under,223.5,-115,219.99,-3.51,0.984
-627,Caleb Williams,CHI,WAS,Bovada,Pass Yards,Over,234.5,-110,225.92,-8.58,0.963
-628,Caleb Williams,CHI,WAS,Bovada,Pass Yards,Under,234.5,-120,225.92,-8.58,0.963
-629,Jayden Daniels,WAS,CHI,Bovada,Pass Yards,Over,221.5,-120,219.99,-1.51,0.993
-630,Jayden Daniels,WAS,CHI,Bovada,Pass Yards,Under,221.5,-110,219.99,-1.51,0.993
-631,Caleb Williams,CHI,WAS,BetMGM,Pass Yards,Over,235.5,-115,225.92,-9.58,0.959
-632,Caleb Williams,CHI,WAS,BetMGM,Pass Yards,Under,235.5,-115,225.92,-9.58,0.959
-633,Jayden Daniels,WAS,CHI,BetMGM,Pass Yards,Over,221.5,-115,219.99,-1.51,0.993
-634,Jayden Daniels,WAS,CHI,BetMGM,Pass Yards,Under,221.5,-115,219.99,-1.51,0.993
-635,Jayden Daniels,WAS,CHI,Fanatics,Pass Yards,Over,215.5,-120,219.99,4.49,1.021
-636,Jayden Daniels,WAS,CHI,Fanatics,Pass Yards,Under,215.5,-110,219.99,4.49,1.021
-637,Caleb Williams,CHI,WAS,Fanatics,Pass Yards,Over,230.5,-115,225.92,-4.58,0.98
-638,Caleb Williams,CHI,WAS,Fanatics,Pass Yards,Under,230.5,-115,225.92,-4.58,0.98
-639,Caleb Williams,CHI,WAS,DraftKings,Int,Over,0.5,112,0.44,-0.06,0.88
-640,Caleb Williams,CHI,WAS,DraftKings,Int,Under,0.5,-143,0.44,-0.06,0.88
-641,Jayden Daniels,WAS,CHI,DraftKings,Int,Over,0.5,107,0.47,-0.03,0.94
-642,Jayden Daniels,WAS,CHI,DraftKings,Int,Under,0.5,-136,0.47,-0.03,0.94
-643,Jayden Daniels,WAS,CHI,FanDuel,Int,Over,0.5,-102,0.47,-0.03,0.94
-644,Jayden Daniels,WAS,CHI,FanDuel,Int,Under,0.5,-128,0.47,-0.03,0.94
-645,Caleb Williams,CHI,WAS,FanDuel,Int,Over,0.5,122,0.44,-0.06,0.88
-646,Caleb Williams,CHI,WAS,FanDuel,Int,Under,0.5,-160,0.44,-0.06,0.88
-647,Caleb Williams,CHI,WAS,BetOnline.ag,Int,Over,0.5,113,0.44,-0.06,0.88
-648,Caleb Williams,CHI,WAS,BetOnline.ag,Int,Under,0.5,-147,0.44,-0.06,0.88
-649,Jayden Daniels,WAS,CHI,BetOnline.ag,Int,Under,0.5,-133,0.47,-0.03,0.94
-650,Jayden Daniels,WAS,CHI,BetOnline.ag,Int,Over,0.5,103,0.47,-0.03,0.94
-651,Caleb Williams,CHI,WAS,BetRivers,Int,Over,0.5,102,0.44,-0.06,0.88
-652,Caleb Williams,CHI,WAS,BetRivers,Int,Under,0.5,-134,0.44,-0.06,0.88
-653,Jayden Daniels,WAS,CHI,BetRivers,Int,Over,0.5,106,0.47,-0.03,0.94
-654,Jayden Daniels,WAS,CHI,BetRivers,Int,Under,0.5,-141,0.47,-0.03,0.94
-655,Jayden Daniels,WAS,CHI,BetMGM,Int,Over,0.5,110,0.47,-0.03,0.94
-656,Jayden Daniels,WAS,CHI,BetMGM,Int,Under,0.5,-145,0.47,-0.03,0.94
-657,Caleb Williams,CHI,WAS,BetMGM,Int,Over,0.5,115,0.44,-0.06,0.88
-658,Caleb Williams,CHI,WAS,BetMGM,Int,Under,0.5,-150,0.44,-0.06,0.88
-659,Caleb Williams,CHI,WAS,DraftKings,Pass TD,Over,1.5,-110,1.63,0.13,1.087
-660,Caleb Williams,CHI,WAS,DraftKings,Pass TD,Under,1.5,-116,1.63,0.13,1.087
-661,Jayden Daniels,WAS,CHI,DraftKings,Pass TD,Over,1.5,110,1.69,0.19,1.127
-662,Jayden Daniels,WAS,CHI,DraftKings,Pass TD,Under,1.5,-140,1.69,0.19,1.127
-663,Jayden Daniels,WAS,CHI,Caesars,Pass TD,Over,1.5,105,1.69,0.19,1.127
-664,Jayden Daniels,WAS,CHI,Caesars,Pass TD,Under,1.5,-145,1.69,0.19,1.127
-665,Caleb Williams,CHI,WAS,Caesars,Pass TD,Over,1.5,-104,1.63,0.13,1.087
-666,Caleb Williams,CHI,WAS,Caesars,Pass TD,Under,1.5,-129,1.63,0.13,1.087
-667,Jayden Daniels,WAS,CHI,FanDuel,Pass TD,Over,1.5,114,1.69,0.19,1.127
-668,Jayden Daniels,WAS,CHI,FanDuel,Pass TD,Under,1.5,-146,1.69,0.19,1.127
-669,Caleb Williams,CHI,WAS,FanDuel,Pass TD,Over,1.5,102,1.63,0.13,1.087
-670,Caleb Williams,CHI,WAS,FanDuel,Pass TD,Under,1.5,-130,1.63,0.13,1.087
-671,Caleb Williams,CHI,WAS,BetOnline.ag,Pass TD,Under,1.5,-128,1.63,0.13,1.087
-672,Caleb Williams,CHI,WAS,BetOnline.ag,Pass TD,Over,1.5,-101,1.63,0.13,1.087
-673,Jayden Daniels,WAS,CHI,BetOnline.ag,Pass TD,Under,1.5,-133,1.69,0.19,1.127
-674,Jayden Daniels,WAS,CHI,BetOnline.ag,Pass TD,Over,1.5,103,1.69,0.19,1.127
-675,Caleb Williams,CHI,WAS,BetRivers,Pass TD,Over,1.5,108,1.63,0.13,1.087
-676,Caleb Williams,CHI,WAS,BetRivers,Pass TD,Under,1.5,-143,1.63,0.13,1.087
-677,Jayden Daniels,WAS,CHI,BetRivers,Pass TD,Over,1.5,100,1.69,0.19,1.127
-678,Jayden Daniels,WAS,CHI,BetRivers,Pass TD,Under,1.5,-134,1.69,0.19,1.127
-679,Caleb Williams,CHI,WAS,Bovada,Pass TD,Over,1.5,105,1.63,0.13,1.087
-680,Caleb Williams,CHI,WAS,Bovada,Pass TD,Under,1.5,-135,1.63,0.13,1.087
-681,Jayden Daniels,WAS,CHI,Bovada,Pass TD,Over,1.5,100,1.69,0.19,1.127
-682,Jayden Daniels,WAS,CHI,Bovada,Pass TD,Under,1.5,-130,1.69,0.19,1.127
-683,Caleb Williams,CHI,WAS,BetMGM,Pass TD,Over,1.5,100,1.63,0.13,1.087
-684,Caleb Williams,CHI,WAS,BetMGM,Pass TD,Under,1.5,-135,1.63,0.13,1.087
-685,Jayden Daniels,WAS,CHI,BetMGM,Pass TD,Over,1.5,105,1.69,0.19,1.127
-686,Jayden Daniels,WAS,CHI,BetMGM,Pass TD,Under,1.5,-140,1.69,0.19,1.127
-687,Jayden Daniels,WAS,CHI,Fanatics,Pass TD,Over,1.5,115,1.69,0.19,1.127
-688,Jayden Daniels,WAS,CHI,Fanatics,Pass TD,Under,1.5,-150,1.69,0.19,1.127
-689,Caleb Williams,CHI,WAS,Fanatics,Pass TD,Over,1.5,-105,1.63,0.13,1.087
-690,Caleb Williams,CHI,WAS,Fanatics,Pass TD,Under,1.5,-125,1.63,0.13,1.087
-691,Jacory Croskey-Merritt,WAS,CHI,DraftKings,Rush Att,Over,14.5,-127,11.78,-2.72,0.812
-692,Jacory Croskey-Merritt,WAS,CHI,DraftKings,Rush Att,Under,14.5,-101,11.78,-2.72,0.812
-693,D'Andre Swift,CHI,WAS,DraftKings,Rush Att,Over,13.5,-117,14.61,1.11,1.082
-694,D'Andre Swift,CHI,WAS,DraftKings,Rush Att,Under,13.5,-109,14.61,1.11,1.082
-695,Jayden Daniels,WAS,CHI,DraftKings,Rush Att,Over,8.5,-113,8.52,0.02,1.002
-696,Jayden Daniels,WAS,CHI,DraftKings,Rush Att,Under,8.5,-113,8.52,0.02,1.002
-697,Caleb Williams,CHI,WAS,DraftKings,Rush Att,Over,5.5,-120,5.89,0.39,1.071
-698,Caleb Williams,CHI,WAS,DraftKings,Rush Att,Under,5.5,-107,5.89,0.39,1.071
-699,Jacory Croskey-Merritt,WAS,CHI,FanDuel,Rush Att,Over,14.5,-125,11.78,-2.72,0.812
-700,Jacory Croskey-Merritt,WAS,CHI,FanDuel,Rush Att,Under,14.5,-106,11.78,-2.72,0.812
-701,D'Andre Swift,CHI,WAS,FanDuel,Rush Att,Over,13.5,-138,14.61,1.11,1.082
-702,D'Andre Swift,CHI,WAS,FanDuel,Rush Att,Under,13.5,104,14.61,1.11,1.082
-703,Jayden Daniels,WAS,CHI,FanDuel,Rush Att,Over,8.5,-108,8.52,0.02,1.002
-704,Jayden Daniels,WAS,CHI,FanDuel,Rush Att,Under,8.5,-122,8.52,0.02,1.002
-705,Caleb Williams,CHI,WAS,FanDuel,Rush Att,Over,5.5,-148,5.89,0.39,1.071
-706,Caleb Williams,CHI,WAS,FanDuel,Rush Att,Under,5.5,112,5.89,0.39,1.071
-707,Caleb Williams,CHI,WAS,BetOnline.ag,Rush Att,Under,5.5,100,5.89,0.39,1.071
-708,Caleb Williams,CHI,WAS,BetOnline.ag,Rush Att,Over,5.5,-130,5.89,0.39,1.071
-709,Jacory Croskey-Merritt,WAS,CHI,BetOnline.ag,Rush Att,Under,14.5,-109,11.78,-2.72,0.812
-710,Jacory Croskey-Merritt,WAS,CHI,BetOnline.ag,Rush Att,Over,14.5,-119,11.78,-2.72,0.812
-711,D'Andre Swift,CHI,WAS,BetOnline.ag,Rush Att,Under,13.5,-110,14.61,1.11,1.082
-712,D'Andre Swift,CHI,WAS,BetOnline.ag,Rush Att,Over,13.5,-118,14.61,1.11,1.082
-713,Jayden Daniels,WAS,CHI,BetOnline.ag,Rush Att,Under,8.5,-114,8.52,0.02,1.002
-714,Jayden Daniels,WAS,CHI,BetOnline.ag,Rush Att,Over,8.5,-114,8.52,0.02,1.002
-715,Caleb Williams,CHI,WAS,BetRivers,Rush Att,Over,5.5,-124,5.89,0.39,1.071
-716,Caleb Williams,CHI,WAS,BetRivers,Rush Att,Under,5.5,-108,5.89,0.39,1.071
-717,Jayden Daniels,WAS,CHI,BetRivers,Rush Att,Over,8.5,-109,8.52,0.02,1.002
-718,Jayden Daniels,WAS,CHI,BetRivers,Rush Att,Under,8.5,-122,8.52,0.02,1.002
-719,D'Andre Swift,CHI,WAS,BetRivers,Rush Att,Over,13.5,-124,14.61,1.11,1.082
-720,D'Andre Swift,CHI,WAS,BetRivers,Rush Att,Under,13.5,-108,14.61,1.11,1.082
-721,Jacory Croskey-Merritt,WAS,CHI,BetRivers,Rush Att,Over,14.5,-125,11.78,-2.72,0.812
-722,Jacory Croskey-Merritt,WAS,CHI,BetRivers,Rush Att,Under,14.5,-106,11.78,-2.72,0.812
-723,Caleb Williams,CHI,WAS,Bovada,Rush Att,Over,5.5,-125,5.89,0.39,1.071
-724,Caleb Williams,CHI,WAS,Bovada,Rush Att,Under,5.5,-105,5.89,0.39,1.071
-725,D'Andre Swift,CHI,WAS,Bovada,Rush Att,Over,13.5,-120,14.61,1.11,1.082
-726,D'Andre Swift,CHI,WAS,Bovada,Rush Att,Under,13.5,-110,14.61,1.11,1.082
-727,Jacory Croskey-Merritt,WAS,CHI,Bovada,Rush Att,Over,14.5,-110,11.78,-2.72,0.812
-728,Jacory Croskey-Merritt,WAS,CHI,Bovada,Rush Att,Under,14.5,-120,11.78,-2.72,0.812
-729,Jayden Daniels,WAS,CHI,Bovada,Rush Att,Over,8.5,-105,8.52,0.02,1.002
-730,Jayden Daniels,WAS,CHI,Bovada,Rush Att,Under,8.5,-125,8.52,0.02,1.002
-731,Jayden Daniels,WAS,CHI,BetMGM,Rush Att,Over,8.5,100,8.52,0.02,1.002
-732,Jayden Daniels,WAS,CHI,BetMGM,Rush Att,Under,8.5,-135,8.52,0.02,1.002
-733,Deebo Samuel,WAS,CHI,BetMGM,Rush Att,Over,1.5,-150,1.4,-0.1,0.933
-734,Deebo Samuel,WAS,CHI,BetMGM,Rush Att,Under,1.5,115,1.4,-0.1,0.933
-735,Caleb Williams,CHI,WAS,BetMGM,Rush Att,Over,5.5,-130,5.89,0.39,1.071
-736,Caleb Williams,CHI,WAS,BetMGM,Rush Att,Under,5.5,100,5.89,0.39,1.071
-737,D'Andre Swift,CHI,WAS,BetMGM,Rush Att,Over,13.5,-105,14.61,1.11,1.082
-738,D'Andre Swift,CHI,WAS,BetMGM,Rush Att,Under,13.5,-125,14.61,1.11,1.082
-739,Jacory Croskey-Merritt,WAS,CHI,BetMGM,Rush Att,Over,15.5,100,11.78,-3.72,0.76
-740,Jacory Croskey-Merritt,WAS,CHI,BetMGM,Rush Att,Under,15.5,-130,11.78,-3.72,0.76
-741,Jacory Croskey-Merritt,WAS,CHI,Fanatics,Rush Att,Over,14.5,-120,11.78,-2.72,0.812
-742,Jacory Croskey-Merritt,WAS,CHI,Fanatics,Rush Att,Under,14.5,-110,11.78,-2.72,0.812
-743,Caleb Williams,CHI,WAS,Fanatics,Rush Att,Over,5.5,-125,5.89,0.39,1.071
-744,Caleb Williams,CHI,WAS,Fanatics,Rush Att,Under,5.5,-105,5.89,0.39,1.071
-745,Jayden Daniels,WAS,CHI,Fanatics,Rush Att,Over,8.5,-110,8.52,0.02,1.002
-746,Jayden Daniels,WAS,CHI,Fanatics,Rush Att,Under,8.5,-120,8.52,0.02,1.002
-747,D'Andre Swift,CHI,WAS,Fanatics,Rush Att,Over,13.5,-125,14.61,1.11,1.082
-748,D'Andre Swift,CHI,WAS,Fanatics,Rush Att,Under,13.5,-105,14.61,1.11,1.082
-749,Jacory Croskey-Merritt,WAS,CHI,DraftKings,Rush Yds,Over,70.5,-111,59.31,-11.19,0.841
-750,Jacory Croskey-Merritt,WAS,CHI,DraftKings,Rush Yds,Under,70.5,-113,59.31,-11.19,0.841
-751,Jayden Daniels,WAS,CHI,DraftKings,Rush Yds,Over,46.5,-114,50.28,3.78,1.081
-752,Jayden Daniels,WAS,CHI,DraftKings,Rush Yds,Under,46.5,-110,50.28,3.78,1.081
-753,D'Andre Swift,CHI,WAS,DraftKings,Rush Yds,Over,46.5,-113,55.48,8.98,1.193
-754,D'Andre Swift,CHI,WAS,DraftKings,Rush Yds,Under,46.5,-111,55.48,8.98,1.193
-755,Caleb Williams,CHI,WAS,DraftKings,Rush Yds,Over,25.5,-112,30.14,4.64,1.182
-756,Caleb Williams,CHI,WAS,DraftKings,Rush Yds,Under,25.5,-112,30.14,4.64,1.182
-757,Deebo Samuel,WAS,CHI,DraftKings,Rush Yds,Over,7.5,-110,8.9,1.4,1.187
-758,Deebo Samuel,WAS,CHI,DraftKings,Rush Yds,Under,7.5,-114,8.9,1.4,1.187
-759,DJ Moore,CHI,WAS,DraftKings,Rush Yds,Over,6.5,-114,5.4,-1.1,0.831
-760,DJ Moore,CHI,WAS,DraftKings,Rush Yds,Under,6.5,-110,5.4,-1.1,0.831
-761,Jacory Croskey-Merritt,WAS,CHI,Caesars,Rush Yds,Over,70.5,-125,59.31,-11.19,0.841
-762,Jacory Croskey-Merritt,WAS,CHI,Caesars,Rush Yds,Under,70.5,-110,59.31,-11.19,0.841
-763,D'Andre Swift,CHI,WAS,Caesars,Rush Yds,Over,47.5,-121,55.48,7.98,1.168
-764,D'Andre Swift,CHI,WAS,Caesars,Rush Yds,Under,47.5,-112,55.48,7.98,1.168
-765,Deebo Samuel,WAS,CHI,Caesars,Rush Yds,Over,7.5,-121,8.9,1.4,1.187
-766,Deebo Samuel,WAS,CHI,Caesars,Rush Yds,Under,7.5,-110,8.9,1.4,1.187
-767,Caleb Williams,CHI,WAS,Caesars,Rush Yds,Over,25.5,-120,30.14,4.64,1.182
-768,Caleb Williams,CHI,WAS,Caesars,Rush Yds,Under,25.5,-112,30.14,4.64,1.182
-769,Jayden Daniels,WAS,CHI,Caesars,Rush Yds,Over,45.5,-128,50.28,4.78,1.105
-770,Jayden Daniels,WAS,CHI,Caesars,Rush Yds,Under,45.5,-105,50.28,4.78,1.105
-771,DJ Moore,CHI,WAS,Caesars,Rush Yds,Over,6.5,-117,5.4,-1.1,0.831
-772,DJ Moore,CHI,WAS,Caesars,Rush Yds,Under,6.5,-114,5.4,-1.1,0.831
-773,Jacory Croskey-Merritt,WAS,CHI,FanDuel,Rush Yds,Over,69.5,-112,59.31,-10.19,0.853
-774,Jacory Croskey-Merritt,WAS,CHI,FanDuel,Rush Yds,Under,69.5,-112,59.31,-10.19,0.853
-775,Jayden Daniels,WAS,CHI,FanDuel,Rush Yds,Over,46.5,-112,50.28,3.78,1.081
-776,Jayden Daniels,WAS,CHI,FanDuel,Rush Yds,Under,46.5,-112,50.28,3.78,1.081
-777,D'Andre Swift,CHI,WAS,FanDuel,Rush Yds,Over,48.5,-112,55.48,6.98,1.144
-778,D'Andre Swift,CHI,WAS,FanDuel,Rush Yds,Under,48.5,-112,55.48,6.98,1.144
-779,DJ Moore,CHI,WAS,FanDuel,Rush Yds,Over,6.5,-118,5.4,-1.1,0.831
-780,DJ Moore,CHI,WAS,FanDuel,Rush Yds,Under,6.5,-108,5.4,-1.1,0.831
-781,Deebo Samuel,WAS,CHI,FanDuel,Rush Yds,Over,8.5,-112,8.9,0.4,1.047
-782,Deebo Samuel,WAS,CHI,FanDuel,Rush Yds,Under,8.5,-112,8.9,0.4,1.047
-783,Caleb Williams,CHI,WAS,FanDuel,Rush Yds,Over,25.5,-112,30.14,4.64,1.182
-784,Caleb Williams,CHI,WAS,FanDuel,Rush Yds,Under,25.5,-112,30.14,4.64,1.182
-785,Jayden Daniels,WAS,CHI,BetOnline.ag,Rush Yds,Under,43.5,-114,50.28,6.78,1.156
-786,Jayden Daniels,WAS,CHI,BetOnline.ag,Rush Yds,Over,43.5,-114,50.28,6.78,1.156
-787,DJ Moore,CHI,WAS,BetOnline.ag,Rush Yds,Under,6.5,-109,5.4,-1.1,0.831
-788,DJ Moore,CHI,WAS,BetOnline.ag,Rush Yds,Over,6.5,-119,5.4,-1.1,0.831
-789,D'Andre Swift,CHI,WAS,BetOnline.ag,Rush Yds,Over,46.5,-118,55.48,8.98,1.193
-790,D'Andre Swift,CHI,WAS,BetOnline.ag,Rush Yds,Under,46.5,-110,55.48,8.98,1.193
-791,Deebo Samuel,WAS,CHI,BetOnline.ag,Rush Yds,Over,7.5,-112,8.9,1.4,1.187
-792,Deebo Samuel,WAS,CHI,BetOnline.ag,Rush Yds,Under,7.5,-115,8.9,1.4,1.187
-793,Jacory Croskey-Merritt,WAS,CHI,BetOnline.ag,Rush Yds,Over,70.5,-118,59.31,-11.19,0.841
-794,Jacory Croskey-Merritt,WAS,CHI,BetOnline.ag,Rush Yds,Under,70.5,-110,59.31,-11.19,0.841
-795,Caleb Williams,CHI,WAS,BetOnline.ag,Rush Yds,Over,26.5,-125,30.14,3.64,1.137
-796,Caleb Williams,CHI,WAS,BetOnline.ag,Rush Yds,Under,26.5,-103,30.14,3.64,1.137
-797,Jacory Croskey-Merritt,WAS,CHI,BetRivers,Rush Yds,Over,68.5,-113,59.31,-9.19,0.866
-798,Jacory Croskey-Merritt,WAS,CHI,BetRivers,Rush Yds,Under,68.5,-118,59.31,-9.19,0.866
-799,Caleb Williams,CHI,WAS,BetRivers,Rush Yds,Over,24.5,-120,30.14,5.64,1.23
-800,Caleb Williams,CHI,WAS,BetRivers,Rush Yds,Under,24.5,-112,30.14,5.64,1.23
-801,Jayden Daniels,WAS,CHI,BetRivers,Rush Yds,Over,47.5,-118,50.28,2.78,1.059
-802,Jayden Daniels,WAS,CHI,BetRivers,Rush Yds,Under,47.5,-113,50.28,2.78,1.059
-803,Deebo Samuel,WAS,CHI,BetRivers,Rush Yds,Over,7.5,-110,8.9,1.4,1.187
-804,Deebo Samuel,WAS,CHI,BetRivers,Rush Yds,Under,7.5,-121,8.9,1.4,1.187
-805,D'Andre Swift,CHI,WAS,BetRivers,Rush Yds,Over,46.5,-118,55.48,8.98,1.193
-806,D'Andre Swift,CHI,WAS,BetRivers,Rush Yds,Under,46.5,-113,55.48,8.98,1.193
-807,Caleb Williams,CHI,WAS,Bovada,Rush Yds,Over,24.5,-130,30.14,5.64,1.23
-808,Caleb Williams,CHI,WAS,Bovada,Rush Yds,Under,24.5,100,30.14,5.64,1.23
-809,D'Andre Swift,CHI,WAS,Bovada,Rush Yds,Over,46.5,-115,55.48,8.98,1.193
-810,D'Andre Swift,CHI,WAS,Bovada,Rush Yds,Under,46.5,-115,55.48,8.98,1.193
-811,Deebo Samuel,WAS,CHI,Bovada,Rush Yds,Over,7.5,-115,8.9,1.4,1.187
-812,Deebo Samuel,WAS,CHI,Bovada,Rush Yds,Under,7.5,-115,8.9,1.4,1.187
-813,DJ Moore,CHI,WAS,Bovada,Rush Yds,Over,6.5,-125,5.4,-1.1,0.831
-814,DJ Moore,CHI,WAS,Bovada,Rush Yds,Under,6.5,-105,5.4,-1.1,0.831
-815,Jacory Croskey-Merritt,WAS,CHI,Bovada,Rush Yds,Over,68.5,-145,59.31,-9.19,0.866
-816,Jacory Croskey-Merritt,WAS,CHI,Bovada,Rush Yds,Under,68.5,110,59.31,-9.19,0.866
-817,Jayden Daniels,WAS,CHI,Bovada,Rush Yds,Over,42.5,-145,50.28,7.78,1.183
-818,Jayden Daniels,WAS,CHI,Bovada,Rush Yds,Under,42.5,110,50.28,7.78,1.183
-819,D'Andre Swift,CHI,WAS,BetMGM,Rush Yds,Over,48.5,-115,55.48,6.98,1.144
-820,D'Andre Swift,CHI,WAS,BetMGM,Rush Yds,Under,48.5,-115,55.48,6.98,1.144
-821,Jayden Daniels,WAS,CHI,BetMGM,Rush Yds,Over,45.5,-118,50.28,4.78,1.105
-822,Jayden Daniels,WAS,CHI,BetMGM,Rush Yds,Under,45.5,-110,50.28,4.78,1.105
-823,Caleb Williams,CHI,WAS,BetMGM,Rush Yds,Over,24.5,-118,30.14,5.64,1.23
-824,Caleb Williams,CHI,WAS,BetMGM,Rush Yds,Under,24.5,-110,30.14,5.64,1.23
-825,Deebo Samuel,WAS,CHI,BetMGM,Rush Yds,Over,6.5,-120,8.9,2.4,1.369
-826,Deebo Samuel,WAS,CHI,BetMGM,Rush Yds,Under,6.5,-110,8.9,2.4,1.369
-827,Jacory Croskey-Merritt,WAS,CHI,BetMGM,Rush Yds,Over,70.5,-115,59.31,-11.19,0.841
-828,Jacory Croskey-Merritt,WAS,CHI,BetMGM,Rush Yds,Under,70.5,-115,59.31,-11.19,0.841
-829,DJ Moore,CHI,WAS,BetMGM,Rush Yds,Over,5.5,-118,5.4,-0.1,0.982
-830,DJ Moore,CHI,WAS,BetMGM,Rush Yds,Under,5.5,-110,5.4,-0.1,0.982
-831,Kyle Monangai,CHI,WAS,BetMGM,Rush Yds,Over,17.5,-118,19.19,1.69,1.097
-832,Kyle Monangai,CHI,WAS,BetMGM,Rush Yds,Under,17.5,-110,19.19,1.69,1.097
-833,D'Andre Swift,CHI,WAS,Fanatics,Rush Yds,Over,45.5,-125,55.48,9.98,1.219
-834,D'Andre Swift,CHI,WAS,Fanatics,Rush Yds,Under,45.5,-105,55.48,9.98,1.219
-835,Jayden Daniels,WAS,CHI,Fanatics,Rush Yds,Over,45.5,-115,50.28,4.78,1.105
-836,Jayden Daniels,WAS,CHI,Fanatics,Rush Yds,Under,45.5,-115,50.28,4.78,1.105
-837,Caleb Williams,CHI,WAS,Fanatics,Rush Yds,Over,25.5,-115,30.14,4.64,1.182
-838,Caleb Williams,CHI,WAS,Fanatics,Rush Yds,Under,25.5,-115,30.14,4.64,1.182
-839,Jacory Croskey-Merritt,WAS,CHI,Fanatics,Rush Yds,Over,70.5,-110,59.31,-11.19,0.841
-840,Jacory Croskey-Merritt,WAS,CHI,Fanatics,Rush Yds,Under,70.5,-120,59.31,-11.19,0.841
-841,Kyle Monangai,CHI,WAS,Fanatics,Rush Yds,Over,15.5,-150,19.19,3.69,1.238
-842,Kyle Monangai,CHI,WAS,Fanatics,Rush Yds,Under,15.5,110,19.19,3.69,1.238
-843,Deebo Samuel,WAS,CHI,DraftKings,Rec,Over,5.5,-126,6.07,0.57,1.104
-844,Deebo Samuel,WAS,CHI,DraftKings,Rec,Under,5.5,-101,6.07,0.57,1.104
-845,Rome Odunze,CHI,WAS,DraftKings,Rec,Over,4.5,-127,4.55,0.05,1.011
-846,Rome Odunze,CHI,WAS,DraftKings,Rec,Under,4.5,-101,4.55,0.05,1.011
-847,DJ Moore,CHI,WAS,DraftKings,Rec,Over,3.5,-136,3.71,0.21,1.06
-848,DJ Moore,CHI,WAS,DraftKings,Rec,Under,3.5,107,3.71,0.21,1.06
-849,Zach Ertz,WAS,CHI,DraftKings,Rec,Over,3.5,-115,3.49,-0.01,0.997
-850,Zach Ertz,WAS,CHI,DraftKings,Rec,Under,3.5,-111,3.49,-0.01,0.997
-851,D'Andre Swift,CHI,WAS,DraftKings,Rec,Over,2.5,-158,3.17,0.67,1.268
-852,D'Andre Swift,CHI,WAS,DraftKings,Rec,Under,2.5,123,3.17,0.67,1.268
-853,Olamide Zaccheaus,CHI,WAS,DraftKings,Rec,Over,2.5,-139,3.15,0.65,1.26
-854,Olamide Zaccheaus,CHI,WAS,DraftKings,Rec,Under,2.5,109,3.15,0.65,1.26
-855,Luke McCaffrey,WAS,CHI,DraftKings,Rec,Over,2.5,121,1.9,-0.6,0.76
-856,Luke McCaffrey,WAS,CHI,DraftKings,Rec,Under,2.5,-155,1.9,-0.6,0.76
-857,Luther Burden,CHI,WAS,DraftKings,Rec,Over,1.5,-137,1.49,-0.01,0.993
-858,Luther Burden,CHI,WAS,DraftKings,Rec,Under,1.5,108,1.49,-0.01,0.993
-859,Jacory Croskey-Merritt,WAS,CHI,DraftKings,Rec,Over,1.5,-136,1.77,0.27,1.18
-860,Jacory Croskey-Merritt,WAS,CHI,DraftKings,Rec,Under,1.5,107,1.77,0.27,1.18
-861,Jacory Croskey-Merritt,WAS,CHI,Caesars,Rec,Over,1.5,-137,1.77,0.27,1.18
-862,Jacory Croskey-Merritt,WAS,CHI,Caesars,Rec,Under,1.5,100,1.77,0.27,1.18
-863,D'Andre Swift,CHI,WAS,Caesars,Rec,Over,2.5,-164,3.17,0.67,1.268
-864,D'Andre Swift,CHI,WAS,Caesars,Rec,Under,2.5,120,3.17,0.67,1.268
-865,DJ Moore,CHI,WAS,Caesars,Rec,Over,3.5,-145,3.71,0.21,1.06
-866,DJ Moore,CHI,WAS,Caesars,Rec,Under,3.5,102,3.71,0.21,1.06
-867,Luther Burden,CHI,WAS,Caesars,Rec,Over,1.5,-138,1.49,-0.01,0.993
-868,Luther Burden,CHI,WAS,Caesars,Rec,Under,1.5,102,1.49,-0.01,0.993
-869,Deebo Samuel,WAS,CHI,Caesars,Rec,Over,5.5,-125,6.07,0.57,1.104
-870,Deebo Samuel,WAS,CHI,Caesars,Rec,Under,5.5,-111,6.07,0.57,1.104
-871,Zach Ertz,WAS,CHI,Caesars,Rec,Over,3.5,-112,3.49,-0.01,0.997
-872,Zach Ertz,WAS,CHI,Caesars,Rec,Under,3.5,-121,3.49,-0.01,0.997
-873,Rome Odunze,CHI,WAS,Caesars,Rec,Over,4.5,-137,4.55,0.05,1.011
-874,Rome Odunze,CHI,WAS,Caesars,Rec,Under,4.5,100,4.55,0.05,1.011
-875,Luke McCaffrey,WAS,CHI,Caesars,Rec,Over,2.5,115,1.9,-0.6,0.76
-876,Luke McCaffrey,WAS,CHI,Caesars,Rec,Under,2.5,-159,1.9,-0.6,0.76
-877,Olamide Zaccheaus,CHI,WAS,Caesars,Rec,Over,2.5,-139,3.15,0.65,1.26
-878,Olamide Zaccheaus,CHI,WAS,Caesars,Rec,Under,2.5,100,3.15,0.65,1.26
-879,Olamide Zaccheaus,CHI,WAS,FanDuel,Rec,Over,2.5,-146,3.15,0.65,1.26
-880,Olamide Zaccheaus,CHI,WAS,FanDuel,Rec,Under,2.5,114,3.15,0.65,1.26
-881,Jacory Croskey-Merritt,WAS,CHI,FanDuel,Rec,Over,1.5,-142,1.77,0.27,1.18
-882,Jacory Croskey-Merritt,WAS,CHI,FanDuel,Rec,Under,1.5,112,1.77,0.27,1.18
-883,Luke McCaffrey,WAS,CHI,FanDuel,Rec,Over,2.5,114,1.9,-0.6,0.76
-884,Luke McCaffrey,WAS,CHI,FanDuel,Rec,Under,2.5,-146,1.9,-0.6,0.76
-885,Zach Ertz,WAS,CHI,FanDuel,Rec,Over,3.5,-112,3.49,-0.01,0.997
-886,Zach Ertz,WAS,CHI,FanDuel,Rec,Under,3.5,-112,3.49,-0.01,0.997
-887,Rome Odunze,CHI,WAS,FanDuel,Rec,Over,4.5,-118,4.55,0.05,1.011
-888,Rome Odunze,CHI,WAS,FanDuel,Rec,Under,4.5,-108,4.55,0.05,1.011
-889,D'Andre Swift,CHI,WAS,FanDuel,Rec,Over,2.5,-164,3.17,0.67,1.268
-890,D'Andre Swift,CHI,WAS,FanDuel,Rec,Under,2.5,128,3.17,0.67,1.268
-891,Luther Burden,CHI,WAS,FanDuel,Rec,Over,1.5,-136,1.49,-0.01,0.993
-892,Luther Burden,CHI,WAS,FanDuel,Rec,Under,1.5,108,1.49,-0.01,0.993
-893,Deebo Samuel,WAS,CHI,FanDuel,Rec,Over,5.5,-136,6.07,0.57,1.104
-894,Deebo Samuel,WAS,CHI,FanDuel,Rec,Under,5.5,108,6.07,0.57,1.104
-895,DJ Moore,CHI,WAS,FanDuel,Rec,Over,3.5,-134,3.71,0.21,1.06
-896,DJ Moore,CHI,WAS,FanDuel,Rec,Under,3.5,106,3.71,0.21,1.06
-897,Rome Odunze,CHI,WAS,BetOnline.ag,Rec,Over,4.5,-143,4.55,0.05,1.011
-898,Rome Odunze,CHI,WAS,BetOnline.ag,Rec,Under,4.5,110,4.55,0.05,1.011
-899,DJ Moore,CHI,WAS,BetOnline.ag,Rec,Over,3.5,-149,3.71,0.21,1.06
-900,DJ Moore,CHI,WAS,BetOnline.ag,Rec,Under,3.5,115,3.71,0.21,1.06
-901,Olamide Zaccheaus,CHI,WAS,BetOnline.ag,Rec,Over,2.5,-139,3.15,0.65,1.26
-902,Olamide Zaccheaus,CHI,WAS,BetOnline.ag,Rec,Under,2.5,107,3.15,0.65,1.26
-903,Deebo Samuel,WAS,CHI,BetOnline.ag,Rec,Under,5.5,-108,6.07,0.57,1.104
-904,Deebo Samuel,WAS,CHI,BetOnline.ag,Rec,Over,5.5,-120,6.07,0.57,1.104
-905,Zach Ertz,WAS,CHI,BetOnline.ag,Rec,Over,3.5,-110,3.49,-0.01,0.997
-906,Zach Ertz,WAS,CHI,BetOnline.ag,Rec,Under,3.5,-118,3.49,-0.01,0.997
-907,Jacory Croskey-Merritt,WAS,CHI,BetOnline.ag,Rec,Over,1.5,-141,1.77,0.27,1.18
-908,Jacory Croskey-Merritt,WAS,CHI,BetOnline.ag,Rec,Under,1.5,108,1.77,0.27,1.18
-909,D'Andre Swift,CHI,WAS,BetOnline.ag,Rec,Under,2.5,126,3.17,0.67,1.268
-910,D'Andre Swift,CHI,WAS,BetOnline.ag,Rec,Over,2.5,-164,3.17,0.67,1.268
-911,Luther Burden,CHI,WAS,BetOnline.ag,Rec,Under,1.5,110,1.49,-0.01,0.993
-912,Luther Burden,CHI,WAS,BetOnline.ag,Rec,Over,1.5,-143,1.49,-0.01,0.993
-913,Luke McCaffrey,WAS,CHI,BetOnline.ag,Rec,Under,2.5,-164,1.9,-0.6,0.76
-914,Luke McCaffrey,WAS,CHI,BetOnline.ag,Rec,Over,2.5,125,1.9,-0.6,0.76
-915,Luke McCaffrey,WAS,CHI,BetRivers,Rec,Over,2.5,117,1.9,-0.6,0.76
-916,Luke McCaffrey,WAS,CHI,BetRivers,Rec,Under,2.5,-157,1.9,-0.6,0.76
-917,Jacory Croskey-Merritt,WAS,CHI,BetRivers,Rec,Over,1.5,-125,1.77,0.27,1.18
-918,Jacory Croskey-Merritt,WAS,CHI,BetRivers,Rec,Under,1.5,-105,1.77,0.27,1.18
-919,Zach Ertz,WAS,CHI,BetRivers,Rec,Over,3.5,-113,3.49,-0.01,0.997
-920,Zach Ertz,WAS,CHI,BetRivers,Rec,Under,3.5,-118,3.49,-0.01,0.997
-921,Rome Odunze,CHI,WAS,BetRivers,Rec,Over,4.5,-137,4.55,0.05,1.011
-922,Rome Odunze,CHI,WAS,BetRivers,Rec,Under,4.5,102,4.55,0.05,1.011
-923,D'Andre Swift,CHI,WAS,BetRivers,Rec,Over,2.5,-155,3.17,0.67,1.268
-924,D'Andre Swift,CHI,WAS,BetRivers,Rec,Under,2.5,115,3.17,0.67,1.268
-925,Luther Burden,CHI,WAS,BetRivers,Rec,Over,1.5,-136,1.49,-0.01,0.993
-926,Luther Burden,CHI,WAS,BetRivers,Rec,Under,1.5,102,1.49,-0.01,0.993
-927,Deebo Samuel,WAS,CHI,BetRivers,Rec,Over,5.5,-132,6.07,0.57,1.104
-928,Deebo Samuel,WAS,CHI,BetRivers,Rec,Under,5.5,100,6.07,0.57,1.104
-929,Olamide Zaccheaus,CHI,WAS,BetRivers,Rec,Over,2.5,-136,3.15,0.65,1.26
-930,Olamide Zaccheaus,CHI,WAS,BetRivers,Rec,Under,2.5,102,3.15,0.65,1.26
-931,DJ Moore,CHI,WAS,BetRivers,Rec,Over,3.5,-143,3.71,0.21,1.06
-932,DJ Moore,CHI,WAS,BetRivers,Rec,Under,3.5,107,3.71,0.21,1.06
-933,D'Andre Swift,CHI,WAS,Bovada,Rec,Over,2.5,-170,3.17,0.67,1.268
-934,D'Andre Swift,CHI,WAS,Bovada,Rec,Under,2.5,130,3.17,0.67,1.268
-935,Deebo Samuel,WAS,CHI,Bovada,Rec,Over,5.5,-125,6.07,0.57,1.104
-936,Deebo Samuel,WAS,CHI,Bovada,Rec,Under,5.5,-105,6.07,0.57,1.104
-937,DJ Moore,CHI,WAS,Bovada,Rec,Over,3.5,-150,3.71,0.21,1.06
-938,DJ Moore,CHI,WAS,Bovada,Rec,Under,3.5,115,3.71,0.21,1.06
-939,Jacory Croskey-Merritt,WAS,CHI,Bovada,Rec,Over,1.5,-135,1.77,0.27,1.18
-940,Jacory Croskey-Merritt,WAS,CHI,Bovada,Rec,Under,1.5,105,1.77,0.27,1.18
-941,Olamide Zaccheaus,CHI,WAS,Bovada,Rec,Over,2.5,-135,3.15,0.65,1.26
-942,Olamide Zaccheaus,CHI,WAS,Bovada,Rec,Under,2.5,105,3.15,0.65,1.26
-943,Rome Odunze,CHI,WAS,Bovada,Rec,Over,4.5,-130,4.55,0.05,1.011
-944,Rome Odunze,CHI,WAS,Bovada,Rec,Under,4.5,100,4.55,0.05,1.011
-945,Zach Ertz,WAS,CHI,Bovada,Rec,Over,3.5,-110,3.49,-0.01,0.997
-946,Zach Ertz,WAS,CHI,Bovada,Rec,Under,3.5,-120,3.49,-0.01,0.997
-947,D'Andre Swift,CHI,WAS,BetMGM,Rec,Over,2.5,-150,3.17,0.67,1.268
-948,D'Andre Swift,CHI,WAS,BetMGM,Rec,Under,2.5,110,3.17,0.67,1.268
-949,DJ Moore,CHI,WAS,BetMGM,Rec,Over,3.5,-130,3.71,0.21,1.06
-950,DJ Moore,CHI,WAS,BetMGM,Rec,Under,3.5,100,3.71,0.21,1.06
-951,Rome Odunze,CHI,WAS,BetMGM,Rec,Over,4.5,-135,4.55,0.05,1.011
-952,Rome Odunze,CHI,WAS,BetMGM,Rec,Under,4.5,100,4.55,0.05,1.011
-953,Olamide Zaccheaus,CHI,WAS,BetMGM,Rec,Over,2.5,-130,3.15,0.65,1.26
-954,Olamide Zaccheaus,CHI,WAS,BetMGM,Rec,Under,2.5,100,3.15,0.65,1.26
-955,Jacory Croskey-Merritt,WAS,CHI,BetMGM,Rec,Over,1.5,-140,1.77,0.27,1.18
-956,Jacory Croskey-Merritt,WAS,CHI,BetMGM,Rec,Under,1.5,105,1.77,0.27,1.18
-957,Deebo Samuel,WAS,CHI,BetMGM,Rec,Over,5.5,-140,6.07,0.57,1.104
-958,Deebo Samuel,WAS,CHI,BetMGM,Rec,Under,5.5,105,6.07,0.57,1.104
-959,Zach Ertz,WAS,CHI,BetMGM,Rec,Over,3.5,-110,3.49,-0.01,0.997
-960,Zach Ertz,WAS,CHI,BetMGM,Rec,Under,3.5,-120,3.49,-0.01,0.997
-961,Chris Moore,WAS,CHI,BetMGM,Rec,Over,1.5,-160,1.7,0.2,1.133
-962,Chris Moore,WAS,CHI,BetMGM,Rec,Under,1.5,120,1.7,0.2,1.133
-963,Jaylin Lane,WAS,CHI,BetMGM,Rec,Over,1.5,-160,1.82,0.32,1.213
-964,Jaylin Lane,WAS,CHI,BetMGM,Rec,Under,1.5,120,1.82,0.32,1.213
-965,John Bates,WAS,CHI,BetMGM,Rec,Over,0.5,-135,0.71,0.21,1.42
-966,John Bates,WAS,CHI,BetMGM,Rec,Under,0.5,100,0.71,0.21,1.42
-967,Luther Burden,CHI,WAS,BetMGM,Rec,Over,1.5,-145,1.49,-0.01,0.993
-968,Luther Burden,CHI,WAS,BetMGM,Rec,Under,1.5,110,1.49,-0.01,0.993
-969,Cole Kmet,CHI,WAS,BetMGM,Rec,Over,1.5,-175,2.05,0.55,1.367
-970,Cole Kmet,CHI,WAS,BetMGM,Rec,Under,1.5,130,2.05,0.55,1.367
-971,Luke McCaffrey,WAS,CHI,BetMGM,Rec,Over,2.5,130,1.9,-0.6,0.76
-972,Luke McCaffrey,WAS,CHI,BetMGM,Rec,Under,2.5,-175,1.9,-0.6,0.76
-973,Jeremy McNichols,WAS,CHI,BetMGM,Rec,Over,1.5,-120,1.5,0.0,1.0
-974,Jeremy McNichols,WAS,CHI,BetMGM,Rec,Under,1.5,-110,1.5,0.0,1.0
-975,Colston Loveland,CHI,WAS,BetMGM,Rec,Over,1.5,-175,1.6,0.1,1.067
-976,Colston Loveland,CHI,WAS,BetMGM,Rec,Under,1.5,135,1.6,0.1,1.067
-977,Olamide Zaccheaus,CHI,WAS,Fanatics,Rec,Over,3.5,170,3.15,-0.35,0.9
-978,Olamide Zaccheaus,CHI,WAS,Fanatics,Rec,Under,3.5,-245,3.15,-0.35,0.9
-979,Zach Ertz,WAS,CHI,Fanatics,Rec,Over,3.5,-110,3.49,-0.01,0.997
-980,Zach Ertz,WAS,CHI,Fanatics,Rec,Under,3.5,-120,3.49,-0.01,0.997
-981,Deebo Samuel,WAS,CHI,Fanatics,Rec,Over,6.5,140,6.07,-0.43,0.934
-982,Deebo Samuel,WAS,CHI,Fanatics,Rec,Under,6.5,-195,6.07,-0.43,0.934
-983,Rome Odunze,CHI,WAS,Fanatics,Rec,Over,4.5,-115,4.55,0.05,1.011
-984,Rome Odunze,CHI,WAS,Fanatics,Rec,Under,4.5,-115,4.55,0.05,1.011
-985,Luther Burden,CHI,WAS,Fanatics,Rec,Over,1.5,-140,1.49,-0.01,0.993
-986,Luther Burden,CHI,WAS,Fanatics,Rec,Under,1.5,105,1.49,-0.01,0.993
-987,Jacory Croskey-Merritt,WAS,CHI,Fanatics,Rec,Over,2.5,200,1.77,-0.73,0.708
-988,Jacory Croskey-Merritt,WAS,CHI,Fanatics,Rec,Under,2.5,-300,1.77,-0.73,0.708
-989,D'Andre Swift,CHI,WAS,Fanatics,Rec,Over,3.5,155,3.17,-0.33,0.906
-990,D'Andre Swift,CHI,WAS,Fanatics,Rec,Under,3.5,-220,3.17,-0.33,0.906
-991,DJ Moore,CHI,WAS,Fanatics,Rec,Over,3.5,-140,3.71,0.21,1.06
-992,DJ Moore,CHI,WAS,Fanatics,Rec,Under,3.5,105,3.71,0.21,1.06
-993,Luke McCaffrey,WAS,CHI,Fanatics,Rec,Over,2.5,115,1.9,-0.6,0.76
-994,Luke McCaffrey,WAS,CHI,Fanatics,Rec,Under,2.5,-155,1.9,-0.6,0.76
-995,Rome Odunze,CHI,WAS,DraftKings,Rec Yds,Over,66.5,-113,65.1,-1.4,0.979
-996,Rome Odunze,CHI,WAS,DraftKings,Rec Yds,Under,66.5,-111,65.1,-1.4,0.979
-997,Deebo Samuel,WAS,CHI,DraftKings,Rec Yds,Over,58.5,-112,70.79,12.29,1.21
-998,Deebo Samuel,WAS,CHI,DraftKings,Rec Yds,Under,58.5,-112,70.79,12.29,1.21
-999,DJ Moore,CHI,WAS,DraftKings,Rec Yds,Over,39.5,-110,41.3,1.8,1.046
-1000,DJ Moore,CHI,WAS,DraftKings,Rec Yds,Under,39.5,-115,41.3,1.8,1.046
-1001,Zach Ertz,WAS,CHI,DraftKings,Rec Yds,Over,30.5,-108,32.71,2.21,1.072
-1002,Zach Ertz,WAS,CHI,DraftKings,Rec Yds,Under,30.5,-116,32.71,2.21,1.072
-1003,Luke McCaffrey,WAS,CHI,DraftKings,Rec Yds,Over,29.5,-111,26.57,-2.93,0.901
-1004,Luke McCaffrey,WAS,CHI,DraftKings,Rec Yds,Under,29.5,-113,26.57,-2.93,0.901
-1005,Olamide Zaccheaus,CHI,WAS,DraftKings,Rec Yds,Over,26.5,-109,30.74,4.24,1.16
-1006,Olamide Zaccheaus,CHI,WAS,DraftKings,Rec Yds,Under,26.5,-115,30.74,4.24,1.16
-1007,Luther Burden,CHI,WAS,DraftKings,Rec Yds,Over,18.5,-111,17.44,-1.06,0.943
-1008,Luther Burden,CHI,WAS,DraftKings,Rec Yds,Under,18.5,-113,17.44,-1.06,0.943
-1009,D'Andre Swift,CHI,WAS,DraftKings,Rec Yds,Over,18.5,-110,22.35,3.85,1.208
-1010,D'Andre Swift,CHI,WAS,DraftKings,Rec Yds,Under,18.5,-114,22.35,3.85,1.208
-1011,Jacory Croskey-Merritt,WAS,CHI,DraftKings,Rec Yds,Over,9.5,-118,14.13,4.63,1.487
-1012,Jacory Croskey-Merritt,WAS,CHI,DraftKings,Rec Yds,Under,9.5,-107,14.13,4.63,1.487
-1013,D'Andre Swift,CHI,WAS,Caesars,Rec Yds,Over,18.5,-112,22.35,3.85,1.208
-1014,D'Andre Swift,CHI,WAS,Caesars,Rec Yds,Under,18.5,-120,22.35,3.85,1.208
-1015,Jacory Croskey-Merritt,WAS,CHI,Caesars,Rec Yds,Over,9.5,-130,14.13,4.63,1.487
-1016,Jacory Croskey-Merritt,WAS,CHI,Caesars,Rec Yds,Under,9.5,-102,14.13,4.63,1.487
-1017,Rome Odunze,CHI,WAS,Caesars,Rec Yds,Over,66.5,-125,65.1,-1.4,0.979
-1018,Rome Odunze,CHI,WAS,Caesars,Rec Yds,Under,66.5,-110,65.1,-1.4,0.979
-1019,Zach Ertz,WAS,CHI,Caesars,Rec Yds,Over,30.5,-130,32.71,2.21,1.072
-1020,Zach Ertz,WAS,CHI,Caesars,Rec Yds,Under,30.5,-105,32.71,2.21,1.072
-1021,Luther Burden,CHI,WAS,Caesars,Rec Yds,Over,18.5,-120,17.44,-1.06,0.943
-1022,Luther Burden,CHI,WAS,Caesars,Rec Yds,Under,18.5,-112,17.44,-1.06,0.943
-1023,DJ Moore,CHI,WAS,Caesars,Rec Yds,Over,39.5,-118,41.3,1.8,1.046
-1024,DJ Moore,CHI,WAS,Caesars,Rec Yds,Under,39.5,-113,41.3,1.8,1.046
-1025,Deebo Samuel,WAS,CHI,Caesars,Rec Yds,Over,58.5,-108,70.79,12.29,1.21
-1026,Deebo Samuel,WAS,CHI,Caesars,Rec Yds,Under,58.5,-125,70.79,12.29,1.21
-1027,Luke McCaffrey,WAS,CHI,Caesars,Rec Yds,Over,28.5,-122,26.57,-1.93,0.932
-1028,Luke McCaffrey,WAS,CHI,Caesars,Rec Yds,Under,28.5,-111,26.57,-1.93,0.932
-1029,Olamide Zaccheaus,CHI,WAS,Caesars,Rec Yds,Over,26.5,-113,30.74,4.24,1.16
-1030,Olamide Zaccheaus,CHI,WAS,Caesars,Rec Yds,Under,26.5,-118,30.74,4.24,1.16
-1031,Olamide Zaccheaus,CHI,WAS,FanDuel,Rec Yds,Over,26.5,-112,30.74,4.24,1.16
-1032,Olamide Zaccheaus,CHI,WAS,FanDuel,Rec Yds,Under,26.5,-112,30.74,4.24,1.16
-1033,Zach Ertz,WAS,CHI,FanDuel,Rec Yds,Over,29.5,-112,32.71,3.21,1.109
-1034,Zach Ertz,WAS,CHI,FanDuel,Rec Yds,Under,29.5,-112,32.71,3.21,1.109
-1035,Rome Odunze,CHI,WAS,FanDuel,Rec Yds,Over,66.5,-112,65.1,-1.4,0.979
-1036,Rome Odunze,CHI,WAS,FanDuel,Rec Yds,Under,66.5,-112,65.1,-1.4,0.979
-1037,Luther Burden,CHI,WAS,FanDuel,Rec Yds,Over,18.5,-112,17.44,-1.06,0.943
-1038,Luther Burden,CHI,WAS,FanDuel,Rec Yds,Under,18.5,-112,17.44,-1.06,0.943
-1039,Deebo Samuel,WAS,CHI,FanDuel,Rec Yds,Over,58.5,-112,70.79,12.29,1.21
-1040,Deebo Samuel,WAS,CHI,FanDuel,Rec Yds,Under,58.5,-112,70.79,12.29,1.21
-1041,DJ Moore,CHI,WAS,FanDuel,Rec Yds,Over,39.5,-112,41.3,1.8,1.046
-1042,DJ Moore,CHI,WAS,FanDuel,Rec Yds,Under,39.5,-112,41.3,1.8,1.046
-1043,Rome Odunze,CHI,WAS,BetOnline.ag,Rec Yds,Under,66.5,-114,65.1,-1.4,0.979
-1044,Rome Odunze,CHI,WAS,BetOnline.ag,Rec Yds,Over,66.5,-114,65.1,-1.4,0.979
-1045,Olamide Zaccheaus,CHI,WAS,BetOnline.ag,Rec Yds,Over,26.5,-116,30.74,4.24,1.16
-1046,Olamide Zaccheaus,CHI,WAS,BetOnline.ag,Rec Yds,Under,26.5,-111,30.74,4.24,1.16
-1047,DJ Moore,CHI,WAS,BetOnline.ag,Rec Yds,Over,39.5,-114,41.3,1.8,1.046
-1048,DJ Moore,CHI,WAS,BetOnline.ag,Rec Yds,Under,39.5,-114,41.3,1.8,1.046
-1049,Zach Ertz,WAS,CHI,BetOnline.ag,Rec Yds,Over,29.5,-122,32.71,3.21,1.109
-1050,Zach Ertz,WAS,CHI,BetOnline.ag,Rec Yds,Under,29.5,-106,32.71,3.21,1.109
-1051,D'Andre Swift,CHI,WAS,BetOnline.ag,Rec Yds,Under,18.5,-115,22.35,3.85,1.208
-1052,D'Andre Swift,CHI,WAS,BetOnline.ag,Rec Yds,Over,18.5,-112,22.35,3.85,1.208
-1053,Luther Burden,CHI,WAS,BetOnline.ag,Rec Yds,Over,18.5,-114,17.44,-1.06,0.943
-1054,Luther Burden,CHI,WAS,BetOnline.ag,Rec Yds,Under,18.5,-114,17.44,-1.06,0.943
-1055,Jacory Croskey-Merritt,WAS,CHI,BetOnline.ag,Rec Yds,Over,9.5,-120,14.13,4.63,1.487
-1056,Jacory Croskey-Merritt,WAS,CHI,BetOnline.ag,Rec Yds,Under,9.5,-108,14.13,4.63,1.487
-1057,Luke McCaffrey,WAS,CHI,BetOnline.ag,Rec Yds,Under,28.5,-111,26.57,-1.93,0.932
-1058,Luke McCaffrey,WAS,CHI,BetOnline.ag,Rec Yds,Over,28.5,-116,26.57,-1.93,0.932
-1059,Deebo Samuel,WAS,CHI,BetOnline.ag,Rec Yds,Over,57.5,-114,70.79,13.29,1.231
-1060,Deebo Samuel,WAS,CHI,BetOnline.ag,Rec Yds,Under,57.5,-114,70.79,13.29,1.231
-1061,Luke McCaffrey,WAS,CHI,BetRivers,Rec Yds,Over,29.5,-113,26.57,-2.93,0.901
-1062,Luke McCaffrey,WAS,CHI,BetRivers,Rec Yds,Under,29.5,-117,26.57,-2.93,0.901
-1063,Deebo Samuel,WAS,CHI,BetRivers,Rec Yds,Over,59.5,-113,70.79,11.29,1.19
-1064,Deebo Samuel,WAS,CHI,BetRivers,Rec Yds,Under,59.5,-118,70.79,11.29,1.19
-1065,Luther Burden,CHI,WAS,BetRivers,Rec Yds,Over,18.5,-113,17.44,-1.06,0.943
-1066,Luther Burden,CHI,WAS,BetRivers,Rec Yds,Under,18.5,-117,17.44,-1.06,0.943
-1067,DJ Moore,CHI,WAS,BetRivers,Rec Yds,Over,39.5,-115,41.3,1.8,1.046
-1068,DJ Moore,CHI,WAS,BetRivers,Rec Yds,Under,39.5,-115,41.3,1.8,1.046
-1069,D'Andre Swift,CHI,WAS,BetRivers,Rec Yds,Over,19.5,-117,22.35,2.85,1.146
-1070,D'Andre Swift,CHI,WAS,BetRivers,Rec Yds,Under,19.5,-114,22.35,2.85,1.146
-1071,Olamide Zaccheaus,CHI,WAS,BetRivers,Rec Yds,Over,26.5,-117,30.74,4.24,1.16
-1072,Olamide Zaccheaus,CHI,WAS,BetRivers,Rec Yds,Under,26.5,-114,30.74,4.24,1.16
-1073,Jacory Croskey-Merritt,WAS,CHI,BetRivers,Rec Yds,Over,9.5,-118,14.13,4.63,1.487
-1074,Jacory Croskey-Merritt,WAS,CHI,BetRivers,Rec Yds,Under,9.5,-113,14.13,4.63,1.487
-1075,Rome Odunze,CHI,WAS,BetRivers,Rec Yds,Over,67.5,-117,65.1,-2.4,0.964
-1076,Rome Odunze,CHI,WAS,BetRivers,Rec Yds,Under,67.5,-114,65.1,-2.4,0.964
-1077,D'Andre Swift,CHI,WAS,Bovada,Rec Yds,Over,18.5,-115,22.35,3.85,1.208
-1078,D'Andre Swift,CHI,WAS,Bovada,Rec Yds,Under,18.5,-115,22.35,3.85,1.208
-1079,Deebo Samuel,WAS,CHI,Bovada,Rec Yds,Over,58.5,-105,70.79,12.29,1.21
-1080,Deebo Samuel,WAS,CHI,Bovada,Rec Yds,Under,58.5,-125,70.79,12.29,1.21
-1081,DJ Moore,CHI,WAS,Bovada,Rec Yds,Over,39.5,-115,41.3,1.8,1.046
-1082,DJ Moore,CHI,WAS,Bovada,Rec Yds,Under,39.5,-115,41.3,1.8,1.046
-1083,Jacory Croskey-Merritt,WAS,CHI,Bovada,Rec Yds,Over,8.5,-135,14.13,5.63,1.662
-1084,Jacory Croskey-Merritt,WAS,CHI,Bovada,Rec Yds,Under,8.5,105,14.13,5.63,1.662
-1085,Olamide Zaccheaus,CHI,WAS,Bovada,Rec Yds,Over,27.5,105,30.74,3.24,1.118
-1086,Olamide Zaccheaus,CHI,WAS,Bovada,Rec Yds,Under,27.5,-135,30.74,3.24,1.118
-1087,Rome Odunze,CHI,WAS,Bovada,Rec Yds,Over,66.5,-110,65.1,-1.4,0.979
-1088,Rome Odunze,CHI,WAS,Bovada,Rec Yds,Under,66.5,-120,65.1,-1.4,0.979
-1089,Zach Ertz,WAS,CHI,Bovada,Rec Yds,Over,29.5,-120,32.71,3.21,1.109
-1090,Zach Ertz,WAS,CHI,Bovada,Rec Yds,Under,29.5,-110,32.71,3.21,1.109
-1091,Olamide Zaccheaus,CHI,WAS,BetMGM,Rec Yds,Over,26.5,-118,30.74,4.24,1.16
-1092,Olamide Zaccheaus,CHI,WAS,BetMGM,Rec Yds,Under,26.5,-110,30.74,4.24,1.16
-1093,Rome Odunze,CHI,WAS,BetMGM,Rec Yds,Over,67.5,-110,65.1,-2.4,0.964
-1094,Rome Odunze,CHI,WAS,BetMGM,Rec Yds,Under,67.5,-118,65.1,-2.4,0.964
-1095,Jacory Croskey-Merritt,WAS,CHI,BetMGM,Rec Yds,Over,9.5,-110,14.13,4.63,1.487
-1096,Jacory Croskey-Merritt,WAS,CHI,BetMGM,Rec Yds,Under,9.5,-118,14.13,4.63,1.487
-1097,D'Andre Swift,CHI,WAS,BetMGM,Rec Yds,Over,17.5,-110,22.35,4.85,1.277
-1098,D'Andre Swift,CHI,WAS,BetMGM,Rec Yds,Under,17.5,-118,22.35,4.85,1.277
-1099,DJ Moore,CHI,WAS,BetMGM,Rec Yds,Over,38.5,-118,41.3,2.8,1.073
-1100,DJ Moore,CHI,WAS,BetMGM,Rec Yds,Under,38.5,-115,41.3,2.8,1.073
-1101,Deebo Samuel,WAS,CHI,BetMGM,Rec Yds,Over,58.5,-115,70.79,12.29,1.21
-1102,Deebo Samuel,WAS,CHI,BetMGM,Rec Yds,Under,58.5,-115,70.79,12.29,1.21
-1103,Zach Ertz,WAS,CHI,BetMGM,Rec Yds,Over,31.5,-125,32.71,1.21,1.038
-1104,Zach Ertz,WAS,CHI,BetMGM,Rec Yds,Under,31.5,-105,32.71,1.21,1.038
-1105,Luther Burden,CHI,WAS,BetMGM,Rec Yds,Over,18.5,-118,17.44,-1.06,0.943
-1106,Luther Burden,CHI,WAS,BetMGM,Rec Yds,Under,18.5,-115,17.44,-1.06,0.943
-1107,Cole Kmet,CHI,WAS,BetMGM,Rec Yds,Over,18.5,-110,25.59,7.09,1.383
-1108,Cole Kmet,CHI,WAS,BetMGM,Rec Yds,Under,18.5,-118,25.59,7.09,1.383
-1109,Jaylin Lane,WAS,CHI,BetMGM,Rec Yds,Over,19.5,-110,23.81,4.31,1.221
-1110,Jaylin Lane,WAS,CHI,BetMGM,Rec Yds,Under,19.5,-120,23.81,4.31,1.221
-1111,Chris Moore,WAS,CHI,BetMGM,Rec Yds,Over,21.5,-115,26.23,4.73,1.22
-1112,Chris Moore,WAS,CHI,BetMGM,Rec Yds,Under,21.5,-115,26.23,4.73,1.22
-1113,Jeremy McNichols,WAS,CHI,BetMGM,Rec Yds,Over,11.5,-115,10.74,-0.76,0.934
-1114,Jeremy McNichols,WAS,CHI,BetMGM,Rec Yds,Under,11.5,-118,10.74,-0.76,0.934
-1115,John Bates,WAS,CHI,BetMGM,Rec Yds,Over,2.5,-110,5.95,3.45,2.38
-1116,John Bates,WAS,CHI,BetMGM,Rec Yds,Under,2.5,-118,5.95,3.45,2.38
-1117,Luke McCaffrey,WAS,CHI,BetMGM,Rec Yds,Over,28.5,-110,26.57,-1.93,0.932
-1118,Luke McCaffrey,WAS,CHI,BetMGM,Rec Yds,Under,28.5,-118,26.57,-1.93,0.932
-1119,Colston Loveland,CHI,WAS,BetMGM,Rec Yds,Over,18.5,-110,19.57,1.07,1.058
-1120,Colston Loveland,CHI,WAS,BetMGM,Rec Yds,Under,18.5,-118,19.57,1.07,1.058
-1121,Olamide Zaccheaus,CHI,WAS,Fanatics,Rec Yds,Over,25.5,-115,30.74,5.24,1.205
-1122,Olamide Zaccheaus,CHI,WAS,Fanatics,Rec Yds,Under,25.5,-115,30.74,5.24,1.205
-1123,DJ Moore,CHI,WAS,Fanatics,Rec Yds,Over,40.5,-105,41.3,0.8,1.02
-1124,DJ Moore,CHI,WAS,Fanatics,Rec Yds,Under,40.5,-125,41.3,0.8,1.02
-1125,D'Andre Swift,CHI,WAS,Fanatics,Rec Yds,Over,15.5,-140,22.35,6.85,1.442
-1126,D'Andre Swift,CHI,WAS,Fanatics,Rec Yds,Under,15.5,105,22.35,6.85,1.442
-1127,Rome Odunze,CHI,WAS,Fanatics,Rec Yds,Over,65.5,-115,65.1,-0.4,0.994
-1128,Rome Odunze,CHI,WAS,Fanatics,Rec Yds,Under,65.5,-115,65.1,-0.4,0.994
-1129,Jacory Croskey-Merritt,WAS,CHI,Fanatics,Rec Yds,Over,10.5,-105,14.13,3.63,1.346
-1130,Jacory Croskey-Merritt,WAS,CHI,Fanatics,Rec Yds,Under,10.5,-125,14.13,3.63,1.346
-1131,Zach Ertz,WAS,CHI,Fanatics,Rec Yds,Over,30.5,-110,32.71,2.21,1.072
-1132,Zach Ertz,WAS,CHI,Fanatics,Rec Yds,Under,30.5,-120,32.71,2.21,1.072
-1133,Deebo Samuel,WAS,CHI,Fanatics,Rec Yds,Over,55.5,-125,70.79,15.29,1.275
-1134,Deebo Samuel,WAS,CHI,Fanatics,Rec Yds,Under,55.5,-105,70.79,15.29,1.275
-1135,Luther Burden,CHI,WAS,Fanatics,Rec Yds,Over,15.5,-140,17.44,1.94,1.125
-1136,Luther Burden,CHI,WAS,Fanatics,Rec Yds,Under,15.5,105,17.44,1.94,1.125
-1137,John Bates,WAS,CHI,Fanatics,Rec Yds,Over,10.5,125,5.95,-4.55,0.567
-1138,John Bates,WAS,CHI,Fanatics,Rec Yds,Under,10.5,-170,5.95,-4.55,0.567
-1139,Chris Moore,WAS,CHI,Fanatics,Rec Yds,Over,20.5,-115,26.23,5.73,1.28
-1140,Chris Moore,WAS,CHI,Fanatics,Rec Yds,Under,20.5,-115,26.23,5.73,1.28
-1141,Jaylin Lane,WAS,CHI,Fanatics,Rec Yds,Over,15.5,-140,23.81,8.31,1.536
-1142,Jaylin Lane,WAS,CHI,Fanatics,Rec Yds,Under,15.5,105,23.81,8.31,1.536
-1143,Luke McCaffrey,WAS,CHI,Fanatics,Rec Yds,Over,30.5,100,26.57,-3.93,0.871
-1144,Luke McCaffrey,WAS,CHI,Fanatics,Rec Yds,Under,30.5,-135,26.57,-3.93,0.871
-1145,Cole Kmet,CHI,WAS,Fanatics,Rec Yds,Over,15.5,-140,25.59,10.09,1.651
-1146,Cole Kmet,CHI,WAS,Fanatics,Rec Yds,Under,15.5,105,25.59,10.09,1.651
-1147,Jeremy McNichols,WAS,CHI,Fanatics,Rec Yds,Over,10.5,-115,10.74,0.24,1.023
-1148,Jeremy McNichols,WAS,CHI,Fanatics,Rec Yds,Under,10.5,-115,10.74,0.24,1.023
-1149,Colston Loveland,CHI,WAS,Fanatics,Rec Yds,Over,20.5,100,19.57,-0.93,0.955
-1150,Colston Loveland,CHI,WAS,Fanatics,Rec Yds,Under,20.5,-135,19.57,-0.93,0.955
+0,Joe Flacco,CIN,PIT,DraftKings,Pass Comp,Over,23.5,-118,26.0,2.5,1.106
+1,Joe Flacco,CIN,PIT,DraftKings,Pass Comp,Under,23.5,-108,26.0,2.5,1.106
+2,Aaron Rodgers,PIT,CIN,DraftKings,Pass Comp,Over,20.5,-117,20.0,-0.5,0.976
+3,Aaron Rodgers,PIT,CIN,DraftKings,Pass Comp,Under,20.5,-109,20.0,-0.5,0.976
+4,Aaron Rodgers,PIT,CIN,BetMGM,Pass Comp,Over,20.5,-140,20.0,-0.5,0.976
+5,Aaron Rodgers,PIT,CIN,BetMGM,Pass Comp,Under,20.5,105,20.0,-0.5,0.976
+6,Joe Flacco,CIN,PIT,BetMGM,Pass Comp,Over,23.5,-120,26.0,2.5,1.106
+7,Joe Flacco,CIN,PIT,BetMGM,Pass Comp,Under,23.5,-110,26.0,2.5,1.106
+8,Joe Flacco,CIN,PIT,FanDuel,Pass Comp,Over,22.5,-130,26.0,3.5,1.156
+9,Joe Flacco,CIN,PIT,FanDuel,Pass Comp,Under,22.5,-102,26.0,3.5,1.156
+10,Aaron Rodgers,PIT,CIN,FanDuel,Pass Comp,Over,20.5,-114,20.0,-0.5,0.976
+11,Aaron Rodgers,PIT,CIN,FanDuel,Pass Comp,Under,20.5,-114,20.0,-0.5,0.976
+12,Aaron Rodgers,PIT,CIN,BetOnline.ag,Pass Comp,Under,20.5,-105,20.0,-0.5,0.976
+13,Aaron Rodgers,PIT,CIN,BetOnline.ag,Pass Comp,Over,20.5,-123,20.0,-0.5,0.976
+14,Joe Flacco,CIN,PIT,BetOnline.ag,Pass Comp,Under,23.5,-118,26.0,2.5,1.106
+15,Joe Flacco,CIN,PIT,BetOnline.ag,Pass Comp,Over,23.5,-110,26.0,2.5,1.106
+16,Aaron Rodgers,PIT,CIN,BetRivers,Pass Comp,Over,20.5,-108,20.0,-0.5,0.976
+17,Aaron Rodgers,PIT,CIN,BetRivers,Pass Comp,Under,20.5,-124,20.0,-0.5,0.976
+18,Joe Flacco,CIN,PIT,BetRivers,Pass Comp,Over,22.5,-122,26.0,3.5,1.156
+19,Joe Flacco,CIN,PIT,BetRivers,Pass Comp,Under,22.5,-109,26.0,3.5,1.156
+20,Aaron Rodgers,PIT,CIN,Bovada,Pass Comp,Over,20.5,-125,20.0,-0.5,0.976
+21,Aaron Rodgers,PIT,CIN,Bovada,Pass Comp,Under,20.5,-105,20.0,-0.5,0.976
+22,Joe Flacco,CIN,PIT,Bovada,Pass Comp,Over,22.5,-145,26.0,3.5,1.156
+23,Joe Flacco,CIN,PIT,Bovada,Pass Comp,Under,22.5,110,26.0,3.5,1.156
+24,Joe Flacco,CIN,PIT,Fanatics,Pass Comp,Over,23.5,-110,26.0,2.5,1.106
+25,Joe Flacco,CIN,PIT,Fanatics,Pass Comp,Under,23.5,-120,26.0,2.5,1.106
+26,Aaron Rodgers,PIT,CIN,Fanatics,Pass Comp,Over,20.5,-115,20.0,-0.5,0.976
+27,Aaron Rodgers,PIT,CIN,Fanatics,Pass Comp,Under,20.5,-115,20.0,-0.5,0.976
+28,Joe Flacco,CIN,PIT,DraftKings,Pass Att,Over,36.5,-106,40.26,3.76,1.103
+29,Joe Flacco,CIN,PIT,DraftKings,Pass Att,Under,36.5,-120,40.26,3.76,1.103
+30,Aaron Rodgers,PIT,CIN,DraftKings,Pass Att,Over,29.5,-118,30.58,1.08,1.037
+31,Aaron Rodgers,PIT,CIN,DraftKings,Pass Att,Under,29.5,-108,30.58,1.08,1.037
+32,Joe Flacco,CIN,PIT,BetMGM,Pass Att,Over,37.5,105,40.26,2.76,1.074
+33,Joe Flacco,CIN,PIT,BetMGM,Pass Att,Under,37.5,-140,40.26,2.76,1.074
+34,Aaron Rodgers,PIT,CIN,BetMGM,Pass Att,Over,30.5,-120,30.58,0.08,1.003
+35,Aaron Rodgers,PIT,CIN,BetMGM,Pass Att,Under,30.5,-110,30.58,0.08,1.003
+36,Joe Flacco,CIN,PIT,FanDuel,Pass Att,Over,36.5,-114,40.26,3.76,1.103
+37,Joe Flacco,CIN,PIT,FanDuel,Pass Att,Under,36.5,-114,40.26,3.76,1.103
+38,Aaron Rodgers,PIT,CIN,FanDuel,Pass Att,Over,29.5,-114,30.58,1.08,1.037
+39,Aaron Rodgers,PIT,CIN,FanDuel,Pass Att,Under,29.5,-114,30.58,1.08,1.037
+40,Aaron Rodgers,PIT,CIN,BetOnline.ag,Pass Att,Under,29.5,-106,30.58,1.08,1.037
+41,Aaron Rodgers,PIT,CIN,BetOnline.ag,Pass Att,Over,29.5,-122,30.58,1.08,1.037
+42,Joe Flacco,CIN,PIT,BetOnline.ag,Pass Att,Over,36.5,-119,40.26,3.76,1.103
+43,Joe Flacco,CIN,PIT,BetOnline.ag,Pass Att,Under,36.5,-109,40.26,3.76,1.103
+44,Joe Flacco,CIN,PIT,BetRivers,Pass Att,Over,35.5,-114,40.26,4.76,1.134
+45,Joe Flacco,CIN,PIT,BetRivers,Pass Att,Under,35.5,-117,40.26,4.76,1.134
+46,Aaron Rodgers,PIT,CIN,BetRivers,Pass Att,Over,29.5,-112,30.58,1.08,1.037
+47,Aaron Rodgers,PIT,CIN,BetRivers,Pass Att,Under,29.5,-120,30.58,1.08,1.037
+48,Aaron Rodgers,PIT,CIN,Bovada,Pass Att,Over,29.5,-125,30.58,1.08,1.037
+49,Aaron Rodgers,PIT,CIN,Bovada,Pass Att,Under,29.5,-105,30.58,1.08,1.037
+50,Joe Flacco,CIN,PIT,Bovada,Pass Att,Over,36.5,-125,40.26,3.76,1.103
+51,Joe Flacco,CIN,PIT,Bovada,Pass Att,Under,36.5,-105,40.26,3.76,1.103
+52,Joe Flacco,CIN,PIT,Fanatics,Pass Att,Over,35.5,-115,40.26,4.76,1.134
+53,Joe Flacco,CIN,PIT,Fanatics,Pass Att,Under,35.5,-115,40.26,4.76,1.134
+54,Aaron Rodgers,PIT,CIN,Fanatics,Pass Att,Over,29.5,-105,30.58,1.08,1.037
+55,Aaron Rodgers,PIT,CIN,Fanatics,Pass Att,Under,29.5,-125,30.58,1.08,1.037
+56,Joe Flacco,CIN,PIT,DraftKings,Pass Yards,Over,236.5,-111,221.88,-14.62,0.938
+57,Joe Flacco,CIN,PIT,DraftKings,Pass Yards,Under,236.5,-113,221.88,-14.62,0.938
+58,Aaron Rodgers,PIT,CIN,DraftKings,Pass Yards,Over,216.5,-112,223.58,7.08,1.033
+59,Aaron Rodgers,PIT,CIN,DraftKings,Pass Yards,Under,216.5,-112,223.58,7.08,1.033
+60,Joe Flacco,CIN,PIT,BetMGM,Pass Yards,Over,233.5,-115,221.88,-11.62,0.95
+61,Joe Flacco,CIN,PIT,BetMGM,Pass Yards,Under,233.5,-115,221.88,-11.62,0.95
+62,Aaron Rodgers,PIT,CIN,BetMGM,Pass Yards,Over,218.5,-115,223.58,5.08,1.023
+63,Aaron Rodgers,PIT,CIN,BetMGM,Pass Yards,Under,218.5,-115,223.58,5.08,1.023
+64,Aaron Rodgers,PIT,CIN,Caesars,Pass Yards,Over,217.5,-115,223.58,6.08,1.028
+65,Aaron Rodgers,PIT,CIN,Caesars,Pass Yards,Under,217.5,-115,223.58,6.08,1.028
+66,Joe Flacco,CIN,PIT,Caesars,Pass Yards,Over,237.5,-115,221.88,-15.62,0.934
+67,Joe Flacco,CIN,PIT,Caesars,Pass Yards,Under,237.5,-117,221.88,-15.62,0.934
+68,Joe Flacco,CIN,PIT,FanDuel,Pass Yards,Over,238.5,-114,221.88,-16.62,0.93
+69,Joe Flacco,CIN,PIT,FanDuel,Pass Yards,Under,238.5,-114,221.88,-16.62,0.93
+70,Aaron Rodgers,PIT,CIN,FanDuel,Pass Yards,Over,216.5,-114,223.58,7.08,1.033
+71,Aaron Rodgers,PIT,CIN,FanDuel,Pass Yards,Under,216.5,-114,223.58,7.08,1.033
+72,Aaron Rodgers,PIT,CIN,BetOnline.ag,Pass Yards,Over,216.5,-122,223.58,7.08,1.033
+73,Aaron Rodgers,PIT,CIN,BetOnline.ag,Pass Yards,Under,216.5,-106,223.58,7.08,1.033
+74,Joe Flacco,CIN,PIT,BetOnline.ag,Pass Yards,Under,234.5,-101,221.88,-12.62,0.946
+75,Joe Flacco,CIN,PIT,BetOnline.ag,Pass Yards,Over,234.5,-128,221.88,-12.62,0.946
+76,Joe Flacco,CIN,PIT,BetRivers,Pass Yards,Over,241.5,-115,221.88,-19.62,0.919
+77,Joe Flacco,CIN,PIT,BetRivers,Pass Yards,Under,241.5,-115,221.88,-19.62,0.919
+78,Aaron Rodgers,PIT,CIN,BetRivers,Pass Yards,Over,216.5,-114,223.58,7.08,1.033
+79,Aaron Rodgers,PIT,CIN,BetRivers,Pass Yards,Under,216.5,-115,223.58,7.08,1.033
+80,Aaron Rodgers,PIT,CIN,Bovada,Pass Yards,Over,216.5,-125,223.58,7.08,1.033
+81,Aaron Rodgers,PIT,CIN,Bovada,Pass Yards,Under,216.5,-105,223.58,7.08,1.033
+82,Joe Flacco,CIN,PIT,Bovada,Pass Yards,Over,234.5,-125,221.88,-12.62,0.946
+83,Joe Flacco,CIN,PIT,Bovada,Pass Yards,Under,234.5,-105,221.88,-12.62,0.946
+84,Joe Flacco,CIN,PIT,Fanatics,Pass Yards,Over,235.5,-115,221.88,-13.62,0.942
+85,Joe Flacco,CIN,PIT,Fanatics,Pass Yards,Under,235.5,-115,221.88,-13.62,0.942
+86,Aaron Rodgers,PIT,CIN,Fanatics,Pass Yards,Over,215.5,-115,223.58,8.08,1.037
+87,Aaron Rodgers,PIT,CIN,Fanatics,Pass Yards,Under,215.5,-115,223.58,8.08,1.037
+88,Aaron Rodgers,PIT,CIN,DraftKings,Int,Over,0.5,125,0.72,0.22,1.44
+89,Aaron Rodgers,PIT,CIN,DraftKings,Int,Under,0.5,-160,0.72,0.22,1.44
+90,Joe Flacco,CIN,PIT,DraftKings,Int,Over,0.5,-161,1.25,0.75,2.5
+91,Joe Flacco,CIN,PIT,DraftKings,Int,Under,0.5,126,1.25,0.75,2.5
+92,Aaron Rodgers,PIT,CIN,BetMGM,Int,Over,0.5,125,0.72,0.22,1.44
+93,Aaron Rodgers,PIT,CIN,BetMGM,Int,Under,0.5,-165,0.72,0.22,1.44
+94,Joe Flacco,CIN,PIT,BetMGM,Int,Over,0.5,-175,1.25,0.75,2.5
+95,Joe Flacco,CIN,PIT,BetMGM,Int,Under,0.5,130,1.25,0.75,2.5
+96,Aaron Rodgers,PIT,CIN,BetOnline.ag,Int,Over,0.5,122,0.72,0.22,1.44
+97,Aaron Rodgers,PIT,CIN,BetOnline.ag,Int,Under,0.5,-159,0.72,0.22,1.44
+98,Joe Flacco,CIN,PIT,BetRivers,Int,Over,0.5,-159,1.25,0.75,2.5
+99,Joe Flacco,CIN,PIT,BetRivers,Int,Under,0.5,118,1.25,0.75,2.5
+100,Aaron Rodgers,PIT,CIN,BetRivers,Int,Over,0.5,128,0.72,0.22,1.44
+101,Aaron Rodgers,PIT,CIN,BetRivers,Int,Under,0.5,-175,0.72,0.22,1.44
+102,Aaron Rodgers,PIT,CIN,DraftKings,Pass TD,Over,1.5,-132,1.51,0.01,1.007
+103,Aaron Rodgers,PIT,CIN,DraftKings,Pass TD,Under,1.5,103,1.51,0.01,1.007
+104,Joe Flacco,CIN,PIT,DraftKings,Pass TD,Over,1.5,149,1.27,-0.23,0.847
+105,Joe Flacco,CIN,PIT,DraftKings,Pass TD,Under,1.5,-192,1.27,-0.23,0.847
+106,Aaron Rodgers,PIT,CIN,BetMGM,Pass TD,Over,1.5,-140,1.51,0.01,1.007
+107,Aaron Rodgers,PIT,CIN,BetMGM,Pass TD,Under,1.5,105,1.51,0.01,1.007
+108,Joe Flacco,CIN,PIT,BetMGM,Pass TD,Over,1.5,145,1.27,-0.23,0.847
+109,Joe Flacco,CIN,PIT,BetMGM,Pass TD,Under,1.5,-200,1.27,-0.23,0.847
+110,Aaron Rodgers,PIT,CIN,Caesars,Pass TD,Over,1.5,-132,1.51,0.01,1.007
+111,Aaron Rodgers,PIT,CIN,Caesars,Pass TD,Under,1.5,-102,1.51,0.01,1.007
+112,Joe Flacco,CIN,PIT,Caesars,Pass TD,Over,1.5,145,1.27,-0.23,0.847
+113,Joe Flacco,CIN,PIT,Caesars,Pass TD,Under,1.5,-197,1.27,-0.23,0.847
+114,Joe Flacco,CIN,PIT,FanDuel,Pass TD,Over,1.5,152,1.27,-0.23,0.847
+115,Joe Flacco,CIN,PIT,FanDuel,Pass TD,Under,1.5,-205,1.27,-0.23,0.847
+116,Aaron Rodgers,PIT,CIN,FanDuel,Pass TD,Over,1.5,-130,1.51,0.01,1.007
+117,Aaron Rodgers,PIT,CIN,FanDuel,Pass TD,Under,1.5,-102,1.51,0.01,1.007
+118,Joe Flacco,CIN,PIT,BetOnline.ag,Pass TD,Over,1.5,149,1.27,-0.23,0.847
+119,Joe Flacco,CIN,PIT,BetOnline.ag,Pass TD,Under,1.5,-196,1.27,-0.23,0.847
+120,Aaron Rodgers,PIT,CIN,BetOnline.ag,Pass TD,Over,1.5,-143,1.51,0.01,1.007
+121,Aaron Rodgers,PIT,CIN,BetOnline.ag,Pass TD,Under,1.5,110,1.51,0.01,1.007
+122,Joe Flacco,CIN,PIT,BetRivers,Pass TD,Over,1.5,150,1.27,-0.23,0.847
+123,Joe Flacco,CIN,PIT,BetRivers,Pass TD,Under,1.5,-200,1.27,-0.23,0.847
+124,Aaron Rodgers,PIT,CIN,BetRivers,Pass TD,Over,1.5,-137,1.51,0.01,1.007
+125,Aaron Rodgers,PIT,CIN,BetRivers,Pass TD,Under,1.5,104,1.51,0.01,1.007
+126,Joe Flacco,CIN,PIT,Fanatics,Pass TD,Over,1.5,140,1.27,-0.23,0.847
+127,Joe Flacco,CIN,PIT,Fanatics,Pass TD,Under,1.5,-180,1.27,-0.23,0.847
+128,Aaron Rodgers,PIT,CIN,Fanatics,Pass TD,Over,1.5,-145,1.51,0.01,1.007
+129,Aaron Rodgers,PIT,CIN,Fanatics,Pass TD,Under,1.5,110,1.51,0.01,1.007
+130,Jaylen Warren,PIT,CIN,DraftKings,Rush Att,Over,13.5,-116,14.32,0.82,1.061
+131,Jaylen Warren,PIT,CIN,DraftKings,Rush Att,Under,13.5,-110,14.32,0.82,1.061
+132,Chase Brown,CIN,PIT,DraftKings,Rush Att,Over,13.5,104,11.86,-1.64,0.879
+133,Chase Brown,CIN,PIT,DraftKings,Rush Att,Under,13.5,-133,11.86,-1.64,0.879
+134,Kenneth Gainwell,PIT,CIN,BetMGM,Rush Att,Over,6.5,-118,6.67,0.17,1.026
+135,Kenneth Gainwell,PIT,CIN,BetMGM,Rush Att,Under,6.5,-110,6.67,0.17,1.026
+136,Jaylen Warren,PIT,CIN,BetMGM,Rush Att,Over,14.5,120,14.32,-0.18,0.988
+137,Jaylen Warren,PIT,CIN,BetMGM,Rush Att,Under,14.5,-160,14.32,-0.18,0.988
+138,Chase Brown,CIN,PIT,BetMGM,Rush Att,Over,13.5,-110,11.86,-1.64,0.879
+139,Chase Brown,CIN,PIT,BetMGM,Rush Att,Under,13.5,-120,11.86,-1.64,0.879
+140,Chase Brown,CIN,PIT,FanDuel,Rush Att,Over,13.5,-114,11.86,-1.64,0.879
+141,Chase Brown,CIN,PIT,FanDuel,Rush Att,Under,13.5,-114,11.86,-1.64,0.879
+142,Jaylen Warren,PIT,CIN,FanDuel,Rush Att,Over,13.5,-128,14.32,0.82,1.061
+143,Jaylen Warren,PIT,CIN,FanDuel,Rush Att,Under,13.5,-104,14.32,0.82,1.061
+144,Jaylen Warren,PIT,CIN,BetOnline.ag,Rush Att,Over,13.5,-120,14.32,0.82,1.061
+145,Jaylen Warren,PIT,CIN,BetOnline.ag,Rush Att,Under,13.5,-108,14.32,0.82,1.061
+146,Chase Brown,CIN,PIT,BetOnline.ag,Rush Att,Under,12.5,100,11.86,-0.64,0.949
+147,Chase Brown,CIN,PIT,BetOnline.ag,Rush Att,Over,12.5,-130,11.86,-0.64,0.949
+148,Chase Brown,CIN,PIT,BetRivers,Rush Att,Over,13.5,-118,11.86,-1.64,0.879
+149,Chase Brown,CIN,PIT,BetRivers,Rush Att,Under,13.5,-113,11.86,-1.64,0.879
+150,Jaylen Warren,PIT,CIN,BetRivers,Rush Att,Over,13.5,-121,14.32,0.82,1.061
+151,Jaylen Warren,PIT,CIN,BetRivers,Rush Att,Under,13.5,-110,14.32,0.82,1.061
+152,Chase Brown,CIN,PIT,Bovada,Rush Att,Over,13.5,100,11.86,-1.64,0.879
+153,Chase Brown,CIN,PIT,Bovada,Rush Att,Under,13.5,-130,11.86,-1.64,0.879
+154,Chase Brown,CIN,PIT,Fanatics,Rush Att,Over,13.5,100,11.86,-1.64,0.879
+155,Chase Brown,CIN,PIT,Fanatics,Rush Att,Under,13.5,-135,11.86,-1.64,0.879
+156,Jaylen Warren,PIT,CIN,Fanatics,Rush Att,Over,13.5,-115,14.32,0.82,1.061
+157,Jaylen Warren,PIT,CIN,Fanatics,Rush Att,Under,13.5,-115,14.32,0.82,1.061
+158,Jaylen Warren,PIT,CIN,DraftKings,Rush Yds,Over,49.5,-113,55.97,6.47,1.131
+159,Jaylen Warren,PIT,CIN,DraftKings,Rush Yds,Under,49.5,-111,55.97,6.47,1.131
+160,Chase Brown,CIN,PIT,DraftKings,Rush Yds,Over,44.5,-109,42.28,-2.22,0.95
+161,Chase Brown,CIN,PIT,DraftKings,Rush Yds,Under,44.5,-115,42.28,-2.22,0.95
+162,Kenneth Gainwell,PIT,CIN,DraftKings,Rush Yds,Over,23.5,-113,27.85,4.35,1.185
+163,Kenneth Gainwell,PIT,CIN,DraftKings,Rush Yds,Under,23.5,-111,27.85,4.35,1.185
+164,Kenneth Gainwell,PIT,CIN,BetMGM,Rush Yds,Over,24.5,-115,27.85,3.35,1.137
+165,Kenneth Gainwell,PIT,CIN,BetMGM,Rush Yds,Under,24.5,-115,27.85,3.35,1.137
+166,Chase Brown,CIN,PIT,BetMGM,Rush Yds,Over,45.5,-110,42.28,-3.22,0.929
+167,Chase Brown,CIN,PIT,BetMGM,Rush Yds,Under,45.5,-118,42.28,-3.22,0.929
+168,Jaylen Warren,PIT,CIN,BetMGM,Rush Yds,Over,53.5,-115,55.97,2.47,1.046
+169,Jaylen Warren,PIT,CIN,BetMGM,Rush Yds,Under,53.5,-115,55.97,2.47,1.046
+170,Kenneth Gainwell,PIT,CIN,Caesars,Rush Yds,Over,23.5,-120,27.85,4.35,1.185
+171,Kenneth Gainwell,PIT,CIN,Caesars,Rush Yds,Under,23.5,-112,27.85,4.35,1.185
+172,Jaylen Warren,PIT,CIN,Caesars,Rush Yds,Over,49.5,-120,55.97,6.47,1.131
+173,Jaylen Warren,PIT,CIN,Caesars,Rush Yds,Under,49.5,-113,55.97,6.47,1.131
+174,Chase Brown,CIN,PIT,Caesars,Rush Yds,Over,44.5,-117,42.28,-2.22,0.95
+175,Chase Brown,CIN,PIT,Caesars,Rush Yds,Under,44.5,-114,42.28,-2.22,0.95
+176,Chase Brown,CIN,PIT,FanDuel,Rush Yds,Over,44.5,-114,42.28,-2.22,0.95
+177,Chase Brown,CIN,PIT,FanDuel,Rush Yds,Under,44.5,-114,42.28,-2.22,0.95
+178,Jaylen Warren,PIT,CIN,FanDuel,Rush Yds,Over,48.5,-114,55.97,7.47,1.154
+179,Jaylen Warren,PIT,CIN,FanDuel,Rush Yds,Under,48.5,-114,55.97,7.47,1.154
+180,Kenneth Gainwell,PIT,CIN,FanDuel,Rush Yds,Over,23.5,-114,27.85,4.35,1.185
+181,Kenneth Gainwell,PIT,CIN,FanDuel,Rush Yds,Under,23.5,-114,27.85,4.35,1.185
+182,Jaylen Warren,PIT,CIN,BetOnline.ag,Rush Yds,Under,50.5,-120,55.97,5.47,1.108
+183,Jaylen Warren,PIT,CIN,BetOnline.ag,Rush Yds,Over,50.5,-108,55.97,5.47,1.108
+184,Kenneth Gainwell,PIT,CIN,BetOnline.ag,Rush Yds,Under,23.5,-116,27.85,4.35,1.185
+185,Kenneth Gainwell,PIT,CIN,BetOnline.ag,Rush Yds,Over,23.5,-111,27.85,4.35,1.185
+186,Chase Brown,CIN,PIT,BetOnline.ag,Rush Yds,Over,44.5,-115,42.28,-2.22,0.95
+187,Chase Brown,CIN,PIT,BetOnline.ag,Rush Yds,Under,44.5,-112,42.28,-2.22,0.95
+188,Kenneth Gainwell,PIT,CIN,BetRivers,Rush Yds,Over,23.5,-118,27.85,4.35,1.185
+189,Kenneth Gainwell,PIT,CIN,BetRivers,Rush Yds,Under,23.5,-113,27.85,4.35,1.185
+190,Jaylen Warren,PIT,CIN,BetRivers,Rush Yds,Over,51.5,-117,55.97,4.47,1.087
+191,Jaylen Warren,PIT,CIN,BetRivers,Rush Yds,Under,51.5,-114,55.97,4.47,1.087
+192,Chase Brown,CIN,PIT,BetRivers,Rush Yds,Over,43.5,-113,42.28,-1.22,0.972
+193,Chase Brown,CIN,PIT,BetRivers,Rush Yds,Under,43.5,-118,42.28,-1.22,0.972
+194,Chase Brown,CIN,PIT,Bovada,Rush Yds,Over,42.5,-125,42.28,-0.22,0.995
+195,Chase Brown,CIN,PIT,Bovada,Rush Yds,Under,42.5,-105,42.28,-0.22,0.995
+196,Jaylen Warren,PIT,CIN,Bovada,Rush Yds,Over,50.5,-105,55.97,5.47,1.108
+197,Jaylen Warren,PIT,CIN,Bovada,Rush Yds,Under,50.5,-125,55.97,5.47,1.108
+198,Kenneth Gainwell,PIT,CIN,Bovada,Rush Yds,Over,23.5,-105,27.85,4.35,1.185
+199,Kenneth Gainwell,PIT,CIN,Bovada,Rush Yds,Under,23.5,-125,27.85,4.35,1.185
+200,Chase Brown,CIN,PIT,Fanatics,Rush Yds,Over,45.5,-105,42.28,-3.22,0.929
+201,Chase Brown,CIN,PIT,Fanatics,Rush Yds,Under,45.5,-125,42.28,-3.22,0.929
+202,Jaylen Warren,PIT,CIN,Fanatics,Rush Yds,Over,50.5,-110,55.97,5.47,1.108
+203,Jaylen Warren,PIT,CIN,Fanatics,Rush Yds,Under,50.5,-120,55.97,5.47,1.108
+204,Kenneth Gainwell,PIT,CIN,Fanatics,Rush Yds,Over,20.5,-150,27.85,7.35,1.359
+205,Kenneth Gainwell,PIT,CIN,Fanatics,Rush Yds,Under,20.5,110,27.85,7.35,1.359
+206,Ja'Marr Chase,CIN,PIT,DraftKings,Rec,Over,6.5,-137,7.3,0.8,1.123
+207,Ja'Marr Chase,CIN,PIT,DraftKings,Rec,Under,6.5,107,7.3,0.8,1.123
+208,Tee Higgins,CIN,PIT,DraftKings,Rec,Over,4.5,120,4.02,-0.48,0.893
+209,Tee Higgins,CIN,PIT,DraftKings,Rec,Under,4.5,-153,4.02,-0.48,0.893
+210,DK Metcalf,PIT,CIN,DraftKings,Rec,Over,4.5,125,4.63,0.13,1.029
+211,DK Metcalf,PIT,CIN,DraftKings,Rec,Under,4.5,-160,4.63,0.13,1.029
+212,Noah Fant,CIN,PIT,DraftKings,Rec,Over,3.5,-107,3.3,-0.2,0.943
+213,Noah Fant,CIN,PIT,DraftKings,Rec,Under,3.5,-119,3.3,-0.2,0.943
+214,Jaylen Warren,PIT,CIN,DraftKings,Rec,Over,3.5,131,3.11,-0.39,0.889
+215,Jaylen Warren,PIT,CIN,DraftKings,Rec,Under,3.5,-168,3.11,-0.39,0.889
+216,Chase Brown,CIN,PIT,DraftKings,Rec,Over,2.5,-153,3.35,0.85,1.34
+217,Chase Brown,CIN,PIT,DraftKings,Rec,Under,2.5,120,3.35,0.85,1.34
+218,Andrei Iosivas,CIN,PIT,DraftKings,Rec,Over,1.5,-106,1.96,0.46,1.307
+219,Andrei Iosivas,CIN,PIT,DraftKings,Rec,Under,1.5,-121,1.96,0.46,1.307
+220,Ja'Marr Chase,CIN,PIT,BetMGM,Rec,Over,6.5,-130,7.3,0.8,1.123
+221,Ja'Marr Chase,CIN,PIT,BetMGM,Rec,Under,6.5,-105,7.3,0.8,1.123
+222,Tee Higgins,CIN,PIT,BetMGM,Rec,Over,4.5,110,4.02,-0.48,0.893
+223,Tee Higgins,CIN,PIT,BetMGM,Rec,Under,4.5,-145,4.02,-0.48,0.893
+224,Andrei Iosivas,CIN,PIT,BetMGM,Rec,Over,1.5,-115,1.96,0.46,1.307
+225,Andrei Iosivas,CIN,PIT,BetMGM,Rec,Under,1.5,-115,1.96,0.46,1.307
+226,Noah Fant,CIN,PIT,BetMGM,Rec,Over,3.5,-105,3.3,-0.2,0.943
+227,Noah Fant,CIN,PIT,BetMGM,Rec,Under,3.5,-125,3.3,-0.2,0.943
+228,Chase Brown,CIN,PIT,BetMGM,Rec,Over,2.5,-185,3.35,0.85,1.34
+229,Chase Brown,CIN,PIT,BetMGM,Rec,Under,2.5,135,3.35,0.85,1.34
+230,Jaylen Warren,PIT,CIN,BetMGM,Rec,Over,3.5,125,3.11,-0.39,0.889
+231,Jaylen Warren,PIT,CIN,BetMGM,Rec,Under,3.5,-165,3.11,-0.39,0.889
+232,DK Metcalf,PIT,CIN,BetMGM,Rec,Over,4.5,120,4.63,0.13,1.029
+233,DK Metcalf,PIT,CIN,BetMGM,Rec,Under,4.5,-160,4.63,0.13,1.029
+234,Kenneth Gainwell,PIT,CIN,BetMGM,Rec,Over,2.5,-130,3.56,1.06,1.424
+235,Kenneth Gainwell,PIT,CIN,BetMGM,Rec,Under,2.5,100,3.56,1.06,1.424
+236,Darnell Washington,PIT,CIN,BetMGM,Rec,Over,2.5,135,2.61,0.11,1.044
+237,Darnell Washington,PIT,CIN,BetMGM,Rec,Under,2.5,-175,2.61,0.11,1.044
+238,Jonnu Smith,PIT,CIN,BetMGM,Rec,Over,3.5,115,3.37,-0.13,0.963
+239,Jonnu Smith,PIT,CIN,BetMGM,Rec,Under,3.5,-155,3.37,-0.13,0.963
+240,Ja'Marr Chase,CIN,PIT,Caesars,Rec,Over,6.5,-137,7.3,0.8,1.123
+241,Ja'Marr Chase,CIN,PIT,Caesars,Rec,Under,6.5,-102,7.3,0.8,1.123
+242,DK Metcalf,PIT,CIN,Caesars,Rec,Over,4.5,120,4.63,0.13,1.029
+243,DK Metcalf,PIT,CIN,Caesars,Rec,Under,4.5,-170,4.63,0.13,1.029
+244,Jaylen Warren,PIT,CIN,Caesars,Rec,Over,3.5,125,3.11,-0.39,0.889
+245,Jaylen Warren,PIT,CIN,Caesars,Rec,Under,3.5,-170,3.11,-0.39,0.889
+246,Noah Fant,CIN,PIT,Caesars,Rec,Over,3.5,-113,3.3,-0.2,0.943
+247,Noah Fant,CIN,PIT,Caesars,Rec,Under,3.5,-120,3.3,-0.2,0.943
+248,Andrei Iosivas,CIN,PIT,Caesars,Rec,Over,1.5,-108,1.96,0.46,1.307
+249,Andrei Iosivas,CIN,PIT,Caesars,Rec,Under,1.5,-125,1.96,0.46,1.307
+250,Tee Higgins,CIN,PIT,Caesars,Rec,Over,4.5,115,4.02,-0.48,0.893
+251,Tee Higgins,CIN,PIT,Caesars,Rec,Under,4.5,-154,4.02,-0.48,0.893
+252,Chase Brown,CIN,PIT,Caesars,Rec,Over,2.5,-170,3.35,0.85,1.34
+253,Chase Brown,CIN,PIT,Caesars,Rec,Under,2.5,125,3.35,0.85,1.34
+254,Noah Fant,CIN,PIT,FanDuel,Rec,Over,3.5,-102,3.3,-0.2,0.943
+255,Noah Fant,CIN,PIT,FanDuel,Rec,Under,3.5,-130,3.3,-0.2,0.943
+256,Andrei Iosivas,CIN,PIT,FanDuel,Rec,Over,1.5,100,1.96,0.46,1.307
+257,Andrei Iosivas,CIN,PIT,FanDuel,Rec,Under,1.5,-132,1.96,0.46,1.307
+258,Ja'Marr Chase,CIN,PIT,FanDuel,Rec,Over,6.5,-130,7.3,0.8,1.123
+259,Ja'Marr Chase,CIN,PIT,FanDuel,Rec,Under,6.5,-102,7.3,0.8,1.123
+260,DK Metcalf,PIT,CIN,FanDuel,Rec,Over,4.5,130,4.63,0.13,1.029
+261,DK Metcalf,PIT,CIN,FanDuel,Rec,Under,4.5,-174,4.63,0.13,1.029
+262,Tee Higgins,CIN,PIT,FanDuel,Rec,Over,4.5,120,4.02,-0.48,0.893
+263,Tee Higgins,CIN,PIT,FanDuel,Rec,Under,4.5,-160,4.02,-0.48,0.893
+264,Chase Brown,CIN,PIT,FanDuel,Rec,Over,2.5,-172,3.35,0.85,1.34
+265,Chase Brown,CIN,PIT,FanDuel,Rec,Under,2.5,128,3.35,0.85,1.34
+266,Ja'Marr Chase,CIN,PIT,BetOnline.ag,Rec,Under,6.5,101,7.3,0.8,1.123
+267,Ja'Marr Chase,CIN,PIT,BetOnline.ag,Rec,Over,6.5,-130,7.3,0.8,1.123
+268,Tee Higgins,CIN,PIT,BetOnline.ag,Rec,Over,4.5,117,4.02,-0.48,0.893
+269,Tee Higgins,CIN,PIT,BetOnline.ag,Rec,Under,4.5,-152,4.02,-0.48,0.893
+270,Chase Brown,CIN,PIT,BetOnline.ag,Rec,Over,2.5,-167,3.35,0.85,1.34
+271,Chase Brown,CIN,PIT,BetOnline.ag,Rec,Under,2.5,128,3.35,0.85,1.34
+272,Andrei Iosivas,CIN,PIT,BetOnline.ag,Rec,Over,1.5,-108,1.96,0.46,1.307
+273,Andrei Iosivas,CIN,PIT,BetOnline.ag,Rec,Under,1.5,-120,1.96,0.46,1.307
+274,Noah Fant,CIN,PIT,BetOnline.ag,Rec,Under,3.5,-125,3.3,-0.2,0.943
+275,Noah Fant,CIN,PIT,BetOnline.ag,Rec,Over,3.5,-103,3.3,-0.2,0.943
+276,DK Metcalf,PIT,CIN,BetOnline.ag,Rec,Over,4.5,128,4.63,0.13,1.029
+277,DK Metcalf,PIT,CIN,BetOnline.ag,Rec,Under,4.5,-167,4.63,0.13,1.029
+278,Chase Brown,CIN,PIT,BetRivers,Rec,Over,2.5,-157,3.35,0.85,1.34
+279,Chase Brown,CIN,PIT,BetRivers,Rec,Under,2.5,118,3.35,0.85,1.34
+280,DK Metcalf,PIT,CIN,BetRivers,Rec,Over,4.5,123,4.63,0.13,1.029
+281,DK Metcalf,PIT,CIN,BetRivers,Rec,Under,4.5,-165,4.63,0.13,1.029
+282,Tee Higgins,CIN,PIT,BetRivers,Rec,Over,4.5,115,4.02,-0.48,0.893
+283,Tee Higgins,CIN,PIT,BetRivers,Rec,Under,4.5,-152,4.02,-0.48,0.893
+284,Andrei Iosivas,CIN,PIT,BetRivers,Rec,Over,1.5,104,1.96,0.46,1.307
+285,Andrei Iosivas,CIN,PIT,BetRivers,Rec,Under,1.5,-137,1.96,0.46,1.307
+286,Noah Fant,CIN,PIT,BetRivers,Rec,Over,3.5,-112,3.3,-0.2,0.943
+287,Noah Fant,CIN,PIT,BetRivers,Rec,Under,3.5,-120,3.3,-0.2,0.943
+288,Ja'Marr Chase,CIN,PIT,BetRivers,Rec,Over,6.5,-129,7.3,0.8,1.123
+289,Ja'Marr Chase,CIN,PIT,BetRivers,Rec,Under,6.5,-104,7.3,0.8,1.123
+290,Andrei Iosivas,CIN,PIT,Bovada,Rec,Over,1.5,-110,1.96,0.46,1.307
+291,Andrei Iosivas,CIN,PIT,Bovada,Rec,Under,1.5,-120,1.96,0.46,1.307
+292,Chase Brown,CIN,PIT,Bovada,Rec,Over,2.5,-170,3.35,0.85,1.34
+293,Chase Brown,CIN,PIT,Bovada,Rec,Under,2.5,130,3.35,0.85,1.34
+294,DK Metcalf,PIT,CIN,Bovada,Rec,Over,4.5,130,4.63,0.13,1.029
+295,DK Metcalf,PIT,CIN,Bovada,Rec,Under,4.5,-170,4.63,0.13,1.029
+296,Ja'Marr Chase,CIN,PIT,Bovada,Rec,Over,6.5,-130,7.3,0.8,1.123
+297,Ja'Marr Chase,CIN,PIT,Bovada,Rec,Under,6.5,100,7.3,0.8,1.123
+298,Noah Fant,CIN,PIT,Bovada,Rec,Over,3.5,100,3.3,-0.2,0.943
+299,Noah Fant,CIN,PIT,Bovada,Rec,Under,3.5,-130,3.3,-0.2,0.943
+300,Tee Higgins,CIN,PIT,Bovada,Rec,Over,4.5,115,4.02,-0.48,0.893
+301,Tee Higgins,CIN,PIT,Bovada,Rec,Under,4.5,-150,4.02,-0.48,0.893
+302,Ja'Marr Chase,CIN,PIT,Fanatics,Rec,Over,6.5,-125,7.3,0.8,1.123
+303,Ja'Marr Chase,CIN,PIT,Fanatics,Rec,Under,6.5,-105,7.3,0.8,1.123
+304,Andrei Iosivas,CIN,PIT,Fanatics,Rec,Over,1.5,105,1.96,0.46,1.307
+305,Andrei Iosivas,CIN,PIT,Fanatics,Rec,Under,1.5,-140,1.96,0.46,1.307
+306,Tee Higgins,CIN,PIT,Fanatics,Rec,Over,4.5,115,4.02,-0.48,0.893
+307,Tee Higgins,CIN,PIT,Fanatics,Rec,Under,4.5,-155,4.02,-0.48,0.893
+308,Chase Brown,CIN,PIT,Fanatics,Rec,Over,3.5,150,3.35,-0.15,0.957
+309,Chase Brown,CIN,PIT,Fanatics,Rec,Under,3.5,-210,3.35,-0.15,0.957
+310,DK Metcalf,PIT,CIN,Fanatics,Rec,Over,4.5,120,4.63,0.13,1.029
+311,DK Metcalf,PIT,CIN,Fanatics,Rec,Under,4.5,-165,4.63,0.13,1.029
+312,Noah Fant,CIN,PIT,Fanatics,Rec,Over,3.5,100,3.3,-0.2,0.943
+313,Noah Fant,CIN,PIT,Fanatics,Rec,Under,3.5,-135,3.3,-0.2,0.943
+314,Ja'Marr Chase,CIN,PIT,DraftKings,Rec Yds,Over,72.5,-111,78.27,5.77,1.08
+315,Ja'Marr Chase,CIN,PIT,DraftKings,Rec Yds,Under,72.5,-113,78.27,5.77,1.08
+316,DK Metcalf,PIT,CIN,DraftKings,Rec Yds,Over,58.5,-113,74.75,16.25,1.278
+317,DK Metcalf,PIT,CIN,DraftKings,Rec Yds,Under,58.5,-111,74.75,16.25,1.278
+318,Tee Higgins,CIN,PIT,DraftKings,Rec Yds,Over,46.5,-114,46.11,-0.39,0.992
+319,Tee Higgins,CIN,PIT,DraftKings,Rec Yds,Under,46.5,-110,46.11,-0.39,0.992
+320,Noah Fant,CIN,PIT,DraftKings,Rec Yds,Over,25.5,-113,25.52,0.02,1.001
+321,Noah Fant,CIN,PIT,DraftKings,Rec Yds,Under,25.5,-111,25.52,0.02,1.001
+322,Jaylen Warren,PIT,CIN,DraftKings,Rec Yds,Over,21.5,-108,24.0,2.5,1.116
+323,Jaylen Warren,PIT,CIN,DraftKings,Rec Yds,Under,21.5,-116,24.0,2.5,1.116
+324,Andrei Iosivas,CIN,PIT,DraftKings,Rec Yds,Over,16.5,-108,22.78,6.28,1.381
+325,Andrei Iosivas,CIN,PIT,DraftKings,Rec Yds,Under,16.5,-116,22.78,6.28,1.381
+326,Chase Brown,CIN,PIT,DraftKings,Rec Yds,Over,15.5,-117,19.17,3.67,1.237
+327,Chase Brown,CIN,PIT,DraftKings,Rec Yds,Under,15.5,-108,19.17,3.67,1.237
+328,Jaylen Warren,PIT,CIN,BetMGM,Rec Yds,Over,19.5,-115,24.0,4.5,1.231
+329,Jaylen Warren,PIT,CIN,BetMGM,Rec Yds,Under,19.5,-115,24.0,4.5,1.231
+330,Tee Higgins,CIN,PIT,BetMGM,Rec Yds,Over,50.5,-110,46.11,-4.39,0.913
+331,Tee Higgins,CIN,PIT,BetMGM,Rec Yds,Under,50.5,-118,46.11,-4.39,0.913
+332,Chase Brown,CIN,PIT,BetMGM,Rec Yds,Over,16.5,-110,19.17,2.67,1.162
+333,Chase Brown,CIN,PIT,BetMGM,Rec Yds,Under,16.5,-118,19.17,2.67,1.162
+334,Ja'Marr Chase,CIN,PIT,BetMGM,Rec Yds,Over,70.5,-118,78.27,7.77,1.11
+335,Ja'Marr Chase,CIN,PIT,BetMGM,Rec Yds,Under,70.5,-110,78.27,7.77,1.11
+336,Noah Fant,CIN,PIT,BetMGM,Rec Yds,Over,25.5,-118,25.52,0.02,1.001
+337,Noah Fant,CIN,PIT,BetMGM,Rec Yds,Under,25.5,-110,25.52,0.02,1.001
+338,Darnell Washington,PIT,CIN,BetMGM,Rec Yds,Over,18.5,-118,28.51,10.01,1.541
+339,Darnell Washington,PIT,CIN,BetMGM,Rec Yds,Under,18.5,-115,28.51,10.01,1.541
+340,Kenneth Gainwell,PIT,CIN,BetMGM,Rec Yds,Over,18.5,-115,23.3,4.8,1.259
+341,Kenneth Gainwell,PIT,CIN,BetMGM,Rec Yds,Under,18.5,-115,23.3,4.8,1.259
+342,Andrei Iosivas,CIN,PIT,BetMGM,Rec Yds,Over,14.5,-115,22.78,8.28,1.571
+343,Andrei Iosivas,CIN,PIT,BetMGM,Rec Yds,Under,14.5,-115,22.78,8.28,1.571
+344,Jonnu Smith,PIT,CIN,BetMGM,Rec Yds,Over,24.5,-115,30.17,5.67,1.231
+345,Jonnu Smith,PIT,CIN,BetMGM,Rec Yds,Under,24.5,-115,30.17,5.67,1.231
+346,DK Metcalf,PIT,CIN,BetMGM,Rec Yds,Over,56.5,-115,74.75,18.25,1.323
+347,DK Metcalf,PIT,CIN,BetMGM,Rec Yds,Under,56.5,-118,74.75,18.25,1.323
+348,Andrei Iosivas,CIN,PIT,Caesars,Rec Yds,Over,15.5,-114,22.78,7.28,1.47
+349,Andrei Iosivas,CIN,PIT,Caesars,Rec Yds,Under,15.5,-117,22.78,7.28,1.47
+350,Chase Brown,CIN,PIT,Caesars,Rec Yds,Over,16.5,-117,19.17,2.67,1.162
+351,Chase Brown,CIN,PIT,Caesars,Rec Yds,Under,16.5,-114,19.17,2.67,1.162
+352,Noah Fant,CIN,PIT,Caesars,Rec Yds,Over,26.5,-120,25.52,-0.98,0.963
+353,Noah Fant,CIN,PIT,Caesars,Rec Yds,Under,26.5,-113,25.52,-0.98,0.963
+354,Ja'Marr Chase,CIN,PIT,Caesars,Rec Yds,Over,72.5,-120,78.27,5.77,1.08
+355,Ja'Marr Chase,CIN,PIT,Caesars,Rec Yds,Under,72.5,-113,78.27,5.77,1.08
+356,Jaylen Warren,PIT,CIN,Caesars,Rec Yds,Over,20.5,-112,24.0,3.5,1.171
+357,Jaylen Warren,PIT,CIN,Caesars,Rec Yds,Under,20.5,-120,24.0,3.5,1.171
+358,Tee Higgins,CIN,PIT,Caesars,Rec Yds,Over,46.5,-120,46.11,-0.39,0.992
+359,Tee Higgins,CIN,PIT,Caesars,Rec Yds,Under,46.5,-112,46.11,-0.39,0.992
+360,DK Metcalf,PIT,CIN,Caesars,Rec Yds,Over,58.5,-115,74.75,16.25,1.278
+361,DK Metcalf,PIT,CIN,Caesars,Rec Yds,Under,58.5,-115,74.75,16.25,1.278
+362,Noah Fant,CIN,PIT,FanDuel,Rec Yds,Over,27.5,-114,25.52,-1.98,0.928
+363,Noah Fant,CIN,PIT,FanDuel,Rec Yds,Under,27.5,-114,25.52,-1.98,0.928
+364,Chase Brown,CIN,PIT,FanDuel,Rec Yds,Over,16.5,-114,19.17,2.67,1.162
+365,Chase Brown,CIN,PIT,FanDuel,Rec Yds,Under,16.5,-114,19.17,2.67,1.162
+366,Andrei Iosivas,CIN,PIT,FanDuel,Rec Yds,Over,15.5,-114,22.78,7.28,1.47
+367,Andrei Iosivas,CIN,PIT,FanDuel,Rec Yds,Under,15.5,-114,22.78,7.28,1.47
+368,DK Metcalf,PIT,CIN,FanDuel,Rec Yds,Over,58.5,-114,74.75,16.25,1.278
+369,DK Metcalf,PIT,CIN,FanDuel,Rec Yds,Under,58.5,-114,74.75,16.25,1.278
+370,Ja'Marr Chase,CIN,PIT,FanDuel,Rec Yds,Over,71.5,-114,78.27,6.77,1.095
+371,Ja'Marr Chase,CIN,PIT,FanDuel,Rec Yds,Under,71.5,-114,78.27,6.77,1.095
+372,Tee Higgins,CIN,PIT,FanDuel,Rec Yds,Over,45.5,-114,46.11,0.61,1.013
+373,Tee Higgins,CIN,PIT,FanDuel,Rec Yds,Under,45.5,-114,46.11,0.61,1.013
+374,Tee Higgins,CIN,PIT,BetOnline.ag,Rec Yds,Under,45.5,-101,46.11,0.61,1.013
+375,Tee Higgins,CIN,PIT,BetOnline.ag,Rec Yds,Over,45.5,-128,46.11,0.61,1.013
+376,Andrei Iosivas,CIN,PIT,BetOnline.ag,Rec Yds,Under,15.5,-110,22.78,7.28,1.47
+377,Andrei Iosivas,CIN,PIT,BetOnline.ag,Rec Yds,Over,15.5,-118,22.78,7.28,1.47
+378,Chase Brown,CIN,PIT,BetOnline.ag,Rec Yds,Over,16.5,-122,19.17,2.67,1.162
+379,Chase Brown,CIN,PIT,BetOnline.ag,Rec Yds,Under,16.5,-106,19.17,2.67,1.162
+380,DK Metcalf,PIT,CIN,BetOnline.ag,Rec Yds,Over,60.5,-114,74.75,14.25,1.236
+381,DK Metcalf,PIT,CIN,BetOnline.ag,Rec Yds,Under,60.5,-114,74.75,14.25,1.236
+382,Noah Fant,CIN,PIT,BetOnline.ag,Rec Yds,Under,27.5,-116,25.52,-1.98,0.928
+383,Noah Fant,CIN,PIT,BetOnline.ag,Rec Yds,Over,27.5,-111,25.52,-1.98,0.928
+384,Ja'Marr Chase,CIN,PIT,BetOnline.ag,Rec Yds,Over,72.5,-130,78.27,5.77,1.08
+385,Ja'Marr Chase,CIN,PIT,BetOnline.ag,Rec Yds,Under,72.5,100,78.27,5.77,1.08
+386,Andrei Iosivas,CIN,PIT,BetRivers,Rec Yds,Over,16.5,-117,22.78,6.28,1.381
+387,Andrei Iosivas,CIN,PIT,BetRivers,Rec Yds,Under,16.5,-114,22.78,6.28,1.381
+388,Noah Fant,CIN,PIT,BetRivers,Rec Yds,Over,27.5,-113,25.52,-1.98,0.928
+389,Noah Fant,CIN,PIT,BetRivers,Rec Yds,Under,27.5,-118,25.52,-1.98,0.928
+390,Tee Higgins,CIN,PIT,BetRivers,Rec Yds,Over,47.5,-118,46.11,-1.39,0.971
+391,Tee Higgins,CIN,PIT,BetRivers,Rec Yds,Under,47.5,-113,46.11,-1.39,0.971
+392,Chase Brown,CIN,PIT,BetRivers,Rec Yds,Over,18.5,-113,19.17,0.67,1.036
+393,Chase Brown,CIN,PIT,BetRivers,Rec Yds,Under,18.5,-118,19.17,0.67,1.036
+394,Ja'Marr Chase,CIN,PIT,BetRivers,Rec Yds,Over,72.5,-114,78.27,5.77,1.08
+395,Ja'Marr Chase,CIN,PIT,BetRivers,Rec Yds,Under,72.5,-117,78.27,5.77,1.08
+396,DK Metcalf,PIT,CIN,BetRivers,Rec Yds,Over,58.5,-114,74.75,16.25,1.278
+397,DK Metcalf,PIT,CIN,BetRivers,Rec Yds,Under,58.5,-117,74.75,16.25,1.278
+398,Andrei Iosivas,CIN,PIT,Bovada,Rec Yds,Over,15.5,-120,22.78,7.28,1.47
+399,Andrei Iosivas,CIN,PIT,Bovada,Rec Yds,Under,15.5,-110,22.78,7.28,1.47
+400,Chase Brown,CIN,PIT,Bovada,Rec Yds,Over,16.5,-130,19.17,2.67,1.162
+401,Chase Brown,CIN,PIT,Bovada,Rec Yds,Under,16.5,100,19.17,2.67,1.162
+402,DK Metcalf,PIT,CIN,Bovada,Rec Yds,Over,58.5,-130,74.75,16.25,1.278
+403,DK Metcalf,PIT,CIN,Bovada,Rec Yds,Under,58.5,100,74.75,16.25,1.278
+404,Ja'Marr Chase,CIN,PIT,Bovada,Rec Yds,Over,70.5,-135,78.27,7.77,1.11
+405,Ja'Marr Chase,CIN,PIT,Bovada,Rec Yds,Under,70.5,105,78.27,7.77,1.11
+406,Noah Fant,CIN,PIT,Bovada,Rec Yds,Over,27.5,100,25.52,-1.98,0.928
+407,Noah Fant,CIN,PIT,Bovada,Rec Yds,Under,27.5,-130,25.52,-1.98,0.928
+408,Tee Higgins,CIN,PIT,Bovada,Rec Yds,Over,45.5,-130,46.11,0.61,1.013
+409,Tee Higgins,CIN,PIT,Bovada,Rec Yds,Under,45.5,100,46.11,0.61,1.013
+410,Ja'Marr Chase,CIN,PIT,Fanatics,Rec Yds,Over,70.5,-120,78.27,7.77,1.11
+411,Ja'Marr Chase,CIN,PIT,Fanatics,Rec Yds,Under,70.5,-110,78.27,7.77,1.11
+412,Tee Higgins,CIN,PIT,Fanatics,Rec Yds,Over,45.5,-120,46.11,0.61,1.013
+413,Tee Higgins,CIN,PIT,Fanatics,Rec Yds,Under,45.5,-110,46.11,0.61,1.013
+414,Noah Fant,CIN,PIT,Fanatics,Rec Yds,Over,25.5,-125,25.52,0.02,1.001
+415,Noah Fant,CIN,PIT,Fanatics,Rec Yds,Under,25.5,-105,25.52,0.02,1.001
+416,Andrei Iosivas,CIN,PIT,Fanatics,Rec Yds,Over,15.5,-115,22.78,7.28,1.47
+417,Andrei Iosivas,CIN,PIT,Fanatics,Rec Yds,Under,15.5,-115,22.78,7.28,1.47
+418,Chase Brown,CIN,PIT,Fanatics,Rec Yds,Over,15.5,-115,19.17,3.67,1.237
+419,Chase Brown,CIN,PIT,Fanatics,Rec Yds,Under,15.5,-115,19.17,3.67,1.237
+420,DK Metcalf,PIT,CIN,Fanatics,Rec Yds,Over,55.5,-125,74.75,19.25,1.347
+421,DK Metcalf,PIT,CIN,Fanatics,Rec Yds,Under,55.5,-105,74.75,19.25,1.347
+422,Matthew Stafford,LAR,JAX,DraftKings,Pass Comp,Over,22.5,102,24.0,1.5,1.067
+423,Matthew Stafford,LAR,JAX,DraftKings,Pass Comp,Under,22.5,-130,24.0,1.5,1.067
+424,Trevor Lawrence,JAX,LAR,DraftKings,Pass Comp,Over,21.5,-120,23.0,1.5,1.07
+425,Trevor Lawrence,JAX,LAR,DraftKings,Pass Comp,Under,21.5,-106,23.0,1.5,1.07
+426,Trevor Lawrence,JAX,LAR,FanDuel,Pass Comp,Over,21.5,-122,23.0,1.5,1.07
+427,Trevor Lawrence,JAX,LAR,FanDuel,Pass Comp,Under,21.5,-108,23.0,1.5,1.07
+428,Matthew Stafford,LAR,JAX,FanDuel,Pass Comp,Over,21.5,-128,24.0,2.5,1.116
+429,Matthew Stafford,LAR,JAX,FanDuel,Pass Comp,Under,21.5,-104,24.0,2.5,1.116
+430,Matthew Stafford,LAR,JAX,BetRivers,Pass Comp,Over,21.5,-134,24.0,2.5,1.116
+431,Matthew Stafford,LAR,JAX,BetRivers,Pass Comp,Under,21.5,102,24.0,2.5,1.116
+432,Trevor Lawrence,JAX,LAR,BetRivers,Pass Comp,Over,21.5,-132,23.0,1.5,1.07
+433,Trevor Lawrence,JAX,LAR,BetRivers,Pass Comp,Under,21.5,-103,23.0,1.5,1.07
+434,Trevor Lawrence,JAX,LAR,DraftKings,Pass Att,Over,34.5,-120,36.77,2.27,1.066
+435,Trevor Lawrence,JAX,LAR,DraftKings,Pass Att,Under,34.5,-107,36.77,2.27,1.066
+436,Matthew Stafford,LAR,JAX,DraftKings,Pass Att,Over,34.5,-115,36.62,2.12,1.061
+437,Matthew Stafford,LAR,JAX,DraftKings,Pass Att,Under,34.5,-111,36.62,2.12,1.061
+438,Matthew Stafford,LAR,JAX,FanDuel,Pass Att,Over,34.5,-120,36.62,2.12,1.061
+439,Matthew Stafford,LAR,JAX,FanDuel,Pass Att,Under,34.5,-108,36.62,2.12,1.061
+440,Trevor Lawrence,JAX,LAR,FanDuel,Pass Att,Over,34.5,-108,36.77,2.27,1.066
+441,Trevor Lawrence,JAX,LAR,FanDuel,Pass Att,Under,34.5,-120,36.77,2.27,1.066
+442,Trevor Lawrence,JAX,LAR,BetRivers,Pass Att,Over,34.5,-104,36.77,2.27,1.066
+443,Trevor Lawrence,JAX,LAR,BetRivers,Pass Att,Under,34.5,-129,36.77,2.27,1.066
+444,Matthew Stafford,LAR,JAX,BetRivers,Pass Att,Over,34.5,-127,36.62,2.12,1.061
+445,Matthew Stafford,LAR,JAX,BetRivers,Pass Att,Under,34.5,-105,36.62,2.12,1.061
+446,Matthew Stafford,LAR,JAX,DraftKings,Pass Yards,Over,249.5,-113,263.17,13.67,1.055
+447,Matthew Stafford,LAR,JAX,DraftKings,Pass Yards,Under,249.5,-111,263.17,13.67,1.055
+448,Trevor Lawrence,JAX,LAR,DraftKings,Pass Yards,Over,223.5,-112,233.22,9.72,1.043
+449,Trevor Lawrence,JAX,LAR,DraftKings,Pass Yards,Under,223.5,-112,233.22,9.72,1.043
+450,Trevor Lawrence,JAX,LAR,FanDuel,Pass Yards,Over,221.5,-114,233.22,11.72,1.053
+451,Trevor Lawrence,JAX,LAR,FanDuel,Pass Yards,Under,221.5,-114,233.22,11.72,1.053
+452,Matthew Stafford,LAR,JAX,FanDuel,Pass Yards,Over,250.5,-114,263.17,12.67,1.051
+453,Matthew Stafford,LAR,JAX,FanDuel,Pass Yards,Under,250.5,-114,263.17,12.67,1.051
+454,Trevor Lawrence,JAX,LAR,Caesars,Pass Yards,Over,222.5,-117,233.22,10.72,1.048
+455,Trevor Lawrence,JAX,LAR,Caesars,Pass Yards,Under,222.5,-114,233.22,10.72,1.048
+456,Matthew Stafford,LAR,JAX,Caesars,Pass Yards,Over,250.5,-115,263.17,12.67,1.051
+457,Matthew Stafford,LAR,JAX,Caesars,Pass Yards,Under,250.5,-115,263.17,12.67,1.051
+458,Matthew Stafford,LAR,JAX,BetRivers,Pass Yards,Over,244.5,-117,263.17,18.67,1.076
+459,Matthew Stafford,LAR,JAX,BetRivers,Pass Yards,Under,244.5,-114,263.17,18.67,1.076
+460,Trevor Lawrence,JAX,LAR,BetRivers,Pass Yards,Over,222.5,-114,233.22,10.72,1.048
+461,Trevor Lawrence,JAX,LAR,BetRivers,Pass Yards,Under,222.5,-115,233.22,10.72,1.048
+462,Matthew Stafford,LAR,JAX,Fanatics,Pass Yards,Over,245.5,-115,263.17,17.67,1.072
+463,Matthew Stafford,LAR,JAX,Fanatics,Pass Yards,Under,245.5,-115,263.17,17.67,1.072
+464,Trevor Lawrence,JAX,LAR,Fanatics,Pass Yards,Over,220.5,-110,233.22,12.72,1.058
+465,Trevor Lawrence,JAX,LAR,Fanatics,Pass Yards,Under,220.5,-120,233.22,12.72,1.058
+466,Matthew Stafford,LAR,JAX,DraftKings,Int,Over,0.5,-109,0.59,0.09,1.18
+467,Matthew Stafford,LAR,JAX,DraftKings,Int,Under,0.5,-117,0.59,0.09,1.18
+468,Trevor Lawrence,JAX,LAR,DraftKings,Int,Over,0.5,-142,0.82,0.32,1.64
+469,Trevor Lawrence,JAX,LAR,DraftKings,Int,Under,0.5,111,0.82,0.32,1.64
+470,Matthew Stafford,LAR,JAX,FanDuel,Int,Over,0.5,-102,0.59,0.09,1.18
+471,Matthew Stafford,LAR,JAX,FanDuel,Int,Under,0.5,-128,0.59,0.09,1.18
+472,Trevor Lawrence,JAX,LAR,FanDuel,Int,Over,0.5,-140,0.82,0.32,1.64
+473,Trevor Lawrence,JAX,LAR,FanDuel,Int,Under,0.5,108,0.82,0.32,1.64
+474,Matthew Stafford,LAR,JAX,BetRivers,Int,Over,0.5,-106,0.59,0.09,1.18
+475,Matthew Stafford,LAR,JAX,BetRivers,Int,Under,0.5,-125,0.59,0.09,1.18
+476,Trevor Lawrence,JAX,LAR,BetRivers,Int,Over,0.5,-143,0.82,0.32,1.64
+477,Trevor Lawrence,JAX,LAR,BetRivers,Int,Under,0.5,107,0.82,0.32,1.64
+478,Matthew Stafford,LAR,JAX,DraftKings,Pass TD,Over,1.5,-131,1.73,0.23,1.153
+479,Matthew Stafford,LAR,JAX,DraftKings,Pass TD,Under,1.5,102,1.73,0.23,1.153
+480,Trevor Lawrence,JAX,LAR,DraftKings,Pass TD,Over,1.5,128,1.39,-0.11,0.927
+481,Trevor Lawrence,JAX,LAR,DraftKings,Pass TD,Under,1.5,-164,1.39,-0.11,0.927
+482,Matthew Stafford,LAR,JAX,FanDuel,Pass TD,Over,1.5,-140,1.73,0.23,1.153
+483,Matthew Stafford,LAR,JAX,FanDuel,Pass TD,Under,1.5,106,1.73,0.23,1.153
+484,Trevor Lawrence,JAX,LAR,FanDuel,Pass TD,Over,1.5,134,1.39,-0.11,0.927
+485,Trevor Lawrence,JAX,LAR,FanDuel,Pass TD,Under,1.5,-180,1.39,-0.11,0.927
+486,Matthew Stafford,LAR,JAX,Caesars,Pass TD,Over,1.5,-143,1.73,0.23,1.153
+487,Matthew Stafford,LAR,JAX,Caesars,Pass TD,Under,1.5,105,1.73,0.23,1.153
+488,Trevor Lawrence,JAX,LAR,Caesars,Pass TD,Over,1.5,130,1.39,-0.11,0.927
+489,Trevor Lawrence,JAX,LAR,Caesars,Pass TD,Under,1.5,-176,1.39,-0.11,0.927
+490,Trevor Lawrence,JAX,LAR,BetRivers,Pass TD,Over,1.5,145,1.39,-0.11,0.927
+491,Trevor Lawrence,JAX,LAR,BetRivers,Pass TD,Under,1.5,-195,1.39,-0.11,0.927
+492,Matthew Stafford,LAR,JAX,BetRivers,Pass TD,Over,1.5,-124,1.73,0.23,1.153
+493,Matthew Stafford,LAR,JAX,BetRivers,Pass TD,Under,1.5,-107,1.73,0.23,1.153
+494,Kyren Williams,LAR,JAX,DraftKings,Rush Att,Over,16.5,-109,17.51,1.01,1.061
+495,Kyren Williams,LAR,JAX,DraftKings,Rush Att,Under,16.5,-117,17.51,1.01,1.061
+496,Travis Etienne,JAX,LAR,DraftKings,Rush Att,Over,14.5,-119,15.22,0.72,1.05
+497,Travis Etienne,JAX,LAR,DraftKings,Rush Att,Under,14.5,-107,15.22,0.72,1.05
+498,Travis Etienne,JAX,LAR,FanDuel,Rush Att,Over,14.5,-140,15.22,0.72,1.05
+499,Travis Etienne,JAX,LAR,FanDuel,Rush Att,Under,14.5,106,15.22,0.72,1.05
+500,Kyren Williams,LAR,JAX,FanDuel,Rush Att,Over,16.5,-106,17.51,1.01,1.061
+501,Kyren Williams,LAR,JAX,FanDuel,Rush Att,Under,16.5,-125,17.51,1.01,1.061
+502,Kyren Williams,LAR,JAX,BetRivers,Rush Att,Over,16.5,-113,17.51,1.01,1.061
+503,Kyren Williams,LAR,JAX,BetRivers,Rush Att,Under,16.5,-118,17.51,1.01,1.061
+504,Travis Etienne,JAX,LAR,BetRivers,Rush Att,Over,14.5,-132,15.22,0.72,1.05
+505,Travis Etienne,JAX,LAR,BetRivers,Rush Att,Under,14.5,100,15.22,0.72,1.05
+506,Kyren Williams,LAR,JAX,DraftKings,Rush Yds,Over,67.5,-113,75.82,8.32,1.123
+507,Kyren Williams,LAR,JAX,DraftKings,Rush Yds,Under,67.5,-111,75.82,8.32,1.123
+508,Travis Etienne,JAX,LAR,DraftKings,Rush Yds,Over,60.5,-109,67.13,6.63,1.11
+509,Travis Etienne,JAX,LAR,DraftKings,Rush Yds,Under,60.5,-115,67.13,6.63,1.11
+510,Bhayshul Tuten,JAX,LAR,DraftKings,Rush Yds,Over,14.5,-116,17.43,2.93,1.202
+511,Bhayshul Tuten,JAX,LAR,DraftKings,Rush Yds,Under,14.5,-108,17.43,2.93,1.202
+512,Trevor Lawrence,JAX,LAR,DraftKings,Rush Yds,Over,14.5,-110,19.0,4.5,1.31
+513,Trevor Lawrence,JAX,LAR,DraftKings,Rush Yds,Under,14.5,-114,19.0,4.5,1.31
+514,Bhayshul Tuten,JAX,LAR,FanDuel,Rush Yds,Over,14.5,-122,17.43,2.93,1.202
+515,Bhayshul Tuten,JAX,LAR,FanDuel,Rush Yds,Under,14.5,-108,17.43,2.93,1.202
+516,Kyren Williams,LAR,JAX,FanDuel,Rush Yds,Over,65.5,-114,75.82,10.32,1.158
+517,Kyren Williams,LAR,JAX,FanDuel,Rush Yds,Under,65.5,-114,75.82,10.32,1.158
+518,Trevor Lawrence,JAX,LAR,FanDuel,Rush Yds,Over,14.5,-114,19.0,4.5,1.31
+519,Trevor Lawrence,JAX,LAR,FanDuel,Rush Yds,Under,14.5,-114,19.0,4.5,1.31
+520,Travis Etienne,JAX,LAR,FanDuel,Rush Yds,Over,60.5,-114,67.13,6.63,1.11
+521,Travis Etienne,JAX,LAR,FanDuel,Rush Yds,Under,60.5,-114,67.13,6.63,1.11
+522,Travis Etienne,JAX,LAR,Caesars,Rush Yds,Over,59.5,-118,67.13,7.63,1.128
+523,Travis Etienne,JAX,LAR,Caesars,Rush Yds,Under,59.5,-114,67.13,7.63,1.128
+524,Kyren Williams,LAR,JAX,Caesars,Rush Yds,Over,66.5,-118,75.82,9.32,1.14
+525,Kyren Williams,LAR,JAX,Caesars,Rush Yds,Under,66.5,-113,75.82,9.32,1.14
+526,Bhayshul Tuten,JAX,LAR,Caesars,Rush Yds,Over,15.5,-112,17.43,1.93,1.125
+527,Bhayshul Tuten,JAX,LAR,Caesars,Rush Yds,Under,15.5,-121,17.43,1.93,1.125
+528,Trevor Lawrence,JAX,LAR,Caesars,Rush Yds,Over,14.5,-115,19.0,4.5,1.31
+529,Trevor Lawrence,JAX,LAR,Caesars,Rush Yds,Under,14.5,-117,19.0,4.5,1.31
+530,Kyren Williams,LAR,JAX,BetRivers,Rush Yds,Over,66.5,-115,75.82,9.32,1.14
+531,Kyren Williams,LAR,JAX,BetRivers,Rush Yds,Under,66.5,-115,75.82,9.32,1.14
+532,Travis Etienne,JAX,LAR,BetRivers,Rush Yds,Over,59.5,-117,67.13,7.63,1.128
+533,Travis Etienne,JAX,LAR,BetRivers,Rush Yds,Under,59.5,-114,67.13,7.63,1.128
+534,Kyren Williams,LAR,JAX,Fanatics,Rush Yds,Over,65.5,-120,75.82,10.32,1.158
+535,Kyren Williams,LAR,JAX,Fanatics,Rush Yds,Under,65.5,-110,75.82,10.32,1.158
+536,Travis Etienne,JAX,LAR,Fanatics,Rush Yds,Over,60.5,-115,67.13,6.63,1.11
+537,Travis Etienne,JAX,LAR,Fanatics,Rush Yds,Under,60.5,-115,67.13,6.63,1.11
+538,Bhayshul Tuten,JAX,LAR,Fanatics,Rush Yds,Over,15.5,-105,17.43,1.93,1.125
+539,Bhayshul Tuten,JAX,LAR,Fanatics,Rush Yds,Under,15.5,-125,17.43,1.93,1.125
+540,Trevor Lawrence,JAX,LAR,Fanatics,Rush Yds,Over,15.5,-105,19.0,3.5,1.226
+541,Trevor Lawrence,JAX,LAR,Fanatics,Rush Yds,Under,15.5,-125,19.0,3.5,1.226
+542,Brian Thomas,JAX,LAR,DraftKings,Rec,Over,5.5,102,4.92,-0.58,0.895
+543,Brian Thomas,JAX,LAR,DraftKings,Rec,Under,5.5,-130,4.92,-0.58,0.895
+544,Travis Hunter,JAX,LAR,DraftKings,Rec,Over,3.5,-148,3.82,0.32,1.091
+545,Travis Hunter,JAX,LAR,DraftKings,Rec,Under,3.5,116,3.82,0.32,1.091
+546,Travis Hunter,JAX,LAR,FanDuel,Rec,Over,3.5,-148,3.82,0.32,1.091
+547,Travis Hunter,JAX,LAR,FanDuel,Rec,Under,3.5,112,3.82,0.32,1.091
+548,Brian Thomas,JAX,LAR,FanDuel,Rec,Over,5.5,102,4.92,-0.58,0.895
+549,Brian Thomas,JAX,LAR,FanDuel,Rec,Under,5.5,-136,4.92,-0.58,0.895
+550,Travis Hunter,JAX,LAR,Caesars,Rec,Over,3.5,-150,3.82,0.32,1.091
+551,Travis Hunter,JAX,LAR,Caesars,Rec,Under,3.5,110,3.82,0.32,1.091
+552,Brian Thomas,JAX,LAR,Caesars,Rec,Over,5.5,-104,4.92,-0.58,0.895
+553,Brian Thomas,JAX,LAR,Caesars,Rec,Under,5.5,-130,4.92,-0.58,0.895
+554,Brian Thomas,JAX,LAR,DraftKings,Rec Yds,Over,68.5,-112,65.84,-2.66,0.961
+555,Brian Thomas,JAX,LAR,DraftKings,Rec Yds,Under,68.5,-112,65.84,-2.66,0.961
+556,Travis Hunter,JAX,LAR,DraftKings,Rec Yds,Over,39.5,-111,39.9,0.4,1.01
+557,Travis Hunter,JAX,LAR,DraftKings,Rec Yds,Under,39.5,-113,39.9,0.4,1.01
+558,Brian Thomas,JAX,LAR,FanDuel,Rec Yds,Over,69.5,-114,65.84,-3.66,0.947
+559,Brian Thomas,JAX,LAR,FanDuel,Rec Yds,Under,69.5,-114,65.84,-3.66,0.947
+560,Travis Hunter,JAX,LAR,FanDuel,Rec Yds,Over,38.5,-114,39.9,1.4,1.036
+561,Travis Hunter,JAX,LAR,FanDuel,Rec Yds,Under,38.5,-114,39.9,1.4,1.036
+562,Travis Hunter,JAX,LAR,Caesars,Rec Yds,Over,38.5,-118,39.9,1.4,1.036
+563,Travis Hunter,JAX,LAR,Caesars,Rec Yds,Under,38.5,-113,39.9,1.4,1.036
+564,Brian Thomas,JAX,LAR,Caesars,Rec Yds,Over,69.5,-114,65.84,-3.66,0.947
+565,Brian Thomas,JAX,LAR,Caesars,Rec Yds,Under,69.5,-118,65.84,-3.66,0.947
+566,Brian Thomas,JAX,LAR,Fanatics,Rec Yds,Over,70.5,-110,65.84,-4.66,0.934
+567,Brian Thomas,JAX,LAR,Fanatics,Rec Yds,Under,70.5,-120,65.84,-4.66,0.934
+568,Travis Hunter,JAX,LAR,Fanatics,Rec Yds,Over,40.5,100,39.9,-0.6,0.985
+569,Travis Hunter,JAX,LAR,Fanatics,Rec Yds,Under,40.5,-135,39.9,-0.6,0.985
