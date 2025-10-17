@@ -824,13 +824,18 @@ if check_password():
 
         # -------------------- Compare Players --------------------
         st.markdown("---")
-        st.markdown("### Compare Players")
+        st.markdown("### Compare Players\nEnter at least two players to get started")
         compare_list = st.multiselect(
             "Type up to five players to compare",
             options=sorted(df['Player'].dropna().unique().tolist()),
             max_selections=5
         )
+        firstplayer=(sorted(df['Player'].dropna().unique().tolist())[0])
+        secondplayer=(sorted(df['Player'].dropna().unique().tolist())[1])
 
+        #if len(compare_list)<1:
+            #compare_list = [firstplayer,secondplayer]
+        
         if compare_list:
             comp = df[df['Player'].isin(compare_list)].copy()
             comp['RankScore'] = (1 - p75_weight) * comp['FPts'] + p75_weight * comp['P75'] + upside_weight * (comp['CeilScore'] - 100)
