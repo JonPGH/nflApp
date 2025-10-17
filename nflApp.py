@@ -598,7 +598,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -626,6 +626,268 @@ if check_password():
                 return f'rgb({r}, {g}, {b})'
         except (ValueError, TypeError):
             return 'white'
+
+    if tab == "Weekly Ranks":
+        import numpy as np
+        import pandas as pd
+        import altair as alt
+
+        # -------------------- Header --------------------
+        st.markdown(
+            """<br><center><font size=10 face=Futura><b>Weekly Ranking Tool</b></font></center>""",
+            unsafe_allow_html=True
+        )
+
+        # -------------------- Base prep --------------------
+        # Normalize ceiling column and types
+        weekproj = weekproj.rename(columns={'Ceiling100': 'CeilScore'})
+        if 'CeilScore' not in weekproj.columns:
+            weekproj['CeilScore'] = 100
+        weekproj['CeilScore'] = pd.to_numeric(weekproj['CeilScore'], errors='coerce').fillna(100).astype(int)
+
+        # Normalize common player column names to "Player"
+        if 'Player' not in weekproj.columns:
+            for alt_name in ['Name', 'PlayerName', 'FullName', 'BatterName']:
+                if alt_name in weekproj.columns:
+                    weekproj = weekproj.rename(columns={alt_name: 'Player'})
+                    break
+
+        if proj_are_good == 'N':
+            st.markdown(
+                f'<h2><center>Projections for week {this_week_number} are not yet available</center></h2>',
+                unsafe_allow_html=True
+            )
+            st.stop()
+
+        # -------------------- Scoring settings --------------------
+        if 'scoring_settings' not in st.session_state:
+            st.session_state.scoring_settings = {
+                'pass_yards': 25.0, 'pass_td': 4.0, 'interception': -1.0,
+                'rush_yards': 10.0, 'rush_td': 6.0,
+                'rec_yards': 10.0, 'reception': 1.0, 'rec_td': 6.0
+            }
+
+        c1, c2, c3 = st.columns([1, 1, 1])
+        with c2:
+            positions = ['All', 'QB', 'RB', 'WR', 'TE', 'FLEX']
+            selected_position = st.selectbox("Select Position", positions, index=0)
+
+        show_scoring = st.button("Customize Scoring System", key="toggle_scoring")
+        if show_scoring or st.session_state.get('show_settings', False):
+            st.session_state.show_settings = True
+            with st.expander("Scoring Settings", expanded=True):
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.session_state.scoring_settings['pass_yards'] = st.number_input(
+                        "Pass Yards per Point", value=st.session_state.scoring_settings['pass_yards'], step=0.1, key="pass_yards"
+                    )
+                    st.session_state.scoring_settings['pass_td'] = st.number_input(
+                        "Pass TD Points", value=st.session_state.scoring_settings['pass_td'], step=0.1, key="pass_td"
+                    )
+                    st.session_state.scoring_settings['interception'] = st.number_input(
+                        "Interception Points", value=st.session_state.scoring_settings['interception'], step=0.1, key="interception"
+                    )
+                with col2:
+                    st.session_state.scoring_settings['rush_yards'] = st.number_input(
+                        "Rush Yards per Point", value=st.session_state.scoring_settings['rush_yards'], step=0.1, key="rush_yards"
+                    )
+                    st.session_state.scoring_settings['rush_td'] = st.number_input(
+                        "Rush TD Points", value=st.session_state.scoring_settings['rush_td'], step=0.1, key="rush_td"
+                    )
+                with col3:
+                    st.session_state.scoring_settings['rec_yards'] = st.number_input(
+                        "Receiving Yards per Point", value=st.session_state.scoring_settings['rec_yards'], step=0.1, key="rec_yards"
+                    )
+                    st.session_state.scoring_settings['reception'] = st.number_input(
+                        "Reception Points", value=st.session_state.scoring_settings['reception'], step=0.1, key="reception"
+                    )
+                    st.session_state.scoring_settings['rec_td'] = st.number_input(
+                        "Receiving TD Points", value=st.session_state.scoring_settings['rec_td'], step=0.1, key="rec_td"
+                    )
+
+        # -------------------- Compute fantasy points --------------------
+        # Ensure needed numeric cols exist
+        num_cols = ['Pass Yards','Pass TD','Int','Rush Yds','Rec Yds','Rec','Rush TD','Rec TD']
+        for c in num_cols:
+            if c not in weekproj.columns:
+                weekproj[c] = 0.0
+            weekproj[c] = pd.to_numeric(weekproj[c], errors='coerce').fillna(0.0)
+
+        weekproj['FPts'] = (
+            (weekproj['Pass Yards'] / st.session_state.scoring_settings['pass_yards']) +
+            (weekproj['Pass TD']   * st.session_state.scoring_settings['pass_td']) +
+            (weekproj['Int']       * st.session_state.scoring_settings['interception']) +
+            (weekproj['Rush Yds']  / st.session_state.scoring_settings['rush_yards']) +
+            (weekproj['Rec Yds']   / st.session_state.scoring_settings['rec_yards']) +
+            (weekproj['Rec']       * st.session_state.scoring_settings['reception']) +
+            (weekproj['Rush TD']   * st.session_state.scoring_settings['rush_td']) +
+            (weekproj['Rec TD']    * st.session_state.scoring_settings['rec_td'])
+        ).astype(float)
+
+        # -------------------- Pos cleaning & distribution (p25/50/75) --------------------
+        base_cv = {'QB': 0.18, 'RB': 0.28, 'WR': 0.32, 'TE': 0.30}
+
+        def pos_clean(x):
+            x = str(x).upper()
+            if x in {'QB','RB','WR','TE'}: return x
+            return 'WR'
+
+        df = weekproj.copy()
+        df['PosClean'] = df.get('Pos', df.get('position', 'WR')).apply(pos_clean)
+
+        def estimate_std(proj, ceil100, pos):
+            proj = max(float(proj), 0.0)
+            cv = base_cv.get(pos, 0.30)
+            v = (float(ceil100) - 100.0) / 40.0             # upside influence on spread
+            v = max(-0.20, min(1.00, v))                    # clamp
+            return proj * max(0.05, cv * (1.0 + v))
+
+        df['Std'] = df.apply(lambda r: estimate_std(r['FPts'], r['CeilScore'], r['PosClean']), axis=1)
+        z25, z50, z75 = -0.674, 0.0, 0.674
+        df['P25'] = (df['FPts'] + z25 * df['Std']).clip(lower=0)
+        df['P50'] = (df['FPts'] + z50 * df['Std']).clip(lower=0)
+        df['P75'] = (df['FPts'] + z75 * df['Std']).clip(lower=0)
+
+        # -------------------- Rank blend controls --------------------
+        st.markdown("##### Ranking Blend")
+        w1, w2 = st.columns([1, 2])
+        with w1:
+            upside_weight = st.slider(
+                "Upside weight (Ceiling 100-scale)", min_value=0.00, max_value=0.20, value=0.08, step=0.01,
+                help="Adds (CeilScore - 100) * weight to the projection."
+            )
+        with w2:
+            p75_weight = st.slider(
+                "Lean to 75th-percentile", min_value=0.00, max_value=1.00, value=0.30, step=0.05,
+                help="Final = (1-w)*Proj + w*P75, then + upside weight."
+            )
+
+        df['RankScore'] = (1 - p75_weight) * df['FPts'] + p75_weight * df['P75'] + upside_weight * (df['CeilScore'] - 100)
+
+        # -------------------- Filters --------------------
+        def pos_filter(d, pos_choice):
+            if pos_choice == 'All': return d
+            if pos_choice == 'FLEX': return d[d['PosClean'].isin(['RB','WR','TE'])]
+            return d[d['PosClean'] == pos_choice]
+
+        view = pos_filter(df, selected_position)
+
+        # -------------------- Rankings table (SELECT -> RENAME) --------------------
+        st.markdown("### Weekly Rankings")
+        rank_cols = ['Player','Team','Opp','PosClean','FPts','P25','P50','P75','CeilScore','RankScore']
+        # select with ORIGINAL names first
+        table_raw = view[rank_cols].copy()
+        # then rename for presentation
+        display = (
+            table_raw.rename(columns={'PosClean':'Pos', 'FPts':'Proj'})
+                    .sort_values('RankScore', ascending=False)
+                    .reset_index(drop=True)
+        )
+        display.index = display.index + 1
+        display = display.rename_axis("Rank").reset_index()
+
+        st.dataframe(
+            display,
+            use_container_width=True,
+            hide_index=True, height=600,
+            column_config={
+                "Proj": st.column_config.NumberColumn(format="%.2f"),
+                "P25":  st.column_config.NumberColumn(format="%.2f"),
+                "P50":  st.column_config.NumberColumn(format="%.2f"),
+                "P75":  st.column_config.NumberColumn(format="%.2f"),
+                "CeilScore": st.column_config.NumberColumn(help="100 = average upside; >100 = more upside."),
+                "RankScore": st.column_config.NumberColumn(format="%.2f", help="Blend of Proj, P75, and Ceiling."),
+            }
+        )
+
+        # -------------------- Distribution mini-viz --------------------
+        #st.caption("Band = estimated 25th–75th percentile weekly outcomes; dot = median (P50).")
+        band_df = display[['Player','P25','P50','P75']].melt(
+            id_vars=['Player'], value_vars=['P25','P50','P75'], var_name='Quantile', value_name='Points'
+        )
+        # Build band (rule) from pivoted values
+        band = alt.Chart(band_df).transform_pivot(
+            'Quantile', value='Points'
+        ).mark_rule().encode(
+            x=alt.X('P25:Q', title='Fantasy Points', scale=alt.Scale(zero=False)),
+            x2='P75:Q',
+            y=alt.Y('Player:N', sort='-x', title=None)
+        ).properties(height=260, width='container')
+
+        dots = alt.Chart(display).mark_point(size=60).encode(
+            x=alt.X('P50:Q', title=''),
+            y=alt.Y('Player:N', sort=display['Player'].tolist(), title=''),
+            tooltip=['Player','Proj','P25','P50','P75']
+        )
+
+        #st.altair_chart(band + dots, use_container_width=True)
+
+        # -------------------- Compare Players --------------------
+        st.markdown("---")
+        st.markdown("### Compare Players")
+        compare_list = st.multiselect(
+            "Type up to five players to compare",
+            options=sorted(df['Player'].dropna().unique().tolist()),
+            max_selections=5
+        )
+
+        if compare_list:
+            comp = df[df['Player'].isin(compare_list)].copy()
+            comp['RankScore'] = (1 - p75_weight) * comp['FPts'] + p75_weight * comp['P75'] + upside_weight * (comp['CeilScore'] - 100)
+
+            # Rank within the *current scope*
+            scoped = pos_filter(df, selected_position).copy()
+            scoped['RankScore'] = (1 - p75_weight) * scoped['FPts'] + p75_weight * scoped['P75'] + upside_weight * (scoped['CeilScore'] - 100)
+            scoped = scoped.sort_values('RankScore', ascending=False)
+            scoped['Rank'] = np.arange(1, len(scoped) + 1)
+
+            comp = comp.merge(scoped[['Player','Rank']], on='Player', how='left')
+
+            comp_table = (
+                comp[['Player','Team','Opp','PosClean','Rank','FPts','P25','P50','P75','CeilScore','RankScore']]
+                .rename(columns={'PosClean':'Pos','FPts':'Proj'})
+                .sort_values('Rank')
+            )
+            st.dataframe(
+                comp_table,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "Proj": st.column_config.NumberColumn(format="%.2f"),
+                    "P25":  st.column_config.NumberColumn(format="%.2f"),
+                    "P50":  st.column_config.NumberColumn(format="%.2f"),
+                    "P75":  st.column_config.NumberColumn(format="%.2f"),
+                    "CeilScore": st.column_config.NumberColumn(),
+                    "RankScore": st.column_config.NumberColumn(format="%.2f"),
+                }
+            )
+
+        comp_band_df = comp_table[['Player','P25','P50','P75']].melt(
+            id_vars=['Player'],
+            value_vars=['P25','P50','P75'],
+            var_name='Quantile',
+            value_name='Points'   # <-- was `value=`, which caused the error
+        )
+
+        comp_rule = alt.Chart(comp_band_df).transform_pivot(
+            'Quantile', value='Points'
+        ).mark_rule().encode(
+            x=alt.X('P25:Q', title='Fantasy Points', scale=alt.Scale(zero=False)),
+            x2='P75:Q',
+            y=alt.Y('Player:N', sort=comp_table['Player'].tolist(), title=None)
+        ).properties(
+            height=max(40 * len(comp_table), 120),
+            width='container'
+        )
+
+        comp_dot = alt.Chart(comp_table).mark_point(size=70).encode(
+            x='P50:Q',
+            y=alt.Y('Player:N', sort=comp_table['Player'].tolist()),
+            tooltip=['Player','P25','P50','P75']
+        )
+
+        #st.altair_chart(comp_rule + comp_dot, use_container_width=True)
+
 
     if tab == "Closing Lines":
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Closing Lines - 2025 NFL<br></b>""", unsafe_allow_html=True)
@@ -751,8 +1013,6 @@ if check_password():
         
         render_closing_lines_tab(allproplines)
 
-
-    
     if tab == "DFS Optimizer":
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money DFS Tool<br></b>
         <font size=3 face=Futura>These projections are tweaked slightly for more DFS friendly projections, including ceiling and positional adjustments.</font></center>""", unsafe_allow_html=True)
@@ -1216,9 +1476,6 @@ if check_password():
                         height=900, use_container_width=True, hide_index=True
                     )
 
-
-
-
     if tab == "Player Grades":
         # ---------- Header ----------
         st.markdown(
@@ -1377,7 +1634,6 @@ if check_password():
         # uses the allproplines DataFrame already returned by load_data()
         render_best_bets_view(best_bet_data)
 
-
     if tab == "Player Grades2":
 
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money Player Grades<br></b><font size=3 face=Futura>Algorithmic player rankings using inputs that are more important to fantasy football success</font></center>""", unsafe_allow_html=True)
@@ -1486,8 +1742,7 @@ if check_password():
             # Add some visual flair
             st.markdown("<style>body {background-color: #white;}</style>", unsafe_allow_html=True)
             st.markdown("<style>.stApp {background-color: #white;}</style>", unsafe_allow_html=True)
-
-    
+  
     if tab == "Book Based Proj":
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Book Based Projections<br></b><font size=3 face=Futura>These are projections derived from the betting lines taken out of the major sports books</font></center>
                      """, unsafe_allow_html=True)
@@ -1770,7 +2025,6 @@ if check_password():
 
         render_xfp_vs_actual()
 
-
     if tab == "Game by Game":
         st.markdown("<h1><center>Game by Game Preview</h1></center>", unsafe_allow_html=True)
 
@@ -2044,6 +2298,9 @@ if check_password():
     if tab == "Weekly Projections":
         st.markdown("<h3><center>Weekly Projections & Ranks</h3></center>", unsafe_allow_html=True)
 
+        weekproj = weekproj.rename({'Ceiling100':'CeilScore'},axis=1)
+        weekproj['CeilScore'] = weekproj['CeilScore'].astype(int)
+
         if proj_are_good == 'N':
             st.markdown(f'<h2><center>Projections for week {this_week_number} are not yet available</center></h2>',unsafe_allow_html=True)
             pass
@@ -2198,22 +2455,22 @@ if check_password():
             # display based on position selection
             if selected_position == 'All':
                 if dfs_sals_check:
-                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','CeilScore','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
                 else:
                     proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
             elif selected_position == 'QB':
                 if dfs_sals_check:
-                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
+                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','CeilScore','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
                 else:
                     proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Pass Comp','Pass Att','Pass Yards','Pass TD','Int','Rush Att','Rush Yds','Rush TD']
             elif selected_position in ['WR','TE']:
                 if dfs_sals_check:
-                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
+                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','CeilScore','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
                 else:
                     proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Tgt','Rec','Rec Yds','Rec TD']
             elif selected_position in ['RB','WR','TE','FLEX']:
                 if dfs_sals_check:
-                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
+                    proj_show_cols = ['Player','Team','Opp','Sal','Own','FPts','Val','CeilScore','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
                 else:
                     proj_show_cols = ['Player','Team','Opp','FPts','Pos Rank','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']
 
@@ -2225,14 +2482,14 @@ if check_password():
 
             ## new way
             # Apply a gradient to the Age column and bold text for Status
-            columns_to_round = ['FPts', 'Val', 'Pos Rank', 'Pass Comp', 'Pass Att', 'Pass Yards', 'Pass TD', 'Int', 'Rush Att']
+            columns_to_round = ['FPts', 'Val', 'Pos Rank', 'Pass Comp', 'Pass Att','CeilScore', 'Pass Yards', 'Pass TD', 'Int', 'Rush Att']
 
             show_filtered_data_reset = show_filtered_data.reset_index(drop=True)
 
             styled_df = show_filtered_data.style.background_gradient(subset=['FPts'], cmap='Blues')\
             .set_properties(**{'font-weight': 'bold'}, subset=['FPts'])\
             .format({
-                'FPts': '{:.1f}', 'Own': '{:.0f}',
+                'FPts': '{:.1f}', 'Own': '{:.0f}','CeilScore': '{:.0f}',
                 'Val': '{:.1f}','Sal': '{:.0f}',
                 'Pos Rank': '{:.1f}','Rush Yds': '{:.1f}',
                 'Pass Comp': '{:.1f}','Rush TD': '{:.1f}',
@@ -2279,6 +2536,7 @@ if check_password():
             fmt = {col: "{:.2f}" for col in df.select_dtypes(include="number").columns}
             if "Sal" in df:       fmt["Sal"] = "${:,.0f}"   # currency, no decimals
             if "Pos Rank" in df:  fmt["Pos Rank"] = "{:.0f}"  # integer, no decimals
+            if "CeilScore" in df:  fmt["CeilScore"] = "{:.0f}"  # integer, no decimals
 
             styler = (
                 df.style
@@ -2298,8 +2556,6 @@ if check_password():
                 height=1000,
                 hide_index=True
             )
-
-
 
 
             ##############################
