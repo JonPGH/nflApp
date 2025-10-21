@@ -674,6 +674,8 @@ if check_password():
             df["Game"] = df["Game Info"].str.split(" ", expand=True)[0]
         if "PrimaryPos" not in df.columns and "Position" in df.columns:
             df["PrimaryPos"] = df["Position"].str.split("/", expand=True)[0]
+        
+        
         # Choose whichever projection column you want here:
         if "Projection" not in df.columns:
             df["Projection"] = df["NewProj"] if "NewProj" in df.columns else np.nan
@@ -687,6 +689,64 @@ if check_password():
         # Clean types
         df["Salary"] = pd.to_numeric(df["Salary"], errors="coerce").fillna(0).astype(int)
         df["Projection"] = pd.to_numeric(df["Projection"], errors="coerce").fillna(0.0)
+
+        #### add in jon value
+
+        POS_COL   = "PrimaryPos"   # or "Position"
+        SAL_COL   = "Salary"
+        PROJ_COL  = "Projection"
+        ALPHA     = 0.85           # < 1 boosts expensive players at same multiplier
+        REP_Q     = 0.60           # position replacement percentile
+        RAW_BLEND = 0.10           # small weight on raw projection (0-1). Set to 0 to disable.
+
+        def compute_value(df):
+            df = df.copy()
+
+            # Clean salary -> numeric (handles "11,000")
+            df["SalaryK"] = (
+                pd.to_numeric(df[SAL_COL].astype(str).str.replace(",", "", regex=False), errors="coerce") / 1000.0
+            )
+
+            # Curved multiplier (higher salaries get a slight boost at the same raw multiplier)
+            df["Multiplier"] = df[PROJ_COL] / df["SalaryK"]
+            df["CurvedMult"] = df[PROJ_COL] / (df["SalaryK"] ** ALPHA)
+
+            # Replacement per position (robust to outliers)
+            rep = (
+                df.groupby(POS_COL)[PROJ_COL]
+                .quantile(REP_Q)
+                .rename("PosReplacement")
+            )
+            df = df.merge(rep, left_on=POS_COL, right_index=True, how="left")
+
+            # Points Above Replacement (floor at 0 so pure punts don’t look "valuable")
+            df["PAR"] = (df[PROJ_COL] - df["PosReplacement"]).clip(lower=0)
+
+            # Core value: PAR over curved cap cost + a small raw-points blend
+            df["Value"] = (df["PAR"] / (df["SalaryK"] ** ALPHA)) + RAW_BLEND * df[PROJ_COL]
+
+            # 100-scale for display (mean=100, stdev≈15). Avoid div-by-zero.
+            mu, sd = df["Value"].mean(), df["Value"].std(ddof=0)
+            if sd == 0 or np.isnan(sd):
+                df["Value100"] = 100.0
+            else:
+                df["Value100"] = 100 + 15 * (df["Value"] - mu) / sd
+
+            # helpful columns
+            keep_cols = ["Name", "Team", "Game", "Position", POS_COL, SAL_COL, PROJ_COL,
+                        "SalaryK", "Multiplier", "CurvedMult", "PosReplacement", "PAR", "Value", "Value100"]
+            existing = [c for c in keep_cols if c in df.columns]
+            existing = ['Name','Team','Value']
+            return df[existing].sort_values("Value", ascending=False)
+        
+
+        new_df = compute_value(df)
+        new_df = new_df[['Name','Team','Value']]
+        new_df.columns = ['Name','Team','Score']
+        df = pd.merge(df,new_df,on=['Name','Team'])
+
+
+        ########################
 
         # Optional team column if present
         team_col = None
@@ -723,8 +783,15 @@ if check_password():
             unsafe_allow_html=True
         )
 
-        # Filters
-        proj_filter_cols = st.columns([1,1,2,2])
+        import re
+
+        # decide which column to use for position
+        pos_col = "PrimaryPos" if "PrimaryPos" in df.columns else ("Position" if "Position" in df.columns else None)
+
+        # ---- Filters ----
+        proj_filter_cols = st.columns([1, 1, 1, 2, 2])  # Team | Game | Position | Name | Salary
+
+        # Team
         if team_col:
             teams = ["All"] + sorted([t for t in df[team_col].dropna().unique().tolist()])
             with proj_filter_cols[0]:
@@ -733,28 +800,44 @@ if check_password():
             selected_team = "All"
             proj_filter_cols[0].markdown("**Team**\n\n_(not in data)_")
 
+        # Game
         games = ["All"] + sorted([g for g in df["Game"].dropna().unique().tolist()])
         with proj_filter_cols[1]:
             selected_game = st.selectbox("Game", games, index=0)
 
-        sal_min, sal_max = int(df["Salary"].min()), int(df["Salary"].max())
+        # Position (free text, press Enter)
         with proj_filter_cols[2]:
-            sel_sal = st.slider("Salary Range", min_value=sal_min, max_value=sal_max,
-                                value=(sal_min, sal_max), step=100)
+            if pos_col:
+                pos_query = st.text_input("Position", value="", placeholder="PG, SG, SF, PF, C").strip().lower()
+            else:
+                pos_query = ""
+                st.markdown("**Position**\n\n_(not in data)_")
 
+        # Name search
         with proj_filter_cols[3]:
             name_query = st.text_input("Search name", value="").strip().lower()
 
+        # Salary
+        sal_min, sal_max = int(df["Salary"].min()), int(df["Salary"].max())
+        with proj_filter_cols[4]:
+            sel_sal = st.slider("Salary Range", min_value=sal_min, max_value=sal_max,
+                                value=(sal_min, sal_max), step=100)
+
+        # ---- Apply filters ----
         fdf = df.copy()
         if selected_team != "All" and team_col:
             fdf = fdf[fdf[team_col] == selected_team]
         if selected_game != "All":
             fdf = fdf[fdf["Game"] == selected_game]
+        if pos_query and pos_col:
+            tokens = [t.strip() for t in re.split(r"[^A-Za-z/]+", pos_query) if t.strip()]
+            fdf = fdf[fdf[pos_col].str.lower().apply(lambda s: any(tok in s for tok in tokens))]
         fdf = fdf[(fdf["Salary"] >= sel_sal[0]) & (fdf["Salary"] <= sel_sal[1])]
         if name_query:
             fdf = fdf[fdf["Name"].str.lower().str.contains(name_query)]
 
-        show_cols = ["Name","Team","Game","Position","PrimaryPos","Salary","Projection","Ceiling","Own%"]
+
+        show_cols = ["Name","Team","Game","Position","PrimaryPos","Salary","Projection","Score","Ceiling","Own%"]
         fdf = fdf[show_cols].sort_values(["Salary","Projection"], ascending=[False, False])
 
         def _row_color_by_pos(r):
@@ -792,7 +875,7 @@ if check_password():
                     st.dataframe(
                         fdf.style.hide(axis="index")
                         .apply(_row_color_by_pos, axis=1)
-                        .format({"Salary": "{:,.0f}", "Own%": "{:.0f}",
+                        .format({"Salary": "{:,.0f}", "Own%": "{:.0f}", "Score": "{:.2f}",
                                     "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
                         use_container_width=True, height=800, hide_index=True
                     )
@@ -1620,19 +1703,19 @@ if check_password():
         pos_options = ["All"] + sorted(optimizer_proj["Pos"].unique().tolist())
         pos_choice = col1.selectbox("Filter by Position:", pos_options, index=0)
 
+        # 3) Player search
+        player_search = col2.text_input("Search for Player:")
+
         # Salary slider uses global min/max (int)
         sal_min = int(optimizer_proj["Sal"].min())
         sal_max = int(optimizer_proj["Sal"].max())
-        salary_range = col2.slider(
+        salary_range = col3.slider(
             "Salary range ($)",
             min_value=sal_min,
             max_value=sal_max,
             value=(sal_min, sal_max),
             step=100
         )
-
-        # 3) Player search
-        player_search = col3.text_input("Search for Player:")
 
         # ------------------ APPLY FILTERS ------------------
         filtered = optimizer_proj.copy()
