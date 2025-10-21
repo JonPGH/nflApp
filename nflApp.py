@@ -227,8 +227,9 @@ if check_password():
         team_grades = pd.read_csv(f'{file_path}/team_grading.csv')
         optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')
         best_bet_data = pd.read_csv(f'{file_path}/PropCompSheet.csv')
+        nbaproj = pd.read_csv(f'{file_path}/dailynbaprojections.csv')
 
-        return xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
+        return nbaproj,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
 
     # ---------- Best Bets helpers ----------
     def _std_norm_cdf(x: float) -> float:
@@ -499,7 +500,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    nbaproj,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -598,7 +599,7 @@ if check_password():
     
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
-    tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau","NBA Optimizer"], help="Choose a Page")
     
     if "reload" not in st.session_state:
         st.session_state.reload = False
@@ -626,6 +627,497 @@ if check_password():
                 return f'rgb({r}, {g}, {b})'
         except (ValueError, TypeError):
             return 'white'
+
+
+
+
+    if tab == "NBA Optimizer":
+        st.markdown("""
+            <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+            """, unsafe_allow_html=True)
+                    
+        import numpy as np
+        import pandas as pd
+        import streamlit as st
+        import pulp
+        from io import StringIO
+
+        # ---------- CONFIG ----------
+        DK_SALARY_CAP = 50000
+        DK_SLOTS = ["PG","SG","SF","PF","C","G","F","UTIL"]
+        # Edit these to tweak colors by PrimaryPos:
+        POS_COLORS = {
+            "PG": "#FDF6E3",
+            "SG": "#E6F7FF",
+            "SF": "#E8F5E9",
+            "PF": "#FFF3E0",
+            "C" : "#F3E5F5",
+            "G" : "#E6FFF9",
+            "F" : "#F0F5FF",
+            "UTIL": "#FFFFFF"
+        }
+
+        # ---------- PREP BASE DATA ----------
+        st.markdown(
+            """<br><center><font size=10 face=Futura><b>NBA DFS Projections & Optimizer</b></font></center>""",
+            unsafe_allow_html=True
+        )
+        
+
+        # Flexible columns detection
+        df = nbaproj.copy()
+        df = df[df['NewProj']>0]
+        df['Own%'] = df['Own'].str.replace('%','')
+        df['Own%'] = df['Own%'].astype(float)
+        #st.write(df)
+        if "Game" not in df.columns and "Game Info" in df.columns:
+            df["Game"] = df["Game Info"].str.split(" ", expand=True)[0]
+        if "PrimaryPos" not in df.columns and "Position" in df.columns:
+            df["PrimaryPos"] = df["Position"].str.split("/", expand=True)[0]
+        # Choose whichever projection column you want here:
+        if "Projection" not in df.columns:
+            df["Projection"] = df["NewProj"] if "NewProj" in df.columns else np.nan
+        df["Projection"] = round(df["Projection"],1)
+        base_cols = ["Name","ID","Name + ID","Game","Position","PrimaryPos","Salary","Projection"]
+        missing = [c for c in base_cols if c not in df.columns]
+        if missing:
+            st.error(f"Missing required columns: {missing}")
+            st.stop()
+
+        # Clean types
+        df["Salary"] = pd.to_numeric(df["Salary"], errors="coerce").fillna(0).astype(int)
+        df["Projection"] = pd.to_numeric(df["Projection"], errors="coerce").fillna(0.0)
+
+        # Optional team column if present
+        team_col = None
+        for cand in ["Team","TeamAbbrev","Tm","TEAM"]:
+            if cand in df.columns:
+                team_col = cand
+                break
+
+        # ---------- PROJECTION BROWSER ----------
+        #with st.expander("📊 Show & filter projections"):
+
+        # Custom CSS for styling
+        st.markdown(
+            """
+            <style>
+            /* Center the dataframe */
+            .stDataFrame table {
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Oswald', sans-serif;
+                font-size: 18px;
+            }
+            /* Make headers bold and larger */
+            .stDataFrame thead tr th {
+                font-size: 20px !important;
+                text-align: center !important;
+            }
+            /* Center all cell text */
+            .stDataFrame td {
+                text-align: center !important;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+
+        # Filters
+        proj_filter_cols = st.columns([1,1,2,2])
+        if team_col:
+            teams = ["All"] + sorted([t for t in df[team_col].dropna().unique().tolist()])
+            with proj_filter_cols[0]:
+                selected_team = st.selectbox("Team", teams, index=0)
+        else:
+            selected_team = "All"
+            proj_filter_cols[0].markdown("**Team**\n\n_(not in data)_")
+
+        games = ["All"] + sorted([g for g in df["Game"].dropna().unique().tolist()])
+        with proj_filter_cols[1]:
+            selected_game = st.selectbox("Game", games, index=0)
+
+        sal_min, sal_max = int(df["Salary"].min()), int(df["Salary"].max())
+        with proj_filter_cols[2]:
+            sel_sal = st.slider("Salary Range", min_value=sal_min, max_value=sal_max,
+                                value=(sal_min, sal_max), step=100)
+
+        with proj_filter_cols[3]:
+            name_query = st.text_input("Search name", value="").strip().lower()
+
+        fdf = df.copy()
+        if selected_team != "All" and team_col:
+            fdf = fdf[fdf[team_col] == selected_team]
+        if selected_game != "All":
+            fdf = fdf[fdf["Game"] == selected_game]
+        fdf = fdf[(fdf["Salary"] >= sel_sal[0]) & (fdf["Salary"] <= sel_sal[1])]
+        if name_query:
+            fdf = fdf[fdf["Name"].str.lower().str.contains(name_query)]
+
+        show_cols = ["Name","Team","Game","Position","PrimaryPos","Salary","Projection","Ceiling","Own%"]
+        fdf = fdf[show_cols].sort_values(["Salary","Projection"], ascending=[False, False])
+
+        def _row_color_by_pos(r):
+            color = POS_COLORS.get(r["PrimaryPos"], "#FFFFFF")
+            return [f"background-color: {color}"] * len(r)
+
+        # Display table without index
+        st.markdown("""
+            <style>
+            /* Force font & size inside ALL Streamlit dataframes */
+            div[data-testid="stDataFrame"] div[role="grid"] *,
+            div[data-testid="stDataFrame"] div[role="table"] *,
+            div[data-testid="stDataFrame"] th,
+            div[data-testid="stDataFrame"] td {
+            font-family: 'Oswald', sans-serif !important;
+            font-size: 18px !important;       /* change this to taste */
+            line-height: 1.35 !important;
+            }
+
+            /* Make headers a bit larger */
+            div[data-testid="stDataFrame"] div[role="columnheader"] *,
+            div[data-testid="stDataFrame"] thead th {
+            font-size: 20px !important;
+            }
+            </style>
+            """, unsafe_allow_html=True)
+
+        a,b,c=st.columns([1,5,1])
+        fdf = fdf.sort_values(by='Projection',ascending=False)
+        with b:
+            if len(fdf)>11:
+                st.dataframe(
+                    fdf.style.hide(axis="index")
+                    .apply(_row_color_by_pos, axis=1)
+                    .format({"Salary": "{:,.0f}", "Own%": "{:.0f}",
+                                "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
+                    use_container_width=True, height=800, hide_index=True
+                )
+            else:
+                st.dataframe(
+                    fdf.style.hide(axis="index")
+                    .apply(_row_color_by_pos, axis=1)
+                    .format({"Salary": "{:,.0f}", "Own%": "{:.0f}",
+                                "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
+                    use_container_width=True, hide_index=True
+                )
+                
+
+
+        # ---------- OPTIMIZER CONTROLS ----------
+        st.markdown("### 🧠 Optimizer Controls")
+        colA, colB, colC, colD = st.columns([1,1,1,1])
+        with colA:
+            n_lineups = st.number_input("Number of lineups", min_value=1, max_value=150, value=20, step=1)
+        with colB:
+            var_pct = st.slider("Projection variance (0–50)", 0, 50, 10, step=1,
+                                help="Random ±% noise applied to projections each lineup run.")
+        with colC:
+            lock_names = st.multiselect("Locks (100%)", options=df["Name"].tolist())
+        with colD:
+            exclude_names = st.multiselect("Excludes (0%)", options=[n for n in df["Name"].tolist() if n not in lock_names])
+
+        boost_names = st.multiselect("Boosts (+7%)", options=[n for n in df["Name"].tolist()
+                                                            if n not in lock_names and n not in exclude_names])
+
+        # ---------- ADVANCED: TEAM/GAME CONSTRAINTS ----------
+        with st.expander("🧩 Advanced stacking & team limits"):
+            if team_col:
+                max_per_team = st.slider("Max players per team (global)", 1, 8, 3)
+                teams_sorted = sorted(df[team_col].dropna().unique().tolist())
+                gcol1, gcol2 = st.columns(2)
+                with gcol1:
+                    teamA = st.selectbox("Team Stack A (optional)", ["None"] + teams_sorted, index=0)
+                    teamA_min = st.slider("Min from Team A", 0, 8, 0, key="teamAmin")
+                    teamA_max = st.slider("Max from Team A", 0, 8, 0, key="teamAmax",
+                                        help="0 means no explicit max; global max still applies.")
+                with gcol2:
+                    teamB = st.selectbox("Team Stack B (optional)", ["None"] + teams_sorted, index=0)
+                    teamB_min = st.slider("Min from Team B", 0, 8, 0, key="teamBmin")
+                    teamB_max = st.slider("Max from Team B", 0, 8, 0, key="teamBmax",
+                                        help="0 means no explicit max; global max still applies.")
+            else:
+                max_per_team = None
+                teamA = teamB = "None"
+                teamA_min = teamA_max = teamB_min = teamB_max = 0
+                st.info("No team column detected—team-based constraints disabled.")
+
+            games_sorted = sorted(df["Game"].dropna().unique().tolist())
+            game_stack_col1, game_stack_col2 = st.columns([2,1])
+            with game_stack_col1:
+                game_to_stack = st.selectbox("Game stack (optional)", ["None"] + games_sorted, index=0)
+            with game_stack_col2:
+                game_min_players = st.slider("Min from game", 0, 8, 0,
+                                            help="Require at least N players from the selected game (both teams combined).")
+
+        # Build helpers
+        def eligible_for_slot(pos_string: str, slot: str) -> bool:
+            pos_set = set(str(pos_string).split("/"))
+            if slot in {"PG","SG","SF","PF","C"}:
+                return slot in pos_set
+            if slot == "G":
+                return bool({"PG","SG"} & pos_set)
+            if slot == "F":
+                return bool({"SF","PF"} & pos_set)
+            if slot == "UTIL":
+                return True
+            return False
+
+        # Index players
+        player_df = df.copy().reset_index(drop=True)
+        name_to_idx = {row["Name"]: i for i, row in player_df.iterrows()}
+
+        # Precompute index groups by team/game for constraints
+        team_to_indices = {}
+        if team_col:
+            for t, sub in player_df.groupby(team_col):
+                team_to_indices[t] = sub.index.tolist()
+        game_to_indices = {g: sub.index.tolist() for g, sub in player_df.groupby("Game")}
+
+        # ---------- LINEUP SOLVER WITH STACKING ----------
+        def solve_one_lineup(adjusted_proj: np.ndarray,
+                            locks_idx, excludes_idx,
+                            max_per_team=None,
+                            team_minmax_rules=None,
+                            game_min_rule=None):
+            """
+            team_minmax_rules: list of tuples (team_name, min_ct, max_ct or None)
+            game_min_rule: (game_name, min_ct) or None
+            """
+            prob = pulp.LpProblem("DK_NBA", pulp.LpMaximize)
+
+            # Binary vars per (player, slot)
+            y = {(i, s): pulp.LpVariable(f"y_{i}_{s}", lowBound=0, upBound=1, cat="Binary")
+                for i in range(len(player_df)) for s in DK_SLOTS if eligible_for_slot(player_df.loc[i,"Position"], s)}
+
+            # Objective
+            prob += pulp.lpSum([adjusted_proj[i] * y[(i, s)] for (i, s) in y])
+
+            # Slot coverage: exactly 1 player per slot
+            for s in DK_SLOTS:
+                prob += pulp.lpSum([y[(i, s)] for i in range(len(player_df)) if (i, s) in y]) == 1
+
+            # A player can fill at most one slot
+            for i in range(len(player_df)):
+                prob += pulp.lpSum([y[(i, s)] for s in DK_SLOTS if (i, s) in y]) <= 1
+
+            # Salary cap
+            salaries = player_df["Salary"].to_numpy()
+            prob += pulp.lpSum([salaries[i] * y[(i, s)] for (i, s) in y]) <= DK_SALARY_CAP
+
+            # Excludes
+            for i in excludes_idx:
+                for s in DK_SLOTS:
+                    if (i, s) in y:
+                        prob += y[(i, s)] == 0
+
+            # Locks
+            for i in locks_idx:
+                prob += pulp.lpSum([y[(i, s)] for s in DK_SLOTS if (i, s) in y]) == 1
+
+            # Global max per team
+            if team_col and isinstance(max_per_team, int) and max_per_team > 0:
+                for t, idxs in team_to_indices.items():
+                    prob += pulp.lpSum([y[(i, s)] for i in idxs for s in DK_SLOTS if (i, s) in y]) <= max_per_team
+
+            # Team stack min/max rules
+            if team_col and team_minmax_rules:
+                for (t, tmin, tmax) in team_minmax_rules:
+                    if t and t in team_to_indices:
+                        idxs = team_to_indices[t]
+                        if tmin and tmin > 0:
+                            prob += pulp.lpSum([y[(i, s)] for i in idxs for s in DK_SLOTS if (i, s) in y]) >= tmin
+                        if tmax and tmax > 0:
+                            prob += pulp.lpSum([y[(i, s)] for i in idxs for s in DK_SLOTS if (i, s) in y]) <= tmax
+
+            # Game stack min rule
+            if game_min_rule:
+                gname, gmin = game_min_rule
+                if gname in game_to_indices and gmin and gmin > 0:
+                    gidxs = game_to_indices[gname]
+                    prob += pulp.lpSum([y[(i, s)] for i in gidxs for s in DK_SLOTS if (i, s) in y]) >= gmin
+
+            # Solve
+            _ = prob.solve(pulp.PULP_CBC_CMD(msg=False))
+            if pulp.LpStatus[prob.status] != "Optimal":
+                return None, None
+
+            selected = []
+            for (i, s), var in y.items():
+                if var.value() == 1:
+                    selected.append((i, s))
+            salary_used = int(sum(player_df.loc[i, "Salary"] for (i, _) in selected))
+            return selected, salary_used
+
+        # Generate multiple lineups with noise + duplicate-avoidance
+        run_button = st.button("🚀 Run Optimizer")
+        lineups = []
+        if run_button:
+            rng = np.random.default_rng()
+            locks_idx = [name_to_idx[n] for n in lock_names if n in name_to_idx]
+            excludes_idx = [name_to_idx[n] for n in exclude_names if n in name_to_idx]
+            boosts_idx = set([name_to_idx[n] for n in boost_names if n in name_to_idx])
+
+            # Build team min/max rule list
+            team_minmax_rules = []
+            if team_col and teamA != "None":
+                team_minmax_rules.append((teamA, int(teamA_min), int(teamA_max) if teamA_max > 0 else None))
+            if team_col and teamB != "None":
+                team_minmax_rules.append((teamB, int(teamB_min), int(teamB_max) if teamB_max > 0 else None))
+
+            # Game min rule
+            game_min_rule = (game_to_stack, int(game_min_players)) if game_to_stack != "None" else None
+
+            base_proj = player_df["Projection"].to_numpy().astype(float)
+
+            used_sets = []
+            for k in range(int(n_lineups)):
+                # Randomize projections per lineup
+                noise = rng.normal(loc=0.0, scale=var_pct / 100.0, size=base_proj.shape)
+                adj = base_proj * (1.0 + noise)
+                if boosts_idx:
+                    adj[list(boosts_idx)] *= 1.07
+                adj = np.clip(adj, 0, None)
+
+                # Solve with constraints
+                selected, sal = solve_one_lineup(adj, locks_idx, excludes_idx,
+                                                max_per_team=max_per_team,
+                                                team_minmax_rules=team_minmax_rules,
+                                                game_min_rule=game_min_rule)
+
+                tries = 0
+                while selected is None and tries < 3:
+                    tries += 1
+                    noise = rng.normal(loc=0.0, scale=max(0.01, (var_pct/100.0)*(0.7**tries)), size=base_proj.shape)
+                    adj = base_proj * (1.0 + noise)
+                    if boosts_idx:
+                        adj[list(boosts_idx)] *= 1.07
+                    adj = np.clip(adj, 0, None)
+                    selected, sal = solve_one_lineup(adj, locks_idx, excludes_idx,
+                                                    max_per_team=max_per_team,
+                                                    team_minmax_rules=team_minmax_rules,
+                                                    game_min_rule=game_min_rule)
+
+                if selected is None:
+                    st.warning(f"Infeasible after retries at lineup {k+1}. Loosen locks/excludes/stack limits.")
+                    break
+
+                picked_idx = sorted([i for (i, s) in selected])
+                picked_set = set(picked_idx)
+
+                # Skip exact duplicates
+                if any(picked_set == prev for prev in used_sets):
+                    noise = rng.normal(loc=0.0, scale=max(0.01, (var_pct/100.0)*0.5), size=base_proj.shape)
+                    adj = base_proj * (1.0 + noise)
+                    if boosts_idx:
+                        adj[list(boosts_idx)] *= 1.07
+                    adj = np.clip(adj, 0, None)
+                    selected, sal = solve_one_lineup(adj, locks_idx, excludes_idx,
+                                                    max_per_team=max_per_team,
+                                                    team_minmax_rules=team_minmax_rules,
+                                                    game_min_rule=game_min_rule)
+                    if selected is None:
+                        continue
+                    picked_idx = sorted([i for (i, s) in selected])
+                    picked_set = set(picked_idx)
+                    if any(picked_set == prev for prev in used_sets):
+                        continue
+
+                used_sets.append(picked_set)
+
+                # Build lineup dict in slot order + projection total
+                row = {"Salary": sal, "Total_Proj": float(player_df.loc[picked_idx, "Projection"].sum())}
+                for slot in DK_SLOTS:
+                    slot_player = next((i for (i, s) in selected if s == slot), None)
+                    if slot_player is not None:
+                        row[slot] = player_df.loc[slot_player, "Name"]
+                        row[f"{slot}_NameID"] = player_df.loc[slot_player, "Name + ID"]
+                    else:
+                        row[slot] = ""
+                        row[f"{slot}_NameID"] = ""
+                lineups.append(row)
+
+            if not lineups:
+                st.stop()
+
+            lineups_df = pd.DataFrame(lineups)[["PG","SG","SF","PF","C","G","F","UTIL","Salary","Total_Proj"]]
+            st.markdown("### ✅ Lineups")
+            st.dataframe(lineups_df, use_container_width=True)
+
+            # ---------- EXPOSURES ----------
+            all_players = player_df[["Name","Position","PrimaryPos","Name + ID"]].copy()
+            counts = {}
+            for _, r in lineups_df.iterrows():
+                for slot in DK_SLOTS:
+                    p = r[slot]
+                    if p:
+                        counts[p] = counts.get(p, 0) + 1
+            expos = all_players.drop_duplicates("Name").copy()
+            expos["Lineups"] = expos["Name"].map(counts).fillna(0).astype(int)
+            expos["Exposure%"] = (expos["Lineups"] / len(lineups_df) * 100).round(1)
+            expos = expos.sort_values(["Exposure%","Name"], ascending=[False, True])
+
+            st.markdown("### 📈 Exposures")
+            e1, e2 = st.columns([2,2])
+            with e1:
+                pos_filter = st.selectbox("Filter by PrimaryPos", ["All"] + sorted(expos["PrimaryPos"].dropna().unique().tolist()))
+            with e2:
+                search_q = st.text_input("Search player").strip().lower()
+
+            exdf = expos.copy()
+            if pos_filter != "All":
+                exdf = exdf[exdf["PrimaryPos"] == pos_filter]
+            if search_q:
+                exdf = exdf[exdf["Name"].str.lower().str.contains(search_q)]
+
+            st.dataframe(exdf[["Name","Position","PrimaryPos","Lineups","Exposure%"]], use_container_width=True)
+
+            # ---------- EXPORT FOR DK (Name + ID) ----------
+            st.markdown("### ⬇️ Export for DraftKings")
+            # Build export using Name + ID for each slot (pure in-memory; no server-side save)
+            export_rows = []
+            for _, r in lineups_df.iterrows():
+                row = {}
+                for slot in DK_SLOTS:
+                    row[slot] = player_df.set_index("Name").loc[r[slot], "Name + ID"] if r[slot] else ""
+                export_rows.append(row)
+            export_df = pd.DataFrame(export_rows, columns=DK_SLOTS)
+
+            from io import StringIO
+            csv_buf = StringIO()
+            export_df.to_csv(csv_buf, index=False)
+            st.download_button(
+                label="Download DK Upload CSV",
+                data=csv_buf.getvalue(),
+                file_name="dk_upload.csv",
+                mime="text/csv"
+            )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
 
     if tab == "Weekly Ranks":
         import numpy as np
