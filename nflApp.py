@@ -782,25 +782,28 @@ if check_password():
             </style>
             """, unsafe_allow_html=True)
 
-        a,b,c=st.columns([1,5,1])
-        fdf = fdf.sort_values(by='Projection',ascending=False)
-        with b:
-            if len(fdf)>11:
-                st.dataframe(
-                    fdf.style.hide(axis="index")
-                    .apply(_row_color_by_pos, axis=1)
-                    .format({"Salary": "{:,.0f}", "Own%": "{:.0f}",
-                                "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
-                    use_container_width=True, height=800, hide_index=True
-                )
-            else:
-                st.dataframe(
-                    fdf.style.hide(axis="index")
-                    .apply(_row_color_by_pos, axis=1)
-                    .format({"Salary": "{:,.0f}", "Own%": "{:.0f}",
-                                "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
-                    use_container_width=True, hide_index=True
-                )
+        showproj = st.checkbox('Show Projection?', value=True)
+        if showproj is True:
+            
+            a,b,c=st.columns([1,5,1])
+            fdf = fdf.sort_values(by='Projection',ascending=False)
+            with b:
+                if len(fdf)>11:
+                    st.dataframe(
+                        fdf.style.hide(axis="index")
+                        .apply(_row_color_by_pos, axis=1)
+                        .format({"Salary": "{:,.0f}", "Own%": "{:.0f}",
+                                    "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
+                        use_container_width=True, height=800, hide_index=True
+                    )
+                else:
+                    st.dataframe(
+                        fdf.style.hide(axis="index")
+                        .apply(_row_color_by_pos, axis=1)
+                        .format({"Salary": "{:,.0f}", "Own%": "{:.0f}",
+                                    "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
+                        use_container_width=True, hide_index=True
+                    )
                 
 
 
