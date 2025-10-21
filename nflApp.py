@@ -823,6 +823,12 @@ if check_password():
         boost_names = st.multiselect("Boosts (+7%)", options=[n for n in df["Name"].tolist()
                                                             if n not in lock_names and n not in exclude_names])
 
+        max_exposure_pct = st.slider(
+            "Max global exposure (%)",
+            min_value=10, max_value=100, value=60, step=5,
+            help="Upper bound on how often any single player can appear across the generated lineups. Locks are exempt."
+        )
+        
         # ---------- ADVANCED: TEAM/GAME CONSTRAINTS ----------
         with st.expander("🧩 Advanced stacking & team limits"):
             if team_col:
@@ -973,8 +979,27 @@ if check_password():
 
             base_proj = player_df["Projection"].to_numpy().astype(float)
 
+            # ---------- Global exposure tracking ----------
+            nL = int(n_lineups)
+            max_allowed = max(1, int(np.floor((max_exposure_pct / 100.0) * nL)))  # cap in lineup count
+            exposure_counts = np.zeros(len(player_df), dtype=int)
+
+            if locks_idx and max_exposure_pct < 100:
+                st.info("Locks are exempt from the global exposure cap to avoid infeasible runs.")
+
             used_sets = []
-            for k in range(int(n_lineups)):
+
+            # Status + progress
+            progress = st.progress(0, text="Starting optimizer…")
+            status_box = st.status("Building lineups…", expanded=True)
+            status_log = st.empty()
+
+            for k in range(nL):
+                # Build a dynamic exclude set: normal excludes + players at their exposure cap (locks exempt)
+                cap_excluded = {i for i in range(len(player_df))
+                                if (exposure_counts[i] >= max_allowed) and (i not in locks_idx)}
+                dynamic_excludes = set(excludes_idx) | cap_excluded
+
                 # Randomize projections per lineup
                 noise = rng.normal(loc=0.0, scale=var_pct / 100.0, size=base_proj.shape)
                 adj = base_proj * (1.0 + noise)
@@ -982,12 +1007,17 @@ if check_password():
                     adj[list(boosts_idx)] *= 1.07
                 adj = np.clip(adj, 0, None)
 
-                # Solve with constraints
-                selected, sal = solve_one_lineup(adj, locks_idx, excludes_idx,
-                                                max_per_team=max_per_team,
-                                                team_minmax_rules=team_minmax_rules,
-                                                game_min_rule=game_min_rule)
+                # Solve with current constraints
+                selected, sal = solve_one_lineup(
+                    adj,
+                    locks_idx=locks_idx,
+                    excludes_idx=list(dynamic_excludes),
+                    max_per_team=max_per_team,
+                    team_minmax_rules=team_minmax_rules,
+                    game_min_rule=game_min_rule
+                )
 
+                # Retry a couple times if infeasible
                 tries = 0
                 while selected is None and tries < 3:
                     tries += 1
@@ -996,37 +1026,51 @@ if check_password():
                     if boosts_idx:
                         adj[list(boosts_idx)] *= 1.07
                     adj = np.clip(adj, 0, None)
-                    selected, sal = solve_one_lineup(adj, locks_idx, excludes_idx,
-                                                    max_per_team=max_per_team,
-                                                    team_minmax_rules=team_minmax_rules,
-                                                    game_min_rule=game_min_rule)
+                    selected, sal = solve_one_lineup(
+                        adj,
+                        locks_idx=locks_idx,
+                        excludes_idx=list(dynamic_excludes),
+                        max_per_team=max_per_team,
+                        team_minmax_rules=team_minmax_rules,
+                        game_min_rule=game_min_rule
+                    )
 
                 if selected is None:
-                    st.warning(f"Infeasible after retries at lineup {k+1}. Loosen locks/excludes/stack limits.")
+                    status_box.update(label=f"⚠️ Infeasible at lineup {k+1}. Loosen locks/excludes/stack limits.", state="error")
                     break
 
                 picked_idx = sorted([i for (i, s) in selected])
                 picked_set = set(picked_idx)
 
-                # Skip exact duplicates
+                # Skip exact duplicates (try one alternate sample)
                 if any(picked_set == prev for prev in used_sets):
                     noise = rng.normal(loc=0.0, scale=max(0.01, (var_pct/100.0)*0.5), size=base_proj.shape)
                     adj = base_proj * (1.0 + noise)
                     if boosts_idx:
                         adj[list(boosts_idx)] *= 1.07
                     adj = np.clip(adj, 0, None)
-                    selected, sal = solve_one_lineup(adj, locks_idx, excludes_idx,
-                                                    max_per_team=max_per_team,
-                                                    team_minmax_rules=team_minmax_rules,
-                                                    game_min_rule=game_min_rule)
+                    selected, sal = solve_one_lineup(
+                        adj,
+                        locks_idx=locks_idx,
+                        excludes_idx=list(dynamic_excludes),
+                        max_per_team=max_per_team,
+                        team_minmax_rules=team_minmax_rules,
+                        game_min_rule=game_min_rule
+                    )
                     if selected is None:
+                        # If still infeasible, keep going; we'll just skip this slot
                         continue
                     picked_idx = sorted([i for (i, s) in selected])
                     picked_set = set(picked_idx)
                     if any(picked_set == prev for prev in used_sets):
+                        # Still a dup; skip
                         continue
 
                 used_sets.append(picked_set)
+
+                # Update exposure counts
+                for i in picked_idx:
+                    exposure_counts[i] += 1
 
                 # Build lineup dict in slot order + projection total
                 row = {"Salary": sal, "Total_Proj": float(player_df.loc[picked_idx, "Projection"].sum())}
@@ -1040,12 +1084,34 @@ if check_password():
                         row[f"{slot}_NameID"] = ""
                 lineups.append(row)
 
+                # Progress UI
+                progress.progress((k + 1) / nL, text=f"Generating lineup {k+1}/{nL}…")
+                if (k + 1) % max(1, nL // 10) == 0:
+                    # lightweight status ping (top 5 exposed so far)
+                    top_exp = np.argsort(-exposure_counts)[:5]
+                    top_msg = ", ".join(f"{player_df.loc[i,'Name']}({exposure_counts[i]})" for i in top_exp if exposure_counts[i] > 0)
+                    status_log.write(f"Built {k+1}/{nL} lineups. Top exposures: {top_msg}")
+
             if not lineups:
                 st.stop()
+
+            progress.progress(1.0, text="Done.")
+            status_box.update(label="✅ Optimizer finished", state="complete")
 
             lineups_df = pd.DataFrame(lineups)[["PG","SG","SF","PF","C","G","F","UTIL","Salary","Total_Proj"]]
             st.markdown("### ✅ Lineups")
             st.dataframe(lineups_df, use_container_width=True)
+            if not lineups:
+                st.stop()
+
+            #lineups_df = pd.DataFrame(lineups)[["PG","SG","SF","PF","C","G","F","UTIL","Salary","Total_Proj"]]
+            #st.markdown("### ✅ Lineups")
+            #st.dataframe(lineups_df, use_container_width=True)
+
+
+
+
+
 
             # ---------- EXPOSURES ----------
             all_players = player_df[["Name","Position","PrimaryPos","Name + ID"]].copy()
