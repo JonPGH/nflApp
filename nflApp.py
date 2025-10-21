@@ -2303,8 +2303,27 @@ if check_password():
     if tab == "Weekly Projections":
         st.markdown("<h3><center>Weekly Projections & Ranks</h3></center>", unsafe_allow_html=True)
 
+        ##
+        this_week = schedule[schedule['Week']==get_this_week_number]
+
+        from datetime import datetime
+        check_today = datetime.today().date()
+        #this_week = this_week[this_week['Date']>=check_today]
+        this_week['Away'] = this_week['Away'].replace(teamnamechangedict)
+        this_week['Home'] = this_week['Home'].replace(teamnamechangedict)
+        this_week['GameName'] = this_week['Away'] + ' @ ' + this_week['Home']
+        look_game_dict_1 = dict(zip(this_week.Away,this_week.GameName))
+        look_game_dict_2 = dict(zip(this_week.Home,this_week.GameName))
+        look_game_dict = look_game_dict_1 | look_game_dict_2
+        
+        ##
         weekproj = weekproj.rename({'Ceiling100':'CeilScore'},axis=1)
         weekproj['CeilScore'] = weekproj['CeilScore'].astype(int)
+        weekproj['Game'] = weekproj['Team'].map(look_game_dict)
+        #game_selection_list = list(weekproj['Game'].unique())
+        #game_selection = st.selectbox('Select A Game', game_selection_list)
+
+        
 
         if proj_are_good == 'N':
             st.markdown(f'<h2><center>Projections for week {this_week_number} are not yet available</center></h2>',unsafe_allow_html=True)
@@ -2333,8 +2352,16 @@ if check_password():
                 # Team filter
                 teams = ['All'] + sorted(weekproj['Team'].unique().tolist())
                 selected_team = st.selectbox("Select Team", teams)
+            #with weekprojcol3:
+                # Team filter
+                #gamespick = ['All'] + sorted(weekproj['Game'].unique().tolist())
+                #selected_games = st.multiselect("Select Game(s)", gamespick, default=['All'])
             with weekprojcol3:
                 mainslateselect = st.selectbox('Show Main Slate Only', ['No','Yes'])
+            
+            ####
+            gamespick = ['All'] + sorted(weekproj['Game'].unique().tolist())
+            selected_games = st.multiselect("Select Game(s)", gamespick, default=['All'])
             
             # Button to toggle scoring settings
             show_scoring = st.button("Customize Scoring System", key="toggle_scoring")
@@ -2431,6 +2458,8 @@ if check_password():
                 else:
                     filtered_data = filtered_data[filtered_data['Pos'] == selected_position]
             
+            if "All" not in selected_games:
+                filtered_data = filtered_data[filtered_data['Game'].isin(selected_games)]
             if selected_team != 'All':
                 filtered_data = filtered_data[filtered_data['Team'] == selected_team]
 
