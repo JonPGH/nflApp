@@ -1,69 +1,69 @@
 ,Name,Pos,Team,Opp,ETR MP,Salary,ETRProj,Value,Ceiling,Own,Site,Slate,Scenario,ID,DKName
-0,Luka Doncic,PG,LAL,GSW,35.5,"$11,000",57.1,7.1,67.0,46.9%,DK,MAIN,Default,40333261,Luka Doncic
-1,Shai Gilgeous-Alexander,PG,OKC,HOU,35.0,"$10,300",55.5,8.3,64.1,45.7%,DK,MAIN,Default,40333264,Shai Gilgeous-Alexander
-2,Stephen Curry,PG,GSW,LAL,32.5,"$9,300",42.8,-0.4,51.5,11.4%,DK,MAIN,Default (Hedged 5th starter),40333274,Stephen Curry
-3,Kevin Durant,SF/PF,HOU,OKC,35.5,"$9,700",41.0,-3.8,49.4,1.8%,DK,MAIN,Default,40333267,Kevin Durant
-4,Alperen Sengun,C,HOU,OKC,32.5,"$9,200",39.6,-3.2,48.0,4.3%,DK,MAIN,Default,40333277,Alperen Sengun
-5,Austin Reaves,SG,LAL,GSW,35.5,"$7,300",38.3,3.1,46.3,74.3%,DK,MAIN,Default,40333294,Austin Reaves
-6,Amen Thompson,PG/SG,HOU,OKC,36.0,"$7,900",37.2,-0.4,45.6,37.9%,DK,MAIN,Default,40333286,Amen Thompson
-7,Jimmy Butler,SF/PF,GSW,LAL,32.0,"$8,000",36.8,-1.2,44.4,47.6%,DK,MAIN,Default (Hedged 5th starter),40333282,Jimmy Butler
-8,Chet Holmgren,PF/C,OKC,HOU,30.5,"$7,600",36.2,-0.2,43.9,16.4%,DK,MAIN,Default,40333290,Chet Holmgren
-9,Deandre Ayton,C,LAL,GSW,31.5,"$6,300",33.5,2.3,40.9,31.3%,DK,MAIN,Default,40333301,Deandre Ayton
-10,Isaiah Hartenstein,C,OKC,HOU,28.0,"$5,400",31.0,3.4,38.8,78.4%,DK,MAIN,Default,40333322,Isaiah Hartenstein
-11,Brandin Podziemski,PG/SG,GSW,LAL,28.0,"$6,600",28.3,-4.1,35.7,8.2%,DK,MAIN,Default (Hedged 5th starter),40333297,Brandin Podziemski
-12,Draymond Green,PF/C,GSW,LAL,28.0,"$5,700",27.1,-1.7,35.8,54.1%,DK,MAIN,Default (Hedged 5th starter),40333311,Draymond Green
-13,Jabari Smith Jr.,PF/C,HOU,OKC,31.0,"$5,200",24.9,-1.9,31.8,27.0%,DK,MAIN,Default,40333328,Jabari Smith Jr.
-14,Tari Eason,SF/PF,HOU,OKC,25.5,"$5,300",24.2,-3.0,32.1,23.2%,DK,MAIN,Default,40333324,Tari Eason
-15,Rui Hachimura,SF,LAL,GSW,32.0,"$5,600",23.7,-4.7,30.2,4.1%,DK,MAIN,Default,40333315,Rui Hachimura
-16,Jonathan Kuminga,PF,GSW,LAL,21.5,"$5,900",23.1,-6.5,30.8,1.0%,DK,MAIN,Default (Hedged 5th starter),40333303,Jonathan Kuminga
-17,Aaron Wiggins,SF/PF,OKC,HOU,24.5,"$5,000",22.7,-3.3,30.1,55.7%,DK,MAIN,Default,40333336,Aaron Wiggins
-18,Alex Caruso,SF,OKC,HOU,23.0,"$4,600",22.6,-1.8,30.8,36.0%,DK,MAIN,Default,40333349,Alex Caruso
-19,Luguentz Dort,SG,OKC,HOU,31.5,"$4,400",22.5,-1.1,29.4,42.3%,DK,MAIN,Default,40333354,Luguentz Dort
-20,Cason Wallace,PG/SG,OKC,HOU,26.5,"$5,100",21.7,-4.7,29.2,4.0%,DK,MAIN,Default,40333332,Cason Wallace
-21,Steven Adams,C,HOU,OKC,23.0,"$4,200",20.3,-2.5,27.8,20.4%,DK,MAIN,Default,40333361,Steven Adams
-22,Al Horford,PF/C,GSW,LAL,22.0,"$5,500",19.5,-8.5,26.4,0.0%,DK,MAIN,Default (Hedged 5th starter),40333318,Al Horford
-23,Marcus Smart,PG/SG,LAL,GSW,23.0,"$4,300",18.8,-4.4,26.6,8.4%,DK,MAIN,Default,40333357,Marcus Smart
-24,Reed Sheppard,PG/SG,HOU,OKC,21.0,"$4,900",18.3,-7.3,25.7,0.9%,DK,MAIN,Default,40333340,Reed Sheppard
-25,Buddy Hield,SG/SF,GSW,LAL,20.5,"$5,800",18.0,-11.2,25.2,0.0%,DK,MAIN,Default (Hedged 5th starter),40333306,Buddy Hield
-26,Jake LaRavia,SF/PF,LAL,GSW,22.0,"$3,600",16.0,-4.4,23.2,21.8%,DK,MAIN,Default,40333396,Jake LaRavia
-27,Jarred Vanderbilt,PF/C,LAL,GSW,19.0,"$3,900",15.7,-5.9,23.3,25.1%,DK,MAIN,Default,40333368,Jarred Vanderbilt
-28,Gabe Vincent,PG,LAL,GSW,26.0,"$3,500",15.3,-4.7,21.8,13.8%,DK,MAIN,Default,40333403,Gabe Vincent
-29,Ajay Mitchell,PG,OKC,HOU,19.0,"$3,800",15.3,-5.9,22.5,50.3%,DK,MAIN,Default,40333376,Ajay Mitchell
-30,Jaylin Williams,C,OKC,HOU,14.0,"$4,000",14.0,-8.0,21.1,0.0%,DK,MAIN,Default,40333372,Jaylin Williams
-31,Quinten Post,C,GSW,LAL,15.0,"$3,800",13.7,-7.5,20.9,0.4%,DK,MAIN,Default (Hedged 5th starter),40333379,Quinten Post
-32,Clint Capela,C,HOU,OKC,14.5,"$4,500",13.7,-10.3,20.8,0.0%,DK,MAIN,Default,40333352,Clint Capela
-33,Gary Payton II,SG,GSW,LAL,15.5,"$3,200",12.8,-6.0,19.9,5.9%,DK,MAIN,Default (Hedged 5th starter),40333422,Gary Payton II
-34,Jaxson Hayes,C,LAL,GSW,12.5,"$3,800",10.3,-10.9,17.2,0.0%,DK,MAIN,Default,40333374,Jaxson Hayes
-35,Gui Santos,SF,GSW,LAL,12.5,"$3,100",10.0,-8.4,17.1,0.6%,DK,MAIN,Default (Hedged 5th starter),40333446,Gui Santos
-36,Josh Okogie,SG,HOU,OKC,12.0,"$3,300",9.5,-9.7,16.6,0.6%,DK,MAIN,Default,40333417,Josh Okogie
-37,Aaron Holiday,PG/SG,HOU,OKC,9.0,"$3,800",7.3,-13.9,14.2,0.0%,DK,MAIN,Default,40333381,Aaron Holiday
-38,Will Richard,PG,GSW,LAL,10.0,"$3,000",6.5,-11.5,13.3,0.0%,DK,MAIN,Default (Hedged 5th starter),40333499,Will Richard
-39,Ousmane Dieng,PF/C,OKC,HOU,5.0,"$3,100",3.8,-14.6,10.5,0.0%,DK,MAIN,Default,40333435,Ousmane Dieng
-40,Pat Spencer,PG,GSW,LAL,2.5,"$3,000",2.4,-15.6,9.2,0.0%,DK,MAIN,Default (Hedged 5th starter),40333508,Pat Spencer
-41,Brooks Barnhizer,PF,OKC,HOU,3.0,"$3,000",2.4,-15.6,9.2,0.0%,DK,MAIN,Default,40333455,Brooks Barnhizer
-42,Dalton Knecht,SG/SF,LAL,GSW,3.0,"$4,100",2.3,-20.1,8.9,0.0%,DK,MAIN,Default,40333363,Dalton Knecht
-43,DeAnthony Melton,PG,GSW,LAL,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Hedged 5th starter),40333496,De'Anthony Melton
-44,Moses Moody,SG/SF,GSW,LAL,0.0,"$4,800",0.0,-25.2,0.0,0.0%,DK,MAIN,Default (Hedged 5th starter),40333344,Moses Moody
-45,Jackson Rowe,SF/PF,GSW,LAL,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Hedged 5th starter),40333502,Jackson Rowe
-46,Alex Toohey,SF,GSW,LAL,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Hedged 5th starter),40333511,Alex Toohey
-47,Trayce Jackson-Davis,C,GSW,LAL,0.0,"$3,200",0.0,-18.8,0.0,0.0%,DK,MAIN,Default (Hedged 5th starter),40333420,Trayce Jackson-Davis
-48,Fred VanVleet,PG,HOU,OKC,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40333449,Fred VanVleet
-49,JD Davison,PG,HOU,OKC,0.0,"$3,400",0.0,-19.6,0.0,0.0%,DK,MAIN,Default,40333414,JD Davison
-50,Kevon Harris,SG,HOU,OKC,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40333474,Kevon Harris
-51,Isaiah Crawford,SF,HOU,OKC,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40333462,Isaiah Crawford
-52,Dorian Finney-Smith,SF/PF,HOU,OKC,0.0,"$3,700",0.0,-20.8,0.0,0.0%,DK,MAIN,Default,40333389,Dorian Finney-Smith
-53,JaeSean Tate,SF,HOU,OKC,0.0,"$3,600",0.0,-20.4,0.0,0.0%,DK,MAIN,Default,40333400,Jae'Sean Tate
-54,Jeff Green,PF,HOU,OKC,0.0,"$3,300",0.0,-19.2,0.0,0.0%,DK,MAIN,Default,40333429,Jeff Green
-55,Chris Manon,SG/SF,LAL,GSW,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40333485,Chris Manon
-56,Nick Smith Jr.,PG,LAL,GSW,0.0,"$3,300",0.0,-19.2,0.0,0.0%,DK,MAIN,Default,40333406,Nick Smith Jr.
-57,Bronny James Jr.,PG/SG,LAL,GSW,0.0,"$3,100",0.0,-18.4,0.0,0.0%,DK,MAIN,Default,40333439,Bronny James
-58,Adou Thiero,SF,LAL,GSW,0.0,"$3,200",0.0,-18.8,0.0,0.0%,DK,MAIN,Default,40333432,Adou Thiero
-59,LeBron James,PF,LAL,GSW,0.0,"$9,500",0.0,-44.0,0.0,0.0%,DK,MAIN,Default,40333271,LeBron James
-60,Maxi Kleber,PF/C,LAL,GSW,0.0,"$3,700",0.0,-20.8,0.0,0.0%,DK,MAIN,Default,40333385,Maxi Kleber
-61,Christian Koloko,C,LAL,GSW,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40333480,Christian Koloko
-62,Nikola Topic,PG,OKC,HOU,0.0,"$3,200",0.0,-18.8,0.0,0.0%,DK,MAIN,Default,40333443,Nikola Topic
-63,Isaiah Joe,SG/SF,OKC,HOU,0.0,"$3,400",0.0,-19.6,0.0,0.0%,DK,MAIN,Default,40333409,Isaiah Joe
-64,Jalen Williams,SF,OKC,HOU,0.0,"$8,500",0.0,-40.0,0.0,0.0%,DK,MAIN,Default,40333279,Jalen Williams
-65,Kenrich Williams,PF/C,OKC,HOU,0.0,"$3,200",0.0,-18.8,0.0,0.0%,DK,MAIN,Default,40333425,Kenrich Williams
-66,Branden Carlson,C,OKC,HOU,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40333460,Branden Carlson
-67,Thomas Sorber,C,OKC,HOU,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40333506,Thomas Sorber
+0,Luka Doncic,PG,LAL,GSW,35.5,"$11,000 ",57.2,7.1,67.4,49.60%,DK,MAIN,Default,40333261,Luka Doncic
+1,Shai Gilgeous-Alexander,PG,OKC,HOU,35.0,"$10,300 ",55.5,8.3,63.8,47.40%,DK,MAIN,Default (Hedged 5th starter),40333264,Shai Gilgeous-Alexander
+2,Stephen Curry,PG,GSW,LAL,32.5,"$9,300 ",42.9,-0.3,52.1,11.10%,DK,MAIN,Default (Hedged 5th starter),40333274,Stephen Curry
+3,Kevin Durant,SF/PF,HOU,OKC,35.5,"$9,700 ",41.0,-3.8,49.3,2.10%,DK,MAIN,Default,40333267,Kevin Durant
+4,Alperen Sengun,C,HOU,OKC,32.5,"$9,200 ",39.6,-3.2,47.5,2.90%,DK,MAIN,Default,40333277,Alperen Sengun
+5,Austin Reaves,SG,LAL,GSW,35.5,"$7,300 ",38.3,3.1,46.5,65.20%,DK,MAIN,Default,40333294,Austin Reaves
+6,Amen Thompson,PG/SG,HOU,OKC,36.0,"$7,900 ",37.2,-0.4,45.5,35.80%,DK,MAIN,Default,40333286,Amen Thompson
+7,Jimmy Butler,SF/PF,GSW,LAL,32.0,"$8,000 ",36.8,-1.2,44.3,40.60%,DK,MAIN,Default (Hedged 5th starter),40333282,Jimmy Butler
+8,Chet Holmgren,PF/C,OKC,HOU,30.5,"$7,600 ",36.2,-0.2,44.2,20.40%,DK,MAIN,Default (Hedged 5th starter),40333290,Chet Holmgren
+9,Deandre Ayton,C,LAL,GSW,31.5,"$6,300 ",33.5,2.3,41.1,38.10%,DK,MAIN,Default,40333301,Deandre Ayton
+10,Isaiah Hartenstein,C,OKC,HOU,28.0,"$5,400 ",31.0,3.4,38.6,77.20%,DK,MAIN,Default (Hedged 5th starter),40333322,Isaiah Hartenstein
+11,Brandin Podziemski,PG/SG,GSW,LAL,28.0,"$6,600 ",28.3,-4.1,35.8,7.90%,DK,MAIN,Default (Hedged 5th starter),40333297,Brandin Podziemski
+12,Draymond Green,PF/C,GSW,LAL,28.0,"$5,700 ",27.1,-1.7,35.6,53.80%,DK,MAIN,Default (Hedged 5th starter),40333311,Draymond Green
+13,Jabari Smith Jr.,PF/C,HOU,OKC,31.0,"$5,200 ",24.9,-1.9,31.7,32.00%,DK,MAIN,Default,40333328,Jabari Smith Jr.
+14,Tari Eason,SF/PF,HOU,OKC,25.5,"$5,300 ",24.2,-3.0,32.2,27.90%,DK,MAIN,Default,40333324,Tari Eason
+15,Rui Hachimura,SF,LAL,GSW,32.0,"$5,600 ",23.7,-4.7,30.0,4.90%,DK,MAIN,Default,40333315,Rui Hachimura
+16,Jonathan Kuminga,PF,GSW,LAL,21.5,"$5,900 ",23.1,-6.5,30.9,1.40%,DK,MAIN,Default (Hedged 5th starter),40333303,Jonathan Kuminga
+17,Aaron Wiggins,SF/PF,OKC,HOU,24.5,"$5,000 ",22.7,-3.3,30.5,53.40%,DK,MAIN,Default (Hedged 5th starter),40333336,Aaron Wiggins
+18,Alex Caruso,SF,OKC,HOU,23.0,"$4,600 ",22.6,-1.8,30.6,42.70%,DK,MAIN,Default (Hedged 5th starter),40333349,Alex Caruso
+19,Luguentz Dort,SG,OKC,HOU,31.5,"$4,400 ",22.5,-1.1,29.4,48.00%,DK,MAIN,Default (Hedged 5th starter),40333354,Luguentz Dort
+20,Cason Wallace,PG/SG,OKC,HOU,26.5,"$5,100 ",21.7,-4.7,29.1,5.10%,DK,MAIN,Default (Hedged 5th starter),40333332,Cason Wallace
+21,Steven Adams,C,HOU,OKC,23.0,"$4,200 ",20.3,-2.5,27.8,19.80%,DK,MAIN,Default,40333361,Steven Adams
+22,Al Horford,PF/C,GSW,LAL,22.0,"$5,500 ",19.5,-8.5,26.6,0.10%,DK,MAIN,Default (Hedged 5th starter),40333318,Al Horford
+23,Marcus Smart,PG/SG,LAL,GSW,23.0,"$4,300 ",18.8,-4.4,26.7,9.20%,DK,MAIN,Default,40333357,Marcus Smart
+24,Reed Sheppard,PG/SG,HOU,OKC,21.0,"$4,900 ",18.3,-7.3,25.9,1.20%,DK,MAIN,Default,40333340,Reed Sheppard
+25,Buddy Hield,SG/SF,GSW,LAL,20.5,"$5,800 ",18.0,-11.2,25.6,0.00%,DK,MAIN,Default (Hedged 5th starter),40333306,Buddy Hield
+26,Jake LaRavia,SF/PF,LAL,GSW,22.0,"$3,600 ",16.0,-4.4,23.4,23.20%,DK,MAIN,Default,40333396,Jake LaRavia
+27,Jarred Vanderbilt,PF/C,LAL,GSW,19.0,"$3,900 ",15.7,-5.9,23.3,17.20%,DK,MAIN,Default,40333368,Jarred Vanderbilt
+28,Gabe Vincent,PG,LAL,GSW,26.0,"$3,500 ",15.3,-4.7,21.8,17.00%,DK,MAIN,Default,40333403,Gabe Vincent
+29,Ajay Mitchell,PG,OKC,HOU,19.0,"$3,800 ",15.3,-5.9,22.6,31.60%,DK,MAIN,Default (Hedged 5th starter),40333376,Ajay Mitchell
+30,Jaylin Williams,C,OKC,HOU,14.0,"$4,000 ",14.0,-8.0,21.6,0.10%,DK,MAIN,Default (Hedged 5th starter),40333372,Jaylin Williams
+31,Quinten Post,C,GSW,LAL,15.0,"$3,800 ",13.7,-7.5,20.7,0.20%,DK,MAIN,Default (Hedged 5th starter),40333379,Quinten Post
+32,Clint Capela,C,HOU,OKC,14.5,"$4,500 ",13.7,-10.3,20.6,0.00%,DK,MAIN,Default,40333352,Clint Capela
+33,Gary Payton II,SG,GSW,LAL,15.5,"$3,200 ",12.8,-6.0,19.9,12.10%,DK,MAIN,Default (Hedged 5th starter),40333422,Gary Payton II
+34,Jaxson Hayes,C,LAL,GSW,12.5,"$3,800 ",10.3,-10.9,17.1,0.00%,DK,MAIN,Default,40333374,Jaxson Hayes
+35,Gui Santos,SF,GSW,LAL,12.5,"$3,100 ",10.0,-8.4,17.0,0.10%,DK,MAIN,Default (Hedged 5th starter),40333446,Gui Santos
+36,Josh Okogie,SG,HOU,OKC,12.0,"$3,300 ",9.5,-9.7,16.7,0.60%,DK,MAIN,Default,40333417,Josh Okogie
+37,Aaron Holiday,PG/SG,HOU,OKC,9.0,"$3,800 ",7.3,-13.9,14.3,0.00%,DK,MAIN,Default,40333381,Aaron Holiday
+38,Will Richard,PG,GSW,LAL,10.0,"$3,000 ",6.5,-11.5,13.3,0.00%,DK,MAIN,Default (Hedged 5th starter),40333499,Will Richard
+39,Ousmane Dieng,PF/C,OKC,HOU,5.0,"$3,100 ",3.8,-14.6,10.6,0.00%,DK,MAIN,Default (Hedged 5th starter),40333435,Ousmane Dieng
+40,Pat Spencer,PG,GSW,LAL,2.5,"$3,000 ",2.4,-15.6,9.1,0.00%,DK,MAIN,Default (Hedged 5th starter),40333508,Pat Spencer
+41,Brooks Barnhizer,PF,OKC,HOU,3.0,"$3,000 ",2.4,-15.6,9.2,0.00%,DK,MAIN,Default (Hedged 5th starter),40333455,Brooks Barnhizer
+42,Dalton Knecht,SG/SF,LAL,GSW,3.0,"$4,100 ",2.3,-20.1,9.0,0.00%,DK,MAIN,Default,40333363,Dalton Knecht
+43,DeAnthony Melton,PG,GSW,LAL,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333496,De'Anthony Melton
+44,Moses Moody,SG/SF,GSW,LAL,0.0,"$4,800 ",0.0,-25.2,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333344,Moses Moody
+45,Jackson Rowe,SF/PF,GSW,LAL,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333502,Jackson Rowe
+46,Alex Toohey,SF,GSW,LAL,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333511,Alex Toohey
+47,Trayce Jackson-Davis,C,GSW,LAL,0.0,"$3,200 ",0.0,-18.8,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333420,Trayce Jackson-Davis
+48,Fred VanVleet,PG,HOU,OKC,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default,40333449,Fred VanVleet
+49,JD Davison,PG,HOU,OKC,0.0,"$3,400 ",0.0,-19.6,0.0,0.00%,DK,MAIN,Default,40333414,JD Davison
+50,Kevon Harris,SG,HOU,OKC,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default,40333474,Kevon Harris
+51,Isaiah Crawford,SF,HOU,OKC,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default,40333462,Isaiah Crawford
+52,Dorian Finney-Smith,SF/PF,HOU,OKC,0.0,"$3,700 ",0.0,-20.8,0.0,0.00%,DK,MAIN,Default,40333389,Dorian Finney-Smith
+53,JaeSean Tate,SF,HOU,OKC,0.0,"$3,600 ",0.0,-20.4,0.0,0.00%,DK,MAIN,Default,40333400,Jae'Sean Tate
+54,Jeff Green,PF,HOU,OKC,0.0,"$3,300 ",0.0,-19.2,0.0,0.00%,DK,MAIN,Default,40333429,Jeff Green
+55,Chris Manon,SG/SF,LAL,GSW,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default,40333485,Chris Manon
+56,Nick Smith Jr.,PG,LAL,GSW,0.0,"$3,300 ",0.0,-19.2,0.0,0.00%,DK,MAIN,Default,40333406,Nick Smith Jr.
+57,Bronny James Jr.,PG/SG,LAL,GSW,0.0,"$3,100 ",0.0,-18.4,0.0,0.00%,DK,MAIN,Default,40333439,Bronny James
+58,Adou Thiero,SF,LAL,GSW,0.0,"$3,200 ",0.0,-18.8,0.0,0.00%,DK,MAIN,Default,40333432,Adou Thiero
+59,LeBron James,PF,LAL,GSW,0.0,"$9,500 ",0.0,-44.0,0.0,0.00%,DK,MAIN,Default,40333271,LeBron James
+60,Maxi Kleber,PF/C,LAL,GSW,0.0,"$3,700 ",0.0,-20.8,0.0,0.00%,DK,MAIN,Default,40333385,Maxi Kleber
+61,Christian Koloko,C,LAL,GSW,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default,40333480,Christian Koloko
+62,Nikola Topic,PG,OKC,HOU,0.0,"$3,200 ",0.0,-18.8,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333443,Nikola Topic
+63,Isaiah Joe,SG/SF,OKC,HOU,0.0,"$3,400 ",0.0,-19.6,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333409,Isaiah Joe
+64,Jalen Williams,SF,OKC,HOU,0.0,"$8,500 ",0.0,-40.0,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333279,Jalen Williams
+65,Kenrich Williams,PF/C,OKC,HOU,0.0,"$3,200 ",0.0,-18.8,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333425,Kenrich Williams
+66,Branden Carlson,C,OKC,HOU,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333460,Branden Carlson
+67,Thomas Sorber,C,OKC,HOU,0.0,"$3,000 ",0.0,-18.0,0.0,0.00%,DK,MAIN,Default (Hedged 5th starter),40333506,Thomas Sorber
