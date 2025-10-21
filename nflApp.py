@@ -669,7 +669,7 @@ if check_password():
         df = df[df['NewProj']>0]
         df['Own%'] = df['Own'].str.replace('%','')
         df['Own%'] = df['Own%'].astype(float)
-        #st.write(df)
+
         if "Game" not in df.columns and "Game Info" in df.columns:
             df["Game"] = df["Game Info"].str.split(" ", expand=True)[0]
         if "PrimaryPos" not in df.columns and "Position" in df.columns:
@@ -883,7 +883,7 @@ if check_password():
                     st.dataframe(
                         fdf.style.hide(axis="index")
                         .apply(_row_color_by_pos, axis=1)
-                        .format({"Salary": "{:,.0f}", "Own%": "{:.0f}",
+                        .format({"Salary": "{:,.0f}", "Own%": "{:.0f}", "Score": "{:.2f}",
                                     "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
                         use_container_width=True, hide_index=True
                     )
