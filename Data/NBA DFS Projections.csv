@@ -25,7 +25,7 @@
 23,Scottie Barnes,PG/SF,TOR,ATL,34.0,"$8,400",40.6,1.0,49.3,10.0%,DK,MAIN,Default,40494069,Scottie Barnes
 24,Derrick White,PG,BOS,PHI,35.0,"$8,300",40.4,1.2,47.4,7.9%,DK,MAIN,Default (Jaylen Brown IN),40494074,Derrick White
 25,Nikola Vucevic,C,CHI,DET,31.0,"$8,800",39.6,-1.6,47.6,2.0%,DK,MAIN,Default,40494036,Nikola Vucevic
-26,Bam Adebayo,PF/C,MIA,ORL,34.0,"$8,400",39.1,-0.5,46.8,5.2%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494053,Bam Adebayo
+26,Bam Adebayo,PF/C,MIA,ORL,34.0,"$8,400",39.2,-0.4,46.9,5.2%,DK,MAIN,Default,40494053,Bam Adebayo
 27,Deni Avdija,SF/PF,POR,MIN,32.5,"$8,500",38.7,-1.3,48.3,3.4%,DK,MAIN,Default,40494057,Deni Avdija
 28,Cam Thomas,SG,BKN,CHA,31.0,"$7,600",37.8,1.4,45.5,5.7%,DK,MAIN,Default (Demin & Saraf Hedged Starting),40494118,Cam Thomas
 29,Kristaps Porzingis,PF/C,ATL,TOR,29.0,"$7,300",37.7,2.5,45.4,10.5%,DK,MAIN,Default,40494137,Kristaps Porzingis
@@ -62,7 +62,7 @@
 60,Jakob Poeltl,C,TOR,ATL,30.0,"$6,400",30.8,-0.8,38.6,5.5%,DK,MAIN,Default,40494231,Jakob Poeltl
 61,Myles Turner,C,MIL,WAS,30.0,"$6,700",30.5,-2.3,37.6,0.6%,DK,MAIN,Default,40494215,Myles Turner
 62,Nic Claxton,C,BKN,CHA,28.0,"$5,500",30.4,2.4,37.6,12.8%,DK,MAIN,Default (Demin & Saraf Hedged Starting),40494359,Nic Claxton
-63,Andrew Wiggins,SF/PF,MIA,ORL,32.0,"$6,500",30.1,-1.9,37.5,4.4%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494220,Andrew Wiggins
+63,Andrew Wiggins,SF/PF,MIA,ORL,32.0,"$6,500",30.1,-1.9,37.6,4.4%,DK,MAIN,Default,40494220,Andrew Wiggins
 64,Ausar Thompson,SF,DET,CHI,28.0,"$6,800",29.8,-3.4,38.0,1.3%,DK,MAIN,Default,40494208,Ausar Thompson
 65,Mikal Bridges,SG,NYK,CLE,35.5,"$5,800",29.6,0.4,36.3,6.3%,DK,MAIN,Default (Towns IN (Hukporti Starting)),40494316,Mikal Bridges
 66,Santi Aldama,SF/PF,MEM,NOP,27.5,"$7,500",29.4,-6.6,36.8,0.2%,DK,MAIN,Default,40494128,Santi Aldama
@@ -75,7 +75,7 @@
 73,Mark Williams,C,PHX,SAC,22.5,"$7,800",28.8,-8.4,36.5,0.0%,DK,MAIN,Default,40494092,Mark Williams
 74,Donovan Clingan,C,POR,MIN,26.0,"$6,100",28.6,-1.8,36.7,1.8%,DK,MAIN,Default,40494261,Donovan Clingan
 75,Donte DiVincenzo,PG/SG,MIN,POR,29.0,"$5,500",28.3,0.3,36.2,8.5%,DK,MAIN,Default (Anthony Edwards IN),40494368,Donte DiVincenzo
-76,Norman Powell,SG,MIA,ORL,31.0,"$7,400",28.1,-7.5,35.3,0.0%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494148,Norman Powell
+76,Norman Powell,SG,MIA,ORL,31.0,"$7,400",28.1,-7.5,35.4,0.0%,DK,MAIN,Default,40494148,Norman Powell
 77,Khris Middleton,SF,WAS,MIL,27.0,"$6,000",27.9,-2.1,35.5,1.0%,DK,MAIN,Default,40494271,Khris Middleton
 78,Grayson Allen,PG/SG,PHX,SAC,31.0,"$5,900",27.7,-1.9,35.1,4.3%,DK,MAIN,Default,40494302,Grayson Allen
 79,PJ Washington,SF/PF,DAL,SAS,31.0,"$3,000",27.4,9.4,35.0,95.7%,DK,MAIN,Default,40495326,PJ Washington
@@ -104,29 +104,29 @@
 102,Ace Bailey,SG/SF,UTA,LAC,27.0,"$5,900",23.7,-5.9,31.7,0.1%,DK,MAIN,Default (Taylor Hendricks Starting),40494308,Ace Bailey
 103,Herbert Jones,SG/SF,NOP,MEM,31.0,"$5,700",23.5,-5.3,31.0,0.2%,DK,MAIN,Default (Hawkins Rotation Hedge),40494331,Herbert Jones
 104,Wendell Carter Jr.,C,ORL,MIA,27.0,"$5,600",23.4,-5.0,30.1,0.3%,DK,MAIN,Default,40494349,Wendell Carter Jr.
-105,Bub Carrington,PG,WAS,MIL,28.0,"$5,600",23.1,-5.3,30.6,0.2%,DK,MAIN,Default,40494343,Bub Carrington
-106,Kyshawn George,SF/PF,WAS,MIL,28.5,"$5,500",23.1,-4.9,30.4,0.3%,DK,MAIN,Default,40494364,Kyshawn George
-107,Ryan Dunn,SF/PF,PHX,SAC,28.0,"$4,300",22.9,-0.3,30.0,10.0%,DK,MAIN,Default,40494561,Ryan Dunn
-108,Neemias Queta,C,BOS,PHI,23.0,"$5,000",22.7,-3.3,30.1,0.3%,DK,MAIN,Default (Jaylen Brown IN),40494444,Neemias Queta
-109,Kel'el Ware,C,MIA,ORL,21.5,"$6,100",22.7,-7.7,30.0,0.1%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494259,Kel'el Ware
+105,Nikola Jovic,PF/C,MIA,ORL,26.5,"$4,900",23.3,-2.3,30.6,0.8%,DK,MAIN,Default,40494464,Nikola Jovic
+106,Bub Carrington,PG,WAS,MIL,28.0,"$5,600",23.1,-5.3,30.6,0.2%,DK,MAIN,Default,40494343,Bub Carrington
+107,Kyshawn George,SF/PF,WAS,MIL,28.5,"$5,500",23.1,-4.9,30.4,0.3%,DK,MAIN,Default,40494364,Kyshawn George
+108,Ryan Dunn,SF/PF,PHX,SAC,28.0,"$4,300",22.9,-0.3,30.0,10.0%,DK,MAIN,Default,40494561,Ryan Dunn
+109,Neemias Queta,C,BOS,PHI,23.0,"$5,000",22.7,-3.3,30.1,0.3%,DK,MAIN,Default (Jaylen Brown IN),40494444,Neemias Queta
 110,Klay Thompson,SG,DAL,SAS,27.0,"$5,100",22.6,-3.8,29.8,0.7%,DK,MAIN,Default,40494417,Klay Thompson
 111,Duncan Robinson,SG/SF,DET,CHI,27.0,"$4,800",22.4,-2.8,29.7,1.1%,DK,MAIN,Default,40494484,Duncan Robinson
 112,Drew Eubanks,C,SAC,PHX,22.0,"$5,200",22.3,-4.5,29.6,0.2%,DK,MAIN,Default,40494411,Drew Eubanks
 113,Day'Ron Sharpe,C,BKN,CHA,18.5,"$5,400",22.2,-5.4,30.2,0.5%,DK,MAIN,Default (Demin & Saraf Hedged Starting),40494389,Day'Ron Sharpe
 114,Jock Landale,C,MEM,NOP,21.0,"$4,000",22.1,0.1,28.9,5.7%,DK,MAIN,Default,40494654,Jock Landale
 115,Collin Sexton,PG/SG,CHA,BKN,23.0,"$5,300",22.0,-5.2,29.2,1.1%,DK,MAIN,Default (Knueppel Starting),40494400,Collin Sexton
-116,Nikola Jovic,PF/C,MIA,ORL,25.0,"$4,900",21.9,-3.7,29.2,0.8%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494464,Nikola Jovic
-117,Kyle Filipowski,PF/C,UTA,LAC,22.0,"$5,700",21.9,-6.9,29.7,0.1%,DK,MAIN,Default (Taylor Hendricks Starting),40494327,Kyle Filipowski
-118,Jalen Smith,C,CHI,DET,17.0,"$4,800",21.7,-3.5,28.8,0.0%,DK,MAIN,Default,40494492,Jalen Smith
-119,Jaylon Tyson,SG/SF,CLE,NYK,27.0,"$3,200",21.7,2.9,29.1,47.4%,DK,MAIN,Default,40494921,Jaylon Tyson
-120,Kevin Huerter,SG,CHI,DET,25.0,"$4,700",21.3,-3.5,28.9,0.6%,DK,MAIN,Default,40494499,Kevin Huerter
-121,Davion Mitchell,PG/SG,MIA,ORL,29.0,"$4,500",21.2,-2.8,28.3,6.3%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494513,Davion Mitchell
-122,Russell Westbrook,PG,SAC,PHX,20.0,"$5,000",21.2,-4.8,29.6,0.1%,DK,MAIN,Default,40494449,Russell Westbrook
-123,Sam Merrill,SG,CLE,NYK,27.5,"$4,800",21.0,-4.2,27.6,0.3%,DK,MAIN,Default,40494494,Sam Merrill
-124,Gary Trent Jr.,SG,MIL,WAS,27.0,"$4,600",21.0,-3.4,28.0,1.1%,DK,MAIN,Default,40494502,Gary Trent Jr.
-125,Sam Hauser,SF/PF,BOS,PHI,27.5,"$5,100",20.9,-5.5,27.5,0.1%,DK,MAIN,Default (Jaylen Brown IN),40494425,Sam Hauser
-126,Nickeil Alexander-Walker,SG/SF,ATL,TOR,25.0,"$4,400",20.7,-2.9,28.2,1.7%,DK,MAIN,Default,40494534,Nickeil Alexander-Walker
-127,Kon Knueppel,SG/SF,CHA,BKN,25.0,"$5,100",20.6,-5.8,27.8,0.1%,DK,MAIN,Default (Knueppel Starting),40494420,Kon Knueppel
+116,Kyle Filipowski,PF/C,UTA,LAC,22.0,"$5,700",21.9,-6.9,29.7,0.1%,DK,MAIN,Default (Taylor Hendricks Starting),40494327,Kyle Filipowski
+117,Jalen Smith,C,CHI,DET,17.0,"$4,800",21.7,-3.5,28.8,0.0%,DK,MAIN,Default,40494492,Jalen Smith
+118,Jaylon Tyson,SG/SF,CLE,NYK,27.0,"$3,200",21.7,2.9,29.1,47.4%,DK,MAIN,Default,40494921,Jaylon Tyson
+119,Kevin Huerter,SG,CHI,DET,25.0,"$4,700",21.3,-3.5,28.9,0.6%,DK,MAIN,Default,40494499,Kevin Huerter
+120,Davion Mitchell,PG/SG,MIA,ORL,29.0,"$4,500",21.2,-2.8,28.3,6.3%,DK,MAIN,Default,40494513,Davion Mitchell
+121,Russell Westbrook,PG,SAC,PHX,20.0,"$5,000",21.2,-4.8,29.6,0.1%,DK,MAIN,Default,40494449,Russell Westbrook
+122,Sam Merrill,SG,CLE,NYK,27.5,"$4,800",21.0,-4.2,27.6,0.3%,DK,MAIN,Default,40494494,Sam Merrill
+123,Gary Trent Jr.,SG,MIL,WAS,27.0,"$4,600",21.0,-3.4,28.0,1.1%,DK,MAIN,Default,40494502,Gary Trent Jr.
+124,Sam Hauser,SF/PF,BOS,PHI,27.5,"$5,100",20.9,-5.5,27.5,0.1%,DK,MAIN,Default (Jaylen Brown IN),40494425,Sam Hauser
+125,Nickeil Alexander-Walker,SG/SF,ATL,TOR,25.0,"$4,400",20.7,-2.9,28.2,1.7%,DK,MAIN,Default,40494534,Nickeil Alexander-Walker
+126,Kon Knueppel,SG/SF,CHA,BKN,25.0,"$5,100",20.6,-5.8,27.8,0.1%,DK,MAIN,Default (Knueppel Starting),40494420,Kon Knueppel
+127,Kel'el Ware,C,MIA,ORL,19.5,"$6,100",20.6,-9.8,27.9,0.1%,DK,MAIN,Default,40494259,Kel'el Ware
 128,Julian Champagnie,SG/SF,SAS,DAL,26.0,"$4,300",20.5,-2.7,27.6,2.0%,DK,MAIN,Default,40494556,Julian Champagnie
 129,Cedric Coward,SG,MEM,NOP,20.0,"$3,900",20.4,-1.2,28.1,4.3%,DK,MAIN,Default,40494668,Cedric Coward
 130,Royce O'Neale,SF,PHX,SAC,22.5,"$4,800",20.4,-4.8,27.5,0.0%,DK,MAIN,Default,40494478,Royce O'Neale
@@ -172,8 +172,8 @@
 170,Noah Clowney,PF,BKN,CHA,19.5,"$4,900",15.8,-9.8,22.8,0.0%,DK,MAIN,Default (Demin & Saraf Hedged Starting),40494454,Noah Clowney
 171,Cole Anthony,PG/SG,MIL,WAS,15.5,"$3,900",15.8,-5.8,23.5,0.0%,DK,MAIN,Default,40494664,Cole Anthony
 172,Gregory Jackson,PF,MEM,NOP,16.0,"$3,000",15.6,-2.4,23.0,2.4%,DK,MAIN,Default,40495160,Gregory Jackson
-173,Jeremiah Fears,PG,NOP,MEM,17.0,"$4,400",15.6,-8.0,23.4,0.0%,DK,MAIN,Default (Hawkins Rotation Hedge),40494539,Jeremiah Fears
-174,Jaime Jaquez Jr.,SF,MIA,ORL,18.0,"$5,000",15.5,-10.5,23.1,0.0%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494446,Jaime Jaquez Jr.
+173,Jaime Jaquez Jr.,SF,MIA,ORL,18.0,"$5,000",15.6,-10.4,23.2,0.0%,DK,MAIN,Default,40494446,Jaime Jaquez Jr.
+174,Jeremiah Fears,PG,NOP,MEM,17.0,"$4,400",15.6,-8.0,23.4,0.0%,DK,MAIN,Default (Hawkins Rotation Hedge),40494539,Jeremiah Fears
 175,Gradey Dick,SG,TOR,ATL,20.5,"$4,900",15.4,-10.2,22.5,0.0%,DK,MAIN,Default,40494461,Gradey Dick
 176,Sandro Mamukelashvili,C,TOR,ATL,15.0,"$3,000",15.4,-2.6,22.9,1.1%,DK,MAIN,Default,40495003,Sandro Mamukelashvili
 177,Anthony Black,PG/SG,ORL,MIA,21.0,"$4,200",15.2,-7.6,22.6,0.0%,DK,MAIN,Default,40494594,Anthony Black
@@ -186,7 +186,7 @@
 184,Patrick Williams,SF/PF,CHI,DET,18.0,"$4,200",14.2,-8.6,21.4,0.0%,DK,MAIN,Default,40494583,Patrick Williams
 185,Jamal Shead,PG,TOR,ATL,16.0,"$3,600",14.0,-6.4,21.5,0.0%,DK,MAIN,Default,40494770,Jamal Shead
 186,Brook Lopez,C,LAC,UTA,17.0,"$4,300",13.8,-9.4,20.5,0.0%,DK,MAIN,Default,40494578,Brook Lopez
-187,Dru Smith,PG,MIA,ORL,19.0,"$3,400",13.7,-5.9,20.7,0.4%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494865,Dru Smith
+187,Dru Smith,PG,MIA,ORL,19.0,"$3,400",13.7,-5.9,20.7,0.4%,DK,MAIN,Default,40494865,Dru Smith
 188,Dominick Barlow,C,PHI,BOS,17.5,"$3,000",13.7,-4.3,20.3,0.4%,DK,MAIN,Default,40495001,Dominick Barlow
 189,Matisse Thybulle,SF,POR,MIN,17.0,"$3,700",13.7,-7.1,21.2,0.0%,DK,MAIN,Default,40494744,Matisse Thybulle
 190,Josh Minott,SF/PF,BOS,PHI,15.0,"$3,000",13.3,-4.7,20.5,0.1%,DK,MAIN,Default (Jaylen Brown IN),40495230,Josh Minott
@@ -198,7 +198,7 @@
 196,Max Christie,SG,DAL,SAS,19.0,"$4,800",12.8,-12.4,19.7,0.0%,DK,MAIN,Default,40494481,Max Christie
 197,Rob Dillingham,PG,MIN,POR,15.5,"$3,500",12.7,-7.3,20.3,0.0%,DK,MAIN,Default (Anthony Edwards IN),40494834,Rob Dillingham
 198,Derik Queen,PF/C,NOP,MEM,12.5,"$3,800",12.7,-8.5,20.2,0.0%,DK,MAIN,Default (Hawkins Rotation Hedge),40494684,Derik Queen
-199,Pelle Larsson,SG/SF,MIA,ORL,18.0,"$3,400",12.6,-7.0,19.7,0.0%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494884,Pelle Larsson
+199,Pelle Larsson,SG/SF,MIA,ORL,18.0,"$3,400",12.6,-7.0,19.7,0.0%,DK,MAIN,Default,40494884,Pelle Larsson
 200,Oso Ighodaro,PF/C,PHX,SAC,17.5,"$3,800",12.4,-8.8,19.1,0.0%,DK,MAIN,Default,40494704,Oso Ighodaro
 201,Justin Champagnie,SF/PF,WAS,MIL,14.0,"$4,200",12.4,-10.4,19.6,0.0%,DK,MAIN,Default,40494590,Justin Champagnie
 202,Terrence Shannon Jr.,SG/SF,MIN,POR,16.0,"$3,600",12.1,-8.3,19.3,0.0%,DK,MAIN,Default (Anthony Edwards IN),40494773,Terrence Shannon Jr.
@@ -216,7 +216,7 @@
 214,John Konchar,SF,MEM,NOP,11.5,"$3,700",9.5,-11.3,16.8,0.0%,DK,MAIN,Default,40494738,John Konchar
 215,Blake Wesley,SG,POR,MIN,12.0,"$3,000",9.4,-8.6,16.7,0.0%,DK,MAIN,Default,40495336,Blake Wesley
 216,Chaz Lanier,SG,DET,CHI,12.5,"$3,000",9.2,-8.8,16.1,0.0%,DK,MAIN,Default,40495192,Chaz Lanier
-217,Simone Fontecchio,SF/PF,MIA,ORL,12.5,"$3,400",8.8,-10.8,15.5,0.0%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40494868,Simone Fontecchio
+217,Simone Fontecchio,SF/PF,MIA,ORL,13.0,"$3,400",9.2,-10.4,15.9,0.0%,DK,MAIN,Default,40494868,Simone Fontecchio
 218,Cody Williams,SF,UTA,LAC,16.0,"$3,500",8.6,-11.4,15.1,0.0%,DK,MAIN,Default (Taylor Hendricks Starting),40494812,Cody Williams
 219,Caleb Martin,SG/SF,DAL,SAS,12.5,"$3,200",8.5,-10.3,15.4,0.0%,DK,MAIN,Default,40494939,Caleb Martin
 220,Kyle Lowry,PG,PHI,BOS,12.5,"$3,700",8.3,-12.5,15.1,0.0%,DK,MAIN,Default,40494725,Kyle Lowry
@@ -276,9 +276,8 @@
 274,Amir Coffey,SF/PF,MIL,WAS,1.0,"$4,000",0.6,-21.4,7.2,0.0%,DK,MAIN,Default,40494650,Amir Coffey
 275,Pete Nance,PF/C,MIL,WAS,1.0,"$3,000",0.6,-17.4,7.2,0.0%,DK,MAIN,Default,40495239,Pete Nance
 276,Olivier-Maxence Prosper,PF,MEM,NOP,0.5,"$3,400",0.4,-19.2,7.1,0.0%,DK,MAIN,Default,40494889,Olivier-Maxence Prosper
-277,Vladislav Goldin,C,MIA,ORL,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Kelel Ware IN (Ware & Jovic Hedged Starting)),40495126,Vladislav Goldin
-278,Andre Jackson Jr.,SF,MIL,WAS,0.0,"$3,400",0.0,-19.6,0.0,0.0%,DK,MAIN,Default,40494877,Andre Jackson Jr.
-279,Leonard Miller,SF/PF,MIN,POR,0.0,"$3,200",0.0,-18.8,0.0,0.0%,DK,MAIN,Default (Anthony Edwards IN),40494950,Leonard Miller
-280,Tosan Evbuomwan,PF,NYK,CLE,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Towns IN (Hukporti Starting)),40495117,Tosan Evbuomwan
-281,Trey Jemison,C,NYK,CLE,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Towns IN (Hukporti Starting)),40495167,Trey Jemison
-282,Mohamed Diawara,PF,NYK,CLE,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Towns IN (Hukporti Starting)),40495106,Mohamed Diawara
+277,Andre Jackson Jr.,SF,MIL,WAS,0.0,"$3,400",0.0,-19.6,0.0,0.0%,DK,MAIN,Default,40494877,Andre Jackson Jr.
+278,Leonard Miller,SF/PF,MIN,POR,0.0,"$3,200",0.0,-18.8,0.0,0.0%,DK,MAIN,Default (Anthony Edwards IN),40494950,Leonard Miller
+279,Tosan Evbuomwan,PF,NYK,CLE,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Towns IN (Hukporti Starting)),40495117,Tosan Evbuomwan
+280,Trey Jemison,C,NYK,CLE,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Towns IN (Hukporti Starting)),40495167,Trey Jemison
+281,Mohamed Diawara,PF,NYK,CLE,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default (Towns IN (Hukporti Starting)),40495106,Mohamed Diawara
