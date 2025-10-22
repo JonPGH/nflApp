@@ -647,11 +647,11 @@ if check_password():
         DK_SLOTS = ["PG","SG","SF","PF","C","G","F","UTIL"]
         # Edit these to tweak colors by PrimaryPos:
         POS_COLORS = {
-            "PG": "#FDF6E3",
-            "SG": "#E6F7FF",
-            "SF": "#E8F5E9",
-            "PF": "#FFF3E0",
-            "C" : "#F3E5F5",
+            "PG": "#FAD4D4",
+            "SG": "#FFE5B4",
+            "SF": "#DFF6E0",
+            "PF": "#D9EBFA",
+            "C" : "#EADCF8",
             "G" : "#E6FFF9",
             "F" : "#F0F5FF",
             "UTIL": "#FFFFFF"
@@ -669,6 +669,7 @@ if check_password():
         df = df[df['NewProj']>0]
         df['Own%'] = df['Own'].str.replace('%','')
         df['Own%'] = df['Own%'].astype(float)
+        
 
         if "Game" not in df.columns and "Game Info" in df.columns:
             df["Game"] = df["Game Info"].str.split(" ", expand=True)[0]
@@ -689,6 +690,8 @@ if check_password():
         # Clean types
         df["Salary"] = pd.to_numeric(df["Salary"], errors="coerce").fillna(0).astype(int)
         df["Projection"] = pd.to_numeric(df["Projection"], errors="coerce").fillna(0.0)
+        df["Base Value"] = df["Projection"]/(df["Salary"]/1000)
+        #st.write(df.sort_values(by='Base Value',ascending=False))
 
         #### add in jon value
 
@@ -837,7 +840,7 @@ if check_password():
             fdf = fdf[fdf["Name"].str.lower().str.contains(name_query)]
 
 
-        show_cols = ["Name","Team","Game","Position","PrimaryPos","Salary","Projection","Score","Ceiling","Own%"]
+        show_cols = ["Name","Team","Game","Position","PrimaryPos","Salary","Projection","Base Value","Score","Ceiling","Own%"]
         fdf = fdf[show_cols].sort_values(["Salary","Projection"], ascending=[False, False])
 
         def _row_color_by_pos(r):
@@ -876,7 +879,7 @@ if check_password():
                         fdf.style.hide(axis="index")
                         .apply(_row_color_by_pos, axis=1)
                         .format({"Salary": "{:,.0f}", "Own%": "{:.0f}", "Score": "{:.2f}",
-                                    "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
+                                     "Base Value": "{:.2f}", "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
                         use_container_width=True, height=800, hide_index=True
                     )
                 else:
@@ -884,11 +887,10 @@ if check_password():
                         fdf.style.hide(axis="index")
                         .apply(_row_color_by_pos, axis=1)
                         .format({"Salary": "{:,.0f}", "Own%": "{:.0f}", "Score": "{:.2f}",
-                                    "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
+                                    "Base Value": "{:.2f}", "Ceiling": "{:.0f}", "Projection": "{:.1f}"}),
                         use_container_width=True, hide_index=True
                     )
                 
-
 
         # ---------- OPTIMIZER CONTROLS ----------
         st.markdown("### 🧠 Optimizer Controls")
@@ -2242,9 +2244,11 @@ if check_password():
             return styler
 
         tcol1, tcol2, tcol3 = st.columns([1, 3, 1])
+        styled = style_table(df_display).format({"Rank": "{:.0f}","Rank": "{:.0f}"})
         with tcol2:
             st.dataframe(
-                style_table(df_display),
+                #style_table(df_display),
+                styled,
                 use_container_width=True,
                 hide_index=True,
                 height=700 if not show_weekly else 900
