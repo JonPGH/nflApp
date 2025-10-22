@@ -1224,6 +1224,7 @@ if check_password():
             if search_q:
                 exdf = exdf[exdf["Name"].str.lower().str.contains(search_q)]
 
+            exdf = exdf[exdf["Exposure%"]>0]
             st.dataframe(exdf[["Name","Position","PrimaryPos","Lineups","Exposure%"]], use_container_width=True)
 
             # ---------- EXPORT FOR DK (Name + ID) ----------
