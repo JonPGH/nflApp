@@ -896,9 +896,9 @@ if check_password():
         st.markdown("### 🧠 Optimizer Controls")
         colA, colB, colC, colD = st.columns([1,1,1,1])
         with colA:
-            n_lineups = st.number_input("Number of lineups", min_value=1, max_value=150, value=20, step=1)
+            n_lineups = st.number_input("Number of lineups", min_value=1, max_value=150, value=1, step=1)
         with colB:
-            var_pct = st.slider("Projection variance (0–50)", 0, 50, 10, step=1,
+            var_pct = st.slider("Projection variance (0–50)", 0, 50, 0, step=1,
                                 help="Random ±% noise applied to projections each lineup run.")
         with colC:
             lock_names = st.multiselect("Locks (100%)", options=df["Name"].tolist())
@@ -910,7 +910,7 @@ if check_password():
 
         max_exposure_pct = st.slider(
             "Max global exposure (%)",
-            min_value=10, max_value=100, value=60, step=5,
+            min_value=10, max_value=100, value=100, step=5,
             help="Upper bound on how often any single player can appear across the generated lineups. Locks are exempt."
         )
         
