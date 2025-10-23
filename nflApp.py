@@ -228,8 +228,22 @@ if check_password():
         optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')
         best_bet_data = pd.read_csv(f'{file_path}/PropCompSheet.csv')
         nbaproj = pd.read_csv(f'{file_path}/dailynbaprojections.csv')
+        etrfull = pd.read_csv(f'{file_path}/etrfull.csv')
+        dst_namemaps = pd.read_csv(f'{file_path}/dst_namemaps.csv')
+        try:
+            tnfshowdown = pd.read_csv(f'{file_path}/tnfshowdown.csv')
+        except:
+            tnfshowdown = pd.DataFrame()
+        try:
+            snfshowdown = pd.read_csv(f'{file_path}/snfshowdown.csv')
+        except:
+            snfshowdown = pd.DataFrame()
+        try:
+            mnfshowdown = pd.read_csv(f'{file_path}/mnfshowdown.csv')
+        except:
+            mnfshowdown = pd.DataFrame()
 
-        return nbaproj,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
+        return dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,nbaproj,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
 
     # ---------- Best Bets helpers ----------
     def _std_norm_cdf(x: float) -> float:
@@ -500,7 +514,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    nbaproj,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,nbaproj,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -1249,31 +1263,6 @@ if check_password():
             )
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
     if tab == "Weekly Ranks":
         import numpy as np
         import pandas as pd
@@ -1669,464 +1658,891 @@ if check_password():
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money DFS Tool<br></b>
         <font size=3 face=Futura>These projections are tweaked slightly for more DFS friendly projections, including ceiling and positional adjustments.</font></center>""", unsafe_allow_html=True)
         
-        show_projections_check = st.checkbox('Show Projections?', value=True)
+        group = st.radio("Group", ["Main Slate", "Showdowns"], horizontal=True, index=0)
         
-        try:
-            optimizer_proj = optimizer_proj.rename({'DK ID':'DKID'},axis=1)
-        except:
-            pass
-        dk_id_dict = dict(zip(optimizer_proj.Player,optimizer_proj.DKID))
+        if group == "Showdowns":
+            st.markdown("### 🏟️ DraftKings NFL **Showdown** Optimizer")
 
-        account_for_ceiling_check = st.checkbox('Adjust for Ceiling', value=True)
+            # ---------- Build/merge tonight's showdown pool ----------
+            all_showdowns = pd.concat([tnfshowdown, snfshowdown, mnfshowdown], ignore_index=True)
 
-        if account_for_ceiling_check:
-            optimizer_proj = optimizer_proj[['Player', 'Pos','Team','Opp','Sal','wProj_ceil']]
-            optimizer_proj.columns=['Player','Pos','Team','Opp','Sal','Proj']
-            optimizer_proj['Value'] = optimizer_proj['Proj'] / (optimizer_proj['Sal']/1000)
-        else:
-            optimizer_proj = optimizer_proj[['Player', 'Pos','Team','Opp','Sal','wProj1']]
-            optimizer_proj.columns=['Player','Pos','Team','Opp','Sal','Proj']
-            optimizer_proj['Value'] = optimizer_proj['Proj'] / (optimizer_proj['Sal']/1000)
-
-        # positional adjustment
-        pos_value_medians = optimizer_proj.groupby('Pos',as_index=False)['Value'].median()
-        pos_value_medians.columns=['Pos','PosV']
-        optimizer_proj = pd.merge(optimizer_proj,pos_value_medians,on='Pos')
-        optimizer_proj["Value"] = optimizer_proj.groupby("Pos")["Value"].transform(
-            lambda x: (x - x.mean()) / x.std()
-        )
-        optimizer_proj = optimizer_proj.drop(['PosV'],axis=1)
-        optimizer_proj = optimizer_proj.round(2)
-
-        # ------------------ FILTER CONTROLS ------------------
-        # Three columns: Pos dropdown | Salary slider | Player search
-        col1, col2, col3 = st.columns([1, 2, 2])
-
-        # 1) Position dropdown (with "All")
-        pos_options = ["All"] + sorted(optimizer_proj["Pos"].unique().tolist())
-        pos_choice = col1.selectbox("Filter by Position:", pos_options, index=0)
-
-        # 3) Player search
-        player_search = col2.text_input("Search for Player:")
-
-        # Salary slider uses global min/max (int)
-        sal_min = int(optimizer_proj["Sal"].min())
-        sal_max = int(optimizer_proj["Sal"].max())
-        salary_range = col3.slider(
-            "Salary range ($)",
-            min_value=sal_min,
-            max_value=sal_max,
-            value=(sal_min, sal_max),
-            step=100
-        )
-
-        # ------------------ APPLY FILTERS ------------------
-        filtered = optimizer_proj.copy()
-
-        # Position filter
-        if pos_choice != "All":
-            filtered = filtered[filtered["Pos"] == pos_choice]
-
-        # Salary filter
-        filtered = filtered[(filtered["Sal"] >= salary_range[0]) & (filtered["Sal"] <= salary_range[1])]
-
-        # Player search (case-insensitive)
-        if player_search:
-            filtered = filtered[filtered["Player"].str.contains(player_search, case=False, na=False)]
-
-        # Sort by Value desc
-        filtered = filtered.sort_values(by='Value', ascending=False)
-
-        # --- Row colors by position ---
-        pos_colors = {
-            "QB": "#e0f7fa",
-            "RB": "#f1f8e9",
-            "WR": "#fff3e0",
-            "TE": "#fce4ec",
-            "DST": "#ede7f6"
-        }
-
-        def highlight_rows(row):
-            color = pos_colors.get(row["Pos"], "#ffffff")
-            return [f"background-color: {color}"] * len(row)
-
-        # --- Formatting: all numeric → 2 decimals; Sal → currency no decimals ---
-        numeric_cols = filtered.select_dtypes(include="number").columns.tolist()
-        fmt = {col: "{:.2f}" for col in numeric_cols}
-        if "Sal" in fmt:
-            fmt["Sal"] = "${:,.0f}"
-
-        styler = (
-            filtered.style
-                .apply(highlight_rows, axis=1)
-                .format(fmt)
-        )
-
-        showprojcol1, showprojcol2, showprojcol3 = st.columns([1,5,1])
-        with showprojcol2:
-            st.dataframe(styler, height=500, use_container_width=True, hide_index=True)
-
-        st.markdown("<hr>", unsafe_allow_html=True)
-        ### OPTIMIZER CODE #################
-
-        try:
-            import pulp
-        except Exception:
-            pulp = None
-
-        st.markdown("### 🧮 DFS Optimizer (DraftKings NFL)")
-
-        # -------------------- SETTINGS UI --------------------
-        with st.expander("Optimizer Settings", expanded=True):
-            n_lineups = st.number_input("How many lineups to generate?", min_value=1, max_value=150, value=10, step=1)
-            variance_pct = st.slider("Projection variance (±%) per lineup", 0, 50, 10, 1)
-            max_exposure_pct = st.slider("Max player exposure (%)", 0, 100, 60, 5)
-            dk_salary_cap = st.number_input("Salary Cap ($)", 30000, 70000, 50000, 500)
-
-            # Exclude + Lock controls (from your version)
-            all_player_opts = sorted(filtered["Player"].dropna().unique().tolist())
-            exclude_players = st.multiselect("Exclude players (optional):", all_player_opts)
-            lock_players    = st.multiselect("LOCK players (optional, forced into every lineup):", all_player_opts)
-
-            # ---------- Pop-out Player Pool (include-only list) ----------
-            base_ui_pool = filtered[(filtered["Sal"] > 0) & (filtered["Pos"].isin(["QB","RB","WR","TE","DST"]))].copy()
-            pos_list = ["QB","RB","WR","TE","DST"]
-
-            # Initialize per-position selections in session_state (defaults = Proj ≥ 5)
-            for pos in pos_list:
-                key = f"include_{pos}"
-                pos_names = base_ui_pool.loc[base_ui_pool["Pos"]==pos, "Player"].dropna().tolist()
-                default_names = base_ui_pool[(base_ui_pool["Pos"]==pos) & (base_ui_pool["Proj"]>=5)]["Player"].tolist()
-                if key not in st.session_state:
-                    st.session_state[key] = default_names
-                else:
-                    st.session_state[key] = [p for p in st.session_state[key] if p in pos_names]
-
-            pop = st.popover("Player Pool (click to choose)")
-            with pop:
-                st.caption("Pick who to include in the build. Defaults to players with **Proj ≥ 5**.")
-                tabs = st.tabs(pos_list + ["All selected"])
-                for idx, pos in enumerate(pos_list):
-                    with tabs[idx]:
-                        pos_df = base_ui_pool[base_ui_pool["Pos"]==pos].sort_values("Proj", ascending=False)
-                        options = pos_df["Player"].tolist()
-                        labels = [f"{r.Player} — {r.Team}/{r.Opp}  ${int(r.Sal):,}  ({r.Proj:.2f})" for _, r in pos_df.iterrows()]
-                        label_to_name = dict(zip(labels, options))
-                        pre = [lbl for lbl in labels if label_to_name[lbl] in st.session_state[f"include_{pos}"]]
-                        chosen_labels = st.multiselect(f"Include {pos}:", labels, default=pre, key=f"ms_{pos}")
-                        st.session_state[f"include_{pos}"] = [label_to_name[lbl] for lbl in chosen_labels]
-                with tabs[-1]:
-                    chosen_all = sorted(set(sum([st.session_state[f"include_{p}"] for p in pos_list], [])))
-                    st.write(f"**Selected players ({len(chosen_all)}):**")
-                    st.write(", ".join(chosen_all) if chosen_all else "_None_")
-                    if st.button("Clear all selections"):
-                        for p in pos_list:
-                            st.session_state[f"include_{p}"] = []
-
-        # Primary action – ONLY runs the optimizer when pressed
-        generate_clicked = st.button("🔁 Generate lineups", type="primary")
-
-        # -------------------- SOLVER DISCOVERY --------------------
-        def get_solver():
-            if pulp is None:
-                return None
-            for p in ["/opt/homebrew/bin/cbc", "/usr/local/bin/cbc", shutil.which("cbc")]:
-                if p and os.path.exists(p):
-                    return pulp.PULP_CBC_CMD(path=p, msg=False)
-            try:
-                return pulp.PULP_CBC_CMD(msg=False)
-            except Exception:
-                pass
-            try:
-                return pulp.apis.HiGHS_CMD(msg=False)
-            except Exception:
-                return None
-
-        solver = get_solver()
-
-        required_cols = {"Player","Pos","Team","Opp","Sal","Proj"}
-        missing_cols = required_cols - set(filtered.columns)
-        if missing_cols:
-            st.error(f"Optimizer cannot run. Missing columns: {sorted(missing_cols)}")
-        elif pulp is None or solver is None:
-            st.warning("No MILP solver available. On macOS: `brew install cbc` (recommended) or `pip install highspy`.")
-
-        # -------------------- RUN OPTIMIZER ONLY ON CLICK --------------------
-        if generate_clicked and pulp is not None and solver is not None:
-            # Build pool from filtered
-            pool = filtered.copy()
-            pool = pool.dropna(subset=["Player","Pos","Sal","Proj"])
-            pool = pool[(pool["Sal"] > 0) & (pool["Pos"].isin(["QB","RB","WR","TE","DST"]))].reset_index(drop=True)
-
-            # Include-only selection
-            include_players = sorted(set(sum([st.session_state.get(f"include_{p}", []) for p in ["QB","RB","WR","TE","DST"]], [])))
-            if include_players:
-                pool = pool[pool["Player"].isin(include_players)].reset_index(drop=True)
-            else:
-                fallback = base_ui_pool[base_ui_pool["Proj"]>=5]["Player"].tolist()
-                pool = pool[pool["Player"].isin(fallback)].reset_index(drop=True)
-
-            # Exclusions
-            if exclude_players:
-                pool = pool[~pool["Player"].isin(exclude_players)].reset_index(drop=True)
-
-            # Locks
-            name_to_idx = {pool.loc[i, "Player"]: i for i in pool.index}
-            locked_idx = [name_to_idx[p] for p in lock_players if p in name_to_idx]
-            missing_locked = [p for p in lock_players if p not in name_to_idx]
-            if missing_locked:
-                st.warning("Locked player(s) not in pool and ignored: " + ", ".join(missing_locked))
-
-            # Feasibility checks
-            if len(pool) < 9:
-                st.error("Not enough players in the pool to build a lineup (need at least 9).")
-            else:
-                L_qb  = sum(pool.loc[i,"Pos"]=="QB" for i in locked_idx)
-                L_rb  = sum(pool.loc[i,"Pos"]=="RB" for i in locked_idx)
-                L_wr  = sum(pool.loc[i,"Pos"]=="WR" for i in locked_idx)
-                L_te  = sum(pool.loc[i,"Pos"]=="TE" for i in locked_idx)
-                L_dst = sum(pool.loc[i,"Pos"]=="DST" for i in locked_idx)
-                L_rwt = L_rb + L_wr + L_te
-                feasible_lock, msgs = True, []
-                if L_qb>1: feasible_lock=False; msgs+=["You locked more than one QB."]
-                if L_dst>1: feasible_lock=False; msgs+=["You locked more than one DST."]
-                if L_rwt>7: feasible_lock=False; msgs+=["You locked more than 7 total among RB/WR/TE."]
-                if len(locked_idx)>9: feasible_lock=False; msgs+=["You locked more than 9 total players."]
-                rem_rwt = 7 - L_rwt
-                deficit_rb = max(0, 2 - L_rb); deficit_wr = max(0, 3 - L_wr); deficit_te = max(0, 1 - L_te)
-                if rem_rwt < (deficit_rb + deficit_wr + deficit_te):
-                    feasible_lock=False; msgs+=["Locked RB/WR/TE mix makes per-position minimums impossible."]
-
-                if not feasible_lock:
-                    st.error("Lock selection infeasible: " + " ".join(msgs))
-                else:
-                    allowed_per_player = math.ceil(max_exposure_pct / 100.0 * n_lineups)
-                    if allowed_per_player == 0 and n_lineups > 0 and len(locked_idx) == 0:
-                        st.error("Max exposure of 0% with ≥1 lineup is infeasible. Increase exposure or reduce # of lineups.")
-                    else:
-                        rng = np.random.default_rng()
-                        lineups = []
-                        banned_lineups = []
-                        used_counts = {i: 0 for i in pool.index}
-
-                        idx_all = pool.index.tolist()
-                        idx_qb  = pool.index[pool["Pos"]=="QB"].tolist()
-                        idx_rb  = pool.index[pool["Pos"]=="RB"].tolist()
-                        idx_wr  = pool.index[pool["Pos"]=="WR"].tolist()
-                        idx_te  = pool.index[pool["Pos"]=="TE"].tolist()
-                        idx_dst = pool.index[pool["Pos"]=="DST"].tolist()
-                        idx_rwt = pool.index[pool["Pos"].isin(["RB","WR","TE"])].tolist()
-
-                        feasible_positions = (len(idx_qb)>=1 and len(idx_rb)>=2 and len(idx_wr)>=3 and
-                                            len(idx_te)>=1 and len(idx_dst)>=1 and len(idx_rwt)>=7)
-                        if not feasible_positions:
-                            st.error("Pool does not have enough players per position after includes/excludes/locks.")
-                        else:
-                            def build_one_lineup(scrambled_proj, banned_sets, banned_player_idx, locked_idx_in):
-                                prob = pulp.LpProblem("DK_NFL_Optimizer", pulp.LpMaximize)
-                                x = pulp.LpVariable.dicts("x", idx_all, lowBound=0, upBound=1, cat="Binary")
-
-                                prob += pulp.lpSum(scrambled_proj[i] * x[i] for i in idx_all)
-                                prob += pulp.lpSum(pool.loc[i, "Sal"] * x[i] for i in idx_all) <= dk_salary_cap
-                                prob += pulp.lpSum(x[i] for i in idx_qb)  == 1
-                                prob += pulp.lpSum(x[i] for i in idx_rb)  >= 2
-                                prob += pulp.lpSum(x[i] for i in idx_wr)  >= 3
-                                prob += pulp.lpSum(x[i] for i in idx_te)  >= 1
-                                prob += pulp.lpSum(x[i] for i in idx_dst) == 1
-                                prob += pulp.lpSum(x[i] for i in idx_rwt) == 7
-                                prob += pulp.lpSum(x[i] for i in idx_all) == 9
-
-                                for chosen_set in banned_sets:
-                                    prob += pulp.lpSum([x[i] for i in chosen_set]) <= 8
-                                for i in banned_player_idx:
-                                    prob += x[i] == 0
-                                for i in locked_idx_in:
-                                    prob += x[i] == 1
-
-                                prob.solve(solver)
-                                status = pulp.LpStatus[prob.status]
-                                if status != "Optimal":
-                                    return status, None
-                                chosen = [i for i in idx_all if pulp.value(x[i]) == 1]
-                                return status, chosen
-
-                            attempts, max_attempts = 0, n_lineups * 6
-                            while len(lineups) < n_lineups and attempts < max_attempts:
-                                attempts += 1
-                                banned_player_idx = [i for i, c in used_counts.items()
-                                                    if (i not in locked_idx) and (allowed_per_player > 0) and (c >= allowed_per_player)]
-                                v = variance_pct / 100.0
-                                multipliers = rng.uniform(1.0 - v, 1.0 + v, size=len(pool))
-                                scrambled = pd.Series(pool["Proj"].values * multipliers, index=pool.index)
-
-                                status, chosen = build_one_lineup(scrambled, banned_lineups, banned_player_idx, locked_idx)
-                                if status != "Optimal" or chosen is None:
-                                    continue
-                                chosen_set = frozenset(chosen)
-                                if chosen_set in banned_lineups:
-                                    continue
-
-                                for i in chosen:
-                                    used_counts[i] += 1
-                                lu = pool.loc[chosen, ["Player","Pos","Team","Opp","Sal","Proj"]].copy()
-                                lu["Proj Used"] = scrambled.loc[chosen].round(2)
-                                lineups.append({
-                                    "players_df": lu.copy(),
-                                    "total_proj": float(lu["Proj Used"].sum()),
-                                    "total_sal": int(lu["Sal"].sum()),
-                                    "scrambled_series": scrambled
-                                })
-                                banned_lineups.append(chosen_set)
-
-                            # Save results (or show errors)
-                            if len(lineups) == 0:
-                                st.error("No feasible lineups found. Loosen exposure/locks, widen includes, or reduce variance.")
-                                st.session_state.pop("dfs_results", None)
-                            else:
-                                # ---- Totals table
-                                totals = pd.DataFrame(
-                                    [{"Lineup #": i+1,
-                                    "Total Salary": f"${lu['total_sal']:,.0f}",
-                                    "Total Proj (scrambled)": round(lu["total_proj"], 2)}
-                                    for i, lu in enumerate(lineups)]
-                                )
-
-                                # ---- Details table
-                                details_rows, upload_rows_display, missing_names = [], [], set()
-
-                                def dk_id(name: str):
-                                    return dk_id_dict.get(name)
-
-                                def lineup_to_row_display(players_df, scrambled_series):
-                                    qbs = players_df[players_df["Pos"]=="QB"]["Player"].tolist()
-                                    rbs = players_df[players_df["Pos"]=="RB"]["Player"].tolist()
-                                    wrs = players_df[players_df["Pos"]=="WR"]["Player"].tolist()
-                                    tes = players_df[players_df["Pos"]=="TE"]["Player"].tolist()
-                                    dst = players_df[players_df["Pos"]=="DST"]["Player"].tolist()
-                                    rb_main, wr_main, te_main = rbs[:2], wrs[:3], tes[:1]
-                                    extras = []
-                                    if len(rbs) > 2: extras += rbs[2:]
-                                    if len(wrs) > 3: extras += wrs[3:]
-                                    if len(tes) > 1: extras += tes[1:]
-                                    if extras:
-                                        name_to_idx2 = {pool.loc[idx,"Player"]: idx for idx in pool.index}
-                                        flex = max(extras, key=lambda nm: scrambled_series[name_to_idx2[nm]])
-                                    else:
-                                        flex = wr_main[-1] if wr_main else ""
-                                    row_names = {
-                                        "QB":  qbs[0] if qbs else "",
-                                        "RB":  rb_main[0] if len(rb_main)>0 else "",
-                                        "RB2": rb_main[1] if len(rb_main)>1 else "",
-                                        "WR":  wr_main[0] if len(wr_main)>0 else "",
-                                        "WR2": wr_main[1] if len(wr_main)>1 else "",
-                                        "WR3": wr_main[2] if len(wr_main)>2 else "",
-                                        "TE":  te_main[0] if te_main else "",
-                                        "FLEX": flex,
-                                        "DST": dst[0] if dst else "",
-                                    }
-                                    row_ids = {slot: dk_id(pname) for slot, pname in row_names.items()}
-                                    row_display = {}
-                                    for slot in ["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]:
-                                        name = row_names.get(slot, "")
-                                        pid  = row_ids.get(slot)
-                                        if name and pid:
-                                            row_display[slot] = f"{name} ({pid})"
-                                        elif name:
-                                            row_display[slot] = name
-                                        else:
-                                            row_display[slot] = ""
-                                    return row_names, row_ids, row_display
-
-                                for k, lu in enumerate(lineups, start=1):
-                                    players_df = lu["players_df"].sort_values(["Pos","Player"]).copy()
-                                    players_df["Lineup #"] = k
-                                    players_df["DK ID"] = players_df["Player"].map(lambda n: dk_id_dict.get(n))
-                                    details_rows.append(players_df)
-
-                                    row_names, row_ids, row_display = lineup_to_row_display(players_df, lu["scrambled_series"])
-                                    for slot, pid in row_ids.items():
-                                        if row_names[slot] and (pid is None):
-                                            missing_names.add(row_names[slot])
-                                    upload_rows_display.append({**row_display, "Lineup #": k})
-
-                                out_df = pd.concat(details_rows, ignore_index=True)
-                                out_df_display = out_df.copy()
-                                out_df_display["Sal"] = out_df_display["Sal"].map(lambda x: f"${x:,.0f}")
-                                out_df_display = out_df_display[["Lineup #","Player","DK ID","Pos","Team","Opp","Sal","Proj","Proj Used"]]
-
-                                upload_df = pd.DataFrame(upload_rows_display).sort_values("Lineup #")
-                                upload_df = upload_df[["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]]
-                                csv_buf = io.StringIO()
-                                upload_df.to_csv(csv_buf, index=False)
-                                
-
-                                # Cache results so UI changes don't recompute
-                                import datetime as dt 
-
-                                st.session_state["dfs_results"] = {
-                                    "generated_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                    "totals": totals,
-                                    "details": out_df_display,
-                                    "upload_df": upload_df,
-                                    "upload_csv": csv_buf.getvalue(),
-                                    "missing_names": sorted(missing_names),
-                                    "used_counts": used_counts,
-                                    "pool_meta": pool[["Player","Pos"]].copy()
-                                }
-
-        # -------------------- DISPLAY LAST GENERATED RESULT (if any) --------------------
-        if "dfs_results" in st.session_state:
-            res = st.session_state["dfs_results"]
-            if res.get("generated_at"):
-                st.caption(f"Last generated: {res['generated_at']}")
-
-            st.markdown("#### Lineup Totals")
-            totcol1, totcol2, totcol3 = st.columns([1,1,1])
-            with totcol2:
-                st.dataframe(res["totals"], use_container_width=True, hide_index=True)
-
-            st.markdown("#### Lineup Details")
-            st.dataframe(res["details"], use_container_width=True, hide_index=True, height=420)
-
-            if res.get("missing_names"):
-                st.warning(
-                    "Some players were missing DK IDs in your `dk_id_dict` and appear without an ID in the CSV: "
-                    + ", ".join(res["missing_names"])
-                )
-
-            st.download_button(
-                "Download DK Upload CSV (Name + ID)",
-                data=res["upload_csv"],
-                file_name="dk_lineups.csv",
-                mime="text/csv"
+            # Normalize names before merge
+            etrfull = etrfull.rename({'Player': 'Name'}, axis=1)
+            etrfull['Name'] = etrfull['Name'].replace(namemapdict).replace(dict(zip(dst_namemaps.DST1, dst_namemaps.DST2))).str.strip()
+            all_showdowns['Name'] = (
+                all_showdowns['Name']
+                .replace(namemapdict)
+                .replace(dict(zip(dst_namemaps.DST1, dst_namemaps.DST2)))
+                .str.strip()
             )
 
-            # Exposure table (optional, computed from cached counts)
-            show_exposure = st.checkbox("Show player exposure table")
-            if show_exposure:
-                used_counts = res["used_counts"]
-                pool_meta = res["pool_meta"]
-                exp_df = (
-                    pd.DataFrame({"idx": list(used_counts.keys()), "Times Used": list(used_counts.values())})
-                    .merge(pool_meta.reset_index().rename(columns={"index":"idx"}), on="idx", how="left")
-                    .drop(columns=["idx"])
+            showdown_list = list(all_showdowns['Game Info'].dropna().unique())
+            choosegame = st.selectbox('Choose Game', showdown_list)
+            sd_raw = all_showdowns[all_showdowns['Game Info'] == choosegame].copy()
+
+            # Merge projections (DK Proj) from ETR
+            sd = sd_raw.merge(etrfull[['Name', 'DK Proj']], how='left', on='Name')
+
+            # Identify team column (common DK headers: TeamAbbrev or Team)
+            team_col = 'TeamAbbrev' if 'TeamAbbrev' in sd.columns else ('Team' if 'Team' in sd.columns else None)
+            if team_col is None:
+                st.error("Could not find a team column (expected 'TeamAbbrev' or 'Team').")
+                st.stop()
+
+            # ---- Determine the two teams in the game (used for constraints) ----
+            teams_in_game = [t for t in sd[team_col].dropna().unique().tolist() if t != '']
+            teams_in_game = teams_in_game[:2] if len(teams_in_game) >= 2 else teams_in_game
+            if len(teams_in_game) < 2:
+                # Try to parse from Game Info like "TB@ATL 10/23/25 8:15PM ET"
+                gi = str(choosegame)
+                maybe = []
+                if '@' in gi:
+                    parts = gi.split('@')
+                    left = ''.join([c for c in parts[0] if c.isalpha()])
+                    right = ''.join([c for c in parts[1][:4] if c.isalpha()])  # first 3-4 letters often enough
+                    maybe = [left.upper()[:3], right.upper()[:3]]
+                if len(maybe) == 2:
+                    teams_in_game = maybe
+
+            # DK ID column (best effort)
+            def detect_id_col(df):
+                for c in ['DK ID', 'DKID', 'Id', 'ID', 'Player ID', 'ID DK', 'ID_DK']:
+                    if c in df.columns:
+                        return c
+                return None
+
+            dkid_col = detect_id_col(sd)
+            dk_id_dict = dict(zip(sd['Name'], sd[dkid_col])) if dkid_col else {}
+
+            # ---- Show pool options ----
+            c1, c2, c3 = st.columns([1,1,2])
+            with c1:
+                show_no_proj = st.checkbox('Show players with missing projections', value=False)
+            with c2:
+                show_proj_tbl = st.checkbox('Show player pool table', value=False)
+
+            no_proj_players = sorted(sd.loc[sd['DK Proj'].isna(), 'Name'].dropna().unique().tolist())
+            if show_no_proj and no_proj_players:
+                st.info("No projection for: " + ", ".join(no_proj_players))
+
+            # ---------------- Build a clean pool with CPT/FLEX rows ----------------
+            # Many DK Showdown files already have CPT/FLEX rows with CPT salary = 1.5×.
+            # To be bulletproof, we ensure salary & projection scaling match DK rules.
+            # Keep the "Roster Position" if present; otherwise we will create both roles.
+            has_role_col = 'Roster Position' in sd.columns
+
+            # Base salary per player inferred from min salary (handles CPT rows already 1.5×)
+            base_sal = sd.groupby('Name', as_index=False)['Salary'].min().rename(columns={'Salary': 'BaseSal'})
+            pool = sd.merge(base_sal, on='Name', how='left')
+
+            # If the file doesn't include 2 rows per player (CPT/FLEX), create them
+            if not has_role_col:
+                base_cols = [c for c in pool.columns if c not in ['Roster Position', 'Salary']]
+                flex = pool[base_cols].copy()
+                flex['Roster Position'] = 'FLEX'
+                flex['Salary'] = flex['BaseSal']
+                cpt = pool[base_cols].copy()
+                cpt['Roster Position'] = 'CPT'
+                cpt['Salary'] = (cpt['BaseSal'] * 1.5).round(-2)  # DK rounds to nearest $100; close enough
+                pool = pd.concat([flex, cpt], ignore_index=True)
+            else:
+                # Normalize salaries to DK rule (in case source isn't scaled)
+                pool.loc[pool['Roster Position'].str.upper().str.contains('CPT'), 'Salary'] = (
+                    (pool['BaseSal'] * 1.5).round(-2)
                 )
-                # Only show players used at least once
-                exp_df = exp_df[exp_df["Times Used"] > 0].copy()
-                exp_df["Exposure %"] = (exp_df["Times Used"] / max(len(res["details"]["Lineup #"].unique()), 1) * 100).round(1)
-                exp_df = exp_df.sort_values(["Exposure %","Times Used","Player"], ascending=[False,False,True])
-                st.markdown("#### Player Exposure")
-                expcol1, expcol2, expcol3 = st.columns([1,2,1])
-                with expcol2:
-                    pos_options = ["All"] + sorted(exp_df["Pos"].dropna().unique().tolist())
-                    pos_choice = st.selectbox("Filter by position:", pos_options, index=0, key="exp_pos_filter")
+                pool.loc[~pool['Roster Position'].str.upper().str.contains('CPT'), 'Salary'] = pool['BaseSal']
 
-                    exp_view = exp_df if pos_choice == "All" else exp_df[exp_df["Pos"] == pos_choice]
+            # Projection: 1.5× at CPT, 1× at FLEX
+            is_cpt = pool['Roster Position'].astype(str).str.upper().str.contains('CPT')
+            pool['Proj'] = pool['DK Proj'].fillna(0.0)
+            pool.loc[is_cpt, 'Proj'] = pool.loc[is_cpt, 'Proj'] * 1.5
 
+            # Clean
+            pool = pool.rename(columns={'Salary': 'Sal', team_col: 'Team'})
+            pool = pool[['Name', 'Team', 'Roster Position', 'Sal', 'Proj', 'Game Info']].copy()
+
+            # -------- Filters / Player Pool UI ----------
+            with st.expander("Player Pool & Filters", expanded=False):
+                search_name = st.text_input("Search player name (optional)")
+                sal_min, sal_max = int(pool['Sal'].min()), int(pool['Sal'].max())
+                sal_rng = st.slider("Salary range", sal_min, sal_max, (sal_min, sal_max), step=100)
+                show_team = st.multiselect("Filter by team", options=sorted(pool['Team'].dropna().unique()), default=sorted(pool['Team'].dropna().unique()))
+                role_opts = ["CPT", "FLEX"]
+                show_roles = st.multiselect("Filter by role", role_opts, default=role_opts)
+
+                pool_view = pool[
+                    (pool['Sal'].between(*sal_rng)) &
+                    (pool['Team'].isin(show_team)) &
+                    (pool['Roster Position'].str.upper().isin([r.upper() for r in show_roles]))
+                ].copy()
+                if search_name:
+                    pool_view = pool_view[pool_view['Name'].str.contains(search_name, case=False, na=False)]
+
+                if show_proj_tbl:
+                    tbl = pool_view.copy()
+                    tbl['Sal'] = tbl['Sal'].map(lambda x: f"${x:,.0f}")
                     st.dataframe(
-                        exp_view[["Player", "Pos", "Times Used", "Exposure %"]],
-                        height=900, use_container_width=True, hide_index=True
+                        tbl.sort_values(['Roster Position', 'Proj'], ascending=[True, False]),
+                        hide_index=True, use_container_width=True, height=420
                     )
+
+            st.markdown("---")
+
+            # --------------- Optimizer Settings ---------------
+            try:
+                import pulp
+            except Exception:
+                pulp = None
+
+            with st.expander("Optimizer Settings", expanded=True):
+                n_lineups        = st.number_input("How many lineups?", 1, 150, 20, 1)
+                variance_pct     = st.slider("Projection variance (±%) per lineup", 0, 50, 10, 1)
+                max_exposure_pct = st.slider("Max player exposure (%)", 0, 100, 70, 5)
+                dk_salary_cap    = st.number_input("Salary Cap ($)", 30000, 70000, 50000, 500)
+
+                # Team rules
+                enforce_one_each = st.checkbox("Require at least one player from each team", value=True)
+                max_from_one     = st.slider("Max players from a single team", 3, 5, 5, 1)
+
+                # Include/Exclude/Locks
+                # Use base player names (not role) for include/exclude/lock; we'll map to role rows later.
+                base_names = sorted(pool['Name'].dropna().unique().tolist())
+                include_only = st.multiselect("Include-only list (optional)", base_names, help="If set, only these players will be considered (as CPT or FLEX).")
+                exclude_names = st.multiselect("Exclude players", base_names)
+                lock_names    = st.multiselect("LOCK players (these names must appear in every lineup, any role)", base_names)
+                lock_cpt      = st.multiselect("LOCK **Captain** (optional, exactly one will be forced if chosen)", base_names, help="If multiple chosen, any one of them may be used as CPT.")
+
+            # ----- Build solver helper -----
+            import os, io, math, shutil, numpy as np, pandas as pd
+
+            def get_solver():
+                if pulp is None:
+                    return None
+                for pth in ["/opt/homebrew/bin/cbc", "/usr/local/bin/cbc", shutil.which("cbc")]:
+                    if pth and os.path.exists(str(pth)):
+                        try:
+                            return pulp.PULP_CBC_CMD(path=str(pth), msg=False)
+                        except Exception:
+                            pass
+                try:
+                    return pulp.PULP_CBC_CMD(msg=False)
+                except Exception:
+                    pass
+                try:
+                    return pulp.apis.HiGHS_CMD(msg=False)
+                except Exception:
+                    return None
+
+            solver = get_solver()
+            if pulp is None or solver is None:
+                st.warning("No MILP solver available. On macOS: `brew install cbc` (recommended) or `pip install highspy`.")
+                st.stop()
+
+            # --------------- Build pool for solving ---------------
+            base_ok = pool.copy()
+            # Apply include/exclude
+            if include_only:
+                base_ok = base_ok[base_ok['Name'].isin(include_only)]
+            if exclude_names:
+                base_ok = base_ok[~base_ok['Name'].isin(exclude_names)]
+
+            # Must have both teams present if constraint enabled
+            if enforce_one_each and len(teams_in_game) == 2:
+                if not set(teams_in_game).issubset(set(base_ok['Team'].unique())):
+                    st.error("Pool filtering removed one of the teams; relax filters or disable 'Require at least one from each team'.")
+                    st.stop()
+
+            # Preindex by role
+            base_ok = base_ok.reset_index(drop=True)
+            idx_all   = base_ok.index.tolist()
+            idx_cpt   = base_ok.index[base_ok['Roster Position'].str.upper() == 'CPT'].tolist()
+            idx_flex  = base_ok.index[base_ok['Roster Position'].str.upper() == 'FLEX'].tolist()
+
+            # Map name -> role indices to prevent CPT+FLEX duplication of same player
+            name_to_role_idx = {}
+            for i, r in base_ok.iterrows():
+                name_to_role_idx.setdefault(r['Name'], {'CPT': [], 'FLEX': []})
+                role = 'CPT' if r['Roster Position'].upper() == 'CPT' else 'FLEX'
+                name_to_role_idx[r['Name']][role].append(i)
+
+            # Quick feasibility
+            if len(idx_cpt) == 0 or len(idx_flex) < 5:
+                st.error("Not enough CPT/FLEX candidates after filters to form a lineup.")
+                st.stop()
+
+            # Locks feasibility (names only)
+            # We'll enforce "at least one" of lock_names is selected; if you want ALL locked, change += 1 per index to equality later
+            # Here we interpret "LOCK players" as "must appear in every lineup" (ALL).
+            lock_idx = []
+            for nm in lock_names:
+                # Either role is allowed; we add a constraint later x_cpt + x_flex >= 1
+                lock_idx.append(nm)
+
+            # Captain lock feasibility: keep list; constraint will allow any one of these to be CPT
+            lock_cpt_names = list(lock_cpt)
+
+            # --------------- Generate lineups with variance & exposure ---------------
+            generate_clicked = st.button("🔁 Generate Showdown Lineups", type="primary")
+
+            if generate_clicked:
+                rng = np.random.default_rng()
+                v = variance_pct / 100.0
+
+                used_counts_name = {nm: 0 for nm in base_ok['Name'].unique()}
+                allowed_per_player = math.ceil(max_exposure_pct / 100.0 * n_lineups) if n_lineups > 0 else 0
+
+                lineups = []
+                banned_lineups = set()  # avoid duplicates (use frozenset of chosen indices)
+
+                def build_one_lineup(scrambled_proj):
+                    prob = pulp.LpProblem("DK_Showdown", pulp.LpMaximize)
+                    x = pulp.LpVariable.dicts("x", idx_all, lowBound=0, upBound=1, cat="Binary")
+
+                    # Objective
+                    prob += pulp.lpSum(scrambled_proj[i] * x[i] for i in idx_all)
+
+                    # Salary
+                    prob += pulp.lpSum(base_ok.loc[i, 'Sal'] * x[i] for i in idx_all) <= dk_salary_cap
+
+                    # Roster size: 6 total, exactly 1 CPT, 5 FLEX
+                    prob += pulp.lpSum(x[i] for i in idx_all) == 6
+                    prob += pulp.lpSum(x[i] for i in idx_cpt) == 1
+                    prob += pulp.lpSum(x[i] for i in idx_flex) == 5
+
+                    # No CPT + FLEX of same player
+                    for nm, roles in name_to_role_idx.items():
+                        cpt_idxs = roles.get('CPT', [])
+                        flex_idxs = roles.get('FLEX', [])
+                        if cpt_idxs and flex_idxs:
+                            prob += pulp.lpSum([x[i] for i in cpt_idxs + flex_idxs]) <= 1
+
+                    # Team constraints
+                    if enforce_one_each and len(teams_in_game) == 2:
+                        tA, tB = teams_in_game[0], teams_in_game[1]
+                        idx_tA = [i for i in idx_all if base_ok.loc[i, 'Team'] == tA]
+                        idx_tB = [i for i in idx_all if base_ok.loc[i, 'Team'] == tB]
+                        prob += pulp.lpSum(x[i] for i in idx_tA) >= 1
+                        prob += pulp.lpSum(x[i] for i in idx_tB) >= 1
+                    # Max per team
+                    for t in base_ok['Team'].dropna().unique():
+                        idx_t = [i for i in idx_all if base_ok.loc[i, 'Team'] == t]
+                        if len(idx_t) > 0:
+                            prob += pulp.lpSum(x[i] for i in idx_t) <= max_from_one
+
+                    # Locks (names must appear)
+                    for nm in lock_idx:
+                        cpt_idxs = name_to_role_idx.get(nm, {}).get('CPT', [])
+                        flex_idxs = name_to_role_idx.get(nm, {}).get('FLEX', [])
+                        if not cpt_idxs and not flex_idxs:
+                            # locked player not in pool; infeasible—handle before solving
+                            prob += 0 == 1  # force infeasibility
+                        else:
+                            prob += pulp.lpSum([x[i] for i in cpt_idxs + flex_idxs]) == 1
+
+                    # Captain lock (any one of these may be CPT)
+                    if len(lock_cpt_names) > 0:
+                        allowed_cpt_idxs = sum([name_to_role_idx.get(nm, {}).get('CPT', []) for nm in lock_cpt_names], [])
+                        if len(allowed_cpt_idxs) == 0:
+                            # no CPT-eligible rows for locked CPT names => infeasible
+                            prob += 0 == 1
+                        else:
+                            # CPT must be one of these (x over CPT indices == 1 already,
+                            # so equalities on both together force the CPT to be from this set)
+                            prob += pulp.lpSum([x[i] for i in allowed_cpt_idxs]) == 1
+
+                    # Exposure bans
+                    banned_idxs = []
+                    for nm, cnt in used_counts_name.items():
+                        if allowed_per_player > 0 and cnt >= allowed_per_player:
+                            banned_idxs += name_to_role_idx.get(nm, {}).get('CPT', []) + name_to_role_idx.get(nm, {}).get('FLEX', [])
+                    for i in banned_idxs:
+                        prob += x[i] == 0
+
+                    # Solve
+                    prob.solve(solver)
+                    status = pulp.LpStatus[prob.status]
+                    if status != "Optimal":
+                        return status, None
+                    chosen = [i for i in idx_all if pulp.value(x[i]) == 1]
+                    return status, chosen
+
+                attempts, max_attempts = 0, n_lineups * 8
+                while len(lineups) < n_lineups and attempts < max_attempts:
+                    attempts += 1
+
+                    # Scramble projections (role-aware; CPT already 1.5×)
+                    multipliers = rng.uniform(1.0 - v, 1.0 + v, size=len(base_ok))
+                    scrambled = pd.Series(base_ok['Proj'].values * multipliers, index=base_ok.index)
+
+                    status, chosen = build_one_lineup(scrambled)
+                    if status != "Optimal" or chosen is None:
+                        continue
+                    key = frozenset(chosen)
+                    if key in banned_lineups:
+                        continue
+
+                    # Record lineup & update exposure counts (by base Name)
+                    lu_df = base_ok.loc[chosen, ['Name', 'Team', 'Roster Position', 'Sal', 'Proj']].copy()
+                    for nm in lu_df['Name'].unique():
+                        used_counts_name[nm] += 1
+
+                    lineups.append({
+                        "players_df": lu_df.sort_values(['Roster Position', 'Name'], ascending=[True, True]).reset_index(drop=True),
+                        "total_sal": int(lu_df['Sal'].sum()),
+                        "total_proj": float(scrambled.loc[chosen].sum()),
+                        "scrambled": scrambled
+                    })
+                    banned_lineups.add(key)
+
+                if len(lineups) == 0:
+                    st.error("No feasible lineups found. Loosen filters/locks/exposure or reduce variance.")
+                    st.stop()
+
+                # ---------- Output: totals, details, CSV ----------
+                totals = pd.DataFrame(
+                    [{"Lineup #": i+1,
+                    "Total Salary": f"${lu['total_sal']:,.0f}",
+                    "Total Proj (scrambled)": round(lu['total_proj'], 2)}
+                    for i, lu in enumerate(lineups)]
+                )
+
+                # Build DK upload shape: CPT, FLEX1..FLEX5 with Name (ID) when available
+                def name_id(nm):
+                    pid = dk_id_dict.get(nm)
+                    return f"{nm} ({pid})" if pid else nm
+
+                upload_rows = []
+                details_rows = []
+                for k, lu in enumerate(lineups, start=1):
+                    dfp = lu["players_df"].copy()
+                    # Slot out CPT and FLEX order by scrambled projection desc
+                    cpt_row = dfp[dfp['Roster Position'].str.upper() == 'CPT']
+                    flex_rows = dfp[dfp['Roster Position'].str.upper() == 'FLEX']
+                    # Defensive guard (should always exist)
+                    if cpt_row.empty or len(flex_rows) < 5:
+                        continue
+                    # Order FLEX by scrambled projection
+                    idxs = flex_rows.index.tolist()
+                    order = sorted(idxs, key=lambda i: lu['scrambled'][i], reverse=True)
+                    flex_rows = flex_rows.loc[order]
+
+                    row = {
+                        "Lineup #": k,
+                        "CPT": name_id(cpt_row.iloc[0]['Name'])
+                    }
+                    for j, (_, r) in enumerate(flex_rows.head(5).iterrows(), start=1):
+                        row[f"FLEX{j}"] = name_id(r['Name'])
+                    upload_rows.append(row)
+
+                    # Details (pretty)
+                    show = dfp.copy()
+                    show['Sal'] = show['Sal'].map(lambda x: f"${x:,.0f}")
+                    show['Lineup #'] = k
+                    details_rows.append(show[['Lineup #','Roster Position','Name','Team','Sal','Proj']])
+
+                upload_df = pd.DataFrame(upload_rows).sort_values("Lineup #")
+                details_df = pd.concat(details_rows, ignore_index=True)
+
+                csv_buf = io.StringIO()
+                upload_df.drop(columns=['Lineup #']).to_csv(csv_buf, index=False)
+
+                import datetime as dt
+                st.session_state["sd_results"] = {
+                    "generated_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "totals": totals,
+                    "details": details_df,
+                    "upload_df": upload_df,
+                    "upload_csv": csv_buf.getvalue(),
+                    "exposure_name_counts": used_counts_name,
+                    "teams_in_game": teams_in_game
+                }
+
+            # --------------- Display last result ---------------
+            if "sd_results" in st.session_state:
+                res = st.session_state["sd_results"]
+                st.caption(f"Last generated: {res['generated_at']}")
+
+                st.markdown("#### Lineup Totals")
+                st.dataframe(res["totals"], use_container_width=True, hide_index=True)
+
+                st.markdown("#### Lineup Details")
+                st.dataframe(res["details"], use_container_width=True, hide_index=True, height=420)
+
+                st.download_button(
+                    "Download DK Upload CSV (Showdown: CPT + FLEX1–FLEX5)",
+                    data=res["upload_csv"],
+                    file_name="dk_showdown_lineups.csv",
+                    mime="text/csv"
+                )
+
+                show_exposure = st.checkbox("Show player exposure (by base name)")
+                if show_exposure:
+                    n_built = max(int(res["totals"].shape[0]), 1)
+                    exp = pd.DataFrame([
+                        {"Player": nm, "Times Used": cnt, "Exposure %": round(cnt / n_built * 100, 1)}
+                        for nm, cnt in res["exposure_name_counts"].items() if cnt > 0
+                    ]).sort_values(["Exposure %","Times Used","Player"], ascending=[False, False, True])
+                    st.dataframe(exp, hide_index=True, use_container_width=True)
+
+        else:       
+            show_projections_check = st.checkbox('Show Projections?', value=True)
+            
+            try:
+                optimizer_proj = optimizer_proj.rename({'DK ID':'DKID'},axis=1)
+            except:
+                pass
+            dk_id_dict = dict(zip(optimizer_proj.Player,optimizer_proj.DKID))
+
+            account_for_ceiling_check = st.checkbox('Adjust for Ceiling', value=True)
+
+            if account_for_ceiling_check:
+                optimizer_proj = optimizer_proj[['Player', 'Pos','Team','Opp','Sal','wProj_ceil']]
+                optimizer_proj.columns=['Player','Pos','Team','Opp','Sal','Proj']
+                optimizer_proj['Value'] = optimizer_proj['Proj'] / (optimizer_proj['Sal']/1000)
+            else:
+                optimizer_proj = optimizer_proj[['Player', 'Pos','Team','Opp','Sal','wProj1']]
+                optimizer_proj.columns=['Player','Pos','Team','Opp','Sal','Proj']
+                optimizer_proj['Value'] = optimizer_proj['Proj'] / (optimizer_proj['Sal']/1000)
+
+            # positional adjustment
+            pos_value_medians = optimizer_proj.groupby('Pos',as_index=False)['Value'].median()
+            pos_value_medians.columns=['Pos','PosV']
+            optimizer_proj = pd.merge(optimizer_proj,pos_value_medians,on='Pos')
+            optimizer_proj["Value"] = optimizer_proj.groupby("Pos")["Value"].transform(
+                lambda x: (x - x.mean()) / x.std()
+            )
+            optimizer_proj = optimizer_proj.drop(['PosV'],axis=1)
+            optimizer_proj = optimizer_proj.round(2)
+
+            # ------------------ FILTER CONTROLS ------------------
+            # Three columns: Pos dropdown | Salary slider | Player search
+            col1, col2, col3 = st.columns([1, 2, 2])
+
+            # 1) Position dropdown (with "All")
+            pos_options = ["All"] + sorted(optimizer_proj["Pos"].unique().tolist())
+            pos_choice = col1.selectbox("Filter by Position:", pos_options, index=0)
+
+            # 3) Player search
+            player_search = col2.text_input("Search for Player:")
+
+            # Salary slider uses global min/max (int)
+            sal_min = int(optimizer_proj["Sal"].min())
+            sal_max = int(optimizer_proj["Sal"].max())
+            salary_range = col3.slider(
+                "Salary range ($)",
+                min_value=sal_min,
+                max_value=sal_max,
+                value=(sal_min, sal_max),
+                step=100
+            )
+
+            # ------------------ APPLY FILTERS ------------------
+            filtered = optimizer_proj.copy()
+
+            # Position filter
+            if pos_choice != "All":
+                filtered = filtered[filtered["Pos"] == pos_choice]
+
+            # Salary filter
+            filtered = filtered[(filtered["Sal"] >= salary_range[0]) & (filtered["Sal"] <= salary_range[1])]
+
+            # Player search (case-insensitive)
+            if player_search:
+                filtered = filtered[filtered["Player"].str.contains(player_search, case=False, na=False)]
+
+            # Sort by Value desc
+            filtered = filtered.sort_values(by='Value', ascending=False)
+
+            # --- Row colors by position ---
+            pos_colors = {
+                "QB": "#e0f7fa",
+                "RB": "#f1f8e9",
+                "WR": "#fff3e0",
+                "TE": "#fce4ec",
+                "DST": "#ede7f6"
+            }
+
+            def highlight_rows(row):
+                color = pos_colors.get(row["Pos"], "#ffffff")
+                return [f"background-color: {color}"] * len(row)
+
+            # --- Formatting: all numeric → 2 decimals; Sal → currency no decimals ---
+            numeric_cols = filtered.select_dtypes(include="number").columns.tolist()
+            fmt = {col: "{:.2f}" for col in numeric_cols}
+            if "Sal" in fmt:
+                fmt["Sal"] = "${:,.0f}"
+
+            styler = (
+                filtered.style
+                    .apply(highlight_rows, axis=1)
+                    .format(fmt)
+            )
+
+            showprojcol1, showprojcol2, showprojcol3 = st.columns([1,5,1])
+            with showprojcol2:
+                st.dataframe(styler, height=500, use_container_width=True, hide_index=True)
+
+            st.markdown("<hr>", unsafe_allow_html=True)
+            ### OPTIMIZER CODE #################
+
+            try:
+                import pulp
+            except Exception:
+                pulp = None
+
+            st.markdown("### 🧮 DFS Optimizer (DraftKings NFL)")
+
+            # -------------------- SETTINGS UI --------------------
+            with st.expander("Optimizer Settings", expanded=True):
+                n_lineups = st.number_input("How many lineups to generate?", min_value=1, max_value=150, value=10, step=1)
+                variance_pct = st.slider("Projection variance (±%) per lineup", 0, 50, 10, 1)
+                max_exposure_pct = st.slider("Max player exposure (%)", 0, 100, 60, 5)
+                dk_salary_cap = st.number_input("Salary Cap ($)", 30000, 70000, 50000, 500)
+
+                # Exclude + Lock controls (from your version)
+                all_player_opts = sorted(filtered["Player"].dropna().unique().tolist())
+                exclude_players = st.multiselect("Exclude players (optional):", all_player_opts)
+                lock_players    = st.multiselect("LOCK players (optional, forced into every lineup):", all_player_opts)
+
+                # ---------- Pop-out Player Pool (include-only list) ----------
+                base_ui_pool = filtered[(filtered["Sal"] > 0) & (filtered["Pos"].isin(["QB","RB","WR","TE","DST"]))].copy()
+                pos_list = ["QB","RB","WR","TE","DST"]
+
+                # Initialize per-position selections in session_state (defaults = Proj ≥ 5)
+                for pos in pos_list:
+                    key = f"include_{pos}"
+                    pos_names = base_ui_pool.loc[base_ui_pool["Pos"]==pos, "Player"].dropna().tolist()
+                    default_names = base_ui_pool[(base_ui_pool["Pos"]==pos) & (base_ui_pool["Proj"]>=5)]["Player"].tolist()
+                    if key not in st.session_state:
+                        st.session_state[key] = default_names
+                    else:
+                        st.session_state[key] = [p for p in st.session_state[key] if p in pos_names]
+
+                pop = st.popover("Player Pool (click to choose)")
+                with pop:
+                    st.caption("Pick who to include in the build. Defaults to players with **Proj ≥ 5**.")
+                    tabs = st.tabs(pos_list + ["All selected"])
+                    for idx, pos in enumerate(pos_list):
+                        with tabs[idx]:
+                            pos_df = base_ui_pool[base_ui_pool["Pos"]==pos].sort_values("Proj", ascending=False)
+                            options = pos_df["Player"].tolist()
+                            labels = [f"{r.Player} — {r.Team}/{r.Opp}  ${int(r.Sal):,}  ({r.Proj:.2f})" for _, r in pos_df.iterrows()]
+                            label_to_name = dict(zip(labels, options))
+                            pre = [lbl for lbl in labels if label_to_name[lbl] in st.session_state[f"include_{pos}"]]
+                            chosen_labels = st.multiselect(f"Include {pos}:", labels, default=pre, key=f"ms_{pos}")
+                            st.session_state[f"include_{pos}"] = [label_to_name[lbl] for lbl in chosen_labels]
+                    with tabs[-1]:
+                        chosen_all = sorted(set(sum([st.session_state[f"include_{p}"] for p in pos_list], [])))
+                        st.write(f"**Selected players ({len(chosen_all)}):**")
+                        st.write(", ".join(chosen_all) if chosen_all else "_None_")
+                        if st.button("Clear all selections"):
+                            for p in pos_list:
+                                st.session_state[f"include_{p}"] = []
+
+            # Primary action – ONLY runs the optimizer when pressed
+            generate_clicked = st.button("🔁 Generate lineups", type="primary")
+
+            # -------------------- SOLVER DISCOVERY --------------------
+            def get_solver():
+                if pulp is None:
+                    return None
+                for p in ["/opt/homebrew/bin/cbc", "/usr/local/bin/cbc", shutil.which("cbc")]:
+                    if p and os.path.exists(p):
+                        return pulp.PULP_CBC_CMD(path=p, msg=False)
+                try:
+                    return pulp.PULP_CBC_CMD(msg=False)
+                except Exception:
+                    pass
+                try:
+                    return pulp.apis.HiGHS_CMD(msg=False)
+                except Exception:
+                    return None
+
+            solver = get_solver()
+
+            required_cols = {"Player","Pos","Team","Opp","Sal","Proj"}
+            missing_cols = required_cols - set(filtered.columns)
+            if missing_cols:
+                st.error(f"Optimizer cannot run. Missing columns: {sorted(missing_cols)}")
+            elif pulp is None or solver is None:
+                st.warning("No MILP solver available. On macOS: `brew install cbc` (recommended) or `pip install highspy`.")
+
+            # -------------------- RUN OPTIMIZER ONLY ON CLICK --------------------
+            if generate_clicked and pulp is not None and solver is not None:
+                # Build pool from filtered
+                pool = filtered.copy()
+                pool = pool.dropna(subset=["Player","Pos","Sal","Proj"])
+                pool = pool[(pool["Sal"] > 0) & (pool["Pos"].isin(["QB","RB","WR","TE","DST"]))].reset_index(drop=True)
+
+                # Include-only selection
+                include_players = sorted(set(sum([st.session_state.get(f"include_{p}", []) for p in ["QB","RB","WR","TE","DST"]], [])))
+                if include_players:
+                    pool = pool[pool["Player"].isin(include_players)].reset_index(drop=True)
+                else:
+                    fallback = base_ui_pool[base_ui_pool["Proj"]>=5]["Player"].tolist()
+                    pool = pool[pool["Player"].isin(fallback)].reset_index(drop=True)
+
+                # Exclusions
+                if exclude_players:
+                    pool = pool[~pool["Player"].isin(exclude_players)].reset_index(drop=True)
+
+                # Locks
+                name_to_idx = {pool.loc[i, "Player"]: i for i in pool.index}
+                locked_idx = [name_to_idx[p] for p in lock_players if p in name_to_idx]
+                missing_locked = [p for p in lock_players if p not in name_to_idx]
+                if missing_locked:
+                    st.warning("Locked player(s) not in pool and ignored: " + ", ".join(missing_locked))
+
+                # Feasibility checks
+                if len(pool) < 9:
+                    st.error("Not enough players in the pool to build a lineup (need at least 9).")
+                else:
+                    L_qb  = sum(pool.loc[i,"Pos"]=="QB" for i in locked_idx)
+                    L_rb  = sum(pool.loc[i,"Pos"]=="RB" for i in locked_idx)
+                    L_wr  = sum(pool.loc[i,"Pos"]=="WR" for i in locked_idx)
+                    L_te  = sum(pool.loc[i,"Pos"]=="TE" for i in locked_idx)
+                    L_dst = sum(pool.loc[i,"Pos"]=="DST" for i in locked_idx)
+                    L_rwt = L_rb + L_wr + L_te
+                    feasible_lock, msgs = True, []
+                    if L_qb>1: feasible_lock=False; msgs+=["You locked more than one QB."]
+                    if L_dst>1: feasible_lock=False; msgs+=["You locked more than one DST."]
+                    if L_rwt>7: feasible_lock=False; msgs+=["You locked more than 7 total among RB/WR/TE."]
+                    if len(locked_idx)>9: feasible_lock=False; msgs+=["You locked more than 9 total players."]
+                    rem_rwt = 7 - L_rwt
+                    deficit_rb = max(0, 2 - L_rb); deficit_wr = max(0, 3 - L_wr); deficit_te = max(0, 1 - L_te)
+                    if rem_rwt < (deficit_rb + deficit_wr + deficit_te):
+                        feasible_lock=False; msgs+=["Locked RB/WR/TE mix makes per-position minimums impossible."]
+
+                    if not feasible_lock:
+                        st.error("Lock selection infeasible: " + " ".join(msgs))
+                    else:
+                        allowed_per_player = math.ceil(max_exposure_pct / 100.0 * n_lineups)
+                        if allowed_per_player == 0 and n_lineups > 0 and len(locked_idx) == 0:
+                            st.error("Max exposure of 0% with ≥1 lineup is infeasible. Increase exposure or reduce # of lineups.")
+                        else:
+                            rng = np.random.default_rng()
+                            lineups = []
+                            banned_lineups = []
+                            used_counts = {i: 0 for i in pool.index}
+
+                            idx_all = pool.index.tolist()
+                            idx_qb  = pool.index[pool["Pos"]=="QB"].tolist()
+                            idx_rb  = pool.index[pool["Pos"]=="RB"].tolist()
+                            idx_wr  = pool.index[pool["Pos"]=="WR"].tolist()
+                            idx_te  = pool.index[pool["Pos"]=="TE"].tolist()
+                            idx_dst = pool.index[pool["Pos"]=="DST"].tolist()
+                            idx_rwt = pool.index[pool["Pos"].isin(["RB","WR","TE"])].tolist()
+
+                            feasible_positions = (len(idx_qb)>=1 and len(idx_rb)>=2 and len(idx_wr)>=3 and
+                                                len(idx_te)>=1 and len(idx_dst)>=1 and len(idx_rwt)>=7)
+                            if not feasible_positions:
+                                st.error("Pool does not have enough players per position after includes/excludes/locks.")
+                            else:
+                                def build_one_lineup(scrambled_proj, banned_sets, banned_player_idx, locked_idx_in):
+                                    prob = pulp.LpProblem("DK_NFL_Optimizer", pulp.LpMaximize)
+                                    x = pulp.LpVariable.dicts("x", idx_all, lowBound=0, upBound=1, cat="Binary")
+
+                                    prob += pulp.lpSum(scrambled_proj[i] * x[i] for i in idx_all)
+                                    prob += pulp.lpSum(pool.loc[i, "Sal"] * x[i] for i in idx_all) <= dk_salary_cap
+                                    prob += pulp.lpSum(x[i] for i in idx_qb)  == 1
+                                    prob += pulp.lpSum(x[i] for i in idx_rb)  >= 2
+                                    prob += pulp.lpSum(x[i] for i in idx_wr)  >= 3
+                                    prob += pulp.lpSum(x[i] for i in idx_te)  >= 1
+                                    prob += pulp.lpSum(x[i] for i in idx_dst) == 1
+                                    prob += pulp.lpSum(x[i] for i in idx_rwt) == 7
+                                    prob += pulp.lpSum(x[i] for i in idx_all) == 9
+
+                                    for chosen_set in banned_sets:
+                                        prob += pulp.lpSum([x[i] for i in chosen_set]) <= 8
+                                    for i in banned_player_idx:
+                                        prob += x[i] == 0
+                                    for i in locked_idx_in:
+                                        prob += x[i] == 1
+
+                                    prob.solve(solver)
+                                    status = pulp.LpStatus[prob.status]
+                                    if status != "Optimal":
+                                        return status, None
+                                    chosen = [i for i in idx_all if pulp.value(x[i]) == 1]
+                                    return status, chosen
+
+                                attempts, max_attempts = 0, n_lineups * 6
+                                while len(lineups) < n_lineups and attempts < max_attempts:
+                                    attempts += 1
+                                    banned_player_idx = [i for i, c in used_counts.items()
+                                                        if (i not in locked_idx) and (allowed_per_player > 0) and (c >= allowed_per_player)]
+                                    v = variance_pct / 100.0
+                                    multipliers = rng.uniform(1.0 - v, 1.0 + v, size=len(pool))
+                                    scrambled = pd.Series(pool["Proj"].values * multipliers, index=pool.index)
+
+                                    status, chosen = build_one_lineup(scrambled, banned_lineups, banned_player_idx, locked_idx)
+                                    if status != "Optimal" or chosen is None:
+                                        continue
+                                    chosen_set = frozenset(chosen)
+                                    if chosen_set in banned_lineups:
+                                        continue
+
+                                    for i in chosen:
+                                        used_counts[i] += 1
+                                    lu = pool.loc[chosen, ["Player","Pos","Team","Opp","Sal","Proj"]].copy()
+                                    lu["Proj Used"] = scrambled.loc[chosen].round(2)
+                                    lineups.append({
+                                        "players_df": lu.copy(),
+                                        "total_proj": float(lu["Proj Used"].sum()),
+                                        "total_sal": int(lu["Sal"].sum()),
+                                        "scrambled_series": scrambled
+                                    })
+                                    banned_lineups.append(chosen_set)
+
+                                # Save results (or show errors)
+                                if len(lineups) == 0:
+                                    st.error("No feasible lineups found. Loosen exposure/locks, widen includes, or reduce variance.")
+                                    st.session_state.pop("dfs_results", None)
+                                else:
+                                    # ---- Totals table
+                                    totals = pd.DataFrame(
+                                        [{"Lineup #": i+1,
+                                        "Total Salary": f"${lu['total_sal']:,.0f}",
+                                        "Total Proj (scrambled)": round(lu["total_proj"], 2)}
+                                        for i, lu in enumerate(lineups)]
+                                    )
+
+                                    # ---- Details table
+                                    details_rows, upload_rows_display, missing_names = [], [], set()
+
+                                    def dk_id(name: str):
+                                        return dk_id_dict.get(name)
+
+                                    def lineup_to_row_display(players_df, scrambled_series):
+                                        qbs = players_df[players_df["Pos"]=="QB"]["Player"].tolist()
+                                        rbs = players_df[players_df["Pos"]=="RB"]["Player"].tolist()
+                                        wrs = players_df[players_df["Pos"]=="WR"]["Player"].tolist()
+                                        tes = players_df[players_df["Pos"]=="TE"]["Player"].tolist()
+                                        dst = players_df[players_df["Pos"]=="DST"]["Player"].tolist()
+                                        rb_main, wr_main, te_main = rbs[:2], wrs[:3], tes[:1]
+                                        extras = []
+                                        if len(rbs) > 2: extras += rbs[2:]
+                                        if len(wrs) > 3: extras += wrs[3:]
+                                        if len(tes) > 1: extras += tes[1:]
+                                        if extras:
+                                            name_to_idx2 = {pool.loc[idx,"Player"]: idx for idx in pool.index}
+                                            flex = max(extras, key=lambda nm: scrambled_series[name_to_idx2[nm]])
+                                        else:
+                                            flex = wr_main[-1] if wr_main else ""
+                                        row_names = {
+                                            "QB":  qbs[0] if qbs else "",
+                                            "RB":  rb_main[0] if len(rb_main)>0 else "",
+                                            "RB2": rb_main[1] if len(rb_main)>1 else "",
+                                            "WR":  wr_main[0] if len(wr_main)>0 else "",
+                                            "WR2": wr_main[1] if len(wr_main)>1 else "",
+                                            "WR3": wr_main[2] if len(wr_main)>2 else "",
+                                            "TE":  te_main[0] if te_main else "",
+                                            "FLEX": flex,
+                                            "DST": dst[0] if dst else "",
+                                        }
+                                        row_ids = {slot: dk_id(pname) for slot, pname in row_names.items()}
+                                        row_display = {}
+                                        for slot in ["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]:
+                                            name = row_names.get(slot, "")
+                                            pid  = row_ids.get(slot)
+                                            if name and pid:
+                                                row_display[slot] = f"{name} ({pid})"
+                                            elif name:
+                                                row_display[slot] = name
+                                            else:
+                                                row_display[slot] = ""
+                                        return row_names, row_ids, row_display
+
+                                    for k, lu in enumerate(lineups, start=1):
+                                        players_df = lu["players_df"].sort_values(["Pos","Player"]).copy()
+                                        players_df["Lineup #"] = k
+                                        players_df["DK ID"] = players_df["Player"].map(lambda n: dk_id_dict.get(n))
+                                        details_rows.append(players_df)
+
+                                        row_names, row_ids, row_display = lineup_to_row_display(players_df, lu["scrambled_series"])
+                                        for slot, pid in row_ids.items():
+                                            if row_names[slot] and (pid is None):
+                                                missing_names.add(row_names[slot])
+                                        upload_rows_display.append({**row_display, "Lineup #": k})
+
+                                    out_df = pd.concat(details_rows, ignore_index=True)
+                                    out_df_display = out_df.copy()
+                                    out_df_display["Sal"] = out_df_display["Sal"].map(lambda x: f"${x:,.0f}")
+                                    out_df_display = out_df_display[["Lineup #","Player","DK ID","Pos","Team","Opp","Sal","Proj","Proj Used"]]
+
+                                    upload_df = pd.DataFrame(upload_rows_display).sort_values("Lineup #")
+                                    upload_df = upload_df[["QB","RB","RB2","WR","WR2","WR3","TE","FLEX","DST"]]
+                                    csv_buf = io.StringIO()
+                                    upload_df.to_csv(csv_buf, index=False)
+                                    
+
+                                    # Cache results so UI changes don't recompute
+                                    import datetime as dt 
+
+                                    st.session_state["dfs_results"] = {
+                                        "generated_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                        "totals": totals,
+                                        "details": out_df_display,
+                                        "upload_df": upload_df,
+                                        "upload_csv": csv_buf.getvalue(),
+                                        "missing_names": sorted(missing_names),
+                                        "used_counts": used_counts,
+                                        "pool_meta": pool[["Player","Pos"]].copy()
+                                    }
+
+            # -------------------- DISPLAY LAST GENERATED RESULT (if any) --------------------
+            if "dfs_results" in st.session_state:
+                res = st.session_state["dfs_results"]
+                if res.get("generated_at"):
+                    st.caption(f"Last generated: {res['generated_at']}")
+
+                st.markdown("#### Lineup Totals")
+                totcol1, totcol2, totcol3 = st.columns([1,1,1])
+                with totcol2:
+                    st.dataframe(res["totals"], use_container_width=True, hide_index=True)
+
+                st.markdown("#### Lineup Details")
+                st.dataframe(res["details"], use_container_width=True, hide_index=True, height=420)
+
+                if res.get("missing_names"):
+                    st.warning(
+                        "Some players were missing DK IDs in your `dk_id_dict` and appear without an ID in the CSV: "
+                        + ", ".join(res["missing_names"])
+                    )
+
+                st.download_button(
+                    "Download DK Upload CSV (Name + ID)",
+                    data=res["upload_csv"],
+                    file_name="dk_lineups.csv",
+                    mime="text/csv"
+                )
+
+                # Exposure table (optional, computed from cached counts)
+                show_exposure = st.checkbox("Show player exposure table")
+                if show_exposure:
+                    used_counts = res["used_counts"]
+                    pool_meta = res["pool_meta"]
+                    exp_df = (
+                        pd.DataFrame({"idx": list(used_counts.keys()), "Times Used": list(used_counts.values())})
+                        .merge(pool_meta.reset_index().rename(columns={"index":"idx"}), on="idx", how="left")
+                        .drop(columns=["idx"])
+                    )
+                    # Only show players used at least once
+                    exp_df = exp_df[exp_df["Times Used"] > 0].copy()
+                    exp_df["Exposure %"] = (exp_df["Times Used"] / max(len(res["details"]["Lineup #"].unique()), 1) * 100).round(1)
+                    exp_df = exp_df.sort_values(["Exposure %","Times Used","Player"], ascending=[False,False,True])
+                    st.markdown("#### Player Exposure")
+                    expcol1, expcol2, expcol3 = st.columns([1,2,1])
+                    with expcol2:
+                        pos_options = ["All"] + sorted(exp_df["Pos"].dropna().unique().tolist())
+                        pos_choice = st.selectbox("Filter by position:", pos_options, index=0, key="exp_pos_filter")
+
+                        exp_view = exp_df if pos_choice == "All" else exp_df[exp_df["Pos"] == pos_choice]
+
+                        st.dataframe(
+                            exp_view[["Player", "Pos", "Times Used", "Exposure %"]],
+                            height=900, use_container_width=True, hide_index=True
+                        )
 
     if tab == "Player Grades":
         # ---------- Header ----------
@@ -2245,7 +2661,7 @@ if check_password():
             return styler
 
         tcol1, tcol2, tcol3 = st.columns([1, 3, 1])
-        styled = style_table(df_display).format({"Rank": "{:.0f}","Rank": "{:.0f}"})
+        styled = style_table(df_display).format({"Rank": "{:.0f}","Grade": "{:.0f}"})
         with tcol2:
             st.dataframe(
                 #style_table(df_display),
