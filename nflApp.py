@@ -3603,6 +3603,7 @@ if check_password():
             #st.dataframe(show_filtered_data_reset, hide_index=True, height=1000,use_container_width=True)
             
             df = show_filtered_data_reset.copy()
+            df = df[df['FPts']>=3]
 
             # -------- helpers --------
             def safe_minmax(s: pd.Series, pad=0.0):
