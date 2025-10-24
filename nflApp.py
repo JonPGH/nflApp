@@ -1209,11 +1209,8 @@ if check_password():
 
 
 
-
-
-
             # ---------- EXPOSURES ----------
-            all_players = player_df[["Name","Position","PrimaryPos","Name + ID"]].copy()
+            all_players = player_df[["Name","Salary","Own%","Position","PrimaryPos","Name + ID"]].copy()
             counts = {}
             for _, r in lineups_df.iterrows():
                 for slot in DK_SLOTS:
@@ -1239,7 +1236,12 @@ if check_password():
                 exdf = exdf[exdf["Name"].str.lower().str.contains(search_q)]
 
             exdf = exdf[exdf["Exposure%"]>0]
-            st.dataframe(exdf[["Name","Position","PrimaryPos","Lineups","Exposure%"]], use_container_width=True)
+            exp_col1, exp_col2, exp_col3 = st.columns([1,3,1])
+            with exp_col2:
+                if len(exdf)<10:
+                    st.dataframe(exdf[["Name","Salary","Position","PrimaryPos","Lineups","Exposure%","Own%"]], use_container_width=True,hide_index=True)
+                else:
+                    st.dataframe(exdf[["Name","Salary","Position","PrimaryPos","Lineups","Exposure%","Own%"]], height=len(exdf)*47,use_container_width=True,hide_index=True)
 
             # ---------- EXPORT FOR DK (Name + ID) ----------
             st.markdown("### ⬇️ Export for DraftKings")
