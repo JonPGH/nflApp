@@ -1241,7 +1241,7 @@ if check_password():
                 if len(exdf)<10:
                     st.dataframe(exdf[["Name","Salary","Position","PrimaryPos","Lineups","Exposure%","Own%"]], use_container_width=True,hide_index=True)
                 else:
-                    st.dataframe(exdf[["Name","Salary","Position","PrimaryPos","Lineups","Exposure%","Own%"]], height=len(exdf)*47,use_container_width=True,hide_index=True)
+                    st.dataframe(exdf[["Name","Salary","Position","PrimaryPos","Lineups","Exposure%","Own%"]], height=min(len(exdf)*47,750),use_container_width=True,hide_index=True)
 
             # ---------- EXPORT FOR DK (Name + ID) ----------
             st.markdown("### ⬇️ Export for DraftKings")
