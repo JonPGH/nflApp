@@ -1505,6 +1505,11 @@ if check_password():
                 }
             )
 
+        try:
+            print(len(comp_table))
+        except:
+            comp_table = pd.DataFrame(columns=['Player','P25','P50','P75'])
+        
         comp_band_df = comp_table[['Player','P25','P50','P75']].melt(
             id_vars=['Player'],
             value_vars=['P25','P50','P75'],
