@@ -892,6 +892,7 @@ if check_password():
 
         showproj = st.checkbox('Show Projection?', value=True)
         if showproj is True:
+            from datetime import datetime
             
             a,b,c=st.columns([1,5,1])
             fdf = fdf.sort_values(by='Projection',ascending=False)
