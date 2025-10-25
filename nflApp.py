@@ -1,6 +1,3 @@
-# Set page configuration
-st.set_page_config(page_title="Follow The Money Fantasy Football App", layout="wide")
-
 
 import streamlit as st
 from matplotlib.colors import LinearSegmentedColormap
@@ -13,6 +10,9 @@ import streamlit.components.v1 as components
 import matplotlib.pyplot as plt
 import os, shutil, math
 from math import erf, sqrt
+
+# Set page configuration
+st.set_page_config(page_title="Follow The Money Fantasy Football App", layout="wide")
 
 
 # Initialize session state for authentication
