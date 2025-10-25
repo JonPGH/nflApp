@@ -2,7 +2,7 @@
 0,Nikola Jokic,C,DEN,PHX,34.0,"$11,700",60.6,7.8,69.5,23.7%,DK,MAIN,Default,40537119,Nikola Jokic
 1,Shai Gilgeous-Alexander,PG,OKC,ATL,33.5,"$10,700",56.0,7.2,64.8,26.0%,DK,MAIN,Default,40537121,Shai Gilgeous-Alexander
 2,Tyrese Maxey,PG,PHI,CHA,38.0,"$9,000",48.5,6.5,56.5,25.1%,DK,MAIN,Default,40537137,Tyrese Maxey
-3,Trae Young,PG,ATL,OKC,35.5,"$9,700",46.3,1.5,56.6,11.7%,DK,MAIN,Default,40537124,Trae Young
+3,Trae Young,PG,ATL,OKC,35.5,"$9,700",46.3,1.5,56.5,11.7%,DK,MAIN,Default,40537124,Trae Young
 4,Paolo Banchero,PF,ORL,CHI,34.0,"$8,100",44.9,6.5,53.0,30.5%,DK,MAIN,Default,40537159,Paolo Banchero
 5,Ja Morant,PG,MEM,IND,30.0,"$9,300",44.2,1.0,53.3,6.7%,DK,MAIN,Default,40537127,Ja Morant
 6,LaMelo Ball,PG,CHA,PHI,33.5,"$9,100",44.1,1.7,53.6,9.3%,DK,MAIN,Default,40537134,LaMelo Ball
@@ -12,7 +12,7 @@
 10,Jaren Jackson Jr.,PF/C,MEM,IND,30.0,"$8,400",40.8,1.2,48.9,12.1%,DK,MAIN,Default,40537150,Jaren Jackson Jr.
 11,Franz Wagner,SF,ORL,CHI,34.0,"$7,700",40.4,3.6,47.8,17.8%,DK,MAIN,Default,40537169,Franz Wagner
 12,Nikola Vucevic,C,CHI,ORL,32.0,"$8,600",39.4,-1.0,47.2,4.4%,DK,MAIN,Default,40537144,Nikola Vucevic
-13,Onyeka Okongwu,C,ATL,OKC,34.0,"$6,500",39.3,7.3,47.0,21.6%,DK,MAIN,Default,40537216,Onyeka Okongwu
+13,Onyeka Okongwu,C,ATL,OKC,34.0,"$6,500",39.2,7.2,46.9,21.6%,DK,MAIN,Default,40537216,Onyeka Okongwu
 14,Jamal Murray,PG,DEN,PHX,34.0,"$7,200",38.4,3.6,46.2,17.7%,DK,MAIN,Default,40537196,Jamal Murray
 15,Chet Holmgren,PF/C,OKC,ATL,32.0,"$7,800",38.1,0.9,46.3,14.4%,DK,MAIN,Default,40537165,Chet Holmgren
 16,Miles Bridges,PF,CHA,PHI,31.5,"$7,500",36.7,0.7,44.4,6.3%,DK,MAIN,Default,40537176,Miles Bridges
@@ -24,7 +24,7 @@
 22,Aaron Gordon,PF,DEN,PHX,31.0,"$6,900",32.4,-1.2,39.5,2.0%,DK,MAIN,Default,40537202,Aaron Gordon
 23,Joel Embiid,C,PHI,CHA,20.0,"$8,200",32.0,-6.8,40.9,0.4%,DK,MAIN,Default,40537157,Joel Embiid
 24,Matas Buzelis,PF,CHI,ORL,32.5,"$6,000",31.9,1.9,39.7,12.0%,DK,MAIN,Default,40537237,Matas Buzelis
-25,Mouhamed Gueye,C,ATL,OKC,29.0,"$3,100",30.2,11.8,38.0,62.7%,DK,MAIN,Default,40537519,Mouhamed Gueye
+25,Mouhamed Gueye,C,ATL,OKC,29.0,"$3,100",30.1,11.7,38.0,62.7%,DK,MAIN,Default,40537519,Mouhamed Gueye
 26,Nickeil Alexander-Walker,SG/SF,ATL,OKC,32.5,"$4,300",29.6,6.4,37.6,54.7%,DK,MAIN,Default,40537358,Nickeil Alexander-Walker
 27,Isaiah Hartenstein,C,OKC,ATL,28.0,"$6,400",29.5,-2.1,37.4,3.7%,DK,MAIN,Default,40537230,Isaiah Hartenstein
 28,Quentin Grimes,SG,PHI,CHA,29.5,"$6,500",28.4,-3.6,36.9,1.7%,DK,MAIN,Default,40537218,Quentin Grimes
@@ -86,9 +86,9 @@
 84,Vit Krejci,SG/SF,ATL,OKC,13.5,"$3,000",10.5,-7.5,17.6,0.1%,DK,MAIN,Default,40537535,Vit Krejci
 85,Olivier-Maxence Prosper,PF,MEM,IND,11.5,"$3,200",9.7,-9.1,16.6,0.0%,DK,MAIN,Default,40537499,Olivier-Maxence Prosper
 86,Cam Spencer,PG,MEM,IND,11.0,"$3,900",9.6,-12.0,16.5,0.0%,DK,MAIN,Default,40537385,Cam Spencer
-87,NFaly Dante,C,ATL,OKC,10.0,"$3,000",8.9,-9.1,15.9,0.0%,DK,MAIN,Default,40537588,N'Faly Dante
-88,Jonathan Isaac,PF/C,ORL,CHI,8.5,"$3,600",8.4,-12.0,15.4,0.0%,DK,MAIN,Default,40537426,Jonathan Isaac
-89,Asa Newell,PF,ATL,OKC,10.0,"$3,000",8.3,-9.7,15.3,0.0%,DK,MAIN,Default,40537543,Asa Newell
+87,NFaly Dante,C,ATL,OKC,10.0,"$3,000",8.8,-9.2,15.9,0.0%,DK,MAIN,Default,40537588,N'Faly Dante
+88,Asa Newell,PF,ATL,OKC,10.0,"$3,000",8.5,-9.5,15.5,0.0%,DK,MAIN,Default,40537543,Asa Newell
+89,Jonathan Isaac,PF/C,ORL,CHI,8.5,"$3,600",8.4,-12.0,15.4,0.0%,DK,MAIN,Default,40537426,Jonathan Isaac
 90,Brooks Barnhizer,PF,OKC,ATL,10.5,"$3,100",8.1,-10.3,15.2,0.0%,DK,MAIN,Default,40537526,Brooks Barnhizer
 91,Khaman Maluach,C,PHX,DEN,8.0,"$3,400",8.0,-11.6,14.9,0.0%,DK,MAIN,Default,40537461,Khaman Maluach
 92,Sion James,PG,CHA,PHI,10.5,"$3,100",6.9,-11.5,13.7,0.0%,DK,MAIN,Default,40537521,Sion James
@@ -106,7 +106,7 @@
 104,RayJ Dennis,PG,IND,MEM,4.5,"$3,000",4.1,-13.9,11.0,0.0%,DK,MAIN,Default,40537627,RayJ Dennis
 105,Spencer Jones,SG,DEN,PHX,5.5,"$3,000",3.9,-14.1,10.6,0.0%,DK,MAIN,Default,40537576,Spencer Jones
 106,Liam McNeeley,SF/PF,CHA,PHI,4.5,"$3,000",3.5,-14.5,10.2,0.0%,DK,MAIN,Default,40537617,Liam McNeeley
-107,Jacob Toppin,PF,ATL,OKC,4.0,"$3,000",3.0,-15.0,9.8,0.0%,DK,MAIN,Default,40537590,Jacob Toppin
+107,Jacob Toppin,PF,ATL,OKC,4.0,"$3,000",3.0,-15.0,9.7,0.0%,DK,MAIN,Default,40537590,Jacob Toppin
 108,Kyle Lowry,PG,PHI,CHA,4.0,"$3,200",3.0,-15.8,9.7,0.0%,DK,MAIN,Default,40537488,Kyle Lowry
 109,Eric Gordon,SG/SF,PHI,CHA,4.0,"$3,100",2.7,-15.7,9.3,0.0%,DK,MAIN,Default,40537514,Eric Gordon
 110,Julian Strawther,SG/SF,DEN,PHX,3.5,"$3,200",2.6,-16.2,9.2,0.0%,DK,MAIN,Default,40537491,Julian Strawther
