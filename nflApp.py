@@ -663,7 +663,7 @@ if check_password():
         from io import StringIO
 
         nbaproj = load_nba()
-
+        last_update = nbaproj['LastUpdate'].iloc[0]
         # ---------- CONFIG ----------
         DK_SALARY_CAP = 50000
         DK_SLOTS = ["PG","SG","SF","PF","C","G","F","UTIL"]
@@ -681,9 +681,11 @@ if check_password():
 
         # ---------- PREP BASE DATA ----------
         st.markdown(
-            """<br><center><font size=10 face=Futura><b>NBA DFS Projections & Optimizer</b></font></center>""",
+            f"""<br><center><font size=10 face=Futura><b>NBA DFS Projections & Optimizer</b></font><br><font size=3 face=Futura>Last Update: {last_update}</center>""",
             unsafe_allow_html=True
         )
+
+
         
 
         # Flexible columns detection
