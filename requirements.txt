@@ -6,4 +6,7 @@ python-dateutil>=2.8.2
 pulp>=2.7.0
 highspy>=1.6.0
 pyarrow>=14.0.2
-altair==5.3.0
+gspread==6.1.4
+google-auth==2.34.0
+google-auth-oauthlib==1.2.1
+gspread-dataframe==3.3.1
