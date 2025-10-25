@@ -895,6 +895,21 @@ if check_password():
             
             a,b,c=st.columns([1,5,1])
             fdf = fdf.sort_values(by='Projection',ascending=False)
+
+
+            # --------- CSV download button (browser download) ----------
+            with b:
+                csv_bytes = fdf.to_csv(index=False).encode("utf-8-sig")  # utf-8 with BOM (friendlier for Excel)
+                default_name = f"nba_projections_{datetime.now().strftime('%Y-%m-%d_%H%M%S')}.csv"
+                st.download_button(
+                    label="⬇️ Download CSV",
+                    data=csv_bytes,
+                    file_name=default_name,
+                    mime="text/csv",
+                    help="Download the table above as a CSV."
+                )
+            # ------------------------------------------------------------
+
             with b:
                 if len(fdf)>11:
                     st.dataframe(
