@@ -1,3 +1,7 @@
+# Set page configuration
+st.set_page_config(page_title="Follow The Money Fantasy Football App", layout="wide")
+
+
 import streamlit as st
 from matplotlib.colors import LinearSegmentedColormap
 import pandas as pd
@@ -39,9 +43,6 @@ def check_password():
 
 # Main app content (only displayed if authenticated)
 if check_password():
-
-    # Set page configuration
-    st.set_page_config(page_title="Follow The Money Fantasy Football App", layout="wide")
 
     st.markdown(
         """
@@ -197,6 +198,12 @@ if check_password():
         </style>
     """, unsafe_allow_html=True)
     @st.cache_data
+    def load_nba():
+        base_dir = os.path.dirname(__file__)
+        file_path = os.path.join(base_dir, 'Data')
+        nbaproj = pd.read_csv(f'{file_path}/dailynbaprojections.csv')
+        return(nbaproj)
+
     def load_data():
         base_dir = os.path.dirname(__file__)
         file_path = os.path.join(base_dir, 'Data')
@@ -227,7 +234,6 @@ if check_password():
         team_grades = pd.read_csv(f'{file_path}/team_grading.csv')
         optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')
         best_bet_data = pd.read_csv(f'{file_path}/PropCompSheet.csv')
-        nbaproj = pd.read_csv(f'{file_path}/dailynbaprojections.csv')
         etrfull = pd.read_csv(f'{file_path}/etrfull.csv')
         dst_namemaps = pd.read_csv(f'{file_path}/dst_namemaps.csv')
         try:
@@ -243,7 +249,7 @@ if check_password():
         except:
             mnfshowdown = pd.DataFrame()
 
-        return dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,nbaproj,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
+        return dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
 
     # ---------- Best Bets helpers ----------
     def _std_norm_cdf(x: float) -> float:
@@ -514,7 +520,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,nbaproj,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -655,6 +661,8 @@ if check_password():
         import streamlit as st
         import pulp
         from io import StringIO
+
+        nbaproj = load_nba()
 
         # ---------- CONFIG ----------
         DK_SALARY_CAP = 50000
@@ -1535,7 +1543,6 @@ if check_password():
         )
 
         #st.altair_chart(comp_rule + comp_dot, use_container_width=True)
-
 
     if tab == "Closing Lines":
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Closing Lines - 2025 NFL<br></b>""", unsafe_allow_html=True)
