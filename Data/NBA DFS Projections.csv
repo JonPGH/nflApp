@@ -1,96 +1,96 @@
 ,Name,Pos,Team,Opp,ETR MP,Salary,ETRProj,Value,Ceiling,Own,Site,Slate,Scenario,ID,DKName
-0,Victor Wembanyama,C,SAS,MIA,33.5,"$11,700",60.5,7.7,68.7,22.9%,DK,MAIN,Default,40600011,Victor Wembanyama
+0,Victor Wembanyama,C,SAS,MIA,33.5,"$11,700",60.4,7.6,68.5,22.9%,DK,MAIN,Default,40600011,Victor Wembanyama
 1,Giannis Antetokounmpo,PF,MIL,GSW,33.5,"$12,100",58.3,3.9,66.6,16.3%,DK,MAIN,Default,40600008,Giannis Antetokounmpo
-2,Shai Gilgeous-Alexander,PG,OKC,WAS,32.5,"$10,800",56.3,7.1,64.8,22.7%,DK,MAIN,Default,40600013,Shai Gilgeous-Alexander
+2,Shai Gilgeous-Alexander,PG,OKC,WAS,32.5,"$10,800",56.3,7.1,64.9,22.7%,DK,MAIN,Default,40600013,Shai Gilgeous-Alexander
 3,LaMelo Ball,PG,CHA,ORL,34.5,"$9,900",50.2,4.6,60.1,21.5%,DK,MAIN,Default,40600016,LaMelo Ball
-4,Paolo Banchero,PF,ORL,CHA,35.0,"$8,800",46.0,4.8,54.1,25.5%,DK,MAIN,Default (Hedge Black and Jones starter),40600025,Paolo Banchero
-5,Bam Adebayo,PF,MIA,SAS,35.0,"$8,500",44.0,4.0,51.9,24.3%,DK,MAIN,Default,40600028,Bam Adebayo
-6,Stephen Curry,PG,GSW,MIL,32.0,"$9,000",43.3,1.3,52.1,11.7%,DK,MAIN,Default (Hedge Podz and Post starter),40600019,Stephen Curry
-7,Franz Wagner,SF,ORL,CHA,34.0,"$7,500",38.2,2.2,45.5,23.7%,DK,MAIN,Default (Hedge Black and Jones starter),40600043,Franz Wagner
+4,Paolo Banchero,PF,ORL,CHA,35.0,"$8,800",45.9,4.7,54.0,25.5%,DK,MAIN,Default (Hedge Black and Jones starter),40600025,Paolo Banchero
+5,Bam Adebayo,PF,MIA,SAS,35.0,"$8,500",43.8,3.8,51.9,24.3%,DK,MAIN,Default,40600028,Bam Adebayo
+6,Stephen Curry,PG,GSW,MIL,32.0,"$9,000",43.4,1.4,52.3,11.7%,DK,MAIN,Default (Hedge Podz and Post starter),40600019,Stephen Curry
+7,Jimmy Butler,SF,GSW,MIL,33.0,"$7,600",37.8,1.4,45.2,14.5%,DK,MAIN,Default (Hedge Podz and Post starter),40600037,Jimmy Butler
 8,Miles Bridges,PF,CHA,ORL,33.0,"$7,700",37.6,0.8,45.5,11.7%,DK,MAIN,Default,40600040,Miles Bridges
-9,Jimmy Butler,SF,GSW,MIL,33.0,"$7,600",37.5,1.1,44.9,14.5%,DK,MAIN,Default (Hedge Podz and Post starter),40600037,Jimmy Butler
-10,Stephon Castle,SG,SAS,MIA,33.0,"$7,000",36.1,2.1,44.8,17.1%,DK,MAIN,Default,40600052,Stephon Castle
-11,Desmond Bane,SG,ORL,CHA,33.0,"$6,700",35.8,3.0,43.8,25.7%,DK,MAIN,Default (Hedge Black and Jones starter),40600063,Desmond Bane
+9,Franz Wagner,SF,ORL,CHA,33.5,"$7,500",37.5,1.5,44.8,23.7%,DK,MAIN,Default (Hedge Black and Jones starter),40600043,Franz Wagner
+10,Desmond Bane,SG,ORL,CHA,33.0,"$6,700",35.7,2.9,43.8,25.7%,DK,MAIN,Default (Hedge Black and Jones starter),40600063,Desmond Bane
+11,Stephon Castle,SG,SAS,MIA,32.0,"$7,000",34.9,0.9,43.5,17.1%,DK,MAIN,Default,40600052,Stephon Castle
 12,Isaiah Hartenstein,C,OKC,WAS,28.0,"$6,700",33.9,1.1,41.8,24.5%,DK,MAIN,Default,40600066,Isaiah Hartenstein
-13,Andrew Wiggins,SF,MIA,SAS,33.0,"$6,400",33.1,1.5,40.6,27.6%,DK,MAIN,Default,40600076,Andrew Wiggins
-14,Collin Sexton,SG,CHA,ORL,30.0,"$6,100",32.4,2.0,40.2,13.9%,DK,MAIN,Default,40600085,Collin Sexton
-15,Kyshawn George,SG/SF,WAS,OKC,28.5,"$6,900",31.5,-2.1,40.1,7.0%,DK,MAIN,Default,40600058,Kyshawn George
-16,Jonathan Kuminga,PF,GSW,MIL,29.0,"$6,300",30.9,-0.3,38.8,10.9%,DK,MAIN,Default (Hedge Podz and Post starter),40600082,Jonathan Kuminga
-17,Alexandre Sarr,C,WAS,OKC,25.5,"$6,800",29.9,-3.3,37.8,5.1%,DK,MAIN,Default,40600068,Alexandre Sarr
-18,Draymond Green,C,GSW,MIL,29.0,"$6,000",29.8,-0.2,38.3,9.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600088,Draymond Green
-19,Dylan Harper,PG/SG,SAS,MIA,26.0,"$5,400",29.6,2.0,37.7,33.0%,DK,MAIN,Default,40600122,Dylan Harper
-20,Devin Vassell,SF,SAS,MIA,33.0,"$6,500",29.6,-2.4,37.0,9.3%,DK,MAIN,Default,40600073,Devin Vassell
-21,Myles Turner,C,MIL,GSW,29.0,"$5,800",29.5,0.3,36.6,13.8%,DK,MAIN,Default,40600097,Myles Turner
-22,Jaime Jaquez Jr.,SF/PF,MIA,SAS,28.5,"$5,400",29.4,1.8,37.5,37.3%,DK,MAIN,Default,40600105,Jaime Jaquez Jr.
+13,Collin Sexton,SG,CHA,ORL,30.0,"$6,100",32.4,2.0,40.2,13.9%,DK,MAIN,Default,40600085,Collin Sexton
+14,Andrew Wiggins,SF,MIA,SAS,32.5,"$6,400",31.6,0.0,39.2,27.6%,DK,MAIN,Default,40600076,Andrew Wiggins
+15,Kyshawn George,SG/SF,WAS,OKC,28.5,"$6,900",31.4,-2.2,40.0,7.0%,DK,MAIN,Default,40600058,Kyshawn George
+16,Alexandre Sarr,C,WAS,OKC,26.5,"$6,800",31.2,-2.0,39.1,5.1%,DK,MAIN,Default,40600068,Alexandre Sarr
+17,Jonathan Kuminga,PF,GSW,MIL,29.0,"$6,300",30.8,-0.4,38.8,10.9%,DK,MAIN,Default (Hedge Podz and Post starter),40600082,Jonathan Kuminga
+18,Jaime Jaquez Jr.,SF/PF,MIA,SAS,28.5,"$5,400",29.6,2.0,37.7,37.3%,DK,MAIN,Default,40600105,Jaime Jaquez Jr.
+19,Myles Turner,C,MIL,GSW,29.0,"$5,800",29.5,0.3,36.6,13.8%,DK,MAIN,Default,40600097,Myles Turner
+20,Dylan Harper,PG/SG,SAS,MIA,26.0,"$5,400",29.5,1.9,37.6,33.0%,DK,MAIN,Default,40600122,Dylan Harper
+21,Devin Vassell,SF,SAS,MIA,33.0,"$6,500",29.5,-2.5,36.9,9.3%,DK,MAIN,Default,40600073,Devin Vassell
+22,Draymond Green,C,GSW,MIL,29.0,"$6,000",29.4,-0.6,37.9,9.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600088,Draymond Green
 23,Aaron Wiggins,SF/PF,OKC,WAS,27.5,"$5,500",28.7,0.7,36.4,24.6%,DK,MAIN,Default,40600109,Aaron Wiggins
-24,Wendell Carter Jr.,C,ORL,CHA,29.0,"$5,300",27.7,0.5,34.8,17.2%,DK,MAIN,Default (Hedge Black and Jones starter),40600126,Wendell Carter Jr.
+24,Wendell Carter Jr.,C,ORL,CHA,29.0,"$5,300",27.6,0.4,34.7,17.2%,DK,MAIN,Default (Hedge Black and Jones starter),40600126,Wendell Carter Jr.
 25,CJ McCollum,SG,WAS,OKC,29.0,"$6,400",27.6,-4.0,35.6,7.9%,DK,MAIN,Default,40600079,CJ McCollum
-26,Davion Mitchell,PG,MIA,SAS,31.0,"$5,900",26.8,-2.8,34.3,7.5%,DK,MAIN,Default,40600090,Davion Mitchell
+26,Davion Mitchell,PG,MIA,SAS,31.0,"$5,900",26.9,-2.7,34.3,7.5%,DK,MAIN,Default,40600090,Davion Mitchell
 27,Ajay Mitchell,PG,OKC,WAS,23.5,"$5,000",26.1,0.1,34.2,14.8%,DK,MAIN,Default,40600138,Ajay Mitchell
-28,Kel'el Ware,C,MIA,SAS,24.5,"$5,100",26.0,-0.4,33.4,11.9%,DK,MAIN,Default,40600128,Kel'el Ware
+28,Kel'el Ware,C,MIA,SAS,24.5,"$5,100",25.2,-1.2,32.7,11.9%,DK,MAIN,Default,40600128,Kel'el Ware
 29,Ryan Rollins,PG,MIL,GSW,28.5,"$5,500",25.2,-2.8,33.6,5.0%,DK,MAIN,Default,40600113,Ryan Rollins
 30,Cole Anthony,PG/SG,MIL,GSW,23.0,"$4,800",24.7,-0.5,32.9,19.1%,DK,MAIN,Default,40600156,Cole Anthony
 31,Ryan Kalkbrenner,C,CHA,ORL,28.0,"$4,500",24.4,0.4,31.7,14.5%,DK,MAIN,Default,40600187,Ryan Kalkbrenner
-32,Anthony Black,PG/SG,ORL,CHA,28.0,"$4,300",24.3,1.1,32.1,39.9%,DK,MAIN,Default (Hedge Black and Jones starter),40600211,Anthony Black
-33,Nikola Jovic,PF/C,MIA,SAS,24.5,"$4,300",23.4,0.2,30.8,30.9%,DK,MAIN,Default,40600202,Nikola Jovic
-34,Kon Knueppel,SG/SF,CHA,ORL,30.5,"$5,100",23.2,-3.2,30.3,6.5%,DK,MAIN,Default,40600141,Kon Knueppel
+32,Anthony Black,PG/SG,ORL,CHA,28.0,"$4,300",24.2,1.0,32.0,39.9%,DK,MAIN,Default (Hedge Black and Jones starter),40600211,Anthony Black
+33,Kon Knueppel,SG/SF,CHA,ORL,30.5,"$5,100",23.2,-3.2,30.3,6.5%,DK,MAIN,Default,40600141,Kon Knueppel
+34,Nikola Jovic,PF/C,MIA,SAS,24.0,"$4,300",22.8,-0.4,30.2,30.9%,DK,MAIN,Default,40600202,Nikola Jovic
 35,Brandin Podziemski,SG,GSW,MIL,24.5,"$5,800",22.5,-6.7,29.9,0.6%,DK,MAIN,Default (Hedge Podz and Post starter),40600099,Brandin Podziemski
 36,Cason Wallace,PG/SG,OKC,WAS,26.0,"$4,800",22.4,-2.8,30.0,15.6%,DK,MAIN,Default,40600160,Cason Wallace
-37,Keldon Johnson,SF/PF,SAS,MIA,23.5,"$4,900",22.2,-3.4,28.9,15.9%,DK,MAIN,Default,40600146,Keldon Johnson
+37,Keldon Johnson,SF/PF,SAS,MIA,23.5,"$4,900",22.1,-3.5,28.9,15.9%,DK,MAIN,Default,40600146,Keldon Johnson
 38,Bobby Portis,PF/C,MIL,GSW,20.0,"$5,100",21.8,-4.6,29.6,7.1%,DK,MAIN,Default,40600130,Bobby Portis
-39,Julian Champagnie,SG/SF,SAS,MIA,27.5,"$4,500",21.4,-2.6,28.3,11.7%,DK,MAIN,Default,40600182,Julian Champagnie
-40,Tre Johnson,PG/SG,WAS,OKC,25.5,"$4,800",21.4,-3.8,28.5,5.3%,DK,MAIN,Default,40600164,Tre Johnson
+39,Khris Middleton,PF,WAS,OKC,23.5,"$5,600",21.8,-6.6,29.7,3.3%,DK,MAIN,Default,40600102,Khris Middleton
+40,Tre Johnson,PG/SG,WAS,OKC,25.5,"$4,800",21.4,-3.8,28.4,5.3%,DK,MAIN,Default,40600164,Tre Johnson
 41,Gary Trent Jr.,SF,MIL,GSW,28.0,"$4,500",21.3,-2.7,28.2,7.4%,DK,MAIN,Default,40600179,Gary Trent Jr.
 42,Luguentz Dort,SG,OKC,WAS,29.0,"$4,900",21.3,-4.3,28.4,2.6%,DK,MAIN,Default,40600153,Luguentz Dort
-43,Khris Middleton,PF,WAS,OKC,23.0,"$5,600",20.9,-7.5,28.7,3.3%,DK,MAIN,Default,40600102,Khris Middleton
-44,Bub Carrington,PG,WAS,OKC,26.0,"$4,600",20.3,-4.1,27.8,5.2%,DK,MAIN,Default,40600176,Bub Carrington
-45,Tre Mann,PG/SG,CHA,ORL,21.5,"$3,800",20.1,-1.1,27.9,28.3%,DK,MAIN,Default,40600229,Tre Mann
-46,Moussa Diabate,C,CHA,ORL,20.0,"$4,200",19.5,-3.3,27.1,2.9%,DK,MAIN,Default,40600219,Moussa Diabate
-47,Harrison Barnes,PF,SAS,MIA,28.0,"$4,700",19.5,-5.3,25.8,0.9%,DK,MAIN,Default,40600173,Harrison Barnes
-48,Jaylin Williams,C,OKC,WAS,17.5,"$4,300",19.1,-4.1,27.1,1.5%,DK,MAIN,Default,40600215,Jaylin Williams
-49,Al Horford,PF/C,GSW,MIL,22.0,"$5,200",18.3,-8.5,25.3,0.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600134,Al Horford
-50,Bilal Coulibaly,SF,WAS,OKC,23.0,"$5,500",18.3,-9.7,26.0,0.0%,DK,MAIN,Default,40600116,Bilal Coulibaly
-51,Alex Caruso,SG/SF,OKC,WAS,17.0,"$4,700",17.3,-7.5,25.0,2.8%,DK,MAIN,Default,40600191,Alex Caruso
-52,Simone Fontecchio,SF/PF,MIA,SAS,20.5,"$3,700",17.2,-3.6,24.2,7.1%,DK,MAIN,Default,40600243,Simone Fontecchio
-53,Tyus Jones,PG,ORL,CHA,20.0,"$3,600",17.2,-3.2,24.2,12.7%,DK,MAIN,Default (Hedge Black and Jones starter),40600275,Tyus Jones
-54,Pelle Larsson,SG/SF,MIA,SAS,22.0,"$4,000",16.8,-5.2,24.2,19.3%,DK,MAIN,Default,40600221,Pelle Larsson
+43,Julian Champagnie,SG/SF,SAS,MIA,27.5,"$4,500",21.3,-2.7,28.2,11.7%,DK,MAIN,Default,40600182,Julian Champagnie
+44,Alex Caruso,SG/SF,OKC,WAS,20.0,"$4,700",20.4,-4.4,28.3,2.8%,DK,MAIN,Default,40600191,Alex Caruso
+45,Bub Carrington,PG,WAS,OKC,26.0,"$4,600",20.2,-4.2,27.8,5.2%,DK,MAIN,Default,40600176,Bub Carrington
+46,Tre Mann,PG/SG,CHA,ORL,21.5,"$3,800",20.1,-1.1,27.9,28.3%,DK,MAIN,Default,40600229,Tre Mann
+47,Moussa Diabate,C,CHA,ORL,20.0,"$4,200",19.5,-3.3,27.1,2.9%,DK,MAIN,Default,40600219,Moussa Diabate
+48,Harrison Barnes,PF,SAS,MIA,28.0,"$4,700",19.4,-5.4,25.8,0.9%,DK,MAIN,Default,40600173,Harrison Barnes
+49,Jaylin Williams,C,OKC,WAS,17.5,"$4,300",19.1,-4.1,27.1,1.5%,DK,MAIN,Default,40600215,Jaylin Williams
+50,Al Horford,PF/C,GSW,MIL,22.0,"$5,200",18.0,-8.8,25.0,0.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600134,Al Horford
+51,Pelle Larsson,SG/SF,MIA,SAS,24.0,"$4,000",18.0,-4.0,25.5,19.3%,DK,MAIN,Default,40600221,Pelle Larsson
+52,Bilal Coulibaly,SF,WAS,OKC,22.5,"$5,500",17.9,-10.1,25.5,0.0%,DK,MAIN,Default,40600116,Bilal Coulibaly
+53,Simone Fontecchio,SF/PF,MIA,SAS,20.5,"$3,700",17.2,-3.6,24.1,7.1%,DK,MAIN,Default,40600243,Simone Fontecchio
+54,Tyus Jones,PG,ORL,CHA,20.0,"$3,600",17.1,-3.3,24.2,12.7%,DK,MAIN,Default (Hedge Black and Jones starter),40600275,Tyus Jones
 55,Kyle Kuzma,SF/PF,MIL,GSW,20.0,"$5,900",16.8,-12.8,23.9,0.0%,DK,MAIN,Default,40600093,Kyle Kuzma
 56,AJ Green,SG,MIL,GSW,25.5,"$4,000",16.2,-5.8,22.5,0.7%,DK,MAIN,Default,40600226,AJ Green
-57,Goga Bitadze,C,ORL,CHA,15.0,"$3,500",16.1,-3.9,23.5,4.5%,DK,MAIN,Default (Hedge Black and Jones starter),40600260,Goga Bitadze
-58,Moses Moody,SG/SF,GSW,MIL,20.0,"$4,300",15.8,-7.4,22.7,0.7%,DK,MAIN,Default (Hedge Podz and Post starter),40600206,Moses Moody
-59,Cam Whitmore,SF/PF,WAS,OKC,16.0,"$3,600",15.8,-4.6,23.5,2.9%,DK,MAIN,Default,40600233,Cam Whitmore
-60,Isaiah Joe,SG,OKC,WAS,17.5,"$3,700",15.4,-5.4,22.6,4.3%,DK,MAIN,Default,40600247,Isaiah Joe
-61,Tristan da Silva,SF/PF,ORL,CHA,19.0,"$3,700",15.4,-5.4,22.3,5.8%,DK,MAIN,Default (Hedge Black and Jones starter),40600239,Tristan da Silva
-62,Quinten Post,C,GSW,MIL,17.0,"$4,200",15.1,-7.7,22.1,0.1%,DK,MAIN,Default (Hedge Podz and Post starter),40600237,Quinten Post
-63,Buddy Hield,SG/SF,GSW,MIL,15.5,"$4,800",14.0,-11.2,21.4,0.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600168,Buddy Hield
-64,Dru Smith,PG/SG,MIA,SAS,18.0,"$3,600",13.7,-6.7,20.8,1.4%,DK,MAIN,Default,40600253,Dru Smith
-65,Corey Kispert,SG,WAS,OKC,18.5,"$3,800",12.9,-8.3,19.6,0.0%,DK,MAIN,Default,40600257,Corey Kispert
+57,Tristan da Silva,SF/PF,ORL,CHA,20.0,"$3,700",16.2,-4.6,23.1,5.8%,DK,MAIN,Default (Hedge Black and Jones starter),40600239,Tristan da Silva
+58,Goga Bitadze,C,ORL,CHA,15.0,"$3,500",16.1,-3.9,23.5,4.5%,DK,MAIN,Default (Hedge Black and Jones starter),40600260,Goga Bitadze
+59,Moses Moody,SG/SF,GSW,MIL,20.0,"$4,300",15.9,-7.3,22.8,0.7%,DK,MAIN,Default (Hedge Podz and Post starter),40600206,Moses Moody
+60,Cam Whitmore,SF/PF,WAS,OKC,16.0,"$3,600",15.8,-4.6,23.4,2.9%,DK,MAIN,Default,40600233,Cam Whitmore
+61,Isaiah Joe,SG,OKC,WAS,17.5,"$3,700",15.4,-5.4,22.6,4.3%,DK,MAIN,Default,40600247,Isaiah Joe
+62,Quinten Post,C,GSW,MIL,17.0,"$4,200",15.2,-7.6,22.2,0.1%,DK,MAIN,Default (Hedge Podz and Post starter),40600237,Quinten Post
+63,Buddy Hield,SG/SF,GSW,MIL,15.5,"$4,800",14.3,-10.9,21.8,0.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600168,Buddy Hield
+64,Dru Smith,PG/SG,MIA,SAS,18.0,"$3,600",14.1,-6.3,21.3,1.4%,DK,MAIN,Default,40600253,Dru Smith
+65,Corey Kispert,SG,WAS,OKC,18.5,"$3,800",13.1,-8.1,19.8,0.0%,DK,MAIN,Default,40600257,Corey Kispert
 66,Taurean Prince,SF/PF,MIL,GSW,20.0,"$3,500",12.6,-7.4,19.3,0.1%,DK,MAIN,Default,40600262,Taurean Prince
 67,Tidjane Salaun,SF/PF,CHA,ORL,14.5,"$3,300",11.0,-8.2,17.8,0.3%,DK,MAIN,Default,40600280,Tidjane Salaun
 68,Sion James,PG,CHA,ORL,18.0,"$3,700",10.7,-10.1,17.4,0.0%,DK,MAIN,Default,40600250,Sion James
-69,Marvin Bagley III,C,WAS,OKC,12.0,"$3,200",10.7,-8.1,17.8,0.1%,DK,MAIN,Default,40600291,Marvin Bagley III
+69,Marvin Bagley III,C,WAS,OKC,12.0,"$3,200",10.6,-8.2,17.8,0.1%,DK,MAIN,Default,40600291,Marvin Bagley III
 70,Bismack Biyombo,C,SAS,MIA,13.0,"$3,300",10.0,-9.2,16.9,0.0%,DK,MAIN,Default,40600278,Bismack Biyombo
-71,Tristan Vukcevic,C,WAS,OKC,9.0,"$3,000",9.9,-8.1,17.2,0.1%,DK,MAIN,Default,40600422,Tristan Vukcevic
-72,Jordan McLaughlin,PG,SAS,MIA,11.5,"$3,200",9.1,-9.7,16.0,0.0%,DK,MAIN,Default,40600293,Jordan McLaughlin
+71,Jordan McLaughlin,PG,SAS,MIA,11.5,"$3,200",9.1,-9.7,16.0,0.0%,DK,MAIN,Default,40600293,Jordan McLaughlin
+72,Tristan Vukcevic,C,WAS,OKC,8.0,"$3,000",8.8,-9.2,16.0,0.1%,DK,MAIN,Default,40600422,Tristan Vukcevic
 73,Carter Bryant,SF/PF,SAS,MIA,10.0,"$3,000",8.3,-9.7,15.3,0.0%,DK,MAIN,Default,40600333,Carter Bryant
-74,Noah Penda,SF/PF,ORL,CHA,11.0,"$3,000",8.1,-9.9,15.0,0.0%,DK,MAIN,Default (Hedge Black and Jones starter),40600465,Noah Penda
-75,Gary Payton II,PG/SF,GSW,MIL,8.5,"$3,100",7.7,-10.7,14.8,0.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600303,Gary Payton II
-76,Liam McNeeley,SF/PF,CHA,ORL,10.0,"$3,000",7.5,-10.5,14.4,0.0%,DK,MAIN,Default,40600391,Liam McNeeley
+74,Liam McNeeley,SF/PF,CHA,ORL,10.0,"$3,000",7.5,-10.5,14.4,0.0%,DK,MAIN,Default,40600391,Liam McNeeley
+75,Gary Payton II,PG/SF,GSW,MIL,8.5,"$3,100",7.5,-10.9,14.6,0.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600303,Gary Payton II
+76,Noah Penda,SF/PF,ORL,CHA,9.5,"$3,000",7.0,-11.0,13.9,0.0%,DK,MAIN,Default (Hedge Black and Jones starter),40600465,Noah Penda
 77,Amir Coffey,SG/SF,MIL,GSW,11.5,"$3,200",6.9,-11.9,13.3,0.0%,DK,MAIN,Default,40600296,Amir Coffey
 78,Branden Carlson,C,OKC,WAS,6.5,"$3,000",6.8,-11.2,13.8,0.0%,DK,MAIN,Default,40600355,Branden Carlson
 79,Will Richard,PG/SG,GSW,MIL,8.5,"$3,300",6.2,-13.0,13.1,0.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600271,Will Richard
-80,Jase Richardson,PG/SG,ORL,CHA,8.0,"$3,000",6.0,-12.0,12.7,0.0%,DK,MAIN,Default (Hedge Black and Jones starter),40600461,Jase Richardson
-81,Brooks Barnhizer,PF,OKC,WAS,6.5,"$3,000",4.1,-13.9,10.9,0.0%,DK,MAIN,Default,40600361,Brooks Barnhizer
-82,Jonathan Isaac,PF/C,ORL,CHA,4.0,"$3,000",4.1,-13.9,10.9,0.0%,DK,MAIN,Default (Hedge Black and Jones starter),40600315,Jonathan Isaac
-83,Ousmane Dieng,PF/C,OKC,WAS,4.5,"$3,000",3.5,-14.5,10.4,0.0%,DK,MAIN,Default,40600357,Ousmane Dieng
-84,Chris Youngblood,SG,OKC,WAS,4.0,"$3,000",3.3,-14.7,10.0,0.0%,DK,MAIN,Default,40600364,Chris Youngblood
-85,Jett Howard,SG/SF,ORL,CHA,4.0,"$3,000",2.9,-15.1,9.5,0.0%,DK,MAIN,Default (Hedge Black and Jones starter),40600323,Jett Howard
+80,Jase Richardson,PG/SG,ORL,CHA,8.0,"$3,000",5.9,-12.1,12.7,0.0%,DK,MAIN,Default (Hedge Black and Jones starter),40600461,Jase Richardson
+81,Jonathan Isaac,PF/C,ORL,CHA,4.0,"$3,000",4.1,-13.9,10.9,0.0%,DK,MAIN,Default (Hedge Black and Jones starter),40600315,Jonathan Isaac
+82,Brooks Barnhizer,PF,OKC,WAS,6.0,"$3,000",3.8,-14.2,10.6,0.0%,DK,MAIN,Default,40600361,Brooks Barnhizer
+83,Jett Howard,SG/SF,ORL,CHA,5.0,"$3,000",3.6,-14.4,10.3,0.0%,DK,MAIN,Default (Hedge Black and Jones starter),40600323,Jett Howard
+84,Chris Youngblood,SG,OKC,WAS,3.0,"$3,000",2.4,-15.6,9.2,0.0%,DK,MAIN,Default,40600364,Chris Youngblood
+85,Ousmane Dieng,PF/C,OKC,WAS,3.0,"$3,000",2.3,-15.7,9.1,0.0%,DK,MAIN,Default,40600357,Ousmane Dieng
 86,Will Riley,SF/PF,WAS,OKC,3.0,"$3,000",2.1,-15.9,8.7,0.0%,DK,MAIN,Default,40600434,Will Riley
-87,Jahmir Young,PG,MIA,SAS,2.0,"$3,000",1.5,-16.5,8.1,0.0%,DK,MAIN,Default,40600403,Jahmir Young
+87,David Jones-Garcia,SG,SAS,MIA,2.0,"$3,000",1.5,-16.5,8.2,0.0%,DK,MAIN,Default,40600340,David Jones-Garcia
 88,Keshad Johnson,SF/PF,MIA,SAS,1.0,"$3,000",0.9,-17.1,7.6,0.0%,DK,MAIN,Default,40600413,Keshad Johnson
 89,Justin Champagnie,SF/PF,WAS,OKC,1.0,"$3,000",0.9,-17.1,7.6,0.0%,DK,MAIN,Default,40600319,Justin Champagnie
 90,Gui Santos,PF,GSW,MIL,1.0,"$3,000",0.8,-17.2,7.4,0.0%,DK,MAIN,Default (Hedge Podz and Post starter),40600446,Gui Santos
-91,David Jones-Garcia,SG,SAS,MIA,1.0,"$3,000",0.8,-17.2,7.4,0.0%,DK,MAIN,Default,40600340,David Jones-Garcia
+91,Jahmir Young,PG,MIA,SAS,1.0,"$3,000",0.7,-17.3,7.4,0.0%,DK,MAIN,Default,40600403,Jahmir Young
 92,Jericho Sims,C,MIL,GSW,1.0,"$3,000",0.7,-17.3,7.2,0.0%,DK,MAIN,Default,40600377,Jericho Sims
 93,Anthony Gill,C,WAS,OKC,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40600420,Anthony Gill
 94,Jamir Watkins,SG,WAS,OKC,0.0,"$3,000",0.0,-18.0,0.0,0.0%,DK,MAIN,Default,40600428,Jamir Watkins
