@@ -1687,7 +1687,10 @@ if check_password():
         render_closing_lines_tab(allproplines)
 
     if tab == "DFS Optimizer":
-        last_update_string = weekproj['LastUpdate'].iloc[0]
+        try:
+            last_update_string = weekproj['LastUpdate'].iloc[0]
+        except:
+            last_update_string = ''
         
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money DFS Tool<br></b>
         <font size=3 face=Futura>These projections are tweaked slightly for more DFS friendly projections, including ceiling and positional adjustments.<br>Last Update: {last_update_string}</b></i></center><hr>""", unsafe_allow_html=True)
@@ -3403,8 +3406,10 @@ if check_password():
         st.write(this_week_schedule.sort_values(by=['Home','Timestamp']))
     
     if tab == "Weekly Projections":
-        last_update_string = weekproj['LastUpdate'].iloc[0]
-
+        try:
+            last_update_string = weekproj['LastUpdate'].iloc[0]
+        except:
+            last_update_string=''
         st.markdown(f"<h3><center>Weekly Projections & Ranks</h3></center><b><i><center>Last Update: {last_update_string}</b></i></center><hr>", unsafe_allow_html=True)
 
 
