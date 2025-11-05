@@ -543,7 +543,14 @@ if check_password():
     
     own_dict = dict(zip(mainslate.name,mainslate.proj_own))
 
+    ### her
+
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
+    dkdata['Team'] = dkdata['Team'].replace({'NO': 'NOR'})
+    weekproj['Team'] = weekproj['Team'].replace({'NO': 'NOR'})
+    dkdata['Opp'] = dkdata['Opp'].replace({'NO': 'NOR'})
+    weekproj['Opp'] = weekproj['Opp'].replace({'NO': 'NOR'})
+
     check_matchups_dk = dict(zip(dkdata.Team,dkdata.Opp))
     check_matchups_proj = dict(zip(weekproj.Team,weekproj.Opp))
 
