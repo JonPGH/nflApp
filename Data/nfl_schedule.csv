@@ -5382,33 +5382,63 @@
 5380,2025-11-19 20:16:08 EST,76ac5a8d2c8679ae6ea8861114791bd8,2025-11-30,16:25,Las Vegas Raiders,Los Angeles Chargers,Las Vegas Raiders,330,Los Angeles Chargers,-425
 5381,2025-11-19 20:16:08 EST,9c040de8f1dfc3ddee20e0d65c9402de,2025-11-30,20:20,Denver Broncos,Washington Commanders,Washington Commanders,235,Denver Broncos,-290
 5382,2025-11-19 20:16:08 EST,3e65786eddd4c7aee9e7f2504f6fdedc,2025-12-1,20:15,New York Giants,New England Patriots,New York Giants,285,New England Patriots,-360
-0,2025-11-20 07:53:15 EST,cd2e0964817c30ad3f5144ea49b55f2b,2025-11-20,20:15,Buffalo Bills,Houston Texans,Houston Texans,220,Buffalo Bills,-270
-1,2025-11-20 07:53:15 EST,7159d60c7a31c7d593167637723d7663,2025-11-23,13:0,New York Jets,Baltimore Ravens,New York Jets,650,Baltimore Ravens,-1000
-2,2025-11-20 07:53:15 EST,c8913b70b63ae247f23a4e1dec08c668,2025-11-23,13:0,Pittsburgh Steelers,Chicago Bears,Pittsburgh Steelers,124,Chicago Bears,-148
-3,2025-11-20 07:53:15 EST,1a8f3d70399a5cad83c95196795ed77b,2025-11-23,13:0,New England Patriots,Cincinnati Bengals,Cincinnati Bengals,260,New England Patriots,-325
-4,2025-11-20 07:53:15 EST,535bbe97d4e56494b039ade88459c338,2025-11-23,13:0,New York Giants,Detroit Lions,New York Giants,410,Detroit Lions,-550
-5,2025-11-20 07:53:15 EST,91019a528f43cd28965fdc68a3f3ef85,2025-11-23,13:0,Minnesota Vikings,Green Bay Packers,Minnesota Vikings,235,Green Bay Packers,-290
-6,2025-11-20 07:53:15 EST,8b39d8dc550ced94f9faa91878ebf6b6,2025-11-23,13:0,Indianapolis Colts,Kansas City Chiefs,Indianapolis Colts,154,Kansas City Chiefs,-185
-7,2025-11-20 07:53:15 EST,0ff4e68cf39cc57ca7cf1276e4a44d2f,2025-11-23,13:0,Seattle Seahawks,Tennessee Titans,Tennessee Titans,625,Seattle Seahawks,-950
-8,2025-11-20 07:53:15 EST,e32e0030899c06fdf2c74745ca27d85a,2025-11-23,16:5,Jacksonville Jaguars,Arizona Cardinals,Arizona Cardinals,140,Jacksonville Jaguars,-166
-9,2025-11-20 07:53:15 EST,27f50ddbc4c3fbad10398c5187a28dc7,2025-11-23,16:5,Cleveland Browns,Las Vegas Raiders,Cleveland Browns,170,Las Vegas Raiders,-205
-10,2025-11-20 07:53:15 EST,8c2d6a56aa63f42227f18a18fc3d2146,2025-11-23,16:25,Atlanta Falcons,New Orleans Saints,Atlanta Falcons,110,New Orleans Saints,-130
-11,2025-11-20 07:53:15 EST,4553ba763cb3cfcfc33fd62672a2057f,2025-11-23,16:25,Philadelphia Eagles,Dallas Cowboys,Dallas Cowboys,145,Philadelphia Eagles,-175
-12,2025-11-20 07:53:15 EST,9e7119f5a24471c39145663b84f100b2,2025-11-23,20:20,Tampa Bay Buccaneers,Los Angeles Rams,Tampa Bay Buccaneers,245,Los Angeles Rams,-305
-13,2025-11-20 07:53:15 EST,90391be251d876bb41d36978a43c7ac2,2025-11-24,20:15,Carolina Panthers,San Francisco 49ers,Carolina Panthers,275,San Francisco 49ers,-345
-14,2025-11-20 07:53:15 EST,fe2eb07797580740af78037ab498198e,2025-11-27,13:0,Green Bay Packers,Detroit Lions,Green Bay Packers,142,Detroit Lions,-170
-15,2025-11-20 07:53:15 EST,de53b8a594fe830c5fd56484705cd756,2025-11-27,16:30,Kansas City Chiefs,Dallas Cowboys,Dallas Cowboys,170,Kansas City Chiefs,-205
-16,2025-11-20 07:53:15 EST,883a79a306b312fad75ebf04b441b4da,2025-11-27,20:20,Cincinnati Bengals,Baltimore Ravens,Cincinnati Bengals,330,Baltimore Ravens,-425
-17,2025-11-20 07:53:15 EST,52f539d9d080618aa8830a0b03846a80,2025-11-28,15:0,Chicago Bears,Philadelphia Eagles,Chicago Bears,285,Philadelphia Eagles,-360
-18,2025-11-20 07:53:15 EST,c0d324e29ce58b36bdc77564f7aae56f,2025-11-30,13:0,Arizona Cardinals,Tampa Bay Buccaneers,Arizona Cardinals,235,Tampa Bay Buccaneers,-290
-19,2025-11-20 07:53:15 EST,9da608f5bdae527b280abd61e47a110b,2025-11-30,13:0,Atlanta Falcons,New York Jets,New York Jets,105,Atlanta Falcons,-125
-20,2025-11-20 07:53:15 EST,67e51d17848485bed8737bd7043a275a,2025-11-30,13:0,Los Angeles Rams,Carolina Panthers,Carolina Panthers,370,Los Angeles Rams,-485
-21,2025-11-20 07:53:15 EST,36fcf5ca155a5dcd2f7a87fd2a985b02,2025-11-30,13:0,San Francisco 49ers,Cleveland Browns,Cleveland Browns,245,San Francisco 49ers,-305
-22,2025-11-20 07:53:15 EST,fa46c661007f5f0cbbf6abf939ac9d51,2025-11-30,13:0,Houston Texans,Indianapolis Colts,Houston Texans,170,Indianapolis Colts,-205
-23,2025-11-20 07:53:15 EST,61e1e459b2ddafd43e8808d4f40c01d9,2025-11-30,13:0,Jacksonville Jaguars,Tennessee Titans,Tennessee Titans,250,Jacksonville Jaguars,-310
-24,2025-11-20 07:53:15 EST,e3c9bfba57bbe784481d881ea3b4519d,2025-11-30,13:0,New Orleans Saints,Miami Dolphins,New Orleans Saints,170,Miami Dolphins,-205
-25,2025-11-20 07:53:15 EST,6f956074c4df48e7b07a3286a6c6ed2a,2025-11-30,16:5,Minnesota Vikings,Seattle Seahawks,Minnesota Vikings,295,Seattle Seahawks,-375
-26,2025-11-20 07:53:15 EST,365a766a3862bc47a5455dc3b097421e,2025-11-30,16:25,Buffalo Bills,Pittsburgh Steelers,Pittsburgh Steelers,170,Buffalo Bills,-205
-27,2025-11-20 07:53:15 EST,76ac5a8d2c8679ae6ea8861114791bd8,2025-11-30,16:25,Las Vegas Raiders,Los Angeles Chargers,Las Vegas Raiders,330,Los Angeles Chargers,-425
-28,2025-11-20 07:53:15 EST,9c040de8f1dfc3ddee20e0d65c9402de,2025-11-30,20:20,Denver Broncos,Washington Commanders,Washington Commanders,235,Denver Broncos,-290
-29,2025-11-20 07:53:15 EST,3e65786eddd4c7aee9e7f2504f6fdedc,2025-12-1,20:15,New York Giants,New England Patriots,New York Giants,285,New England Patriots,-360
+5383,2025-11-20 07:53:15 EST,cd2e0964817c30ad3f5144ea49b55f2b,2025-11-20,20:15,Buffalo Bills,Houston Texans,Houston Texans,220,Buffalo Bills,-270
+5384,2025-11-20 07:53:15 EST,7159d60c7a31c7d593167637723d7663,2025-11-23,13:0,New York Jets,Baltimore Ravens,New York Jets,650,Baltimore Ravens,-1000
+5385,2025-11-20 07:53:15 EST,c8913b70b63ae247f23a4e1dec08c668,2025-11-23,13:0,Pittsburgh Steelers,Chicago Bears,Pittsburgh Steelers,124,Chicago Bears,-148
+5386,2025-11-20 07:53:15 EST,1a8f3d70399a5cad83c95196795ed77b,2025-11-23,13:0,New England Patriots,Cincinnati Bengals,Cincinnati Bengals,260,New England Patriots,-325
+5387,2025-11-20 07:53:15 EST,535bbe97d4e56494b039ade88459c338,2025-11-23,13:0,New York Giants,Detroit Lions,New York Giants,410,Detroit Lions,-550
+5388,2025-11-20 07:53:15 EST,91019a528f43cd28965fdc68a3f3ef85,2025-11-23,13:0,Minnesota Vikings,Green Bay Packers,Minnesota Vikings,235,Green Bay Packers,-290
+5389,2025-11-20 07:53:15 EST,8b39d8dc550ced94f9faa91878ebf6b6,2025-11-23,13:0,Indianapolis Colts,Kansas City Chiefs,Indianapolis Colts,154,Kansas City Chiefs,-185
+5390,2025-11-20 07:53:15 EST,0ff4e68cf39cc57ca7cf1276e4a44d2f,2025-11-23,13:0,Seattle Seahawks,Tennessee Titans,Tennessee Titans,625,Seattle Seahawks,-950
+5391,2025-11-20 07:53:15 EST,e32e0030899c06fdf2c74745ca27d85a,2025-11-23,16:5,Jacksonville Jaguars,Arizona Cardinals,Arizona Cardinals,140,Jacksonville Jaguars,-166
+5392,2025-11-20 07:53:15 EST,27f50ddbc4c3fbad10398c5187a28dc7,2025-11-23,16:5,Cleveland Browns,Las Vegas Raiders,Cleveland Browns,170,Las Vegas Raiders,-205
+5393,2025-11-20 07:53:15 EST,8c2d6a56aa63f42227f18a18fc3d2146,2025-11-23,16:25,Atlanta Falcons,New Orleans Saints,Atlanta Falcons,110,New Orleans Saints,-130
+5394,2025-11-20 07:53:15 EST,4553ba763cb3cfcfc33fd62672a2057f,2025-11-23,16:25,Philadelphia Eagles,Dallas Cowboys,Dallas Cowboys,145,Philadelphia Eagles,-175
+5395,2025-11-20 07:53:15 EST,9e7119f5a24471c39145663b84f100b2,2025-11-23,20:20,Tampa Bay Buccaneers,Los Angeles Rams,Tampa Bay Buccaneers,245,Los Angeles Rams,-305
+5396,2025-11-20 07:53:15 EST,90391be251d876bb41d36978a43c7ac2,2025-11-24,20:15,Carolina Panthers,San Francisco 49ers,Carolina Panthers,275,San Francisco 49ers,-345
+5397,2025-11-20 07:53:15 EST,fe2eb07797580740af78037ab498198e,2025-11-27,13:0,Green Bay Packers,Detroit Lions,Green Bay Packers,142,Detroit Lions,-170
+5398,2025-11-20 07:53:15 EST,de53b8a594fe830c5fd56484705cd756,2025-11-27,16:30,Kansas City Chiefs,Dallas Cowboys,Dallas Cowboys,170,Kansas City Chiefs,-205
+5399,2025-11-20 07:53:15 EST,883a79a306b312fad75ebf04b441b4da,2025-11-27,20:20,Cincinnati Bengals,Baltimore Ravens,Cincinnati Bengals,330,Baltimore Ravens,-425
+5400,2025-11-20 07:53:15 EST,52f539d9d080618aa8830a0b03846a80,2025-11-28,15:0,Chicago Bears,Philadelphia Eagles,Chicago Bears,285,Philadelphia Eagles,-360
+5401,2025-11-20 07:53:15 EST,c0d324e29ce58b36bdc77564f7aae56f,2025-11-30,13:0,Arizona Cardinals,Tampa Bay Buccaneers,Arizona Cardinals,235,Tampa Bay Buccaneers,-290
+5402,2025-11-20 07:53:15 EST,9da608f5bdae527b280abd61e47a110b,2025-11-30,13:0,Atlanta Falcons,New York Jets,New York Jets,105,Atlanta Falcons,-125
+5403,2025-11-20 07:53:15 EST,67e51d17848485bed8737bd7043a275a,2025-11-30,13:0,Los Angeles Rams,Carolina Panthers,Carolina Panthers,370,Los Angeles Rams,-485
+5404,2025-11-20 07:53:15 EST,36fcf5ca155a5dcd2f7a87fd2a985b02,2025-11-30,13:0,San Francisco 49ers,Cleveland Browns,Cleveland Browns,245,San Francisco 49ers,-305
+5405,2025-11-20 07:53:15 EST,fa46c661007f5f0cbbf6abf939ac9d51,2025-11-30,13:0,Houston Texans,Indianapolis Colts,Houston Texans,170,Indianapolis Colts,-205
+5406,2025-11-20 07:53:15 EST,61e1e459b2ddafd43e8808d4f40c01d9,2025-11-30,13:0,Jacksonville Jaguars,Tennessee Titans,Tennessee Titans,250,Jacksonville Jaguars,-310
+5407,2025-11-20 07:53:15 EST,e3c9bfba57bbe784481d881ea3b4519d,2025-11-30,13:0,New Orleans Saints,Miami Dolphins,New Orleans Saints,170,Miami Dolphins,-205
+5408,2025-11-20 07:53:15 EST,6f956074c4df48e7b07a3286a6c6ed2a,2025-11-30,16:5,Minnesota Vikings,Seattle Seahawks,Minnesota Vikings,295,Seattle Seahawks,-375
+5409,2025-11-20 07:53:15 EST,365a766a3862bc47a5455dc3b097421e,2025-11-30,16:25,Buffalo Bills,Pittsburgh Steelers,Pittsburgh Steelers,170,Buffalo Bills,-205
+5410,2025-11-20 07:53:15 EST,76ac5a8d2c8679ae6ea8861114791bd8,2025-11-30,16:25,Las Vegas Raiders,Los Angeles Chargers,Las Vegas Raiders,330,Los Angeles Chargers,-425
+5411,2025-11-20 07:53:15 EST,9c040de8f1dfc3ddee20e0d65c9402de,2025-11-30,20:20,Denver Broncos,Washington Commanders,Washington Commanders,235,Denver Broncos,-290
+5412,2025-11-20 07:53:15 EST,3e65786eddd4c7aee9e7f2504f6fdedc,2025-12-1,20:15,New York Giants,New England Patriots,New York Giants,285,New England Patriots,-360
+0,2025-11-20 20:10:08 EST,cd2e0964817c30ad3f5144ea49b55f2b,2025-11-20,20:15,Buffalo Bills,Houston Texans,Houston Texans,210,Buffalo Bills,-258
+1,2025-11-20 20:10:08 EST,7159d60c7a31c7d593167637723d7663,2025-11-23,13:0,New York Jets,Baltimore Ravens,New York Jets,650,Baltimore Ravens,-1000
+2,2025-11-20 20:10:08 EST,c8913b70b63ae247f23a4e1dec08c668,2025-11-23,13:0,Pittsburgh Steelers,Chicago Bears,Pittsburgh Steelers,124,Chicago Bears,-148
+3,2025-11-20 20:10:08 EST,1a8f3d70399a5cad83c95196795ed77b,2025-11-23,13:0,New England Patriots,Cincinnati Bengals,Cincinnati Bengals,205,New England Patriots,-250
+4,2025-11-20 20:10:08 EST,535bbe97d4e56494b039ade88459c338,2025-11-23,13:0,New York Giants,Detroit Lions,New York Giants,410,Detroit Lions,-550
+5,2025-11-20 20:10:08 EST,91019a528f43cd28965fdc68a3f3ef85,2025-11-23,13:0,Minnesota Vikings,Green Bay Packers,Minnesota Vikings,235,Green Bay Packers,-290
+6,2025-11-20 20:10:08 EST,8b39d8dc550ced94f9faa91878ebf6b6,2025-11-23,13:0,Indianapolis Colts,Kansas City Chiefs,Indianapolis Colts,154,Kansas City Chiefs,-185
+7,2025-11-20 20:10:08 EST,0ff4e68cf39cc57ca7cf1276e4a44d2f,2025-11-23,13:0,Seattle Seahawks,Tennessee Titans,Tennessee Titans,600,Seattle Seahawks,-900
+8,2025-11-20 20:10:08 EST,e32e0030899c06fdf2c74745ca27d85a,2025-11-23,16:5,Jacksonville Jaguars,Arizona Cardinals,Arizona Cardinals,130,Jacksonville Jaguars,-155
+9,2025-11-20 20:10:08 EST,27f50ddbc4c3fbad10398c5187a28dc7,2025-11-23,16:5,Cleveland Browns,Las Vegas Raiders,Cleveland Browns,160,Las Vegas Raiders,-192
+10,2025-11-20 20:10:08 EST,8c2d6a56aa63f42227f18a18fc3d2146,2025-11-23,16:25,Atlanta Falcons,New Orleans Saints,Atlanta Falcons,114,New Orleans Saints,-135
+11,2025-11-20 20:10:08 EST,4553ba763cb3cfcfc33fd62672a2057f,2025-11-23,16:25,Philadelphia Eagles,Dallas Cowboys,Dallas Cowboys,145,Philadelphia Eagles,-175
+12,2025-11-20 20:10:08 EST,9e7119f5a24471c39145663b84f100b2,2025-11-23,20:20,Tampa Bay Buccaneers,Los Angeles Rams,Tampa Bay Buccaneers,260,Los Angeles Rams,-325
+13,2025-11-20 20:10:08 EST,90391be251d876bb41d36978a43c7ac2,2025-11-24,20:15,Carolina Panthers,San Francisco 49ers,Carolina Panthers,295,San Francisco 49ers,-375
+14,2025-11-20 20:10:08 EST,fe2eb07797580740af78037ab498198e,2025-11-27,13:0,Green Bay Packers,Detroit Lions,Green Bay Packers,140,Detroit Lions,-166
+15,2025-11-20 20:10:08 EST,de53b8a594fe830c5fd56484705cd756,2025-11-27,16:30,Kansas City Chiefs,Dallas Cowboys,Dallas Cowboys,170,Kansas City Chiefs,-205
+16,2025-11-20 20:10:08 EST,883a79a306b312fad75ebf04b441b4da,2025-11-27,20:20,Cincinnati Bengals,Baltimore Ravens,Cincinnati Bengals,320,Baltimore Ravens,-410
+17,2025-11-20 20:10:08 EST,52f539d9d080618aa8830a0b03846a80,2025-11-28,15:0,Chicago Bears,Philadelphia Eagles,Chicago Bears,285,Philadelphia Eagles,-360
+18,2025-11-20 20:10:08 EST,c0d324e29ce58b36bdc77564f7aae56f,2025-11-30,13:0,Arizona Cardinals,Tampa Bay Buccaneers,Arizona Cardinals,235,Tampa Bay Buccaneers,-290
+19,2025-11-20 20:10:08 EST,9da608f5bdae527b280abd61e47a110b,2025-11-30,13:0,Atlanta Falcons,New York Jets,New York Jets,105,Atlanta Falcons,-125
+20,2025-11-20 20:10:08 EST,67e51d17848485bed8737bd7043a275a,2025-11-30,13:0,Los Angeles Rams,Carolina Panthers,Carolina Panthers,360,Los Angeles Rams,-470
+21,2025-11-20 20:10:08 EST,36fcf5ca155a5dcd2f7a87fd2a985b02,2025-11-30,13:0,San Francisco 49ers,Cleveland Browns,Cleveland Browns,240,San Francisco 49ers,-298
+22,2025-11-20 20:10:08 EST,fa46c661007f5f0cbbf6abf939ac9d51,2025-11-30,13:0,Houston Texans,Indianapolis Colts,Houston Texans,170,Indianapolis Colts,-205
+23,2025-11-20 20:10:08 EST,61e1e459b2ddafd43e8808d4f40c01d9,2025-11-30,13:0,Jacksonville Jaguars,Tennessee Titans,Tennessee Titans,250,Jacksonville Jaguars,-310
+24,2025-11-20 20:10:08 EST,e3c9bfba57bbe784481d881ea3b4519d,2025-11-30,13:0,New Orleans Saints,Miami Dolphins,New Orleans Saints,170,Miami Dolphins,-205
+25,2025-11-20 20:10:08 EST,6f956074c4df48e7b07a3286a6c6ed2a,2025-11-30,16:5,Minnesota Vikings,Seattle Seahawks,Minnesota Vikings,285,Seattle Seahawks,-360
+26,2025-11-20 20:10:08 EST,365a766a3862bc47a5455dc3b097421e,2025-11-30,16:25,Buffalo Bills,Pittsburgh Steelers,Pittsburgh Steelers,170,Buffalo Bills,-205
+27,2025-11-20 20:10:08 EST,76ac5a8d2c8679ae6ea8861114791bd8,2025-11-30,16:25,Las Vegas Raiders,Los Angeles Chargers,Las Vegas Raiders,330,Los Angeles Chargers,-425
+28,2025-11-20 20:10:08 EST,9c040de8f1dfc3ddee20e0d65c9402de,2025-11-30,20:20,Denver Broncos,Washington Commanders,Washington Commanders,240,Denver Broncos,-298
+29,2025-11-20 20:10:08 EST,3e65786eddd4c7aee9e7f2504f6fdedc,2025-12-1,20:15,New York Giants,New England Patriots,New York Giants,285,New England Patriots,-360
