@@ -676,7 +676,7 @@
 674,1,Travis Etienne,JAX,CAR,RB,5400
 675,1,Rashid Shaheed,NO,ARI,WR,4600
 676,1,Eric Gray,NYG,WAS,RB,4000
-677,1,Zonovan Knight,ARI,NO,RB,4000
+677,1,Bam Knight,ARI,NO,RB,4000
 678,1,Chris Oladokun,KC,LAC,QB,4000
 679,1,Hunter Luepke,DAL,PHI,RB,4000
 680,1,Ian Wheeler,CHI,MIN,RB,4000
@@ -1467,7 +1467,7 @@
 683,2,Rashid Shaheed,NO,SF,WR,4500
 684,2,Eric Gray,NYG,DAL,RB,4000
 685,2,Russell Gage Jr.,SF,NO,WR,3100
-686,2,Zonovan Knight,ARI,CAR,RB,4000
+686,2,Bam Knight,ARI,CAR,RB,4000
 687,2,Chris Oladokun,KC,PHI,QB,4000
 688,2,Hunter Luepke,DAL,NYG,RB,4000
 689,2,Feleipe Franks,ATL,MIN,TE,2500
@@ -2260,7 +2260,7 @@
 685,3,Rashid Shaheed,NO,SEA,WR,4600
 686,3,Eric Gray,NYG,KC,RB,4000
 687,3,Russell Gage Jr.,SF,ARI,WR,3000
-688,3,Zonovan Knight,ARI,SF,RB,4000
+688,3,Bam Knight,ARI,SF,RB,4000
 689,3,Chris Oladokun,KC,NYG,QB,4000
 690,3,Hunter Luepke,DAL,CHI,RB,4000
 691,3,Feleipe Franks,ATL,CAR,TE,2500
@@ -3057,7 +3057,7 @@
 688,4,Rashid Shaheed,NO,BUF,WR,4600
 689,4,Eric Gray,NYG,LAC,RB,4000
 690,4,Russell Gage Jr.,SF,JAX,WR,3000
-691,4,Zonovan Knight,ARI,SEA,RB,4000
+691,4,Bam Knight,ARI,SEA,RB,4000
 692,4,Chris Oladokun,KC,BAL,QB,4000
 693,4,Hunter Luepke,DAL,GB,RB,4000
 694,4,Feleipe Franks,ATL,WAS,TE,2500
@@ -3779,7 +3779,7 @@
 613,5,Rashid Shaheed,NO,NYG,WR,4500
 614,5,Eric Gray,NYG,NO,RB,4000
 615,5,Russell Gage Jr.,SF,LAR,WR,3000
-616,5,Zonovan Knight,ARI,TEN,RB,4000
+616,5,Bam Knight,ARI,TEN,RB,4000
 617,5,Chris Oladokun,KC,JAX,QB,4000
 618,5,Hunter Luepke,DAL,NYJ,RB,4000
 619,5,Zach Wood,NO,NYG,TE,2500
@@ -4514,7 +4514,7 @@
 643,6,Eric Gray,NYG,PHI,RB,4000
 644,6,Russell Gage Jr.,SF,TB,WR,3000
 645,6,Deven Thompkins,ATL,BUF,WR,3000
-646,6,Zonovan Knight,ARI,IND,RB,4300
+646,6,Bam Knight,ARI,IND,RB,4300
 647,6,Chris Oladokun,KC,DET,QB,4000
 648,6,Hunter Luepke,DAL,CAR,RB,4000
 649,6,Feleipe Franks,ATL,BUF,TE,2500
@@ -5284,7 +5284,7 @@
 665,7,Eric Gray,NYG,DEN,RB,4000
 666,7,Russell Gage Jr.,SF,ATL,WR,3000
 667,7,Deven Thompkins,ATL,SF,WR,3000
-668,7,Zonovan Knight,ARI,GB,RB,5300
+668,7,Bam Knight,ARI,GB,RB,5300
 669,7,Chris Oladokun,KC,LV,QB,4000
 670,7,Hunter Luepke,DAL,WAS,RB,4000
 671,7,Feleipe Franks,ATL,SF,TE,2500
@@ -6664,7 +6664,7 @@
 615,9,Eric Gray,NYG,SF,RB,4000
 616,9,Russell Gage Jr.,SF,NYG,WR,3000
 617,9,Deven Thompkins,ATL,NE,WR,3000
-618,9,Zonovan Knight,ARI,DAL,RB,5000
+618,9,Bam Knight,ARI,DAL,RB,5000
 619,9,Chris Oladokun,KC,BUF,QB,4000
 620,9,Hunter Luepke,DAL,ARI,RB,4000
 621,9,Feleipe Franks,ATL,NE,TE,2500
@@ -7376,7 +7376,7 @@
 621,10,Eric Gray,NYG,CHI,RB,4000
 622,10,Russell Gage Jr.,SF,LAR,WR,3000
 623,10,Deven Thompkins,ATL,IND,WR,3000
-624,10,Zonovan Knight,ARI,SEA,RB,5500
+624,10,Bam Knight,ARI,SEA,RB,5500
 625,10,Feleipe Franks,ATL,IND,TE,2500
 626,10,Zach Wood,NO,CAR,TE,2500
 627,10,John Wolford,MIN,BAL,QB,4000
@@ -8132,7 +8132,7 @@
 665,11,Eric Gray,NYG,GB,RB,4000
 666,11,Russell Gage Jr.,SF,ARI,WR,3000
 667,11,Deven Thompkins,ATL,CAR,WR,3000
-668,11,Zonovan Knight,ARI,SF,RB,5000
+668,11,Bam Knight,ARI,SF,RB,5000
 669,11,Chris Oladokun,KC,DEN,QB,4000
 670,11,Hunter Luepke,DAL,LV,RB,4000
 671,11,Feleipe Franks,ATL,CAR,TE,2500
@@ -8850,7 +8850,7 @@
 621,12,Eric Gray,NYG,DET,RB,4000
 622,12,Russell Gage Jr.,SF,CAR,WR,3000
 623,12,Deven Thompkins,ATL,NO,WR,3000
-624,12,Zonovan Knight,ARI,JAX,RB,4900
+624,12,Bam Knight,ARI,JAX,RB,4900
 625,12,Chris Oladokun,KC,IND,QB,4000
 626,12,Hunter Luepke,DAL,PHI,RB,4000
 627,12,Feleipe Franks,ATL,NO,TE,2500
@@ -8936,3 +8936,613 @@
 707,12,Kenneth Gainwell,PIT,CHI,RB,5500
 708,12,Bryce Ford-Wheaton,NYG,DET,WR,3000
 709,12,Ko Kieft,TB,LAR,TE,2500
+0,13,Mike White,CAR,LAR,QB,4000
+1,13,Kristian Wilkerson,TEN,JAX,WR,3000
+2,13,Pharaoh Brown,ARI,TB,TE,2500
+3,13,Tyler Conklin,LAC,LV,TE,2600
+4,13,Carson Wentz,MIN,SEA,QB,4000
+5,13,Kaleb Johnson,PIT,BUF,RB,4000
+6,13,Patrick Taylor Jr.,SF,CLE,RB,4000
+7,13,Allen Lazard,NYJ,ATL,WR,3000
+8,13,Jauan Jennings,SF,CLE,WR,4700
+9,13,Kene Nwangwu,NYJ,ATL,RB,4000
+10,13,Andrew Beck,NYJ,ATL,RB,4000
+11,13,Jimmy Garoppolo,LAR,CAR,QB,4000
+12,13,Jakob Johnson,HOU,IND,TE,2500
+13,13,Dalton Schultz,HOU,IND,TE,3800
+14,13,Jelani Woods,NYJ,ATL,TE,2500
+15,13,George Holani,SEA,MIN,RB,4000
+16,13,Ainias Smith,CAR,LAR,WR,3000
+17,13,Easton Stick,ATL,NYJ,QB,4000
+18,13,DJ Turner,LV,LAC,WR,3000
+19,13,Jackson Hawes,BUF,PIT,TE,2500
+20,13,Brock Bowers,LV,LAC,TE,5800
+21,13,Nick Mullens,JAX,TEN,QB,4000
+22,13,Irvin Charles,NYJ,ATL,WR,3000
+23,13,Cooper Kupp,SEA,MIN,WR,4000
+24,13,Aaron Jones,MIN,SEA,RB,5600
+25,13,Geno Smith,LV,LAC,QB,4500
+26,13,Braxton Berrios,HOU,IND,WR,3000
+27,13,Ben Skowronek,PIT,BUF,WR,3000
+28,13,Xavier Weaver,ARI,TB,WR,3000
+29,13,Nick Chubb,HOU,IND,RB,4800
+30,13,Michael Carter,ARI,TB,RB,4200
+31,13,Trey Palmer,NO,MIA,WR,3000
+32,13,Will Dissly,LAC,LV,TE,2500
+33,13,Quinshon Judkins,CLE,SF,RB,6200
+34,13,Tony Pollard,TEN,JAX,RB,4900
+35,13,Drew Lock,SEA,MIN,QB,4000
+36,13,Najee Harris,LAC,LV,RB,4000
+37,13,Christian Kirk,HOU,IND,WR,3400
+38,13,James Proche II,TEN,JAX,WR,3000
+39,13,Nick Westbrook,MIA,NO,WR,3000
+40,13,Kenny Pickett,LV,LAC,QB,4000
+41,13,Connor Bazelak,TB,ARI,QB,4000
+42,13,Mo Alie-Cox,IND,HOU,TE,2500
+43,13,TJ Hockenson,MIN,SEA,TE,3500
+44,13,Trayveon Williams,LAC,LV,RB,4000
+45,13,Tyler Warren,IND,HOU,TE,5200
+46,13,Adonai Mitchell,NYJ,ATL,WR,3600
+47,13,Alec Ingold,MIA,NO,RB,4000
+48,13,Matthew Stafford,LAR,CAR,QB,7000
+49,13,Dan Chisena,CAR,LAR,WR,3000
+50,13,Alex Bachman,LV,LAC,WR,3000
+51,13,Ronnie Rivers,LAR,CAR,RB,4000
+52,13,Davante Adams,LAR,CAR,WR,7500
+53,13,Kirk Cousins,ATL,NYJ,QB,4800
+54,13,Trey McBride,ARI,TB,TE,7800
+55,13,DeeJay Dallas,CAR,LAR,RB,4000
+56,13,Kedon Slovis,ARI,TB,QB,4000
+57,13,Isaiah Davis,NYJ,ATL,RB,4500
+58,13,Tyrod Taylor,NYJ,ATL,QB,4300
+59,13,Skylar Thompson,PIT,BUF,QB,4000
+60,13,Trenton Irwin,NYJ,ATL,WR,3000
+61,13,Jarquez Hunter,LAR,CAR,RB,4000
+62,13,Sam Darnold,SEA,MIN,QB,5600
+63,13,Jamal Agnew,ATL,NYJ,WR,3000
+64,13,Brian Robinson,SF,CLE,RB,4300
+65,13,Donald Parham Jr.,PIT,BUF,TE,2500
+66,13,Malachi Corley,CLE,SF,WR,3000
+67,13,Mike Evans,TB,ARI,WR,3000
+68,13,Zach Wilson,MIA,NO,QB,4000
+69,13,Parker Washington,JAX,TEN,WR,5400
+70,13,Sterling Shepard,TB,ARI,WR,4100
+71,13,Shane Buechele,BUF,PIT,QB,4000
+72,13,Bailey Zappe,CLE,SF,QB,4000
+73,13,Mac Jones,SF,CLE,QB,5000
+74,13,Andre Baccellia,ARI,TB,WR,3000
+75,13,Jonnu Smith,PIT,BUF,TE,2900
+76,13,Christian McCaffrey,SF,CLE,RB,9300
+77,13,Hunter Renfrow,CAR,LAR,WR,3000
+78,13,Joe Mixon,HOU,IND,RB,4900
+79,13,Trent Taylor,SF,CLE,WR,3000
+80,13,Eric Saubert,SEA,MIN,TE,2500
+81,13,Jerry Jeudy,CLE,SF,WR,4100
+82,13,Cam Ward,TEN,JAX,QB,4600
+83,13,Jeshaun Jones,MIN,SEA,WR,3000
+84,13,Greg Dulcich,MIA,NO,TE,2500
+85,13,Aaron Rodgers,PIT,BUF,QB,5100
+86,13,Tua Tagovailoa,MIA,NO,QB,4900
+87,13,Ameer Abdullah,IND,HOU,RB,4000
+88,13,Luke Floriea,CLE,SF,WR,3000
+89,13,Xavier Restrepo,TEN,JAX,WR,3000
+90,13,C.J. Stroud,HOU,IND,QB,5000
+91,13,British Brooks,HOU,IND,RB,4000
+92,13,Max Hurleman,PIT,BUF,WR,3000
+93,13,Phillip Dorsett II,LV,LAC,WR,3000
+94,13,Andy Dalton,CAR,LAR,QB,4000
+95,13,Alvin Kamara,NO,MIA,RB,5500
+96,13,Josh Oliver,MIN,SEA,TE,2500
+97,13,Johnny Mundt,JAX,TEN,TE,2500
+98,13,Trey Benson,ARI,TB,RB,5400
+99,13,Blake Corum,LAR,CAR,RB,4600
+100,13,Brennan Presley,LAR,CAR,WR,3000
+101,13,Audric Estime,NO,MIA,RB,4000
+102,13,Tyrell Shavers,BUF,PIT,WR,3200
+103,13,Jordan Addison,MIN,SEA,WR,5100
+104,13,Ben Sims,MIN,SEA,TE,2500
+105,13,A.J. Henning,MIA,NO,WR,3000
+106,13,Adrian Martinez,SF,CLE,QB,4000
+107,13,Chig Okonkwo,TEN,JAX,TE,3600
+108,13,Kalel Mullings,TEN,JAX,RB,4000
+109,13,Ja'Quinden Jackson,JAX,TEN,RB,4000
+110,13,Rachaad White,TB,ARI,RB,5000
+111,13,Brandon Aiyuk,SF,CLE,WR,4600
+112,13,Brenden Bates,CLE,SF,TE,2500
+113,13,Braelon Allen,NYJ,ATL,RB,4000
+114,13,Anthony Richardson Sr.,IND,HOU,QB,4000
+115,13,Jaxon Smith-Njigba,SEA,MIN,WR,9500
+116,13,Bijan Robinson,ATL,NYJ,RB,8500
+117,13,Josh Downs,IND,HOU,WR,4200
+118,13,Quintin Morris,JAX,TEN,TE,2500
+119,13,Dylan Laube,LV,LAC,RB,4000
+120,13,Cade Otton,TB,ARI,TE,4100
+121,13,Juwan Johnson,NO,MIA,TE,4200
+122,13,Tory Horton,SEA,MIN,WR,3000
+123,13,Tutu Atwell,LAR,CAR,WR,3300
+124,13,Jimmy Horn,CAR,LAR,WR,3000
+125,13,Blake Whiteheart,CLE,SF,TE,2500
+126,13,Bryson Nesbit,MIN,SEA,TE,2500
+127,13,Arian Smith,NYJ,ATL,WR,3000
+128,13,Jeff Driskel,ARI,TB,QB,4000
+129,13,Stephen Gosnell,BUF,PIT,WR,3000
+130,13,Lew Nichols,PIT,BUF,RB,4000
+131,13,Corey Kiner,MIN,SEA,RB,4000
+132,13,Lance McCutcheon,TEN,JAX,WR,3000
+133,13,Mitchell Evans,CAR,LAR,TE,2500
+134,13,Jake Bobo,SEA,MIN,WR,3000
+135,13,Nick Muse,LAR,CAR,TE,2500
+136,13,Chandler Brayboy,JAX,TEN,WR,3000
+137,13,Elijah Moore,BUF,PIT,WR,3000
+138,13,Caden Prieskorn,CLE,SF,TE,2500
+139,13,Nathan Carter,ATL,NYJ,RB,4000
+140,13,Jordan Mason,MIN,SEA,RB,5100
+141,13,Tank Dell,HOU,IND,WR,3000
+142,13,Jalen Coker,CAR,LAR,WR,3400
+143,13,Ladd McConkey,LAC,LV,WR,6300
+144,13,Bub Means,NO,MIA,WR,3000
+145,13,Tejhaun Palmer,ARI,TB,WR,3000
+146,13,Jaylin Noel,HOU,IND,WR,3000
+147,13,Tip Reiman,ARI,TB,TE,2500
+148,13,Cade Stover,HOU,IND,TE,2500
+149,13,Dee Eskridge,MIA,NO,WR,3000
+150,13,Bhayshul Tuten,JAX,TEN,RB,4500
+151,13,Kyren Williams,LAR,CAR,RB,6600
+152,13,JaQuae Jackson,LAC,LV,WR,3000
+153,13,Brandon Smith,NYJ,ATL,WR,3000
+154,13,Dennis Houston,TB,ARI,WR,3000
+155,13,Jake Haener,NO,MIA,QB,4000
+156,13,Pat Freiermuth,PIT,BUF,TE,3100
+157,13,Baker Mayfield,TB,ARI,QB,5900
+158,13,Dylan Drummond,ATL,NYJ,WR,3000
+159,13,Michael Penix Jr.,ATL,NYJ,QB,4000
+160,13,Rondale Moore,MIN,SEA,WR,3000
+161,13,Alec Pierce,IND,HOU,WR,4800
+162,13,Moliki Matavao,NO,MIA,TE,2500
+163,13,Chris Olave,NO,MIA,WR,6400
+164,13,Michael Mayer,LV,LAC,TE,2800
+165,13,Tyjae Spears,TEN,JAX,RB,4700
+166,13,Zaire Mitchell-Paden,NO,MIA,TE,2500
+167,13,Saints,NO,MIA,DST,2800
+168,13,Seahawks,SEA,MIN,DST,3900
+169,13,Ja'Lynn Polk,NO,MIA,WR,3000
+170,13,Will Howard,PIT,BUF,QB,4000
+171,13,Travis Hunter,JAX,TEN,WR,3000
+172,13,Will Levis,TEN,JAX,QB,4000
+173,13,Shedrick Jackson,LV,LAC,WR,3000
+174,13,Tyler Scott,LAR,CAR,WR,3000
+175,13,Brady Cook,NYJ,ATL,QB,4000
+176,13,Chimere Dike,TEN,JAX,WR,4400
+177,13,Emory Jones,ATL,NYJ,QB,4000
+178,13,Payne Durham,TB,ARI,TE,2500
+179,13,Jayden Higgins,HOU,IND,WR,3900
+180,13,Omarion Hampton,LAC,LV,RB,5900
+181,13,Cody White,SEA,MIN,WR,3000
+182,13,Brian Thomas,JAX,TEN,WR,6200
+183,13,Buccaneers,TB,ARI,DST,3200
+184,13,David Martin-Robinson,TEN,JAX,TE,2500
+185,13,Sean Tucker,TB,ARI,RB,5500
+186,13,Thomas Yassmin,LAC,LV,TE,2500
+187,13,Austin Trammell,JAX,TEN,WR,3000
+188,13,Courtney Jackson,SEA,MIN,WR,3000
+189,13,Justin Fields,NYJ,ATL,QB,4300
+190,13,Dont'e Thornton,LV,LAC,WR,3000
+191,13,Konata Mumpfield,LAR,CAR,WR,3000
+192,13,Michael Wiley,TB,ARI,RB,4000
+193,13,Raiders,LV,LAC,DST,2500
+194,13,Jets,NYJ,ATL,DST,2400
+195,13,Joel Wilson,TEN,JAX,TE,2500
+196,13,Simi Fehoko,ARI,TB,WR,3000
+197,13,Keon Coleman,BUF,PIT,WR,3500
+198,13,Carter Runyon,LV,LAC,TE,2500
+199,13,Salvon Ahmed,IND,HOU,RB,4000
+200,13,Bryce Oliver,TEN,JAX,WR,3000
+201,13,Brandon Allen,TEN,JAX,QB,4000
+202,13,AJ Barner,SEA,MIN,TE,3200
+203,13,Kenny McIntosh,SEA,MIN,RB,4000
+204,13,John Rhys Plumlee,PIT,BUF,WR,3000
+205,13,Darnell Washington,PIT,BUF,TE,2700
+206,13,Roman Wilson,PIT,BUF,WR,3000
+207,13,Cedrick Wilson,MIA,NO,WR,3000
+208,13,Jordan Whittington,LAR,CAR,WR,3000
+209,13,Jalin Conyers,MIA,NO,TE,2500
+210,13,LeQuint Allen,JAX,TEN,RB,4100
+211,13,Ty Chandler,MIN,SEA,RB,4000
+212,13,Mark Redman,LAR,CAR,TE,2500
+213,13,Panthers,CAR,LAR,DST,2100
+214,13,Owen Wright,TB,ARI,RB,4000
+215,13,Messiah Swinson,ARI,TB,TE,2500
+216,13,Chris Collier,LV,LAC,RB,4000
+217,13,Jonathon Brooks,CAR,LAR,RB,4000
+218,13,Junior Bergen,SF,CLE,WR,3000
+219,13,Bryce Young,CAR,LAR,QB,5300
+220,13,Devin Culp,TB,ARI,TE,2500
+221,13,Ryan Miller,TB,ARI,WR,3000
+222,13,Nick Nash,ATL,NYJ,WR,3000
+223,13,Tanner Conner,MIA,NO,TE,2500
+224,13,Jake Tonges,SF,CLE,TE,2500
+225,13,Hassan Haskins,LAC,LV,RB,4000
+226,13,Stetson Bennett IV,LAR,CAR,QB,4000
+227,13,Julian Hill,MIA,NO,TE,2500
+228,13,Kaden Davis,CLE,SF,WR,3000
+229,13,Jeremy Ruckert,NYJ,ATL,TE,2500
+230,13,Tyler Allgeier,ATL,NYJ,RB,4500
+231,13,Carter Bradley,JAX,TEN,QB,4000
+232,13,Cedric Tillman,CLE,SF,WR,3600
+233,13,Rams,LAR,CAR,DST,3800
+234,13,Jalen Brooks,ARI,TB,WR,3000
+235,13,Jaguars,JAX,TEN,DST,3700
+236,13,Tre Harris,LAC,LV,WR,3100
+237,13,Derius Davis,LAC,LV,WR,3000
+238,13,Ke'Shawn Williams,PIT,BUF,WR,3000
+239,13,Hal Presley III,TEN,JAX,WR,3000
+240,13,Dyami Brown,JAX,TEN,WR,3000
+241,13,Ricky White III,SEA,MIN,WR,3000
+242,13,Ian Thomas,LV,LAC,TE,2500
+243,13,Tahj Washington,MIA,NO,WR,3000
+244,13,Casey Washington,ATL,NYJ,WR,3000
+245,13,Brevin Jordan,HOU,IND,TE,2500
+246,13,Drake London,ATL,NYJ,WR,7300
+247,13,Brock Purdy,SF,CLE,QB,6000
+248,13,Jordan Akins,JAX,TEN,TE,2500
+249,13,Patrick Herbert,JAX,TEN,TE,2500
+250,13,James Cook,BUF,PIT,RB,7600
+251,13,Jack Bech,LV,LAC,WR,3000
+252,13,Ashton Dulin,IND,HOU,WR,3000
+253,13,Reggie Gilliam,BUF,PIT,RB,4000
+254,13,Mason Pline,NO,MIA,TE,2500
+255,13,Jha'Quan Jackson,NO,MIA,WR,3000
+256,13,Cardinals,ARI,TB,DST,2700
+257,13,Garrett Greene,TB,ARI,WR,3000
+258,13,Kyle Pitts,ATL,NYJ,TE,4000
+259,13,Darren Waller,MIA,NO,TE,3900
+260,13,Zay Jones,ARI,TB,WR,3000
+261,13,Brayden Willis,SF,CLE,TE,2500
+262,13,Oronde Gadsden,LAC,LV,TE,4300
+263,13,Rico Dowdle,CAR,LAR,RB,6900
+264,13,Kyle Trask,ATL,NYJ,QB,4000
+265,13,Kameron Johnson,TB,ARI,WR,3000
+266,13,Charlie Woerner,ATL,NYJ,TE,2500
+267,13,DJ Giddens,IND,HOU,RB,4000
+268,13,Quintez Cephus,HOU,IND,WR,3000
+269,13,Isaiah Williams,NYJ,ATL,WR,3000
+270,13,Jaylen Warren,PIT,BUF,RB,6300
+271,13,Scott Matlock,LAC,LV,RB,4000
+272,13,Dillon Gabriel,CLE,SF,QB,4200
+273,13,Woody Marks,HOU,IND,RB,5800
+274,13,Joshua Palmer,BUF,PIT,WR,3600
+275,13,Tai Felton,MIN,SEA,WR,3000
+276,13,Sincere McCormick,ARI,TB,RB,4000
+277,13,CJ Ham,MIN,SEA,RB,4000
+278,13,Van Jefferson,TEN,JAX,WR,3400
+279,13,Terrance Ferguson,LAR,CAR,TE,2500
+280,13,Falcons,ATL,NYJ,DST,3500
+281,13,Dolphins,MIA,NO,DST,3300
+282,13,Quentin Johnston,LAC,LV,WR,4900
+283,13,Steelers,PIT,BUF,DST,2600
+284,13,Xavier Smith,LAR,CAR,WR,3000
+285,13,Ashton Jeanty,LV,LAC,RB,6400
+286,13,Isaac Guerendo,SF,CLE,RB,4000
+287,13,Jermar Jefferson,ARI,TB,RB,4000
+288,13,Teagan Quitoriano,ATL,NYJ,TE,2500
+289,13,Gage Larvadain,CLE,SF,WR,3000
+290,13,Zach Charbonnet,SEA,MIN,RB,4800
+291,13,Jeff Wilson Jr.,MIA,NO,RB,4000
+292,13,Mason Taylor,NYJ,ATL,TE,3300
+293,13,Devin Neal,NO,MIA,RB,5000
+294,13,Will Mallory,IND,HOU,TE,2500
+295,13,Dalevon Campbell,LAC,LV,WR,3000
+296,13,Joshua Simon,ATL,NYJ,TE,2500
+297,13,Justin Jefferson,MIN,SEA,WR,7100
+298,13,JJ McCarthy,MIN,SEA,QB,4700
+299,13,Connor Heyward,PIT,BUF,TE,2500
+300,13,Zamir White,LV,LAC,RB,4000
+301,13,Dalton Kincaid,BUF,PIT,TE,4500
+302,13,Gavin Bartholomew,MIN,SEA,TE,2500
+303,13,James Conner,ARI,TB,RB,4000
+304,13,Ollie Gordon,MIA,NO,RB,4300
+305,13,Ja'seem Reed,CAR,LAR,WR,3000
+306,13,Bills,BUF,PIT,DST,3400
+307,13,Luke Grimm,LAC,LV,WR,3000
+308,13,Chargers,LAC,LV,DST,4000
+309,13,Josh Williams,TB,ARI,RB,4000
+310,13,Frank Gore Jr.,BUF,PIT,RB,4000
+311,13,Brenden Rice,SEA,MIN,WR,3000
+312,13,Hayden Rucci,MIA,NO,TE,2500
+313,13,KeAndre Lambert-Smith,LAC,LV,WR,3000
+314,13,Taysom Hill,NO,MIA,TE,2700
+315,13,Jordan James,SF,CLE,RB,4000
+316,13,Jaret Patterson,LAC,LV,RB,4000
+317,13,Elijah Arroyo,SEA,MIN,TE,2500
+318,13,Skyy Moore,SF,CLE,WR,3000
+319,13,Tyler Lockett,LV,LAC,WR,3800
+320,13,Sean McKeon,IND,HOU,TE,2500
+321,13,Ulysses Bentley IV,IND,HOU,RB,4000
+322,13,D.J. Montgomery,IND,HOU,WR,3000
+323,13,Dylan Sampson,CLE,SF,RB,4700
+324,13,Jacoby Brissett,ARI,TB,QB,5800
+325,13,Joshua Cephus,JAX,TEN,WR,3000
+326,13,Tim Patrick,JAX,TEN,WR,3000
+327,13,Evan Deckers,TB,ARI,TE,2500
+328,13,Tanner Taula,TB,ARI,TE,2500
+329,13,Texans,HOU,IND,DST,2900
+330,13,Velus Jones Jr.,SEA,MIN,RB,4000
+331,13,Quentin Skinner,NYJ,ATL,WR,3000
+332,13,Titans,TEN,JAX,DST,2200
+333,13,Kyle Juszczyk,SF,CLE,RB,4000
+334,13,Kimani Vidal,LAC,LV,RB,5700
+335,13,Vikings,MIN,SEA,DST,2300
+336,13,Kendre Miller,NO,MIA,RB,4000
+337,13,Trevor Siemian,TEN,JAX,QB,4000
+338,13,Xavier Hutchinson,HOU,IND,WR,3000
+339,13,Dontae Fleming,MIN,SEA,WR,3000
+340,13,Anthony Gould,IND,HOU,WR,3000
+341,13,Brandon Johnson,TB,ARI,WR,3000
+342,13,Tru Edwards,LAR,CAR,WR,3000
+343,13,Myles Price,MIN,SEA,WR,3000
+344,13,Mason Kinsey,TEN,JAX,WR,3000
+345,13,Ja'Tavion Sanders,CAR,LAR,TE,2500
+346,13,Shedeur Sanders,CLE,SF,QB,4200
+347,13,Coleman Owen,IND,HOU,WR,3000
+348,13,Raheim Sanders,CLE,SF,RB,4000
+349,13,Malik Washington,MIA,NO,WR,4300
+350,13,Tyler Higbee,LAR,CAR,TE,2500
+351,13,Evan Hull,NO,MIA,RB,4000
+352,13,Matt Sokol,PIT,BUF,TE,2500
+353,13,Ronnie Bell,NO,MIA,WR,3000
+354,13,James Mitchell,CAR,LAR,TE,2500
+355,13,Isaiah Bond,CLE,SF,WR,3000
+356,13,Jawhar Jordan,HOU,IND,RB,4000
+357,13,Cam Miller,LV,LAC,QB,4000
+358,13,Mitch Trubisky,BUF,PIT,QB,4000
+359,13,Harrison Bryant,HOU,IND,TE,2500
+360,13,Brycen Tremayne,CAR,LAR,WR,3000
+361,13,Julius Chestnut,TEN,JAX,RB,4000
+362,13,Dawson Knox,BUF,PIT,TE,3000
+363,13,Hunter Long,JAX,TEN,TE,2500
+364,13,Max Brosmer,MIN,SEA,QB,4000
+365,13,49ers,SF,CLE,DST,3600
+366,13,Brenton Strange,JAX,TEN,TE,3700
+367,13,Mason Rudolph,PIT,BUF,QB,4600
+368,13,Jamaal Pritchett,NYJ,ATL,WR,3000
+369,13,Graham Mertz,HOU,IND,QB,4000
+370,13,Spencer Rattler,NO,MIA,QB,4000
+371,13,Luke Farrell,SF,CLE,TE,2500
+372,13,Harold Fannin,CLE,SF,TE,3400
+373,13,Travis Vokolek,ARI,TB,TE,2500
+374,13,Josh Allen,BUF,PIT,QB,7500
+375,13,De'Von Achane,MIA,NO,RB,8300
+376,13,Stone Smartt,NYJ,ATL,TE,2500
+377,13,Demarcus Robinson,SF,CLE,WR,3000
+378,13,Justin Shorter,LV,LAC,WR,3000
+379,13,Anthony Tyus III,CAR,LAR,RB,4000
+380,13,Amar Johnson,LAC,LV,RB,4000
+381,13,Chris Blair,ATL,NYJ,WR,3000
+382,13,Marquez Valdes-Scantling,PIT,BUF,WR,3000
+383,13,Daniel Jones,IND,HOU,QB,6300
+384,13,Jerome Ford,CLE,SF,RB,4000
+385,13,Quinn Ewers,MIA,NO,QB,4000
+386,13,Jalen McMillan,TB,ARI,WR,4000
+387,13,Colts,IND,HOU,DST,3100
+388,13,Tez Johnson,TB,ARI,WR,4200
+389,13,Drew Ogletree,IND,HOU,TE,2500
+390,13,Mason Tipton,NO,MIA,WR,3000
+391,13,Riley Leonard,IND,HOU,QB,4000
+392,13,Bryce Pierre,CAR,LAR,TE,2500
+393,13,David Njoku,CLE,SF,TE,2900
+394,13,Jared Wayne,HOU,IND,WR,3000
+395,13,Kenneth Walker,SEA,MIN,RB,5300
+396,13,Eli Pancol,IND,HOU,WR,3000
+397,13,Deshaun Watson,CLE,SF,QB,4000
+398,13,Chuba Hubbard,CAR,LAR,RB,4400
+399,13,Jaylen Wright,MIA,NO,RB,4000
+400,13,Tommy Tremble,CAR,LAR,TE,2500
+401,13,Nick Vannett,MIN,SEA,TE,2500
+402,13,Trevor Lawrence,JAX,TEN,QB,5400
+403,13,Carlos Washington Jr.,ATL,NYJ,RB,4000
+404,13,David Moore,CAR,LAR,WR,3000
+405,13,Jordan Watkins,SF,CLE,WR,3000
+406,13,Jaylen Waddle,MIA,NO,WR,6800
+407,13,Justin Watson,HOU,IND,WR,3000
+408,13,Emari Demercado,ARI,TB,RB,4400
+409,13,Trent Sherfield Sr.,ARI,TB,WR,3000
+410,13,Luke Lachey,HOU,IND,TE,2500
+411,13,Treyton Welch,NO,MIA,TE,2500
+412,13,Justin Herbert,LAC,LV,QB,6500
+413,13,Laquon Treadwell,IND,HOU,WR,3000
+414,13,Davis Allen,LAR,CAR,TE,2500
+415,13,Aidan O'Connell,LV,LAC,QB,4000
+416,13,Alexander Mattison,MIA,NO,RB,4000
+417,13,Nico Collins,HOU,IND,WR,6700
+418,13,Tucker Fisk,LAC,LV,TE,2500
+419,13,Albert Okwuegbunam Jr.,LV,LAC,TE,2500
+420,13,Tyreek Hill,MIA,NO,WR,3000
+421,13,Devaughn Vele,NO,MIA,WR,3500
+422,13,Cody Schrader,JAX,TEN,RB,4000
+423,13,Kurtis Rourke,SF,CLE,QB,4000
+424,13,Gunnar Helm,TEN,JAX,TE,2600
+425,13,Ray Davis,BUF,PIT,RB,4000
+426,13,Tyler Shough,NO,MIA,QB,4400
+427,13,Keenan Allen,LAC,LV,WR,5000
+428,13,Jacob Cowing,SF,CLE,WR,3000
+429,13,Gabe Davis,BUF,PIT,WR,3300
+430,13,George Kittle,SF,CLE,TE,5300
+431,13,Foster Moreau,NO,MIA,TE,2500
+432,13,Jalen Nailor,MIN,SEA,WR,3200
+433,13,Xavier Legette,CAR,LAR,WR,3900
+434,13,Browns,CLE,SF,DST,3000
+435,13,Davis Mills,HOU,IND,QB,4500
+436,13,Dante Pettis,NO,MIA,WR,3000
+437,13,Ben Yurosek,MIN,SEA,TE,2500
+438,13,Raheem Mostert,LV,LAC,RB,4000
+439,13,Tetairoa McMillan,CAR,LAR,WR,6100
+440,13,Trey Lance,LAC,LV,QB,4000
+441,13,Bucky Irving,TB,ARI,RB,7000
+442,13,Andrew DePaola,MIN,SEA,TE,2500
+443,13,Dare Ogunbowale,HOU,IND,RB,4000
+444,13,Khalil Herbert,NYJ,ATL,RB,4000
+445,13,Tim Jones,JAX,TEN,WR,3000
+446,13,Darnell Mooney,ATL,NYJ,WR,5300
+447,13,Jamari Thrash,CLE,SF,WR,3000
+448,13,Michael Wilson,ARI,TB,WR,5900
+449,13,Ty Johnson,BUF,PIT,RB,4600
+450,13,Khadarel Hodge,ATL,NYJ,WR,3000
+451,13,Colby Parkinson,LAR,CAR,TE,2800
+452,13,Jalen Milroe,SEA,MIN,QB,4000
+453,13,Elijah Higgins,ARI,TB,TE,2500
+454,13,Calvin Austin,PIT,BUF,WR,3700
+455,13,Travis Etienne,JAX,TEN,RB,6500
+456,13,Rashid Shaheed,SEA,MIN,WR,4500
+457,13,Deven Thompkins,ATL,NYJ,WR,3000
+458,13,Bam Knight,ARI,TB,RB,5200
+459,13,Feleipe Franks,ATL,NYJ,TE,2500
+460,13,Zach Wood,NO,MIA,TE,2500
+461,13,John Wolford,MIN,SEA,QB,4000
+462,13,Emeka Egbuka,TB,ARI,WR,6500
+463,13,Garrett Wilson,NYJ,ATL,WR,3000
+464,13,Mecole Hardman Jr.,BUF,PIT,WR,3000
+465,13,Puka Nacua,LAR,CAR,WR,9000
+466,13,Zavier Scott,MIN,SEA,RB,4000
+467,13,Keleki Latu,BUF,PIT,TE,2500
+468,13,DJ Uiagalelei,LAC,LV,QB,4000
+469,13,Theo Wease Jr.,MIA,NO,WR,3000
+470,13,DK Metcalf,PIT,BUF,WR,5600
+471,13,Brady Russell,SEA,MIN,RB,4000
+472,13,Josh Reynolds,NYJ,ATL,WR,3000
+473,13,Khalil Shakir,BUF,PIT,WR,5500
+474,13,Nick Kallerup,SEA,MIN,TE,2500
+475,13,Tyler Johnson,NYJ,ATL,WR,3000
+476,13,Jonathan Taylor,IND,HOU,RB,9800
+477,13,Chris Godwin Jr.,TB,ARI,WR,5000
+478,13,Kevin Austin,NO,MIA,WR,3000
+479,13,Elic Ayomanor,TEN,JAX,WR,3700
+480,13,JaMycal Hasty,MIA,NO,RB,4000
+481,13,David Sills V,ATL,NYJ,WR,3500
+482,13,Sal Cannella,CLE,SF,TE,2500
+483,13,Jordan Mims,TEN,JAX,RB,4000
+484,13,Greg Dortch,ARI,TB,WR,4600
+485,13,Trey Sermon,PIT,BUF,RB,4000
+486,13,Kyler Murray,ARI,TB,QB,4000
+487,13,Jack Stoll,NO,MIA,TE,2500
+488,13,Curtis Samuel,BUF,PIT,WR,3100
+489,13,John Metchie,NYJ,ATL,WR,3800
+490,13,Breece Hall,NYJ,ATL,RB,6000
+491,13,Tre Tucker,LV,LAC,WR,4800
+492,13,Jakobi Meyers,JAX,TEN,WR,5700
+493,13,Dareke Young,SEA,MIN,WR,3000
+494,13,Chris Myarick,MIA,NO,TE,2500
+495,13,Calvin Ridley,TEN,JAX,WR,3000
+496,13,Jaden Smith,TB,ARI,WR,3000
+497,13,Adam Thielen,MIN,SEA,WR,3000
+498,13,Scotty Miller,PIT,BUF,WR,3000
+499,13,Trevor Etienne,CAR,LAR,RB,4000
+500,13,Josiah Deguara,ARI,TB,TE,2500
+501,13,Ricky Pearsall,SF,CLE,WR,5200
+502,13,Robbie Ouzts,SEA,MIN,RB,4000
+503,13,Michael Pittman Jr.,IND,HOU,WR,5800
+504,13,Marvin Harrison Jr.,ARI,TB,WR,6000
+505,13,Tyler Goodson,IND,HOU,RB,4000
+506,13,Kendrick Bourne,SF,CLE,WR,3800
+507,13,Josh Kelly,HOU,IND,WR,3000
+508,13,DeAndre Carter,CLE,SF,WR,3000
+509,13,Malik Turner,SF,CLE,WR,3000
+510,13,Brett Rypien,IND,HOU,QB,4000
+511,13,Teddy Bridgewater,TB,ARI,QB,4400
+512,13,Kenneth Gainwell,PIT,BUF,RB,5300
+513,13,Ko Kieft,TB,ARI,TE,2500
+514,13,Lamar Jackson,BAL,CIN,QB,6800
+515,13,Mark Andrews,BAL,CIN,TE,3600
+516,13,DeAndre Hopkins,BAL,CIN,WR,3300
+517,13,Justice Hill,BAL,CIN,RB,4000
+518,13,Jake Browning,CIN,BAL,QB,4000
+519,13,Devin Duvernay,CHI,PHI,WR,3000
+520,13,Cornelius Johnson,BAL,CIN,WR,3000
+521,13,Dayton Wade,BAL,CIN,WR,3000
+522,13,Samaje Perine,CIN,BAL,RB,4000
+523,13,Saquon Barkley,PHI,CHI,RB,7200
+524,13,A.J. Brown,PHI,CHI,WR,6100
+525,13,Dallas Goedert,PHI,CHI,TE,4100
+526,13,Stephen Carlson,CHI,PHI,TE,2500
+527,13,William Wagner,CIN,BAL,TE,2500
+528,13,Olamide Zaccheaus,CHI,PHI,WR,3000
+529,13,Cooper Rush,BAL,CIN,QB,4000
+530,13,Rasheen Ali,BAL,CIN,RB,4000
+531,13,Tyson Bagent,CHI,PHI,QB,4000
+532,13,Tanner Hudson,CIN,BAL,TE,2500
+533,13,Jermaine Burton,CIN,BAL,WR,3000
+534,13,Danny Gray,PHI,CHI,WR,3000
+535,13,Britain Covey,PHI,CHI,WR,3000
+536,13,Tank Bigsby,PHI,CHI,RB,4200
+537,13,Tahj Brooks,CIN,BAL,RB,4000
+538,13,Zay Flowers,BAL,CIN,WR,6100
+539,13,Isaiah Likely,BAL,CIN,TE,2600
+540,13,Johnny Wilson,PHI,CHI,WR,3000
+541,13,Charlie Jones,CIN,BAL,WR,3000
+542,13,Lucas Scott,BAL,CIN,RB,4000
+543,13,Kendric Pryor,CIN,BAL,WR,3000
+544,13,Jalen Hurts,PHI,CHI,QB,6600
+545,13,Nikola Kalinic,CHI,PHI,TE,2500
+546,13,LaJohntay Wester,BAL,CIN,WR,3000
+547,13,Sean Clifford,CIN,BAL,QB,4000
+548,13,Sam Howell,PHI,CHI,QB,4000
+549,13,Kendall Milton,CIN,BAL,RB,4000
+550,13,Ja'Marr Chase,CIN,BAL,WR,8000
+551,13,Rashod Bateman,BAL,CIN,WR,3800
+552,13,Andrei Iosivas,CIN,BAL,WR,4300
+553,13,Case Keenum,CHI,PHI,QB,4000
+554,13,Eagles,PHI,CHI,DST,2900
+555,13,Jahdae Walker,CHI,PHI,WR,3000
+556,13,Xavier Gipson,PHI,CHI,WR,3000
+557,13,Mike Gesicki,CIN,BAL,TE,3100
+558,13,Jordan Moore,CIN,BAL,WR,3000
+559,13,Tyler Huntley,BAL,CIN,QB,4000
+560,13,Tanner McKee,PHI,CHI,QB,4000
+561,13,Ravens,BAL,CIN,DST,3000
+562,13,Cal Adomitis,PHI,CHI,TE,2500
+563,13,Mitch Tinsley,CIN,BAL,WR,3500
+564,13,Kylen Granson,PHI,CHI,TE,2500
+565,13,Roschon Johnson,CHI,PHI,RB,4000
+566,13,Quez Watkins,PHI,CHI,WR,3000
+567,13,Colston Loveland,CHI,PHI,TE,3500
+568,13,Luther Burden,CHI,PHI,WR,3900
+569,13,Chase Brown,CIN,BAL,RB,6500
+570,13,E.J. Jenkins,PHI,CHI,TE,2500
+571,13,DeVonta Smith,PHI,CHI,WR,5600
+572,13,Caleb Williams,CHI,PHI,QB,5700
+573,13,Ben VanSumeren,PHI,CHI,RB,4000
+574,13,DJ Moore,CHI,PHI,WR,4900
+575,13,Bears,CHI,PHI,DST,2600
+576,13,Keaton Mitchell,BAL,CIN,RB,4500
+577,13,Brittain Brown,CHI,PHI,RB,4000
+578,13,Travis Homer,CHI,PHI,RB,4000
+579,13,Erick All Jr.,CIN,BAL,TE,2500
+580,13,Cole Kmet,CHI,PHI,TE,2500
+581,13,Charlie Kolar,BAL,CIN,TE,2500
+582,13,Deion Hankins,CHI,PHI,RB,4000
+583,13,Bengals,CIN,BAL,DST,2200
+584,13,Darius Cooper,PHI,CHI,WR,3000
+585,13,Will Shipley,PHI,CHI,RB,4000
+586,13,Rome Odunze,CHI,PHI,WR,5900
+587,13,Grant Calcaterra,PHI,CHI,TE,2500
+588,13,Keith Kirkwood,BAL,CIN,WR,3000
+589,13,Jahan Dotson,PHI,CHI,WR,3100
+590,13,Scotty Washington,BAL,CIN,TE,2500
+591,13,Joe Flacco,CIN,BAL,QB,5000
+592,13,Cameron Latu,PHI,CHI,TE,2500
+593,13,Kyle Monangai,CHI,PHI,RB,5200
+594,13,Cam Grandy,CIN,BAL,TE,2500
+595,13,JP Richardson,CHI,PHI,WR,3000
+596,13,Gary Brightwell,CIN,BAL,RB,4000
+597,13,Maurice Alexander,CHI,PHI,WR,3000
+598,13,Joe Burrow,CIN,BAL,QB,6000
+599,13,Patrick Ricard,BAL,CIN,RB,4000
+600,13,Devontez Walker,BAL,CIN,WR,3000
+601,13,Derrick Henry,BAL,CIN,RB,7300
+602,13,Tylan Wallace,BAL,CIN,WR,3000
+603,13,Kyle McCord,PHI,CHI,QB,4000
+604,13,AJ Dillon,PHI,CHI,RB,4000
+605,13,Tee Higgins,CIN,BAL,WR,6000
+606,13,Drew Sample,CIN,BAL,TE,2500
+607,13,D'Andre Swift,CHI,PHI,RB,5700
+608,13,Noah Fant,CIN,BAL,TE,3000
+609,13,Durham Smythe,CHI,PHI,TE,2500
