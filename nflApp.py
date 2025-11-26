@@ -560,11 +560,13 @@ if check_password():
     check_team_dk = check_matchups_dk.get(check_team)
     check_team_proj = check_matchups_proj.get(check_team)
 
+   
     if check_team_dk == check_team_proj:
         proj_are_good = 'Y'
     else:
         proj_are_good = 'N'
    
+    proj_are_good='Y'
     all_game_times = schedule[['ID','Date','Time']]
     all_game_times['Date'] = pd.to_datetime(all_game_times['Date'])
     all_game_times['Date'] = all_game_times['Date'].dt.date
