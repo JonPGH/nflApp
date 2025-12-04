@@ -25,633 +25,633 @@
 23,Dak Prescott,DAL,DET,Fanatics,Pass Comp,Under,23.5,-105,25.0,1.5,1.064
 24,Jared Goff,DET,DAL,Fanatics,Pass Comp,Over,21.5,-135,24.0,2.5,1.116
 25,Jared Goff,DET,DAL,Fanatics,Pass Comp,Under,21.5,100,24.0,2.5,1.116
-26,Dak Prescott,DAL,DET,DraftKings,Pass Att,Over,35.5,-113,36.41,0.91,1.026
-27,Dak Prescott,DAL,DET,DraftKings,Pass Att,Under,35.5,-113,36.41,0.91,1.026
-28,Jared Goff,DET,DAL,DraftKings,Pass Att,Over,31.5,-110,35.5,4.0,1.127
-29,Jared Goff,DET,DAL,DraftKings,Pass Att,Under,31.5,-116,35.5,4.0,1.127
-30,Jared Goff,DET,DAL,FanDuel,Pass Att,Over,32.5,102,35.5,3.0,1.092
-31,Jared Goff,DET,DAL,FanDuel,Pass Att,Under,32.5,-132,35.5,3.0,1.092
-32,Dak Prescott,DAL,DET,FanDuel,Pass Att,Over,35.5,-108,36.41,0.91,1.026
-33,Dak Prescott,DAL,DET,FanDuel,Pass Att,Under,35.5,-120,36.41,0.91,1.026
-34,Dak Prescott,DAL,DET,BetOnline.ag,Pass Att,Over,35.5,-118,36.41,0.91,1.026
-35,Dak Prescott,DAL,DET,BetOnline.ag,Pass Att,Under,35.5,-110,36.41,0.91,1.026
-36,Jared Goff,DET,DAL,BetOnline.ag,Pass Att,Over,32.5,-103,35.5,3.0,1.092
-37,Jared Goff,DET,DAL,BetOnline.ag,Pass Att,Under,32.5,-125,35.5,3.0,1.092
-38,Dak Prescott,DAL,DET,BetRivers,Pass Att,Over,34.5,-118,36.41,1.91,1.055
-39,Dak Prescott,DAL,DET,BetRivers,Pass Att,Under,34.5,-112,36.41,1.91,1.055
-40,Jared Goff,DET,DAL,BetRivers,Pass Att,Over,31.5,-121,35.5,4.0,1.127
-41,Jared Goff,DET,DAL,BetRivers,Pass Att,Under,31.5,-110,35.5,4.0,1.127
-42,Dak Prescott,DAL,DET,Bovada,Pass Att,Over,35.5,-125,36.41,0.91,1.026
-43,Dak Prescott,DAL,DET,Bovada,Pass Att,Under,35.5,-105,36.41,0.91,1.026
-44,Jared Goff,DET,DAL,Bovada,Pass Att,Over,32.5,105,35.5,3.0,1.092
-45,Jared Goff,DET,DAL,Bovada,Pass Att,Under,32.5,-135,35.5,3.0,1.092
-46,Dak Prescott,DAL,DET,BetMGM,Pass Att,Over,36.5,-105,36.41,-0.09,0.998
-47,Dak Prescott,DAL,DET,BetMGM,Pass Att,Under,36.5,-130,36.41,-0.09,0.998
-48,Jared Goff,DET,DAL,BetMGM,Pass Att,Over,32.5,-120,35.5,3.0,1.092
-49,Jared Goff,DET,DAL,BetMGM,Pass Att,Under,32.5,-110,35.5,3.0,1.092
-50,Dak Prescott,DAL,DET,Fanatics,Pass Att,Over,35.5,-115,36.41,0.91,1.026
-51,Dak Prescott,DAL,DET,Fanatics,Pass Att,Under,35.5,-115,36.41,0.91,1.026
-52,Jared Goff,DET,DAL,Fanatics,Pass Att,Over,31.5,-120,35.5,4.0,1.127
-53,Jared Goff,DET,DAL,Fanatics,Pass Att,Under,31.5,-110,35.5,4.0,1.127
-54,Dak Prescott,DAL,DET,DraftKings,Pass Yards,Over,268.5,-113,276.65,8.15,1.03
-55,Dak Prescott,DAL,DET,DraftKings,Pass Yards,Under,268.5,-111,276.65,8.15,1.03
-56,Jared Goff,DET,DAL,DraftKings,Pass Yards,Over,251.5,-112,279.43,27.93,1.111
-57,Jared Goff,DET,DAL,DraftKings,Pass Yards,Under,251.5,-112,279.43,27.93,1.111
-58,Dak Prescott,DAL,DET,Caesars,Pass Yards,Over,271.5,-115,276.65,5.15,1.019
-59,Dak Prescott,DAL,DET,Caesars,Pass Yards,Under,271.5,-115,276.65,5.15,1.019
-60,Jared Goff,DET,DAL,Caesars,Pass Yards,Over,252.5,-115,279.43,26.93,1.107
-61,Jared Goff,DET,DAL,Caesars,Pass Yards,Under,252.5,-114,279.43,26.93,1.107
-62,Jared Goff,DET,DAL,FanDuel,Pass Yards,Over,252.5,-114,279.43,26.93,1.107
-63,Jared Goff,DET,DAL,FanDuel,Pass Yards,Under,252.5,-114,279.43,26.93,1.107
-64,Dak Prescott,DAL,DET,FanDuel,Pass Yards,Over,269.5,-114,276.65,7.15,1.027
-65,Dak Prescott,DAL,DET,FanDuel,Pass Yards,Under,269.5,-114,276.65,7.15,1.027
-66,Jared Goff,DET,DAL,BetOnline.ag,Pass Yards,Over,255.5,-114,279.43,23.93,1.094
-67,Jared Goff,DET,DAL,BetOnline.ag,Pass Yards,Under,255.5,-114,279.43,23.93,1.094
-68,Dak Prescott,DAL,DET,BetOnline.ag,Pass Yards,Over,272.5,-114,276.65,4.15,1.015
-69,Dak Prescott,DAL,DET,BetOnline.ag,Pass Yards,Under,272.5,-114,276.65,4.15,1.015
-70,Dak Prescott,DAL,DET,BetRivers,Pass Yards,Over,269.5,-117,276.65,7.15,1.027
-71,Dak Prescott,DAL,DET,BetRivers,Pass Yards,Under,269.5,-114,276.65,7.15,1.027
-72,Jared Goff,DET,DAL,BetRivers,Pass Yards,Over,252.5,-115,279.43,26.93,1.107
-73,Jared Goff,DET,DAL,BetRivers,Pass Yards,Under,252.5,-115,279.43,26.93,1.107
-74,Dak Prescott,DAL,DET,Bovada,Pass Yards,Over,267.5,-125,276.65,9.15,1.034
-75,Dak Prescott,DAL,DET,Bovada,Pass Yards,Under,267.5,-105,276.65,9.15,1.034
-76,Jared Goff,DET,DAL,Bovada,Pass Yards,Over,255.5,105,279.43,23.93,1.094
-77,Jared Goff,DET,DAL,Bovada,Pass Yards,Under,255.5,-135,279.43,23.93,1.094
-78,Jared Goff,DET,DAL,BetMGM,Pass Yards,Over,257.5,-115,279.43,21.93,1.085
-79,Jared Goff,DET,DAL,BetMGM,Pass Yards,Under,257.5,-115,279.43,21.93,1.085
-80,Dak Prescott,DAL,DET,BetMGM,Pass Yards,Over,275.5,-115,276.65,1.15,1.004
-81,Dak Prescott,DAL,DET,BetMGM,Pass Yards,Under,275.5,-115,276.65,1.15,1.004
-82,Dak Prescott,DAL,DET,Fanatics,Pass Yards,Over,270.5,-110,276.65,6.15,1.023
-83,Dak Prescott,DAL,DET,Fanatics,Pass Yards,Under,270.5,-120,276.65,6.15,1.023
-84,Jared Goff,DET,DAL,Fanatics,Pass Yards,Over,255.5,-110,279.43,23.93,1.094
-85,Jared Goff,DET,DAL,Fanatics,Pass Yards,Under,255.5,-120,279.43,23.93,1.094
-86,Jared Goff,DET,DAL,DraftKings,Int,Over,0.5,119,0.44,-0.06,0.88
-87,Jared Goff,DET,DAL,DraftKings,Int,Under,0.5,-153,0.44,-0.06,0.88
-88,Dak Prescott,DAL,DET,DraftKings,Int,Over,0.5,-155,0.71,0.21,1.42
-89,Dak Prescott,DAL,DET,DraftKings,Int,Under,0.5,122,0.71,0.21,1.42
-90,Jared Goff,DET,DAL,FanDuel,Int,Over,0.5,128,0.44,-0.06,0.88
-91,Jared Goff,DET,DAL,FanDuel,Int,Under,0.5,-168,0.44,-0.06,0.88
-92,Dak Prescott,DAL,DET,FanDuel,Int,Over,0.5,-138,0.71,0.21,1.42
-93,Dak Prescott,DAL,DET,FanDuel,Int,Under,0.5,106,0.71,0.21,1.42
-94,Dak Prescott,DAL,DET,BetOnline.ag,Int,Over,0.5,-147,0.71,0.21,1.42
-95,Dak Prescott,DAL,DET,BetOnline.ag,Int,Under,0.5,113,0.71,0.21,1.42
-96,Jared Goff,DET,DAL,BetOnline.ag,Int,Over,0.5,122,0.44,-0.06,0.88
-97,Jared Goff,DET,DAL,BetOnline.ag,Int,Under,0.5,-159,0.44,-0.06,0.88
-98,Dak Prescott,DAL,DET,BetRivers,Int,Over,0.5,-134,0.71,0.21,1.42
-99,Dak Prescott,DAL,DET,BetRivers,Int,Under,0.5,102,0.71,0.21,1.42
-100,Jared Goff,DET,DAL,BetRivers,Int,Over,0.5,128,0.44,-0.06,0.88
-101,Jared Goff,DET,DAL,BetRivers,Int,Under,0.5,-175,0.44,-0.06,0.88
-102,Dak Prescott,DAL,DET,Bovada,Int,Over,0.5,-160,0.71,0.21,1.42
-103,Dak Prescott,DAL,DET,Bovada,Int,Under,0.5,120,0.71,0.21,1.42
-104,Jared Goff,DET,DAL,Bovada,Int,Over,0.5,120,0.44,-0.06,0.88
-105,Jared Goff,DET,DAL,Bovada,Int,Under,0.5,-160,0.44,-0.06,0.88
-106,Dak Prescott,DAL,DET,BetMGM,Int,Over,0.5,-140,0.71,0.21,1.42
-107,Dak Prescott,DAL,DET,BetMGM,Int,Under,0.5,105,0.71,0.21,1.42
-108,Jared Goff,DET,DAL,BetMGM,Int,Over,0.5,120,0.44,-0.06,0.88
-109,Jared Goff,DET,DAL,BetMGM,Int,Under,0.5,-160,0.44,-0.06,0.88
-110,Jared Goff,DET,DAL,DraftKings,Pass TD,Over,1.5,-215,2.12,0.62,1.413
-111,Jared Goff,DET,DAL,DraftKings,Pass TD,Under,1.5,167,2.12,0.62,1.413
-112,Dak Prescott,DAL,DET,DraftKings,Pass TD,Over,1.5,-181,2.06,0.56,1.373
-113,Dak Prescott,DAL,DET,DraftKings,Pass TD,Under,1.5,141,2.06,0.56,1.373
-114,Dak Prescott,DAL,DET,Caesars,Pass TD,Over,1.5,-190,2.06,0.56,1.373
-115,Dak Prescott,DAL,DET,Caesars,Pass TD,Under,1.5,138,2.06,0.56,1.373
-116,Jared Goff,DET,DAL,Caesars,Pass TD,Over,1.5,-200,2.12,0.62,1.413
-117,Jared Goff,DET,DAL,Caesars,Pass TD,Under,1.5,150,2.12,0.62,1.413
-118,Dak Prescott,DAL,DET,FanDuel,Pass TD,Over,1.5,-182,2.06,0.56,1.373
-119,Dak Prescott,DAL,DET,FanDuel,Pass TD,Under,1.5,136,2.06,0.56,1.373
-120,Jared Goff,DET,DAL,FanDuel,Pass TD,Over,1.5,-215,2.12,0.62,1.413
-121,Jared Goff,DET,DAL,FanDuel,Pass TD,Under,1.5,158,2.12,0.62,1.413
-122,Jared Goff,DET,DAL,BetOnline.ag,Pass TD,Over,1.5,-222,2.12,0.62,1.413
-123,Jared Goff,DET,DAL,BetOnline.ag,Pass TD,Under,1.5,167,2.12,0.62,1.413
-124,Dak Prescott,DAL,DET,BetOnline.ag,Pass TD,Over,1.5,-185,2.06,0.56,1.373
-125,Dak Prescott,DAL,DET,BetOnline.ag,Pass TD,Under,1.5,141,2.06,0.56,1.373
-126,Dak Prescott,DAL,DET,BetRivers,Pass TD,Over,1.5,-180,2.06,0.56,1.373
-127,Dak Prescott,DAL,DET,BetRivers,Pass TD,Under,1.5,135,2.06,0.56,1.373
-128,Jared Goff,DET,DAL,BetRivers,Pass TD,Over,1.5,-235,2.12,0.62,1.413
-129,Jared Goff,DET,DAL,BetRivers,Pass TD,Under,1.5,170,2.12,0.62,1.413
-130,Dak Prescott,DAL,DET,Bovada,Pass TD,Over,1.5,-170,2.06,0.56,1.373
-131,Dak Prescott,DAL,DET,Bovada,Pass TD,Under,1.5,130,2.06,0.56,1.373
-132,Jared Goff,DET,DAL,Bovada,Pass TD,Over,1.5,-210,2.12,0.62,1.413
-133,Jared Goff,DET,DAL,Bovada,Pass TD,Under,1.5,155,2.12,0.62,1.413
-134,Dak Prescott,DAL,DET,BetMGM,Pass TD,Over,1.5,-220,2.06,0.56,1.373
-135,Dak Prescott,DAL,DET,BetMGM,Pass TD,Under,1.5,165,2.06,0.56,1.373
-136,Jared Goff,DET,DAL,BetMGM,Pass TD,Over,1.5,-200,2.12,0.62,1.413
-137,Jared Goff,DET,DAL,BetMGM,Pass TD,Under,1.5,145,2.12,0.62,1.413
-138,Jared Goff,DET,DAL,Fanatics,Pass TD,Over,1.5,-210,2.12,0.62,1.413
-139,Jared Goff,DET,DAL,Fanatics,Pass TD,Under,1.5,160,2.12,0.62,1.413
-140,Dak Prescott,DAL,DET,Fanatics,Pass TD,Over,1.5,-175,2.06,0.56,1.373
-141,Dak Prescott,DAL,DET,Fanatics,Pass TD,Under,1.5,135,2.06,0.56,1.373
-142,Javonte Williams,DAL,DET,DraftKings,Rush Att,Over,16.5,-115,16.81,0.31,1.019
-143,Javonte Williams,DAL,DET,DraftKings,Rush Att,Under,16.5,-111,16.81,0.31,1.019
-144,Jahmyr Gibbs,DET,DAL,DraftKings,Rush Att,Over,15.5,-111,15.43,-0.07,0.995
-145,Jahmyr Gibbs,DET,DAL,DraftKings,Rush Att,Under,15.5,-115,15.43,-0.07,0.995
-146,David Montgomery,DET,DAL,DraftKings,Rush Att,Over,8.5,-121,7.25,-1.25,0.853
-147,David Montgomery,DET,DAL,DraftKings,Rush Att,Under,8.5,-106,7.25,-1.25,0.853
-148,Javonte Williams,DAL,DET,FanDuel,Rush Att,Over,16.5,-106,16.81,0.31,1.019
-149,Javonte Williams,DAL,DET,FanDuel,Rush Att,Under,16.5,-125,16.81,0.31,1.019
-150,Jahmyr Gibbs,DET,DAL,FanDuel,Rush Att,Over,15.5,-114,15.43,-0.07,0.995
-151,Jahmyr Gibbs,DET,DAL,FanDuel,Rush Att,Under,15.5,-114,15.43,-0.07,0.995
-152,David Montgomery,DET,DAL,FanDuel,Rush Att,Over,8.5,-108,7.25,-1.25,0.853
-153,David Montgomery,DET,DAL,FanDuel,Rush Att,Under,8.5,-122,7.25,-1.25,0.853
-154,Javonte Williams,DAL,DET,BetOnline.ag,Rush Att,Over,16.5,-108,16.81,0.31,1.019
-155,Javonte Williams,DAL,DET,BetOnline.ag,Rush Att,Under,16.5,-120,16.81,0.31,1.019
-156,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rush Att,Over,15.5,-114,15.43,-0.07,0.995
-157,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rush Att,Under,15.5,-114,15.43,-0.07,0.995
-158,David Montgomery,DET,DAL,BetOnline.ag,Rush Att,Over,8.5,110,7.25,-1.25,0.853
-159,David Montgomery,DET,DAL,BetOnline.ag,Rush Att,Under,8.5,-143,7.25,-1.25,0.853
-160,Jahmyr Gibbs,DET,DAL,BetRivers,Rush Att,Over,15.5,102,15.43,-0.07,0.995
-161,Javonte Williams,DAL,DET,BetRivers,Rush Att,Over,16.5,-121,16.81,0.31,1.019
-162,David Montgomery,DET,DAL,BetRivers,Rush Att,Over,8.5,-106,7.25,-1.25,0.853
-163,David Montgomery,DET,DAL,Bovada,Rush Att,Over,8.5,105,7.25,-1.25,0.853
-164,David Montgomery,DET,DAL,Bovada,Rush Att,Under,8.5,-135,7.25,-1.25,0.853
-165,Jahmyr Gibbs,DET,DAL,Bovada,Rush Att,Over,15.5,-115,15.43,-0.07,0.995
-166,Jahmyr Gibbs,DET,DAL,Bovada,Rush Att,Under,15.5,-115,15.43,-0.07,0.995
-167,Javonte Williams,DAL,DET,Bovada,Rush Att,Over,16.5,-105,16.81,0.31,1.019
-168,Javonte Williams,DAL,DET,Bovada,Rush Att,Under,16.5,-125,16.81,0.31,1.019
+26,Dak Prescott,DAL,DET,DraftKings,Pass Att,Over,35.5,-113,37.07,1.57,1.044
+27,Dak Prescott,DAL,DET,DraftKings,Pass Att,Under,35.5,-113,37.07,1.57,1.044
+28,Jared Goff,DET,DAL,DraftKings,Pass Att,Over,31.5,-110,34.83,3.33,1.106
+29,Jared Goff,DET,DAL,DraftKings,Pass Att,Under,31.5,-116,34.83,3.33,1.106
+30,Jared Goff,DET,DAL,FanDuel,Pass Att,Over,32.5,102,34.83,2.33,1.072
+31,Jared Goff,DET,DAL,FanDuel,Pass Att,Under,32.5,-132,34.83,2.33,1.072
+32,Dak Prescott,DAL,DET,FanDuel,Pass Att,Over,35.5,-108,37.07,1.57,1.044
+33,Dak Prescott,DAL,DET,FanDuel,Pass Att,Under,35.5,-120,37.07,1.57,1.044
+34,Dak Prescott,DAL,DET,BetOnline.ag,Pass Att,Over,35.5,-118,37.07,1.57,1.044
+35,Dak Prescott,DAL,DET,BetOnline.ag,Pass Att,Under,35.5,-110,37.07,1.57,1.044
+36,Jared Goff,DET,DAL,BetOnline.ag,Pass Att,Over,32.5,-103,34.83,2.33,1.072
+37,Jared Goff,DET,DAL,BetOnline.ag,Pass Att,Under,32.5,-125,34.83,2.33,1.072
+38,Dak Prescott,DAL,DET,BetRivers,Pass Att,Over,34.5,-118,37.07,2.57,1.074
+39,Dak Prescott,DAL,DET,BetRivers,Pass Att,Under,34.5,-112,37.07,2.57,1.074
+40,Jared Goff,DET,DAL,BetRivers,Pass Att,Over,31.5,-121,34.83,3.33,1.106
+41,Jared Goff,DET,DAL,BetRivers,Pass Att,Under,31.5,-110,34.83,3.33,1.106
+42,Dak Prescott,DAL,DET,Bovada,Pass Att,Over,35.5,-125,37.07,1.57,1.044
+43,Dak Prescott,DAL,DET,Bovada,Pass Att,Under,35.5,-105,37.07,1.57,1.044
+44,Jared Goff,DET,DAL,Bovada,Pass Att,Over,32.5,105,34.83,2.33,1.072
+45,Jared Goff,DET,DAL,Bovada,Pass Att,Under,32.5,-135,34.83,2.33,1.072
+46,Dak Prescott,DAL,DET,BetMGM,Pass Att,Over,36.5,-105,37.07,0.57,1.016
+47,Dak Prescott,DAL,DET,BetMGM,Pass Att,Under,36.5,-130,37.07,0.57,1.016
+48,Jared Goff,DET,DAL,BetMGM,Pass Att,Over,32.5,-120,34.83,2.33,1.072
+49,Jared Goff,DET,DAL,BetMGM,Pass Att,Under,32.5,-110,34.83,2.33,1.072
+50,Dak Prescott,DAL,DET,Fanatics,Pass Att,Over,35.5,-115,37.07,1.57,1.044
+51,Dak Prescott,DAL,DET,Fanatics,Pass Att,Under,35.5,-115,37.07,1.57,1.044
+52,Jared Goff,DET,DAL,Fanatics,Pass Att,Over,31.5,-120,34.83,3.33,1.106
+53,Jared Goff,DET,DAL,Fanatics,Pass Att,Under,31.5,-110,34.83,3.33,1.106
+54,Dak Prescott,DAL,DET,DraftKings,Pass Yards,Over,268.5,-113,279.32,10.82,1.04
+55,Dak Prescott,DAL,DET,DraftKings,Pass Yards,Under,268.5,-111,279.32,10.82,1.04
+56,Jared Goff,DET,DAL,DraftKings,Pass Yards,Over,251.5,-112,275.43,23.93,1.095
+57,Jared Goff,DET,DAL,DraftKings,Pass Yards,Under,251.5,-112,275.43,23.93,1.095
+58,Dak Prescott,DAL,DET,Caesars,Pass Yards,Over,271.5,-115,279.32,7.82,1.029
+59,Dak Prescott,DAL,DET,Caesars,Pass Yards,Under,271.5,-115,279.32,7.82,1.029
+60,Jared Goff,DET,DAL,Caesars,Pass Yards,Over,252.5,-115,275.43,22.93,1.091
+61,Jared Goff,DET,DAL,Caesars,Pass Yards,Under,252.5,-114,275.43,22.93,1.091
+62,Jared Goff,DET,DAL,FanDuel,Pass Yards,Over,252.5,-114,275.43,22.93,1.091
+63,Jared Goff,DET,DAL,FanDuel,Pass Yards,Under,252.5,-114,275.43,22.93,1.091
+64,Dak Prescott,DAL,DET,FanDuel,Pass Yards,Over,269.5,-114,279.32,9.82,1.036
+65,Dak Prescott,DAL,DET,FanDuel,Pass Yards,Under,269.5,-114,279.32,9.82,1.036
+66,Jared Goff,DET,DAL,BetOnline.ag,Pass Yards,Over,255.5,-114,275.43,19.93,1.078
+67,Jared Goff,DET,DAL,BetOnline.ag,Pass Yards,Under,255.5,-114,275.43,19.93,1.078
+68,Dak Prescott,DAL,DET,BetOnline.ag,Pass Yards,Over,272.5,-114,279.32,6.82,1.025
+69,Dak Prescott,DAL,DET,BetOnline.ag,Pass Yards,Under,272.5,-114,279.32,6.82,1.025
+70,Dak Prescott,DAL,DET,BetRivers,Pass Yards,Over,269.5,-117,279.32,9.82,1.036
+71,Dak Prescott,DAL,DET,BetRivers,Pass Yards,Under,269.5,-114,279.32,9.82,1.036
+72,Jared Goff,DET,DAL,BetRivers,Pass Yards,Over,252.5,-115,275.43,22.93,1.091
+73,Jared Goff,DET,DAL,BetRivers,Pass Yards,Under,252.5,-115,275.43,22.93,1.091
+74,Dak Prescott,DAL,DET,Bovada,Pass Yards,Over,267.5,-125,279.32,11.82,1.044
+75,Dak Prescott,DAL,DET,Bovada,Pass Yards,Under,267.5,-105,279.32,11.82,1.044
+76,Jared Goff,DET,DAL,Bovada,Pass Yards,Over,255.5,105,275.43,19.93,1.078
+77,Jared Goff,DET,DAL,Bovada,Pass Yards,Under,255.5,-135,275.43,19.93,1.078
+78,Jared Goff,DET,DAL,BetMGM,Pass Yards,Over,257.5,-115,275.43,17.93,1.07
+79,Jared Goff,DET,DAL,BetMGM,Pass Yards,Under,257.5,-115,275.43,17.93,1.07
+80,Dak Prescott,DAL,DET,BetMGM,Pass Yards,Over,275.5,-115,279.32,3.82,1.014
+81,Dak Prescott,DAL,DET,BetMGM,Pass Yards,Under,275.5,-115,279.32,3.82,1.014
+82,Dak Prescott,DAL,DET,Fanatics,Pass Yards,Over,270.5,-110,279.32,8.82,1.033
+83,Dak Prescott,DAL,DET,Fanatics,Pass Yards,Under,270.5,-120,279.32,8.82,1.033
+84,Jared Goff,DET,DAL,Fanatics,Pass Yards,Over,255.5,-110,275.43,19.93,1.078
+85,Jared Goff,DET,DAL,Fanatics,Pass Yards,Under,255.5,-120,275.43,19.93,1.078
+86,Jared Goff,DET,DAL,DraftKings,Int,Over,0.5,119,0.43,-0.07,0.86
+87,Jared Goff,DET,DAL,DraftKings,Int,Under,0.5,-153,0.43,-0.07,0.86
+88,Dak Prescott,DAL,DET,DraftKings,Int,Over,0.5,-155,0.72,0.22,1.44
+89,Dak Prescott,DAL,DET,DraftKings,Int,Under,0.5,122,0.72,0.22,1.44
+90,Jared Goff,DET,DAL,FanDuel,Int,Over,0.5,128,0.43,-0.07,0.86
+91,Jared Goff,DET,DAL,FanDuel,Int,Under,0.5,-168,0.43,-0.07,0.86
+92,Dak Prescott,DAL,DET,FanDuel,Int,Over,0.5,-138,0.72,0.22,1.44
+93,Dak Prescott,DAL,DET,FanDuel,Int,Under,0.5,106,0.72,0.22,1.44
+94,Dak Prescott,DAL,DET,BetOnline.ag,Int,Over,0.5,-147,0.72,0.22,1.44
+95,Dak Prescott,DAL,DET,BetOnline.ag,Int,Under,0.5,113,0.72,0.22,1.44
+96,Jared Goff,DET,DAL,BetOnline.ag,Int,Over,0.5,122,0.43,-0.07,0.86
+97,Jared Goff,DET,DAL,BetOnline.ag,Int,Under,0.5,-159,0.43,-0.07,0.86
+98,Dak Prescott,DAL,DET,BetRivers,Int,Over,0.5,-134,0.72,0.22,1.44
+99,Dak Prescott,DAL,DET,BetRivers,Int,Under,0.5,102,0.72,0.22,1.44
+100,Jared Goff,DET,DAL,BetRivers,Int,Over,0.5,128,0.43,-0.07,0.86
+101,Jared Goff,DET,DAL,BetRivers,Int,Under,0.5,-175,0.43,-0.07,0.86
+102,Dak Prescott,DAL,DET,Bovada,Int,Over,0.5,-160,0.72,0.22,1.44
+103,Dak Prescott,DAL,DET,Bovada,Int,Under,0.5,120,0.72,0.22,1.44
+104,Jared Goff,DET,DAL,Bovada,Int,Over,0.5,120,0.43,-0.07,0.86
+105,Jared Goff,DET,DAL,Bovada,Int,Under,0.5,-160,0.43,-0.07,0.86
+106,Dak Prescott,DAL,DET,BetMGM,Int,Over,0.5,-140,0.72,0.22,1.44
+107,Dak Prescott,DAL,DET,BetMGM,Int,Under,0.5,105,0.72,0.22,1.44
+108,Jared Goff,DET,DAL,BetMGM,Int,Over,0.5,120,0.43,-0.07,0.86
+109,Jared Goff,DET,DAL,BetMGM,Int,Under,0.5,-160,0.43,-0.07,0.86
+110,Jared Goff,DET,DAL,DraftKings,Pass TD,Over,1.5,-215,2.06,0.56,1.373
+111,Jared Goff,DET,DAL,DraftKings,Pass TD,Under,1.5,167,2.06,0.56,1.373
+112,Dak Prescott,DAL,DET,DraftKings,Pass TD,Over,1.5,-181,2.08,0.58,1.387
+113,Dak Prescott,DAL,DET,DraftKings,Pass TD,Under,1.5,141,2.08,0.58,1.387
+114,Dak Prescott,DAL,DET,Caesars,Pass TD,Over,1.5,-190,2.08,0.58,1.387
+115,Dak Prescott,DAL,DET,Caesars,Pass TD,Under,1.5,138,2.08,0.58,1.387
+116,Jared Goff,DET,DAL,Caesars,Pass TD,Over,1.5,-200,2.06,0.56,1.373
+117,Jared Goff,DET,DAL,Caesars,Pass TD,Under,1.5,150,2.06,0.56,1.373
+118,Dak Prescott,DAL,DET,FanDuel,Pass TD,Over,1.5,-182,2.08,0.58,1.387
+119,Dak Prescott,DAL,DET,FanDuel,Pass TD,Under,1.5,136,2.08,0.58,1.387
+120,Jared Goff,DET,DAL,FanDuel,Pass TD,Over,1.5,-215,2.06,0.56,1.373
+121,Jared Goff,DET,DAL,FanDuel,Pass TD,Under,1.5,158,2.06,0.56,1.373
+122,Jared Goff,DET,DAL,BetOnline.ag,Pass TD,Over,1.5,-222,2.06,0.56,1.373
+123,Jared Goff,DET,DAL,BetOnline.ag,Pass TD,Under,1.5,167,2.06,0.56,1.373
+124,Dak Prescott,DAL,DET,BetOnline.ag,Pass TD,Over,1.5,-185,2.08,0.58,1.387
+125,Dak Prescott,DAL,DET,BetOnline.ag,Pass TD,Under,1.5,141,2.08,0.58,1.387
+126,Dak Prescott,DAL,DET,BetRivers,Pass TD,Over,1.5,-180,2.08,0.58,1.387
+127,Dak Prescott,DAL,DET,BetRivers,Pass TD,Under,1.5,135,2.08,0.58,1.387
+128,Jared Goff,DET,DAL,BetRivers,Pass TD,Over,1.5,-235,2.06,0.56,1.373
+129,Jared Goff,DET,DAL,BetRivers,Pass TD,Under,1.5,170,2.06,0.56,1.373
+130,Dak Prescott,DAL,DET,Bovada,Pass TD,Over,1.5,-170,2.08,0.58,1.387
+131,Dak Prescott,DAL,DET,Bovada,Pass TD,Under,1.5,130,2.08,0.58,1.387
+132,Jared Goff,DET,DAL,Bovada,Pass TD,Over,1.5,-210,2.06,0.56,1.373
+133,Jared Goff,DET,DAL,Bovada,Pass TD,Under,1.5,155,2.06,0.56,1.373
+134,Dak Prescott,DAL,DET,BetMGM,Pass TD,Over,1.5,-220,2.08,0.58,1.387
+135,Dak Prescott,DAL,DET,BetMGM,Pass TD,Under,1.5,165,2.08,0.58,1.387
+136,Jared Goff,DET,DAL,BetMGM,Pass TD,Over,1.5,-200,2.06,0.56,1.373
+137,Jared Goff,DET,DAL,BetMGM,Pass TD,Under,1.5,145,2.06,0.56,1.373
+138,Jared Goff,DET,DAL,Fanatics,Pass TD,Over,1.5,-210,2.06,0.56,1.373
+139,Jared Goff,DET,DAL,Fanatics,Pass TD,Under,1.5,160,2.06,0.56,1.373
+140,Dak Prescott,DAL,DET,Fanatics,Pass TD,Over,1.5,-175,2.08,0.58,1.387
+141,Dak Prescott,DAL,DET,Fanatics,Pass TD,Under,1.5,135,2.08,0.58,1.387
+142,Javonte Williams,DAL,DET,DraftKings,Rush Att,Over,16.5,-115,16.55,0.05,1.003
+143,Javonte Williams,DAL,DET,DraftKings,Rush Att,Under,16.5,-111,16.55,0.05,1.003
+144,Jahmyr Gibbs,DET,DAL,DraftKings,Rush Att,Over,15.5,-111,15.83,0.33,1.021
+145,Jahmyr Gibbs,DET,DAL,DraftKings,Rush Att,Under,15.5,-115,15.83,0.33,1.021
+146,David Montgomery,DET,DAL,DraftKings,Rush Att,Over,8.5,-121,7.38,-1.12,0.868
+147,David Montgomery,DET,DAL,DraftKings,Rush Att,Under,8.5,-106,7.38,-1.12,0.868
+148,Javonte Williams,DAL,DET,FanDuel,Rush Att,Over,16.5,-106,16.55,0.05,1.003
+149,Javonte Williams,DAL,DET,FanDuel,Rush Att,Under,16.5,-125,16.55,0.05,1.003
+150,Jahmyr Gibbs,DET,DAL,FanDuel,Rush Att,Over,15.5,-114,15.83,0.33,1.021
+151,Jahmyr Gibbs,DET,DAL,FanDuel,Rush Att,Under,15.5,-114,15.83,0.33,1.021
+152,David Montgomery,DET,DAL,FanDuel,Rush Att,Over,8.5,-108,7.38,-1.12,0.868
+153,David Montgomery,DET,DAL,FanDuel,Rush Att,Under,8.5,-122,7.38,-1.12,0.868
+154,Javonte Williams,DAL,DET,BetOnline.ag,Rush Att,Over,16.5,-108,16.55,0.05,1.003
+155,Javonte Williams,DAL,DET,BetOnline.ag,Rush Att,Under,16.5,-120,16.55,0.05,1.003
+156,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rush Att,Over,15.5,-114,15.83,0.33,1.021
+157,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rush Att,Under,15.5,-114,15.83,0.33,1.021
+158,David Montgomery,DET,DAL,BetOnline.ag,Rush Att,Over,8.5,110,7.38,-1.12,0.868
+159,David Montgomery,DET,DAL,BetOnline.ag,Rush Att,Under,8.5,-143,7.38,-1.12,0.868
+160,Jahmyr Gibbs,DET,DAL,BetRivers,Rush Att,Over,15.5,102,15.83,0.33,1.021
+161,Javonte Williams,DAL,DET,BetRivers,Rush Att,Over,16.5,-121,16.55,0.05,1.003
+162,David Montgomery,DET,DAL,BetRivers,Rush Att,Over,8.5,-106,7.38,-1.12,0.868
+163,David Montgomery,DET,DAL,Bovada,Rush Att,Over,8.5,105,7.38,-1.12,0.868
+164,David Montgomery,DET,DAL,Bovada,Rush Att,Under,8.5,-135,7.38,-1.12,0.868
+165,Jahmyr Gibbs,DET,DAL,Bovada,Rush Att,Over,15.5,-115,15.83,0.33,1.021
+166,Jahmyr Gibbs,DET,DAL,Bovada,Rush Att,Under,15.5,-115,15.83,0.33,1.021
+167,Javonte Williams,DAL,DET,Bovada,Rush Att,Over,16.5,-105,16.55,0.05,1.003
+168,Javonte Williams,DAL,DET,Bovada,Rush Att,Under,16.5,-125,16.55,0.05,1.003
 169,Jared Goff,DET,DAL,BetMGM,Rush Att,Over,1.5,100,1.1,-0.4,0.733
 170,Jared Goff,DET,DAL,BetMGM,Rush Att,Under,1.5,-130,1.1,-0.4,0.733
-171,Jahmyr Gibbs,DET,DAL,BetMGM,Rush Att,Over,15.5,-120,15.43,-0.07,0.995
-172,Jahmyr Gibbs,DET,DAL,BetMGM,Rush Att,Under,15.5,-110,15.43,-0.07,0.995
-173,Javonte Williams,DAL,DET,BetMGM,Rush Att,Over,15.5,-130,16.81,1.31,1.085
-174,Javonte Williams,DAL,DET,BetMGM,Rush Att,Under,15.5,100,16.81,1.31,1.085
-175,David Montgomery,DET,DAL,BetMGM,Rush Att,Over,8.5,-115,7.25,-1.25,0.853
-176,David Montgomery,DET,DAL,BetMGM,Rush Att,Under,8.5,-115,7.25,-1.25,0.853
+171,Jahmyr Gibbs,DET,DAL,BetMGM,Rush Att,Over,15.5,-120,15.83,0.33,1.021
+172,Jahmyr Gibbs,DET,DAL,BetMGM,Rush Att,Under,15.5,-110,15.83,0.33,1.021
+173,Javonte Williams,DAL,DET,BetMGM,Rush Att,Over,15.5,-130,16.55,1.05,1.068
+174,Javonte Williams,DAL,DET,BetMGM,Rush Att,Under,15.5,100,16.55,1.05,1.068
+175,David Montgomery,DET,DAL,BetMGM,Rush Att,Over,8.5,-115,7.38,-1.12,0.868
+176,David Montgomery,DET,DAL,BetMGM,Rush Att,Under,8.5,-115,7.38,-1.12,0.868
 177,Dak Prescott,DAL,DET,BetMGM,Rush Att,Over,2.5,-155,3.36,0.86,1.344
 178,Dak Prescott,DAL,DET,BetMGM,Rush Att,Under,2.5,115,3.36,0.86,1.344
-179,Jahmyr Gibbs,DET,DAL,Fanatics,Rush Att,Over,15.5,-110,15.43,-0.07,0.995
-180,Jahmyr Gibbs,DET,DAL,Fanatics,Rush Att,Under,15.5,-120,15.43,-0.07,0.995
-181,Javonte Williams,DAL,DET,Fanatics,Rush Att,Over,16.5,100,16.81,0.31,1.019
-182,Javonte Williams,DAL,DET,Fanatics,Rush Att,Under,16.5,-135,16.81,0.31,1.019
-183,David Montgomery,DET,DAL,Fanatics,Rush Att,Over,8.5,-110,7.25,-1.25,0.853
-184,David Montgomery,DET,DAL,Fanatics,Rush Att,Under,8.5,-120,7.25,-1.25,0.853
-185,Jahmyr Gibbs,DET,DAL,DraftKings,Rush Yds,Over,76.5,-114,83.53,7.03,1.092
-186,Jahmyr Gibbs,DET,DAL,DraftKings,Rush Yds,Under,76.5,-110,83.53,7.03,1.092
-187,Javonte Williams,DAL,DET,DraftKings,Rush Yds,Over,66.5,-110,73.65,7.15,1.108
-188,Javonte Williams,DAL,DET,DraftKings,Rush Yds,Under,66.5,-114,73.65,7.15,1.108
-189,David Montgomery,DET,DAL,DraftKings,Rush Yds,Over,34.5,-112,31.18,-3.32,0.904
-190,David Montgomery,DET,DAL,DraftKings,Rush Yds,Under,34.5,-112,31.18,-3.32,0.904
-191,Dak Prescott,DAL,DET,DraftKings,Rush Yds,Over,9.5,-118,12.43,2.93,1.308
-192,Dak Prescott,DAL,DET,DraftKings,Rush Yds,Under,9.5,-106,12.43,2.93,1.308
-193,Malik Davis,DAL,DET,DraftKings,Rush Yds,Over,9.5,-118,14.09,4.59,1.483
-194,Malik Davis,DAL,DET,DraftKings,Rush Yds,Under,9.5,-106,14.09,4.59,1.483
-195,KaVontae Turpin,DAL,DET,DraftKings,Rush Yds,Over,4.5,101,10.9,6.4,2.422
-196,KaVontae Turpin,DAL,DET,DraftKings,Rush Yds,Under,4.5,-127,10.9,6.4,2.422
-197,Jared Goff,DET,DAL,DraftKings,Rush Yds,Over,0.5,118,2.77,2.27,5.54
-198,Jared Goff,DET,DAL,DraftKings,Rush Yds,Under,0.5,-149,2.77,2.27,5.54
-199,Dak Prescott,DAL,DET,Caesars,Rush Yds,Over,10.5,-114,12.43,1.93,1.184
-200,Dak Prescott,DAL,DET,Caesars,Rush Yds,Under,10.5,-115,12.43,1.93,1.184
-201,Jahmyr Gibbs,DET,DAL,Caesars,Rush Yds,Over,76.5,-117,83.53,7.03,1.092
-202,Jahmyr Gibbs,DET,DAL,Caesars,Rush Yds,Under,76.5,-113,83.53,7.03,1.092
-203,Javonte Williams,DAL,DET,Caesars,Rush Yds,Over,65.5,-113,73.65,8.15,1.124
-204,Javonte Williams,DAL,DET,Caesars,Rush Yds,Under,65.5,-117,73.65,8.15,1.124
-205,KaVontae Turpin,DAL,DET,Caesars,Rush Yds,Over,3.5,-121,10.9,7.4,3.114
-206,KaVontae Turpin,DAL,DET,Caesars,Rush Yds,Under,3.5,-110,10.9,7.4,3.114
-207,Malik Davis,DAL,DET,Caesars,Rush Yds,Over,10.5,-109,14.09,3.59,1.342
-208,Malik Davis,DAL,DET,Caesars,Rush Yds,Under,10.5,-121,14.09,3.59,1.342
-209,David Montgomery,DET,DAL,Caesars,Rush Yds,Over,33.5,-107,31.18,-2.32,0.931
-210,David Montgomery,DET,DAL,Caesars,Rush Yds,Under,33.5,-125,31.18,-2.32,0.931
-211,KaVontae Turpin,DAL,DET,FanDuel,Rush Yds,Over,4.5,102,10.9,6.4,2.422
-212,KaVontae Turpin,DAL,DET,FanDuel,Rush Yds,Under,4.5,-136,10.9,6.4,2.422
-213,Dak Prescott,DAL,DET,FanDuel,Rush Yds,Over,10.5,-114,12.43,1.93,1.184
-214,Dak Prescott,DAL,DET,FanDuel,Rush Yds,Under,10.5,-114,12.43,1.93,1.184
-215,David Montgomery,DET,DAL,FanDuel,Rush Yds,Over,33.5,-114,31.18,-2.32,0.931
-216,David Montgomery,DET,DAL,FanDuel,Rush Yds,Under,33.5,-114,31.18,-2.32,0.931
-217,Malik Davis,DAL,DET,FanDuel,Rush Yds,Over,10.5,-114,14.09,3.59,1.342
-218,Malik Davis,DAL,DET,FanDuel,Rush Yds,Under,10.5,-114,14.09,3.59,1.342
-219,Javonte Williams,DAL,DET,FanDuel,Rush Yds,Over,65.5,-114,73.65,8.15,1.124
-220,Javonte Williams,DAL,DET,FanDuel,Rush Yds,Under,65.5,-114,73.65,8.15,1.124
-221,Jahmyr Gibbs,DET,DAL,FanDuel,Rush Yds,Over,76.5,-114,83.53,7.03,1.092
-222,Jahmyr Gibbs,DET,DAL,FanDuel,Rush Yds,Under,76.5,-114,83.53,7.03,1.092
-223,Jared Goff,DET,DAL,FanDuel,Rush Yds,Over,0.5,116,2.77,2.27,5.54
-224,Jared Goff,DET,DAL,FanDuel,Rush Yds,Under,0.5,-154,2.77,2.27,5.54
-225,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rush Yds,Over,76.5,-115,83.53,7.03,1.092
-226,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rush Yds,Under,76.5,-112,83.53,7.03,1.092
-227,David Montgomery,DET,DAL,BetOnline.ag,Rush Yds,Over,33.5,-120,31.18,-2.32,0.931
-228,David Montgomery,DET,DAL,BetOnline.ag,Rush Yds,Under,33.5,-108,31.18,-2.32,0.931
-229,Dak Prescott,DAL,DET,BetOnline.ag,Rush Yds,Over,10.5,-112,12.43,1.93,1.184
-230,Dak Prescott,DAL,DET,BetOnline.ag,Rush Yds,Under,10.5,-115,12.43,1.93,1.184
-231,KaVontae Turpin,DAL,DET,BetOnline.ag,Rush Yds,Over,4.5,-103,10.9,6.4,2.422
-232,KaVontae Turpin,DAL,DET,BetOnline.ag,Rush Yds,Under,4.5,-125,10.9,6.4,2.422
-233,Malik Davis,DAL,DET,BetOnline.ag,Rush Yds,Over,10.5,-105,14.09,3.59,1.342
-234,Malik Davis,DAL,DET,BetOnline.ag,Rush Yds,Under,10.5,-123,14.09,3.59,1.342
-235,Javonte Williams,DAL,DET,BetOnline.ag,Rush Yds,Over,64.5,-133,73.65,9.15,1.142
-236,Javonte Williams,DAL,DET,BetOnline.ag,Rush Yds,Under,64.5,103,73.65,9.15,1.142
-237,Javonte Williams,DAL,DET,BetRivers,Rush Yds,Over,67.5,-118,73.65,6.15,1.091
-238,Javonte Williams,DAL,DET,BetRivers,Rush Yds,Under,67.5,-113,73.65,6.15,1.091
-239,Malik Davis,DAL,DET,BetRivers,Rush Yds,Over,10.5,-117,14.09,3.59,1.342
-240,Malik Davis,DAL,DET,BetRivers,Rush Yds,Under,10.5,-114,14.09,3.59,1.342
-241,David Montgomery,DET,DAL,BetRivers,Rush Yds,Over,33.5,-117,31.18,-2.32,0.931
-242,David Montgomery,DET,DAL,BetRivers,Rush Yds,Under,33.5,-114,31.18,-2.32,0.931
-243,Dak Prescott,DAL,DET,BetRivers,Rush Yds,Over,12.5,-109,12.43,-0.07,0.994
-244,Dak Prescott,DAL,DET,BetRivers,Rush Yds,Under,12.5,-122,12.43,-0.07,0.994
-245,Jahmyr Gibbs,DET,DAL,BetRivers,Rush Yds,Over,77.5,-114,83.53,6.03,1.078
-246,Jahmyr Gibbs,DET,DAL,BetRivers,Rush Yds,Under,77.5,-117,83.53,6.03,1.078
-247,Dak Prescott,DAL,DET,Bovada,Rush Yds,Over,10.5,-110,12.43,1.93,1.184
-248,Dak Prescott,DAL,DET,Bovada,Rush Yds,Under,10.5,-120,12.43,1.93,1.184
-249,David Montgomery,DET,DAL,Bovada,Rush Yds,Over,33.5,-125,31.18,-2.32,0.931
-250,David Montgomery,DET,DAL,Bovada,Rush Yds,Under,33.5,-105,31.18,-2.32,0.931
-251,Jahmyr Gibbs,DET,DAL,Bovada,Rush Yds,Over,76.5,-115,83.53,7.03,1.092
-252,Jahmyr Gibbs,DET,DAL,Bovada,Rush Yds,Under,76.5,-115,83.53,7.03,1.092
-253,Javonte Williams,DAL,DET,Bovada,Rush Yds,Over,64.5,-125,73.65,9.15,1.142
-254,Javonte Williams,DAL,DET,Bovada,Rush Yds,Under,64.5,-105,73.65,9.15,1.142
-255,KaVontae Turpin,DAL,DET,Bovada,Rush Yds,Over,4.5,-105,10.9,6.4,2.422
-256,KaVontae Turpin,DAL,DET,Bovada,Rush Yds,Under,4.5,-125,10.9,6.4,2.422
-257,Malik Davis,DAL,DET,Bovada,Rush Yds,Over,10.5,-105,14.09,3.59,1.342
-258,Malik Davis,DAL,DET,Bovada,Rush Yds,Under,10.5,-125,14.09,3.59,1.342
-259,Javonte Williams,DAL,DET,BetMGM,Rush Yds,Over,64.5,-115,73.65,9.15,1.142
-260,Javonte Williams,DAL,DET,BetMGM,Rush Yds,Under,64.5,-115,73.65,9.15,1.142
-261,Jared Goff,DET,DAL,BetMGM,Rush Yds,Over,0.5,110,2.77,2.27,5.54
-262,Jared Goff,DET,DAL,BetMGM,Rush Yds,Under,0.5,-150,2.77,2.27,5.54
-263,David Montgomery,DET,DAL,BetMGM,Rush Yds,Over,34.5,-105,31.18,-3.32,0.904
-264,David Montgomery,DET,DAL,BetMGM,Rush Yds,Under,34.5,-125,31.18,-3.32,0.904
-265,Dak Prescott,DAL,DET,BetMGM,Rush Yds,Over,10.5,-115,12.43,1.93,1.184
-266,Dak Prescott,DAL,DET,BetMGM,Rush Yds,Under,10.5,-115,12.43,1.93,1.184
-267,KaVontae Turpin,DAL,DET,BetMGM,Rush Yds,Over,4.5,-118,10.9,6.4,2.422
-268,KaVontae Turpin,DAL,DET,BetMGM,Rush Yds,Under,4.5,-115,10.9,6.4,2.422
-269,Malik Davis,DAL,DET,BetMGM,Rush Yds,Over,8.5,-118,14.09,5.59,1.658
-270,Malik Davis,DAL,DET,BetMGM,Rush Yds,Under,8.5,-110,14.09,5.59,1.658
-271,Jameson Williams,DET,DAL,BetMGM,Rush Yds,Over,1.5,-110,3.7,2.2,2.467
-272,Jameson Williams,DET,DAL,BetMGM,Rush Yds,Under,1.5,-118,3.7,2.2,2.467
-273,Jahmyr Gibbs,DET,DAL,BetMGM,Rush Yds,Over,78.5,-118,83.53,5.03,1.064
-274,Jahmyr Gibbs,DET,DAL,BetMGM,Rush Yds,Under,78.5,-115,83.53,5.03,1.064
-275,Javonte Williams,DAL,DET,Fanatics,Rush Yds,Over,65.5,-110,73.65,8.15,1.124
-276,Javonte Williams,DAL,DET,Fanatics,Rush Yds,Under,65.5,-120,73.65,8.15,1.124
-277,Jahmyr Gibbs,DET,DAL,Fanatics,Rush Yds,Over,75.5,-125,83.53,8.03,1.106
-278,Jahmyr Gibbs,DET,DAL,Fanatics,Rush Yds,Under,75.5,-105,83.53,8.03,1.106
-279,David Montgomery,DET,DAL,Fanatics,Rush Yds,Over,35.5,100,31.18,-4.32,0.878
-280,David Montgomery,DET,DAL,Fanatics,Rush Yds,Under,35.5,-135,31.18,-4.32,0.878
-281,Dak Prescott,DAL,DET,Fanatics,Rush Yds,Over,10.5,100,12.43,1.93,1.184
-282,Dak Prescott,DAL,DET,Fanatics,Rush Yds,Under,10.5,-135,12.43,1.93,1.184
-283,Malik Davis,DAL,DET,Fanatics,Rush Yds,Over,10.5,-105,14.09,3.59,1.342
-284,Malik Davis,DAL,DET,Fanatics,Rush Yds,Under,10.5,-125,14.09,3.59,1.342
-285,KaVontae Turpin,DAL,DET,Fanatics,Rush Yds,Over,5.5,115,10.9,5.4,1.982
-286,KaVontae Turpin,DAL,DET,Fanatics,Rush Yds,Under,5.5,-155,10.9,5.4,1.982
-287,CeeDee Lamb,DAL,DET,DraftKings,Rec,Over,6.5,108,6.07,-0.43,0.934
-288,CeeDee Lamb,DAL,DET,DraftKings,Rec,Under,6.5,-138,6.07,-0.43,0.934
-289,George Pickens,DAL,DET,DraftKings,Rec,Over,5.5,-129,6.21,0.71,1.129
-290,George Pickens,DAL,DET,DraftKings,Rec,Under,5.5,101,6.21,0.71,1.129
-291,Jameson Williams,DET,DAL,DraftKings,Rec,Over,5.5,105,6.68,1.18,1.215
-292,Jameson Williams,DET,DAL,DraftKings,Rec,Under,5.5,-134,6.68,1.18,1.215
-293,Jahmyr Gibbs,DET,DAL,DraftKings,Rec,Over,4.5,-155,5.45,0.95,1.211
-294,Jahmyr Gibbs,DET,DAL,DraftKings,Rec,Under,4.5,121,5.45,0.95,1.211
-295,Jake Ferguson,DAL,DET,DraftKings,Rec,Over,4.5,-120,4.52,0.02,1.004
-296,Jake Ferguson,DAL,DET,DraftKings,Rec,Under,4.5,-106,4.52,0.02,1.004
-297,Tom Kennedy,DET,DAL,DraftKings,Rec,Over,2.5,-152,2.62,0.12,1.048
-298,Tom Kennedy,DET,DAL,DraftKings,Rec,Under,2.5,119,2.62,0.12,1.048
-299,Isaac TeSlaa,DET,DAL,DraftKings,Rec,Over,2.5,-147,2.99,0.49,1.196
-300,Isaac TeSlaa,DET,DAL,DraftKings,Rec,Under,2.5,115,2.99,0.49,1.196
-301,Javonte Williams,DAL,DET,DraftKings,Rec,Over,2.5,141,2.32,-0.18,0.928
-302,Javonte Williams,DAL,DET,DraftKings,Rec,Under,2.5,-181,2.32,-0.18,0.928
-303,David Montgomery,DET,DAL,DraftKings,Rec,Over,1.5,-164,1.94,0.44,1.293
-304,David Montgomery,DET,DAL,DraftKings,Rec,Under,1.5,128,1.94,0.44,1.293
-305,Ross Dwelley,DET,DAL,DraftKings,Rec,Over,1.5,-126,1.97,0.47,1.313
-306,Ross Dwelley,DET,DAL,DraftKings,Rec,Under,1.5,-101,1.97,0.47,1.313
+179,Jahmyr Gibbs,DET,DAL,Fanatics,Rush Att,Over,15.5,-110,15.83,0.33,1.021
+180,Jahmyr Gibbs,DET,DAL,Fanatics,Rush Att,Under,15.5,-120,15.83,0.33,1.021
+181,Javonte Williams,DAL,DET,Fanatics,Rush Att,Over,16.5,100,16.55,0.05,1.003
+182,Javonte Williams,DAL,DET,Fanatics,Rush Att,Under,16.5,-135,16.55,0.05,1.003
+183,David Montgomery,DET,DAL,Fanatics,Rush Att,Over,8.5,-110,7.38,-1.12,0.868
+184,David Montgomery,DET,DAL,Fanatics,Rush Att,Under,8.5,-120,7.38,-1.12,0.868
+185,Jahmyr Gibbs,DET,DAL,DraftKings,Rush Yds,Over,76.5,-114,85.8,9.3,1.122
+186,Jahmyr Gibbs,DET,DAL,DraftKings,Rush Yds,Under,76.5,-110,85.8,9.3,1.122
+187,Javonte Williams,DAL,DET,DraftKings,Rush Yds,Over,66.5,-110,72.32,5.82,1.088
+188,Javonte Williams,DAL,DET,DraftKings,Rush Yds,Under,66.5,-114,72.32,5.82,1.088
+189,David Montgomery,DET,DAL,DraftKings,Rush Yds,Over,34.5,-112,31.98,-2.52,0.927
+190,David Montgomery,DET,DAL,DraftKings,Rush Yds,Under,34.5,-112,31.98,-2.52,0.927
+191,Dak Prescott,DAL,DET,DraftKings,Rush Yds,Over,9.5,-118,12.57,3.07,1.323
+192,Dak Prescott,DAL,DET,DraftKings,Rush Yds,Under,9.5,-106,12.57,3.07,1.323
+193,Malik Davis,DAL,DET,DraftKings,Rush Yds,Over,9.5,-118,13.83,4.33,1.456
+194,Malik Davis,DAL,DET,DraftKings,Rush Yds,Under,9.5,-106,13.83,4.33,1.456
+195,KaVontae Turpin,DAL,DET,DraftKings,Rush Yds,Over,4.5,101,10.6,6.1,2.356
+196,KaVontae Turpin,DAL,DET,DraftKings,Rush Yds,Under,4.5,-127,10.6,6.1,2.356
+197,Jared Goff,DET,DAL,DraftKings,Rush Yds,Over,0.5,118,2.7,2.2,5.4
+198,Jared Goff,DET,DAL,DraftKings,Rush Yds,Under,0.5,-149,2.7,2.2,5.4
+199,Dak Prescott,DAL,DET,Caesars,Rush Yds,Over,10.5,-114,12.57,2.07,1.197
+200,Dak Prescott,DAL,DET,Caesars,Rush Yds,Under,10.5,-115,12.57,2.07,1.197
+201,Jahmyr Gibbs,DET,DAL,Caesars,Rush Yds,Over,76.5,-117,85.8,9.3,1.122
+202,Jahmyr Gibbs,DET,DAL,Caesars,Rush Yds,Under,76.5,-113,85.8,9.3,1.122
+203,Javonte Williams,DAL,DET,Caesars,Rush Yds,Over,65.5,-113,72.32,6.82,1.104
+204,Javonte Williams,DAL,DET,Caesars,Rush Yds,Under,65.5,-117,72.32,6.82,1.104
+205,KaVontae Turpin,DAL,DET,Caesars,Rush Yds,Over,3.5,-121,10.6,7.1,3.029
+206,KaVontae Turpin,DAL,DET,Caesars,Rush Yds,Under,3.5,-110,10.6,7.1,3.029
+207,Malik Davis,DAL,DET,Caesars,Rush Yds,Over,10.5,-109,13.83,3.33,1.317
+208,Malik Davis,DAL,DET,Caesars,Rush Yds,Under,10.5,-121,13.83,3.33,1.317
+209,David Montgomery,DET,DAL,Caesars,Rush Yds,Over,33.5,-107,31.98,-1.52,0.955
+210,David Montgomery,DET,DAL,Caesars,Rush Yds,Under,33.5,-125,31.98,-1.52,0.955
+211,KaVontae Turpin,DAL,DET,FanDuel,Rush Yds,Over,4.5,102,10.6,6.1,2.356
+212,KaVontae Turpin,DAL,DET,FanDuel,Rush Yds,Under,4.5,-136,10.6,6.1,2.356
+213,Dak Prescott,DAL,DET,FanDuel,Rush Yds,Over,10.5,-114,12.57,2.07,1.197
+214,Dak Prescott,DAL,DET,FanDuel,Rush Yds,Under,10.5,-114,12.57,2.07,1.197
+215,David Montgomery,DET,DAL,FanDuel,Rush Yds,Over,33.5,-114,31.98,-1.52,0.955
+216,David Montgomery,DET,DAL,FanDuel,Rush Yds,Under,33.5,-114,31.98,-1.52,0.955
+217,Malik Davis,DAL,DET,FanDuel,Rush Yds,Over,10.5,-114,13.83,3.33,1.317
+218,Malik Davis,DAL,DET,FanDuel,Rush Yds,Under,10.5,-114,13.83,3.33,1.317
+219,Javonte Williams,DAL,DET,FanDuel,Rush Yds,Over,65.5,-114,72.32,6.82,1.104
+220,Javonte Williams,DAL,DET,FanDuel,Rush Yds,Under,65.5,-114,72.32,6.82,1.104
+221,Jahmyr Gibbs,DET,DAL,FanDuel,Rush Yds,Over,76.5,-114,85.8,9.3,1.122
+222,Jahmyr Gibbs,DET,DAL,FanDuel,Rush Yds,Under,76.5,-114,85.8,9.3,1.122
+223,Jared Goff,DET,DAL,FanDuel,Rush Yds,Over,0.5,116,2.7,2.2,5.4
+224,Jared Goff,DET,DAL,FanDuel,Rush Yds,Under,0.5,-154,2.7,2.2,5.4
+225,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rush Yds,Over,76.5,-115,85.8,9.3,1.122
+226,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rush Yds,Under,76.5,-112,85.8,9.3,1.122
+227,David Montgomery,DET,DAL,BetOnline.ag,Rush Yds,Over,33.5,-120,31.98,-1.52,0.955
+228,David Montgomery,DET,DAL,BetOnline.ag,Rush Yds,Under,33.5,-108,31.98,-1.52,0.955
+229,Dak Prescott,DAL,DET,BetOnline.ag,Rush Yds,Over,10.5,-112,12.57,2.07,1.197
+230,Dak Prescott,DAL,DET,BetOnline.ag,Rush Yds,Under,10.5,-115,12.57,2.07,1.197
+231,KaVontae Turpin,DAL,DET,BetOnline.ag,Rush Yds,Over,4.5,-103,10.6,6.1,2.356
+232,KaVontae Turpin,DAL,DET,BetOnline.ag,Rush Yds,Under,4.5,-125,10.6,6.1,2.356
+233,Malik Davis,DAL,DET,BetOnline.ag,Rush Yds,Over,10.5,-105,13.83,3.33,1.317
+234,Malik Davis,DAL,DET,BetOnline.ag,Rush Yds,Under,10.5,-123,13.83,3.33,1.317
+235,Javonte Williams,DAL,DET,BetOnline.ag,Rush Yds,Over,64.5,-133,72.32,7.82,1.121
+236,Javonte Williams,DAL,DET,BetOnline.ag,Rush Yds,Under,64.5,103,72.32,7.82,1.121
+237,Javonte Williams,DAL,DET,BetRivers,Rush Yds,Over,67.5,-118,72.32,4.82,1.071
+238,Javonte Williams,DAL,DET,BetRivers,Rush Yds,Under,67.5,-113,72.32,4.82,1.071
+239,Malik Davis,DAL,DET,BetRivers,Rush Yds,Over,10.5,-117,13.83,3.33,1.317
+240,Malik Davis,DAL,DET,BetRivers,Rush Yds,Under,10.5,-114,13.83,3.33,1.317
+241,David Montgomery,DET,DAL,BetRivers,Rush Yds,Over,33.5,-117,31.98,-1.52,0.955
+242,David Montgomery,DET,DAL,BetRivers,Rush Yds,Under,33.5,-114,31.98,-1.52,0.955
+243,Dak Prescott,DAL,DET,BetRivers,Rush Yds,Over,12.5,-109,12.57,0.07,1.006
+244,Dak Prescott,DAL,DET,BetRivers,Rush Yds,Under,12.5,-122,12.57,0.07,1.006
+245,Jahmyr Gibbs,DET,DAL,BetRivers,Rush Yds,Over,77.5,-114,85.8,8.3,1.107
+246,Jahmyr Gibbs,DET,DAL,BetRivers,Rush Yds,Under,77.5,-117,85.8,8.3,1.107
+247,Dak Prescott,DAL,DET,Bovada,Rush Yds,Over,10.5,-110,12.57,2.07,1.197
+248,Dak Prescott,DAL,DET,Bovada,Rush Yds,Under,10.5,-120,12.57,2.07,1.197
+249,David Montgomery,DET,DAL,Bovada,Rush Yds,Over,33.5,-125,31.98,-1.52,0.955
+250,David Montgomery,DET,DAL,Bovada,Rush Yds,Under,33.5,-105,31.98,-1.52,0.955
+251,Jahmyr Gibbs,DET,DAL,Bovada,Rush Yds,Over,76.5,-115,85.8,9.3,1.122
+252,Jahmyr Gibbs,DET,DAL,Bovada,Rush Yds,Under,76.5,-115,85.8,9.3,1.122
+253,Javonte Williams,DAL,DET,Bovada,Rush Yds,Over,64.5,-125,72.32,7.82,1.121
+254,Javonte Williams,DAL,DET,Bovada,Rush Yds,Under,64.5,-105,72.32,7.82,1.121
+255,KaVontae Turpin,DAL,DET,Bovada,Rush Yds,Over,4.5,-105,10.6,6.1,2.356
+256,KaVontae Turpin,DAL,DET,Bovada,Rush Yds,Under,4.5,-125,10.6,6.1,2.356
+257,Malik Davis,DAL,DET,Bovada,Rush Yds,Over,10.5,-105,13.83,3.33,1.317
+258,Malik Davis,DAL,DET,Bovada,Rush Yds,Under,10.5,-125,13.83,3.33,1.317
+259,Javonte Williams,DAL,DET,BetMGM,Rush Yds,Over,64.5,-115,72.32,7.82,1.121
+260,Javonte Williams,DAL,DET,BetMGM,Rush Yds,Under,64.5,-115,72.32,7.82,1.121
+261,Jared Goff,DET,DAL,BetMGM,Rush Yds,Over,0.5,110,2.7,2.2,5.4
+262,Jared Goff,DET,DAL,BetMGM,Rush Yds,Under,0.5,-150,2.7,2.2,5.4
+263,David Montgomery,DET,DAL,BetMGM,Rush Yds,Over,34.5,-105,31.98,-2.52,0.927
+264,David Montgomery,DET,DAL,BetMGM,Rush Yds,Under,34.5,-125,31.98,-2.52,0.927
+265,Dak Prescott,DAL,DET,BetMGM,Rush Yds,Over,10.5,-115,12.57,2.07,1.197
+266,Dak Prescott,DAL,DET,BetMGM,Rush Yds,Under,10.5,-115,12.57,2.07,1.197
+267,KaVontae Turpin,DAL,DET,BetMGM,Rush Yds,Over,4.5,-118,10.6,6.1,2.356
+268,KaVontae Turpin,DAL,DET,BetMGM,Rush Yds,Under,4.5,-115,10.6,6.1,2.356
+269,Malik Davis,DAL,DET,BetMGM,Rush Yds,Over,8.5,-118,13.83,5.33,1.627
+270,Malik Davis,DAL,DET,BetMGM,Rush Yds,Under,8.5,-110,13.83,5.33,1.627
+271,Jameson Williams,DET,DAL,BetMGM,Rush Yds,Over,1.5,-110,3.9,2.4,2.6
+272,Jameson Williams,DET,DAL,BetMGM,Rush Yds,Under,1.5,-118,3.9,2.4,2.6
+273,Jahmyr Gibbs,DET,DAL,BetMGM,Rush Yds,Over,78.5,-118,85.8,7.3,1.093
+274,Jahmyr Gibbs,DET,DAL,BetMGM,Rush Yds,Under,78.5,-115,85.8,7.3,1.093
+275,Javonte Williams,DAL,DET,Fanatics,Rush Yds,Over,65.5,-110,72.32,6.82,1.104
+276,Javonte Williams,DAL,DET,Fanatics,Rush Yds,Under,65.5,-120,72.32,6.82,1.104
+277,Jahmyr Gibbs,DET,DAL,Fanatics,Rush Yds,Over,75.5,-125,85.8,10.3,1.136
+278,Jahmyr Gibbs,DET,DAL,Fanatics,Rush Yds,Under,75.5,-105,85.8,10.3,1.136
+279,David Montgomery,DET,DAL,Fanatics,Rush Yds,Over,35.5,100,31.98,-3.52,0.901
+280,David Montgomery,DET,DAL,Fanatics,Rush Yds,Under,35.5,-135,31.98,-3.52,0.901
+281,Dak Prescott,DAL,DET,Fanatics,Rush Yds,Over,10.5,100,12.57,2.07,1.197
+282,Dak Prescott,DAL,DET,Fanatics,Rush Yds,Under,10.5,-135,12.57,2.07,1.197
+283,Malik Davis,DAL,DET,Fanatics,Rush Yds,Over,10.5,-105,13.83,3.33,1.317
+284,Malik Davis,DAL,DET,Fanatics,Rush Yds,Under,10.5,-125,13.83,3.33,1.317
+285,KaVontae Turpin,DAL,DET,Fanatics,Rush Yds,Over,5.5,115,10.6,5.1,1.927
+286,KaVontae Turpin,DAL,DET,Fanatics,Rush Yds,Under,5.5,-155,10.6,5.1,1.927
+287,CeeDee Lamb,DAL,DET,DraftKings,Rec,Over,6.5,108,6.34,-0.16,0.975
+288,CeeDee Lamb,DAL,DET,DraftKings,Rec,Under,6.5,-138,6.34,-0.16,0.975
+289,George Pickens,DAL,DET,DraftKings,Rec,Over,5.5,-129,6.14,0.64,1.116
+290,George Pickens,DAL,DET,DraftKings,Rec,Under,5.5,101,6.14,0.64,1.116
+291,Jameson Williams,DET,DAL,DraftKings,Rec,Over,5.5,105,5.61,0.11,1.02
+292,Jameson Williams,DET,DAL,DraftKings,Rec,Under,5.5,-134,5.61,0.11,1.02
+293,Jahmyr Gibbs,DET,DAL,DraftKings,Rec,Over,4.5,-155,5.65,1.15,1.256
+294,Jahmyr Gibbs,DET,DAL,DraftKings,Rec,Under,4.5,121,5.65,1.15,1.256
+295,Jake Ferguson,DAL,DET,DraftKings,Rec,Over,4.5,-120,4.39,-0.11,0.976
+296,Jake Ferguson,DAL,DET,DraftKings,Rec,Under,4.5,-106,4.39,-0.11,0.976
+297,Tom Kennedy,DET,DAL,DraftKings,Rec,Over,2.5,-152,3.08,0.58,1.232
+298,Tom Kennedy,DET,DAL,DraftKings,Rec,Under,2.5,119,3.08,0.58,1.232
+299,Isaac TeSlaa,DET,DAL,DraftKings,Rec,Over,2.5,-147,2.86,0.36,1.144
+300,Isaac TeSlaa,DET,DAL,DraftKings,Rec,Under,2.5,115,2.86,0.36,1.144
+301,Javonte Williams,DAL,DET,DraftKings,Rec,Over,2.5,141,2.39,-0.11,0.956
+302,Javonte Williams,DAL,DET,DraftKings,Rec,Under,2.5,-181,2.39,-0.11,0.956
+303,David Montgomery,DET,DAL,DraftKings,Rec,Over,1.5,-164,2.08,0.58,1.387
+304,David Montgomery,DET,DAL,DraftKings,Rec,Under,1.5,128,2.08,0.58,1.387
+305,Ross Dwelley,DET,DAL,DraftKings,Rec,Over,1.5,-126,1.91,0.41,1.273
+306,Ross Dwelley,DET,DAL,DraftKings,Rec,Under,1.5,-101,1.91,0.41,1.273
 307,KaVontae Turpin,DAL,DET,DraftKings,Rec,Over,1.5,-120,1.69,0.19,1.127
 308,KaVontae Turpin,DAL,DET,DraftKings,Rec,Under,1.5,-107,1.69,0.19,1.127
-309,Ryan Flournoy,DAL,DET,DraftKings,Rec,Over,1.5,102,1.53,0.03,1.02
-310,Ryan Flournoy,DAL,DET,DraftKings,Rec,Under,1.5,-130,1.53,0.03,1.02
-311,Jameson Williams,DET,DAL,Caesars,Rec,Over,5.5,110,6.68,1.18,1.215
-312,Jameson Williams,DET,DAL,Caesars,Rec,Under,5.5,-150,6.68,1.18,1.215
-313,Tom Kennedy,DET,DAL,Caesars,Rec,Over,2.5,-150,2.62,0.12,1.048
-314,Tom Kennedy,DET,DAL,Caesars,Rec,Under,2.5,113,2.62,0.12,1.048
-315,Javonte Williams,DAL,DET,Caesars,Rec,Over,1.5,-190,2.32,0.82,1.547
-316,Javonte Williams,DAL,DET,Caesars,Rec,Under,1.5,140,2.32,0.82,1.547
-317,Ryan Flournoy,DAL,DET,Caesars,Rec,Over,1.5,105,1.53,0.03,1.02
-318,Ryan Flournoy,DAL,DET,Caesars,Rec,Under,1.5,-139,1.53,0.03,1.02
-319,Jahmyr Gibbs,DET,DAL,Caesars,Rec,Over,4.5,-170,5.45,0.95,1.211
-320,Jahmyr Gibbs,DET,DAL,Caesars,Rec,Under,4.5,121,5.45,0.95,1.211
-321,Jake Ferguson,DAL,DET,Caesars,Rec,Over,4.5,-129,4.52,0.02,1.004
-322,Jake Ferguson,DAL,DET,Caesars,Rec,Under,4.5,-104,4.52,0.02,1.004
-323,George Pickens,DAL,DET,Caesars,Rec,Over,5.5,-134,6.21,0.71,1.129
-324,George Pickens,DAL,DET,Caesars,Rec,Under,5.5,101,6.21,0.71,1.129
-325,Isaac TeSlaa,DET,DAL,Caesars,Rec,Over,2.5,-165,2.99,0.49,1.196
-326,Isaac TeSlaa,DET,DAL,Caesars,Rec,Under,2.5,118,2.99,0.49,1.196
-327,David Montgomery,DET,DAL,Caesars,Rec,Over,1.5,-173,1.94,0.44,1.293
-328,David Montgomery,DET,DAL,Caesars,Rec,Under,1.5,128,1.94,0.44,1.293
+309,Ryan Flournoy,DAL,DET,DraftKings,Rec,Over,1.5,102,1.46,-0.04,0.973
+310,Ryan Flournoy,DAL,DET,DraftKings,Rec,Under,1.5,-130,1.46,-0.04,0.973
+311,Jameson Williams,DET,DAL,Caesars,Rec,Over,5.5,110,5.61,0.11,1.02
+312,Jameson Williams,DET,DAL,Caesars,Rec,Under,5.5,-150,5.61,0.11,1.02
+313,Tom Kennedy,DET,DAL,Caesars,Rec,Over,2.5,-150,3.08,0.58,1.232
+314,Tom Kennedy,DET,DAL,Caesars,Rec,Under,2.5,113,3.08,0.58,1.232
+315,Javonte Williams,DAL,DET,Caesars,Rec,Over,1.5,-190,2.39,0.89,1.593
+316,Javonte Williams,DAL,DET,Caesars,Rec,Under,1.5,140,2.39,0.89,1.593
+317,Ryan Flournoy,DAL,DET,Caesars,Rec,Over,1.5,105,1.46,-0.04,0.973
+318,Ryan Flournoy,DAL,DET,Caesars,Rec,Under,1.5,-139,1.46,-0.04,0.973
+319,Jahmyr Gibbs,DET,DAL,Caesars,Rec,Over,4.5,-170,5.65,1.15,1.256
+320,Jahmyr Gibbs,DET,DAL,Caesars,Rec,Under,4.5,121,5.65,1.15,1.256
+321,Jake Ferguson,DAL,DET,Caesars,Rec,Over,4.5,-129,4.39,-0.11,0.976
+322,Jake Ferguson,DAL,DET,Caesars,Rec,Under,4.5,-104,4.39,-0.11,0.976
+323,George Pickens,DAL,DET,Caesars,Rec,Over,5.5,-134,6.14,0.64,1.116
+324,George Pickens,DAL,DET,Caesars,Rec,Under,5.5,101,6.14,0.64,1.116
+325,Isaac TeSlaa,DET,DAL,Caesars,Rec,Over,2.5,-165,2.86,0.36,1.144
+326,Isaac TeSlaa,DET,DAL,Caesars,Rec,Under,2.5,118,2.86,0.36,1.144
+327,David Montgomery,DET,DAL,Caesars,Rec,Over,1.5,-173,2.08,0.58,1.387
+328,David Montgomery,DET,DAL,Caesars,Rec,Under,1.5,128,2.08,0.58,1.387
 329,KaVontae Turpin,DAL,DET,Caesars,Rec,Over,1.5,-115,1.69,0.19,1.127
 330,KaVontae Turpin,DAL,DET,Caesars,Rec,Under,1.5,-115,1.69,0.19,1.127
-331,CeeDee Lamb,DAL,DET,Caesars,Rec,Over,6.5,104,6.07,-0.43,0.934
-332,CeeDee Lamb,DAL,DET,Caesars,Rec,Under,6.5,-139,6.07,-0.43,0.934
-333,Ross Dwelley,DET,DAL,Caesars,Rec,Over,1.5,-122,1.97,0.47,1.313
-334,Ross Dwelley,DET,DAL,Caesars,Rec,Under,1.5,-111,1.97,0.47,1.313
-335,Jameson Williams,DET,DAL,FanDuel,Rec,Over,5.5,102,6.68,1.18,1.215
-336,Jameson Williams,DET,DAL,FanDuel,Rec,Under,5.5,-136,6.68,1.18,1.215
-337,Jahmyr Gibbs,DET,DAL,FanDuel,Rec,Over,4.5,-162,5.45,0.95,1.211
-338,Jahmyr Gibbs,DET,DAL,FanDuel,Rec,Under,4.5,122,5.45,0.95,1.211
-339,David Montgomery,DET,DAL,FanDuel,Rec,Over,1.5,-172,1.94,0.44,1.293
-340,David Montgomery,DET,DAL,FanDuel,Rec,Under,1.5,128,1.94,0.44,1.293
-341,CeeDee Lamb,DAL,DET,FanDuel,Rec,Over,6.5,116,6.07,-0.43,0.934
-342,CeeDee Lamb,DAL,DET,FanDuel,Rec,Under,6.5,-154,6.07,-0.43,0.934
-343,Javonte Williams,DAL,DET,FanDuel,Rec,Over,1.5,-205,2.32,0.82,1.547
-344,Javonte Williams,DAL,DET,FanDuel,Rec,Under,1.5,152,2.32,0.82,1.547
-345,Ryan Flournoy,DAL,DET,FanDuel,Rec,Over,1.5,106,1.53,0.03,1.02
-346,Ryan Flournoy,DAL,DET,FanDuel,Rec,Under,1.5,-140,1.53,0.03,1.02
-347,George Pickens,DAL,DET,FanDuel,Rec,Over,5.5,-128,6.21,0.71,1.129
-348,George Pickens,DAL,DET,FanDuel,Rec,Under,5.5,-104,6.21,0.71,1.129
-349,Jake Ferguson,DAL,DET,FanDuel,Rec,Over,4.5,-138,4.52,0.02,1.004
-350,Jake Ferguson,DAL,DET,FanDuel,Rec,Under,4.5,104,4.52,0.02,1.004
-351,Isaac TeSlaa,DET,DAL,FanDuel,Rec,Over,2.5,-154,2.99,0.49,1.196
-352,Isaac TeSlaa,DET,DAL,FanDuel,Rec,Under,2.5,116,2.99,0.49,1.196
-353,Tom Kennedy,DET,DAL,FanDuel,Rec,Over,3.5,144,2.62,-0.88,0.749
-354,Tom Kennedy,DET,DAL,FanDuel,Rec,Under,3.5,-194,2.62,-0.88,0.749
+331,CeeDee Lamb,DAL,DET,Caesars,Rec,Over,6.5,104,6.34,-0.16,0.975
+332,CeeDee Lamb,DAL,DET,Caesars,Rec,Under,6.5,-139,6.34,-0.16,0.975
+333,Ross Dwelley,DET,DAL,Caesars,Rec,Over,1.5,-122,1.91,0.41,1.273
+334,Ross Dwelley,DET,DAL,Caesars,Rec,Under,1.5,-111,1.91,0.41,1.273
+335,Jameson Williams,DET,DAL,FanDuel,Rec,Over,5.5,102,5.61,0.11,1.02
+336,Jameson Williams,DET,DAL,FanDuel,Rec,Under,5.5,-136,5.61,0.11,1.02
+337,Jahmyr Gibbs,DET,DAL,FanDuel,Rec,Over,4.5,-162,5.65,1.15,1.256
+338,Jahmyr Gibbs,DET,DAL,FanDuel,Rec,Under,4.5,122,5.65,1.15,1.256
+339,David Montgomery,DET,DAL,FanDuel,Rec,Over,1.5,-172,2.08,0.58,1.387
+340,David Montgomery,DET,DAL,FanDuel,Rec,Under,1.5,128,2.08,0.58,1.387
+341,CeeDee Lamb,DAL,DET,FanDuel,Rec,Over,6.5,116,6.34,-0.16,0.975
+342,CeeDee Lamb,DAL,DET,FanDuel,Rec,Under,6.5,-154,6.34,-0.16,0.975
+343,Javonte Williams,DAL,DET,FanDuel,Rec,Over,1.5,-205,2.39,0.89,1.593
+344,Javonte Williams,DAL,DET,FanDuel,Rec,Under,1.5,152,2.39,0.89,1.593
+345,Ryan Flournoy,DAL,DET,FanDuel,Rec,Over,1.5,106,1.46,-0.04,0.973
+346,Ryan Flournoy,DAL,DET,FanDuel,Rec,Under,1.5,-140,1.46,-0.04,0.973
+347,George Pickens,DAL,DET,FanDuel,Rec,Over,5.5,-128,6.14,0.64,1.116
+348,George Pickens,DAL,DET,FanDuel,Rec,Under,5.5,-104,6.14,0.64,1.116
+349,Jake Ferguson,DAL,DET,FanDuel,Rec,Over,4.5,-138,4.39,-0.11,0.976
+350,Jake Ferguson,DAL,DET,FanDuel,Rec,Under,4.5,104,4.39,-0.11,0.976
+351,Isaac TeSlaa,DET,DAL,FanDuel,Rec,Over,2.5,-154,2.86,0.36,1.144
+352,Isaac TeSlaa,DET,DAL,FanDuel,Rec,Under,2.5,116,2.86,0.36,1.144
+353,Tom Kennedy,DET,DAL,FanDuel,Rec,Over,3.5,144,3.08,-0.42,0.88
+354,Tom Kennedy,DET,DAL,FanDuel,Rec,Under,3.5,-194,3.08,-0.42,0.88
 355,KaVontae Turpin,DAL,DET,FanDuel,Rec,Over,1.5,-130,1.69,0.19,1.127
 356,KaVontae Turpin,DAL,DET,FanDuel,Rec,Under,1.5,-102,1.69,0.19,1.127
-357,Ross Dwelley,DET,DAL,FanDuel,Rec,Over,1.5,-130,1.97,0.47,1.313
-358,Ross Dwelley,DET,DAL,FanDuel,Rec,Under,1.5,-102,1.97,0.47,1.313
-359,George Pickens,DAL,DET,BetOnline.ag,Rec,Over,5.5,-137,6.21,0.71,1.129
-360,George Pickens,DAL,DET,BetOnline.ag,Rec,Under,5.5,106,6.21,0.71,1.129
-361,Jameson Williams,DET,DAL,BetOnline.ag,Rec,Over,5.5,103,6.68,1.18,1.215
-362,Jameson Williams,DET,DAL,BetOnline.ag,Rec,Under,5.5,-133,6.68,1.18,1.215
-363,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rec,Over,4.5,-196,5.45,0.95,1.211
-364,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rec,Under,4.5,150,5.45,0.95,1.211
-365,CeeDee Lamb,DAL,DET,BetOnline.ag,Rec,Over,6.5,-111,6.07,-0.43,0.934
-366,CeeDee Lamb,DAL,DET,BetOnline.ag,Rec,Under,6.5,-116,6.07,-0.43,0.934
-367,David Montgomery,DET,DAL,BetOnline.ag,Rec,Over,1.5,-169,1.94,0.44,1.293
-368,David Montgomery,DET,DAL,BetOnline.ag,Rec,Under,1.5,129,1.94,0.44,1.293
-369,Javonte Williams,DAL,DET,BetOnline.ag,Rec,Over,2.5,139,2.32,-0.18,0.928
-370,Javonte Williams,DAL,DET,BetOnline.ag,Rec,Under,2.5,-182,2.32,-0.18,0.928
-371,Ryan Flournoy,DAL,DET,BetOnline.ag,Rec,Over,1.5,107,1.53,0.03,1.02
-372,Ryan Flournoy,DAL,DET,BetOnline.ag,Rec,Under,1.5,-139,1.53,0.03,1.02
-373,Ross Dwelley,DET,DAL,BetOnline.ag,Rec,Over,1.5,-114,1.97,0.47,1.313
-374,Ross Dwelley,DET,DAL,BetOnline.ag,Rec,Under,1.5,-114,1.97,0.47,1.313
-375,Isaac TeSlaa,DET,DAL,BetOnline.ag,Rec,Over,2.5,-145,2.99,0.49,1.196
-376,Isaac TeSlaa,DET,DAL,BetOnline.ag,Rec,Under,2.5,112,2.99,0.49,1.196
-377,Jake Ferguson,DAL,DET,BetOnline.ag,Rec,Over,4.5,-130,4.52,0.02,1.004
-378,Jake Ferguson,DAL,DET,BetOnline.ag,Rec,Under,4.5,100,4.52,0.02,1.004
+357,Ross Dwelley,DET,DAL,FanDuel,Rec,Over,1.5,-130,1.91,0.41,1.273
+358,Ross Dwelley,DET,DAL,FanDuel,Rec,Under,1.5,-102,1.91,0.41,1.273
+359,George Pickens,DAL,DET,BetOnline.ag,Rec,Over,5.5,-137,6.14,0.64,1.116
+360,George Pickens,DAL,DET,BetOnline.ag,Rec,Under,5.5,106,6.14,0.64,1.116
+361,Jameson Williams,DET,DAL,BetOnline.ag,Rec,Over,5.5,103,5.61,0.11,1.02
+362,Jameson Williams,DET,DAL,BetOnline.ag,Rec,Under,5.5,-133,5.61,0.11,1.02
+363,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rec,Over,4.5,-196,5.65,1.15,1.256
+364,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rec,Under,4.5,150,5.65,1.15,1.256
+365,CeeDee Lamb,DAL,DET,BetOnline.ag,Rec,Over,6.5,-111,6.34,-0.16,0.975
+366,CeeDee Lamb,DAL,DET,BetOnline.ag,Rec,Under,6.5,-116,6.34,-0.16,0.975
+367,David Montgomery,DET,DAL,BetOnline.ag,Rec,Over,1.5,-169,2.08,0.58,1.387
+368,David Montgomery,DET,DAL,BetOnline.ag,Rec,Under,1.5,129,2.08,0.58,1.387
+369,Javonte Williams,DAL,DET,BetOnline.ag,Rec,Over,2.5,139,2.39,-0.11,0.956
+370,Javonte Williams,DAL,DET,BetOnline.ag,Rec,Under,2.5,-182,2.39,-0.11,0.956
+371,Ryan Flournoy,DAL,DET,BetOnline.ag,Rec,Over,1.5,107,1.46,-0.04,0.973
+372,Ryan Flournoy,DAL,DET,BetOnline.ag,Rec,Under,1.5,-139,1.46,-0.04,0.973
+373,Ross Dwelley,DET,DAL,BetOnline.ag,Rec,Over,1.5,-114,1.91,0.41,1.273
+374,Ross Dwelley,DET,DAL,BetOnline.ag,Rec,Under,1.5,-114,1.91,0.41,1.273
+375,Isaac TeSlaa,DET,DAL,BetOnline.ag,Rec,Over,2.5,-145,2.86,0.36,1.144
+376,Isaac TeSlaa,DET,DAL,BetOnline.ag,Rec,Under,2.5,112,2.86,0.36,1.144
+377,Jake Ferguson,DAL,DET,BetOnline.ag,Rec,Over,4.5,-130,4.39,-0.11,0.976
+378,Jake Ferguson,DAL,DET,BetOnline.ag,Rec,Under,4.5,100,4.39,-0.11,0.976
 379,KaVontae Turpin,DAL,DET,BetOnline.ag,Rec,Over,1.5,-118,1.69,0.19,1.127
 380,KaVontae Turpin,DAL,DET,BetOnline.ag,Rec,Under,1.5,-110,1.69,0.19,1.127
-381,Tom Kennedy,DET,DAL,BetOnline.ag,Rec,Over,2.5,-149,2.62,0.12,1.048
-382,Tom Kennedy,DET,DAL,BetOnline.ag,Rec,Under,2.5,115,2.62,0.12,1.048
-383,George Pickens,DAL,DET,BetRivers,Rec,Over,5.5,-121,6.21,0.71,1.129
-384,CeeDee Lamb,DAL,DET,BetRivers,Rec,Over,6.5,110,6.07,-0.43,0.934
-385,Jahmyr Gibbs,DET,DAL,BetRivers,Rec,Over,4.5,-159,5.45,0.95,1.211
-386,Jameson Williams,DET,DAL,BetRivers,Rec,Over,5.5,-107,6.68,1.18,1.215
-387,Ross Dwelley,DET,DAL,BetRivers,Rec,Over,1.5,-130,1.97,0.47,1.313
+381,Tom Kennedy,DET,DAL,BetOnline.ag,Rec,Over,2.5,-149,3.08,0.58,1.232
+382,Tom Kennedy,DET,DAL,BetOnline.ag,Rec,Under,2.5,115,3.08,0.58,1.232
+383,George Pickens,DAL,DET,BetRivers,Rec,Over,5.5,-121,6.14,0.64,1.116
+384,CeeDee Lamb,DAL,DET,BetRivers,Rec,Over,6.5,110,6.34,-0.16,0.975
+385,Jahmyr Gibbs,DET,DAL,BetRivers,Rec,Over,4.5,-159,5.65,1.15,1.256
+386,Jameson Williams,DET,DAL,BetRivers,Rec,Over,5.5,-107,5.61,0.11,1.02
+387,Ross Dwelley,DET,DAL,BetRivers,Rec,Over,1.5,-130,1.91,0.41,1.273
 388,KaVontae Turpin,DAL,DET,BetRivers,Rec,Over,1.5,-124,1.69,0.19,1.127
-389,Tom Kennedy,DET,DAL,BetRivers,Rec,Over,2.5,-177,2.62,0.12,1.048
-390,David Montgomery,DET,DAL,BetRivers,Rec,Over,1.5,-165,1.94,0.44,1.293
-391,Javonte Williams,DAL,DET,BetRivers,Rec,Over,1.5,-200,2.32,0.82,1.547
-392,Ryan Flournoy,DAL,DET,BetRivers,Rec,Over,1.5,118,1.53,0.03,1.02
-393,Isaac TeSlaa,DET,DAL,BetRivers,Rec,Over,2.5,-150,2.99,0.49,1.196
-394,Jake Ferguson,DAL,DET,BetRivers,Rec,Over,4.5,-141,4.52,0.02,1.004
-395,CeeDee Lamb,DAL,DET,Bovada,Rec,Over,6.5,-110,6.07,-0.43,0.934
-396,CeeDee Lamb,DAL,DET,Bovada,Rec,Under,6.5,-120,6.07,-0.43,0.934
-397,David Montgomery,DET,DAL,Bovada,Rec,Over,1.5,-170,1.94,0.44,1.293
-398,David Montgomery,DET,DAL,Bovada,Rec,Under,1.5,130,1.94,0.44,1.293
-399,George Pickens,DAL,DET,Bovada,Rec,Over,5.5,-150,6.21,0.71,1.129
-400,George Pickens,DAL,DET,Bovada,Rec,Under,5.5,115,6.21,0.71,1.129
-401,Isaac TeSlaa,DET,DAL,Bovada,Rec,Over,2.5,-135,2.99,0.49,1.196
-402,Isaac TeSlaa,DET,DAL,Bovada,Rec,Under,2.5,105,2.99,0.49,1.196
-403,Jahmyr Gibbs,DET,DAL,Bovada,Rec,Over,4.5,-170,5.45,0.95,1.211
-404,Jahmyr Gibbs,DET,DAL,Bovada,Rec,Under,4.5,130,5.45,0.95,1.211
-405,Jake Ferguson,DAL,DET,Bovada,Rec,Over,4.5,-130,4.52,0.02,1.004
-406,Jake Ferguson,DAL,DET,Bovada,Rec,Under,4.5,100,4.52,0.02,1.004
-407,Jameson Williams,DET,DAL,Bovada,Rec,Over,5.5,115,6.68,1.18,1.215
-408,Jameson Williams,DET,DAL,Bovada,Rec,Under,5.5,-150,6.68,1.18,1.215
-409,Javonte Williams,DAL,DET,Bovada,Rec,Over,2.5,140,2.32,-0.18,0.928
-410,Javonte Williams,DAL,DET,Bovada,Rec,Under,2.5,-185,2.32,-0.18,0.928
+389,Tom Kennedy,DET,DAL,BetRivers,Rec,Over,2.5,-177,3.08,0.58,1.232
+390,David Montgomery,DET,DAL,BetRivers,Rec,Over,1.5,-165,2.08,0.58,1.387
+391,Javonte Williams,DAL,DET,BetRivers,Rec,Over,1.5,-200,2.39,0.89,1.593
+392,Ryan Flournoy,DAL,DET,BetRivers,Rec,Over,1.5,118,1.46,-0.04,0.973
+393,Isaac TeSlaa,DET,DAL,BetRivers,Rec,Over,2.5,-150,2.86,0.36,1.144
+394,Jake Ferguson,DAL,DET,BetRivers,Rec,Over,4.5,-141,4.39,-0.11,0.976
+395,CeeDee Lamb,DAL,DET,Bovada,Rec,Over,6.5,-110,6.34,-0.16,0.975
+396,CeeDee Lamb,DAL,DET,Bovada,Rec,Under,6.5,-120,6.34,-0.16,0.975
+397,David Montgomery,DET,DAL,Bovada,Rec,Over,1.5,-170,2.08,0.58,1.387
+398,David Montgomery,DET,DAL,Bovada,Rec,Under,1.5,130,2.08,0.58,1.387
+399,George Pickens,DAL,DET,Bovada,Rec,Over,5.5,-150,6.14,0.64,1.116
+400,George Pickens,DAL,DET,Bovada,Rec,Under,5.5,115,6.14,0.64,1.116
+401,Isaac TeSlaa,DET,DAL,Bovada,Rec,Over,2.5,-135,2.86,0.36,1.144
+402,Isaac TeSlaa,DET,DAL,Bovada,Rec,Under,2.5,105,2.86,0.36,1.144
+403,Jahmyr Gibbs,DET,DAL,Bovada,Rec,Over,4.5,-170,5.65,1.15,1.256
+404,Jahmyr Gibbs,DET,DAL,Bovada,Rec,Under,4.5,130,5.65,1.15,1.256
+405,Jake Ferguson,DAL,DET,Bovada,Rec,Over,4.5,-130,4.39,-0.11,0.976
+406,Jake Ferguson,DAL,DET,Bovada,Rec,Under,4.5,100,4.39,-0.11,0.976
+407,Jameson Williams,DET,DAL,Bovada,Rec,Over,5.5,115,5.61,0.11,1.02
+408,Jameson Williams,DET,DAL,Bovada,Rec,Under,5.5,-150,5.61,0.11,1.02
+409,Javonte Williams,DAL,DET,Bovada,Rec,Over,2.5,140,2.39,-0.11,0.956
+410,Javonte Williams,DAL,DET,Bovada,Rec,Under,2.5,-185,2.39,-0.11,0.956
 411,KaVontae Turpin,DAL,DET,Bovada,Rec,Over,1.5,-115,1.69,0.19,1.127
 412,KaVontae Turpin,DAL,DET,Bovada,Rec,Under,1.5,-115,1.69,0.19,1.127
-413,Ross Dwelley,DET,DAL,Bovada,Rec,Over,1.5,-150,1.97,0.47,1.313
-414,Ross Dwelley,DET,DAL,Bovada,Rec,Under,1.5,115,1.97,0.47,1.313
-415,Ryan Flournoy,DAL,DET,Bovada,Rec,Over,1.5,115,1.53,0.03,1.02
-416,Ryan Flournoy,DAL,DET,Bovada,Rec,Under,1.5,-150,1.53,0.03,1.02
-417,Tom Kennedy,DET,DAL,Bovada,Rec,Over,3.5,145,2.62,-0.88,0.749
-418,Tom Kennedy,DET,DAL,Bovada,Rec,Under,3.5,-190,2.62,-0.88,0.749
-419,Jameson Williams,DET,DAL,BetMGM,Rec,Over,5.5,-115,6.68,1.18,1.215
-420,Jameson Williams,DET,DAL,BetMGM,Rec,Under,5.5,-115,6.68,1.18,1.215
-421,Jahmyr Gibbs,DET,DAL,BetMGM,Rec,Over,4.5,-150,5.45,0.95,1.211
-422,Jahmyr Gibbs,DET,DAL,BetMGM,Rec,Under,4.5,115,5.45,0.95,1.211
-423,David Montgomery,DET,DAL,BetMGM,Rec,Over,1.5,-175,1.94,0.44,1.293
-424,David Montgomery,DET,DAL,BetMGM,Rec,Under,1.5,130,1.94,0.44,1.293
-425,Jake Ferguson,DAL,DET,BetMGM,Rec,Over,4.5,-125,4.52,0.02,1.004
-426,Jake Ferguson,DAL,DET,BetMGM,Rec,Under,4.5,-105,4.52,0.02,1.004
-427,George Pickens,DAL,DET,BetMGM,Rec,Over,5.5,-135,6.21,0.71,1.129
-428,George Pickens,DAL,DET,BetMGM,Rec,Under,5.5,100,6.21,0.71,1.129
-429,CeeDee Lamb,DAL,DET,BetMGM,Rec,Over,6.5,100,6.07,-0.43,0.934
-430,CeeDee Lamb,DAL,DET,BetMGM,Rec,Under,6.5,-135,6.07,-0.43,0.934
-431,Javonte Williams,DAL,DET,BetMGM,Rec,Over,1.5,-160,2.32,0.82,1.547
-432,Javonte Williams,DAL,DET,BetMGM,Rec,Under,1.5,125,2.32,0.82,1.547
-433,Ross Dwelley,DET,DAL,BetMGM,Rec,Over,1.5,-125,1.97,0.47,1.313
-434,Ross Dwelley,DET,DAL,BetMGM,Rec,Under,1.5,-105,1.97,0.47,1.313
+413,Ross Dwelley,DET,DAL,Bovada,Rec,Over,1.5,-150,1.91,0.41,1.273
+414,Ross Dwelley,DET,DAL,Bovada,Rec,Under,1.5,115,1.91,0.41,1.273
+415,Ryan Flournoy,DAL,DET,Bovada,Rec,Over,1.5,115,1.46,-0.04,0.973
+416,Ryan Flournoy,DAL,DET,Bovada,Rec,Under,1.5,-150,1.46,-0.04,0.973
+417,Tom Kennedy,DET,DAL,Bovada,Rec,Over,3.5,145,3.08,-0.42,0.88
+418,Tom Kennedy,DET,DAL,Bovada,Rec,Under,3.5,-190,3.08,-0.42,0.88
+419,Jameson Williams,DET,DAL,BetMGM,Rec,Over,5.5,-115,5.61,0.11,1.02
+420,Jameson Williams,DET,DAL,BetMGM,Rec,Under,5.5,-115,5.61,0.11,1.02
+421,Jahmyr Gibbs,DET,DAL,BetMGM,Rec,Over,4.5,-150,5.65,1.15,1.256
+422,Jahmyr Gibbs,DET,DAL,BetMGM,Rec,Under,4.5,115,5.65,1.15,1.256
+423,David Montgomery,DET,DAL,BetMGM,Rec,Over,1.5,-175,2.08,0.58,1.387
+424,David Montgomery,DET,DAL,BetMGM,Rec,Under,1.5,130,2.08,0.58,1.387
+425,Jake Ferguson,DAL,DET,BetMGM,Rec,Over,4.5,-125,4.39,-0.11,0.976
+426,Jake Ferguson,DAL,DET,BetMGM,Rec,Under,4.5,-105,4.39,-0.11,0.976
+427,George Pickens,DAL,DET,BetMGM,Rec,Over,5.5,-135,6.14,0.64,1.116
+428,George Pickens,DAL,DET,BetMGM,Rec,Under,5.5,100,6.14,0.64,1.116
+429,CeeDee Lamb,DAL,DET,BetMGM,Rec,Over,6.5,100,6.34,-0.16,0.975
+430,CeeDee Lamb,DAL,DET,BetMGM,Rec,Under,6.5,-135,6.34,-0.16,0.975
+431,Javonte Williams,DAL,DET,BetMGM,Rec,Over,1.5,-160,2.39,0.89,1.593
+432,Javonte Williams,DAL,DET,BetMGM,Rec,Under,1.5,125,2.39,0.89,1.593
+433,Ross Dwelley,DET,DAL,BetMGM,Rec,Over,1.5,-125,1.91,0.41,1.273
+434,Ross Dwelley,DET,DAL,BetMGM,Rec,Under,1.5,-105,1.91,0.41,1.273
 435,KaVontae Turpin,DAL,DET,BetMGM,Rec,Over,1.5,-110,1.69,0.19,1.127
 436,KaVontae Turpin,DAL,DET,BetMGM,Rec,Under,1.5,-120,1.69,0.19,1.127
-437,Ryan Flournoy,DAL,DET,BetMGM,Rec,Over,1.5,115,1.53,0.03,1.02
-438,Ryan Flournoy,DAL,DET,BetMGM,Rec,Under,1.5,-155,1.53,0.03,1.02
-439,Isaac TeSlaa,DET,DAL,BetMGM,Rec,Over,2.5,-155,2.99,0.49,1.196
-440,Isaac TeSlaa,DET,DAL,BetMGM,Rec,Under,2.5,120,2.99,0.49,1.196
-441,Tom Kennedy,DET,DAL,BetMGM,Rec,Over,2.5,-150,2.62,0.12,1.048
-442,Tom Kennedy,DET,DAL,BetMGM,Rec,Under,2.5,110,2.62,0.12,1.048
-443,Jameson Williams,DET,DAL,Fanatics,Rec,Over,5.5,115,6.68,1.18,1.215
-444,Jameson Williams,DET,DAL,Fanatics,Rec,Under,5.5,-155,6.68,1.18,1.215
-445,CeeDee Lamb,DAL,DET,Fanatics,Rec,Over,6.5,115,6.07,-0.43,0.934
-446,CeeDee Lamb,DAL,DET,Fanatics,Rec,Under,6.5,-155,6.07,-0.43,0.934
-447,Isaac TeSlaa,DET,DAL,Fanatics,Rec,Over,2.5,-165,2.99,0.49,1.196
-448,Isaac TeSlaa,DET,DAL,Fanatics,Rec,Under,2.5,120,2.99,0.49,1.196
-449,Jake Ferguson,DAL,DET,Fanatics,Rec,Over,5.5,150,4.52,-0.98,0.822
-450,Jake Ferguson,DAL,DET,Fanatics,Rec,Under,5.5,-210,4.52,-0.98,0.822
-451,Jahmyr Gibbs,DET,DAL,Fanatics,Rec,Over,5.5,115,5.45,-0.05,0.991
-452,Jahmyr Gibbs,DET,DAL,Fanatics,Rec,Under,5.5,-155,5.45,-0.05,0.991
-453,Javonte Williams,DAL,DET,Fanatics,Rec,Over,2.5,155,2.32,-0.18,0.928
-454,Javonte Williams,DAL,DET,Fanatics,Rec,Under,2.5,-220,2.32,-0.18,0.928
-455,David Montgomery,DET,DAL,Fanatics,Rec,Over,2.5,170,1.94,-0.56,0.776
-456,David Montgomery,DET,DAL,Fanatics,Rec,Under,2.5,-245,1.94,-0.56,0.776
-457,Ryan Flournoy,DAL,DET,Fanatics,Rec,Over,1.5,110,1.53,0.03,1.02
-458,Ryan Flournoy,DAL,DET,Fanatics,Rec,Under,1.5,-150,1.53,0.03,1.02
-459,George Pickens,DAL,DET,Fanatics,Rec,Over,5.5,-135,6.21,0.71,1.129
-460,George Pickens,DAL,DET,Fanatics,Rec,Under,5.5,100,6.21,0.71,1.129
-461,Ross Dwelley,DET,DAL,Fanatics,Rec,Over,1.5,-135,1.97,0.47,1.313
-462,Ross Dwelley,DET,DAL,Fanatics,Rec,Under,1.5,100,1.97,0.47,1.313
-463,Tom Kennedy,DET,DAL,Fanatics,Rec,Over,3.5,135,2.62,-0.88,0.749
-464,Tom Kennedy,DET,DAL,Fanatics,Rec,Under,3.5,-185,2.62,-0.88,0.749
+437,Ryan Flournoy,DAL,DET,BetMGM,Rec,Over,1.5,115,1.46,-0.04,0.973
+438,Ryan Flournoy,DAL,DET,BetMGM,Rec,Under,1.5,-155,1.46,-0.04,0.973
+439,Isaac TeSlaa,DET,DAL,BetMGM,Rec,Over,2.5,-155,2.86,0.36,1.144
+440,Isaac TeSlaa,DET,DAL,BetMGM,Rec,Under,2.5,120,2.86,0.36,1.144
+441,Tom Kennedy,DET,DAL,BetMGM,Rec,Over,2.5,-150,3.08,0.58,1.232
+442,Tom Kennedy,DET,DAL,BetMGM,Rec,Under,2.5,110,3.08,0.58,1.232
+443,Jameson Williams,DET,DAL,Fanatics,Rec,Over,5.5,115,5.61,0.11,1.02
+444,Jameson Williams,DET,DAL,Fanatics,Rec,Under,5.5,-155,5.61,0.11,1.02
+445,CeeDee Lamb,DAL,DET,Fanatics,Rec,Over,6.5,115,6.34,-0.16,0.975
+446,CeeDee Lamb,DAL,DET,Fanatics,Rec,Under,6.5,-155,6.34,-0.16,0.975
+447,Isaac TeSlaa,DET,DAL,Fanatics,Rec,Over,2.5,-165,2.86,0.36,1.144
+448,Isaac TeSlaa,DET,DAL,Fanatics,Rec,Under,2.5,120,2.86,0.36,1.144
+449,Jake Ferguson,DAL,DET,Fanatics,Rec,Over,5.5,150,4.39,-1.11,0.798
+450,Jake Ferguson,DAL,DET,Fanatics,Rec,Under,5.5,-210,4.39,-1.11,0.798
+451,Jahmyr Gibbs,DET,DAL,Fanatics,Rec,Over,5.5,115,5.65,0.15,1.027
+452,Jahmyr Gibbs,DET,DAL,Fanatics,Rec,Under,5.5,-155,5.65,0.15,1.027
+453,Javonte Williams,DAL,DET,Fanatics,Rec,Over,2.5,155,2.39,-0.11,0.956
+454,Javonte Williams,DAL,DET,Fanatics,Rec,Under,2.5,-220,2.39,-0.11,0.956
+455,David Montgomery,DET,DAL,Fanatics,Rec,Over,2.5,170,2.08,-0.42,0.832
+456,David Montgomery,DET,DAL,Fanatics,Rec,Under,2.5,-245,2.08,-0.42,0.832
+457,Ryan Flournoy,DAL,DET,Fanatics,Rec,Over,1.5,110,1.46,-0.04,0.973
+458,Ryan Flournoy,DAL,DET,Fanatics,Rec,Under,1.5,-150,1.46,-0.04,0.973
+459,George Pickens,DAL,DET,Fanatics,Rec,Over,5.5,-135,6.14,0.64,1.116
+460,George Pickens,DAL,DET,Fanatics,Rec,Under,5.5,100,6.14,0.64,1.116
+461,Ross Dwelley,DET,DAL,Fanatics,Rec,Over,1.5,-135,1.91,0.41,1.273
+462,Ross Dwelley,DET,DAL,Fanatics,Rec,Under,1.5,100,1.91,0.41,1.273
+463,Tom Kennedy,DET,DAL,Fanatics,Rec,Over,3.5,135,3.08,-0.42,0.88
+464,Tom Kennedy,DET,DAL,Fanatics,Rec,Under,3.5,-185,3.08,-0.42,0.88
 465,KaVontae Turpin,DAL,DET,Fanatics,Rec,Over,1.5,-115,1.69,0.19,1.127
 466,KaVontae Turpin,DAL,DET,Fanatics,Rec,Under,1.5,-115,1.69,0.19,1.127
-467,CeeDee Lamb,DAL,DET,DraftKings,Rec Yds,Over,84.5,-111,81.32,-3.18,0.962
-468,CeeDee Lamb,DAL,DET,DraftKings,Rec Yds,Under,84.5,-113,81.32,-3.18,0.962
-469,George Pickens,DAL,DET,DraftKings,Rec Yds,Over,81.5,-111,93.71,12.21,1.15
-470,George Pickens,DAL,DET,DraftKings,Rec Yds,Under,81.5,-113,93.71,12.21,1.15
-471,Jameson Williams,DET,DAL,DraftKings,Rec Yds,Over,80.5,-114,100.73,20.23,1.251
-472,Jameson Williams,DET,DAL,DraftKings,Rec Yds,Under,80.5,-110,100.73,20.23,1.251
-473,Jahmyr Gibbs,DET,DAL,DraftKings,Rec Yds,Over,39.5,-113,44.07,4.57,1.116
-474,Jahmyr Gibbs,DET,DAL,DraftKings,Rec Yds,Under,39.5,-111,44.07,4.57,1.116
-475,Isaac TeSlaa,DET,DAL,DraftKings,Rec Yds,Over,37.5,-110,44.51,7.01,1.187
-476,Isaac TeSlaa,DET,DAL,DraftKings,Rec Yds,Under,37.5,-114,44.51,7.01,1.187
-477,Jake Ferguson,DAL,DET,DraftKings,Rec Yds,Over,36.5,-111,35.64,-0.86,0.976
-478,Jake Ferguson,DAL,DET,DraftKings,Rec Yds,Under,36.5,-113,35.64,-0.86,0.976
-479,Tom Kennedy,DET,DAL,DraftKings,Rec Yds,Over,27.5,-115,33.3,5.8,1.211
-480,Tom Kennedy,DET,DAL,DraftKings,Rec Yds,Under,27.5,-109,33.3,5.8,1.211
-481,KaVontae Turpin,DAL,DET,DraftKings,Rec Yds,Over,16.5,-109,19.96,3.46,1.21
-482,KaVontae Turpin,DAL,DET,DraftKings,Rec Yds,Under,16.5,-115,19.96,3.46,1.21
-483,Ryan Flournoy,DAL,DET,DraftKings,Rec Yds,Over,13.5,-112,16.83,3.33,1.247
-484,Ryan Flournoy,DAL,DET,DraftKings,Rec Yds,Under,13.5,-112,16.83,3.33,1.247
-485,David Montgomery,DET,DAL,DraftKings,Rec Yds,Over,13.5,-108,14.28,0.78,1.058
-486,David Montgomery,DET,DAL,DraftKings,Rec Yds,Under,13.5,-117,14.28,0.78,1.058
-487,Ross Dwelley,DET,DAL,DraftKings,Rec Yds,Over,13.5,-108,19.27,5.77,1.427
-488,Ross Dwelley,DET,DAL,DraftKings,Rec Yds,Under,13.5,-116,19.27,5.77,1.427
-489,Javonte Williams,DAL,DET,DraftKings,Rec Yds,Over,11.5,-111,11.27,-0.23,0.98
-490,Javonte Williams,DAL,DET,DraftKings,Rec Yds,Under,11.5,-113,11.27,-0.23,0.98
-491,David Montgomery,DET,DAL,Caesars,Rec Yds,Over,12.5,-112,14.28,1.78,1.142
-492,David Montgomery,DET,DAL,Caesars,Rec Yds,Under,12.5,-118,14.28,1.78,1.142
-493,Jahmyr Gibbs,DET,DAL,Caesars,Rec Yds,Over,37.5,-120,44.07,6.57,1.175
-494,Jahmyr Gibbs,DET,DAL,Caesars,Rec Yds,Under,37.5,-112,44.07,6.57,1.175
-495,Ryan Flournoy,DAL,DET,Caesars,Rec Yds,Over,13.5,-114,16.83,3.33,1.247
-496,Ryan Flournoy,DAL,DET,Caesars,Rec Yds,Under,13.5,-115,16.83,3.33,1.247
-497,Ross Dwelley,DET,DAL,Caesars,Rec Yds,Over,12.5,-120,19.27,6.77,1.542
-498,Ross Dwelley,DET,DAL,Caesars,Rec Yds,Under,12.5,-112,19.27,6.77,1.542
-499,Jameson Williams,DET,DAL,Caesars,Rec Yds,Over,81.5,-108,100.73,19.23,1.236
-500,Jameson Williams,DET,DAL,Caesars,Rec Yds,Under,81.5,-125,100.73,19.23,1.236
-501,KaVontae Turpin,DAL,DET,Caesars,Rec Yds,Over,16.5,-110,19.96,3.46,1.21
-502,KaVontae Turpin,DAL,DET,Caesars,Rec Yds,Under,16.5,-120,19.96,3.46,1.21
-503,Javonte Williams,DAL,DET,Caesars,Rec Yds,Over,10.5,-117,11.27,0.77,1.073
-504,Javonte Williams,DAL,DET,Caesars,Rec Yds,Under,10.5,-114,11.27,0.77,1.073
-505,Jake Ferguson,DAL,DET,Caesars,Rec Yds,Over,37.5,-111,35.64,-1.86,0.95
-506,Jake Ferguson,DAL,DET,Caesars,Rec Yds,Under,37.5,-120,35.64,-1.86,0.95
-507,George Pickens,DAL,DET,Caesars,Rec Yds,Over,82.5,-128,93.71,11.21,1.136
-508,George Pickens,DAL,DET,Caesars,Rec Yds,Under,82.5,-105,93.71,11.21,1.136
-509,CeeDee Lamb,DAL,DET,Caesars,Rec Yds,Over,82.5,-120,81.32,-1.18,0.986
-510,CeeDee Lamb,DAL,DET,Caesars,Rec Yds,Under,82.5,-112,81.32,-1.18,0.986
-511,Tom Kennedy,DET,DAL,Caesars,Rec Yds,Over,27.5,-110,33.3,5.8,1.211
-512,Tom Kennedy,DET,DAL,Caesars,Rec Yds,Under,27.5,-122,33.3,5.8,1.211
-513,Isaac TeSlaa,DET,DAL,Caesars,Rec Yds,Over,36.5,-125,44.51,8.01,1.219
-514,Isaac TeSlaa,DET,DAL,Caesars,Rec Yds,Under,36.5,-110,44.51,8.01,1.219
-515,Jameson Williams,DET,DAL,FanDuel,Rec Yds,Over,83.5,-114,100.73,17.23,1.206
-516,Jameson Williams,DET,DAL,FanDuel,Rec Yds,Under,83.5,-114,100.73,17.23,1.206
-517,David Montgomery,DET,DAL,FanDuel,Rec Yds,Over,12.5,-114,14.28,1.78,1.142
-518,David Montgomery,DET,DAL,FanDuel,Rec Yds,Under,12.5,-114,14.28,1.78,1.142
-519,Javonte Williams,DAL,DET,FanDuel,Rec Yds,Over,10.5,-114,11.27,0.77,1.073
-520,Javonte Williams,DAL,DET,FanDuel,Rec Yds,Under,10.5,-114,11.27,0.77,1.073
-521,Ryan Flournoy,DAL,DET,FanDuel,Rec Yds,Over,13.5,-114,16.83,3.33,1.247
-522,Ryan Flournoy,DAL,DET,FanDuel,Rec Yds,Under,13.5,-114,16.83,3.33,1.247
-523,Jake Ferguson,DAL,DET,FanDuel,Rec Yds,Over,37.5,-114,35.64,-1.86,0.95
-524,Jake Ferguson,DAL,DET,FanDuel,Rec Yds,Under,37.5,-114,35.64,-1.86,0.95
-525,Tom Kennedy,DET,DAL,FanDuel,Rec Yds,Over,27.5,-114,33.3,5.8,1.211
-526,Tom Kennedy,DET,DAL,FanDuel,Rec Yds,Under,27.5,-114,33.3,5.8,1.211
-527,CeeDee Lamb,DAL,DET,FanDuel,Rec Yds,Over,82.5,-114,81.32,-1.18,0.986
-528,CeeDee Lamb,DAL,DET,FanDuel,Rec Yds,Under,82.5,-114,81.32,-1.18,0.986
-529,Isaac TeSlaa,DET,DAL,FanDuel,Rec Yds,Over,36.5,-114,44.51,8.01,1.219
-530,Isaac TeSlaa,DET,DAL,FanDuel,Rec Yds,Under,36.5,-114,44.51,8.01,1.219
-531,KaVontae Turpin,DAL,DET,FanDuel,Rec Yds,Over,17.5,-114,19.96,2.46,1.141
-532,KaVontae Turpin,DAL,DET,FanDuel,Rec Yds,Under,17.5,-114,19.96,2.46,1.141
-533,Jahmyr Gibbs,DET,DAL,FanDuel,Rec Yds,Over,36.5,-114,44.07,7.57,1.207
-534,Jahmyr Gibbs,DET,DAL,FanDuel,Rec Yds,Under,36.5,-114,44.07,7.57,1.207
-535,George Pickens,DAL,DET,FanDuel,Rec Yds,Over,82.5,-114,93.71,11.21,1.136
-536,George Pickens,DAL,DET,FanDuel,Rec Yds,Under,82.5,-114,93.71,11.21,1.136
-537,Ross Dwelley,DET,DAL,FanDuel,Rec Yds,Over,12.5,-114,19.27,6.77,1.542
-538,Ross Dwelley,DET,DAL,FanDuel,Rec Yds,Under,12.5,-114,19.27,6.77,1.542
-539,Jameson Williams,DET,DAL,BetOnline.ag,Rec Yds,Over,82.5,-114,100.73,18.23,1.221
-540,Jameson Williams,DET,DAL,BetOnline.ag,Rec Yds,Under,82.5,-114,100.73,18.23,1.221
-541,Javonte Williams,DAL,DET,BetOnline.ag,Rec Yds,Over,10.5,-114,11.27,0.77,1.073
-542,Javonte Williams,DAL,DET,BetOnline.ag,Rec Yds,Under,10.5,-114,11.27,0.77,1.073
-543,David Montgomery,DET,DAL,BetOnline.ag,Rec Yds,Over,12.5,-120,14.28,1.78,1.142
-544,David Montgomery,DET,DAL,BetOnline.ag,Rec Yds,Under,12.5,-108,14.28,1.78,1.142
-545,Ryan Flournoy,DAL,DET,BetOnline.ag,Rec Yds,Over,13.5,-114,16.83,3.33,1.247
-546,Ryan Flournoy,DAL,DET,BetOnline.ag,Rec Yds,Under,13.5,-114,16.83,3.33,1.247
-547,KaVontae Turpin,DAL,DET,BetOnline.ag,Rec Yds,Over,15.5,-110,19.96,4.46,1.288
-548,KaVontae Turpin,DAL,DET,BetOnline.ag,Rec Yds,Under,15.5,-118,19.96,4.46,1.288
-549,Tom Kennedy,DET,DAL,BetOnline.ag,Rec Yds,Over,27.5,-118,33.3,5.8,1.211
-550,Tom Kennedy,DET,DAL,BetOnline.ag,Rec Yds,Under,27.5,-110,33.3,5.8,1.211
-551,Jake Ferguson,DAL,DET,BetOnline.ag,Rec Yds,Over,36.5,-114,35.64,-0.86,0.976
-552,Jake Ferguson,DAL,DET,BetOnline.ag,Rec Yds,Under,36.5,-114,35.64,-0.86,0.976
-553,Ross Dwelley,DET,DAL,BetOnline.ag,Rec Yds,Over,13.5,-111,19.27,5.77,1.427
-554,Ross Dwelley,DET,DAL,BetOnline.ag,Rec Yds,Under,13.5,-116,19.27,5.77,1.427
-555,George Pickens,DAL,DET,BetOnline.ag,Rec Yds,Over,84.5,-114,93.71,9.21,1.109
-556,George Pickens,DAL,DET,BetOnline.ag,Rec Yds,Under,84.5,-114,93.71,9.21,1.109
-557,CeeDee Lamb,DAL,DET,BetOnline.ag,Rec Yds,Over,84.5,-114,81.32,-3.18,0.962
-558,CeeDee Lamb,DAL,DET,BetOnline.ag,Rec Yds,Under,84.5,-114,81.32,-3.18,0.962
-559,Isaac TeSlaa,DET,DAL,BetOnline.ag,Rec Yds,Over,39.5,-119,44.51,5.01,1.127
-560,Isaac TeSlaa,DET,DAL,BetOnline.ag,Rec Yds,Under,39.5,-109,44.51,5.01,1.127
-561,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rec Yds,Over,40.5,-114,44.07,3.57,1.088
-562,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rec Yds,Under,40.5,-114,44.07,3.57,1.088
-563,Isaac TeSlaa,DET,DAL,BetRivers,Rec Yds,Over,36.5,-118,44.51,8.01,1.219
-564,Isaac TeSlaa,DET,DAL,BetRivers,Rec Yds,Under,36.5,-113,44.51,8.01,1.219
-565,Ross Dwelley,DET,DAL,BetRivers,Rec Yds,Over,12.5,-112,19.27,6.77,1.542
-566,Ross Dwelley,DET,DAL,BetRivers,Rec Yds,Under,12.5,-120,19.27,6.77,1.542
-567,Jahmyr Gibbs,DET,DAL,BetRivers,Rec Yds,Over,37.5,-115,44.07,6.57,1.175
-568,Jahmyr Gibbs,DET,DAL,BetRivers,Rec Yds,Under,37.5,-115,44.07,6.57,1.175
-569,Jake Ferguson,DAL,DET,BetRivers,Rec Yds,Over,36.5,-115,35.64,-0.86,0.976
-570,Jake Ferguson,DAL,DET,BetRivers,Rec Yds,Under,36.5,-114,35.64,-0.86,0.976
-571,Jameson Williams,DET,DAL,BetRivers,Rec Yds,Over,83.5,-117,100.73,17.23,1.206
-572,Jameson Williams,DET,DAL,BetRivers,Rec Yds,Under,83.5,-114,100.73,17.23,1.206
-573,Tom Kennedy,DET,DAL,BetRivers,Rec Yds,Over,29.5,-113,33.3,3.8,1.129
-574,Tom Kennedy,DET,DAL,BetRivers,Rec Yds,Under,29.5,-118,33.3,3.8,1.129
-575,George Pickens,DAL,DET,BetRivers,Rec Yds,Over,80.5,-115,93.71,13.21,1.164
-576,George Pickens,DAL,DET,BetRivers,Rec Yds,Under,80.5,-115,93.71,13.21,1.164
-577,Ryan Flournoy,DAL,DET,BetRivers,Rec Yds,Over,12.5,-113,16.83,4.33,1.346
-578,Ryan Flournoy,DAL,DET,BetRivers,Rec Yds,Under,12.5,-118,16.83,4.33,1.346
-579,KaVontae Turpin,DAL,DET,BetRivers,Rec Yds,Over,17.5,-114,19.96,2.46,1.141
-580,KaVontae Turpin,DAL,DET,BetRivers,Rec Yds,Under,17.5,-117,19.96,2.46,1.141
-581,CeeDee Lamb,DAL,DET,BetRivers,Rec Yds,Over,81.5,-114,81.32,-0.18,0.998
-582,CeeDee Lamb,DAL,DET,BetRivers,Rec Yds,Under,81.5,-115,81.32,-0.18,0.998
-583,Javonte Williams,DAL,DET,BetRivers,Rec Yds,Over,11.5,-113,11.27,-0.23,0.98
-584,Javonte Williams,DAL,DET,BetRivers,Rec Yds,Under,11.5,-118,11.27,-0.23,0.98
-585,CeeDee Lamb,DAL,DET,Bovada,Rec Yds,Over,83.5,-115,81.32,-2.18,0.974
-586,CeeDee Lamb,DAL,DET,Bovada,Rec Yds,Under,83.5,-115,81.32,-2.18,0.974
-587,David Montgomery,DET,DAL,Bovada,Rec Yds,Over,11.5,-130,14.28,2.78,1.242
-588,David Montgomery,DET,DAL,Bovada,Rec Yds,Under,11.5,100,14.28,2.78,1.242
-589,George Pickens,DAL,DET,Bovada,Rec Yds,Over,81.5,-130,93.71,12.21,1.15
-590,George Pickens,DAL,DET,Bovada,Rec Yds,Under,81.5,100,93.71,12.21,1.15
-591,Isaac TeSlaa,DET,DAL,Bovada,Rec Yds,Over,35.5,-130,44.51,9.01,1.254
-592,Isaac TeSlaa,DET,DAL,Bovada,Rec Yds,Under,35.5,100,44.51,9.01,1.254
-593,Jahmyr Gibbs,DET,DAL,Bovada,Rec Yds,Over,35.5,-145,44.07,8.57,1.241
-594,Jahmyr Gibbs,DET,DAL,Bovada,Rec Yds,Under,35.5,110,44.07,8.57,1.241
-595,Jake Ferguson,DAL,DET,Bovada,Rec Yds,Over,36.5,-120,35.64,-0.86,0.976
-596,Jake Ferguson,DAL,DET,Bovada,Rec Yds,Under,36.5,-110,35.64,-0.86,0.976
-597,KaVontae Turpin,DAL,DET,Bovada,Rec Yds,Over,15.5,-110,19.96,4.46,1.288
-598,KaVontae Turpin,DAL,DET,Bovada,Rec Yds,Under,15.5,-120,19.96,4.46,1.288
-599,Ross Dwelley,DET,DAL,Bovada,Rec Yds,Over,12.5,-135,19.27,6.77,1.542
-600,Ross Dwelley,DET,DAL,Bovada,Rec Yds,Under,12.5,105,19.27,6.77,1.542
-601,Ryan Flournoy,DAL,DET,Bovada,Rec Yds,Over,13.5,-115,16.83,3.33,1.247
-602,Ryan Flournoy,DAL,DET,Bovada,Rec Yds,Under,13.5,-115,16.83,3.33,1.247
-603,Tom Kennedy,DET,DAL,Bovada,Rec Yds,Over,27.5,-120,33.3,5.8,1.211
-604,Tom Kennedy,DET,DAL,Bovada,Rec Yds,Under,27.5,-110,33.3,5.8,1.211
-605,David Montgomery,DET,DAL,BetMGM,Rec Yds,Over,11.5,-118,14.28,2.78,1.242
-606,David Montgomery,DET,DAL,BetMGM,Rec Yds,Under,11.5,-110,14.28,2.78,1.242
-607,Jake Ferguson,DAL,DET,BetMGM,Rec Yds,Over,37.5,-115,35.64,-1.86,0.95
-608,Jake Ferguson,DAL,DET,BetMGM,Rec Yds,Under,37.5,-115,35.64,-1.86,0.95
-609,Jameson Williams,DET,DAL,BetMGM,Rec Yds,Over,83.5,105,100.73,17.23,1.206
-610,Jameson Williams,DET,DAL,BetMGM,Rec Yds,Under,83.5,-140,100.73,17.23,1.206
-611,Ross Dwelley,DET,DAL,BetMGM,Rec Yds,Over,15.5,110,19.27,3.77,1.243
-612,Ross Dwelley,DET,DAL,BetMGM,Rec Yds,Under,15.5,-145,19.27,3.77,1.243
-613,Jahmyr Gibbs,DET,DAL,BetMGM,Rec Yds,Over,37.5,-115,44.07,6.57,1.175
-614,Jahmyr Gibbs,DET,DAL,BetMGM,Rec Yds,Under,37.5,-115,44.07,6.57,1.175
-615,George Pickens,DAL,DET,BetMGM,Rec Yds,Over,81.5,-115,93.71,12.21,1.15
-616,George Pickens,DAL,DET,BetMGM,Rec Yds,Under,81.5,-115,93.71,12.21,1.15
-617,KaVontae Turpin,DAL,DET,BetMGM,Rec Yds,Over,14.5,-115,19.96,5.46,1.377
-618,KaVontae Turpin,DAL,DET,BetMGM,Rec Yds,Under,14.5,-115,19.96,5.46,1.377
-619,Ryan Flournoy,DAL,DET,BetMGM,Rec Yds,Over,12.5,-110,16.83,4.33,1.346
-620,Ryan Flournoy,DAL,DET,BetMGM,Rec Yds,Under,12.5,-120,16.83,4.33,1.346
-621,CeeDee Lamb,DAL,DET,BetMGM,Rec Yds,Over,81.5,-115,81.32,-0.18,0.998
-622,CeeDee Lamb,DAL,DET,BetMGM,Rec Yds,Under,81.5,-115,81.32,-0.18,0.998
-623,Isaac TeSlaa,DET,DAL,BetMGM,Rec Yds,Over,35.5,-110,44.51,9.01,1.254
-624,Isaac TeSlaa,DET,DAL,BetMGM,Rec Yds,Under,35.5,-118,44.51,9.01,1.254
-625,Javonte Williams,DAL,DET,BetMGM,Rec Yds,Over,8.5,-120,11.27,2.77,1.326
-626,Javonte Williams,DAL,DET,BetMGM,Rec Yds,Under,8.5,-110,11.27,2.77,1.326
-627,Tom Kennedy,DET,DAL,BetMGM,Rec Yds,Over,26.5,-118,33.3,6.8,1.257
-628,Tom Kennedy,DET,DAL,BetMGM,Rec Yds,Under,26.5,-110,33.3,6.8,1.257
-629,George Pickens,DAL,DET,Fanatics,Rec Yds,Over,80.5,-125,93.71,13.21,1.164
-630,George Pickens,DAL,DET,Fanatics,Rec Yds,Under,80.5,-105,93.71,13.21,1.164
-631,Jake Ferguson,DAL,DET,Fanatics,Rec Yds,Over,35.5,-115,35.64,0.14,1.004
-632,Jake Ferguson,DAL,DET,Fanatics,Rec Yds,Under,35.5,-115,35.64,0.14,1.004
-633,CeeDee Lamb,DAL,DET,Fanatics,Rec Yds,Over,80.5,-115,81.32,0.82,1.01
-634,CeeDee Lamb,DAL,DET,Fanatics,Rec Yds,Under,80.5,-115,81.32,0.82,1.01
-635,Jameson Williams,DET,DAL,Fanatics,Rec Yds,Over,80.5,-115,100.73,20.23,1.251
-636,Jameson Williams,DET,DAL,Fanatics,Rec Yds,Under,80.5,-115,100.73,20.23,1.251
-637,Jahmyr Gibbs,DET,DAL,Fanatics,Rec Yds,Over,35.5,-125,44.07,8.57,1.241
-638,Jahmyr Gibbs,DET,DAL,Fanatics,Rec Yds,Under,35.5,-105,44.07,8.57,1.241
-639,Javonte Williams,DAL,DET,Fanatics,Rec Yds,Over,10.5,-110,11.27,0.77,1.073
-640,Javonte Williams,DAL,DET,Fanatics,Rec Yds,Under,10.5,-120,11.27,0.77,1.073
-641,Ross Dwelley,DET,DAL,Fanatics,Rec Yds,Over,10.5,-150,19.27,8.77,1.835
-642,Ross Dwelley,DET,DAL,Fanatics,Rec Yds,Under,10.5,110,19.27,8.77,1.835
-643,David Montgomery,DET,DAL,Fanatics,Rec Yds,Over,10.5,-150,14.28,3.78,1.36
-644,David Montgomery,DET,DAL,Fanatics,Rec Yds,Under,10.5,110,14.28,3.78,1.36
-645,Tom Kennedy,DET,DAL,Fanatics,Rec Yds,Over,30.5,100,33.3,2.8,1.092
-646,Tom Kennedy,DET,DAL,Fanatics,Rec Yds,Under,30.5,-135,33.3,2.8,1.092
-647,KaVontae Turpin,DAL,DET,Fanatics,Rec Yds,Over,15.5,-115,19.96,4.46,1.288
-648,KaVontae Turpin,DAL,DET,Fanatics,Rec Yds,Under,15.5,-115,19.96,4.46,1.288
-649,Ryan Flournoy,DAL,DET,Fanatics,Rec Yds,Over,10.5,-140,16.83,6.33,1.603
-650,Ryan Flournoy,DAL,DET,Fanatics,Rec Yds,Under,10.5,105,16.83,6.33,1.603
-651,Isaac TeSlaa,DET,DAL,Fanatics,Rec Yds,Over,35.5,-125,44.51,9.01,1.254
-652,Isaac TeSlaa,DET,DAL,Fanatics,Rec Yds,Under,35.5,-105,44.51,9.01,1.254
+467,CeeDee Lamb,DAL,DET,DraftKings,Rec Yds,Over,84.5,-111,86.79,2.29,1.027
+468,CeeDee Lamb,DAL,DET,DraftKings,Rec Yds,Under,84.5,-113,86.79,2.29,1.027
+469,George Pickens,DAL,DET,DraftKings,Rec Yds,Over,81.5,-111,91.71,10.21,1.125
+470,George Pickens,DAL,DET,DraftKings,Rec Yds,Under,81.5,-113,91.71,10.21,1.125
+471,Jameson Williams,DET,DAL,DraftKings,Rec Yds,Over,80.5,-114,88.0,7.5,1.093
+472,Jameson Williams,DET,DAL,DraftKings,Rec Yds,Under,80.5,-110,88.0,7.5,1.093
+473,Jahmyr Gibbs,DET,DAL,DraftKings,Rec Yds,Over,39.5,-113,45.54,6.04,1.153
+474,Jahmyr Gibbs,DET,DAL,DraftKings,Rec Yds,Under,39.5,-111,45.54,6.04,1.153
+475,Isaac TeSlaa,DET,DAL,DraftKings,Rec Yds,Over,37.5,-110,42.91,5.41,1.144
+476,Isaac TeSlaa,DET,DAL,DraftKings,Rec Yds,Under,37.5,-114,42.91,5.41,1.144
+477,Jake Ferguson,DAL,DET,DraftKings,Rec Yds,Over,36.5,-111,34.57,-1.93,0.947
+478,Jake Ferguson,DAL,DET,DraftKings,Rec Yds,Under,36.5,-113,34.57,-1.93,0.947
+479,Tom Kennedy,DET,DAL,DraftKings,Rec Yds,Over,27.5,-115,39.24,11.74,1.427
+480,Tom Kennedy,DET,DAL,DraftKings,Rec Yds,Under,27.5,-109,39.24,11.74,1.427
+481,KaVontae Turpin,DAL,DET,DraftKings,Rec Yds,Over,16.5,-109,20.82,4.32,1.262
+482,KaVontae Turpin,DAL,DET,DraftKings,Rec Yds,Under,16.5,-115,20.82,4.32,1.262
+483,Ryan Flournoy,DAL,DET,DraftKings,Rec Yds,Over,13.5,-112,16.1,2.6,1.193
+484,Ryan Flournoy,DAL,DET,DraftKings,Rec Yds,Under,13.5,-112,16.1,2.6,1.193
+485,David Montgomery,DET,DAL,DraftKings,Rec Yds,Over,13.5,-108,15.41,1.91,1.141
+486,David Montgomery,DET,DAL,DraftKings,Rec Yds,Under,13.5,-117,15.41,1.91,1.141
+487,Ross Dwelley,DET,DAL,DraftKings,Rec Yds,Over,13.5,-108,18.87,5.37,1.398
+488,Ross Dwelley,DET,DAL,DraftKings,Rec Yds,Under,13.5,-116,18.87,5.37,1.398
+489,Javonte Williams,DAL,DET,DraftKings,Rec Yds,Over,11.5,-111,12.53,1.03,1.09
+490,Javonte Williams,DAL,DET,DraftKings,Rec Yds,Under,11.5,-113,12.53,1.03,1.09
+491,David Montgomery,DET,DAL,Caesars,Rec Yds,Over,12.5,-112,15.41,2.91,1.233
+492,David Montgomery,DET,DAL,Caesars,Rec Yds,Under,12.5,-118,15.41,2.91,1.233
+493,Jahmyr Gibbs,DET,DAL,Caesars,Rec Yds,Over,37.5,-120,45.54,8.04,1.214
+494,Jahmyr Gibbs,DET,DAL,Caesars,Rec Yds,Under,37.5,-112,45.54,8.04,1.214
+495,Ryan Flournoy,DAL,DET,Caesars,Rec Yds,Over,13.5,-114,16.1,2.6,1.193
+496,Ryan Flournoy,DAL,DET,Caesars,Rec Yds,Under,13.5,-115,16.1,2.6,1.193
+497,Ross Dwelley,DET,DAL,Caesars,Rec Yds,Over,12.5,-120,18.87,6.37,1.51
+498,Ross Dwelley,DET,DAL,Caesars,Rec Yds,Under,12.5,-112,18.87,6.37,1.51
+499,Jameson Williams,DET,DAL,Caesars,Rec Yds,Over,81.5,-108,88.0,6.5,1.08
+500,Jameson Williams,DET,DAL,Caesars,Rec Yds,Under,81.5,-125,88.0,6.5,1.08
+501,KaVontae Turpin,DAL,DET,Caesars,Rec Yds,Over,16.5,-110,20.82,4.32,1.262
+502,KaVontae Turpin,DAL,DET,Caesars,Rec Yds,Under,16.5,-120,20.82,4.32,1.262
+503,Javonte Williams,DAL,DET,Caesars,Rec Yds,Over,10.5,-117,12.53,2.03,1.193
+504,Javonte Williams,DAL,DET,Caesars,Rec Yds,Under,10.5,-114,12.53,2.03,1.193
+505,Jake Ferguson,DAL,DET,Caesars,Rec Yds,Over,37.5,-111,34.57,-2.93,0.922
+506,Jake Ferguson,DAL,DET,Caesars,Rec Yds,Under,37.5,-120,34.57,-2.93,0.922
+507,George Pickens,DAL,DET,Caesars,Rec Yds,Over,82.5,-128,91.71,9.21,1.112
+508,George Pickens,DAL,DET,Caesars,Rec Yds,Under,82.5,-105,91.71,9.21,1.112
+509,CeeDee Lamb,DAL,DET,Caesars,Rec Yds,Over,82.5,-120,86.79,4.29,1.052
+510,CeeDee Lamb,DAL,DET,Caesars,Rec Yds,Under,82.5,-112,86.79,4.29,1.052
+511,Tom Kennedy,DET,DAL,Caesars,Rec Yds,Over,27.5,-110,39.24,11.74,1.427
+512,Tom Kennedy,DET,DAL,Caesars,Rec Yds,Under,27.5,-122,39.24,11.74,1.427
+513,Isaac TeSlaa,DET,DAL,Caesars,Rec Yds,Over,36.5,-125,42.91,6.41,1.176
+514,Isaac TeSlaa,DET,DAL,Caesars,Rec Yds,Under,36.5,-110,42.91,6.41,1.176
+515,Jameson Williams,DET,DAL,FanDuel,Rec Yds,Over,83.5,-114,88.0,4.5,1.054
+516,Jameson Williams,DET,DAL,FanDuel,Rec Yds,Under,83.5,-114,88.0,4.5,1.054
+517,David Montgomery,DET,DAL,FanDuel,Rec Yds,Over,12.5,-114,15.41,2.91,1.233
+518,David Montgomery,DET,DAL,FanDuel,Rec Yds,Under,12.5,-114,15.41,2.91,1.233
+519,Javonte Williams,DAL,DET,FanDuel,Rec Yds,Over,10.5,-114,12.53,2.03,1.193
+520,Javonte Williams,DAL,DET,FanDuel,Rec Yds,Under,10.5,-114,12.53,2.03,1.193
+521,Ryan Flournoy,DAL,DET,FanDuel,Rec Yds,Over,13.5,-114,16.1,2.6,1.193
+522,Ryan Flournoy,DAL,DET,FanDuel,Rec Yds,Under,13.5,-114,16.1,2.6,1.193
+523,Jake Ferguson,DAL,DET,FanDuel,Rec Yds,Over,37.5,-114,34.57,-2.93,0.922
+524,Jake Ferguson,DAL,DET,FanDuel,Rec Yds,Under,37.5,-114,34.57,-2.93,0.922
+525,Tom Kennedy,DET,DAL,FanDuel,Rec Yds,Over,27.5,-114,39.24,11.74,1.427
+526,Tom Kennedy,DET,DAL,FanDuel,Rec Yds,Under,27.5,-114,39.24,11.74,1.427
+527,CeeDee Lamb,DAL,DET,FanDuel,Rec Yds,Over,82.5,-114,86.79,4.29,1.052
+528,CeeDee Lamb,DAL,DET,FanDuel,Rec Yds,Under,82.5,-114,86.79,4.29,1.052
+529,Isaac TeSlaa,DET,DAL,FanDuel,Rec Yds,Over,36.5,-114,42.91,6.41,1.176
+530,Isaac TeSlaa,DET,DAL,FanDuel,Rec Yds,Under,36.5,-114,42.91,6.41,1.176
+531,KaVontae Turpin,DAL,DET,FanDuel,Rec Yds,Over,17.5,-114,20.82,3.32,1.19
+532,KaVontae Turpin,DAL,DET,FanDuel,Rec Yds,Under,17.5,-114,20.82,3.32,1.19
+533,Jahmyr Gibbs,DET,DAL,FanDuel,Rec Yds,Over,36.5,-114,45.54,9.04,1.248
+534,Jahmyr Gibbs,DET,DAL,FanDuel,Rec Yds,Under,36.5,-114,45.54,9.04,1.248
+535,George Pickens,DAL,DET,FanDuel,Rec Yds,Over,82.5,-114,91.71,9.21,1.112
+536,George Pickens,DAL,DET,FanDuel,Rec Yds,Under,82.5,-114,91.71,9.21,1.112
+537,Ross Dwelley,DET,DAL,FanDuel,Rec Yds,Over,12.5,-114,18.87,6.37,1.51
+538,Ross Dwelley,DET,DAL,FanDuel,Rec Yds,Under,12.5,-114,18.87,6.37,1.51
+539,Jameson Williams,DET,DAL,BetOnline.ag,Rec Yds,Over,82.5,-114,88.0,5.5,1.067
+540,Jameson Williams,DET,DAL,BetOnline.ag,Rec Yds,Under,82.5,-114,88.0,5.5,1.067
+541,Javonte Williams,DAL,DET,BetOnline.ag,Rec Yds,Over,10.5,-114,12.53,2.03,1.193
+542,Javonte Williams,DAL,DET,BetOnline.ag,Rec Yds,Under,10.5,-114,12.53,2.03,1.193
+543,David Montgomery,DET,DAL,BetOnline.ag,Rec Yds,Over,12.5,-120,15.41,2.91,1.233
+544,David Montgomery,DET,DAL,BetOnline.ag,Rec Yds,Under,12.5,-108,15.41,2.91,1.233
+545,Ryan Flournoy,DAL,DET,BetOnline.ag,Rec Yds,Over,13.5,-114,16.1,2.6,1.193
+546,Ryan Flournoy,DAL,DET,BetOnline.ag,Rec Yds,Under,13.5,-114,16.1,2.6,1.193
+547,KaVontae Turpin,DAL,DET,BetOnline.ag,Rec Yds,Over,15.5,-110,20.82,5.32,1.343
+548,KaVontae Turpin,DAL,DET,BetOnline.ag,Rec Yds,Under,15.5,-118,20.82,5.32,1.343
+549,Tom Kennedy,DET,DAL,BetOnline.ag,Rec Yds,Over,27.5,-118,39.24,11.74,1.427
+550,Tom Kennedy,DET,DAL,BetOnline.ag,Rec Yds,Under,27.5,-110,39.24,11.74,1.427
+551,Jake Ferguson,DAL,DET,BetOnline.ag,Rec Yds,Over,36.5,-114,34.57,-1.93,0.947
+552,Jake Ferguson,DAL,DET,BetOnline.ag,Rec Yds,Under,36.5,-114,34.57,-1.93,0.947
+553,Ross Dwelley,DET,DAL,BetOnline.ag,Rec Yds,Over,13.5,-111,18.87,5.37,1.398
+554,Ross Dwelley,DET,DAL,BetOnline.ag,Rec Yds,Under,13.5,-116,18.87,5.37,1.398
+555,George Pickens,DAL,DET,BetOnline.ag,Rec Yds,Over,84.5,-114,91.71,7.21,1.085
+556,George Pickens,DAL,DET,BetOnline.ag,Rec Yds,Under,84.5,-114,91.71,7.21,1.085
+557,CeeDee Lamb,DAL,DET,BetOnline.ag,Rec Yds,Over,84.5,-114,86.79,2.29,1.027
+558,CeeDee Lamb,DAL,DET,BetOnline.ag,Rec Yds,Under,84.5,-114,86.79,2.29,1.027
+559,Isaac TeSlaa,DET,DAL,BetOnline.ag,Rec Yds,Over,39.5,-119,42.91,3.41,1.086
+560,Isaac TeSlaa,DET,DAL,BetOnline.ag,Rec Yds,Under,39.5,-109,42.91,3.41,1.086
+561,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rec Yds,Over,40.5,-114,45.54,5.04,1.124
+562,Jahmyr Gibbs,DET,DAL,BetOnline.ag,Rec Yds,Under,40.5,-114,45.54,5.04,1.124
+563,Isaac TeSlaa,DET,DAL,BetRivers,Rec Yds,Over,36.5,-118,42.91,6.41,1.176
+564,Isaac TeSlaa,DET,DAL,BetRivers,Rec Yds,Under,36.5,-113,42.91,6.41,1.176
+565,Ross Dwelley,DET,DAL,BetRivers,Rec Yds,Over,12.5,-112,18.87,6.37,1.51
+566,Ross Dwelley,DET,DAL,BetRivers,Rec Yds,Under,12.5,-120,18.87,6.37,1.51
+567,Jahmyr Gibbs,DET,DAL,BetRivers,Rec Yds,Over,37.5,-115,45.54,8.04,1.214
+568,Jahmyr Gibbs,DET,DAL,BetRivers,Rec Yds,Under,37.5,-115,45.54,8.04,1.214
+569,Jake Ferguson,DAL,DET,BetRivers,Rec Yds,Over,36.5,-115,34.57,-1.93,0.947
+570,Jake Ferguson,DAL,DET,BetRivers,Rec Yds,Under,36.5,-114,34.57,-1.93,0.947
+571,Jameson Williams,DET,DAL,BetRivers,Rec Yds,Over,83.5,-117,88.0,4.5,1.054
+572,Jameson Williams,DET,DAL,BetRivers,Rec Yds,Under,83.5,-114,88.0,4.5,1.054
+573,Tom Kennedy,DET,DAL,BetRivers,Rec Yds,Over,29.5,-113,39.24,9.74,1.33
+574,Tom Kennedy,DET,DAL,BetRivers,Rec Yds,Under,29.5,-118,39.24,9.74,1.33
+575,George Pickens,DAL,DET,BetRivers,Rec Yds,Over,80.5,-115,91.71,11.21,1.139
+576,George Pickens,DAL,DET,BetRivers,Rec Yds,Under,80.5,-115,91.71,11.21,1.139
+577,Ryan Flournoy,DAL,DET,BetRivers,Rec Yds,Over,12.5,-113,16.1,3.6,1.288
+578,Ryan Flournoy,DAL,DET,BetRivers,Rec Yds,Under,12.5,-118,16.1,3.6,1.288
+579,KaVontae Turpin,DAL,DET,BetRivers,Rec Yds,Over,17.5,-114,20.82,3.32,1.19
+580,KaVontae Turpin,DAL,DET,BetRivers,Rec Yds,Under,17.5,-117,20.82,3.32,1.19
+581,CeeDee Lamb,DAL,DET,BetRivers,Rec Yds,Over,81.5,-114,86.79,5.29,1.065
+582,CeeDee Lamb,DAL,DET,BetRivers,Rec Yds,Under,81.5,-115,86.79,5.29,1.065
+583,Javonte Williams,DAL,DET,BetRivers,Rec Yds,Over,11.5,-113,12.53,1.03,1.09
+584,Javonte Williams,DAL,DET,BetRivers,Rec Yds,Under,11.5,-118,12.53,1.03,1.09
+585,CeeDee Lamb,DAL,DET,Bovada,Rec Yds,Over,83.5,-115,86.79,3.29,1.039
+586,CeeDee Lamb,DAL,DET,Bovada,Rec Yds,Under,83.5,-115,86.79,3.29,1.039
+587,David Montgomery,DET,DAL,Bovada,Rec Yds,Over,11.5,-130,15.41,3.91,1.34
+588,David Montgomery,DET,DAL,Bovada,Rec Yds,Under,11.5,100,15.41,3.91,1.34
+589,George Pickens,DAL,DET,Bovada,Rec Yds,Over,81.5,-130,91.71,10.21,1.125
+590,George Pickens,DAL,DET,Bovada,Rec Yds,Under,81.5,100,91.71,10.21,1.125
+591,Isaac TeSlaa,DET,DAL,Bovada,Rec Yds,Over,35.5,-130,42.91,7.41,1.209
+592,Isaac TeSlaa,DET,DAL,Bovada,Rec Yds,Under,35.5,100,42.91,7.41,1.209
+593,Jahmyr Gibbs,DET,DAL,Bovada,Rec Yds,Over,35.5,-145,45.54,10.04,1.283
+594,Jahmyr Gibbs,DET,DAL,Bovada,Rec Yds,Under,35.5,110,45.54,10.04,1.283
+595,Jake Ferguson,DAL,DET,Bovada,Rec Yds,Over,36.5,-120,34.57,-1.93,0.947
+596,Jake Ferguson,DAL,DET,Bovada,Rec Yds,Under,36.5,-110,34.57,-1.93,0.947
+597,KaVontae Turpin,DAL,DET,Bovada,Rec Yds,Over,15.5,-110,20.82,5.32,1.343
+598,KaVontae Turpin,DAL,DET,Bovada,Rec Yds,Under,15.5,-120,20.82,5.32,1.343
+599,Ross Dwelley,DET,DAL,Bovada,Rec Yds,Over,12.5,-135,18.87,6.37,1.51
+600,Ross Dwelley,DET,DAL,Bovada,Rec Yds,Under,12.5,105,18.87,6.37,1.51
+601,Ryan Flournoy,DAL,DET,Bovada,Rec Yds,Over,13.5,-115,16.1,2.6,1.193
+602,Ryan Flournoy,DAL,DET,Bovada,Rec Yds,Under,13.5,-115,16.1,2.6,1.193
+603,Tom Kennedy,DET,DAL,Bovada,Rec Yds,Over,27.5,-120,39.24,11.74,1.427
+604,Tom Kennedy,DET,DAL,Bovada,Rec Yds,Under,27.5,-110,39.24,11.74,1.427
+605,David Montgomery,DET,DAL,BetMGM,Rec Yds,Over,11.5,-118,15.41,3.91,1.34
+606,David Montgomery,DET,DAL,BetMGM,Rec Yds,Under,11.5,-110,15.41,3.91,1.34
+607,Jake Ferguson,DAL,DET,BetMGM,Rec Yds,Over,37.5,-115,34.57,-2.93,0.922
+608,Jake Ferguson,DAL,DET,BetMGM,Rec Yds,Under,37.5,-115,34.57,-2.93,0.922
+609,Jameson Williams,DET,DAL,BetMGM,Rec Yds,Over,83.5,105,88.0,4.5,1.054
+610,Jameson Williams,DET,DAL,BetMGM,Rec Yds,Under,83.5,-140,88.0,4.5,1.054
+611,Ross Dwelley,DET,DAL,BetMGM,Rec Yds,Over,15.5,110,18.87,3.37,1.217
+612,Ross Dwelley,DET,DAL,BetMGM,Rec Yds,Under,15.5,-145,18.87,3.37,1.217
+613,Jahmyr Gibbs,DET,DAL,BetMGM,Rec Yds,Over,37.5,-115,45.54,8.04,1.214
+614,Jahmyr Gibbs,DET,DAL,BetMGM,Rec Yds,Under,37.5,-115,45.54,8.04,1.214
+615,George Pickens,DAL,DET,BetMGM,Rec Yds,Over,81.5,-115,91.71,10.21,1.125
+616,George Pickens,DAL,DET,BetMGM,Rec Yds,Under,81.5,-115,91.71,10.21,1.125
+617,KaVontae Turpin,DAL,DET,BetMGM,Rec Yds,Over,14.5,-115,20.82,6.32,1.436
+618,KaVontae Turpin,DAL,DET,BetMGM,Rec Yds,Under,14.5,-115,20.82,6.32,1.436
+619,Ryan Flournoy,DAL,DET,BetMGM,Rec Yds,Over,12.5,-110,16.1,3.6,1.288
+620,Ryan Flournoy,DAL,DET,BetMGM,Rec Yds,Under,12.5,-120,16.1,3.6,1.288
+621,CeeDee Lamb,DAL,DET,BetMGM,Rec Yds,Over,81.5,-115,86.79,5.29,1.065
+622,CeeDee Lamb,DAL,DET,BetMGM,Rec Yds,Under,81.5,-115,86.79,5.29,1.065
+623,Isaac TeSlaa,DET,DAL,BetMGM,Rec Yds,Over,35.5,-110,42.91,7.41,1.209
+624,Isaac TeSlaa,DET,DAL,BetMGM,Rec Yds,Under,35.5,-118,42.91,7.41,1.209
+625,Javonte Williams,DAL,DET,BetMGM,Rec Yds,Over,8.5,-120,12.53,4.03,1.474
+626,Javonte Williams,DAL,DET,BetMGM,Rec Yds,Under,8.5,-110,12.53,4.03,1.474
+627,Tom Kennedy,DET,DAL,BetMGM,Rec Yds,Over,26.5,-118,39.24,12.74,1.481
+628,Tom Kennedy,DET,DAL,BetMGM,Rec Yds,Under,26.5,-110,39.24,12.74,1.481
+629,George Pickens,DAL,DET,Fanatics,Rec Yds,Over,80.5,-125,91.71,11.21,1.139
+630,George Pickens,DAL,DET,Fanatics,Rec Yds,Under,80.5,-105,91.71,11.21,1.139
+631,Jake Ferguson,DAL,DET,Fanatics,Rec Yds,Over,35.5,-115,34.57,-0.93,0.974
+632,Jake Ferguson,DAL,DET,Fanatics,Rec Yds,Under,35.5,-115,34.57,-0.93,0.974
+633,CeeDee Lamb,DAL,DET,Fanatics,Rec Yds,Over,80.5,-115,86.79,6.29,1.078
+634,CeeDee Lamb,DAL,DET,Fanatics,Rec Yds,Under,80.5,-115,86.79,6.29,1.078
+635,Jameson Williams,DET,DAL,Fanatics,Rec Yds,Over,80.5,-115,88.0,7.5,1.093
+636,Jameson Williams,DET,DAL,Fanatics,Rec Yds,Under,80.5,-115,88.0,7.5,1.093
+637,Jahmyr Gibbs,DET,DAL,Fanatics,Rec Yds,Over,35.5,-125,45.54,10.04,1.283
+638,Jahmyr Gibbs,DET,DAL,Fanatics,Rec Yds,Under,35.5,-105,45.54,10.04,1.283
+639,Javonte Williams,DAL,DET,Fanatics,Rec Yds,Over,10.5,-110,12.53,2.03,1.193
+640,Javonte Williams,DAL,DET,Fanatics,Rec Yds,Under,10.5,-120,12.53,2.03,1.193
+641,Ross Dwelley,DET,DAL,Fanatics,Rec Yds,Over,10.5,-150,18.87,8.37,1.797
+642,Ross Dwelley,DET,DAL,Fanatics,Rec Yds,Under,10.5,110,18.87,8.37,1.797
+643,David Montgomery,DET,DAL,Fanatics,Rec Yds,Over,10.5,-150,15.41,4.91,1.468
+644,David Montgomery,DET,DAL,Fanatics,Rec Yds,Under,10.5,110,15.41,4.91,1.468
+645,Tom Kennedy,DET,DAL,Fanatics,Rec Yds,Over,30.5,100,39.24,8.74,1.287
+646,Tom Kennedy,DET,DAL,Fanatics,Rec Yds,Under,30.5,-135,39.24,8.74,1.287
+647,KaVontae Turpin,DAL,DET,Fanatics,Rec Yds,Over,15.5,-115,20.82,5.32,1.343
+648,KaVontae Turpin,DAL,DET,Fanatics,Rec Yds,Under,15.5,-115,20.82,5.32,1.343
+649,Ryan Flournoy,DAL,DET,Fanatics,Rec Yds,Over,10.5,-140,16.1,5.6,1.533
+650,Ryan Flournoy,DAL,DET,Fanatics,Rec Yds,Under,10.5,105,16.1,5.6,1.533
+651,Isaac TeSlaa,DET,DAL,Fanatics,Rec Yds,Over,35.5,-125,42.91,7.41,1.209
+652,Isaac TeSlaa,DET,DAL,Fanatics,Rec Yds,Under,35.5,-105,42.91,7.41,1.209
 653,Kirk Cousins,ATL,SEA,DraftKings,Pass Comp,Over,21.5,-104,22.0,0.5,1.023
 654,Kirk Cousins,ATL,SEA,DraftKings,Pass Comp,Under,21.5,-122,22.0,0.5,1.023
 655,Sam Darnold,SEA,ATL,DraftKings,Pass Comp,Over,18.5,-107,19.0,0.5,1.027
