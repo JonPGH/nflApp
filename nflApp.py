@@ -1704,8 +1704,6 @@ if check_password():
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money DFS Tool<br></b>
         <font size=3 face=Futura>These projections are tweaked slightly for more DFS friendly projections, including ceiling and positional adjustments.<br>Last Update: {last_update_string}</b></i></center><hr>""", unsafe_allow_html=True)
         
-        
-
 
         group = st.radio("Group", ["Main Slate", "Showdowns"], horizontal=True, index=0)
         
@@ -3438,6 +3436,11 @@ if check_password():
         
         ##
         weekproj = weekproj.rename({'Ceiling100':'CeilScore'},axis=1)
+        try:
+            weekproj = weekproj.drop(['Ceiling100_y'],axis=1)
+            weekproj = weekproj.rename({'Ceiling100_x': 'CeilScore'},axis=1)
+        except:
+            pass
         weekproj['CeilScore'] = weekproj['CeilScore'].astype(int)
         weekproj['Game'] = weekproj['Team'].map(look_game_dict)
         #game_selection_list = list(weekproj['Game'].unique())
