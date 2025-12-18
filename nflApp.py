@@ -2173,8 +2173,12 @@ if check_password():
             player_search = col2.text_input("Search for Player:")
 
             # Salary slider uses global min/max (int)
-            sal_min = int(optimizer_proj["Sal"].min())
-            sal_max = int(optimizer_proj["Sal"].max())
+            try:
+                sal_min = int(optimizer_proj["Sal"].min())
+                sal_max = int(optimizer_proj["Sal"].max())
+            except:
+                sal_min = 2000
+                sal_max = 11000
             salary_range = col3.slider(
                 "Salary range ($)",
                 min_value=sal_min,
