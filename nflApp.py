@@ -21,7 +21,7 @@ if 'authenticated' not in st.session_state:
 
 # Define the correct password (replace with your desired password)
 #st.markdown("<h1>Enter Password to Access Slate Analysis Tool",unsafe_allow_html=True)
-CORRECT_PASSWORD = "foster"
+CORRECT_PASSWORD = "a"
 CORRECT_PASSWORD2 = '1'
 
 def convert_df_to_csv(df):
@@ -209,11 +209,11 @@ if check_password():
         file_path = os.path.join(base_dir, 'Data')
         adp_data = pd.read_csv(f'{file_path}/ADP_Dashboard.csv')
         logo = "{}/Logo.png".format(file_path)
-        season_proj = pd.read_csv(f'{file_path}/JA_Season_Projections.csv')
+        #season_proj = pd.read_csv(f'{file_path}/JA_Season_Projections.csv')
         name_change = pd.read_csv(f'{file_path}/nflnamechange.csv')
         allproplines = pd.read_csv(f'{file_path}/AllPropsData.csv')
         allproplines_history = pd.read_csv(f'{file_path}/AllPropsData_History.csv')
-        weekproj = pd.read_csv(f'{file_path}/ja_proj.csv')
+        weekproj = pd.read_csv(f'{file_path}/japroj.csv')
         schedule = pd.read_csv(f'{file_path}/nfl_schedule_tracking.csv')
         dkdata = pd.read_csv(f'{file_path}/DKData.csv')
         implied_totals = pd.read_csv(f'{file_path}/implied_totals.csv')
@@ -233,9 +233,10 @@ if check_password():
         te_grades = pd.read_csv(f'{file_path}/te_grades.csv')
         team_grades = pd.read_csv(f'{file_path}/team_grading.csv')
         optimizer_proj = pd.read_csv(f'{file_path}/main_slate_projections.csv')
-        best_bet_data = pd.read_csv(f'{file_path}/PropCompSheet.csv')
+        #best_bet_data = pd.read_csv(f'{file_path}/PropCompSheet.csv')
         etrfull = pd.read_csv(f'{file_path}/etrfull.csv')
         dst_namemaps = pd.read_csv(f'{file_path}/dst_namemaps.csv')
+        nfl_id_maps = pd.read_csv(f'{file_path}/nfl_player_id_maps.csv')
         try:
             tnfshowdown = pd.read_csv(f'{file_path}/tnfshowdown.csv')
         except:
@@ -249,8 +250,8 @@ if check_password():
         except:
             mnfshowdown = pd.DataFrame()
 
-        return dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj
-
+        return dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj,nfl_id_maps
+    
     # ---------- Best Bets helpers ----------
     def _std_norm_cdf(x: float) -> float:
         return 0.5 * (1.0 + erf(x / sqrt(2.0)))
@@ -520,7 +521,9 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,best_bet_data,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, season_proj, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj = load_data()
+    dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj,nfl_id_maps= load_data()
+    st.write(shootout_matchups)
+    
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
 
@@ -603,10 +606,10 @@ if check_password():
     ###
     weekproj['Team'] = weekproj['Team'].replace({'GB':'GNB','TB':'TAM','ARZ':'ARI','SF':'SFO'})
     weekproj['Opp'] = weekproj['Opp'].replace({'GB':'GNB','TB':'TAM', 'ARZ':'ARI','SF':'SFO'})
-    season_proj['Proj FPts'] = 0
+    #season_proj['Proj FPts'] = 0
     namemapdict = dict(zip(namemap.OldName,namemap.NewName))
     adp_data['Player'] = adp_data['Player'].replace(namemapdict)
-    season_proj['Player'] = season_proj['Player'].replace(namemapdict)
+    #season_proj['Player'] = season_proj['Player'].replace(namemapdict)
     implied_totals['Rank'] = implied_totals['Implied'].rank(ascending=False)
 
     shootout_matchups['GameSS'] = round(shootout_matchups['Game SS'],0)
@@ -629,7 +632,7 @@ if check_password():
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
     #tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau","NBA Optimizer"], help="Choose a Page")
-    tab = st.sidebar.radio("Select View", ["Book Based Proj","Weekly Ranks","Game by Game","DFS Optimizer","Player Grades","Expected Fantasy Points"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","DFS Optimizer","Player Grades","Expected Fantasy Points"], help="Choose a Page")
     if "reload" not in st.session_state:
         st.session_state.reload = False
 
@@ -1313,6 +1316,7 @@ if check_password():
 
         # -------------------- Base prep --------------------
         # Normalize ceiling column and types
+        st.write(weekproj)
         weekproj = weekproj.rename(columns={'Ceiling100': 'CeilScore'})
         if 'CeilScore' not in weekproj.columns:
             weekproj['CeilScore'] = 100
@@ -2865,6 +2869,229 @@ if check_password():
             st.markdown("<style>.stApp {background-color: #white;}</style>", unsafe_allow_html=True)
   
     if tab == "Book Based Proj":
+
+        st.markdown(
+            """
+            <br>
+            <center>
+                <font size=10 face=Futura><b>Book Based Projections</b></font><br>
+                <font size=3 face=Futura>
+                    These are projections derived from the betting lines taken out of the major sports books
+                </font>
+            </center>
+            <br>
+            """,
+            unsafe_allow_html=True
+        )
+
+        # -----------------------------------
+        # FILTER DROPDOWNS
+        # -----------------------------------
+
+        game_select_list = ['All'] + sorted(bookproj['Game'].dropna().unique().tolist())
+        position_select_list = ['All', 'QB', 'RB', 'WR', 'TE']
+        player_select_list = ['All'] + sorted(bookproj['Player'].dropna().unique().tolist())
+
+        bookcol1, bookcol2, bookcol3 = st.columns([1, 1, 1])
+
+        with bookcol1:
+            game_selection_box = st.selectbox(
+                'Select a Game',
+                game_select_list
+            )
+
+        with bookcol2:
+            position_selection_box = st.selectbox(
+                'Select a Position',
+                position_select_list
+            )
+
+        with bookcol3:
+            player_selection_box = st.selectbox(
+                'Select a Player',
+                player_select_list
+            )
+
+
+        # -----------------------------------
+        # START DATAFRAME
+        # -----------------------------------
+
+        show_df = bookproj.copy()
+
+
+        # -----------------------------------
+        # ADD POSITION
+        # -----------------------------------
+
+        pos_nfl_maps = (
+            nfl_id_maps[['display_name', 'position']]
+            .drop_duplicates()
+            .copy()
+        )
+
+        pos_nfl_maps.columns = ['Player', 'Pos']
+
+        # Only merge if Pos isn't already there
+        if 'Pos' not in show_df.columns:
+            show_df = pd.merge(
+                show_df,
+                pos_nfl_maps,
+                on='Player',
+                how='left'
+            )
+
+
+        # -----------------------------------
+        # APPLY FILTERS
+        # -----------------------------------
+
+        if game_selection_box != 'All':
+            show_df = show_df[
+                show_df['Game'] == game_selection_box
+            ]
+
+        if position_selection_box != 'All':
+            show_df = show_df[
+                show_df['Pos'] == position_selection_box
+            ]
+
+        if player_selection_box != 'All':
+            show_df = show_df[
+                show_df['Player'] == player_selection_box
+            ]
+
+
+        # -----------------------------------
+        # CALCULATE FANTASY POINTS
+        # -----------------------------------
+
+        show_df['FPts'] = (
+            (show_df['Pass Yards'] / 25)
+            + (show_df['Int'] * -1)
+            + (show_df['Pass TD'] * 4)
+            + (show_df['Rush Yds'] * .1)
+            + (show_df['Rec Yds'] * .1)
+            + (show_df['Rec'] * 1)
+            + (show_df['Rush Rec TD'] * 6)
+        )
+
+
+        # -----------------------------------
+        # CLEAN / ORDER DATAFRAME
+        # -----------------------------------
+
+        show_df = show_df[
+            [
+                'Player',
+                'Team',
+                'Opp',
+                'Game',
+                'Pos',
+                'FPts',
+                'Pass Att',
+                'Pass Yards',
+                'Int',
+                'Pass TD',
+                'Rush Att',
+                'Rush Yds',
+                'Rec',
+                'Rec Yds',
+                'Rush Rec TD'
+            ]
+        ]
+
+        show_df = show_df.sort_values(
+            'FPts',
+            ascending=False
+        ).reset_index(drop=True)
+
+        show_df = show_df.round(1)
+
+
+        # -----------------------------------
+        # PLAYER POSITION COLORS
+        # -----------------------------------
+
+        position_colors = {
+            'QB': 'background-color: #ffd6d6; color: #8b0000; font-weight: bold;',
+            'RB': 'background-color: #d6f5d6; color: #145214; font-weight: bold;',
+            'WR': 'background-color: #d6e8ff; color: #003d80; font-weight: bold;',
+            'TE': 'background-color: #f2dcff; color: #5c007a; font-weight: bold;'
+        }
+
+
+        def shade_player(row):
+
+            styles = [''] * len(row)
+
+            pos = row['Pos']
+
+            if pos in position_colors:
+                player_col_num = row.index.get_loc('Player')
+                styles[player_col_num] = position_colors[pos]
+
+            return styles
+
+
+        # -----------------------------------
+        # STYLE DATAFRAME
+        # -----------------------------------
+
+        styled_df = (
+            show_df.style
+            .apply(
+                shade_player,
+                axis=1
+            )
+
+            # Shade FPts based on projection strength
+            .background_gradient(
+                subset=['FPts'],
+                cmap='RdYlGn'
+            )
+
+            # Number formatting
+            .format({
+                'FPts': '{:.1f}',
+                'Pass Att': '{:.1f}',
+                'Pass Yards': '{:.1f}',
+                'Int': '{:.1f}',
+                'Pass TD': '{:.1f}',
+                'Rush Att': '{:.1f}',
+                'Rush Yds': '{:.1f}',
+                'Rec': '{:.1f}',
+                'Rec Yds': '{:.1f}',
+                'Rush Rec TD': '{:.1f}'
+            })
+
+            # Make headers cleaner
+            .set_properties(**{
+                'text-align': 'center'
+            })
+
+            .set_properties(
+                subset=['Player'],
+                **{
+                    'text-align': 'left'
+                }
+            )
+        )
+
+
+        # -----------------------------------
+        # DISPLAY
+        # -----------------------------------
+
+        st.dataframe(
+            styled_df,
+            hide_index=True,
+            use_container_width=True,
+            height=650
+        )
+
+
+    if tab == "Book Based Proj _ Old":
         st.markdown(f"""<br><center><font size=10 face=Futura><b>Book Based Projections<br></b><font size=3 face=Futura>These are projections derived from the betting lines taken out of the major sports books</font></center>
                      """, unsafe_allow_html=True)
         
@@ -2889,7 +3116,14 @@ if check_password():
             filtered_df = bookproj[bookproj['Player']==player_selection_box]
             show_df = filtered_df.copy()
 
-        show_df = show_df[['Player','Team','Opp','Game','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yds','Rec','Rec Yds','Rush Rec TD']]
+        ##working here
+        pos_nfl_maps = nfl_id_maps[['display_name','position']]
+        pos_nfl_maps.columns=['Player','Pos']
+        #show_df = show_df.drop(['Pos'],axis=0)
+        #show_df = pd.merge(show_df,pos_nfl_maps,on='Player',how='left')
+        show_df['FPts'] = (show_df['Pass Yards']/25) + (show_df['Int']*-1) + (show_df['Pass TD']*4) + (show_df['Rush Yds']*.1) + (show_df['Rec Yds']*.1) + (show_df['Rec']*1) + (show_df['Rush Rec TD']*6)
+        show_df = show_df.round(1)
+        show_df = show_df[['Player','Team','Opp','Game','Pos','FPts','Pass Att','Pass Yards','Int','Pass TD','Rush Att','Rush Yds','Rec','Rec Yds','Rush Rec TD']]
         st.dataframe(show_df,hide_index=True, width=1250)
     
     if tab == "Expected Fantasy Points":
