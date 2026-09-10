@@ -522,7 +522,6 @@ if check_password():
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
     dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj,nfl_id_maps= load_data()
-    st.write(shootout_matchups)
     
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
@@ -727,7 +726,6 @@ if check_password():
         df["Salary"] = pd.to_numeric(df["Salary"], errors="coerce").fillna(0).astype(int)
         df["Projection"] = pd.to_numeric(df["Projection"], errors="coerce").fillna(0.0)
         df["Base Value"] = df["Projection"]/(df["Salary"]/1000)
-        #st.write(df.sort_values(by='Base Value',ascending=False))
 
         #### add in jon value
 
@@ -1316,7 +1314,6 @@ if check_password():
 
         # -------------------- Base prep --------------------
         # Normalize ceiling column and types
-        st.write(weekproj)
         weekproj = weekproj.rename(columns={'Ceiling100': 'CeilScore'})
         if 'CeilScore' not in weekproj.columns:
             weekproj['CeilScore'] = 100
