@@ -613,6 +613,7 @@ if check_password():
 
     shootout_matchups['GameSS'] = round(shootout_matchups['Game SS'],0)
 
+
     game_ss_dict = dict(zip(shootout_matchups.Team,shootout_matchups.GameSS))
     
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
@@ -3377,7 +3378,1126 @@ if check_password():
 
         render_xfp_vs_actual()
 
+    ### Beginning of new game by game
+
+    ####
+
     if tab == "Game by Game":
+
+        # ============================================================
+        # PAGE HEADER
+        # ============================================================
+
+        page_header = (
+            '<div style="text-align:center;margin-bottom:20px;">'
+            '<div style="font-size:42px;font-weight:800;letter-spacing:-1px;">'
+            'Game by Game Preview'
+            '</div>'
+            '<div style="font-size:14px;color:#888;margin-top:4px;">'
+            'Matchup outlook, betting markets, projections & DFS value'
+            '</div>'
+            '</div>'
+        )
+
+        st.markdown(page_header, unsafe_allow_html=True)
+
+        dksalsdf = dkdata[['Player', 'Sal']].copy()
+
+
+        # ============================================================
+        # TOP CONTROLS
+        # ============================================================
+
+        g_checkcol1, g_checkcol2, g_checkcol3 = st.columns([1, 1, 4])
+
+        with g_checkcol1:
+            show_all_game_info = st.checkbox(
+                'Full Slate Info',
+                value=False
+            )
+
+        with g_checkcol2:
+            show_shootout_info = st.checkbox(
+                'Shootout Rankings',
+                value=False
+            )
+
+
+        # ============================================================
+        # FULL SLATE INFO
+        # ============================================================
+
+        if show_all_game_info:
+
+            show_schedule = (
+                implied_totals[
+                    ['Team', 'Opp', 'OU', 'Spread', 'Implied']
+                ]
+                .sort_values(
+                    by='OU',
+                    ascending=False
+                )
+                .copy()
+            )
+
+            show_schedule['Main Slate'] = np.where(
+                show_schedule['Team'].isin(main_slate_team_list),
+                'Y',
+                'N'
+            )
+
+            st.markdown("### Full Slate Game Environment")
+
+            st.dataframe(
+                show_schedule,
+                hide_index=True,
+                use_container_width=True,
+                column_config={
+                    'OU': st.column_config.NumberColumn(
+                        'O/U',
+                        format='%.1f'
+                    ),
+                    'Spread': st.column_config.NumberColumn(
+                        'Spread',
+                        format='%.1f'
+                    ),
+                    'Implied': st.column_config.NumberColumn(
+                        'Implied',
+                        format='%.1f'
+                    )
+                }
+            )
+
+
+        # ============================================================
+        # SHOOTOUT INFO
+        # ============================================================
+
+        if show_shootout_info:
+
+            show_shooty_matchups = (
+                shootout_matchups[
+                    ['Team', 'Opp', 'Game SS']
+                ]
+                .copy()
+            )
+
+            show_shooty_matchups['Game SS'] = (
+                pd.to_numeric(
+                    show_shooty_matchups['Game SS'],
+                    errors='coerce'
+                )
+                .fillna(0)
+                .astype(int)
+            )
+
+            show_shooty_matchups.columns = [
+                'Team',
+                'Opp',
+                'Shootout Score'
+            ]
+
+            show_shooty_matchups = (
+                show_shooty_matchups
+                .sort_values(
+                    by='Shootout Score',
+                    ascending=False
+                )
+            )
+
+            st.markdown("### Shootout Rankings")
+
+            st.dataframe(
+                show_shooty_matchups,
+                hide_index=True,
+                use_container_width=True
+            )
+
+
+        # ============================================================
+        # CURRENT WEEK SCHEDULE
+        # ============================================================
+
+        get_this_week_number = dkdata['Week'].iloc[0]
+
+        try:
+            schedule = schedule.drop(
+                ['Week'],
+                axis=1
+            )
+        except:
+            pass
+
+        schedule['Date'] = pd.to_datetime(
+            schedule['Date']
+        ).dt.date
+
+        nfl_week_maps['Date'] = pd.to_datetime(
+            nfl_week_maps['Date']
+        ).dt.date
+
+        schedule = pd.merge(
+            schedule,
+            nfl_week_maps,
+            on='Date',
+            how='left'
+        )
+
+        this_week = schedule[
+            schedule['Week'] == get_this_week_number
+        ].copy()
+
+        from datetime import datetime
+
+        check_today = datetime.today().date()
+
+        this_week = this_week[
+            this_week['Date'] >= check_today
+        ].copy()
+
+        this_week['Game Name'] = (
+            this_week['Away']
+            + ' @ '
+            + this_week['Home']
+        )
+
+
+        # ============================================================
+        # GAME SELECTOR
+        # ============================================================
+
+        game_selection_list = list(
+            this_week['Game Name'].dropna().unique()
+        )
+
+        selcol1, selcol2, selcol3 = st.columns([1, 2, 1])
+
+        with selcol2:
+            game_selection = st.selectbox(
+                'Select a Matchup',
+                game_selection_list
+            )
+
+
+        # ============================================================
+        # SELECTED GAME
+        # ============================================================
+
+        selectedgamedata = this_week[
+            this_week['Game Name'] == game_selection
+        ].copy()
+
+        game_date = selectedgamedata['Date'].iloc[0]
+        game_time = selectedgamedata['Time'].iloc[0]
+
+        date_to_show = game_date.strftime(
+            '%A, %B %-d'
+        )
+
+        time_obj = datetime.strptime(
+            game_time,
+            '%H:%M'
+        )
+
+        time_to_show = time_obj.strftime(
+            '%-I:%M %p'
+        )
+
+        selected_gameid = selectedgamedata[
+            'ID'
+        ].iloc[0]
+
+        game_line_log = schedule[
+            schedule['ID'] == selected_gameid
+        ].copy()
+
+        selectedgamedata = selectedgamedata[
+            selectedgamedata['Timestamp']
+            == selectedgamedata['Timestamp'].max()
+        ].copy()
+
+        road_team = selectedgamedata[
+            'Away'
+        ].iloc[0]
+
+        home_team = selectedgamedata[
+            'Home'
+        ].iloc[0]
+
+        road_team_short = teamnamechangedict.get(
+            road_team
+        )
+
+        home_team_short = teamnamechangedict.get(
+            home_team
+        )
+
+        road_team_short_lower = road_team_short.lower()
+        home_team_short_lower = home_team_short.lower()
+
+        game_ss_value = game_ss_dict.get(
+            road_team_short,
+            100
+        )
+
+        game_ss_value = pd.to_numeric(
+            game_ss_value,
+            errors='coerce'
+        )
+
+        if pd.isna(game_ss_value):
+            game_ss_value = 100
+
+        game_ss_value = int(game_ss_value)
+
+        favored_team = selectedgamedata[
+            'Underdog'
+        ].iloc[0]
+
+        road_spread = selectedgamedata[
+            'Away Spread'
+        ].iloc[0]
+
+        home_spread = selectedgamedata[
+            'Home Spread'
+        ].iloc[0]
+
+        game_ou = selectedgamedata[
+            'OU'
+        ].iloc[0]
+
+        if favored_team == road_team:
+            favored_spread = road_spread
+        else:
+            favored_spread = home_spread
+
+
+        # ============================================================
+        # GAME HEADER CARD
+        # ============================================================
+
+        game_header = (
+            f'<div style="margin-top:18px;margin-bottom:18px;'
+            f'padding:24px;border:1px solid rgba(128,128,128,.25);'
+            f'border-radius:16px;text-align:center;">'
+
+            f'<div style="font-size:12px;color:#888;'
+            f'text-transform:uppercase;letter-spacing:1.3px;'
+            f'font-weight:600;">'
+            f'{date_to_show} • {time_to_show}'
+            f'</div>'
+
+            f'<div style="font-size:38px;font-weight:800;'
+            f'letter-spacing:-1px;margin-top:7px;margin-bottom:18px;">'
+            f'{road_team}'
+            f'<span style="color:#999;font-weight:400;"> @ </span>'
+            f'{home_team}'
+            f'</div>'
+
+            f'<div style="display:flex;justify-content:center;'
+            f'gap:55px;flex-wrap:wrap;">'
+
+            f'<div>'
+            f'<div style="font-size:11px;color:#999;'
+            f'text-transform:uppercase;">Favorite</div>'
+            f'<div style="font-size:21px;font-weight:700;">'
+            f'{favored_team} {favored_spread}'
+            f'</div>'
+            f'</div>'
+
+            f'<div>'
+            f'<div style="font-size:11px;color:#999;'
+            f'text-transform:uppercase;">Over / Under</div>'
+            f'<div style="font-size:21px;font-weight:700;">'
+            f'{game_ou}'
+            f'</div>'
+            f'</div>'
+
+            f'<div>'
+            f'<div style="font-size:11px;color:#999;'
+            f'text-transform:uppercase;">Shootout Score</div>'
+            f'<div style="font-size:21px;font-weight:700;">'
+            f'{game_ss_value}'
+            f'</div>'
+            f'</div>'
+
+            f'</div>'
+
+            f'<div style="font-size:11px;color:#999;margin-top:13px;">'
+            f'100 = league average shootout score'
+            f'</div>'
+
+            f'</div>'
+        )
+
+        st.markdown(
+            game_header,
+            unsafe_allow_html=True
+        )
+
+
+        # ============================================================
+        # LINE MOVEMENT
+        # ============================================================
+
+        line_move_check = st.checkbox(
+            'Show Betting Line Movement',
+            value=False
+        )
+
+        if line_move_check:
+
+            import re
+            import math
+            import matplotlib.pyplot as plt
+            import matplotlib.dates as mdates
+            from dateutil import parser as dtparser
+
+            st.markdown("### Betting Market Movement")
+
+            dayscol1, dayscol2 = st.columns([1, 3])
+
+            with dayscol1:
+                numdays = st.number_input(
+                    "Days Back",
+                    min_value=3,
+                    max_value=14,
+                    value=7,
+                    step=1
+                )
+
+            gll = game_line_log.copy()
+
+            ts_candidates = [
+                c
+                for c in gll.columns
+                if isinstance(c, str)
+                and c.lower() in {
+                    'timestamp',
+                    'time',
+                    'date',
+                    'datetime',
+                    'ts'
+                }
+            ]
+
+            if not ts_candidates:
+
+                st.error(
+                    "No timestamp column found."
+                )
+
+            else:
+
+                ts_col = ts_candidates[0]
+
+                def safe_parse_one(x):
+
+                    if x is None:
+                        return pd.NaT
+
+                    if (
+                        isinstance(x, float)
+                        and math.isnan(x)
+                    ):
+                        return pd.NaT
+
+                    if isinstance(
+                        x,
+                        (pd.Timestamp, datetime)
+                    ):
+
+                        ts = pd.Timestamp(x)
+
+                        if getattr(
+                            x,
+                            'tzinfo',
+                            None
+                        ):
+                            return ts.tz_localize(None)
+
+                        return ts
+
+                    s = str(x).strip()
+
+                    if not s:
+                        return pd.NaT
+
+                    s = re.sub(
+                        r'\s+[A-Za-z]{2,5}$',
+                        '',
+                        s
+                    )
+
+                    try:
+                        return pd.to_datetime(
+                            s,
+                            errors='raise'
+                        )
+
+                    except Exception:
+
+                        try:
+                            return pd.Timestamp(
+                                dtparser.parse(
+                                    s,
+                                    ignoretz=True
+                                )
+                            )
+
+                        except Exception:
+                            return pd.NaT
+
+                gll['__ts'] = gll[
+                    ts_col
+                ].apply(
+                    safe_parse_one
+                )
+
+                gll = (
+                    gll
+                    .dropna(
+                        subset=['__ts']
+                    )
+                    .sort_values('__ts')
+                )
+
+                cutoff = (
+                    pd.Timestamp.utcnow()
+                    - pd.Timedelta(
+                        days=int(numdays)
+                    )
+                ).tz_localize(None)
+
+                gll = gll[
+                    gll['__ts'] >= cutoff
+                ].copy()
+
+                gll['OU'] = pd.to_numeric(
+                    gll['OU'],
+                    errors='coerce'
+                )
+
+                gll['Home Spread'] = pd.to_numeric(
+                    gll['Home Spread'],
+                    errors='coerce'
+                )
+
+                gll = gll.dropna(
+                    subset=[
+                        'OU',
+                        'Home Spread'
+                    ]
+                )
+
+                if len(gll) < 2:
+
+                    st.info(
+                        "Not enough betting history "
+                        "in the selected window yet."
+                    )
+
+                else:
+
+                    current_ou = gll[
+                        'OU'
+                    ].iloc[-1]
+
+                    opening_ou = gll[
+                        'OU'
+                    ].iloc[0]
+
+                    current_spread = gll[
+                        'Home Spread'
+                    ].iloc[-1]
+
+                    opening_spread = gll[
+                        'Home Spread'
+                    ].iloc[0]
+
+                    m1, m2, m3, m4 = st.columns(4)
+
+                    m1.metric(
+                        'Current O/U',
+                        f'{current_ou:.1f}',
+                        f'{current_ou - opening_ou:+.1f}'
+                    )
+
+                    m2.metric(
+                        'Opening O/U',
+                        f'{opening_ou:.1f}'
+                    )
+
+                    m3.metric(
+                        'Current Home Spread',
+                        f'{current_spread:.1f}',
+                        f'{current_spread - opening_spread:+.1f}'
+                    )
+
+                    m4.metric(
+                        'Opening Home Spread',
+                        f'{opening_spread:.1f}'
+                    )
+
+                    def nice_limits(
+                        series,
+                        pad_frac=.08
+                    ):
+
+                        smin = float(
+                            np.nanmin(series)
+                        )
+
+                        smax = float(
+                            np.nanmax(series)
+                        )
+
+                        if smin == smax:
+                            smin -= 1
+                            smax += 1
+
+                        pad = (
+                            smax - smin
+                        ) * pad_frac
+
+                        return (
+                            smin - pad,
+                            smax + pad
+                        )
+
+                    ou_min, ou_max = nice_limits(
+                        gll['OU']
+                    )
+
+                    sp_min, sp_max = nice_limits(
+                        gll['Home Spread']
+                    )
+
+                    x_locator = (
+                        mdates.AutoDateLocator(
+                            minticks=3,
+                            maxticks=6
+                        )
+                    )
+
+                    x_fmt = (
+                        mdates.ConciseDateFormatter(
+                            x_locator
+                        )
+                    )
+
+                    plot1, plot2 = st.columns(2)
+
+                    with plot1:
+
+                        fig, ax = plt.subplots(
+                            figsize=(5, 2.6),
+                            dpi=150
+                        )
+
+                        ax.plot(
+                            gll['__ts'],
+                            gll['OU'],
+                            linewidth=2.5,
+                            marker='o',
+                            markersize=3
+                        )
+
+                        ax.set_title(
+                            'Over / Under',
+                            fontsize=12,
+                            fontweight='bold'
+                        )
+
+                        ax.set_ylim(
+                            ou_min,
+                            ou_max
+                        )
+
+                        ax.xaxis.set_major_locator(
+                            x_locator
+                        )
+
+                        ax.xaxis.set_major_formatter(
+                            x_fmt
+                        )
+
+                        ax.grid(
+                            True,
+                            linestyle='--',
+                            linewidth=.5,
+                            alpha=.25
+                        )
+
+                        ax.spines[
+                            'top'
+                        ].set_visible(False)
+
+                        ax.spines[
+                            'right'
+                        ].set_visible(False)
+
+                        ax.annotate(
+                            f'{current_ou:.1f}',
+                            xy=(
+                                gll['__ts'].iloc[-1],
+                                current_ou
+                            ),
+                            xytext=(7, 0),
+                            textcoords='offset points',
+                            va='center',
+                            fontsize=9,
+                            fontweight='bold'
+                        )
+
+                        st.pyplot(
+                            fig,
+                            use_container_width=True
+                        )
+
+                        plt.close(fig)
+
+                    with plot2:
+
+                        fig, ax = plt.subplots(
+                            figsize=(5, 2.6),
+                            dpi=150
+                        )
+
+                        ax.plot(
+                            gll['__ts'],
+                            gll['Home Spread'],
+                            linewidth=2.5,
+                            marker='o',
+                            markersize=3
+                        )
+
+                        ax.axhline(
+                            0,
+                            linewidth=1,
+                            alpha=.4
+                        )
+
+                        ax.set_title(
+                            'Home Team Spread',
+                            fontsize=12,
+                            fontweight='bold'
+                        )
+
+                        ax.set_ylim(
+                            sp_min,
+                            sp_max
+                        )
+
+                        ax.xaxis.set_major_locator(
+                            x_locator
+                        )
+
+                        ax.xaxis.set_major_formatter(
+                            x_fmt
+                        )
+
+                        ax.grid(
+                            True,
+                            linestyle='--',
+                            linewidth=.5,
+                            alpha=.25
+                        )
+
+                        ax.spines[
+                            'top'
+                        ].set_visible(False)
+
+                        ax.spines[
+                            'right'
+                        ].set_visible(False)
+
+                        ax.annotate(
+                            f'{current_spread:.1f}',
+                            xy=(
+                                gll['__ts'].iloc[-1],
+                                current_spread
+                            ),
+                            xytext=(7, 0),
+                            textcoords='offset points',
+                            va='center',
+                            fontsize=9,
+                            fontweight='bold'
+                        )
+
+                        st.pyplot(
+                            fig,
+                            use_container_width=True
+                        )
+
+                        plt.close(fig)
+
+
+        # ============================================================
+        # PREP PROJECTIONS
+        # ============================================================
+
+        weekproj = pd.merge(
+            weekproj,
+            dksalsdf,
+            how='left',
+            on='Player'
+        )
+
+        weekproj['JA Rk'] = weekproj[
+            'Player'
+        ].map(
+            all_grade_rank_dict
+        )
+
+        if 'Sal_x' in weekproj.columns:
+            weekproj = weekproj.drop(
+                ['Sal_x'],
+                axis=1
+            )
+
+        if 'Sal_y' in weekproj.columns:
+            weekproj = weekproj.rename(
+                columns={
+                    'Sal_y': 'Sal'
+                }
+            )
+
+        weekproj = weekproj.round(2)
+
+        weekproj = weekproj[
+            weekproj['Projection'] > 2
+        ].copy()
+
+        road_projections = weekproj[
+            weekproj['Team']
+            == road_team_short
+        ].copy()
+
+        home_projections = weekproj[
+            weekproj['Team']
+            == home_team_short
+        ].copy()
+
+
+        # ============================================================
+        # IMPLIED TOTALS / TEAM GRADES
+        # ============================================================
+
+        road_implied = implied_totals[
+            implied_totals['Team']
+            == road_team_short
+        ]['Implied'].iloc[0]
+
+        road_implied_rank = implied_totals[
+            implied_totals['Team']
+            == road_team_short
+        ]['Rank'].iloc[0]
+
+        home_implied = implied_totals[
+            implied_totals['Team']
+            == home_team_short
+        ]['Implied'].iloc[0]
+
+        home_implied_rank = implied_totals[
+            implied_totals['Team']
+            == home_team_short
+        ]['Rank'].iloc[0]
+
+        road_def_grade = int(
+            team_grades[
+                team_grades['Team']
+                == road_team_short
+            ]['Defense Grade'].iloc[0]
+        )
+
+        road_off_grade = int(
+            team_grades[
+                team_grades['Team']
+                == road_team_short
+            ]['Offense Grade'].iloc[0]
+        )
+
+        home_def_grade = int(
+            team_grades[
+                team_grades['Team']
+                == home_team_short
+            ]['Defense Grade'].iloc[0]
+        )
+
+        home_off_grade = int(
+            team_grades[
+                team_grades['Team']
+                == home_team_short
+            ]['Offense Grade'].iloc[0]
+        )
+
+
+        # ============================================================
+        # HELPER TO DISPLAY EACH TEAM
+        # ============================================================
+
+        def show_team_projection(
+            team_name,
+            projections,
+            implied,
+            implied_rank,
+            offense_grade,
+            defense_grade
+        ):
+
+            team_header = (
+                f'<div style="text-align:center;'
+                f'padding:12px 8px 14px 8px;'
+                f'margin-bottom:10px;'
+                f'border-bottom:1px solid rgba(128,128,128,.25);">'
+
+                f'<div style="font-size:28px;'
+                f'font-weight:800;">'
+                f'{team_name}'
+                f'</div>'
+
+                f'<div style="font-size:11px;'
+                f'color:#999;text-transform:uppercase;'
+                f'margin-top:8px;">'
+                f'Implied Points'
+                f'</div>'
+
+                f'<div style="font-size:29px;'
+                f'font-weight:800;line-height:1.1;">'
+                f'{implied:.1f}'
+                f'</div>'
+
+                f'<div style="font-size:12px;'
+                f'color:#999;margin-top:3px;">'
+                f'#{int(implied_rank)} of '
+                f'{len(implied_totals)}'
+                f'</div>'
+
+                f'</div>'
+            )
+
+            st.markdown(
+                team_header,
+                unsafe_allow_html=True
+            )
+
+            grade1, grade2 = st.columns(2)
+
+            with grade1:
+                st.metric(
+                    'Offense Grade',
+                    offense_grade
+                )
+
+            with grade2:
+                st.metric(
+                    'Defense Grade',
+                    defense_grade
+                )
+
+
+            def show_position_table(
+                df,
+                title,
+                height=None
+            ):
+
+                st.markdown(
+                    f'#### {title}'
+                )
+
+                if df.empty:
+
+                    st.caption(
+                        'No qualifying projections'
+                    )
+
+                    return
+
+                show_df = (
+                    df[
+                        [
+                            'Player',
+                            'JA Rk',
+                            'Sal',
+                            'Projection',
+                            'Value'
+                        ]
+                    ]
+                    .sort_values(
+                        by='Projection',
+                        ascending=False
+                    )
+                    .copy()
+                )
+
+                show_df['JA Rk'] = pd.to_numeric(
+                    show_df['JA Rk'],
+                    errors='coerce'
+                )
+
+                show_df['Sal'] = pd.to_numeric(
+                    show_df['Sal'],
+                    errors='coerce'
+                )
+
+                show_df['Projection'] = (
+                    pd.to_numeric(
+                        show_df['Projection'],
+                        errors='coerce'
+                    )
+                )
+
+                show_df['Value'] = (
+                    pd.to_numeric(
+                        show_df['Value'],
+                        errors='coerce'
+                    )
+                )
+
+                dataframe_kwargs = {
+                    'hide_index': True,
+                    'use_container_width': True,
+                    'column_config': {
+                        'Player':
+                            st.column_config.TextColumn(
+                                'Player'
+                            ),
+
+                        'JA Rk':
+                            st.column_config.NumberColumn(
+                                'Rank',
+                                format='%.0f'
+                            ),
+
+                        'Sal':
+                            st.column_config.NumberColumn(
+                                'Salary',
+                                format='$%d'
+                            ),
+
+                        'Projection':
+                            st.column_config.NumberColumn(
+                                'Proj',
+                                format='%.2f'
+                            ),
+
+                        'Value':
+                            st.column_config.NumberColumn(
+                                'Value',
+                                format='%.2f'
+                            )
+                    }
+                }
+
+                if height is not None:
+                    dataframe_kwargs['height'] = height
+
+                st.dataframe(
+                    show_df,
+                    **dataframe_kwargs
+                )
+
+
+            qb = projections[
+                projections['Pos'] == 'QB'
+            ].copy()
+
+            rb = projections[
+                projections['Pos'] == 'RB'
+            ].copy()
+
+            pass_catchers = projections[
+                projections['Pos'].isin(
+                    ['WR', 'TE']
+                )
+            ].copy()
+
+            show_position_table(
+                qb,
+                'Quarterback'
+            )
+
+            show_position_table(
+                rb,
+                'Running Backs',
+                height=175
+            )
+
+            show_position_table(
+                pass_catchers,
+                'Pass Catchers',
+                height=300
+                if len(pass_catchers) > 7
+                else None
+            )
+
+
+        # ============================================================
+        # PLAYER PROJECTION DISPLAY
+        # ============================================================
+
+        if proj_are_good == 'N':
+
+            st.warning(
+                f'Projections for Week '
+                f'{this_week_number} '
+                f'are not yet available.'
+            )
+
+        else:
+
+            st.markdown("---")
+
+            projection_header = (
+                '<div style="text-align:center;'
+                'margin-bottom:18px;">'
+                '<div style="font-size:30px;'
+                'font-weight:800;">'
+                'Player Projections'
+                '</div>'
+                '<div style="font-size:13px;'
+                'color:#888;margin-top:3px;">'
+                'Fantasy projections, salary & matchup grades'
+                '</div>'
+                '</div>'
+            )
+
+            st.markdown(
+                projection_header,
+                unsafe_allow_html=True
+            )
+
+            projcol1, projcol2 = st.columns(
+                [1, 1],
+                gap='large'
+            )
+
+            with projcol1:
+
+                show_team_projection(
+                    team_name=road_team,
+                    projections=road_projections,
+                    implied=road_implied,
+                    implied_rank=road_implied_rank,
+                    offense_grade=road_off_grade,
+                    defense_grade=road_def_grade
+                )
+
+            with projcol2:
+
+                show_team_projection(
+                    team_name=home_team,
+                    projections=home_projections,
+                    implied=home_implied,
+                    implied_rank=home_implied_rank,
+                    offense_grade=home_off_grade,
+                    defense_grade=home_def_grade
+                )
+
+
+    if tab == "Game by Game _ Old":
         st.markdown("<h1><center>Game by Game Preview</h1></center>", unsafe_allow_html=True)
 
         dksalsdf = dkdata[['Player','Sal']]
@@ -3590,9 +4710,15 @@ if check_password():
                 st.caption("Centered view. Window is filtered by the selected number of days; metrics show change across the window.")
 
 
+        ### working here
+        #st.write(weekproj)
 
         weekproj = pd.merge(weekproj,dksalsdf,how='left',on='Player')
         weekproj['JA Rk'] = weekproj['Player'].map(all_grade_rank_dict)
+        weekproj = weekproj.drop(['Sal_x'],axis=1)
+        weekproj = weekproj.rename({'Sal_y':'Sal'},axis=1)
+        weekproj = weekproj.round(2)
+        weekproj = weekproj[weekproj['Projection']>2]
         road_projections = weekproj[weekproj['Team']==road_team_short]
         road_implied = implied_totals[implied_totals['Team']==road_team_short]['Implied'].iloc[0]
         road_implied_rank = implied_totals[implied_totals['Team']==road_team_short]['Rank'].iloc[0]
@@ -3614,15 +4740,14 @@ if check_password():
                 home_off_grade = team_grades[team_grades['Team']==home_team_short]['Offense Grade'].iloc[0].astype(int)
 
                 st.markdown(f"<center><font size=13><b>{road_team}</b></font><br><font size=4><i>Implied for <font size=6 color=red><b>{road_implied}</b></font> points, ranked #<font size = 6 color=red><b>{int(road_implied_rank)}</b></font> of {len(implied_totals)}</i><br><i>D Grade: <b><font size=6 color=red>{road_def_grade}</font></b>   |   O Grade: <b><font size = 6 color=red>{road_off_grade}</font></b></i><hr>", unsafe_allow_html=True)
-
                 st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-                road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','JA Rk','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+                road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
                 st.dataframe(road_qb_proj, hide_index=True, width=750)
                 st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-                road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','JA Rk','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+                road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
                 st.dataframe(road_rb_proj, hide_index=True, width=650,height=150)
                 st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-                road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','JA Rk','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+                road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
                 if len(road_rec_proj) > 7:
                     st.dataframe(road_rec_proj, hide_index=True, width=650,height=325)
                 else:
@@ -3633,13 +4758,13 @@ if check_password():
                 st.markdown(f"<center><font size=13><b>{home_team}</b></font><br><font size=4><i>Implied for <font size=6 color=red><b>{home_implied}</b></font> points, ranked #<font size = 6 color=red><b>{int(home_implied_rank)}</b></font> of {len(implied_totals)}</i><br><i>D Grade: <b><font size=6 color=red>{home_def_grade}</font></b>   |   O Grade: <b><font size = 6 color=red>{home_off_grade}</font></b></i><hr>", unsafe_allow_html=True)
 
                 st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-                home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','JA Rk','Sal','Pass Comp','Pass Att','Pass Yards','Pass TD', 'Int','Rush Att','Rush Yds','Rush TD']].sort_values(by='Pass Att',ascending=False)
+                home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
                 st.dataframe(home_qb_proj, hide_index=True, width=750)
                 st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-                home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','JA Rk','Sal','Rush Att','Rush Yds','Rush TD','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rush Att',ascending=False)
+                home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
                 st.dataframe(home_rb_proj, hide_index=True, width=650,height=150)
                 st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-                home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','JA Rk','Sal','Tgt','Rec','Rec Yds','Rec TD']].sort_values(by='Rec Yds',ascending=False)
+                home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
                 if len(home_rec_proj) > 7:
                     st.dataframe(home_rec_proj, hide_index=True, width=650,height=325)
                 else:
