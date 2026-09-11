@@ -3587,6 +3587,8 @@ if check_password():
             this_week['Game Name'] == game_selection
         ].copy()
 
+        #st.write(selectedgamedata)
+
         game_date = selectedgamedata['Date'].iloc[0]
         game_time = selectedgamedata['Time'].iloc[0]
 
@@ -3631,6 +3633,10 @@ if check_password():
         home_team_short = teamnamechangedict.get(
             home_team
         )
+
+        #if home_team_short == 'LVR':
+        #    home_team_short = 'LV'
+        #st.write(home_team_short)
 
         road_team_short_lower = road_team_short.lower()
         home_team_short_lower = home_team_short.lower()
@@ -4144,6 +4150,10 @@ if check_password():
             on='Player'
         )
 
+        #st.write(weekproj[weekproj['Team'].str.contains('SF')])
+        ## LV = RAIDERS
+        
+
         weekproj['JA Rk'] = weekproj[
             'Player'
         ].map(
@@ -4164,7 +4174,10 @@ if check_password():
             )
 
         weekproj = weekproj.round(2)
-
+        
+        ### CHANGE TEAM NAMES TO SHOW PROJECTIONS ###
+        weekproj['Team'] = np.where(weekproj['Team']=='LV','LVR',weekproj['Team'])
+        
         weekproj = weekproj[
             weekproj['Projection'] > 2
         ].copy()
@@ -4173,6 +4186,8 @@ if check_password():
             weekproj['Team']
             == road_team_short
         ].copy()
+
+
 
         home_projections = weekproj[
             weekproj['Team']
@@ -4398,8 +4413,8 @@ if check_password():
                     show_df,
                     **dataframe_kwargs
                 )
-
-
+            projections['Team'] = np.where(projections['Team']=='LVR','LV',projections['Team'])
+            #st.write(projections)
             qb = projections[
                 projections['Pos'] == 'QB'
             ].copy()
@@ -4497,278 +4512,6 @@ if check_password():
                 )
 
 
-    if tab == "Game by Game _ Old":
-        st.markdown("<h1><center>Game by Game Preview</h1></center>", unsafe_allow_html=True)
-
-        dksalsdf = dkdata[['Player','Sal']]
-
-        g_checkcol1, g_checkcol2, g_checkcol3 = st.columns([1,1,4])
-
-        with g_checkcol1:
-            show_all_game_info = st.checkbox('Show Full Slate Game Info', value=False)
-        with g_checkcol2:
-            show_shootout_info = st.checkbox('Show Shootout Game Info', value=False)
-        if show_all_game_info:
-            show_schedule = implied_totals[['Team','Opp','OU','Spread','Implied']].sort_values(by='OU',ascending=False)
-            show_schedule['MainSlate'] = np.where(show_schedule['Team'].isin(main_slate_team_list),"Y","N")
-            scol1, scol2, scol3 = st.columns([1,1,1])
-            with scol2:
-                st.dataframe(show_schedule, width=800,height=900, hide_index=True)
-        if show_shootout_info:
-            show_shooty_matchups = shootout_matchups[['Team','Opp','Game SS']]
-            show_shooty_matchups['Game SS'] = show_shooty_matchups['Game SS'].astype(int)
-            show_shooty_matchups.columns=['Team','Opp','Game Shootout Score']
-            sscol1, sscol2, sscol3 = st.columns([1,1,1])
-            with sscol2:
-                st.dataframe(show_shooty_matchups, width=460, height=1200, hide_index=True)
-
-        get_this_week_number = dkdata['Week'].iloc[0]
-        try:
-            schedule=schedule.drop(['Week'],axis=1)
-        except:
-            pass
-        schedule['Date'] = pd.to_datetime(schedule['Date'])
-        schedule['Date'] = schedule['Date'].dt.date
-        nfl_week_maps['Date'] = pd.to_datetime(nfl_week_maps['Date'])
-        nfl_week_maps['Date'] = nfl_week_maps['Date'].dt.date
-        schedule = pd.merge(schedule,nfl_week_maps, on='Date',how='left')
-
-        this_week = schedule[schedule['Week']==get_this_week_number]
-        from datetime import datetime
-        check_today = datetime.today().date()
-        this_week = this_week[this_week['Date']>=check_today]
-        this_week['Game Name'] =this_week['Away'] + ' @ ' + this_week['Home']
-        game_selection_list = list(this_week['Game Name'].unique())
-        game_selection = st.selectbox('Select A Game', game_selection_list)
-
-        selectedgamedata = this_week[this_week['Game Name']==game_selection]
-        game_date = selectedgamedata['Date'].iloc[0]
-        game_time = selectedgamedata['Time'].iloc[0]
-        date_to_show = game_date.strftime('%A, %B %-d')
-
-        from datetime import datetime
-        time_obj = datetime.strptime(game_time, '%H:%M')
-        # Format to 12-hour time with AM/PM
-        time_to_show = time_obj.strftime('%-I:%M %p')
-
-        selected_gameid = selectedgamedata['ID'].iloc[0]
-        game_line_log = schedule[schedule['ID']==selected_gameid]
-
-        selectedgamedata = selectedgamedata[selectedgamedata['Timestamp']==np.max(selectedgamedata['Timestamp'])]
-
-        road_team = selectedgamedata['Away'].iloc[0]
-        home_team = selectedgamedata['Home'].iloc[0]
-
-
-        road_team_short = teamnamechangedict.get(road_team)
-        game_ss_value = game_ss_dict.get(road_team_short)
-        game_ss_value = int(game_ss_value)
-
-        road_team_short_lower = road_team_short.lower()
-        home_team_short = teamnamechangedict.get(home_team)
-        home_team_short_lower = home_team_short.lower()
-
-        favored_team = selectedgamedata['Underdog'].iloc[0]
-        road_spread = selectedgamedata['Away Spread'].iloc[0]
-        home_spread = selectedgamedata['Home Spread'].iloc[0]
-        game_ou = selectedgamedata['OU'].iloc[0]
-
-        if favored_team == road_team:
-            favored_spread = road_spread
-        else:
-            favored_spread = home_spread
-
-        #st.markdown(f"<h1><center>{road_team} vs. {home_team}</h1></center>", unsafe_allow_html=True)
-        #st.markdown(f"<h3><center>{favored_team} {favored_spread} <br> Over/Under: {game_ou}</h3></center>",unsafe_allow_html=True)
-
-        st.markdown(f"""<center><font size=25 face=Futura><b>{road_team} vs. {home_team}</b></font><br>
-                        <center><font size=6 face=Futura><u>{date_to_show} at {time_to_show}</u></center></font>
-                        <font size=6 face=Futura><i><b>{favored_team} {favored_spread}</font><br>
-                        <font size=6 face=Futura>Over/Under: {game_ou}</font><br>
-                        <font size=6 face=Futura>Shootout Score: {game_ss_value}</font><br>
-                        <font size=3 face=Arial><i>100 = league average shootout score</i></font></center>
-                    """, unsafe_allow_html=True)
-        
-        line_move_check = st.checkbox('Show Line Movements', value=False)
-        
-        if line_move_check:
-            import re, math
-            import numpy as np
-            import pandas as pd
-            import matplotlib.pyplot as plt
-            import matplotlib.dates as mdates
-            from datetime import datetime, timedelta, timezone
-            from dateutil import parser as dtparser  # robust fallback parser
-
-            # ========= Center the whole section (one level of nesting only) =========
-            padL, mid, padR = st.columns([1, 2, 1])
-            with mid:
-                # ----- Controls (centered by spacers) -----
-                cL, cC, cR = st.columns([1, 2, 1])
-                with cC:
-                    numdays = st.number_input("Days back", min_value=3, max_value=14, value=7, step=1)
-
-                # ----- Data prep (robust timestamp parsing) -----
-                gll = game_line_log.copy()
-                ts_candidates = [c for c in gll.columns if c and isinstance(c, str) and c.lower() in {"timestamp","time","date","datetime","ts"}]
-                if not ts_candidates:
-                    st.error("No timestamp column found. Expected one of: Timestamp, Time, Date, DateTime, ts.")
-                    st.stop()
-                ts_col = ts_candidates[0]
-
-                def safe_parse_one(x):
-                    if x is None: return pd.NaT
-                    if isinstance(x, float) and math.isnan(x): return pd.NaT
-                    if isinstance(x, (pd.Timestamp, datetime)):
-                        return pd.Timestamp(x).tz_localize(None) if getattr(x, "tzinfo", None) else pd.Timestamp(x)
-                    s = str(x).strip()
-                    if not s: return pd.NaT
-                    s = re.sub(r"\s+[A-Za-z]{2,5}$", "", s)  # strip trailing TZ abbrev
-                    try:
-                        return pd.to_datetime(s, errors="raise")
-                    except Exception:
-                        try:
-                            return pd.Timestamp(dtparser.parse(s, ignoretz=True))
-                        except Exception:
-                            return pd.NaT
-
-                gll["__ts"] = gll[ts_col].apply(safe_parse_one)
-                gll = gll.dropna(subset=["__ts"]).sort_values("__ts")
-                cutoff = pd.Timestamp.utcnow() - pd.Timedelta(days=int(numdays))
-                gll = gll[gll["__ts"] >= cutoff.tz_localize(None)]
-
-                for need in ["OU", "Home Spread"]:
-                    if need not in gll.columns:
-                        st.error(f"Missing column: '{need}'."); st.stop()
-
-                gll["OU"] = pd.to_numeric(gll["OU"], errors="coerce")
-                gll["Home Spread"] = pd.to_numeric(gll["Home Spread"], errors="coerce")
-                gll = gll.dropna(subset=["OU", "Home Spread"])
-
-                if len(gll) < 2:
-                    st.info("Not enough history in the selected window to plot yet.")
-                    st.dataframe(gll.tail(10))
-                    st.stop()
-
-                # ----- Compact, centered metrics -----
-                mPadL, m1, m2, mPadR = st.columns([1, 1, 1, 1])
-                with m1:
-                    st.metric("OU (current)",
-                            f'{gll["OU"].iloc[-1]:.1f}',
-                            f'{(gll["OU"].iloc[-1] - gll["OU"].iloc[0]):+.1f}')
-                with m2:
-                    st.metric("Home Spread (current)",
-                            f'{gll["Home Spread"].iloc[-1]:.1f}',
-                            f'{(gll["Home Spread"].iloc[-1] - gll["Home Spread"].iloc[0]):+.1f}')
-
-                # ----- Plot helpers -----
-                def nice_limits(series, pad_frac=0.08):
-                    smin = float(np.nanmin(series)); smax = float(np.nanmax(series))
-                    if smin == smax: smin -= 1.0; smax += 1.0
-                    pad = (smax - smin) * pad_frac
-                    return smin - pad, smax + pad
-
-                ou_min, ou_max = nice_limits(gll["OU"])
-                sp_min, sp_max = nice_limits(gll["Home Spread"])
-                x_locator = mdates.AutoDateLocator(minticks=3, maxticks=6)
-                x_fmt = mdates.ConciseDateFormatter(x_locator)
-
-                # ----- Smaller plots, centered (still only one nesting level) -----
-                p1, p2 = st.columns([1, 1])
-
-                with p1:
-                    fig, ax = plt.subplots(figsize=(3.6, 2.1), dpi=180)   # smaller
-                    ax.plot(gll["__ts"], gll["OU"], linewidth=2)
-                    ax.set_title("OU over time", fontsize=11, pad=6)
-                    ax.set_xlabel(""); ax.set_ylabel("OU", fontsize=9)
-                    ax.set_ylim(ou_min, ou_max)
-                    ax.xaxis.set_major_locator(x_locator); ax.xaxis.set_major_formatter(x_fmt)
-                    ax.grid(True, linestyle="--", linewidth=0.6, alpha=0.35)
-                    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
-                    ax.annotate(f'{gll["OU"].iloc[-1]:.1f}',
-                                xy=(gll["__ts"].iloc[-1], gll["OU"].iloc[-1]),
-                                xytext=(6, 0), textcoords="offset points",
-                                fontsize=8, va="center")
-                    st.pyplot(fig, use_container_width=False)
-
-                with p2:
-                    fig, ax = plt.subplots(figsize=(3.6, 2.1), dpi=180)   # smaller
-                    ax.plot(gll["__ts"], gll["Home Spread"], linewidth=2)
-                    ax.set_title("Home spread over time", fontsize=11, pad=6)
-                    ax.set_xlabel(""); ax.set_ylabel("Spread", fontsize=9)
-                    ax.set_ylim(sp_min, sp_max)
-                    ax.xaxis.set_major_locator(x_locator); ax.xaxis.set_major_formatter(x_fmt)
-                    ax.grid(True, linestyle="--", linewidth=0.6, alpha=0.35)
-                    ax.axhline(0, linewidth=1, alpha=0.5)
-                    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
-                    ax.annotate(f'{gll["Home Spread"].iloc[-1]:.1f}',
-                                xy=(gll["__ts"].iloc[-1], gll["Home Spread"].iloc[-1]),
-                                xytext=(6, 0), textcoords="offset points",
-                                fontsize=8, va="center")
-                    st.pyplot(fig, use_container_width=False)
-
-                st.caption("Centered view. Window is filtered by the selected number of days; metrics show change across the window.")
-
-
-        ### working here
-        #st.write(weekproj)
-
-        weekproj = pd.merge(weekproj,dksalsdf,how='left',on='Player')
-        weekproj['JA Rk'] = weekproj['Player'].map(all_grade_rank_dict)
-        weekproj = weekproj.drop(['Sal_x'],axis=1)
-        weekproj = weekproj.rename({'Sal_y':'Sal'},axis=1)
-        weekproj = weekproj.round(2)
-        weekproj = weekproj[weekproj['Projection']>2]
-        road_projections = weekproj[weekproj['Team']==road_team_short]
-        road_implied = implied_totals[implied_totals['Team']==road_team_short]['Implied'].iloc[0]
-        road_implied_rank = implied_totals[implied_totals['Team']==road_team_short]['Rank'].iloc[0]
-        home_projections = weekproj[weekproj['Team']==home_team_short]
-        home_implied = implied_totals[implied_totals['Team']==home_team_short]['Implied'].iloc[0]
-        home_implied_rank = implied_totals[implied_totals['Team']==home_team_short]['Rank'].iloc[0]
-        
-        if proj_are_good == 'N':
-            st.markdown(f'<h2><center>Projections for week {this_week_number} are not yet available</center></h2>',unsafe_allow_html=True)
-            pass
-        else:
-
-            projcol1, projcol2 = st.columns([1,1])
-
-            with projcol1:
-                road_def_grade = team_grades[team_grades['Team']==road_team_short]['Defense Grade'].iloc[0].astype(int)
-                road_off_grade = team_grades[team_grades['Team']==road_team_short]['Offense Grade'].iloc[0].astype(int)
-                home_def_grade = team_grades[team_grades['Team']==home_team_short]['Defense Grade'].iloc[0].astype(int)
-                home_off_grade = team_grades[team_grades['Team']==home_team_short]['Offense Grade'].iloc[0].astype(int)
-
-                st.markdown(f"<center><font size=13><b>{road_team}</b></font><br><font size=4><i>Implied for <font size=6 color=red><b>{road_implied}</b></font> points, ranked #<font size = 6 color=red><b>{int(road_implied_rank)}</b></font> of {len(implied_totals)}</i><br><i>D Grade: <b><font size=6 color=red>{road_def_grade}</font></b>   |   O Grade: <b><font size = 6 color=red>{road_off_grade}</font></b></i><hr>", unsafe_allow_html=True)
-                st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-                road_qb_proj = road_projections[road_projections['Pos']=='QB'][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
-                st.dataframe(road_qb_proj, hide_index=True, width=750)
-                st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-                road_rb_proj = road_projections[road_projections['Pos']=='RB'][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
-                st.dataframe(road_rb_proj, hide_index=True, width=650,height=150)
-                st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-                road_rec_proj = road_projections[road_projections['Pos'].isin(['WR','TE'])][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
-                if len(road_rec_proj) > 7:
-                    st.dataframe(road_rec_proj, hide_index=True, width=650,height=325)
-                else:
-                    st.dataframe(road_rec_proj, hide_index=True, width=650)
-
-            with projcol2:
-                #st.markdown(f"<center><font size=13><b>{home_team}</b></font><br><font size=4><i>Implied for {home_implied} points, ranked #{int(home_implied_rank)} of {len(implied_totals)}</i></center><hr>", unsafe_allow_html=True)
-                st.markdown(f"<center><font size=13><b>{home_team}</b></font><br><font size=4><i>Implied for <font size=6 color=red><b>{home_implied}</b></font> points, ranked #<font size = 6 color=red><b>{int(home_implied_rank)}</b></font> of {len(implied_totals)}</i><br><i>D Grade: <b><font size=6 color=red>{home_def_grade}</font></b>   |   O Grade: <b><font size = 6 color=red>{home_off_grade}</font></b></i><hr>", unsafe_allow_html=True)
-
-                st.markdown("<h4>Quarterback</h4>",unsafe_allow_html=True)
-                home_qb_proj = home_projections[home_projections['Pos']=='QB'][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
-                st.dataframe(home_qb_proj, hide_index=True, width=750)
-                st.markdown("<h4>Running Backs</h4>",unsafe_allow_html=True)
-                home_rb_proj = home_projections[home_projections['Pos']=='RB'][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
-                st.dataframe(home_rb_proj, hide_index=True, width=650,height=150)
-                st.markdown("<h4>Pass Catchers</h4>",unsafe_allow_html=True)
-                home_rec_proj = home_projections[home_projections['Pos'].isin(['WR','TE'])][['Player','JA Rk','Sal','Projection','Value']].sort_values(by='Projection',ascending=False)
-                if len(home_rec_proj) > 7:
-                    st.dataframe(home_rec_proj, hide_index=True, width=650,height=325)
-                else:
-                    st.dataframe(home_rec_proj, hide_index=True, width=650)
     if tab == "Line Movement":
         st.write(this_week_schedule.sort_values(by=['Home','Timestamp']))
     
