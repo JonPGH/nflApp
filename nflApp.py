@@ -632,7 +632,7 @@ if check_password():
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
     #tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau","NBA Optimizer"], help="Choose a Page")
-    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","DFS Optimizer","Player Grades","Expected Fantasy Points"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","DFS Optimizer","Player Grades","Expected Fantasy Points","Live Game Tracker"], help="Choose a Page")
     if "reload" not in st.session_state:
         st.session_state.reload = False
 
@@ -3380,7 +3380,967 @@ if check_password():
 
     ### Beginning of new game by game
 
-    ####
+    ### ### LIVE GAME TRACKER ### ###
+    if tab == 'Live Game Tracker':
+
+        import requests
+        import pandas as pd
+        import numpy as np
+        import streamlit as st
+
+
+        # =========================================================
+        # ESPN API FUNCTIONS
+        # =========================================================
+
+        ESPN_SCOREBOARD_URL = (
+            "https://site.api.espn.com/apis/site/v2/"
+            "sports/football/nfl/scoreboard"
+        )
+
+        ESPN_SUMMARY_URL = (
+            "https://site.api.espn.com/apis/site/v2/"
+            "sports/football/nfl/summary"
+        )
+
+
+        @st.cache_data(ttl=15)
+        def get_nfl_scoreboard():
+            """
+            Get the current NFL scoreboard/current week from ESPN.
+            Cached for 15 seconds.
+            """
+
+            response = requests.get(
+                ESPN_SCOREBOARD_URL,
+                timeout=10
+            )
+
+            response.raise_for_status()
+
+            return response.json()
+
+
+        @st.cache_data(ttl=15)
+        def get_nfl_game_summary(game_id):
+            """
+            Get ESPN's full box score for a specific NFL game.
+            """
+
+            response = requests.get(
+                ESPN_SUMMARY_URL,
+                params={"event": game_id},
+                timeout=10
+            )
+
+            response.raise_for_status()
+
+            return response.json()
+
+
+        # =========================================================
+        # HELPER FUNCTIONS
+        # =========================================================
+
+        def safe_float(value, default=0.0):
+            """
+            Convert ESPN stat strings to floats.
+            """
+
+            if value is None:
+                return default
+
+            try:
+                return float(value)
+            except:
+                return default
+
+
+        def made_from_fraction(value):
+            """
+            Converts:
+                '3/4' -> 3
+                '4/4' -> 4
+
+            Used for FG and XP.
+            """
+
+            if value is None:
+                return 0
+
+            value = str(value)
+
+            if "/" in value:
+                try:
+                    return float(value.split("/")[0])
+                except:
+                    return 0
+
+            return safe_float(value)
+
+
+        def attempts_from_fraction(value):
+
+            if value is None:
+                return 0
+
+            value = str(value)
+
+            if "/" in value:
+                try:
+                    return float(value.split("/")[1])
+                except:
+                    return 0
+
+            return 0
+
+
+        def get_game_info(event):
+            """
+            Pull basic game information out of the ESPN scoreboard.
+            """
+
+            competition = event.get("competitions", [{}])[0]
+
+            competitors = competition.get("competitors", [])
+
+            home = next(
+                (
+                    x for x in competitors
+                    if x.get("homeAway") == "home"
+                ),
+                {}
+            )
+
+            away = next(
+                (
+                    x for x in competitors
+                    if x.get("homeAway") == "away"
+                ),
+                {}
+            )
+
+            status = competition.get("status", {})
+
+            status_type = status.get("type", {})
+
+            state = status_type.get("state", "")
+            detail = status_type.get("detail", "")
+            short_detail = status_type.get("shortDetail", detail)
+
+            return {
+
+                "GameID": event.get("id"),
+
+                "Away": away.get(
+                    "team", {}
+                ).get(
+                    "abbreviation",
+                    away.get("team", {}).get("shortDisplayName", "")
+                ),
+
+                "Home": home.get(
+                    "team", {}
+                ).get(
+                    "abbreviation",
+                    home.get("team", {}).get("shortDisplayName", "")
+                ),
+
+                "AwayScore": away.get("score", "0"),
+
+                "HomeScore": home.get("score", "0"),
+
+                "State": state,
+
+                "Status": short_detail,
+
+                "Date": event.get("date"),
+
+                "Name": event.get("shortName", event.get("name", ""))
+
+            }
+
+
+        # =========================================================
+        # PARSE ESPN PLAYER BOX SCORE
+        # =========================================================
+
+        def parse_game_players(summary):
+            """
+            ESPN stores player statistics in categories such as:
+
+            passing
+            rushing
+            receiving
+            fumbles
+            kicking
+
+            Each category contains labels and athlete stat arrays.
+
+            This converts everything into one row per player.
+            """
+
+            boxscore = summary.get("boxscore", {})
+
+            team_blocks = boxscore.get("players", [])
+
+            players = {}
+
+
+            for team_block in team_blocks:
+
+                team_info = team_block.get("team", {})
+
+                team_abbrev = team_info.get(
+                    "abbreviation",
+                    team_info.get("shortDisplayName", "")
+                )
+
+                stat_categories = team_block.get(
+                    "statistics",
+                    []
+                )
+
+
+                for category in stat_categories:
+
+                    category_name = category.get(
+                        "name",
+                        ""
+                    ).lower()
+
+                    labels = category.get(
+                        "labels",
+                        []
+                    )
+
+                    athletes = category.get(
+                        "athletes",
+                        []
+                    )
+
+
+                    for athlete_row in athletes:
+
+                        athlete = athlete_row.get(
+                            "athlete",
+                            {}
+                        )
+
+                        player_id = athlete.get(
+                            "id"
+                        )
+
+                        if not player_id:
+                            continue
+
+
+                        player_name = athlete.get(
+                            "displayName",
+                            athlete.get("shortName", "")
+                        )
+
+
+                        position = (
+                            athlete
+                            .get("position", {})
+                            .get("abbreviation", "")
+                        )
+
+
+                        # Create player if first time seen
+                        if player_id not in players:
+
+                            players[player_id] = {
+
+                                "PlayerID": player_id,
+                                "Player": player_name,
+                                "Team": team_abbrev,
+                                "Pos": position,
+
+                                "PassYds": 0,
+                                "PassTD": 0,
+                                "INT": 0,
+
+                                "RushAtt": 0,
+                                "RushYds": 0,
+                                "RushTD": 0,
+
+                                "Rec": 0,
+                                "Targets": 0,
+                                "RecYds": 0,
+                                "RecTD": 0,
+
+                                "Fumbles": 0,
+                                "FumblesLost": 0,
+
+                                "FGM": 0,
+                                "FGA": 0,
+
+                                "XPM": 0,
+                                "XPA": 0
+
+                            }
+
+
+                        row = players[player_id]
+
+                        stats = athlete_row.get(
+                            "stats",
+                            []
+                        )
+
+
+                        stat_dict = dict(
+                            zip(labels, stats)
+                        )
+
+
+                        # =====================================
+                        # PASSING
+                        # =====================================
+
+                        if category_name == "passing":
+
+                            row["PassYds"] = safe_float(
+                                stat_dict.get("YDS")
+                            )
+
+                            row["PassTD"] = safe_float(
+                                stat_dict.get("TD")
+                            )
+
+                            row["INT"] = safe_float(
+                                stat_dict.get("INT")
+                            )
+
+
+                        # =====================================
+                        # RUSHING
+                        # =====================================
+
+                        elif category_name == "rushing":
+
+                            row["RushAtt"] = safe_float(
+                                stat_dict.get(
+                                    "CAR",
+                                    stat_dict.get("ATT", 0)
+                                )
+                            )
+
+                            row["RushYds"] = safe_float(
+                                stat_dict.get("YDS")
+                            )
+
+                            row["RushTD"] = safe_float(
+                                stat_dict.get("TD")
+                            )
+
+
+                        # =====================================
+                        # RECEIVING
+                        # =====================================
+
+                        elif category_name == "receiving":
+
+                            row["Rec"] = safe_float(
+                                stat_dict.get("REC")
+                            )
+
+                            row["Targets"] = safe_float(
+                                stat_dict.get(
+                                    "TGTS",
+                                    stat_dict.get("TGT", 0)
+                                )
+                            )
+
+                            row["RecYds"] = safe_float(
+                                stat_dict.get("YDS")
+                            )
+
+                            row["RecTD"] = safe_float(
+                                stat_dict.get("TD")
+                            )
+
+
+                        # =====================================
+                        # FUMBLES
+                        # =====================================
+
+                        elif category_name == "fumbles":
+
+                            row["Fumbles"] = safe_float(
+                                stat_dict.get("FUM")
+                            )
+
+                            row["FumblesLost"] = safe_float(
+                                stat_dict.get("LOST")
+                            )
+
+
+                        # =====================================
+                        # KICKING
+                        # =====================================
+
+                        elif category_name == "kicking":
+
+                            fg = stat_dict.get(
+                                "FG",
+                                stat_dict.get("FGM/FGA")
+                            )
+
+                            xp = stat_dict.get(
+                                "XP",
+                                stat_dict.get("XPM/XPA")
+                            )
+
+                            row["FGM"] = made_from_fraction(fg)
+                            row["FGA"] = attempts_from_fraction(fg)
+
+                            row["XPM"] = made_from_fraction(xp)
+                            row["XPA"] = attempts_from_fraction(xp)
+
+
+            if len(players) == 0:
+                return pd.DataFrame()
+
+
+            return pd.DataFrame(
+                players.values()
+            )
+
+
+        # =========================================================
+        # FANTASY SCORING
+        # =========================================================
+
+        def calculate_fantasy_points(
+            df,
+            reception_points=1
+        ):
+
+            df = df.copy()
+
+
+            df["FPts"] = (
+
+                # Passing
+                (df["PassYds"] / 25) +
+
+                (df["PassTD"] * 4) -
+
+                (df["INT"] * 2) +
+
+
+                # Rushing
+                (df["RushYds"] / 10) +
+
+                (df["RushTD"] * 6) +
+
+
+                # Receiving
+                (df["Rec"] * reception_points) +
+
+                (df["RecYds"] / 10) +
+
+                (df["RecTD"] * 6) -
+
+
+                # Fumbles
+                (df["FumblesLost"] * 2) +
+
+
+                # Kicking
+                (df["FGM"] * 3) +
+
+                df["XPM"]
+
+            )
+
+
+            df["FPts"] = df["FPts"].round(2)
+
+            return df
+
+
+        # =========================================================
+        # MAKE PRETTY STAT LINE
+        # =========================================================
+
+        def create_stat_line(row):
+
+            pieces = []
+
+
+            # QB
+            if (
+                row["PassYds"] > 0
+                or row["PassTD"] > 0
+                or row["INT"] > 0
+            ):
+
+                pieces.append(
+                    f'{int(row["PassYds"])} PYD, '
+                    f'{int(row["PassTD"])} PTD, '
+                    f'{int(row["INT"])} INT'
+                )
+
+
+            # Rushing
+            if (
+                row["RushAtt"] > 0
+                or row["RushYds"] > 0
+            ):
+
+                pieces.append(
+                    f'{int(row["RushAtt"])} CAR, '
+                    f'{int(row["RushYds"])} RYD, '
+                    f'{int(row["RushTD"])} RTD'
+                )
+
+
+            # Receiving
+            if (
+                row["Targets"] > 0
+                or row["Rec"] > 0
+            ):
+
+                pieces.append(
+                    f'{int(row["Rec"])} REC, '
+                    f'{int(row["Targets"])} TGT, '
+                    f'{int(row["RecYds"])} RECYD, '
+                    f'{int(row["RecTD"])} RECTD'
+                )
+
+
+            # Kicking
+            if row["FGA"] > 0 or row["XPA"] > 0:
+
+                pieces.append(
+                    f'{int(row["FGM"])}/{int(row["FGA"])} FG, '
+                    f'{int(row["XPM"])}/{int(row["XPA"])} XP'
+                )
+
+
+            if not pieces:
+                return ""
+
+
+            return " | ".join(pieces)
+
+
+        # =========================================================
+        # PAGE HEADER
+        # =========================================================
+
+        st.markdown(
+            """
+            <div style="text-align:center; padding-bottom:10px;">
+                <div style="
+                    font-family:Futura,Arial,sans-serif;
+                    font-size:46px;
+                    font-weight:800;
+                ">
+                    NFL Live Game Tracker
+                </div>
+
+                <div style="
+                    font-family:Futura,Arial,sans-serif;
+                    font-size:15px;
+                    opacity:.70;
+                ">
+                    Live scores, player statistics & fantasy points
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
+        # =========================================================
+        # CONTROLS
+        # =========================================================
+
+        col1, col2, col3, col4 = st.columns(
+            [1.3, 1.3, 1.3, .8]
+        )
+
+
+        with col1:
+
+            live_only = st.toggle(
+                "Live Games Only",
+                value=True
+            )
+
+
+        with col2:
+
+            scoring_format = st.selectbox(
+                "Scoring",
+                [
+                    "PPR",
+                    "Half PPR",
+                    "Standard"
+                ]
+            )
+
+
+        with col3:
+
+            position_filter = st.selectbox(
+                "Position",
+                [
+                    "All",
+                    "QB",
+                    "RB",
+                    "WR",
+                    "TE",
+                    "K"
+                ]
+            )
+
+
+        with col4:
+
+            st.write("")
+
+            st.write("")
+
+            refresh = st.button(
+                "↻ Refresh",
+                use_container_width=True
+            )
+
+
+        if refresh:
+
+            get_nfl_scoreboard.clear()
+            get_nfl_game_summary.clear()
+
+            st.rerun()
+
+
+        # Reception scoring
+        reception_points = {
+
+            "PPR": 1,
+            "Half PPR": .5,
+            "Standard": 0
+
+        }[scoring_format]
+
+
+        # =========================================================
+        # LOAD SCOREBOARD
+        # =========================================================
+
+        try:
+
+            scoreboard = get_nfl_scoreboard()
+
+            events = scoreboard.get(
+                "events",
+                []
+            )
+
+        except Exception as e:
+
+            st.error(
+                f"Unable to load ESPN NFL scoreboard: {e}"
+            )
+
+            st.stop()
+
+
+        games = [
+            get_game_info(event)
+            for event in events
+        ]
+
+
+        games_df = pd.DataFrame(games)
+
+
+        if len(games_df) == 0:
+
+            st.info(
+                "No NFL games were returned by ESPN."
+            )
+
+            st.stop()
+
+
+        # =========================================================
+        # FILTER LIVE GAMES
+        # =========================================================
+
+        if live_only:
+
+            games_df = games_df[
+                games_df["State"] == "in"
+            ].copy()
+
+
+        # Put live first, then upcoming, then final
+        state_order = {
+
+            "in": 0,
+            "pre": 1,
+            "post": 2
+
+        }
+
+
+        games_df["StateOrder"] = (
+            games_df["State"]
+            .map(state_order)
+            .fillna(99)
+        )
+
+
+        games_df = games_df.sort_values(
+            [
+                "StateOrder",
+                "Date"
+            ]
+        )
+
+
+        # =========================================================
+        # NOTHING LIVE
+        # =========================================================
+
+        if len(games_df) == 0:
+
+            st.info(
+                "🏈 There are currently no live NFL games."
+            )
+
+
+        # =========================================================
+        # DISPLAY EACH GAME
+        # =========================================================
+
+        for _, game in games_df.iterrows():
+
+            game_id = game["GameID"]
+
+
+            # -----------------------------
+            # GAME HEADER
+            # -----------------------------
+
+            if game["State"] == "in":
+
+                status_icon = "🔴 LIVE"
+
+            elif game["State"] == "post":
+
+                status_icon = "FINAL"
+
+            else:
+
+                status_icon = game["Status"]
+
+
+            st.markdown(
+                f"""
+                <div style="
+                    margin-top:20px;
+                    padding:15px 20px;
+                    border-radius:10px;
+                    border:1px solid rgba(128,128,128,.25);
+                ">
+
+                    <div style="
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:center;
+                    ">
+
+                        <div style="
+                            font-size:25px;
+                            font-weight:800;
+                        ">
+                            {game["Away"]}
+                            {game["AwayScore"]}
+                            &nbsp;&nbsp;—&nbsp;&nbsp;
+                            {game["Home"]}
+                            {game["HomeScore"]}
+                        </div>
+
+                        <div style="
+                            font-size:14px;
+                            font-weight:700;
+                        ">
+                            {status_icon}
+                        </div>
+
+                    </div>
+
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+
+            # Don't need a summary API call for a
+            # game that hasn't started.
+            if game["State"] == "pre":
+
+                continue
+
+
+            # -----------------------------
+            # GET PLAYER DATA
+            # -----------------------------
+
+            try:
+
+                summary = get_nfl_game_summary(
+                    game_id
+                )
+
+                player_df = parse_game_players(
+                    summary
+                )
+
+
+            except Exception as e:
+
+                st.warning(
+                    f'Could not load box score for '
+                    f'{game["Away"]} @ {game["Home"]}: {e}'
+                )
+
+                continue
+
+
+            if len(player_df) == 0:
+
+                st.caption(
+                    "Player statistics have not populated yet."
+                )
+
+                continue
+
+
+            # -----------------------------
+            # FANTASY POINTS
+            # -----------------------------
+
+            player_df = calculate_fantasy_points(
+                player_df,
+                reception_points=reception_points
+            )
+
+
+            player_df["Stats"] = player_df.apply(
+                create_stat_line,
+                axis=1
+            )
+
+
+            # -----------------------------
+            # POSITION FILTER
+            # -----------------------------
+
+            if position_filter != "All":
+
+                player_df = player_df[
+                    player_df["Pos"]
+                    == position_filter
+                ].copy()
+
+
+            # -----------------------------
+            # SORT
+            # -----------------------------
+
+            player_df = player_df.sort_values(
+                "FPts",
+                ascending=False
+            )
+
+
+            # Remove players with literally nothing
+            player_df = player_df[
+                (
+                    player_df["FPts"] != 0
+                )
+                |
+                (
+                    player_df["Targets"] > 0
+                )
+                |
+                (
+                    player_df["RushAtt"] > 0
+                )
+            ]
+
+
+            # -----------------------------
+            # DISPLAY TABLE
+            # -----------------------------
+
+            show_columns = [
+
+                "Player",
+                "Team",
+                "Pos",
+                "FPts",
+                "Stats"
+
+            ]
+
+
+            st.dataframe(
+
+                player_df[
+                    show_columns
+                ],
+
+                hide_index=True,
+
+                use_container_width=True,
+
+                column_config={
+
+                    "Player": st.column_config.TextColumn(
+                        "Player",
+                        width="medium"
+                    ),
+
+                    "Team": st.column_config.TextColumn(
+                        "Tm",
+                        width="small"
+                    ),
+
+                    "Pos": st.column_config.TextColumn(
+                        "Pos",
+                        width="small"
+                    ),
+
+                    "FPts": st.column_config.NumberColumn(
+                        "Fantasy",
+                        format="%.2f",
+                        width="small"
+                    ),
+
+                    "Stats": st.column_config.TextColumn(
+                        "Live Stats",
+                        width="large"
+                    )
+
+                }
+
+            )
+
+
+        st.caption(
+            "Live data via ESPN • Data cached for 15 seconds"
+        )
 
     if tab == "Game by Game":
 
