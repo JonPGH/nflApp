@@ -3378,7 +3378,6 @@ if check_password():
 
         render_xfp_vs_actual()
 
-    ### Beginning of new game by game
 
     ### ### LIVE GAME TRACKER ### ###
     if tab == 'Live Game Tracker':
@@ -4479,7 +4478,7 @@ if check_password():
         # ============================================================
 
         get_this_week_number = dkdata['Week'].iloc[0]
-
+        
         try:
             schedule = schedule.drop(
                 ['Week'],
@@ -5110,8 +5109,25 @@ if check_password():
             on='Player'
         )
 
-        #st.write(weekproj[weekproj['Team'].str.contains('SF')])
-        ## LV = RAIDERS
+        ### check if projections are for current week
+        curr_week_data = this_week[['Away','Home']].copy()
+        team_name_change_change = dict(zip(team_name_change.Long,team_name_change.Short))
+        curr_week_data['Away_Short'] = curr_week_data['Away'].map(team_name_change_change)
+        curr_week_data['Home_Short'] = curr_week_data['Home'].map(team_name_change_change)
+        curr_week_data = curr_week_data[['Away_Short','Home_Short']]
+
+        # pick team on current week
+        pick_team = curr_week_data['Away_Short'].iloc[0]
+        ## find team's matchup
+        pick_team_opp = curr_week_data[curr_week_data['Away_Short']==pick_team]['Home_Short'].iloc[0]
+
+        pick_team_proj_opp = weekproj[weekproj['Team']==pick_team]['Opp'].iloc[0]
+
+
+        if (pick_team_proj_opp == pick_team_opp):
+            projections_ready_flag = 'Yes'
+        else:
+            projections_ready_flag = 'No'
         
 
         weekproj['JA Rk'] = weekproj[
@@ -5146,8 +5162,6 @@ if check_password():
             weekproj['Team']
             == road_team_short
         ].copy()
-
-
 
         home_projections = weekproj[
             weekproj['Team']
@@ -5374,7 +5388,7 @@ if check_password():
                     **dataframe_kwargs
                 )
             projections['Team'] = np.where(projections['Team']=='LVR','LV',projections['Team'])
-            #st.write(projections)
+            
             qb = projections[
                 projections['Pos'] == 'QB'
             ].copy()
@@ -5413,7 +5427,7 @@ if check_password():
         # PLAYER PROJECTION DISPLAY
         # ============================================================
 
-        if proj_are_good == 'N':
+        if projections_ready_flag == 'No':
 
             st.warning(
                 f'Projections for Week '
