@@ -632,7 +632,7 @@ if check_password():
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
     #tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau","NBA Optimizer"], help="Choose a Page")
-    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","DFS Optimizer","Player Grades","Expected Fantasy Points","Live Game Tracker"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker"], help="Choose a Page")
     if "reload" not in st.session_state:
         st.session_state.reload = False
 
