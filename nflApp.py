@@ -5115,14 +5115,15 @@ if check_password():
         curr_week_data['Away_Short'] = curr_week_data['Away'].map(team_name_change_change)
         curr_week_data['Home_Short'] = curr_week_data['Home'].map(team_name_change_change)
         curr_week_data = curr_week_data[['Away_Short','Home_Short']]
+        weekproj['Opp'] = weekproj['Opp'].str.replace('@','')
+
 
         # pick team on current week
         pick_team = curr_week_data['Away_Short'].iloc[0]
         ## find team's matchup
         pick_team_opp = curr_week_data[curr_week_data['Away_Short']==pick_team]['Home_Short'].iloc[0]
-
+        
         pick_team_proj_opp = weekproj[weekproj['Team']==pick_team]['Opp'].iloc[0]
-
 
         if (pick_team_proj_opp == pick_team_opp):
             projections_ready_flag = 'Yes'
@@ -5426,7 +5427,6 @@ if check_password():
         # ============================================================
         # PLAYER PROJECTION DISPLAY
         # ============================================================
-
         if projections_ready_flag == 'No':
 
             st.warning(
