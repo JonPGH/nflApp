@@ -15,7 +15,7 @@
 37,Bijan Robinson,RB,ATL,CAR,CAR@ATL,0.0,0.0,0.0,0.0,18.5,84.06,5.01,42.03,1.05,23.919,Sportsbooks
 39,Drake London,WR,ATL,CAR,CAR@ATL,0.0,0.0,0.0,0.0,0.0,0.0,4.85,56.61,0.46,13.270999999999999,Sportsbooks
 50,Devaughn Vele,WR,NOR,BAL,NOR@BAL,0.0,0.0,0.0,0.0,0.0,0.0,3.77,41.69,0.25,9.439,Sportsbooks
-62,Lamar Jackson,DB,BAL,NOR,NOR@BAL,28.32,223.29,0.0,1.68,0.0,40.88,0.0,0.0,0.46,22.4996,Sportsbooks
+62,Lamar Jackson,QB,BAL,NOR,NOR@BAL,28.32,223.29,0.0,1.68,0.0,40.88,0.0,0.0,0.46,22.4996,Sportsbooks
 64,Chris Olave,WR,NOR,BAL,NOR@BAL,0.0,0.0,0.0,0.0,0.0,0.0,6.09,70.98,0.44,15.828000000000001,Sportsbooks
 67,Tyler Shough,QB,NOR,BAL,NOR@BAL,34.38,238.98,0.0,1.26,0.0,0.0,0.0,0.0,0.19,15.7392,Sportsbooks
 73,Caleb Williams,QB,CHI,MIN,MIN@CHI,31.08,226.13,0.58,1.78,0.0,25.37,0.0,0.0,0.3,19.9222,Sportsbooks
@@ -77,7 +77,7 @@
 210,Wan'Dale Robinson,WR,TEN,PHI,PHI@TEN,0.0,0.0,0.0,0.0,0.0,0.0,4.33,37.05,0.24,9.475,Sportsbooks
 212,Dontayvion Wicks,WR,PHI,TEN,PHI@TEN,0.0,0.0,0.0,0.0,0.0,0.0,2.74,29.74,0.26,7.274000000000001,Sportsbooks
 213,Carnell Tate,WR,TEN,PHI,PHI@TEN,0.0,0.0,0.0,0.0,0.0,0.0,3.86,40.97,0.24,9.397,Sportsbooks
-214,DeVonta Smith,DB,CAR,ATL,CAR@ATL,0.0,0.0,0.0,0.0,0.0,0.0,4.95,60.51,0.42,13.521,Sportsbooks
+214,DeVonta Smith,WR,CAR,ATL,CAR@ATL,0.0,0.0,0.0,0.0,0.0,0.0,4.95,60.51,0.42,13.521,Sportsbooks
 215,Tony Pollard,RB,TEN,PHI,PHI@TEN,0.0,0.0,0.0,0.0,11.5,44.91,1.64,8.92,0.39,9.363,Sportsbooks
 217,Tyjae Spears,RB,TEN,PHI,PHI@TEN,0.0,0.0,0.0,0.0,0.0,17.6,2.8,15.68,0.25,7.628,Sportsbooks
 219,Dallas Goedert,TE,PHI,TEN,PHI@TEN,0.0,0.0,0.0,0.0,0.0,0.0,3.82,38.9,0.4,10.11,Sportsbooks

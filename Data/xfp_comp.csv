@@ -1,18 +1,16 @@
 ,Player,Week,FPts,xFP,Diff
-194,Kenneth Walker,1,37.1,0.0,37.1
 143,Jalen Coker,1,36.8,15.8,21.0
 57,Christian Watson,1,35.7,14.72,20.98
 70,D'Andre Swift,1,35.4,14.57,20.83
 175,Josh Allen,1,38.66,18.82,19.84
 95,Derrick Henry,1,38.3,18.75,19.55
-91,Deebo Samuel,1,18.0,0.0,18.0
 313,Zay Flowers,1,29.0,11.2,17.8
 182,Justin Jefferson,1,31.2,14.88,16.32
 34,Bryce Young,1,35.44,20.03,15.41
 74,Dallas Goedert,1,23.7,8.34,15.36
 41,Caleb Williams,1,37.26,22.38,14.88
+194,Kenneth Walker,1,37.1,22.74,14.36
 127,Isaiah Likely,1,27.8,13.44,14.36
-278,TJ Hockenson,1,13.6,0.0,13.6
 295,Trevor Lawrence,1,26.1,12.84,13.26
 203,Kyle Monangai,1,23.4,10.31,13.09
 209,Lamar Jackson,1,28.96,16.48,12.48
@@ -20,18 +18,14 @@
 59,Chuba Hubbard,1,23.7,12.1,11.6
 152,Jaxon Smith-Njigba,1,29.2,17.67,11.53
 144,Jalen Hurts,1,24.72,13.49,11.23
-214,Luther Burden,1,10.5,0.0,10.5
-179,Joshua Palmer,1,10.4,0.0,10.4
 75,Dalton Kincaid,1,21.0,10.66,10.34
 83,David Montgomery,1,28.9,19.09,9.81
-71,DJ Moore,1,24.0,14.29,9.71
 138,Jahmyr Gibbs,1,37.6,27.89,9.71
+71,DJ Moore,1,24.0,14.29,9.71
 168,Jonathan Taylor,1,26.1,16.55,9.55
 12,Antonio Williams,1,16.4,7.25,9.15
-231,Michael Pittman Jr.,1,8.8,0.0,8.8
 54,Chris Olave,1,31.2,22.69,8.51
 151,Javonte Williams,1,24.2,15.76,8.44
-52,Chris Godwin,1,8.3,0.0,8.3
 246,Parker Washington,1,19.3,11.05,8.25
 100,Dontayvion Wicks,1,15.3,7.29,8.01
 142,Jakobi Meyers,1,12.2,4.26,7.94
@@ -40,7 +34,7 @@
 46,Carson Wentz,1,19.22,11.74,7.48
 92,Demarcus Robinson,1,13.0,5.81,7.19
 35,Bucky Irving,1,21.3,14.29,7.01
-30,Brian Thomas,1,7.0,0.0,7.0
+91,Deebo Samuel,1,18.0,11.1,6.9
 258,Rashee Rice,1,9.9,3.01,6.89
 9,Amon-Ra St. Brown,1,28.7,21.87,6.83
 208,Ladd McConkey,1,19.2,12.42,6.78
@@ -50,26 +44,26 @@
 176,Josh Cameron,1,10.0,3.7,6.3
 97,Devaughn Vele,1,19.9,13.79,6.11
 62,Cole Kmet,1,11.5,5.59,5.91
+179,Joshua Palmer,1,10.4,4.51,5.89
 93,Denzel Boston,1,13.9,8.06,5.84
 197,Kenyon Sadiq,1,11.4,5.59,5.81
 233,Mike Evans,1,16.9,11.4,5.5
 107,Eli Raridon,1,7.2,1.8,5.4
+278,TJ Hockenson,1,13.6,8.23,5.37
 137,Jahdae Walker,1,7.1,1.73,5.37
 26,Breece Hall,1,22.8,17.61,5.19
 19,Bijan Robinson,1,31.3,26.37,4.93
 27,Brenton Strange,1,10.3,5.45,4.85
 31,Brock Purdy,1,22.1,17.61,4.49
 132,Jack Bech,1,11.3,6.93,4.37
-123,Harold Fannin,1,4.1,0.0,4.1
+231,Michael Pittman Jr.,1,8.8,4.88,3.92
 160,Jaylin Noel,1,7.3,3.61,3.69
-129,JK Dobbins,1,3.6,0.0,3.6
 98,Devin Singletary,1,13.8,10.24,3.56
 206,Kyren Williams,1,15.5,12.08,3.42
 6,Adonai Mitchell,1,9.0,5.58,3.42
 296,Trey McBride,1,24.5,21.14,3.36
 84,David Njoku,1,10.8,7.59,3.21
 193,Kendrick Bourne,1,15.5,12.56,2.94
-58,Christopher Brooks,1,2.9,0.0,2.9
 108,Elic Ayomanor,1,8.1,5.4,2.7
 303,Tyler Warren,1,10.3,7.67,2.63
 103,Drew Lock,1,12.78,10.25,2.53
@@ -78,13 +72,12 @@
 221,Malik Willis,1,17.7,15.27,2.43
 192,Kendre Miller,1,9.0,6.6,2.4
 169,Jonathon Brooks,1,7.2,4.84,2.36
-55,Chris Rodriguez,1,2.3,0.0,2.3
 183,Juwan Johnson,1,14.4,12.11,2.29
 244,Omarion Hampton,1,9.3,7.04,2.26
 245,Oronde Gadsden,1,5.2,2.94,2.26
 42,Cam Skattebo,1,14.1,11.89,2.21
-255,RJ Harvey,1,8.1,5.92,2.18
 53,Chris Moore,1,6.3,4.12,2.18
+255,RJ Harvey,1,8.1,5.92,2.18
 239,Nico Collins,1,21.2,19.05,2.15
 172,Jordan Love,1,24.48,22.34,2.14
 292,Travis Kelce,1,10.1,7.96,2.14
@@ -93,8 +86,11 @@
 99,Dohnte Meyers,1,3.8,1.91,1.89
 40,Caleb Douglas,1,14.4,12.55,1.85
 187,Kalif Raymond,1,16.4,14.58,1.82
+214,Luther Burden,1,10.5,8.7,1.8
+30,Brian Thomas,1,7.0,5.3,1.7
 81,Darren Waller,1,4.8,3.12,1.68
 116,Garrett Wilson,1,13.9,12.25,1.65
+52,Chris Godwin,1,8.3,6.8,1.5
 281,Ted Hurst III,1,6.6,5.14,1.46
 196,Kenny Pickett,1,2.4,1.0,1.4
 265,Rome Odunze,1,7.2,5.89,1.31
@@ -125,7 +121,6 @@
 237,Nate Boerkircher,1,1.9,1.42,0.48
 167,Jonathan Mingo,1,2.0,1.54,0.46
 22,Bo Melton,1,2.0,1.58,0.42
-305,Tyrone Tracy,1,0.4,0.0,0.4
 287,Theo Johnson,1,1.9,1.5,0.4
 207,LaJohntay Wester,1,3.5,3.14,0.36
 140,Jake Briningstool,1,1.9,1.59,0.31
@@ -150,12 +145,13 @@
 65,Cooper Kupp,1,5.5,5.47,0.03
 162,Jeremy Ruckert,1,1.4,1.37,0.03
 274,Sione Vaki,1,2.8,2.79,0.01
-164,Jimmy Horn,1,0.0,0.0,0.0
 306,Wan'Dale Robinson,1,8.8,8.83,-0.03
 135,Jadarian Price,1,7.8,7.85,-0.05
 191,Keenan Allen,1,9.2,9.25,-0.05
 174,Jordan Whittington,1,1.8,1.86,-0.06
 242,Olamide Zaccheaus,1,1.5,1.58,-0.08
+123,Harold Fannin,1,4.1,4.2,-0.1
+129,JK Dobbins,1,3.6,3.72,-0.12
 280,Tanner Hudson,1,1.4,1.53,-0.13
 66,Cooper Rush,1,7.72,7.88,-0.16
 2,AJ Dillon,1,2.8,2.97,-0.17
@@ -177,6 +173,7 @@
 223,Mark Andrews,1,8.9,9.47,-0.57
 141,Jake Ferguson,1,2.6,3.19,-0.59
 36,C.J. Stroud,1,18.46,19.12,-0.66
+305,Tyrone Tracy,1,0.4,1.07,-0.67
 16,Baker Mayfield,1,14.64,15.32,-0.68
 279,Tank Bigsby,1,0.3,0.98,-0.68
 64,Connor Heyward,1,0.1,0.8,-0.7
@@ -189,8 +186,8 @@
 161,Jeremiyah Love,1,13.0,13.85,-0.85
 235,Mike Washington Jr.,1,4.1,4.98,-0.88
 277,Stetson Bennett,1,1.42,2.31,-0.89
-301,Tyler Higbee,1,2.2,3.12,-0.92
 109,Emanuel Wilson,1,0.3,1.22,-0.92
+301,Tyler Higbee,1,2.2,3.12,-0.92
 309,Woody Marks,1,5.0,5.92,-0.92
 110,Emari Demercado,1,0.7,1.78,-1.08
 298,Tucker Kraft,1,9.5,10.67,-1.17
@@ -202,9 +199,10 @@
 307,Will Kacmarek,1,0.0,1.43,-1.43
 225,Marvin Harrison Jr.,1,4.3,5.75,-1.45
 166,John Bates,1,3.3,4.76,-1.46
-201,Kirk Cousins,1,15.8,17.27,-1.47
 154,Jayden Daniels,1,17.66,19.13,-1.47
+201,Kirk Cousins,1,15.8,17.27,-1.47
 69,Cyrus Allen,1,0.0,1.48,-1.48
+164,Jimmy Horn,1,0.0,1.49,-1.49
 7,Alec Pierce,1,10.1,11.59,-1.49
 126,Isaac TeSlaa,1,0.0,1.5,-1.5
 236,Mitchell Evans,1,1.9,3.42,-1.52
@@ -243,6 +241,8 @@
 219,Malik Nabers,1,12.9,15.09,-2.19
 45,Carnell Tate,1,7.8,9.99,-2.19
 304,Tyquan Thornton,1,0.0,2.2,-2.2
+58,Christopher Brooks,1,2.9,5.14,-2.24
+55,Chris Rodriguez,1,2.3,4.59,-2.29
 94,Derius Davis,1,0.0,2.36,-2.36
 282,Tee Higgins,1,8.9,11.27,-2.37
 190,Keaton Mitchell,1,0.9,3.41,-2.51
@@ -285,8 +285,8 @@
 293,Tre Harris,1,5.0,8.92,-3.92
 106,Dyami Brown,1,0.0,3.94,-3.94
 88,DeMario Douglas,1,7.0,10.96,-3.96
-63,Colston Loveland,1,0.0,4.06,-4.06
 310,Xavier Hutchinson,1,6.2,10.26,-4.06
+63,Colston Loveland,1,0.0,4.06,-4.06
 76,Dalton Schultz,1,7.5,11.67,-4.17
 56,Christian McCaffrey,1,13.8,18.16,-4.36
 120,George Pickens,1,5.8,10.17,-4.37
@@ -313,20 +313,18 @@
 229,Matthew Stafford,1,5.1,12.92,-7.82
 4,Aaron Rodgers,1,12.54,20.59,-8.05
 72,DK Metcalf,1,8.0,18.2,-10.2
-194,Kenneth Walker,All,37.1,0.0,37.1
 143,Jalen Coker,All,36.8,15.8,21.0
 57,Christian Watson,All,35.7,14.72,20.98
 70,D'Andre Swift,All,35.4,14.57,20.83
 175,Josh Allen,All,38.66,18.82,19.84
 95,Derrick Henry,All,38.3,18.75,19.55
-91,Deebo Samuel,All,18.0,0.0,18.0
 313,Zay Flowers,All,29.0,11.2,17.8
 182,Justin Jefferson,All,31.2,14.88,16.32
 34,Bryce Young,All,35.44,20.03,15.41
 74,Dallas Goedert,All,23.7,8.34,15.36
 41,Caleb Williams,All,37.26,22.38,14.88
+194,Kenneth Walker,All,37.1,22.74,14.36
 127,Isaiah Likely,All,27.8,13.44,14.36
-278,TJ Hockenson,All,13.6,0.0,13.6
 295,Trevor Lawrence,All,26.1,12.84,13.26
 203,Kyle Monangai,All,23.4,10.31,13.09
 209,Lamar Jackson,All,28.96,16.48,12.48
@@ -334,18 +332,14 @@
 59,Chuba Hubbard,All,23.7,12.1,11.6
 152,Jaxon Smith-Njigba,All,29.2,17.67,11.53
 144,Jalen Hurts,All,24.72,13.49,11.23
-214,Luther Burden,All,10.5,0.0,10.5
-179,Joshua Palmer,All,10.4,0.0,10.4
 75,Dalton Kincaid,All,21.0,10.66,10.34
 83,David Montgomery,All,28.9,19.09,9.81
-71,DJ Moore,All,24.0,14.29,9.71
 138,Jahmyr Gibbs,All,37.6,27.89,9.71
+71,DJ Moore,All,24.0,14.29,9.71
 168,Jonathan Taylor,All,26.1,16.55,9.55
 12,Antonio Williams,All,16.4,7.25,9.15
-231,Michael Pittman Jr.,All,8.8,0.0,8.8
 54,Chris Olave,All,31.2,22.69,8.51
 151,Javonte Williams,All,24.2,15.76,8.44
-52,Chris Godwin,All,8.3,0.0,8.3
 246,Parker Washington,All,19.3,11.05,8.25
 100,Dontayvion Wicks,All,15.3,7.29,8.01
 142,Jakobi Meyers,All,12.2,4.26,7.94
@@ -354,7 +348,7 @@
 46,Carson Wentz,All,19.22,11.74,7.48
 92,Demarcus Robinson,All,13.0,5.81,7.19
 35,Bucky Irving,All,21.3,14.29,7.01
-30,Brian Thomas,All,7.0,0.0,7.0
+91,Deebo Samuel,All,18.0,11.1,6.9
 258,Rashee Rice,All,9.9,3.01,6.89
 9,Amon-Ra St. Brown,All,28.7,21.87,6.83
 208,Ladd McConkey,All,19.2,12.42,6.78
@@ -364,26 +358,26 @@
 176,Josh Cameron,All,10.0,3.7,6.3
 97,Devaughn Vele,All,19.9,13.79,6.11
 62,Cole Kmet,All,11.5,5.59,5.91
+179,Joshua Palmer,All,10.4,4.51,5.89
 93,Denzel Boston,All,13.9,8.06,5.84
 197,Kenyon Sadiq,All,11.4,5.59,5.81
 233,Mike Evans,All,16.9,11.4,5.5
 107,Eli Raridon,All,7.2,1.8,5.4
+278,TJ Hockenson,All,13.6,8.23,5.37
 137,Jahdae Walker,All,7.1,1.73,5.37
 26,Breece Hall,All,22.8,17.61,5.19
 19,Bijan Robinson,All,31.3,26.37,4.93
 27,Brenton Strange,All,10.3,5.45,4.85
 31,Brock Purdy,All,22.1,17.61,4.49
 132,Jack Bech,All,11.3,6.93,4.37
-123,Harold Fannin,All,4.1,0.0,4.1
+231,Michael Pittman Jr.,All,8.8,4.88,3.92
 160,Jaylin Noel,All,7.3,3.61,3.69
-129,JK Dobbins,All,3.6,0.0,3.6
 98,Devin Singletary,All,13.8,10.24,3.56
 206,Kyren Williams,All,15.5,12.08,3.42
 6,Adonai Mitchell,All,9.0,5.58,3.42
 296,Trey McBride,All,24.5,21.14,3.36
 84,David Njoku,All,10.8,7.59,3.21
 193,Kendrick Bourne,All,15.5,12.56,2.94
-58,Christopher Brooks,All,2.9,0.0,2.9
 108,Elic Ayomanor,All,8.1,5.4,2.7
 303,Tyler Warren,All,10.3,7.67,2.63
 103,Drew Lock,All,12.78,10.25,2.53
@@ -392,13 +386,12 @@
 221,Malik Willis,All,17.7,15.27,2.43
 192,Kendre Miller,All,9.0,6.6,2.4
 169,Jonathon Brooks,All,7.2,4.84,2.36
-55,Chris Rodriguez,All,2.3,0.0,2.3
 183,Juwan Johnson,All,14.4,12.11,2.29
 244,Omarion Hampton,All,9.3,7.04,2.26
 245,Oronde Gadsden,All,5.2,2.94,2.26
 42,Cam Skattebo,All,14.1,11.89,2.21
-255,RJ Harvey,All,8.1,5.92,2.18
 53,Chris Moore,All,6.3,4.12,2.18
+255,RJ Harvey,All,8.1,5.92,2.18
 239,Nico Collins,All,21.2,19.05,2.15
 172,Jordan Love,All,24.48,22.34,2.14
 292,Travis Kelce,All,10.1,7.96,2.14
@@ -407,8 +400,11 @@
 99,Dohnte Meyers,All,3.8,1.91,1.89
 40,Caleb Douglas,All,14.4,12.55,1.85
 187,Kalif Raymond,All,16.4,14.58,1.82
+214,Luther Burden,All,10.5,8.7,1.8
+30,Brian Thomas,All,7.0,5.3,1.7
 81,Darren Waller,All,4.8,3.12,1.68
 116,Garrett Wilson,All,13.9,12.25,1.65
+52,Chris Godwin,All,8.3,6.8,1.5
 281,Ted Hurst III,All,6.6,5.14,1.46
 196,Kenny Pickett,All,2.4,1.0,1.4
 265,Rome Odunze,All,7.2,5.89,1.31
@@ -439,7 +435,6 @@
 237,Nate Boerkircher,All,1.9,1.42,0.48
 167,Jonathan Mingo,All,2.0,1.54,0.46
 22,Bo Melton,All,2.0,1.58,0.42
-305,Tyrone Tracy,All,0.4,0.0,0.4
 287,Theo Johnson,All,1.9,1.5,0.4
 207,LaJohntay Wester,All,3.5,3.14,0.36
 140,Jake Briningstool,All,1.9,1.59,0.31
@@ -464,12 +459,13 @@
 65,Cooper Kupp,All,5.5,5.47,0.03
 162,Jeremy Ruckert,All,1.4,1.37,0.03
 274,Sione Vaki,All,2.8,2.79,0.01
-164,Jimmy Horn,All,0.0,0.0,0.0
 306,Wan'Dale Robinson,All,8.8,8.83,-0.03
 135,Jadarian Price,All,7.8,7.85,-0.05
 191,Keenan Allen,All,9.2,9.25,-0.05
 174,Jordan Whittington,All,1.8,1.86,-0.06
 242,Olamide Zaccheaus,All,1.5,1.58,-0.08
+123,Harold Fannin,All,4.1,4.2,-0.1
+129,JK Dobbins,All,3.6,3.72,-0.12
 280,Tanner Hudson,All,1.4,1.53,-0.13
 66,Cooper Rush,All,7.72,7.88,-0.16
 2,AJ Dillon,All,2.8,2.97,-0.17
@@ -491,6 +487,7 @@
 223,Mark Andrews,All,8.9,9.47,-0.57
 141,Jake Ferguson,All,2.6,3.19,-0.59
 36,C.J. Stroud,All,18.46,19.12,-0.66
+305,Tyrone Tracy,All,0.4,1.07,-0.67
 16,Baker Mayfield,All,14.64,15.32,-0.68
 279,Tank Bigsby,All,0.3,0.98,-0.68
 64,Connor Heyward,All,0.1,0.8,-0.7
@@ -503,8 +500,8 @@
 161,Jeremiyah Love,All,13.0,13.85,-0.85
 235,Mike Washington Jr.,All,4.1,4.98,-0.88
 277,Stetson Bennett,All,1.42,2.31,-0.89
-301,Tyler Higbee,All,2.2,3.12,-0.92
 109,Emanuel Wilson,All,0.3,1.22,-0.92
+301,Tyler Higbee,All,2.2,3.12,-0.92
 309,Woody Marks,All,5.0,5.92,-0.92
 110,Emari Demercado,All,0.7,1.78,-1.08
 298,Tucker Kraft,All,9.5,10.67,-1.17
@@ -516,9 +513,10 @@
 307,Will Kacmarek,All,0.0,1.43,-1.43
 225,Marvin Harrison Jr.,All,4.3,5.75,-1.45
 166,John Bates,All,3.3,4.76,-1.46
-201,Kirk Cousins,All,15.8,17.27,-1.47
 154,Jayden Daniels,All,17.66,19.13,-1.47
+201,Kirk Cousins,All,15.8,17.27,-1.47
 69,Cyrus Allen,All,0.0,1.48,-1.48
+164,Jimmy Horn,All,0.0,1.49,-1.49
 7,Alec Pierce,All,10.1,11.59,-1.49
 126,Isaac TeSlaa,All,0.0,1.5,-1.5
 236,Mitchell Evans,All,1.9,3.42,-1.52
@@ -557,6 +555,8 @@
 219,Malik Nabers,All,12.9,15.09,-2.19
 45,Carnell Tate,All,7.8,9.99,-2.19
 304,Tyquan Thornton,All,0.0,2.2,-2.2
+58,Christopher Brooks,All,2.9,5.14,-2.24
+55,Chris Rodriguez,All,2.3,4.59,-2.29
 94,Derius Davis,All,0.0,2.36,-2.36
 282,Tee Higgins,All,8.9,11.27,-2.37
 190,Keaton Mitchell,All,0.9,3.41,-2.51
@@ -599,8 +599,8 @@
 293,Tre Harris,All,5.0,8.92,-3.92
 106,Dyami Brown,All,0.0,3.94,-3.94
 88,DeMario Douglas,All,7.0,10.96,-3.96
-63,Colston Loveland,All,0.0,4.06,-4.06
 310,Xavier Hutchinson,All,6.2,10.26,-4.06
+63,Colston Loveland,All,0.0,4.06,-4.06
 76,Dalton Schultz,All,7.5,11.67,-4.17
 56,Christian McCaffrey,All,13.8,18.16,-4.36
 120,George Pickens,All,5.8,10.17,-4.37
