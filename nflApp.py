@@ -1316,6 +1316,7 @@ if check_password():
         # -------------------- Base prep --------------------
         # Normalize ceiling column and types
         weekproj = weekproj.rename(columns={'Ceiling100': 'CeilScore'})
+        st.write(weekproj)
         if 'CeilScore' not in weekproj.columns:
             weekproj['CeilScore'] = 100
         weekproj['CeilScore'] = pd.to_numeric(weekproj['CeilScore'], errors='coerce').fillna(100).astype(int)
@@ -5154,6 +5155,9 @@ if check_password():
         
         ### CHANGE TEAM NAMES TO SHOW PROJECTIONS ###
         weekproj['Team'] = np.where(weekproj['Team']=='LV','LVR',weekproj['Team'])
+        weekproj['Team'] = np.where(weekproj['Team']=='NE','NWE',weekproj['Team'])
+        weekproj['Team'] = np.where(weekproj['Team']=='LA','LAR',weekproj['Team'])
+        weekproj['Team'] = np.where(weekproj['Team']=='KC','KAN',weekproj['Team'])
         
         weekproj = weekproj[
             weekproj['Projection'] > 2
