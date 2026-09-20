@@ -10,7 +10,6 @@ import streamlit.components.v1 as components
 import matplotlib.pyplot as plt
 import os, shutil, math
 from math import erf, sqrt
-
 # Set page configuration
 st.set_page_config(page_title="Follow The Money Fantasy Football App", layout="wide")
 
@@ -3390,7 +3389,7 @@ if check_password():
 
 
         # =========================================================
-        # ESPN API FUNCTIONS
+        # ESPN API
         # =========================================================
 
         ESPN_SCOREBOARD_URL = (
@@ -3406,10 +3405,6 @@ if check_password():
 
         @st.cache_data(ttl=15)
         def get_nfl_scoreboard():
-            """
-            Get the current NFL scoreboard/current week from ESPN.
-            Cached for 15 seconds.
-            """
 
             response = requests.get(
                 ESPN_SCOREBOARD_URL,
@@ -3423,9 +3418,6 @@ if check_password():
 
         @st.cache_data(ttl=15)
         def get_nfl_game_summary(game_id):
-            """
-            Get ESPN's full box score for a specific NFL game.
-            """
 
             response = requests.get(
                 ESPN_SUMMARY_URL,
@@ -3439,31 +3431,22 @@ if check_password():
 
 
         # =========================================================
-        # HELPER FUNCTIONS
+        # HELPERS
         # =========================================================
 
         def safe_float(value, default=0.0):
-            """
-            Convert ESPN stat strings to floats.
-            """
 
             if value is None:
                 return default
 
             try:
                 return float(value)
-            except:
+
+            except (TypeError, ValueError):
                 return default
 
 
         def made_from_fraction(value):
-            """
-            Converts:
-                '3/4' -> 3
-                '4/4' -> 4
-
-            Used for FG and XP.
-            """
 
             if value is None:
                 return 0
@@ -3471,9 +3454,11 @@ if check_password():
             value = str(value)
 
             if "/" in value:
+
                 try:
                     return float(value.split("/")[0])
-                except:
+
+                except (TypeError, ValueError):
                     return 0
 
             return safe_float(value)
@@ -3487,22 +3472,27 @@ if check_password():
             value = str(value)
 
             if "/" in value:
+
                 try:
                     return float(value.split("/")[1])
-                except:
+
+                except (TypeError, ValueError):
                     return 0
 
             return 0
 
 
         def get_game_info(event):
-            """
-            Pull basic game information out of the ESPN scoreboard.
-            """
 
-            competition = event.get("competitions", [{}])[0]
+            competition = event.get(
+                "competitions",
+                [{}]
+            )[0]
 
-            competitors = competition.get("competitors", [])
+            competitors = competition.get(
+                "competitors",
+                []
+            )
 
             home = next(
                 (
@@ -3520,35 +3510,64 @@ if check_password():
                 {}
             )
 
-            status = competition.get("status", {})
+            status = competition.get(
+                "status",
+                {}
+            )
 
-            status_type = status.get("type", {})
+            status_type = status.get(
+                "type",
+                {}
+            )
 
-            state = status_type.get("state", "")
-            detail = status_type.get("detail", "")
-            short_detail = status_type.get("shortDetail", detail)
+            state = status_type.get(
+                "state",
+                ""
+            )
+
+            detail = status_type.get(
+                "detail",
+                ""
+            )
+
+            short_detail = status_type.get(
+                "shortDetail",
+                detail
+            )
 
             return {
 
                 "GameID": event.get("id"),
 
-                "Away": away.get(
-                    "team", {}
-                ).get(
-                    "abbreviation",
-                    away.get("team", {}).get("shortDisplayName", "")
+                "Away": (
+                    away.get("team", {}).get(
+                        "abbreviation",
+                        away.get("team", {}).get(
+                            "shortDisplayName",
+                            ""
+                        )
+                    )
                 ),
 
-                "Home": home.get(
-                    "team", {}
-                ).get(
-                    "abbreviation",
-                    home.get("team", {}).get("shortDisplayName", "")
+                "Home": (
+                    home.get("team", {}).get(
+                        "abbreviation",
+                        home.get("team", {}).get(
+                            "shortDisplayName",
+                            ""
+                        )
+                    )
                 ),
 
-                "AwayScore": away.get("score", "0"),
+                "AwayScore": away.get(
+                    "score",
+                    "0"
+                ),
 
-                "HomeScore": home.get("score", "0"),
+                "HomeScore": home.get(
+                    "score",
+                    "0"
+                ),
 
                 "State": state,
 
@@ -3556,8 +3575,10 @@ if check_password():
 
                 "Date": event.get("date"),
 
-                "Name": event.get("shortName", event.get("name", ""))
-
+                "Name": event.get(
+                    "shortName",
+                    event.get("name", "")
+                )
             }
 
 
@@ -3566,34 +3587,33 @@ if check_password():
         # =========================================================
 
         def parse_game_players(summary):
-            """
-            ESPN stores player statistics in categories such as:
 
-            passing
-            rushing
-            receiving
-            fumbles
-            kicking
+            boxscore = summary.get(
+                "boxscore",
+                {}
+            )
 
-            Each category contains labels and athlete stat arrays.
-
-            This converts everything into one row per player.
-            """
-
-            boxscore = summary.get("boxscore", {})
-
-            team_blocks = boxscore.get("players", [])
+            team_blocks = boxscore.get(
+                "players",
+                []
+            )
 
             players = {}
 
 
             for team_block in team_blocks:
 
-                team_info = team_block.get("team", {})
+                team_info = team_block.get(
+                    "team",
+                    {}
+                )
 
                 team_abbrev = team_info.get(
                     "abbreviation",
-                    team_info.get("shortDisplayName", "")
+                    team_info.get(
+                        "shortDisplayName",
+                        ""
+                    )
                 )
 
                 stat_categories = team_block.get(
@@ -3637,7 +3657,10 @@ if check_password():
 
                         player_name = athlete.get(
                             "displayName",
-                            athlete.get("shortName", "")
+                            athlete.get(
+                                "shortName",
+                                ""
+                            )
                         )
 
 
@@ -3648,14 +3671,20 @@ if check_password():
                         )
 
 
-                        # Create player if first time seen
+                        # -----------------------------------------
+                        # CREATE PLAYER
+                        # -----------------------------------------
+
                         if player_id not in players:
 
                             players[player_id] = {
 
                                 "PlayerID": player_id,
+
                                 "Player": player_name,
+
                                 "Team": team_abbrev,
+
                                 "Pos": position,
 
                                 "PassYds": 0,
@@ -3679,11 +3708,11 @@ if check_password():
 
                                 "XPM": 0,
                                 "XPA": 0
-
                             }
 
 
                         row = players[player_id]
+
 
                         stats = athlete_row.get(
                             "stats",
@@ -3692,13 +3721,16 @@ if check_password():
 
 
                         stat_dict = dict(
-                            zip(labels, stats)
+                            zip(
+                                labels,
+                                stats
+                            )
                         )
 
 
-                        # =====================================
+                        # =========================================
                         # PASSING
-                        # =====================================
+                        # =========================================
 
                         if category_name == "passing":
 
@@ -3715,16 +3747,19 @@ if check_password():
                             )
 
 
-                        # =====================================
+                        # =========================================
                         # RUSHING
-                        # =====================================
+                        # =========================================
 
                         elif category_name == "rushing":
 
                             row["RushAtt"] = safe_float(
                                 stat_dict.get(
                                     "CAR",
-                                    stat_dict.get("ATT", 0)
+                                    stat_dict.get(
+                                        "ATT",
+                                        0
+                                    )
                                 )
                             )
 
@@ -3737,9 +3772,9 @@ if check_password():
                             )
 
 
-                        # =====================================
+                        # =========================================
                         # RECEIVING
-                        # =====================================
+                        # =========================================
 
                         elif category_name == "receiving":
 
@@ -3750,7 +3785,10 @@ if check_password():
                             row["Targets"] = safe_float(
                                 stat_dict.get(
                                     "TGTS",
-                                    stat_dict.get("TGT", 0)
+                                    stat_dict.get(
+                                        "TGT",
+                                        0
+                                    )
                                 )
                             )
 
@@ -3763,9 +3801,9 @@ if check_password():
                             )
 
 
-                        # =====================================
+                        # =========================================
                         # FUMBLES
-                        # =====================================
+                        # =========================================
 
                         elif category_name == "fumbles":
 
@@ -3778,30 +3816,45 @@ if check_password():
                             )
 
 
-                        # =====================================
+                        # =========================================
                         # KICKING
-                        # =====================================
+                        # =========================================
 
                         elif category_name == "kicking":
 
                             fg = stat_dict.get(
                                 "FG",
-                                stat_dict.get("FGM/FGA")
+                                stat_dict.get(
+                                    "FGM/FGA"
+                                )
                             )
 
                             xp = stat_dict.get(
                                 "XP",
-                                stat_dict.get("XPM/XPA")
+                                stat_dict.get(
+                                    "XPM/XPA"
+                                )
                             )
 
-                            row["FGM"] = made_from_fraction(fg)
-                            row["FGA"] = attempts_from_fraction(fg)
+                            row["FGM"] = made_from_fraction(
+                                fg
+                            )
 
-                            row["XPM"] = made_from_fraction(xp)
-                            row["XPA"] = attempts_from_fraction(xp)
+                            row["FGA"] = attempts_from_fraction(
+                                fg
+                            )
+
+                            row["XPM"] = made_from_fraction(
+                                xp
+                            )
+
+                            row["XPA"] = attempts_from_fraction(
+                                xp
+                            )
 
 
             if len(players) == 0:
+
                 return pd.DataFrame()
 
 
@@ -3825,46 +3878,49 @@ if check_password():
             df["FPts"] = (
 
                 # Passing
-                (df["PassYds"] / 25) +
+                (df["PassYds"] / 25)
 
-                (df["PassTD"] * 4) -
+                + (df["PassTD"] * 4)
 
-                (df["INT"] * 2) +
+                - (df["INT"] * 2)
 
 
                 # Rushing
-                (df["RushYds"] / 10) +
+                + (df["RushYds"] / 10)
 
-                (df["RushTD"] * 6) +
+                + (df["RushTD"] * 6)
 
 
                 # Receiving
-                (df["Rec"] * reception_points) +
+                + (df["Rec"] * reception_points)
 
-                (df["RecYds"] / 10) +
+                + (df["RecYds"] / 10)
 
-                (df["RecTD"] * 6) -
+                + (df["RecTD"] * 6)
 
 
                 # Fumbles
-                (df["FumblesLost"] * 2) +
+                - (df["FumblesLost"] * 2)
 
 
                 # Kicking
-                (df["FGM"] * 3) +
+                + (df["FGM"] * 3)
 
-                df["XPM"]
-
+                + df["XPM"]
             )
 
 
-            df["FPts"] = df["FPts"].round(2)
+            df["FPts"] = (
+                df["FPts"]
+                .round(2)
+            )
+
 
             return df
 
 
         # =========================================================
-        # MAKE PRETTY STAT LINE
+        # CREATE STAT LINE
         # =========================================================
 
         def create_stat_line(row):
@@ -3890,6 +3946,7 @@ if check_password():
             if (
                 row["RushAtt"] > 0
                 or row["RushYds"] > 0
+                or row["RushTD"] > 0
             ):
 
                 pieces.append(
@@ -3903,6 +3960,8 @@ if check_password():
             if (
                 row["Targets"] > 0
                 or row["Rec"] > 0
+                or row["RecYds"] > 0
+                or row["RecTD"] > 0
             ):
 
                 pieces.append(
@@ -3914,7 +3973,10 @@ if check_password():
 
 
             # Kicking
-            if row["FGA"] > 0 or row["XPA"] > 0:
+            if (
+                row["FGA"] > 0
+                or row["XPA"] > 0
+            ):
 
                 pieces.append(
                     f'{int(row["FGM"])}/{int(row["FGA"])} FG, '
@@ -3923,10 +3985,13 @@ if check_password():
 
 
             if not pieces:
+
                 return ""
 
 
-            return " | ".join(pieces)
+            return " | ".join(
+                pieces
+            )
 
 
         # =========================================================
@@ -3934,25 +3999,14 @@ if check_password():
         # =========================================================
 
         st.markdown(
-            """
-            <div style="text-align:center; padding-bottom:10px;">
-                <div style="
-                    font-family:Futura,Arial,sans-serif;
-                    font-size:46px;
-                    font-weight:800;
-                ">
-                    NFL Live Game Tracker
-                </div>
-
-                <div style="
-                    font-family:Futura,Arial,sans-serif;
-                    font-size:15px;
-                    opacity:.70;
-                ">
-                    Live scores, player statistics & fantasy points
-                </div>
-            </div>
-            """,
+            '<div style="text-align:center; padding-bottom:10px;">'
+            '<div style="font-family:Futura,Arial,sans-serif; font-size:46px; font-weight:800;">'
+            'NFL Live Game Tracker'
+            '</div>'
+            '<div style="font-family:Futura,Arial,sans-serif; font-size:15px; opacity:.70;">'
+            'Live scores, player statistics & fantasy points'
+            '</div>'
+            '</div>',
             unsafe_allow_html=True
         )
 
@@ -3962,7 +4016,12 @@ if check_password():
         # =========================================================
 
         col1, col2, col3, col4 = st.columns(
-            [1.3, 1.3, 1.3, .8]
+            [
+                1.3,
+                1.3,
+                1.3,
+                .8
+            ]
         )
 
 
@@ -4004,7 +4063,6 @@ if check_password():
         with col4:
 
             st.write("")
-
             st.write("")
 
             refresh = st.button(
@@ -4016,16 +4074,22 @@ if check_password():
         if refresh:
 
             get_nfl_scoreboard.clear()
+
             get_nfl_game_summary.clear()
 
             st.rerun()
 
 
-        # Reception scoring
+        # =========================================================
+        # SCORING SETTING
+        # =========================================================
+
         reception_points = {
 
             "PPR": 1,
+
             "Half PPR": .5,
+
             "Standard": 0
 
         }[scoring_format]
@@ -4044,6 +4108,7 @@ if check_password():
                 []
             )
 
+
         except Exception as e:
 
             st.error(
@@ -4054,12 +4119,17 @@ if check_password():
 
 
         games = [
+
             get_game_info(event)
+
             for event in events
+
         ]
 
 
-        games_df = pd.DataFrame(games)
+        games_df = pd.DataFrame(
+            games
+        )
 
 
         if len(games_df) == 0:
@@ -4082,20 +4152,29 @@ if check_password():
             ].copy()
 
 
-        # Put live first, then upcoming, then final
+        # =========================================================
+        # SORT GAMES
+        # =========================================================
+
         state_order = {
 
             "in": 0,
+
             "pre": 1,
+
             "post": 2
 
         }
 
 
         games_df["StateOrder"] = (
+
             games_df["State"]
+
             .map(state_order)
+
             .fillna(99)
+
         )
 
 
@@ -4108,7 +4187,7 @@ if check_password():
 
 
         # =========================================================
-        # NOTHING LIVE
+        # NO GAMES
         # =========================================================
 
         if len(games_df) == 0:
@@ -4116,6 +4195,279 @@ if check_password():
             st.info(
                 "🏈 There are currently no live NFL games."
             )
+
+            st.stop()
+
+
+        # =========================================================
+        # LOAD ALL PLAYER DATA FIRST
+        # =========================================================
+
+        all_player_dfs = []
+
+        game_player_data = {}
+
+
+        for _, game in games_df.iterrows():
+
+            game_id = game["GameID"]
+
+
+            # Upcoming game: no player stats yet
+            if game["State"] == "pre":
+
+                game_player_data[game_id] = pd.DataFrame()
+
+                continue
+
+
+            try:
+
+                summary = get_nfl_game_summary(
+                    game_id
+                )
+
+
+                player_df = parse_game_players(
+                    summary
+                )
+
+
+            except Exception:
+
+                game_player_data[game_id] = pd.DataFrame()
+
+                continue
+
+
+            if len(player_df) == 0:
+
+                game_player_data[game_id] = pd.DataFrame()
+
+                continue
+
+
+            # -----------------------------------------
+            # FANTASY POINTS
+            # -----------------------------------------
+
+            player_df = calculate_fantasy_points(
+                player_df,
+                reception_points=reception_points
+            )
+
+
+            # -----------------------------------------
+            # STAT LINE
+            # -----------------------------------------
+
+            player_df["Stats"] = player_df.apply(
+                create_stat_line,
+                axis=1
+            )
+
+
+            # -----------------------------------------
+            # GAME INFORMATION
+            # -----------------------------------------
+
+            player_df["Game"] = (
+                game["Away"]
+                + " @ "
+                + game["Home"]
+            )
+
+
+            player_df["GameID"] = game_id
+
+
+            # Store full game dataframe
+            game_player_data[game_id] = (
+                player_df.copy()
+            )
+
+
+            # Add to overall leaderboard
+            all_player_dfs.append(
+                player_df.copy()
+            )
+
+
+        # =========================================================
+        # OVERALL FANTASY LEADERBOARD
+        # =========================================================
+
+        st.markdown(
+            '<div style="text-align:center; margin-top:25px; margin-bottom:5px;">'
+            '<div style="font-family:Futura,Arial,sans-serif; font-size:34px; font-weight:800;">'
+            '🏆 Fantasy Scoring Leaderboard'
+            '</div>'
+            '<div style="font-family:Futura,Arial,sans-serif; font-size:14px; opacity:.65;">'
+            f'{scoring_format} Scoring'
+            '</div>'
+            '</div>',
+            unsafe_allow_html=True
+        )
+
+
+        if all_player_dfs:
+
+            overall_df = pd.concat(
+                all_player_dfs,
+                ignore_index=True
+            )
+
+
+            # -----------------------------------------
+            # POSITION FILTER
+            # -----------------------------------------
+
+            if position_filter != "All":
+
+                overall_df = overall_df[
+                    overall_df["Pos"] == position_filter
+                ].copy()
+
+
+            # -----------------------------------------
+            # REMOVE INACTIVE PLAYERS
+            # -----------------------------------------
+
+            overall_df = overall_df[
+
+                (overall_df["FPts"] != 0)
+
+                | (overall_df["Targets"] > 0)
+
+                | (overall_df["RushAtt"] > 0)
+
+                | (overall_df["FGA"] > 0)
+
+                | (overall_df["XPA"] > 0)
+
+            ].copy()
+
+
+            # -----------------------------------------
+            # SORT
+            # -----------------------------------------
+
+            overall_df = overall_df.sort_values(
+                "FPts",
+                ascending=False
+            ).reset_index(
+                drop=True
+            )
+
+
+            # -----------------------------------------
+            # RANK
+            # -----------------------------------------
+
+            overall_df.insert(
+                0,
+                "Rank",
+                range(
+                    1,
+                    len(overall_df) + 1
+                )
+            )
+
+
+            leaderboard_columns = [
+
+                "Rank",
+
+                "Player",
+
+                "Team",
+
+                "Pos",
+
+                "FPts",
+
+                "Game",
+
+                "Stats"
+
+            ]
+
+
+            st.dataframe(
+
+                overall_df[
+                    leaderboard_columns
+                ],
+
+                hide_index=True,
+
+                use_container_width=True,
+
+                height=550,
+
+                column_config={
+
+                    "Rank": st.column_config.NumberColumn(
+                        "#",
+                        format="%d",
+                        width="small"
+                    ),
+
+                    "Player": st.column_config.TextColumn(
+                        "Player",
+                        width="medium"
+                    ),
+
+                    "Team": st.column_config.TextColumn(
+                        "Tm",
+                        width="small"
+                    ),
+
+                    "Pos": st.column_config.TextColumn(
+                        "Pos",
+                        width="small"
+                    ),
+
+                    "FPts": st.column_config.NumberColumn(
+                        "Fantasy",
+                        format="%.2f",
+                        width="small"
+                    ),
+
+                    "Game": st.column_config.TextColumn(
+                        "Game",
+                        width="small"
+                    ),
+
+                    "Stats": st.column_config.TextColumn(
+                        "Live Stats",
+                        width="large"
+                    )
+
+                }
+
+            )
+
+
+        else:
+
+            st.caption(
+                "Player statistics have not populated yet."
+            )
+
+
+        # =========================================================
+        # GAME-BY-GAME HEADER
+        # =========================================================
+
+        st.markdown(
+            '<div style="text-align:center; margin-top:40px; margin-bottom:10px;">'
+            '<div style="font-family:Futura,Arial,sans-serif; font-size:34px; font-weight:800;">'
+            'Game-by-Game'
+            '</div>'
+            '</div>',
+            unsafe_allow_html=True
+        )
 
 
         # =========================================================
@@ -4127,9 +4479,9 @@ if check_password():
             game_id = game["GameID"]
 
 
-            # -----------------------------
-            # GAME HEADER
-            # -----------------------------
+            # =====================================================
+            # STATUS
+            # =====================================================
 
             if game["State"] == "in":
 
@@ -4144,77 +4496,77 @@ if check_password():
                 status_icon = game["Status"]
 
 
+            # =====================================================
+            # GAME HEADER
+            # =====================================================
+
+            game_header_html = (
+
+                '<div style="'
+                'margin-top:20px; '
+                'padding:15px 20px; '
+                'border-radius:10px; '
+                'border:1px solid rgba(128,128,128,.25);'
+                '">'
+
+                '<div style="'
+                'display:flex; '
+                'justify-content:space-between; '
+                'align-items:center;'
+                '">'
+
+                '<div style="'
+                'font-size:25px; '
+                'font-weight:800;'
+                '">'
+
+                f'{game["Away"]} {game["AwayScore"]}'
+
+                '&nbsp;&nbsp;—&nbsp;&nbsp;'
+
+                f'{game["Home"]} {game["HomeScore"]}'
+
+                '</div>'
+
+                '<div style="'
+                'font-size:14px; '
+                'font-weight:700;'
+                '">'
+
+                f'{status_icon}'
+
+                '</div>'
+
+                '</div>'
+
+                '</div>'
+
+            )
+
+
             st.markdown(
-                f"""
-                <div style="
-                    margin-top:20px;
-                    padding:15px 20px;
-                    border-radius:10px;
-                    border:1px solid rgba(128,128,128,.25);
-                ">
-
-                    <div style="
-                        display:flex;
-                        justify-content:space-between;
-                        align-items:center;
-                    ">
-
-                        <div style="
-                            font-size:25px;
-                            font-weight:800;
-                        ">
-                            {game["Away"]}
-                            {game["AwayScore"]}
-                            &nbsp;&nbsp;—&nbsp;&nbsp;
-                            {game["Home"]}
-                            {game["HomeScore"]}
-                        </div>
-
-                        <div style="
-                            font-size:14px;
-                            font-weight:700;
-                        ">
-                            {status_icon}
-                        </div>
-
-                    </div>
-
-                </div>
-                """,
+                game_header_html,
                 unsafe_allow_html=True
             )
 
 
-            # Don't need a summary API call for a
-            # game that hasn't started.
+            # =====================================================
+            # UPCOMING GAME
+            # =====================================================
+
             if game["State"] == "pre":
 
                 continue
 
 
-            # -----------------------------
-            # GET PLAYER DATA
-            # -----------------------------
+            # =====================================================
+            # GET STORED PLAYER DATA
+            # =====================================================
 
-            try:
-
-                summary = get_nfl_game_summary(
-                    game_id
-                )
-
-                player_df = parse_game_players(
-                    summary
-                )
-
-
-            except Exception as e:
-
-                st.warning(
-                    f'Could not load box score for '
-                    f'{game["Away"]} @ {game["Home"]}: {e}'
-                )
-
-                continue
+            player_df = game_player_data.get(
+                game_id,
+                pd.DataFrame()
+            )
 
 
             if len(player_df) == 0:
@@ -4226,37 +4578,42 @@ if check_password():
                 continue
 
 
-            # -----------------------------
-            # FANTASY POINTS
-            # -----------------------------
-
-            player_df = calculate_fantasy_points(
-                player_df,
-                reception_points=reception_points
-            )
+            player_df = player_df.copy()
 
 
-            player_df["Stats"] = player_df.apply(
-                create_stat_line,
-                axis=1
-            )
-
-
-            # -----------------------------
+            # =====================================================
             # POSITION FILTER
-            # -----------------------------
+            # =====================================================
 
             if position_filter != "All":
 
                 player_df = player_df[
-                    player_df["Pos"]
-                    == position_filter
+                    player_df["Pos"] == position_filter
                 ].copy()
 
 
-            # -----------------------------
+            # =====================================================
+            # REMOVE INACTIVE PLAYERS
+            # =====================================================
+
+            player_df = player_df[
+
+                (player_df["FPts"] != 0)
+
+                | (player_df["Targets"] > 0)
+
+                | (player_df["RushAtt"] > 0)
+
+                | (player_df["FGA"] > 0)
+
+                | (player_df["XPA"] > 0)
+
+            ].copy()
+
+
+            # =====================================================
             # SORT
-            # -----------------------------
+            # =====================================================
 
             player_df = player_df.sort_values(
                 "FPts",
@@ -4264,32 +4621,20 @@ if check_password():
             )
 
 
-            # Remove players with literally nothing
-            player_df = player_df[
-                (
-                    player_df["FPts"] != 0
-                )
-                |
-                (
-                    player_df["Targets"] > 0
-                )
-                |
-                (
-                    player_df["RushAtt"] > 0
-                )
-            ]
-
-
-            # -----------------------------
-            # DISPLAY TABLE
-            # -----------------------------
+            # =====================================================
+            # DISPLAY
+            # =====================================================
 
             show_columns = [
 
                 "Player",
+
                 "Team",
+
                 "Pos",
+
                 "FPts",
+
                 "Stats"
 
             ]
@@ -4338,10 +4683,13 @@ if check_password():
             )
 
 
+        # =========================================================
+        # FOOTER
+        # =========================================================
+
         st.caption(
             "Live data via ESPN • Data cached for 15 seconds"
         )
-
     if tab == "Game by Game":
 
         # ============================================================
