@@ -5481,7 +5481,7 @@ if check_password():
 
         # try again if failed
         if projections_ready_flag == 'No':
-            st.write('try again')
+
             # pick team on current week
             pick_team = curr_week_data['Away_Short'].iloc[3]
 
