@@ -5469,15 +5469,31 @@ if check_password():
 
         # pick team on current week
         pick_team = curr_week_data['Away_Short'].iloc[0]
+
         ## find team's matchup
         pick_team_opp = curr_week_data[curr_week_data['Away_Short']==pick_team]['Home_Short'].iloc[0]
-        
         pick_team_proj_opp = weekproj[weekproj['Team']==pick_team]['Opp'].iloc[0]
 
         if (pick_team_proj_opp == pick_team_opp):
             projections_ready_flag = 'Yes'
         else:
             projections_ready_flag = 'No'
+
+        # try again if failed
+        if projections_ready_flag == 'No':
+            st.write('try again')
+            # pick team on current week
+            pick_team = curr_week_data['Away_Short'].iloc[3]
+
+            ## find team's matchup
+            pick_team_opp = curr_week_data[curr_week_data['Away_Short']==pick_team]['Home_Short'].iloc[0]
+            pick_team_proj_opp = weekproj[weekproj['Team']==pick_team]['Opp'].iloc[0]
+
+            if (pick_team_proj_opp == pick_team_opp):
+                projections_ready_flag = 'Yes'
+            else:
+                projections_ready_flag = 'No'
+
         
 
         weekproj['JA Rk'] = weekproj[
