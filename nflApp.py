@@ -5828,6 +5828,8 @@ if check_password():
             )
 
             with projcol1:
+                if road_team == 'NO':
+                    road_team == 'NOR'
 
                 show_team_projection(
                     team_name=road_team,
@@ -5839,6 +5841,9 @@ if check_password():
                 )
 
             with projcol2:
+
+                if home_team == 'NO':
+                    home_team == 'NOR'
 
                 show_team_projection(
                     team_name=home_team,
