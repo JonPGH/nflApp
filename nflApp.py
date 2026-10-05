@@ -544,8 +544,6 @@ if check_password():
     
     own_dict = dict(zip(mainslate.name,mainslate.proj_own))
 
-    ### her
-
     teamnamechangedict = dict(zip(team_name_change.Long,team_name_change.Short))
     dkdata['Team'] = dkdata['Team'].replace({'NO': 'NOR'})
     weekproj['Team'] = weekproj['Team'].replace({'NO': 'NOR'})
@@ -602,8 +600,8 @@ if check_password():
         main_slate_team_list.append(team)
     
     ###
-    weekproj['Team'] = weekproj['Team'].replace({'GB':'GNB','TB':'TAM','ARZ':'ARI','SF':'SFO'})
-    weekproj['Opp'] = weekproj['Opp'].replace({'GB':'GNB','TB':'TAM', 'ARZ':'ARI','SF':'SFO'})
+    weekproj['Team'] = weekproj['Team'].replace({'GB':'GNB','TB':'TAM','ARZ':'ARI','SF':'SFO','NOR':'NO'})
+    weekproj['Opp'] = weekproj['Opp'].replace({'GB':'GNB','TB':'TAM', 'ARZ':'ARI','SF':'SFO','NOR':'NO'})
     #season_proj['Proj FPts'] = 0
     namemapdict = dict(zip(namemap.OldName,namemap.NewName))
     adp_data['Player'] = adp_data['Player'].replace(namemapdict)
@@ -658,8 +656,6 @@ if check_password():
                 return f'rgb({r}, {g}, {b})'
         except (ValueError, TypeError):
             return 'white'
-
-
 
 
     if tab == "NBA Optimizer":
@@ -5469,8 +5465,8 @@ if check_password():
 
         # pick team on current week
         pick_team = curr_week_data['Away_Short'].iloc[0]
-
         ## find team's matchup
+        curr_week_data['Home_Short'] = curr_week_data['Home_Short'].replace({'NOR':'NO'})
         pick_team_opp = curr_week_data[curr_week_data['Away_Short']==pick_team]['Home_Short'].iloc[0]
         pick_team_proj_opp = weekproj[weekproj['Team']==pick_team]['Opp'].iloc[0]
 
@@ -5891,7 +5887,6 @@ if check_password():
         #game_selection_list = list(weekproj['Game'].unique())
         #game_selection = st.selectbox('Select A Game', game_selection_list)
 
-        
 
         if proj_are_good == 'N':
             st.markdown(f'<h2><center>Projections for week {this_week_number} are not yet available</center></h2>',unsafe_allow_html=True)
