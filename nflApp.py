@@ -5523,6 +5523,8 @@ if check_password():
             weekproj['Projection'] > 2
         ].copy()
 
+        weekproj['Team'] = weekproj['Team'].replace({'NO':'NOR'})
+
         road_projections = weekproj[
             weekproj['Team']
             == road_team_short
