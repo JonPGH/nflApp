@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import os, shutil, math
 from math import erf, sqrt
 # Set page configuration
-st.set_page_config(page_title="Follow The Money Fantasy Football App", layout="wide")
+st.set_page_config(page_title="NFL DW Fantasy Football App", layout="wide")
 
 
 # Initialize session state for authentication
@@ -36,7 +36,7 @@ def check_password():
             st.error("Incorrect password. Please try again.")
     
     if not st.session_state.authenticated:
-        st.text_input("Enter Password (can be found in Resource Glossary at ftmff.substack.com", type="password", key="password", on_change=password_entered)
+        st.text_input("Enter Password (can be found in Resource Glossary at mlbdatawarehouse.com", type="password", key="password", on_change=password_entered)
         return False
     return True
 
@@ -640,7 +640,7 @@ if check_password():
         st.cache_data.clear()  # Clear cache to force reload
 
     # Main content
-    st.markdown(f"<center><h1>Follow The Money Fantasy Football Web App</h1></center>", unsafe_allow_html=True)
+    st.markdown(f"<center><h1>NFL Data Warehouse Web App</h1></center>", unsafe_allow_html=True)
 
     def color_season(val):
         if pd.isna(val) or val == 'None' or not isinstance(val, (int, float, str)):
@@ -1703,7 +1703,7 @@ if check_password():
         except:
             last_update_string = ''
         
-        st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money DFS Tool<br></b>
+        st.markdown(f"""<br><center><font size=10 face=Futura><b>NFL DW DFS Tool<br></b>
         <font size=3 face=Futura>These projections are tweaked slightly for more DFS friendly projections, including ceiling and positional adjustments.<br>Last Update: {last_update_string}</b></i></center><hr>""", unsafe_allow_html=True)
         
 
@@ -2601,7 +2601,7 @@ if check_password():
         # ---------- Header ----------
         st.markdown(
             """<div style="text-align:center; line-height:1.3">
-                <div style="font-family:Futura; font-weight:800; font-size:44px;">Follow The Money Player Grades</div>
+                <div style="font-family:Futura; font-weight:800; font-size:44px;">NFL DW Player Grades</div>
                 <div style="font-family:Futura; font-size:14px; opacity:.8;">
                     Algorithmic player rankings using inputs that are more important to fantasy football success
                 </div>
@@ -2759,7 +2759,7 @@ if check_password():
 
     if tab == "Player Grades2":
 
-        st.markdown(f"""<br><center><font size=10 face=Futura><b>Follow The Money Player Grades<br></b><font size=3 face=Futura>Algorithmic player rankings using inputs that are more important to fantasy football success</font></center>""", unsafe_allow_html=True)
+        st.markdown(f"""<br><center><font size=10 face=Futura><b>NFL DW Player Grades<br></b><font size=3 face=Futura>Algorithmic player rankings using inputs that are more important to fantasy football success</font></center>""", unsafe_allow_html=True)
 
         gradebox1, gradebox2 = st.columns([1, 3])
         with gradebox1:
