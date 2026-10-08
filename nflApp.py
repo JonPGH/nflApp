@@ -2593,7 +2593,408 @@ if check_password():
                             height=900, use_container_width=True, hide_index=True
                         )
 
+
+
+
+
     if tab == "Player Grades":
+        import html
+        import numpy as np
+        import pandas as pd
+        import plotly.graph_objects as go
+        import streamlit as st
+
+        # ---------- Data ----------
+        def prep_pos_df(pos):
+            src = {
+                "QB": qb_grades,
+                "RB": rb_grades,
+                "WR": wr_grades,
+                "TE": te_grades,
+            }[pos].copy()
+
+            # Standardize integer/string week columns.
+            src.columns = [str(c).strip() for c in src.columns]
+            src = src.rename(columns={pos: "Player"})
+
+            weeks = sorted(
+                [c for c in src.columns if c.isdigit() and 1 <= int(c) <= 22],
+                key=int,
+            )
+
+            required = ["Player", "Team", "Season"]
+            missing = [c for c in required if c not in src.columns]
+            if missing:
+                raise ValueError(f"{pos} data is missing: {', '.join(missing)}")
+
+            src = src[required + weeks].copy()
+            src["Season"] = pd.to_numeric(src["Season"], errors="coerce")
+
+            for week in weeks:
+                src[week] = pd.to_numeric(src[week], errors="coerce")
+
+            src = src.dropna(subset=["Player", "Season"])
+            src["Player"] = src["Player"].astype(str).str.strip()
+            src["Team"] = src["Team"].fillna("—").astype(str).str.strip()
+
+            src = src.sort_values(
+                ["Season", "Player"], ascending=[False, True]
+            ).reset_index(drop=True)
+
+            # Rank within the position before team/search filters.
+            src.insert(
+                0,
+                "Rank",
+                src["Season"].rank(method="min", ascending=False).astype(int),
+            )
+            return src, weeks
+
+        # Fixed scale: the same grade always receives the same color.
+        def grade_color(value):
+            if pd.isna(value):
+                return ""
+            value = float(value)
+
+            if value >= 90:
+                bg, text = "#064E3B", "#A7F3D0"
+            elif value >= 75:
+                bg, text = "#14532D", "#BBF7D0"
+            elif value >= 60:
+                bg, text = "#164E63", "#A5F3FC"
+            elif value >= 40:
+                bg, text = "#713F12", "#FDE68A"
+            else:
+                bg, text = "#7F1D1D", "#FECACA"
+
+            return (
+                f"background-color:{bg};color:{text};"
+                "font-weight:700;text-align:center;"
+            )
+
+        # ---------- Header ----------
+        st.markdown(
+            """
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap');
+
+                .grades-header {
+                    text-align: center;
+                    border: 1px solid rgba(56,189,248,.25);
+                    border-radius: 14px;
+                    padding: 28px 24px;
+                    margin-bottom: 22px;
+                    background: linear-gradient(
+                        110deg,
+                        rgba(56,189,248,.12),
+                        rgba(56,189,248,.02)
+                    );
+                }
+
+                .grades-header,
+                .grades-header * {
+                    font-family: 'Oswald', sans-serif !important;
+                    font-weight: 700 !important;
+                }
+
+                .grades-brand {
+                    font-size: 15px;
+                    letter-spacing: 3px;
+                    color: #38BDF8;
+                }
+
+                .grades-title {
+                    font-size: clamp(34px, 5vw, 48px);
+                    line-height: 1.2;
+                    margin: 8px 0 12px;
+                    text-transform: uppercase;
+                }
+
+                .grades-description {
+                    font-size: 17px;
+                    line-height: 1.5;
+                    opacity: .8;
+                    max-width: 720px;
+                    margin: 0 auto;
+                }
+            </style>
+
+            <div class="grades-header">
+                <div class="grades-brand">NFL DATA WAREHOUSE</div>
+                <div class="grades-title">Player Grades</div>
+                <div class="grades-description">
+                    Algorithmic rankings built around the inputs that matter
+                    for fantasy football.
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        # ---------- Main controls ----------
+        with st.container(border=True):
+            c1, c2, c3 = st.columns([1, 1.2, 2])
+
+            with c1:
+                select_pos = st.selectbox(
+                    "Position",
+                    ["QB", "RB", "WR", "TE"],
+                    key="grades_position",
+                )
+
+            try:
+                df_raw, all_weeks = prep_pos_df(select_pos)
+            except Exception as exc:
+                st.error(str(exc))
+                st.stop()
+
+            with c2:
+                team_choice = st.selectbox(
+                    "Team",
+                    ["All teams"] + sorted(df_raw["Team"].unique().tolist()),
+                    key=f"grades_team_{select_pos}",
+                )
+
+            with c3:
+                search_name = st.text_input(
+                    "Player search",
+                    placeholder="Search by name…",
+                    key="grades_search",
+                )
+
+            c1, c2, c3 = st.columns([1.5, 1, 1.5])
+
+            with c1:
+                min_grade = st.slider(
+                    "Minimum season grade",
+                    min_value=0,
+                    max_value=100,
+                    value=0 if select_pos == "QB" else 10,
+                    key=f"grades_min_{select_pos}",
+                )
+
+            with c2:
+                top_n = st.selectbox(
+                    "Players to show",
+                    [25, 50, 100, 150, 300, "All"],
+                    index=1,
+                    key="grades_top_n",
+                )
+
+            with c3:
+                show_weekly = st.checkbox(
+                    "Include weekly grades",
+                    value=False,
+                    key="grades_show_weekly",
+                )
+
+                st.caption("Season grades remain the ranking basis.")
+
+            chosen_weeks = []
+
+            if show_weekly:
+                if all_weeks:
+                    chosen_weeks = st.multiselect(
+                        "Weeks",
+                        options=all_weeks,
+                        default=all_weeks[-4:],
+                        format_func=lambda w: f"Week {w}",
+                        key=f"grades_weeks_{select_pos}_{'_'.join(all_weeks)}",
+                    )
+                    chosen_weeks = sorted(chosen_weeks, key=int)
+                else:
+                    st.caption("Weekly grades are not available yet.")
+
+        # ---------- Filter ----------
+        filtered = df_raw.loc[df_raw["Season"].ge(min_grade)].copy()
+
+        if team_choice != "All teams":
+            filtered = filtered.loc[filtered["Team"].eq(team_choice)]
+
+        if search_name.strip():
+            filtered = filtered.loc[
+                filtered["Player"].str.contains(
+                    search_name.strip(),
+                    case=False,
+                    na=False,
+                    regex=False,
+                )
+            ]
+
+        visible = (
+            filtered.copy()
+            if top_n == "All"
+            else filtered.head(int(top_n)).copy()
+        )
+
+        # ---------- Leaderboard ----------
+        st.markdown(f"### {select_pos} leaderboard")
+        st.caption(
+            f"Showing {len(visible):,} of {len(filtered):,} matching players"
+            " · Rank is position-wide"
+            " · Higher grades are better"
+        )
+
+        st.markdown(
+            """
+            <div style="
+                display:flex;flex-wrap:wrap;gap:8px;
+                margin:0 0 16px;font-size:12px;
+            ">
+                <span style="background:#064E3B;color:#A7F3D0;padding:5px 10px;border-radius:6px;">90–100</span>
+                <span style="background:#14532D;color:#BBF7D0;padding:5px 10px;border-radius:6px;">75–89</span>
+                <span style="background:#164E63;color:#A5F3FC;padding:5px 10px;border-radius:6px;">60–74</span>
+                <span style="background:#713F12;color:#FDE68A;padding:5px 10px;border-radius:6px;">40–59</span>
+                <span style="background:#7F1D1D;color:#FECACA;padding:5px 10px;border-radius:6px;">Below 40</span>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        if visible.empty:
+            st.info("No players match these filters. Lower the minimum or broaden your search.")
+
+        else:
+            display_cols = ["Rank", "Player", "Team", "Season"] + chosen_weeks
+            table = visible[display_cols].rename(
+                columns={
+                    "Season": "Season grade",
+                    **{w: f"W{w}" for w in chosen_weeks},
+                }
+            )
+
+            grade_cols = ["Season grade"] + [f"W{w}" for w in chosen_weeks]
+            formats = {
+                "Rank": "{:.0f}",
+                **{c: "{:.1f}" for c in grade_cols},
+            }
+
+            styled = (
+                table.style
+                .format(formats, na_rep="—")
+                .map(grade_color, subset=grade_cols)
+                .set_properties(
+                    subset=["Player"],
+                    **{"font-weight": "600"},
+                )
+            )
+
+            # Full width; height adapts to short lists.
+            st.dataframe(
+                styled,
+                hide_index=True,
+                use_container_width=True,
+                height=min(720, 38 + len(table) * 35),
+                column_config={
+                    "Rank": st.column_config.NumberColumn(
+                        "#", width="small",
+                        help="Season rank among all players at this position.",
+                    ),
+                    "Player": st.column_config.TextColumn(
+                        "Player", width="medium"
+                    ),
+                    "Team": st.column_config.TextColumn(
+                        "Team", width="small"
+                    ),
+                    "Season grade": st.column_config.NumberColumn(
+                        "Season grade", width="small"
+                    ),
+                    **{
+                        f"W{w}": st.column_config.NumberColumn(
+                            f"W{w}", width="small",
+                            help=f"Week {w} grade.",
+                        )
+                        for w in chosen_weeks
+                    },
+                },
+            )
+
+            st.download_button(
+                "↓ Download table",
+                data=table.to_csv(index=False).encode("utf-8"),
+                file_name=f"player_grades_{select_pos.lower()}.csv",
+                mime="text/csv",
+                key="grades_download",
+            )
+
+            # ---------- Horizontal ranking chart ----------
+            st.divider()
+
+            chart_data = visible.head(15).copy()
+            st.markdown(f"### Leading {select_pos}s")
+            st.caption(
+                f"Top {len(chart_data)} players in the current view"
+                " · Season grade"
+            )
+
+            labels = [
+                f"{html.escape(player)} · {html.escape(team)}"
+                for player, team in zip(
+                    chart_data["Player"], chart_data["Team"]
+                )
+            ]
+
+            fig = go.Figure(
+                go.Bar(
+                    x=chart_data["Season"],
+                    y=labels,
+                    orientation="h",
+                    marker=dict(
+                        color=chart_data["Season"],
+                        colorscale=[
+                            [0.00, "#FB7185"],
+                            [0.40, "#FBBF24"],
+                            [0.60, "#38BDF8"],
+                            [0.75, "#4ADE80"],
+                            [1.00, "#34D399"],
+                        ],
+                        cmin=0,
+                        cmax=100,
+                        line=dict(width=0),
+                    ),
+                    text=chart_data["Season"].round(1),
+                    textposition="outside",
+                    cliponaxis=False,
+                    customdata=chart_data[["Rank"]].to_numpy(),
+                    hovertemplate=(
+                        "%{y}<br>"
+                        "Grade: %{x:.1f}<br>"
+                        "Position rank: %{customdata[0]}"
+                        "<extra></extra>"
+                    ),
+                )
+            )
+
+            fig.update_layout(
+                height=max(280, 48 * len(chart_data) + 50),
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(color="#94A3B8", size=13),
+                margin=dict(l=5, r=45, t=10, b=35),
+                bargap=.35,
+                showlegend=False,
+                xaxis=dict(
+                    title="Season grade",
+                    range=[0, max(105, chart_data["Season"].max() + 8)],
+                    gridcolor="rgba(148,163,184,.15)",
+                    zeroline=False,
+                    fixedrange=True,
+                ),
+                yaxis=dict(
+                    autorange="reversed",
+                    showgrid=False,
+                    ticks="",
+                    fixedrange=True,
+                ),
+            )
+
+            st.plotly_chart(
+                fig,
+                use_container_width=True,
+                config={"displayModeBar": False},
+                key="grades_top_chart",
+            )
+
+    if tab == "Player Grades _ Old":
         # ---------- Header ----------
         st.markdown(
             """<div style="text-align:center; line-height:1.3">
