@@ -3398,7 +3398,14 @@ if check_password():
                     st.plotly_chart(_xfp_chart_layout(fig, 290), use_container_width=True, key="xfp_cumulative")
                 with chart_tabs[2]:
                     log_view = logs[["Week", "xFP", "FPts", "Diff"]].rename(columns={"FPts": "Actual", "Diff": "Difference"})
-                    st.dataframe(log_view.style.format({"xFP": "{:.2f}", "Actual": "{:.2f}", "Difference": "{:+.2f}"}).map(_xfp_delta_style, subset=["Difference"])
+                    #st.dataframe(log_view.style.format({"xFP": "{:.2f}", "Actual": "{:.2f}", "Difference": "{:+.2f}"}).map(_xfp_delta_style, subset=["Difference"])
+                    st.dataframe(
+                        log_view.style
+                        .format({"xFP": "{:.2f}", "Actual": "{:.2f}", "Difference": "{:+.2f}"})
+                        .map(_xfp_delta_style, subset=["Difference"]),
+                        hide_index=True,
+                        use_container_width=True,
+                    )
                 st.caption("Missing weeks are not treated as zero. Weeks recorded counts rows in the source, not necessarily games played.")
         with st.expander("How to interpret xFP"):
             st.write("xFP estimates fantasy production from opportunity using your model. A negative difference means actual scoring trailed expectation; a positive difference means it exceeded expectation. These gaps are descriptive and do not guarantee future regression. Season totals sum the weekly records, with supplied All rows used only for players without weekly data.")
