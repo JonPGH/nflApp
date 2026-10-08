@@ -3121,6 +3121,290 @@ if check_password():
         st.dataframe(show_df,hide_index=True, width=1250)
     
     if tab == "Expected Fantasy Points":
+        import html
+        import re
+        import unicodedata
+        from pathlib import Path
+        import numpy as np
+        import pandas as pd
+        import plotly.graph_objects as go
+        import streamlit as st
+
+        EXPECTED_COLOR = "#818CF8"
+        ACTUAL_COLOR = "#22D3EE"
+        OVER_COLOR = "#34D399"
+        UNDER_COLOR = "#FB7185"
+        MAPS_PATH = "nfl_player_id_maps.csv"  # Change if stored in a subfolder.
+
+        def _xfp_name_key(value):
+            if pd.isna(value):
+                return ""
+            value = unicodedata.normalize("NFKD", str(value)).encode("ascii", "ignore").decode()
+            tokens = re.sub(r"[^a-z0-9 ]", "", value.lower()).split()
+            if tokens and tokens[-1] in {"jr", "sr", "ii", "iii", "iv", "v"}:
+                tokens.pop()
+            return "".join(tokens)
+
+        @st.cache_data(ttl=3600, show_spinner=False)
+        def _xfp_read_maps(path, modified):
+            return pd.read_csv(path, low_memory=False)
+
+        @st.cache_data(show_spinner=False)
+        def _xfp_prepare(source, maps):
+            data = source.copy()
+            required = {"Player", "Week", "xFP", "FPts"}
+            if not required.issubset(data.columns):
+                raise ValueError(f"Missing columns: {sorted(required - set(data.columns))}")
+            data = data.dropna(subset=["Player"])
+            data["Player"] = data["Player"].astype(str).str.strip()
+            for column in ["xFP", "FPts"]:
+                data[column] = pd.to_numeric(data[column], errors="coerce")
+            data["WeekNumber"] = pd.to_numeric(data["Week"], errors="coerce")
+            valid_week = data["WeekNumber"].gt(0) & data["WeekNumber"].mod(1).eq(0)
+            weekly = data.loc[valid_week, ["Player", "WeekNumber", "xFP", "FPts"]].copy()
+            weekly = weekly.rename(columns={"WeekNumber": "Week"})
+            weekly["Week"] = weekly["Week"].astype(int)
+            if weekly.duplicated(["Player", "Week"]).any():
+                raise ValueError("Duplicate player/week rows found. Resolve them before displaying totals.")
+            # Do not silently turn incomplete point comparisons into zero.
+            incomplete = int(weekly[["xFP", "FPts"]].isna().any(axis=1).sum())
+            weekly = weekly.dropna(subset=["xFP", "FPts"])
+            season = weekly.groupby("Player", as_index=False).agg(
+                xFP=("xFP", "sum"), FPts=("FPts", "sum"), Weeks=("Week", "nunique")
+            )
+            # Preserve season-only players without counting supplied All rows twice.
+            season_only = data.loc[
+                data["Week"].astype(str).str.strip().str.lower().eq("all")
+                & ~data["Player"].isin(weekly["Player"]), ["Player", "xFP", "FPts"]
+            ].drop_duplicates("Player").dropna(subset=["xFP", "FPts"])
+            season_only["Weeks"] = np.nan
+            season = pd.concat([season, season_only], ignore_index=True)
+            metadata = data[["Player"]].drop_duplicates().copy()
+            metadata["Position"] = "Unknown"
+            metadata["Latest team"] = "—"
+            ambiguous = []
+            if maps is not None and not maps.empty:
+                if not {"display_name", "position"}.issubset(maps.columns):
+                    raise ValueError("Player maps need display_name and position columns.")
+                lookup = maps.copy()
+                lookup["_key"] = lookup["display_name"].map(_xfp_name_key)
+                lookup["_recent"] = pd.to_numeric(lookup.get("last_season", pd.Series(index=lookup.index, dtype=float)), errors="coerce").fillna(0)
+                lookup["_offense"] = lookup["position"].isin(["QB", "RB", "WR", "TE", "FB"])
+                lookup = lookup.sort_values(["_offense", "_recent"], ascending=False)
+                exact = lookup.drop_duplicates("display_name").set_index("display_name")
+                counts = lookup.groupby("_key")["gsis_id"].nunique() if "gsis_id" in lookup else lookup.groupby("_key")["display_name"].nunique()
+                ambiguous = counts[counts.gt(1)].index.tolist()
+                normalized = lookup.loc[~lookup["_key"].isin(ambiguous)].drop_duplicates("_key").set_index("_key")
+                for dest, origin in [("Position", "position"), ("Latest team", "latest_team")]:
+                    if origin in lookup:
+                        match = metadata["Player"].map(exact[origin])
+                        fallback = metadata["Player"].map(_xfp_name_key).map(normalized[origin])
+                        metadata[dest] = match.fillna(fallback).fillna("Unknown" if dest == "Position" else "—")
+            weekly = weekly.merge(metadata, on="Player", how="left", validate="many_to_one")
+            season = season.merge(metadata, on="Player", how="left", validate="one_to_one")
+            for frame in [weekly, season]:
+                frame["Diff"] = frame["FPts"] - frame["xFP"]
+            unmatched = metadata.loc[metadata["Position"].eq("Unknown"), "Player"].tolist()
+            return weekly, season, unmatched, incomplete
+
+        def _xfp_chart_layout(fig, height=330):
+            fig.update_layout(
+                template="plotly_dark", height=height,
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(family="Arial, sans-serif", size=13),
+                margin=dict(l=15, r=15, t=40, b=25),
+                legend=dict(orientation="h", y=1.16, x=0),
+                hovermode="x unified", bargap=.28,
+            )
+            fig.update_xaxes(showgrid=False, zeroline=False)
+            fig.update_yaxes(gridcolor="rgba(148,163,184,.15)", zerolinecolor="rgba(148,163,184,.4)")
+            return fig
+
+        def _xfp_delta_style(value):
+            if pd.isna(value):
+                return ""
+            if value > 0:
+                return "background-color: rgba(52,211,153,.17); color: #34D399; font-weight: 700"
+            if value < 0:
+                return "background-color: rgba(251,113,133,.17); color: #FB7185; font-weight: 700"
+            return ""
+
+        st.markdown('''
+        <div style="padding:24px 28px;border:1px solid rgba(129,140,248,.3);
+        border-radius:18px;background:linear-gradient(120deg,rgba(129,140,248,.18),rgba(34,211,238,.06));margin-bottom:18px">
+        <div style="font-size:12px;letter-spacing:2px;color:#818CF8;font-weight:700">NFL · FANTASY POINTS EXPLORER</div>
+        <h1 style="margin:6px 0 8px;font-size:36px">Opportunity meets production.</h1>
+        <div style="opacity:.8">Find players scoring above or below their expected fantasy points.</div>
+        </div>''', unsafe_allow_html=True)
+        st.caption("Difference = Actual − xFP. Positive = above expectation; negative = below expectation. Scoring follows your source file.")
+
+        try:
+            source = xfp_comp.copy()  # Your existing data-loading pipeline.
+            #maps_data = globals().get("nfl_player_id_maps")
+            maps_data = nfl_id_maps.copy()
+            if not isinstance(maps_data, pd.DataFrame):
+                maps_file = Path(MAPS_PATH)
+                maps_data = _xfp_read_maps(str(maps_file), maps_file.stat().st_mtime_ns) if maps_file.exists() else None
+            weekly, season, unmatched, incomplete = _xfp_prepare(source, maps_data)
+        except Exception as exc:
+            st.error(f"Could not prepare fantasy points data: {exc}")
+            st.stop()
+        if season.empty:
+            st.info("No fantasy points data available yet.")
+            st.stop()
+        if maps_data is None:
+            st.warning("Add nfl_player_id_maps.csv to your app, or load it as nfl_player_id_maps, to enable position filters.")
+        if incomplete:
+            st.warning(f"Excluded {incomplete} weekly rows with missing actual or expected points.")
+        if unmatched and maps_data is not None:
+            with st.expander(f"Position unavailable for {len(unmatched)} player(s)"):
+                st.write(", ".join(unmatched))
+                st.caption("These players remain available under Unknown. Names are matched exactly first, then by normalized names without suffixes. Ambiguous matches are left unknown.")
+        weeks = sorted(weekly["Week"].unique().tolist())
+        st.caption("Available weeks: " + (", ".join(map(str, weeks)) if weeks else "Season totals only") + ". Latest team reflects the player map, not necessarily their team in each game.")
+
+        st.subheader("Performance leaderboard")
+        c1, c2, c3 = st.columns([1, 2, 2])
+        with c1:
+            selected_week = st.selectbox("Week", ["All"] + weeks, key="xfp_week")
+        with c2:
+            #pos_options = sorted(season["Position"].unique())
+            pos_options = ["QB", "RB", "WR", "TE"]
+            positions = st.multiselect("Positions", pos_options, key="xfp_positions", placeholder="All positions")
+        with c3:
+            search = st.text_input("Search players", placeholder="Name contains…", key="xfp_search")
+        c1, c2, c3 = st.columns([1.3, 1.3, 1.4])
+        with c1:
+            direction = st.selectbox("Show", ["Everyone", "Underperformers", "Overperformers"], key="xfp_direction")
+        with c2:
+            sort = st.selectbox("Sort by", ["Biggest underperformance", "Biggest overperformance", "Highest xFP", "Highest actual"], key="xfp_sort")
+        with c3:
+            minimum = st.number_input("Minimum xFP (selected period)", min_value=0.0, value=0.0, step=5.0, key="xfp_min")
+
+        lead = season.copy() if selected_week == "All" else weekly.loc[weekly["Week"].eq(selected_week)].copy()
+        if selected_week != "All":
+            lead["Weeks"] = 1
+        if positions:
+            lead = lead.loc[lead["Position"].isin(positions)]
+        if search.strip():
+            lead = lead.loc[lead["Player"].str.contains(search.strip(), case=False, regex=False)]
+        lead = lead.loc[lead["xFP"].ge(minimum)]
+        if direction != "Everyone":
+            lead = lead.loc[lead["Diff"].lt(0) if direction == "Underperformers" else lead["Diff"].gt(0)]
+        sort_col, ascending = {
+            "Biggest underperformance": ("Diff", True), "Biggest overperformance": ("Diff", False),
+            "Highest xFP": ("xFP", False), "Highest actual": ("FPts", False)
+        }[sort]
+        lead = lead.sort_values([sort_col, "Player"], ascending=[ascending, True]).reset_index(drop=True)
+        period = "All available weeks" if selected_week == "All" else f"Week {selected_week}"
+        st.caption(f"{period} · {len(lead):,} players · minimum applies to total xFP in this period")
+        if lead.empty:
+            st.info("No players match these filters. Broaden your selection.")
+        else:
+            #metrics = st.columns(4)
+            #metrics[0].metric("Players", len(lead))
+            #metrics[1].metric("Expected points", f"{lead['xFP'].sum():,.1f}")
+            #metrics[2].metric("Actual points", f"{lead['FPts'].sum():,.1f}")
+            #metrics[3].metric("Points above / below xFP", f"{lead['Diff'].sum():+,.1f}")
+            view = lead[["Player", "Position", "Latest team", "Weeks", "xFP", "FPts", "Diff"]].rename(columns={"FPts": "Actual", "Diff": "Difference", "Weeks": "Weeks recorded"})
+            styler = view.style.format({"xFP": "{:.2f}", "Actual": "{:.2f}", "Difference": "{:+.2f}", "Weeks recorded": "{:.0f}"}, na_rep="—")
+            styler = styler.applymap(_xfp_delta_style, subset=["Difference"])
+            st.dataframe(styler, hide_index=True, use_container_width=True, height=510)
+            st.download_button("Download filtered leaderboard", view.to_csv(index=False).encode(), "xfp_leaderboard.csv", "text/csv", key="xfp_download")
+            with st.expander("Biggest gaps at a glance", expanded=True):
+                movers = pd.concat([lead.nsmallest(6, "Diff"), lead.nlargest(6, "Diff")]).drop_duplicates("Player").sort_values("Diff")
+                fig = go.Figure(go.Bar(
+                    x=movers["Diff"], y=movers["Player"], orientation="h",
+                    marker_color=np.where(movers["Diff"].ge(0), OVER_COLOR, UNDER_COLOR),
+                    text=[f"{v:+.1f}" for v in movers["Diff"]], textposition="outside", cliponaxis=False,
+                    customdata=movers[["xFP", "FPts"]].to_numpy(),
+                    hovertemplate="%{y}<br>Difference: %{x:+.2f}<br>xFP: %{customdata[0]:.2f}<br>Actual: %{customdata[1]:.2f}<extra></extra>"
+                ))
+                fig.add_vline(x=0, line_color="rgba(148,163,184,.6)")
+                fig.update_xaxes(title="Actual − xFP")
+                st.plotly_chart(_xfp_chart_layout(fig, max(300, len(movers)*30+70)), use_container_width=True, key="xfp_movers")
+
+        st.divider()
+        st.subheader("Player spotlight")
+        st.caption("Player charts always show the full available season, independently of leaderboard filters.")
+        eligible = season.loc[season["Position"].isin(positions)] if positions else season
+        player_options = eligible.sort_values("xFP", ascending=False)["Player"].tolist()
+        if not player_options:
+            st.info("No players available for the selected positions.")
+        else:
+            player = st.selectbox("Select player", player_options, key="xfp_spotlight")
+            row = season.loc[season["Player"].eq(player)].iloc[0]
+            logs = weekly.loc[weekly["Player"].eq(player)].sort_values("Week").copy()
+            st.markdown(f"### {html.escape(player)}")
+            st.caption(f"{row['Position']} · Latest team: {row['Latest team']} · {len(logs)} recorded weeks")
+            cards = st.columns(4)
+            cards[0].metric("Season xFP", f"{row['xFP']:.2f}")
+            cards[1].metric("Season actual", f"{row['FPts']:.2f}")
+            cards[2].metric("Season difference", f"{row['Diff']:+.2f}")
+            per_week = row["Diff"] / len(logs) if len(logs) else np.nan
+            cards[3].metric("Difference / recorded week", f"{per_week:+.2f}" if pd.notna(per_week) else "—")
+            left, right = st.columns([1, 2])
+            with left:
+                st.markdown("**Season totals**")
+                fig = go.Figure(go.Bar(
+                    x=["Expected", "Actual"], y=[row["xFP"], row["FPts"]],
+                    marker_color=[EXPECTED_COLOR, ACTUAL_COLOR],
+                    text=[f"{row['xFP']:.1f}", f"{row['FPts']:.1f}"], textposition="outside", cliponaxis=False,
+                    hovertemplate="%{x}: %{y:.2f}<extra></extra>"
+                ))
+                fig.update_yaxes(title="Fantasy points", rangemode="tozero")
+                st.plotly_chart(_xfp_chart_layout(fig), use_container_width=True, key="xfp_season_bars")
+            with right:
+                st.markdown("**Weekly expected vs. actual**")
+                if logs.empty:
+                    st.info("Only a season total is available for this player.")
+                else:
+                    fig = go.Figure()
+                    for label, column, color in [("Expected (xFP)", "xFP", EXPECTED_COLOR), ("Actual", "FPts", ACTUAL_COLOR)]:
+                        fig.add_trace(go.Bar(
+                            name=label, x=logs["Week"], y=logs[column], marker_color=color,
+                            text=logs[column].round(1), textposition="outside", cliponaxis=False,
+                            hovertemplate="Week %{x}<br>" + label + ": %{y:.2f}<extra></extra>"
+                        ))
+                    fig.update_layout(barmode="group")
+                    # Numeric axis leaves visible gaps for missing weeks instead of inventing zeros.
+                    fig.update_xaxes(title="Week", dtick=1, range=[min(weeks)-.6, max(weeks)+.6])
+                    fig.update_yaxes(title="Fantasy points", rangemode="tozero")
+                    st.plotly_chart(_xfp_chart_layout(fig), use_container_width=True, key="xfp_weekly_bars")
+            if not logs.empty:
+                chart_tabs = st.tabs(["Weekly surplus / shortfall", "Cumulative points", "Game log"])
+                with chart_tabs[0]:
+                    fig = go.Figure(go.Bar(
+                        x=logs["Week"], y=logs["Diff"],
+                        marker_color=np.where(logs["Diff"].ge(0), OVER_COLOR, UNDER_COLOR),
+                        text=[f"{v:+.1f}" for v in logs["Diff"]], textposition="outside", cliponaxis=False,
+                        hovertemplate="Week %{x}<br>Actual − xFP: %{y:+.2f}<extra></extra>"
+                    ))
+                    fig.add_hline(y=0, line_color="rgba(148,163,184,.6)")
+                    fig.update_xaxes(title="Week", dtick=1, range=[min(weeks)-.6, max(weeks)+.6])
+                    fig.update_yaxes(title="Actual − xFP")
+                    st.plotly_chart(_xfp_chart_layout(fig, 270), use_container_width=True, key="xfp_weekly_difference")
+                with chart_tabs[1]:
+                    fig = go.Figure()
+                    for label, column, color in [("Expected (xFP)", "xFP", EXPECTED_COLOR), ("Actual", "FPts", ACTUAL_COLOR)]:
+                        fig.add_trace(go.Scatter(
+                            name=label, x=logs["Week"], y=logs[column].cumsum(), mode="lines+markers",
+                            line=dict(color=color, width=3), marker=dict(size=8),
+                            hovertemplate="Through week %{x}<br>" + label + ": %{y:.2f}<extra></extra>"
+                        ))
+                    fig.update_xaxes(title="Week", dtick=1)
+                    fig.update_yaxes(title="Cumulative fantasy points")
+                    st.plotly_chart(_xfp_chart_layout(fig, 290), use_container_width=True, key="xfp_cumulative")
+                with chart_tabs[2]:
+                    log_view = logs[["Week", "xFP", "FPts", "Diff"]].rename(columns={"FPts": "Actual", "Diff": "Difference"})
+                    st.dataframe(log_view.style.format({"xFP": "{:.2f}", "Actual": "{:.2f}", "Difference": "{:+.2f}"}).applymap(_xfp_delta_style, subset=["Difference"]), hide_index=True, use_container_width=True)
+                st.caption("Missing weeks are not treated as zero. Weeks recorded counts rows in the source, not necessarily games played.")
+        with st.expander("How to interpret xFP"):
+            st.write("xFP estimates fantasy production from opportunity using your model. A negative difference means actual scoring trailed expectation; a positive difference means it exceeded expectation. These gaps are descriptive and do not guarantee future regression. Season totals sum the weekly records, with supplied All rows used only for players without weekly data.")
+
+
+
+    if tab == "Expected Fantasy Points_ Old":
         import altair as alt
 
         st.markdown("<h1><center>Expected Fantasy Points Model</h1></center>", unsafe_allow_html=True)
