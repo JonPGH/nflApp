@@ -3308,7 +3308,8 @@ if check_password():
             #metrics[3].metric("Points above / below xFP", f"{lead['Diff'].sum():+,.1f}")
             view = lead[["Player", "Position", "Latest team", "Weeks", "xFP", "FPts", "Diff"]].rename(columns={"FPts": "Actual", "Diff": "Difference", "Weeks": "Weeks recorded"})
             styler = view.style.format({"xFP": "{:.2f}", "Actual": "{:.2f}", "Difference": "{:+.2f}", "Weeks recorded": "{:.0f}"}, na_rep="—")
-            styler = styler.applymap(_xfp_delta_style, subset=["Difference"])
+            #styler = styler.applymap(_xfp_delta_style, subset=["Difference"]) #old pandas
+            styler = styler.map(_xfp_delta_style, subset=["Difference"])
             st.dataframe(styler, hide_index=True, use_container_width=True, height=510)
             st.download_button("Download filtered leaderboard", view.to_csv(index=False).encode(), "xfp_leaderboard.csv", "text/csv", key="xfp_download")
             with st.expander("Biggest gaps at a glance", expanded=True):
@@ -3397,7 +3398,7 @@ if check_password():
                     st.plotly_chart(_xfp_chart_layout(fig, 290), use_container_width=True, key="xfp_cumulative")
                 with chart_tabs[2]:
                     log_view = logs[["Week", "xFP", "FPts", "Diff"]].rename(columns={"FPts": "Actual", "Diff": "Difference"})
-                    st.dataframe(log_view.style.format({"xFP": "{:.2f}", "Actual": "{:.2f}", "Difference": "{:+.2f}"}).applymap(_xfp_delta_style, subset=["Difference"]), hide_index=True, use_container_width=True)
+                    st.dataframe(log_view.style.format({"xFP": "{:.2f}", "Actual": "{:.2f}", "Difference": "{:+.2f}"}).map(_xfp_delta_style, subset=["Difference"])
                 st.caption("Missing weeks are not treated as zero. Weeks recorded counts rows in the source, not necessarily games played.")
         with st.expander("How to interpret xFP"):
             st.write("xFP estimates fantasy production from opportunity using your model. A negative difference means actual scoring trailed expectation; a positive difference means it exceeded expectation. These gaps are descriptive and do not guarantee future regression. Season totals sum the weekly records, with supplied All rows used only for players without weekly data.")
