@@ -3,7 +3,7 @@ pandas>=2.2.2
 numpy>=1.26.4
 matplotlib>=3.8.4
 python-dateutil>=2.8.2
-pulp>=2.7.0
+pulp==3.3.2
 highspy>=1.6.0
 pyarrow>=14.0.2
 gspread==6.1.4
