@@ -20,7 +20,7 @@ if 'authenticated' not in st.session_state:
 
 # Define the correct password (replace with your desired password)
 #st.markdown("<h1>Enter Password to Access Slate Analysis Tool",unsafe_allow_html=True)
-CORRECT_PASSWORD = "a"
+CORRECT_PASSWORD = "cj"
 CORRECT_PASSWORD2 = '1'
 
 def convert_df_to_csv(df):
