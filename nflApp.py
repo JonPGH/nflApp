@@ -629,7 +629,7 @@ if check_password():
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
     #tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau","NBA Optimizer"], help="Choose a Page")
-    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","Weekly Projections","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker"], help="Choose a Page")
     if "reload" not in st.session_state:
         st.session_state.reload = False
 
@@ -5379,6 +5379,159 @@ if check_password():
         st.caption(
             "Live data via ESPN • Data cached for 15 seconds"
         )
+    
+    if tab == "Weekly Projections":
+        st.markdown(
+            '<div style="text-align:center;margin:16px 0 24px;">'
+            '<h1 style="color:#003087;margin-bottom:6px;">Weekly Projections</h1>'
+            '<div style="color:#64748b;">DraftKings fantasy points &amp; salary value</div>'
+            '</div>', unsafe_allow_html=True
+        )
+
+        weekly = weekproj.loc[
+            weekproj["Pos"].astype(str).str.strip().str.upper().isin(["QB", "RB", "WR", "TE"]),
+            ["Player", "Pos", "Team", "Opp", "Sal", "Projection", "Value", "MainSlate"]
+        ].copy().reset_index(drop=True)
+        weekly["Pos"] = weekly["Pos"].astype(str).str.strip().str.upper()
+        weekly["Team"] = weekly["Team"].astype("string").str.strip().str.upper()
+        for column in ["Sal", "Projection", "Value"]:
+            weekly[column] = pd.to_numeric(weekly[column], errors="coerce")
+        weekly["MainSlate"] = weekly["MainSlate"].astype("string").str.strip().str.upper().eq("Y").fillna(False)
+
+        # Each metric has its own range, calculated separately for each position.
+        # Compute before filtering so a player's color stays consistent.
+        weekly_ranges = {
+            (position, column): (group[column].min(), group[column].max())
+            for position, group in weekly.groupby("Pos")
+            for column in ["Projection", "Value"]
+        }
+        weekly_position_colors = {
+            "QB": ("#ffd6d6", "#8b0000"),
+            "RB": ("#d6f5d6", "#145214"),
+            "WR": ("#d6e8ff", "#003d80"),
+            "TE": ("#f2dcff", "#5c007a"),
+        }
+
+        filter_team, filter_search, filter_slate = st.columns([1.2, 2, 1])
+        with filter_team:
+            weekly_teams = st.multiselect(
+                "Team", sorted(weekly["Team"].dropna().unique().tolist()),
+                placeholder="All teams", key="weekly_teams"
+            )
+        with filter_search:
+            weekly_search = st.text_input(
+                "Player search", placeholder="Search a player name…", key="weekly_search"
+            )
+        with filter_slate:
+            weekly_main_only = st.toggle("Main slate only", value=True, key="weekly_main_only")
+
+        position_filter, sort_filter = st.columns([2, 1])
+        with position_filter:
+            weekly_positions = st.multiselect(
+                "Position", ["QB", "RB", "WR", "TE"],
+                placeholder="All positions", key="weekly_positions"
+            )
+        with sort_filter:
+            weekly_sort = st.selectbox(
+                "Sort by", ["Projection: high to low", "Value: high to low",
+                            "Salary: high to low", "Salary: low to high", "Player: A to Z"],
+                key="weekly_sort"
+            )
+
+        visible_weekly = weekly.copy()
+        if weekly_main_only:
+            visible_weekly = visible_weekly[visible_weekly["MainSlate"]]
+        if weekly_teams:
+            visible_weekly = visible_weekly[visible_weekly["Team"].isin(weekly_teams)]
+        if weekly_positions:
+            visible_weekly = visible_weekly[visible_weekly["Pos"].isin(weekly_positions)]
+        if weekly_search.strip():
+            visible_weekly = visible_weekly[
+                visible_weekly["Player"].astype("string").str.contains(
+                    weekly_search.strip(), case=False, regex=False, na=False
+                )
+            ]
+        sort_column, sort_ascending = {
+            "Projection: high to low": ("Projection", False),
+            "Value: high to low": ("Value", False),
+            "Salary: high to low": ("Sal", False),
+            "Salary: low to high": ("Sal", True),
+            "Player: A to Z": ("Player", True),
+        }[weekly_sort]
+        visible_weekly = visible_weekly.sort_values(
+            [sort_column] + ([] if sort_column == "Player" else ["Player"]),
+            ascending=[sort_ascending] + ([] if sort_column == "Player" else [True]),
+            na_position="last", kind="stable"
+        )
+
+        st.markdown(
+            '<div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;">' +
+            ''.join(
+                f'<span style="background:{background};color:{foreground};padding:5px 14px;'
+                f'border-radius:6px;font-weight:700;font-size:13px;">{position}</span>'
+                for position, (background, foreground) in weekly_position_colors.items()
+            ) + '</div>', unsafe_allow_html=True
+        )
+        st.caption(
+            f"{len(visible_weekly):,} players · {visible_weekly['Team'].nunique()} teams · "
+            f"{'Main slate' if weekly_main_only else 'All games'}. "
+            "Darker green = higher within the same position; Projection and Value use separate scales. "
+            "Value = projected points per $1,000 of salary. — = unavailable."
+        )
+
+        if visible_weekly.empty:
+            st.info("No players match these filters. Try another name, team, position, or slate.")
+        else:
+            def shade_weekly_row(row):
+                styles = pd.Series("", index=row.index)
+                background, foreground = weekly_position_colors[row["Pos"]]
+                styles["Player"] = (
+                    f"background-color:{background};color:{foreground};font-weight:700;"
+                )
+                for column in ["Projection", "Value"]:
+                    value = row[column]
+                    low, high = weekly_ranges[(row["Pos"], column)]
+                    if pd.notna(value) and pd.notna(low) and pd.notna(high):
+                        strength = (value - low) / (high - low) if high > low else 0.5
+                        strength = min(1.0, max(0.0, strength))
+                        pale, green = (246, 252, 247), (166, 222, 181)
+                        color = tuple(round(a + (b - a) * strength) for a, b in zip(pale, green))
+                        styles[column] = (
+                            f"background-color:rgb{color};color:#14532d;font-weight:700;"
+                        )
+                return styles
+
+            weekly_table = visible_weekly.rename(columns={"Sal": "Salary", "MainSlate": "Slate"})
+            weekly_table["Slate"] = weekly_table["Slate"].map({True: "Main", False: "Other"})
+            weekly_table = weekly_table[
+                ["Player", "Pos", "Team", "Opp", "Salary", "Projection", "Value", "Slate"]
+            ]
+            weekly_html = (
+                weekly_table.style.apply(shade_weekly_row, axis=1)
+                .format({"Salary": "${:,.0f}", "Projection": "{:.2f}", "Value": "{:.2f}"},
+                        na_rep="—", escape="html")
+                .hide(axis="index").to_html()
+            )
+            # An isolated HTML table supplies a scrollable view without export controls.
+            components.html(
+                """<style>
+                body {margin:0;font-family:Roboto,Inter,system-ui,sans-serif;color:#1e293b;}
+                .weekly-scroll {max-height:720px;overflow:auto;border:1px solid #e2e8f0;
+                    border-radius:10px;background:white;}
+                table {border-collapse:separate;border-spacing:0;width:100%;font-size:14px;}
+                thead th {position:sticky;top:0;z-index:1;background:#f1f5f9;color:#003087;
+                    font-weight:700;text-align:right;border-bottom:2px solid #dbe3ef;}
+                th,td {padding:12px 16px;white-space:nowrap;}
+                td {text-align:right;border-bottom:1px solid #edf0f4;}
+                th:first-child,td:first-child {text-align:left;min-width:190px;}
+                th:nth-child(2),td:nth-child(2),th:nth-child(3),td:nth-child(3),
+                th:nth-child(4),td:nth-child(4),th:last-child,td:last-child {text-align:center;}
+                tbody tr:nth-child(even) {background:#f8fafc;}
+                tbody tr:hover td {box-shadow:inset 0 0 0 9999px rgba(0,48,135,.035);}
+                </style><div class="weekly-scroll">""" + weekly_html + "</div>",
+                height=min(740, 58 + 45 * len(weekly_table)), scrolling=False
+            )
+
     if tab == "Game by Game":
 
         # ============================================================
@@ -5399,7 +5552,6 @@ if check_password():
         st.markdown(page_header, unsafe_allow_html=True)
 
         dksalsdf = dkdata[['Player', 'Sal']].copy()
-
 
         # ============================================================
         # TOP CONTROLS
@@ -6137,99 +6289,6 @@ if check_password():
 
 
         # ============================================================
-        # PREP PROJECTIONS
-        # ============================================================
-
-        weekproj = pd.merge(
-            weekproj,
-            dksalsdf,
-            how='left',
-            on='Player'
-        )
-
-        ### check if projections are for current week
-        curr_week_data = this_week[['Away','Home']].copy()
-        team_name_change_change = dict(zip(team_name_change.Long,team_name_change.Short))
-        curr_week_data['Away_Short'] = curr_week_data['Away'].map(team_name_change_change)
-        curr_week_data['Home_Short'] = curr_week_data['Home'].map(team_name_change_change)
-        curr_week_data = curr_week_data[['Away_Short','Home_Short']]
-        weekproj['Opp'] = weekproj['Opp'].str.replace('@','')
-
-
-        # pick team on current week
-        pick_team = curr_week_data['Away_Short'].iloc[0]
-        ## find team's matchup
-        curr_week_data['Home_Short'] = curr_week_data['Home_Short'].replace({'NOR':'NO'})
-        pick_team_opp = curr_week_data[curr_week_data['Away_Short']==pick_team]['Home_Short'].iloc[0]
-        pick_team_proj_opp = weekproj[weekproj['Team']==pick_team]['Opp'].iloc[0]
-
-        if (pick_team_proj_opp == pick_team_opp):
-            projections_ready_flag = 'Yes'
-        else:
-            projections_ready_flag = 'No'
-
-        # try again if failed
-        if projections_ready_flag == 'No':
-
-            # pick team on current week
-            pick_team = curr_week_data['Away_Short'].iloc[3]
-
-            ## find team's matchup
-            pick_team_opp = curr_week_data[curr_week_data['Away_Short']==pick_team]['Home_Short'].iloc[0]
-            pick_team_proj_opp = weekproj[weekproj['Team']==pick_team]['Opp'].iloc[0]
-
-            if (pick_team_proj_opp == pick_team_opp):
-                projections_ready_flag = 'Yes'
-            else:
-                projections_ready_flag = 'No'
-
-        
-
-        weekproj['JA Rk'] = weekproj[
-            'Player'
-        ].map(
-            all_grade_rank_dict
-        )
-
-        if 'Sal_x' in weekproj.columns:
-            weekproj = weekproj.drop(
-                ['Sal_x'],
-                axis=1
-            )
-
-        if 'Sal_y' in weekproj.columns:
-            weekproj = weekproj.rename(
-                columns={
-                    'Sal_y': 'Sal'
-                }
-            )
-
-        weekproj = weekproj.round(2)
-        
-        ### CHANGE TEAM NAMES TO SHOW PROJECTIONS ###
-        weekproj['Team'] = np.where(weekproj['Team']=='LV','LVR',weekproj['Team'])
-        weekproj['Team'] = np.where(weekproj['Team']=='NE','NWE',weekproj['Team'])
-        weekproj['Team'] = np.where(weekproj['Team']=='LA','LAR',weekproj['Team'])
-        weekproj['Team'] = np.where(weekproj['Team']=='KC','KAN',weekproj['Team'])
-        
-        weekproj = weekproj[
-            weekproj['Projection'] > 2
-        ].copy()
-
-        weekproj['Team'] = weekproj['Team'].replace({'NO':'NOR'})
-
-        road_projections = weekproj[
-            weekproj['Team']
-            == road_team_short
-        ].copy()
-
-        home_projections = weekproj[
-            weekproj['Team']
-            == home_team_short
-        ].copy()
-
-
-        # ============================================================
         # IMPLIED TOTALS / TEAM GRADES
         # ============================================================
 
@@ -6282,19 +6341,7 @@ if check_password():
         )
 
 
-        # ============================================================
-        # HELPER TO DISPLAY EACH TEAM
-        # ============================================================
-
-        def show_team_projection(
-            team_name,
-            projections,
-            implied,
-            implied_rank,
-            offense_grade,
-            defense_grade
-        ):
-
+        def show_team_summary(team_name, implied, implied_rank, offense_grade, defense_grade):
             team_header = (
                 f'<div style="text-align:center;'
                 f'padding:12px 8px 14px 8px;'
@@ -6346,214 +6393,174 @@ if check_password():
                 )
 
 
-            def show_position_table(
-                df,
-                title,
-                height=None
-            ):
 
-                st.markdown(
-                    f'#### {title}'
-                )
+        summary_road, summary_home = st.columns([1, 1], gap="large")
+        with summary_road:
+            show_team_summary(road_team, road_implied, road_implied_rank, road_off_grade, road_def_grade)
+        with summary_home:
+            show_team_summary(home_team, home_implied, home_implied_rank, home_off_grade, home_def_grade)
 
-                if df.empty:
+        # ============================================================
+        # PREP PROJECTIONS
+        # ============================================================
 
-                    st.caption(
-                        'No qualifying projections'
-                    )
+        weekproj = pd.merge(
+            weekproj,
+            dksalsdf,
+            how='left',
+            on='Player'
+        )
 
-                    return
+        # Check current matchups safely, including empty or partial projection files.
+        def canonical_projection_team(value):
+            return str(value).strip().upper().replace("@", "").strip() if pd.notna(value) else ""
 
-                show_df = (
-                    df[
-                        [
-                            'Player',
-                            'JA Rk',
-                            'Sal',
-                            'Projection',
-                            'Value'
-                        ]
-                    ]
-                    .sort_values(
-                        by='Projection',
-                        ascending=False
-                    )
-                    .copy()
-                )
+        team_aliases = {"LV": "LVR", "NE": "NWE", "LA": "LAR", "KC": "KAN",
+                        "NO": "NOR", "GB": "GNB", "TB": "TAM", "SF": "SFO", "ARZ": "ARI"}
+        def matchup_team(value):
+            value = canonical_projection_team(value)
+            return team_aliases.get(value, value)
 
-                show_df['JA Rk'] = pd.to_numeric(
-                    show_df['JA Rk'],
-                    errors='coerce'
-                )
+        expected_opponents = {}
+        for _, game in this_week.iterrows():
+            away = matchup_team(teamnamechangedict.get(game["Away"], game["Away"]))
+            home = matchup_team(teamnamechangedict.get(game["Home"], game["Home"]))
+            expected_opponents[away] = home
+            expected_opponents[home] = away
+        selected_teams = {matchup_team(road_team_short), matchup_team(home_team_short)}
+        matchup_projections = weekproj[weekproj["Team"].map(matchup_team).isin(selected_teams)]
+        projections_ready_flag = "No"
+        if not matchup_projections.empty:
+            matches = matchup_projections["Opp"].map(matchup_team).eq(
+                matchup_projections["Team"].map(matchup_team).map(expected_opponents)
+            )
+            if matches.all() and selected_teams.issubset(set(matchup_projections["Team"].map(matchup_team))):
+                projections_ready_flag = "Yes"
 
-                show_df['Sal'] = pd.to_numeric(
-                    show_df['Sal'],
-                    errors='coerce'
-                )
+        weekproj['JA Rk'] = weekproj[
+            'Player'
+        ].map(
+            all_grade_rank_dict
+        )
 
-                show_df['Projection'] = (
-                    pd.to_numeric(
-                        show_df['Projection'],
-                        errors='coerce'
-                    )
-                )
+        if 'Sal_x' in weekproj.columns:
+            weekproj = weekproj.drop(
+                ['Sal_x'],
+                axis=1
+            )
 
-                show_df['Value'] = (
-                    pd.to_numeric(
-                        show_df['Value'],
-                        errors='coerce'
-                    )
-                )
-
-                dataframe_kwargs = {
-                    'hide_index': True,
-                    'use_container_width': True,
-                    'column_config': {
-                        'Player':
-                            st.column_config.TextColumn(
-                                'Player'
-                            ),
-
-                        'JA Rk':
-                            st.column_config.NumberColumn(
-                                'Rank',
-                                format='%.0f'
-                            ),
-
-                        'Sal':
-                            st.column_config.NumberColumn(
-                                'Salary',
-                                format='$%d'
-                            ),
-
-                        'Projection':
-                            st.column_config.NumberColumn(
-                                'Proj',
-                                format='%.2f'
-                            ),
-
-                        'Value':
-                            st.column_config.NumberColumn(
-                                'Value',
-                                format='%.2f'
-                            )
-                    }
+        if 'Sal_y' in weekproj.columns:
+            weekproj = weekproj.rename(
+                columns={
+                    'Sal_y': 'Sal'
                 }
+            )
 
-                if height is not None:
-                    dataframe_kwargs['height'] = height
+        weekproj = weekproj.round(2)
+        
+        ### CHANGE TEAM NAMES TO SHOW PROJECTIONS ###
+        weekproj['Team'] = np.where(weekproj['Team']=='LV','LVR',weekproj['Team'])
+        weekproj['Team'] = np.where(weekproj['Team']=='NE','NWE',weekproj['Team'])
+        weekproj['Team'] = np.where(weekproj['Team']=='LA','LAR',weekproj['Team'])
+        weekproj['Team'] = np.where(weekproj['Team']=='KC','KAN',weekproj['Team'])
+        
+        weekproj = weekproj[
+            weekproj['Projection'] > 2
+        ].copy()
 
-                st.dataframe(
-                    show_df,
-                    **dataframe_kwargs
+        weekproj['Team'] = weekproj['Team'].replace({'NO':'NOR'})
+
+        road_projections = weekproj[
+            weekproj['Team']
+            == road_team_short
+        ].copy()
+
+        home_projections = weekproj[
+            weekproj['Team']
+            == home_team_short
+        ].copy()
+
+
+        def show_team_projection(projections):
+            position_colors = {
+                "QB": ("#ffd6d6", "#8b0000"), "RB": ("#d6f5d6", "#145214"),
+                "WR": ("#d6e8ff", "#003d80"), "TE": ("#f2dcff", "#5c007a")
+            }
+            for title, positions in [("Quarterback", ["QB"]), ("Running Backs", ["RB"]),
+                                     ("Pass Catchers", ["WR", "TE"])]:
+                players = projections[projections["Pos"].isin(positions)].copy()
+                st.markdown(f"#### {title}")
+                if players.empty:
+                    st.caption("No qualifying projections")
+                    continue
+                for column in ["JA Rk", "Sal", "Projection", "Value"]:
+                    players[column] = pd.to_numeric(players[column], errors="coerce")
+                # Older projection files sometimes omit Value; derive it from current DK salary.
+                calculated_value = players["Projection"].div(players["Sal"].where(players["Sal"] > 0)) * 1000
+                players["Value"] = players["Value"].fillna(calculated_value)
+                players = players.sort_values("Projection", ascending=False).reset_index(drop=True)
+                view = players[["Player", "Pos", "JA Rk", "Sal", "Projection", "Value"]].rename(
+                    columns={"JA Rk": "Rank", "Sal": "Salary", "Projection": "Proj"}
                 )
-            projections['Team'] = np.where(projections['Team']=='LVR','LV',projections['Team'])
-            
-            qb = projections[
-                projections['Pos'] == 'QB'
-            ].copy()
-
-            rb = projections[
-                projections['Pos'] == 'RB'
-            ].copy()
-
-            pass_catchers = projections[
-                projections['Pos'].isin(
-                    ['WR', 'TE']
+                def style_matchup_row(row):
+                    styles = pd.Series("", index=row.index)
+                    background, foreground = position_colors[row["Pos"]]
+                    styles["Player"] = f"background-color:{background};color:{foreground};font-weight:700;"
+                    for display_column, source_column in [("Proj", "Projection"), ("Value", "Value")]:
+                        pool = weekproj.loc[weekproj["Pos"] == row["Pos"], source_column]
+                        pool = pd.to_numeric(pool, errors="coerce")
+                        if source_column == "Value":
+                            salary = pd.to_numeric(weekproj.loc[pool.index, "Sal"], errors="coerce")
+                            points = pd.to_numeric(weekproj.loc[pool.index, "Projection"], errors="coerce")
+                            pool = pool.fillna(points.div(salary.where(salary > 0)) * 1000)
+                        low, high = pool.min(), pool.max()
+                        value = row[display_column]
+                        if pd.notna(value) and pd.notna(low) and pd.notna(high):
+                            strength = (value - low) / (high - low) if high > low else .5
+                            strength = min(1., max(0., strength))
+                            rgb = tuple(round(a + (b-a)*strength) for a,b in zip((246,252,247),(166,222,181)))
+                            styles[display_column] = f"background-color:rgb{rgb};color:#14532d;font-weight:700;"
+                    return styles
+                table_html = (view.style.apply(style_matchup_row, axis=1)
+                    .format({"Rank": "{:.0f}", "Salary": "${:,.0f}", "Proj": "{:.2f}", "Value": "{:.2f}"},
+                            na_rep="—", escape="html").hide(axis="index").to_html())
+                components.html(
+                    """<style>
+                    body {margin:0;color:#1e293b;font-family:Roboto,Inter,system-ui,sans-serif;}
+                    .matchup-table {overflow:auto;max-height:370px;border:1px solid #e2e8f0;border-radius:10px;}
+                    table {border-collapse:separate;border-spacing:0;width:100%;font-size:13px;}
+                    th,td {padding:11px 12px;white-space:nowrap;text-align:right;}
+                    thead th {position:sticky;top:0;background:#f1f5f9;color:#003087;z-index:1;
+                              border-bottom:2px solid #dbe3ef;font-size:11px;text-transform:uppercase;letter-spacing:.4px;}
+                    td {border-bottom:1px solid #edf0f4;}
+                    th:first-child,td:first-child {text-align:left;}
+                    th:nth-child(2),td:nth-child(2) {text-align:center;}
+                    tbody tr:nth-child(even) {background:#f8fafc;}
+                    tbody tr:hover td {box-shadow:inset 0 0 0 9999px rgba(0,48,135,.035);}
+                    </style><div class="matchup-table">""" + table_html + "</div>",
+                    height=min(390, 48 + 42 * len(view)), scrolling=False
                 )
-            ].copy()
 
-            show_position_table(
-                qb,
-                'Quarterback'
-            )
-
-            show_position_table(
-                rb,
-                'Running Backs',
-                height=175
-            )
-
-            show_position_table(
-                pass_catchers,
-                'Pass Catchers',
-                height=300
-                if len(pass_catchers) > 7
-                else None
-            )
-
-
-        # ============================================================
-        # PLAYER PROJECTION DISPLAY
-        # ============================================================
-        if projections_ready_flag == 'No':
-
-            st.warning(
-                f'Projections for Week '
-                f'{this_week_number} '
-                f'are not yet available.'
-            )
-
+        if projections_ready_flag == "No":
+            st.info(f"Projections for Week {this_week_number} are not yet available.")
         else:
-
             st.markdown("---")
-
-            projection_header = (
-                '<div style="text-align:center;'
-                'margin-bottom:18px;">'
-                '<div style="font-size:30px;'
-                'font-weight:800;">'
-                'Player Projections'
-                '</div>'
-                '<div style="font-size:13px;'
-                'color:#888;margin-top:3px;">'
-                'Fantasy projections, salary & matchup grades'
-                '</div>'
-                '</div>'
-            )
-
-            st.markdown(
-                projection_header,
-                unsafe_allow_html=True
-            )
-
-            projcol1, projcol2 = st.columns(
-                [1, 1],
-                gap='large'
-            )
-
+            st.markdown("### Player Projections")
+            st.caption("Rank = position grade rank · Value = points per $1,000 salary · "
+                       "Green shading compares each metric separately within a position · — = unavailable")
+            projcol1, projcol2 = st.columns([1, 1], gap="large")
             with projcol1:
-                if road_team == 'NO':
-                    road_team == 'NOR'
-
-                show_team_projection(
-                    team_name=road_team,
-                    projections=road_projections,
-                    implied=road_implied,
-                    implied_rank=road_implied_rank,
-                    offense_grade=road_off_grade,
-                    defense_grade=road_def_grade
-                )
-
+                st.markdown(f"#### {road_team}")
+                show_team_projection(road_projections)
             with projcol2:
-
-                if home_team == 'NO':
-                    home_team == 'NOR'
-
-                show_team_projection(
-                    team_name=home_team,
-                    projections=home_projections,
-                    implied=home_implied,
-                    implied_rank=home_implied_rank,
-                    offense_grade=home_off_grade,
-                    defense_grade=home_def_grade
-                )
+                st.markdown(f"#### {home_team}")
+                show_team_projection(home_projections)
 
 
     if tab == "Line Movement":
         st.write(this_week_schedule.sort_values(by=['Home','Timestamp']))
     
-    if tab == "Weekly Projections":
+    if tab == "Weekly Projections _ Old":
         try:
             last_update_string = weekproj['LastUpdate'].iloc[0]
         except:
