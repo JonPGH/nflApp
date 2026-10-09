@@ -629,7 +629,7 @@ if check_password():
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
     #tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau","NBA Optimizer"], help="Choose a Page")
-    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","Weekly Projections","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","Weekly Projections","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker","Line Movement"], help="Choose a Page")
     if "reload" not in st.session_state:
         st.session_state.reload = False
 
@@ -6558,7 +6558,168 @@ if check_password():
 
 
     if tab == "Line Movement":
-        st.write(this_week_schedule.sort_values(by=['Home','Timestamp']))
+        import altair as alt
+        from dateutil import parser as line_date_parser
+        from datetime import datetime as line_datetime
+        from zoneinfo import ZoneInfo
+
+        st.markdown('<h1 style="text-align:center;color:#003087;">Line Movement</h1>', unsafe_allow_html=True)
+        st.caption("Track spread and total changes across the slate, then inspect any game's history.")
+
+        def prepare_line_history(source):
+            history = source.copy()
+            def parse_line_time(value):
+                try:
+                    parsed = line_date_parser.parse(str(value), tzinfos={"EDT": -14400, "EST": -18000})
+                    stamp = pd.Timestamp(parsed)
+                    if stamp.tzinfo is None:
+                        stamp = stamp.tz_localize("America/Indiana/Indianapolis", ambiguous="NaT", nonexistent="NaT")
+                    return stamp.tz_convert("America/Indiana/Indianapolis")
+                except (ValueError, TypeError, OverflowError):
+                    return pd.NaT
+            history["Observed"] = pd.to_datetime(history["Timestamp"].map(parse_line_time), utc=True).dt.tz_convert("America/Indiana/Indianapolis")
+            history["Game date"] = pd.to_datetime(history["Date"], errors="coerce").dt.date
+            for column in ["OU", "Home Spread"]:
+                history[column] = pd.to_numeric(history[column], errors="coerce")
+            return (history.dropna(subset=["ID", "Observed", "Game date"])
+                    .sort_values("Observed").drop_duplicates(["ID", "Observed"], keep="last"))
+
+        def summarize_line_history(history, cutoff):
+            records = []
+            for game_id, game in history.groupby("ID", sort=False):
+                latest = game.iloc[-1]
+                record = {"ID": game_id, "Game": f"{latest['Away']} @ {latest['Home']}",
+                          "Date": latest["Game date"], "Kickoff": str(latest["Time"]),
+                          "Updated": latest["Observed"].strftime("%b %d, %I:%M %p")}
+                change_counts = []
+                for source_column, label in [("Home Spread", "Spread"), ("OU", "Total")]:
+                    valid = game.dropna(subset=[source_column])
+                    if cutoff is not None:
+                        before = valid[valid["Observed"] <= cutoff].tail(1)
+                        after = valid[valid["Observed"] > cutoff]
+                        valid = pd.concat([before, after])
+                    if valid.empty:
+                        record.update({f"Start {label}": np.nan, f"Now {label}": np.nan,
+                                       f"Δ {label}": np.nan, f"{label} range": np.nan})
+                        change_counts.append(0)
+                    else:
+                        values = valid[source_column]
+                        record.update({f"Start {label}": values.iloc[0], f"Now {label}": values.iloc[-1],
+                                       f"Δ {label}": values.iloc[-1] - values.iloc[0],
+                                       f"{label} range": values.max() - values.min()})
+                        change_counts.append(int(values.diff().dropna().ne(0).sum()))
+                record["Changes"] = sum(change_counts)
+                record["Movement"] = pd.Series([record["Spread range"], record["Total range"]]).max()
+                records.append(record)
+            return pd.DataFrame(records)
+
+        line_history = prepare_line_history(schedule)
+        if line_history.empty:
+            st.info("No valid line history is available yet.")
+        else:
+            line_now = pd.Timestamp.now(tz="America/Indiana/Indianapolis")
+            week_options = sorted(line_history["Week"].dropna().unique().tolist())
+            default_week = week_options.index(this_week_number) if this_week_number in week_options else len(week_options) - 1
+            control_week, control_window, control_games, control_sort = st.columns([1, 1.4, 1.3, 1.5])
+            with control_week:
+                line_week = st.selectbox("Week", week_options, index=max(0, default_week), format_func=lambda week: f"Week {int(week)}", key="lines_week") if week_options else None
+            with control_window:
+                line_window = st.selectbox("Compare over", ["All recorded history", "Last 7 days", "Last 3 days", "Last 24 hours"], key="lines_window")
+            with control_games:
+                line_upcoming = st.checkbox("Upcoming games only", value=True, key="lines_upcoming")
+                line_moving = st.checkbox("Moving games only", value=False, key="lines_moving")
+            with control_sort:
+                line_sort = st.selectbox("Sort games", ["Biggest movement", "Spread movement", "Total movement", "Kickoff"], key="lines_sort")
+            line_cutoff = None if line_window == "All recorded history" else line_now - pd.Timedelta(
+                hours={"Last 7 days": 168, "Last 3 days": 72, "Last 24 hours": 24}[line_window])
+            scope_history = line_history if line_week is None else line_history[line_history["Week"] == line_week]
+            if line_upcoming:
+                # Kickoff times in the schedule use Eastern time.
+                kickoff = pd.to_datetime(scope_history["Game date"].astype(str) + " " + scope_history["Time"].astype(str), errors="coerce")
+                scope_history = scope_history[kickoff.dt.tz_localize("America/Indiana/Indianapolis", ambiguous="NaT", nonexistent="NaT") >= line_now]
+            summary = summarize_line_history(scope_history, line_cutoff)
+            if summary.empty:
+                st.info("No games match this week and upcoming-games filter.")
+            else:
+                if line_moving:
+                    summary = summary[summary["Changes"] > 0].copy()
+                if summary.empty:
+                    st.info("No recorded line changes in this comparison window.")
+                else:
+                    summary["Kickoff order"] = pd.to_datetime(summary["Date"].astype(str) + " " + summary["Kickoff"], errors="coerce")
+                    sort_key = {"Biggest movement": "Movement", "Spread movement": "Spread range",
+                                "Total movement": "Total range", "Kickoff": "Kickoff order"}[line_sort]
+                    summary = summary.sort_values([sort_key, "Kickoff order"] if sort_key != "Kickoff order" else [sort_key],
+                                                  ascending=[False, True] if sort_key != "Kickoff order" else [True], na_position="last")
+                    count_games, count_moving, biggest_spread, biggest_total = st.columns(4)
+                    count_games.metric("Games", len(summary))
+                    count_moving.metric("Games with changes", int(summary["Changes"].gt(0).sum()))
+                    biggest_spread.metric("Largest spread range", f"{summary['Spread range'].max():.1f} pts")
+                    biggest_total.metric("Largest total range", f"{summary['Total range'].max():.1f} pts")
+                    st.caption("Start = first recorded line, or the last observation at/before the window. "
+                               "Δ = latest minus start. Range catches moves that later reversed. "
+                               "Negative spread Δ favors the home team; positive favors the away team. Times are Eastern.")
+                    display_columns = ["Game", "Date", "Kickoff", "Start Spread", "Now Spread", "Δ Spread", "Spread range",
+                                       "Start Total", "Now Total", "Δ Total", "Total range", "Changes", "Updated"]
+                    def shade_line_changes(values):
+                        return ["background-color:#dbeafe;color:#1e40af;font-weight:700;" if pd.notna(v) and v < 0
+                                else "background-color:#ffedd5;color:#9a3412;font-weight:700;" if pd.notna(v) and v > 0
+                                else "color:#94a3b8;" for v in values]
+                    line_table = (summary[display_columns].style
+                        .apply(shade_line_changes, subset=["Δ Spread", "Δ Total"])
+                        .format({column: "{:+.1f}" if column.startswith("Δ") or "Spread" in column and "range" not in column else "{:.1f}"
+                                 for column in display_columns if column.startswith(("Start", "Now", "Δ")) or column.endswith("range")}, na_rep="—"))
+                    st.dataframe(line_table, use_container_width=True, hide_index=True,
+                                 height=min(620, 38 + 35 * len(summary)))
+                    st.markdown("### Game history")
+                    selected_line_game = st.selectbox("Choose a game", summary["ID"].tolist(),
+                        format_func=lambda game_id: summary.set_index("ID").loc[game_id, "Game"], key="lines_game")
+                    game_history = scope_history[scope_history["ID"] == selected_line_game].copy()
+                    latest_game = game_history.iloc[-1]
+                    selected_summary = summary.set_index("ID").loc[selected_line_game]
+                    st.caption(f"Latest observation: {selected_summary['Updated']} Eastern · {len(game_history)} recorded snapshots. "
+                               "Charts show recorded quotes, not continuous market updates.")
+                    for market, label, color in [("Home Spread", "Home-team spread", "#003087"), ("OU", "Game total", "#0891b2")]:
+                        observations = game_history.dropna(subset=[market]).copy()
+                        if observations.empty:
+                            st.info(f"No {label.lower()} history available.")
+                            continue
+                        if line_cutoff is not None:
+                            observations = pd.concat([observations[observations["Observed"] <= line_cutoff].tail(1),
+                                                      observations[observations["Observed"] > line_cutoff]])
+                        if observations.empty:
+                            st.info(f"No {label.lower()} observations in this window.")
+                            continue
+                        # Browser-local timezone must not shift Eastern labels.
+                        observations["Chart time"] = observations["Observed"].dt.tz_localize(None)
+                        observations["Eastern time"] = observations["Observed"].dt.strftime("%b %d, %I:%M %p ET")
+                        first_value, last_value = observations[market].iloc[0], observations[market].iloc[-1]
+                        st.markdown(f"#### {label}" + (f" · {latest_game['Home']}" if market == "Home Spread" else ""))
+                        a, b, c = st.columns(3)
+                        a.metric("Start", f"{first_value:+.1f}" if market == "Home Spread" else f"{first_value:.1f}")
+                        b.metric("Latest", f"{last_value:+.1f}" if market == "Home Spread" else f"{last_value:.1f}")
+                        c.metric("Net change", f"{last_value-first_value:+.1f} pts", delta_color="off")
+                        plot_data = observations[["Chart time", "Eastern time", market]].rename(columns={market: "Line"})
+                        low, high = plot_data["Line"].min(), plot_data["Line"].max()
+                        pad = max(1., (high - low) * .2)
+                        chart_base = alt.Chart(plot_data).encode(
+                            x=alt.X("Chart time:T", title="Recorded time (Eastern)", axis=alt.Axis(format="%b %d %H:%M", labelAngle=-20, tickCount=6)),
+                            y=alt.Y("Line:Q", title="Home spread (points)" if market == "Home Spread" else "Total (points)",
+                                    scale=alt.Scale(domain=[low-pad, high+pad], zero=False)),
+                            tooltip=[alt.Tooltip("Eastern time:N", title="Observed"), alt.Tooltip("Line:Q", format=".1f")])
+                        curve = chart_base.mark_line(interpolate="step-after", strokeWidth=3, color=color)
+                        points = chart_base.mark_circle(size=45, color=color, opacity=.75)
+                        reference = alt.Chart(pd.DataFrame({"Start": [first_value]})).mark_rule(color="#94a3b8", strokeDash=[5,5]).encode(y="Start:Q")
+                        end_point = alt.Chart(plot_data.tail(1)).mark_circle(size=130, color=color).encode(x="Chart time:T", y="Line:Q")
+                        chart = (reference + curve + points + end_point).properties(height=310).configure_view(stroke=None).configure_axis(
+                            gridColor="#edf0f4", labelColor="#64748b", titleColor="#334155", labelFontSize=11, titleFontSize=12)
+                        st.altair_chart(chart, use_container_width=True)
+                        if len(observations) == 1:
+                            st.caption("One recorded quote: more observations are needed to show movement.")
+                        if market == "Home Spread":
+                            st.caption("Below zero: home team favored. Above zero: away team favored. Dashed line = comparison start.")
+                        else:
+                            st.caption("Dashed line = comparison start. Hover over a point for its exact quote and timestamp.")
     
     if tab == "Weekly Projections _ Old":
         try:
