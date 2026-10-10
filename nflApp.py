@@ -1699,9 +1699,133 @@ if check_password():
         except:
             last_update_string = ''
         
-        st.markdown(f"""<br><center><font size=10 face=Futura><b>NFL DW DFS Tool<br></b>
-        <font size=3 face=Futura>These projections are tweaked slightly for more DFS friendly projections, including ceiling and positional adjustments.<br>Last Update: {last_update_string}</b></i></center><hr>""", unsafe_allow_html=True)
-        
+        st.markdown('<h1 style="text-align:center;color:#003087;">DFS Lineup Builder</h1>', unsafe_allow_html=True)
+        st.caption("Build DraftKings lineups with your player pool, locks, and exposure settings.")
+        if last_update_string:
+            st.caption(f"Projections updated: {last_update_string}")
+
+        def render_optimizer_results(res, showdown=False):
+            from html import escape as dfs_escape
+            details = res["details"].rename(columns={"Name": "Player", "Roster Position": "Slot"}).copy()
+            if "Pos" not in details:
+                details["Pos"] = details["Slot"]
+            details["Salary"] = pd.to_numeric(details["Sal"].astype(str).str.replace(r"[$,]", "", regex=True), errors="coerce")
+            details["Proj"] = pd.to_numeric(details["Proj"], errors="coerce")
+            lineup_ids = sorted(details["Lineup #"].unique().tolist())
+            if not lineup_ids:
+                st.info("No generated lineups to display yet.")
+                return
+            n_built = len(lineup_ids)
+            # Count actual distinct lineups, so FLEX and CPT never double count a player.
+            exposure = (details.groupby(["Player", "Team"], dropna=False)["Lineup #"].nunique()
+                        .reset_index(name="Lineups"))
+            exposure["Exposure %"] = exposure["Lineups"] / n_built * 100
+            if showdown:
+                captain = details[details["Slot"] == "CPT"].groupby("Player")["Lineup #"].nunique()
+                exposure["CPT %"] = exposure["Player"].map(captain).fillna(0) / n_built * 100
+            else:
+                exposure["Pos"] = exposure["Player"].map(details.drop_duplicates("Player").set_index("Player")["Pos"])
+            exposure = exposure.sort_values(["Lineups", "Player"], ascending=[False, True])
+            lineup_totals = details.groupby("Lineup #").agg(Salary=("Salary", "sum"), Projection=("Proj", "sum"))
+            cap = res.get("salary_cap", 50000)
+            st.markdown("### Your lineups")
+            st.caption(f"Built {n_built} lineups · Generated {res.get('generated_at', 'previously')} · "
+                       "Projections below use the player projections before random variance.")
+            a,b,c,d = st.columns(4)
+            a.metric("Lineups built", n_built)
+            b.metric("Players used", len(exposure))
+            c.metric("Average projection", f"{lineup_totals['Projection'].mean():.2f}")
+            d.metric("Average salary", f"${lineup_totals['Salary'].mean():,.0f}")
+            lineup_tab, exposure_tab = st.tabs(["Lineup cards", "Player exposures"])
+            with lineup_tab:
+                page_count = math.ceil(n_built / 6)
+                page_number = st.selectbox("Lineup page", list(range(1, page_count + 1)),
+                                          key=f"{'sd' if showdown else 'dfs'}_result_page")
+                shown = lineup_ids[(page_number-1)*6:page_number*6]
+                colors = {"QB": ("#ffd6d6", "#8b0000"), "RB": ("#d6f5d6", "#145214"),
+                          "WR": ("#d6e8ff", "#003d80"), "TE": ("#f2dcff", "#5c007a"),
+                          "DST": ("#e2e8f0", "#334155"), "CPT": ("#fef3c7", "#92400e"),
+                          "FLEX": ("#e0f2fe", "#075985")}
+                for offset in range(0, len(shown), 2):
+                    card_columns = st.columns(2, gap="large")
+                    for column, lineup_id in zip(card_columns, shown[offset:offset+2]):
+                        players = details[details["Lineup #"] == lineup_id].copy()
+                        if showdown:
+                            players = players.sort_values(["Slot", "Proj"], ascending=[True, False])
+                            rows = [(row["Slot"], row) for _, row in players.iterrows()]
+                        else:
+                            rows, assigned = [], set()
+                            for position, count in [("QB",1),("RB",2),("WR",3),("TE",1)]:
+                                position_players = players[players["Pos"] == position].sort_values("Player").head(count)
+                                for index, row in position_players.iterrows():
+                                    rows.append((position,row)); assigned.add(index)
+                            for index,row in players.iterrows():
+                                if index not in assigned and row["Pos"] in ["RB","WR","TE"]:
+                                    rows.append(("FLEX",row)); assigned.add(index)
+                            for _, row in players[players["Pos"] == "DST"].iterrows():
+                                rows.append(("DST",row))
+                        body = []
+                        for slot, row in rows:
+                            background, foreground = colors.get(row["Pos"], colors.get(slot, ("#f1f5f9","#334155")))
+                            player = dfs_escape(str(row["Player"]))
+                            team = dfs_escape(str(row["Team"]))
+                            opponent = dfs_escape(str(row.get("Opp", "")))
+                            meta = team + (f" · {opponent}" if opponent else "")
+                            if slot == "FLEX" and not showdown:
+                                meta += f" · {dfs_escape(str(row['Pos']))}"
+                            salary = f"${row['Salary']:,.0f}" if pd.notna(row["Salary"]) else "—"
+                            projection = f"{row['Proj']:.2f}" if pd.notna(row["Proj"]) else "—"
+                            body.append(f'<tr><td><span class="slot" style="background:{background};color:{foreground};">{slot}</span></td>'
+                                        f'<td><div class="player">{player}</div><div class="meta">{meta}</div></td>'
+                                        f'<td class="number">{salary}</td><td class="number points">{projection}</td></tr>')
+                        total = lineup_totals.loc[lineup_id]
+                        card = f'''<style>
+                        body {{margin:0;font-family:Roboto,Inter,system-ui,sans-serif;color:#1e293b;}}
+                        .card {{border:1px solid #dbe3ef;border-radius:14px;overflow:hidden;background:white;}}
+                        .top {{padding:16px 18px;background:#003087;color:white;display:flex;justify-content:space-between;align-items:center;}}
+                        .top strong {{font-size:18px;}} .top span {{font-size:12px;color:#dbeafe;}}
+                        .summary {{display:flex;justify-content:space-between;gap:12px;padding:15px 18px;background:#f8fafc;border-bottom:1px solid #e2e8f0;}}
+                        .summary label {{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:#64748b;}}
+                        .summary b {{font-size:18px;color:#003087;}}
+                        table {{width:100%;border-collapse:collapse;font-size:13px;}}
+                        th {{padding:9px 12px;text-align:left;color:#64748b;font-size:10px;text-transform:uppercase;background:#f8fafc;}}
+                        td {{padding:10px 12px;border-top:1px solid #edf0f4;}}
+                        .slot {{display:inline-block;min-width:36px;padding:5px 6px;text-align:center;border-radius:5px;font-weight:800;font-size:11px;}}
+                        .player {{font-weight:700;}} .meta {{font-size:11px;color:#64748b;margin-top:3px;}}
+                        .number {{text-align:right;white-space:nowrap;}} .points {{color:#14532d;font-weight:700;}}
+                        </style><div class="card"><div class="top"><strong>Lineup {int(lineup_id):02d}</strong>
+                        <span>{'SHOWDOWN · CPT + 5 FLEX' if showdown else 'DRAFTKINGS · CLASSIC'}</span></div>
+                        <div class="summary"><div><label>Projected points</label><b>{total['Projection']:.2f}</b></div>
+                        <div><label>Salary</label><b>${total['Salary']:,.0f}</b></div>
+                        <div><label>Remaining</label><b>${cap-total['Salary']:,.0f}</b></div></div>
+                        <table><thead><tr><th>Slot</th><th>Player / matchup</th><th class="number">Salary</th><th class="number">Proj</th></tr></thead>
+                        <tbody>{''.join(body)}</tbody></table></div>'''
+                        with column:
+                            components.html(card, height=160 + 60*len(rows), scrolling=False)
+            with exposure_tab:
+                st.caption(f"Exposure = lineups containing a player ÷ {n_built} successfully generated lineups. "
+                           + ("CPT % counts captain appearances only." if showdown else "Includes appearances in FLEX."))
+                filter1, filter2 = st.columns([1,2])
+                with filter1:
+                    positions = ["All"] + sorted(exposure["Pos"].dropna().unique().tolist()) if not showdown else ["All"]
+                    position_choice = st.selectbox("Position", positions, key=f"{'sd' if showdown else 'dfs'}_exposure_pos")
+                with filter2:
+                    exposure_search = st.text_input("Search exposures", key=f"{'sd' if showdown else 'dfs'}_exposure_search")
+                exp_view = exposure.copy()
+                if position_choice != "All":
+                    exp_view = exp_view[exp_view["Pos"] == position_choice]
+                if exposure_search.strip():
+                    exp_view = exp_view[exp_view["Player"].str.contains(exposure_search.strip(),case=False,regex=False,na=False)]
+                exposure_columns = ["Player", "Team"] + (["Pos"] if not showdown else []) + ["Lineups", "Exposure %"] + (["CPT %"] if showdown else [])
+                st.dataframe(exp_view[exposure_columns], use_container_width=True, hide_index=True,
+                    height=min(620, max(100, 38 + len(exp_view)*35)), column_config={
+                        "Exposure %": st.column_config.ProgressColumn("Exposure", min_value=0, max_value=100, format="%.1f%%"),
+                        "CPT %": st.column_config.ProgressColumn("Captain exposure", min_value=0, max_value=100, format="%.1f%%")})
+            if res.get("missing_names"):
+                st.warning("Missing DraftKings IDs for: " + ", ".join(res["missing_names"]))
+            st.download_button("Download DraftKings upload CSV", data=res["upload_csv"],
+                               file_name="dk_showdown_lineups.csv" if showdown else "dk_lineups.csv", mime="text/csv",
+                               key=f"{'sd' if showdown else 'dfs'}_results_download")
 
         group = st.radio("Group", ["Main Slate", "Showdowns"], horizontal=True, index=0)
         
@@ -2032,7 +2156,7 @@ if check_password():
                         used_counts_name[nm] += 1
 
                     lineups.append({
-                        "players_df": lu_df.sort_values(['Roster Position', 'Name'], ascending=[True, True]).reset_index(drop=True),
+                        "players_df": lu_df.sort_values(['Roster Position', 'Name'], ascending=[True, True]),
                         "total_sal": int(lu_df['Sal'].sum()),
                         "total_proj": float(scrambled.loc[chosen].sum()),
                         "scrambled": scrambled
@@ -2093,6 +2217,7 @@ if check_password():
 
                 import datetime as dt
                 st.session_state["sd_results"] = {
+                    "salary_cap": dk_salary_cap,
                     "generated_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "totals": totals,
                     "details": details_df,
@@ -2102,32 +2227,8 @@ if check_password():
                     "teams_in_game": teams_in_game
                 }
 
-            # --------------- Display last result ---------------
             if "sd_results" in st.session_state:
-                res = st.session_state["sd_results"]
-                st.caption(f"Last generated: {res['generated_at']}")
-
-                st.markdown("#### Lineup Totals")
-                st.dataframe(res["totals"], use_container_width=True, hide_index=True)
-
-                st.markdown("#### Lineup Details")
-                st.dataframe(res["details"], use_container_width=True, hide_index=True, height=420)
-
-                st.download_button(
-                    "Download DK Upload CSV (Showdown: CPT + FLEX1–FLEX5)",
-                    data=res["upload_csv"],
-                    file_name="dk_showdown_lineups.csv",
-                    mime="text/csv"
-                )
-
-                show_exposure = st.checkbox("Show player exposure (by base name)")
-                if show_exposure:
-                    n_built = max(int(res["totals"].shape[0]), 1)
-                    exp = pd.DataFrame([
-                        {"Player": nm, "Times Used": cnt, "Exposure %": round(cnt / n_built * 100, 1)}
-                        for nm, cnt in res["exposure_name_counts"].items() if cnt > 0
-                    ]).sort_values(["Exposure %","Times Used","Player"], ascending=[False, False, True])
-                    st.dataframe(exp, hide_index=True, use_container_width=True)
+                render_optimizer_results(st.session_state["sd_results"], showdown=True)
 
         else:       
             show_projections_check = st.checkbox('Show Projections?', value=True)
@@ -2529,6 +2630,7 @@ if check_password():
                                     import datetime as dt 
 
                                     st.session_state["dfs_results"] = {
+                                        "salary_cap": dk_salary_cap,
                                         "generated_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                                         "totals": totals,
                                         "details": out_df_display,
@@ -2539,62 +2641,8 @@ if check_password():
                                         "pool_meta": pool[["Player","Pos"]].copy()
                                     }
 
-            # -------------------- DISPLAY LAST GENERATED RESULT (if any) --------------------
             if "dfs_results" in st.session_state:
-                res = st.session_state["dfs_results"]
-                if res.get("generated_at"):
-                    st.caption(f"Last generated: {res['generated_at']}")
-
-                st.markdown("#### Lineup Totals")
-                totcol1, totcol2, totcol3 = st.columns([1,1,1])
-                with totcol2:
-                    st.dataframe(res["totals"], use_container_width=True, hide_index=True)
-
-                st.markdown("#### Lineup Details")
-                st.dataframe(res["details"], use_container_width=True, hide_index=True, height=420)
-
-                if res.get("missing_names"):
-                    st.warning(
-                        "Some players were missing DK IDs in your `dk_id_dict` and appear without an ID in the CSV: "
-                        + ", ".join(res["missing_names"])
-                    )
-
-                st.download_button(
-                    "Download DK Upload CSV (Name + ID)",
-                    data=res["upload_csv"],
-                    file_name="dk_lineups.csv",
-                    mime="text/csv"
-                )
-
-                # Exposure table (optional, computed from cached counts)
-                show_exposure = st.checkbox("Show player exposure table")
-                if show_exposure:
-                    used_counts = res["used_counts"]
-                    pool_meta = res["pool_meta"]
-                    exp_df = (
-                        pd.DataFrame({"idx": list(used_counts.keys()), "Times Used": list(used_counts.values())})
-                        .merge(pool_meta.reset_index().rename(columns={"index":"idx"}), on="idx", how="left")
-                        .drop(columns=["idx"])
-                    )
-                    # Only show players used at least once
-                    exp_df = exp_df[exp_df["Times Used"] > 0].copy()
-                    exp_df["Exposure %"] = (exp_df["Times Used"] / max(len(res["details"]["Lineup #"].unique()), 1) * 100).round(1)
-                    exp_df = exp_df.sort_values(["Exposure %","Times Used","Player"], ascending=[False,False,True])
-                    st.markdown("#### Player Exposure")
-                    expcol1, expcol2, expcol3 = st.columns([1,2,1])
-                    with expcol2:
-                        pos_options = ["All"] + sorted(exp_df["Pos"].dropna().unique().tolist())
-                        pos_choice = st.selectbox("Filter by position:", pos_options, index=0, key="exp_pos_filter")
-
-                        exp_view = exp_df if pos_choice == "All" else exp_df[exp_df["Pos"] == pos_choice]
-
-                        st.dataframe(
-                            exp_view[["Player", "Pos", "Times Used", "Exposure %"]],
-                            height=900, use_container_width=True, hide_index=True
-                        )
-
-
-
+                render_optimizer_results(st.session_state["dfs_results"])
 
 
     if tab == "Player Grades":
