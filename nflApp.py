@@ -629,7 +629,7 @@ if check_password():
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
     #tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau","NBA Optimizer"], help="Choose a Page")
-    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","Weekly Projections","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker","Line Movement"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","Weekly Projections","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker","Line Movement","Weekly Game Data"], help="Choose a Page")
     if "reload" not in st.session_state:
         st.session_state.reload = False
 
@@ -6603,6 +6603,102 @@ if check_password():
             with projcol2:
                 st.markdown(f"#### {home_team}")
                 show_team_projection(home_projections)
+
+
+    if tab == "Weekly Game Data":
+        from matplotlib.colors import LinearSegmentedColormap as GameColormap
+        from dateutil import parser as game_time_parser
+        st.markdown('<h1 style="text-align:center;color:#003087;margin-bottom:6px;">Weekly Game Data</h1>', unsafe_allow_html=True)
+        st.caption("A team-by-team view of the weekly betting slate. Each matchup appears once for each team.")
+
+        def build_weekly_game_data(source, name_map, slate_map):
+            games = source.copy()
+            def parse_game_observation(value):
+                try:
+                    parsed = pd.Timestamp(game_time_parser.parse(str(value), tzinfos={"EDT": -14400, "EST": -18000}))
+                    if parsed.tzinfo is None:
+                        parsed = parsed.tz_localize("America/Indiana/Indianapolis", ambiguous="NaT", nonexistent="NaT")
+                    return parsed.tz_convert("UTC")
+                except (ValueError, TypeError, OverflowError):
+                    return pd.NaT
+            games["Observed"] = pd.to_datetime(games["Timestamp"].map(parse_game_observation), utc=True)
+            games = (games.dropna(subset=["ID", "Observed", "Week"])
+                     .sort_values("Observed").drop_duplicates("ID", keep="last"))
+            games["Date"] = pd.to_datetime(games["Date"], errors="coerce").dt.date
+            for col in ["OU", "Away Spread", "Home Spread"]:
+                games[col] = pd.to_numeric(games[col], errors="coerce")
+            records = []
+            for _, game in games.iterrows():
+                for team_col, opponent_col, spread_col in [("Away", "Home", "Away Spread"), ("Home", "Away", "Home Spread")]:
+                    records.append({"ID": game["ID"], "Week": int(game["Week"]),
+                        "Team": name_map.get(game[team_col], game[team_col]),
+                        "Opp": name_map.get(game[opponent_col], game[opponent_col]),
+                        "OU": game["OU"], "Spread": game[spread_col],
+                        "Implied": (game["OU"] - game[spread_col]) / 2,
+                        "Main Slate": slate_map.get(game["ID"], "N") == "Y",
+                        "Date": game["Date"], "Observed": game["Observed"]})
+            return pd.DataFrame(records, columns=["ID", "Week", "Team", "Opp", "OU", "Spread", "Implied", "Main Slate", "Date", "Observed"])
+
+        game_data = build_weekly_game_data(schedule, teamnamechangedict, main_slate_dict)
+        if game_data.empty:
+            st.info("No weekly game data is available yet.")
+        else:
+            weeks = sorted(game_data["Week"].unique().tolist())
+            today_games = pd.Timestamp.now(tz="America/Indiana/Indianapolis").date()
+            upcoming = game_data[game_data["Date"] >= today_games].sort_values("Date")
+            default_game_week = int(upcoming["Week"].iloc[0]) if not upcoming.empty else int(game_data["Week"].max())
+            control_week, control_slate, control_team, control_sort = st.columns([1,1,1.6,1.5])
+            with control_week:
+                weekly_game_week = st.selectbox("Week", weeks, index=weeks.index(default_game_week),
+                                               format_func=lambda value: f"Week {value}", key="weekly_game_week")
+            with control_slate:
+                weekly_game_main = st.toggle("Main slate only", value=False, key="weekly_game_main")
+            week_games = game_data[game_data["Week"] == weekly_game_week].copy()
+            if weekly_game_main:
+                week_games = week_games[week_games["Main Slate"]]
+            with control_team:
+                selected_game_teams = st.multiselect("Team", sorted(week_games["Team"].dropna().unique().tolist()),
+                                                    placeholder="All teams", key="weekly_game_teams")
+            with control_sort:
+                game_sort = st.selectbox("Sort by", ["Implied: high to low", "O/U: high to low", "Spread: favorites first", "Team: A to Z"], key="weekly_game_sort")
+            # Separate column scales use the full selected slate and stay stable under team filtering.
+            game_ranges = {col: (week_games[col].min(), week_games[col].max()) for col in ["OU", "Implied"]}
+            view_games = week_games if not selected_game_teams else week_games[week_games["Team"].isin(selected_game_teams)]
+            sort_col, ascending = {"Implied: high to low": ("Implied",False), "O/U: high to low": ("OU",False),
+                                   "Spread: favorites first": ("Spread",True), "Team: A to Z": ("Team",True)}[game_sort]
+            view_games = view_games.sort_values([sort_col] + ([] if sort_col == "Team" else ["Team"]),
+                                               ascending=[ascending] + ([] if sort_col == "Team" else [True]), na_position="last")
+            if view_games.empty:
+                st.info("No teams match this week and slate selection.")
+            else:
+                a,b,c = st.columns(3)
+                a.metric("Games shown", view_games["ID"].nunique())
+                b.metric("Highest implied", f"{view_games['Implied'].max():.2f}")
+                c.metric("Highest game total", f"{view_games['OU'].max():.1f}")
+                earliest_quote = week_games["Observed"].min().tz_convert("America/Indiana/Indianapolis")
+                latest_quote = week_games["Observed"].max().tz_convert("America/Indiana/Indianapolis")
+                st.caption(f"Latest quotes per game observed between {earliest_quote:%b %d, %I:%M %p} and "
+                           f"{latest_quote:%b %d, %I:%M %p} Eastern. "
+                           "Main slate follows the app's Sunday afternoon slate definition.")
+                display = view_games[["Week", "Team", "Opp", "OU", "Spread", "Implied"]].copy()
+                total_cmap = GameColormap.from_list("weekly_game_total", ["#d8b4fe", "#faf5ff", "#ecfdf5", "#86efac"])
+                implied_cmap = GameColormap.from_list("weekly_game_implied", ["#f0fdf4", "#bbf7d0", "#86efac"])
+                def shade_game_metrics(row):
+                    styles = pd.Series("", index=row.index)
+                    styles["Team"] = "background-color:#e8effb;color:#003087;font-weight:700;"
+                    for col, cmap in [("OU", total_cmap), ("Implied", implied_cmap)]:
+                        low, high = game_ranges[col]
+                        if pd.notna(row[col]) and pd.notna(low) and pd.notna(high):
+                            strength = (row[col]-low)/(high-low) if high > low else .5
+                            r,g,b,_ = cmap(min(1., max(0., strength)))
+                            styles[col] = f"background-color:rgb({round(r*255)},{round(g*255)},{round(b*255)});color:#18332b;font-weight:700;"
+                    return styles
+                styled_games = (display.style.apply(shade_game_metrics, axis=1)
+                    .format({"Week":"{:.0f}", "OU":"{:.1f}", "Spread":"{:+.1f}", "Implied":"{:.2f}"}, na_rep="—"))
+                st.dataframe(styled_games, use_container_width=True, hide_index=True,
+                             height=min(1100, 38 + len(display)*35), column_config={"OU": "O/U", "Opp": "Opponent"})
+                st.caption("O/U: purple for lower totals, green for higher totals. Implied points use their own green scale. "
+                           "Negative spread = favorite. Implied points = (O/U − team spread) ÷ 2. — = unavailable.")
 
 
     if tab == "Line Movement":
