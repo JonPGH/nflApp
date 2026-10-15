@@ -5609,6 +5609,12 @@ if check_password():
                         qb_rush_yards = pd.to_numeric(row["RushYds"], errors="coerce")
                         if pd.isna(qb_rush_yards) or qb_rush_yards <= 10:
                             continue
+                    if row["market"] == "player_reception_yds":
+                        receiving_yards = pd.to_numeric(row["RecYds"], errors="coerce")
+                        if row["Pos"] == "RB" and (pd.isna(receiving_yards) or receiving_yards <= 10):
+                            continue
+                        if row["Pos"] in ["WR", "TE"] and (pd.isna(receiving_yards) or receiving_yards < 15):
+                            continue
                     mean = row[field]
                     if pd.isna(mean) or mean <= 0: continue
                     # Zero receiving/passing rows outside the player's role are not actionable models.
