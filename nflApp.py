@@ -5603,6 +5603,12 @@ if check_password():
                 records=[]
                 for _, row in lines.dropna(subset=["Player","price","line"]).iterrows():
                     label, field, kind, _, floor = market_map[row["market"]]
+                    if row["Pos"] in ["WR", "TE"] and row["market"].startswith("player_rush_"):
+                        continue
+                    if row["Pos"] == "QB" and row["market"] == "player_rush_yds":
+                        qb_rush_yards = pd.to_numeric(row["RushYds"], errors="coerce")
+                        if pd.isna(qb_rush_yards) or qb_rush_yards <= 10:
+                            continue
                     mean = row[field]
                     if pd.isna(mean) or mean <= 0: continue
                     # Zero receiving/passing rows outside the player's role are not actionable models.
