@@ -213,6 +213,7 @@ if check_password():
         allproplines = pd.read_csv(f'{file_path}/AllPropsData.csv')
         allproplines_history = pd.read_csv(f'{file_path}/AllPropsData_History.csv')
         weekproj = pd.read_csv(f'{file_path}/japroj.csv')
+        bettingproj = pd.read_csv(f'{file_path}/ja_model_projections.csv')
         schedule = pd.read_csv(f'{file_path}/nfl_schedule_tracking.csv')
         dkdata = pd.read_csv(f'{file_path}/DKData.csv')
         implied_totals = pd.read_csv(f'{file_path}/implied_totals.csv')
@@ -249,7 +250,7 @@ if check_password():
         except:
             mnfshowdown = pd.DataFrame()
 
-        return dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj,nfl_id_maps
+        return bettingproj,dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, name_change, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj,nfl_id_maps
     
     # ---------- Best Bets helpers ----------
     def _std_norm_cdf(x: float) -> float:
@@ -520,7 +521,7 @@ if check_password():
     
     #ari,atl,bal,buf,car,chi,cin,cle,dal,den,det,gnb,hou,ind,jax,kan,lac,lar,lvr,mia,min,nor,nwe,nyg,nyj,phi,pit,sea,sfo,tam,ten,was = load_team_logos()
 
-    dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj,nfl_id_maps= load_data()
+    bettingproj,dst_namemaps,etrfull,tnfshowdown,snfshowdown,mnfshowdown,xfp_comp,allproplines_history,optimizer_proj,team_grades, qb_grades, rb_grades, wr_grades, te_grades, mainslate, shootout_teams, shootout_matchups, xfp, logo, adp_data, namemap, allproplines, weekproj, schedule, dkdata, implied_totals, nfl_week_maps, team_name_change, saltrack,saltrack2,bookproj,nfl_id_maps= load_data()
     
     mainslate['Rand'] = np.random.uniform(low=0.85, high=1.15, size=len(mainslate))
     mainslate['proj_own'] = round(mainslate['proj_own'] * mainslate['Rand'],0)
@@ -629,7 +630,7 @@ if check_password():
     st.sidebar.image(logo, width=250)  # Added logo to sidebar
     st.sidebar.title("Fantasy Football Resources")
     #tab = st.sidebar.radio("Select View", ["Weekly Projections","Weekly Ranks","Game by Game","DFS Optimizer","Best Bets","Book Based Proj","Player Grades","Salary Tracking", "Expected Fantasy Points","Closing Lines", "Props","ADP Data","Tableau","NBA Optimizer"], help="Choose a Page")
-    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","Weekly Projections","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker","Line Movement","Weekly Game Data"], help="Choose a Page")
+    tab = st.sidebar.radio("Select View", ["Book Based Proj","Game by Game","Weekly Projections","Betting Projections","DFS Optimizer","Player Grades","Expected Fantasy Points","Salary Tracking","Live Game Tracker","Line Movement","Weekly Game Data"], help="Choose a Page")
     if "reload" not in st.session_state:
         st.session_state.reload = False
 
@@ -5428,6 +5429,250 @@ if check_password():
             "Live data via ESPN • Data cached for 15 seconds"
         )
     
+    if tab == "Betting Projections":
+        st.markdown('<h1 style="text-align:center;color:#003087;">Betting Projections</h1>', unsafe_allow_html=True)
+        st.caption("Weekly player projections and sportsbook prop comparisons")
+        betting_projection_tab, betting_props_tab = st.tabs(["Player projections", "Prop opportunities"])
+        projection_view = bettingproj.copy()
+        aliases = {"LA":"LAR", "LV":"LVR", "NE":"NWE", "KC":"KAN", "NO":"NOR", "GB":"GNB", "TB":"TAM", "SF":"SFO", "ARZ":"ARI"}
+        for column in ["Team", "Opp"]:
+            projection_view[column] = projection_view[column].astype("string").str.replace("@", "", regex=False).str.strip().str.upper().replace(aliases)
+        projection_view["Game"] = projection_view.apply(lambda row: " vs ".join(sorted([str(row["Team"]), str(row["Opp"])])), axis=1)
+        numeric_projection_columns = ["Projection","PassAtt","PassCmp","PassYds","PassTD","Int","RushAtt","RushYds","RushTD","Rec","RecYds","RecTD"]
+        for column in numeric_projection_columns:
+            projection_view[column] = pd.to_numeric(projection_view[column], errors="coerce")
+        position_palette = {"QB":("#ffd6d6","#8b0000"),"RB":("#d6f5d6","#145214"),"WR":("#d6e8ff","#003d80"),"TE":("#f2dcff","#5c007a")}
+        with betting_projection_tab:
+            first, second, third = st.columns([2,1,1])
+            with first:
+                bp_search = st.text_input("Player search", placeholder="Search a name…", key="bp_player")
+            with second:
+                bp_week_options = sorted(projection_view["Week"].dropna().unique().tolist())
+                bp_week = st.selectbox("Week", bp_week_options, index=len(bp_week_options)-1, key="bp_week") if bp_week_options else None
+            with third:
+                bp_positions = st.multiselect("Position", ["QB","RB","WR","TE"], placeholder="All positions", key="bp_positions")
+            first, second, third = st.columns([1,1,1.5])
+            with first:
+                bp_teams = st.multiselect("Team", sorted(projection_view["Team"].dropna().unique().tolist()), key="bp_teams")
+            with second:
+                bp_games = st.multiselect("Game", sorted(projection_view["Game"].dropna().unique().tolist()), key="bp_games")
+            shown_projections = projection_view.copy()
+            if bp_week is not None:
+                shown_projections = shown_projections[shown_projections["Week"]==bp_week]
+            if bp_positions:
+                shown_projections = shown_projections[shown_projections["Pos"].isin(bp_positions)]
+            if bp_teams:
+                shown_projections = shown_projections[shown_projections["Team"].isin(bp_teams)]
+            if bp_games:
+                shown_projections = shown_projections[shown_projections["Game"].isin(bp_games)]
+            if bp_search.strip():
+                shown_projections = shown_projections[shown_projections["Player"].str.contains(bp_search.strip(),case=False,regex=False,na=False)]
+            active_positions = set(shown_projections["Pos"].dropna()) if not shown_projections.empty else set(bp_positions or ["QB","RB","WR","TE"])
+            show_columns = ["Player","Pos","Team","Opp","Projection"]
+            if "QB" in active_positions:
+                show_columns += ["PassAtt","PassCmp","PassYds","PassTD","Int"]
+            show_columns += ["RushAtt","RushYds","RushTD"]
+            if active_positions.intersection({"RB","WR","TE"}):
+                show_columns += ["Rec","RecYds","RecTD"]
+            labels = {"Projection":"DK Points","PassAtt":"Pass Att","PassCmp":"Completions","PassYds":"Pass Yds","PassTD":"Pass TD","Int":"INT", "RushAtt":"Rush Att","RushYds":"Rush Yds","RushTD":"Rush TD","Rec":"Receptions","RecYds":"Rec Yds","RecTD":"Rec TD"}
+            with third:
+                bp_sort = st.selectbox("Sort by", [column for column in show_columns if column in numeric_projection_columns], format_func=lambda column: labels.get(column,column), key="bp_sort")
+                bp_ascending = st.checkbox("Ascending", value=False, key="bp_ascending")
+            if shown_projections.empty:
+                st.info("No players match these filters.")
+            else:
+                shown_projections = shown_projections.sort_values([bp_sort,"Player"],ascending=[bp_ascending,True])
+                def shade_betting_player(row):
+                    styles = pd.Series("",index=row.index)
+                    background,foreground = position_palette.get(row["Pos"],("#f1f5f9","#334155"))
+                    styles["Player"] = f"background-color:{background};color:{foreground};font-weight:700;"
+                    return styles
+                st.caption(f"{len(shown_projections)} players · Week {bp_week} · Column headers also support sorting")
+                st.dataframe(shown_projections[show_columns].style.apply(shade_betting_player,axis=1).format({column:"{:.2f}" for column in numeric_projection_columns if column in show_columns},na_rep="—"),
+                    use_container_width=True,hide_index=True,height=min(850,38+35*len(shown_projections)),column_config=labels)
+        with betting_props_tab:
+            import re as betting_re
+            import unicodedata as betting_unicode
+            from datetime import datetime as betting_datetime
+            from zoneinfo import ZoneInfo as BettingZone
+            def betting_name(value):
+                value = namemapdict.get(value, value)
+                value = betting_unicode.normalize("NFKD", str(value)).encode("ascii", "ignore").decode()
+                return betting_re.sub(r"[^a-z0-9]", "", value.lower())
+
+            market_map = {
+                "player_pass_attempts": ("Pass attempts", "PassAtt", "count", .06, 0),
+                "player_pass_completions": ("Completions", "PassCmp", "count", .08, 0),
+                "player_pass_yds": ("Pass yards", "PassYds", "yards", .24, 35),
+                "player_pass_tds": ("Pass TD", "PassTD", "count", .15, 0),
+                "player_pass_interceptions": ("Interceptions", "Int", "count", .15, 0),
+                "player_rush_attempts": ("Rush attempts", "RushAtt", "count", .18, 0),
+                "player_rush_yds": ("Rush yards", "RushYds", "yards", .50, 15),
+                "player_receptions": ("Receptions", "Rec", "count", .15, 0),
+                "player_reception_yds": ("Receiving yards", "RecYds", "yards", .55, 15),
+                "player_tds_over": ("Rush + receiving TD", "TotalTD", "count", .15, 0),
+            }
+            st.info("Estimated EV: these are assumption-based probabilities, not a calibrated betting model. "
+                    "Projection averages do not describe player volatility. Use the model settings below to inspect sensitivity.")
+            with st.expander("Probability model and assumptions", expanded=False):
+                st.markdown("Counts use a negative-binomial distribution with mean equal to the projection and "
+                            "variance = mean + dispersion × mean² (zero dispersion uses Poisson). "
+                            "Yards use a normal distribution conditioned on being nonnegative, with the "
+                            "projection as its location and SD = max(minimum SD, projection × CV). "
+                            "These yard distributions can have means above the input projection. "
+                            "Integer lines include push probability; yard totals use half-yard continuity boundaries. "
+                            "Total TD includes rushing and receiving TD, excluding passing TD.")
+                model_market = st.selectbox("Market settings", list(market_map),format_func=lambda key:market_map[key][0],key="bp_model_market")
+                parameters = {}
+                for key, (label, _, kind, default, floor) in market_map.items():
+                    if key == model_market:
+                        if kind == "count":
+                            parameter = st.number_input("Count dispersion",min_value=0.,max_value=2.,value=float(st.session_state.get(f"bp_saved_{key}",default)),step=.01,key=f"bp_param_{key}")
+                        else:
+                            parameter = st.number_input("Yards coefficient of variation",min_value=.05,max_value=2.,value=float(st.session_state.get(f"bp_saved_{key}",default)),step=.05,key=f"bp_param_{key}")
+                    else:
+                        parameter = st.session_state.get(f"bp_param_{key}",default)
+                    # Keep settings across reruns when their widgets are not displayed.
+                    saved_key = f"bp_saved_{key}"
+                    if key == model_market:
+                        st.session_state[saved_key] = parameter
+                    parameters[key] = st.session_state.get(saved_key,parameter)
+                st.caption("Minimum yard SDs: passing 35, rushing 15, receiving 15. "
+                           "EV per $100 = $100 × (win probability × net payout − loss probability). "
+                           "Pushes return the stake. Fair odds account for pushes. Book break-even probability includes vig.")
+
+            def prop_probabilities(mean, line, kind, dispersion, floor=0):
+                if not np.isfinite(mean) or mean < 0 or not np.isfinite(line) or line < 0:
+                    return None
+                if kind == "yards":
+                    sd = max(floor, mean*dispersion)
+                    if sd <= 0:
+                        return None
+                    cdf = lambda x: .5*(1+erf(x/sqrt(2)))
+                    mass_below_zero = cdf(-mean/sd)
+                    truncated_cdf = lambda threshold: max(0., min(1., (cdf((threshold-mean)/sd)-mass_below_zero)/(1-mass_below_zero)))
+                    integer_line = abs(line-round(line))<1e-9
+                    lower = truncated_cdf(max(0.,line-.5)) if integer_line else truncated_cdf(line)
+                    upper = truncated_cdf(line+.5) if integer_line else lower
+                    return 1-upper, lower, upper-lower
+                if mean == 0:
+                    return (0.,0.,1.) if line == 0 else (0.,1.,0.)
+                max_count = int(math.floor(line))
+                if max_count > 2000:
+                    return None
+                if dispersion <= 0:
+                    probability = math.exp(-mean)
+                    def next_mass(p,k): return p*mean/(k+1)
+                else:
+                    size = 1/dispersion
+                    success = size/(size+mean)
+                    probability = math.exp(size*math.log(success))
+                    def next_mass(p,k): return p*(k+size)/(k+1)*(1-success)
+                cumulative, exact = 0., 0.
+                for count in range(max_count+1):
+                    cumulative += probability
+                    if count == max_count:
+                        exact = probability
+                    probability = next_mass(probability,count)
+                push = exact if abs(line-round(line))<1e-9 else 0.
+                return max(0.,min(1.,1-cumulative)), max(0.,min(1.,cumulative-push)), push
+
+            def prepare_prop_opportunities(projections, offers):
+                proj = projections.copy()
+                proj["NameKey"] = proj["Player"].map(betting_name)
+                proj["TotalTD"] = proj["RushTD"] + proj["RecTD"]
+                proj["Week"] = pd.to_numeric(proj["Week"],errors="coerce")
+                duplicate_keys = proj.duplicated(["NameKey","Week","Game"],keep=False)
+                proj = proj[~duplicate_keys]
+                lines = offers.copy()
+                lines["NameKey"] = lines["player"].map(betting_name)
+                lines["Week"] = pd.to_numeric(lines["Week"],errors="coerce")
+                for col in ["price","line"]:
+                    lines[col] = pd.to_numeric(lines[col],errors="coerce")
+                for col in ["home_team","away_team"]:
+                    lines[col] = lines[col].astype("string").str.upper().str.strip().replace(aliases)
+                lines["Game"] = lines.apply(lambda row:" vs ".join(sorted([str(row.home_team),str(row.away_team)])),axis=1)
+                # Timestamp strings include Eastern abbreviations; dates are used only for quote ordering.
+                clean_time = lines["scrape_time"].astype(str).str.replace(r"\s+(EDT|EST)$","",regex=True)
+                lines["Quoted"] = pd.to_datetime(clean_time,errors="coerce")
+                lines = (lines.dropna(subset=["Quoted"]).sort_values("Quoted")
+                         .drop_duplicates(["game_id","NameKey","market","book","over_under","line"],keep="last"))
+                lines = lines[lines["market"].isin(market_map) & lines["over_under"].isin(["Over","Under"])]
+                lines = lines.merge(proj,on=["NameKey","Week","Game"],how="left",suffixes=("","_model"),validate="many_to_one")
+                unmatched = lines["Player"].isna().sum()
+                records=[]
+                for _, row in lines.dropna(subset=["Player","price","line"]).iterrows():
+                    label, field, kind, _, floor = market_map[row["market"]]
+                    mean = row[field]
+                    if pd.isna(mean) or mean <= 0: continue
+                    # Zero receiving/passing rows outside the player's role are not actionable models.
+                    if field.startswith("Pass") or field == "Int":
+                        if row["Pos"] != "QB": continue
+                    elif field in ["Rec","RecYds"] and row["Pos"] == "QB": continue
+                    price = row["price"]
+                    if abs(price)<100: continue
+                    probabilities = prop_probabilities(float(mean),float(row["line"]),kind,parameters[row["market"]],floor)
+                    if probabilities is None: continue
+                    over,under,push = probabilities
+                    win,loss = (over,under) if row["over_under"] == "Over" else (under,over)
+                    profit = price/100 if price>0 else 100/abs(price)
+                    book_probability = 1/(1+profit)
+                    settled_probability = win/(win+loss) if win+loss>0 else np.nan
+                    fair_decimal = 1+loss/win if win>0 else np.nan
+                    fair_american = (100*(fair_decimal-1) if fair_decimal>=2 else -100/(fair_decimal-1)) if pd.notna(fair_decimal) and fair_decimal>1 else np.nan
+                    records.append({"Player":row["Player"],"Pos":row["Pos"],"Team":row["Team"],"Game":row["Game"],
+                        "Week":row["Week"],"Market":label,"Book":row["book"],"Side":row["over_under"],
+                        "Line":row["line"],"Projection":mean,"Odds":price,"Win %":100*win,"Push %":100*push,
+                        "Loss %":100*loss,"Model settled %":100*settled_probability,"Book break-even %":100*book_probability,
+                        "Edge pp":100*(settled_probability-book_probability),"Fair odds":fair_american,
+                        "EV %":100*(win*profit-loss),"EV per $100":100*(win*profit-loss),
+                        "Quoted":row["Quoted"].strftime("%Y-%m-%d %H:%M ET"),"Kickoff":row["commence_time"]})
+                return pd.DataFrame(records), int(unmatched), int(duplicate_keys.sum())
+
+            opportunities, unmatched_props, duplicate_models = prepare_prop_opportunities(projection_view,allproplines)
+            if duplicate_models:
+                st.warning(f"Excluded {duplicate_models} ambiguous projection rows with duplicate player/week/game keys.")
+            if unmatched_props:
+                st.caption(f"{unmatched_props} supported-market quotes have no matching player/week/game projection and were excluded.")
+            if opportunities.empty:
+                st.info("No supported props matched the current projections.")
+            else:
+                a,b,c = st.columns(3)
+                with a:
+                    prop_search = st.text_input("Search player",key="bp_prop_player")
+                    prop_weeks = sorted(opportunities["Week"].dropna().unique().tolist())
+                    prop_week = st.selectbox("Prop week",prop_weeks,index=len(prop_weeks)-1,key="bp_prop_week")
+                with b:
+                    prop_markets = st.multiselect("Market",sorted(opportunities["Market"].unique().tolist()),key="bp_prop_markets")
+                    prop_books = st.multiselect("Sportsbook",sorted(opportunities["Book"].unique().tolist()),key="bp_prop_books")
+                with c:
+                    prop_min_ev = st.number_input("Minimum estimated EV (%)",value=0.,step=1.,key="bp_prop_ev")
+                    prop_upcoming = st.checkbox("Upcoming games only",value=True,key="bp_prop_upcoming")
+                prop_view = opportunities[opportunities["Week"]==prop_week].copy()
+                if prop_upcoming:
+                    kickoff = pd.to_datetime(prop_view["Kickoff"],errors="coerce",utc=True)
+                    prop_view = prop_view[kickoff>pd.Timestamp.now(tz="UTC")]
+                prop_view = prop_view[prop_view["EV %"]>prop_min_ev]
+                if prop_search.strip():
+                    prop_view = prop_view[prop_view["Player"].str.contains(prop_search.strip(),case=False,regex=False,na=False)]
+                if prop_markets:
+                    prop_view = prop_view[prop_view["Market"].isin(prop_markets)]
+                if prop_books:
+                    prop_view = prop_view[prop_view["Book"].isin(prop_books)]
+                prop_sort = st.selectbox("Sort opportunities by",["EV %","Edge pp","Win %","Projection"],key="bp_prop_sort")
+                prop_view = prop_view.sort_values([prop_sort,"Player"],ascending=[False,True])
+                st.caption(f"{len(prop_view)} offers · EV per $100 assumes a $100 stake · Multiple offers for one player are correlated. "
+                           "Missing or nonpositive projections are excluded. Quoted time indicates source freshness; prices are not live.")
+                if prop_view.empty:
+                    st.info("No offers pass these filters. Lower minimum EV or check upcoming-game and week filters.")
+                else:
+                    cols=["Player","Pos","Team","Game","Market","Book","Side","Line","Projection","Odds","Win %","Push %","Loss %",
+                          "Book break-even %","Model settled %","Edge pp","Fair odds","EV %","EV per $100","Quoted"]
+                    formats={col:"{:.2f}" for col in cols if pd.api.types.is_numeric_dtype(prop_view[col])}
+                    formats.update({"Odds":"{:+.0f}","Fair odds":"{:+.0f}","EV %":"{:+.2f}%","EV per $100":"${:+.2f}"})
+                    st.dataframe(prop_view[cols].style.format(formats,na_rep="—").background_gradient(subset=["EV %"],cmap="Greens",low=.3,high=.7),
+                                 use_container_width=True,hide_index=True,height=min(850,38+35*len(prop_view)))
+
     if tab == "Weekly Projections":
         st.markdown(
             '<div style="text-align:center;margin:16px 0 24px;">'
