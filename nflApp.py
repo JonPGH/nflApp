@@ -5648,11 +5648,14 @@ if check_password():
                 with c:
                     prop_min_ev = st.number_input("Minimum estimated EV (%)",value=0.,step=1.,key="bp_prop_ev")
                     prop_upcoming = st.checkbox("Upcoming games only",value=True,key="bp_prop_upcoming")
+                    prop_even_odds = st.checkbox("Odds between −200 and +200 only",value=True,key="bp_prop_even_odds")
                 prop_view = opportunities[opportunities["Week"]==prop_week].copy()
                 if prop_upcoming:
                     kickoff = pd.to_datetime(prop_view["Kickoff"],errors="coerce",utc=True)
                     prop_view = prop_view[kickoff>pd.Timestamp.now(tz="UTC")]
                 prop_view = prop_view[prop_view["EV %"]>prop_min_ev]
+                if prop_even_odds:
+                    prop_view = prop_view[prop_view["Odds"].between(-200,200,inclusive="both")]
                 if prop_search.strip():
                     prop_view = prop_view[prop_view["Player"].str.contains(prop_search.strip(),case=False,regex=False,na=False)]
                 if prop_markets:
