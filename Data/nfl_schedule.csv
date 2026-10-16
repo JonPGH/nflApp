@@ -3636,31 +3636,55 @@
 3634,2026-10-14 20:16:29 EDT,f7679cf18454e4d88a8f2b990c3f08ac,2026-10-25,16:25,Los Angeles Rams,Las Vegas Raiders,Las Vegas Raiders,250,Los Angeles Rams,-310
 3635,2026-10-14 20:16:29 EDT,176d474ed8b2bbf1eb4d7e9c56b4bf22,2026-10-25,20:20,Kansas City Chiefs,Seattle Seahawks,Kansas City Chiefs,114,Seattle Seahawks,-135
 3636,2026-10-14 20:16:29 EDT,4853610e63c246f2027a6a248e642c9a,2026-10-26,20:15,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys,100,Philadelphia Eagles,-120
-0,2026-10-15 09:08:31 EDT,855f58fad5f0f14b239f4f63df27998b,2026-10-15,20:15,Seattle Seahawks,Denver Broncos,Denver Broncos,120,Seattle Seahawks,-142
-1,2026-10-15 09:08:31 EDT,57418b2cf5aca558b3c98eafac1e264a,2026-10-18,9:30,Houston Texans,Jacksonville Jaguars,Houston Texans,120,Jacksonville Jaguars,-142
-2,2026-10-15 09:08:31 EDT,7c312fdf24fb35f58b0e07c2932cc997,2026-10-18,13:0,Chicago Bears,Atlanta Falcons,Atlanta Falcons,-105,Chicago Bears,-115
-3,2026-10-15 09:08:31 EDT,e86227938fd3cf008fc5648fb5128344,2026-10-18,13:0,Baltimore Ravens,Cleveland Browns,Cleveland Browns,210,Baltimore Ravens,-258
-4,2026-10-15 09:08:31 EDT,caca2d752fe1a1779029082e95332fcc,2026-10-18,13:0,Carolina Panthers,Philadelphia Eagles,Philadelphia Eagles,-105,Carolina Panthers,-115
-5,2026-10-15 09:08:31 EDT,84aa9e190e625d7e9cd67e1f157a45b4,2026-10-18,13:0,Tennessee Titans,Indianapolis Colts,Tennessee Titans,275,Indianapolis Colts,-345
-6,2026-10-15 09:08:31 EDT,0b0b582b32b09ab6ff6664ffae0c9653,2026-10-18,13:0,New York Jets,New England Patriots,New York Jets,270,New England Patriots,-340
-7,2026-10-15 09:08:31 EDT,1cf74afd313e9fd300e1462012b174cb,2026-10-18,13:0,New Orleans Saints,New York Giants,New York Giants,-108,New Orleans Saints,-112
-8,2026-10-15 09:08:31 EDT,27f3994841ce8081c0b7349cf3d1e3d7,2026-10-18,13:0,Pittsburgh Steelers,Tampa Bay Buccaneers,Tampa Bay Buccaneers,124,Pittsburgh Steelers,-148
-9,2026-10-15 09:08:31 EDT,3729ac6d2a66b642850caf2044cdc658,2026-10-18,16:5,Arizona Cardinals,Los Angeles Rams,Arizona Cardinals,600,Los Angeles Rams,-900
-10,2026-10-15 09:08:31 EDT,45b2690b350ed45145c7a716b18e8e66,2026-10-18,16:25,Buffalo Bills,Las Vegas Raiders,Las Vegas Raiders,210,Buffalo Bills,-258
-11,2026-10-15 09:08:31 EDT,20fefae8c296247460ba5773caa42218,2026-10-18,16:25,Los Angeles Chargers,Kansas City Chiefs,Los Angeles Chargers,370,Kansas City Chiefs,-485
-12,2026-10-15 09:08:31 EDT,82fd5a159fa130e67abab93a9537f70b,2026-10-18,20:20,Dallas Cowboys,Green Bay Packers,Dallas Cowboys,102,Green Bay Packers,-122
-13,2026-10-15 09:08:31 EDT,f122527f003276d3bca19efa48c902c1,2026-10-19,20:15,Washington Commanders,San Francisco 49ers,Washington Commanders,330,San Francisco 49ers,-425
-14,2026-10-15 09:08:31 EDT,ffebea881c1d7b2dfb85b3e590c35985,2026-10-22,20:15,New England Patriots,Chicago Bears,New England Patriots,105,Chicago Bears,-125
-15,2026-10-15 09:08:31 EDT,2e710ea5a306b614f0f966e3d78732f8,2026-10-25,9:30,Pittsburgh Steelers,New Orleans Saints,New Orleans Saints,114,Pittsburgh Steelers,-135
-16,2026-10-15 09:08:31 EDT,b1be064fb52a198a62109c279e7ab24c,2026-10-25,13:0,San Francisco 49ers,Atlanta Falcons,Atlanta Falcons,180,San Francisco 49ers,-218
-17,2026-10-15 09:08:31 EDT,550ec5290f935d311995affbcb0b5c79,2026-10-25,13:0,Cincinnati Bengals,Baltimore Ravens,Cincinnati Bengals,160,Baltimore Ravens,-192
-18,2026-10-15 09:08:31 EDT,2823e986597c449ab94126cd5ed3fae9,2026-10-25,13:0,Tampa Bay Buccaneers,Carolina Panthers,Tampa Bay Buccaneers,136,Carolina Panthers,-162
-19,2026-10-15 09:08:31 EDT,5dce18baccec5d3ad5fb3a3ce52f7619,2026-10-25,13:0,Cleveland Browns,Tennessee Titans,Tennessee Titans,102,Cleveland Browns,-122
-20,2026-10-15 09:08:31 EDT,2bba7fde6f97d0e54403d53676e4ab63,2026-10-25,13:0,New York Giants,Houston Texans,New York Giants,295,Houston Texans,-375
-21,2026-10-15 09:08:31 EDT,f3992ad4496724baf7dcd1ef58245d6b,2026-10-25,13:0,Indianapolis Colts,Minnesota Vikings,Indianapolis Colts,215,Minnesota Vikings,-265
-22,2026-10-15 09:08:31 EDT,be5dd120ca08b43d647b6caa8953500a,2026-10-25,13:0,Miami Dolphins,New York Jets,Miami Dolphins,180,New York Jets,-218
-23,2026-10-15 09:08:31 EDT,436119bb3ccdaa6ed7808aa3ebd82b76,2026-10-25,16:5,Denver Broncos,Arizona Cardinals,Arizona Cardinals,200,Denver Broncos,-245
-24,2026-10-15 09:08:31 EDT,e8e5715eefb6a9ce64765e9ddf49c0cc,2026-10-25,16:25,Green Bay Packers,Detroit Lions,Green Bay Packers,154,Detroit Lions,-185
-25,2026-10-15 09:08:31 EDT,f7679cf18454e4d88a8f2b990c3f08ac,2026-10-25,16:25,Los Angeles Rams,Las Vegas Raiders,Las Vegas Raiders,250,Los Angeles Rams,-310
-26,2026-10-15 09:08:31 EDT,176d474ed8b2bbf1eb4d7e9c56b4bf22,2026-10-25,20:20,Kansas City Chiefs,Seattle Seahawks,Kansas City Chiefs,114,Seattle Seahawks,-135
-27,2026-10-15 09:08:31 EDT,4853610e63c246f2027a6a248e642c9a,2026-10-26,20:15,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys,100,Philadelphia Eagles,-120
+3637,2026-10-15 09:08:31 EDT,855f58fad5f0f14b239f4f63df27998b,2026-10-15,20:15,Seattle Seahawks,Denver Broncos,Denver Broncos,120,Seattle Seahawks,-142
+3638,2026-10-15 09:08:31 EDT,57418b2cf5aca558b3c98eafac1e264a,2026-10-18,9:30,Houston Texans,Jacksonville Jaguars,Houston Texans,120,Jacksonville Jaguars,-142
+3639,2026-10-15 09:08:31 EDT,7c312fdf24fb35f58b0e07c2932cc997,2026-10-18,13:0,Chicago Bears,Atlanta Falcons,Atlanta Falcons,-105,Chicago Bears,-115
+3640,2026-10-15 09:08:31 EDT,e86227938fd3cf008fc5648fb5128344,2026-10-18,13:0,Baltimore Ravens,Cleveland Browns,Cleveland Browns,210,Baltimore Ravens,-258
+3641,2026-10-15 09:08:31 EDT,caca2d752fe1a1779029082e95332fcc,2026-10-18,13:0,Carolina Panthers,Philadelphia Eagles,Philadelphia Eagles,-105,Carolina Panthers,-115
+3642,2026-10-15 09:08:31 EDT,84aa9e190e625d7e9cd67e1f157a45b4,2026-10-18,13:0,Tennessee Titans,Indianapolis Colts,Tennessee Titans,275,Indianapolis Colts,-345
+3643,2026-10-15 09:08:31 EDT,0b0b582b32b09ab6ff6664ffae0c9653,2026-10-18,13:0,New York Jets,New England Patriots,New York Jets,270,New England Patriots,-340
+3644,2026-10-15 09:08:31 EDT,1cf74afd313e9fd300e1462012b174cb,2026-10-18,13:0,New Orleans Saints,New York Giants,New York Giants,-108,New Orleans Saints,-112
+3645,2026-10-15 09:08:31 EDT,27f3994841ce8081c0b7349cf3d1e3d7,2026-10-18,13:0,Pittsburgh Steelers,Tampa Bay Buccaneers,Tampa Bay Buccaneers,124,Pittsburgh Steelers,-148
+3646,2026-10-15 09:08:31 EDT,3729ac6d2a66b642850caf2044cdc658,2026-10-18,16:5,Arizona Cardinals,Los Angeles Rams,Arizona Cardinals,600,Los Angeles Rams,-900
+3647,2026-10-15 09:08:31 EDT,45b2690b350ed45145c7a716b18e8e66,2026-10-18,16:25,Buffalo Bills,Las Vegas Raiders,Las Vegas Raiders,210,Buffalo Bills,-258
+3648,2026-10-15 09:08:31 EDT,20fefae8c296247460ba5773caa42218,2026-10-18,16:25,Los Angeles Chargers,Kansas City Chiefs,Los Angeles Chargers,370,Kansas City Chiefs,-485
+3649,2026-10-15 09:08:31 EDT,82fd5a159fa130e67abab93a9537f70b,2026-10-18,20:20,Dallas Cowboys,Green Bay Packers,Dallas Cowboys,102,Green Bay Packers,-122
+3650,2026-10-15 09:08:31 EDT,f122527f003276d3bca19efa48c902c1,2026-10-19,20:15,Washington Commanders,San Francisco 49ers,Washington Commanders,330,San Francisco 49ers,-425
+3651,2026-10-15 09:08:31 EDT,ffebea881c1d7b2dfb85b3e590c35985,2026-10-22,20:15,New England Patriots,Chicago Bears,New England Patriots,105,Chicago Bears,-125
+3652,2026-10-15 09:08:31 EDT,2e710ea5a306b614f0f966e3d78732f8,2026-10-25,9:30,Pittsburgh Steelers,New Orleans Saints,New Orleans Saints,114,Pittsburgh Steelers,-135
+3653,2026-10-15 09:08:31 EDT,b1be064fb52a198a62109c279e7ab24c,2026-10-25,13:0,San Francisco 49ers,Atlanta Falcons,Atlanta Falcons,180,San Francisco 49ers,-218
+3654,2026-10-15 09:08:31 EDT,550ec5290f935d311995affbcb0b5c79,2026-10-25,13:0,Cincinnati Bengals,Baltimore Ravens,Cincinnati Bengals,160,Baltimore Ravens,-192
+3655,2026-10-15 09:08:31 EDT,2823e986597c449ab94126cd5ed3fae9,2026-10-25,13:0,Tampa Bay Buccaneers,Carolina Panthers,Tampa Bay Buccaneers,136,Carolina Panthers,-162
+3656,2026-10-15 09:08:31 EDT,5dce18baccec5d3ad5fb3a3ce52f7619,2026-10-25,13:0,Cleveland Browns,Tennessee Titans,Tennessee Titans,102,Cleveland Browns,-122
+3657,2026-10-15 09:08:31 EDT,2bba7fde6f97d0e54403d53676e4ab63,2026-10-25,13:0,New York Giants,Houston Texans,New York Giants,295,Houston Texans,-375
+3658,2026-10-15 09:08:31 EDT,f3992ad4496724baf7dcd1ef58245d6b,2026-10-25,13:0,Indianapolis Colts,Minnesota Vikings,Indianapolis Colts,215,Minnesota Vikings,-265
+3659,2026-10-15 09:08:31 EDT,be5dd120ca08b43d647b6caa8953500a,2026-10-25,13:0,Miami Dolphins,New York Jets,Miami Dolphins,180,New York Jets,-218
+3660,2026-10-15 09:08:31 EDT,436119bb3ccdaa6ed7808aa3ebd82b76,2026-10-25,16:5,Denver Broncos,Arizona Cardinals,Arizona Cardinals,200,Denver Broncos,-245
+3661,2026-10-15 09:08:31 EDT,e8e5715eefb6a9ce64765e9ddf49c0cc,2026-10-25,16:25,Green Bay Packers,Detroit Lions,Green Bay Packers,154,Detroit Lions,-185
+3662,2026-10-15 09:08:31 EDT,f7679cf18454e4d88a8f2b990c3f08ac,2026-10-25,16:25,Los Angeles Rams,Las Vegas Raiders,Las Vegas Raiders,250,Los Angeles Rams,-310
+3663,2026-10-15 09:08:31 EDT,176d474ed8b2bbf1eb4d7e9c56b4bf22,2026-10-25,20:20,Kansas City Chiefs,Seattle Seahawks,Kansas City Chiefs,114,Seattle Seahawks,-135
+3664,2026-10-15 09:08:31 EDT,4853610e63c246f2027a6a248e642c9a,2026-10-26,20:15,Dallas Cowboys,Philadelphia Eagles,Dallas Cowboys,100,Philadelphia Eagles,-120
+0,2026-10-16 07:47:16 EDT,57418b2cf5aca558b3c98eafac1e264a,2026-10-18,9:30,Houston Texans,Jacksonville Jaguars,Houston Texans,124,Jacksonville Jaguars,-148
+1,2026-10-16 07:47:16 EDT,7c312fdf24fb35f58b0e07c2932cc997,2026-10-18,13:0,Chicago Bears,Atlanta Falcons,Atlanta Falcons,-102,Chicago Bears,-118
+2,2026-10-16 07:47:16 EDT,e86227938fd3cf008fc5648fb5128344,2026-10-18,13:0,Baltimore Ravens,Cleveland Browns,Cleveland Browns,170,Baltimore Ravens,-205
+3,2026-10-16 07:47:16 EDT,caca2d752fe1a1779029082e95332fcc,2026-10-18,13:0,Carolina Panthers,Philadelphia Eagles,Philadelphia Eagles,154,Carolina Panthers,-185
+4,2026-10-16 07:47:16 EDT,84aa9e190e625d7e9cd67e1f157a45b4,2026-10-18,13:0,Tennessee Titans,Indianapolis Colts,Tennessee Titans,270,Indianapolis Colts,-340
+5,2026-10-16 07:47:16 EDT,0b0b582b32b09ab6ff6664ffae0c9653,2026-10-18,13:0,New York Jets,New England Patriots,New York Jets,275,New England Patriots,-345
+6,2026-10-16 07:47:16 EDT,1cf74afd313e9fd300e1462012b174cb,2026-10-18,13:0,New Orleans Saints,New York Giants,New York Giants,-108,New Orleans Saints,-112
+7,2026-10-16 07:47:16 EDT,27f3994841ce8081c0b7349cf3d1e3d7,2026-10-18,13:0,Pittsburgh Steelers,Tampa Bay Buccaneers,Tampa Bay Buccaneers,124,Pittsburgh Steelers,-148
+8,2026-10-16 07:47:16 EDT,3729ac6d2a66b642850caf2044cdc658,2026-10-18,16:5,Arizona Cardinals,Los Angeles Rams,Arizona Cardinals,575,Los Angeles Rams,-850
+9,2026-10-16 07:47:16 EDT,45b2690b350ed45145c7a716b18e8e66,2026-10-18,16:25,Buffalo Bills,Las Vegas Raiders,Las Vegas Raiders,180,Buffalo Bills,-218
+10,2026-10-16 07:47:16 EDT,20fefae8c296247460ba5773caa42218,2026-10-18,16:25,Los Angeles Chargers,Kansas City Chiefs,Los Angeles Chargers,360,Kansas City Chiefs,-470
+11,2026-10-16 07:47:16 EDT,82fd5a159fa130e67abab93a9537f70b,2026-10-18,20:20,Dallas Cowboys,Green Bay Packers,Dallas Cowboys,100,Green Bay Packers,-120
+12,2026-10-16 07:47:16 EDT,f122527f003276d3bca19efa48c902c1,2026-10-19,20:15,Washington Commanders,San Francisco 49ers,Washington Commanders,330,San Francisco 49ers,-425
+13,2026-10-16 07:47:16 EDT,ffebea881c1d7b2dfb85b3e590c35985,2026-10-22,20:15,New England Patriots,Chicago Bears,New England Patriots,105,Chicago Bears,-125
+14,2026-10-16 07:47:16 EDT,2e710ea5a306b614f0f966e3d78732f8,2026-10-25,9:30,Pittsburgh Steelers,New Orleans Saints,New Orleans Saints,120,Pittsburgh Steelers,-142
+15,2026-10-16 07:47:16 EDT,b1be064fb52a198a62109c279e7ab24c,2026-10-25,13:0,San Francisco 49ers,Atlanta Falcons,Atlanta Falcons,180,San Francisco 49ers,-218
+16,2026-10-16 07:47:16 EDT,550ec5290f935d311995affbcb0b5c79,2026-10-25,13:0,Cincinnati Bengals,Baltimore Ravens,Cincinnati Bengals,145,Baltimore Ravens,-175
+17,2026-10-16 07:47:16 EDT,2823e986597c449ab94126cd5ed3fae9,2026-10-25,13:0,Tampa Bay Buccaneers,Carolina Panthers,Tampa Bay Buccaneers,136,Carolina Panthers,-162
+18,2026-10-16 07:47:16 EDT,5dce18baccec5d3ad5fb3a3ce52f7619,2026-10-25,13:0,Cleveland Browns,Tennessee Titans,Tennessee Titans,102,Cleveland Browns,-122
+19,2026-10-16 07:47:16 EDT,2bba7fde6f97d0e54403d53676e4ab63,2026-10-25,13:0,New York Giants,Houston Texans,New York Giants,285,Houston Texans,-360
+20,2026-10-16 07:47:16 EDT,f3992ad4496724baf7dcd1ef58245d6b,2026-10-25,13:0,Indianapolis Colts,Minnesota Vikings,Indianapolis Colts,210,Minnesota Vikings,-258
+21,2026-10-16 07:47:16 EDT,be5dd120ca08b43d647b6caa8953500a,2026-10-25,13:0,Miami Dolphins,New York Jets,Miami Dolphins,180,New York Jets,-218
+22,2026-10-16 07:47:16 EDT,e8e5715eefb6a9ce64765e9ddf49c0cc,2026-10-25,16:25,Green Bay Packers,Detroit Lions,Green Bay Packers,154,Detroit Lions,-185
+23,2026-10-16 07:47:16 EDT,f7679cf18454e4d88a8f2b990c3f08ac,2026-10-25,16:25,Los Angeles Rams,Las Vegas Raiders,Las Vegas Raiders,235,Los Angeles Rams,-290
