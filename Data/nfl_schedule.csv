@@ -4755,29 +4755,55 @@
 4753,2026-11-26 07:33:30 EST,c186c605febd6370b292469c9151cfb3,2026-12-6,16:25,Carolina Panthers,Minnesota Vikings,Carolina Panthers,209,Minnesota Vikings,-254
 4754,2026-11-26 07:33:30 EST,26bf8e165d2d273ed0772a355f07ab16,2026-12-6,20:20,Houston Texans,Pittsburgh Steelers,Pittsburgh Steelers,182,Houston Texans,-219
 4755,2026-11-26 07:33:30 EST,0db4646c964ecdff19957373fe707546,2026-12-7,20:15,Dallas Cowboys,Seattle Seahawks,Dallas Cowboys,218,Seattle Seahawks,-265
-0,2026-11-27 08:40:39 EST,44a3bcf5bd002583ddef2207a92dd977,2026-11-27,15:0,Denver Broncos,Pittsburgh Steelers,Pittsburgh Steelers,202,Denver Broncos,-244
-1,2026-11-27 08:40:39 EST,6a05021bdb6bab24b9bb381ffff10f0c,2026-11-29,13:0,Atlanta Falcons,Minnesota Vikings,Atlanta Falcons,253,Minnesota Vikings,-311
-2,2026-11-27 08:40:39 EST,60d0c074801985c1062795362a24200e,2026-11-29,13:0,Baltimore Ravens,Houston Texans,Baltimore Ravens,267,Houston Texans,-332
-3,2026-11-27 08:40:39 EST,f7d3ae7a8fe2438cef7d7d7bc67e31db,2026-11-29,13:0,New Orleans Saints,Cincinnati Bengals,New Orleans Saints,422,Cincinnati Bengals,-561
-4,2026-11-27 08:40:39 EST,e9da808e36e1b7475698a57465ad4519,2026-11-29,13:0,New York Giants,Indianapolis Colts,Indianapolis Colts,233,New York Giants,-283
-5,2026-11-27 08:40:39 EST,81a8fee5b649a3ad5ad59e9528f2f376,2026-11-29,13:0,Tennessee Titans,Jacksonville Jaguars,Tennessee Titans,760,Jacksonville Jaguars,-1220
-6,2026-11-27 08:40:39 EST,5ea0e3ea5944b0ad5169f21c0787b331,2026-11-29,13:0,New York Jets,Miami Dolphins,Miami Dolphins,204,New York Jets,-246
-7,2026-11-27 08:40:39 EST,c64ceba13ede564e8658693e3171e7f9,2026-11-29,16:5,New England Patriots,Los Angeles Chargers,Los Angeles Chargers,115,New England Patriots,-137
-8,2026-11-27 08:40:39 EST,69a1dbe9de3d3212c3a7a55be5d204ab,2026-11-29,16:25,Washington Commanders,Arizona Cardinals,Arizona Cardinals,281,Washington Commanders,-350
-9,2026-11-27 08:40:39 EST,d68dced0b26726890b9c79bd19a5ffe5,2026-11-29,16:25,Seattle Seahawks,San Francisco 49ers,Seattle Seahawks,129,San Francisco 49ers,-152
-10,2026-11-27 08:40:39 EST,eaa993c3d62d6b5aeb6142cdd7862fd5,2026-11-29,20:20,Las Vegas Raiders,Cleveland Browns,Las Vegas Raiders,201,Cleveland Browns,-244
-11,2026-11-27 08:40:39 EST,2cdaecba7c0bff9b58a48a82e6ee17a7,2026-11-30,20:15,Carolina Panthers,Tampa Bay Buccaneers,Carolina Panthers,132,Tampa Bay Buccaneers,-157
-12,2026-11-27 08:40:39 EST,06e52a676b516186989e3b181a37c8a7,2026-12-3,20:15,Kansas City Chiefs,Los Angeles Rams,Kansas City Chiefs,-108,Los Angeles Rams,-109
-13,2026-11-27 08:40:39 EST,c94419ba8fb818fc36a5b21b526aab75,2026-12-6,13:0,Detroit Lions,Atlanta Falcons,Atlanta Falcons,160,Detroit Lions,-191
-14,2026-11-27 08:40:39 EST,0236f9aa68d65ea03bd1ca025b749c20,2026-12-6,13:0,Jacksonville Jaguars,Chicago Bears,Jacksonville Jaguars,130,Chicago Bears,-154
-15,2026-11-27 08:40:39 EST,b447fab53534af892f98a74eae26c1c6,2026-12-6,13:0,Cincinnati Bengals,Cleveland Browns,Cleveland Browns,212,Cincinnati Bengals,-258
-16,2026-11-27 08:40:39 EST,9a55467e1cd6310ae2af20d8154612e1,2026-12-6,13:0,Miami Dolphins,Denver Broncos,Miami Dolphins,710,Denver Broncos,-1120
-17,2026-11-27 08:40:39 EST,1ccb61b811b7aae4270df22a67e6459f,2026-12-6,13:0,Green Bay Packers,New Orleans Saints,New Orleans Saints,189,Green Bay Packers,-227
-18,2026-11-27 08:40:39 EST,f8a92363386bd337975650879086cca6,2026-12-6,13:0,Los Angeles Chargers,Tampa Bay Buccaneers,Los Angeles Chargers,209,Tampa Bay Buccaneers,-253
-19,2026-11-27 08:40:39 EST,a5495c3360b3bb13da76ba23a675c9ef,2026-12-6,13:0,San Francisco 49ers,New York Giants,New York Giants,241,San Francisco 49ers,-295
-20,2026-11-27 08:40:39 EST,ae3429e95ee704c7fd001cade20072d0,2026-12-6,13:0,Washington Commanders,Tennessee Titans,Tennessee Titans,191,Washington Commanders,-230
-21,2026-11-27 08:40:39 EST,f4897f48a5351881280f7598bd826408,2026-12-6,16:5,Philadelphia Eagles,Arizona Cardinals,Arizona Cardinals,141,Philadelphia Eagles,-167
-22,2026-11-27 08:40:39 EST,4116dbff75ab7957b69c2152f204b74d,2026-12-6,16:25,Buffalo Bills,New England Patriots,New England Patriots,557,Buffalo Bills,-790
-23,2026-11-27 08:40:39 EST,c186c605febd6370b292469c9151cfb3,2026-12-6,16:25,Carolina Panthers,Minnesota Vikings,Carolina Panthers,201,Minnesota Vikings,-243
-24,2026-11-27 08:40:39 EST,26bf8e165d2d273ed0772a355f07ab16,2026-12-6,20:20,Houston Texans,Pittsburgh Steelers,Pittsburgh Steelers,186,Houston Texans,-224
-25,2026-11-27 08:40:39 EST,0db4646c964ecdff19957373fe707546,2026-12-7,20:15,Dallas Cowboys,Seattle Seahawks,Dallas Cowboys,223,Seattle Seahawks,-272
+4756,2026-11-27 08:40:39 EST,44a3bcf5bd002583ddef2207a92dd977,2026-11-27,15:0,Denver Broncos,Pittsburgh Steelers,Pittsburgh Steelers,202,Denver Broncos,-244
+4757,2026-11-27 08:40:39 EST,6a05021bdb6bab24b9bb381ffff10f0c,2026-11-29,13:0,Atlanta Falcons,Minnesota Vikings,Atlanta Falcons,253,Minnesota Vikings,-311
+4758,2026-11-27 08:40:39 EST,60d0c074801985c1062795362a24200e,2026-11-29,13:0,Baltimore Ravens,Houston Texans,Baltimore Ravens,267,Houston Texans,-332
+4759,2026-11-27 08:40:39 EST,f7d3ae7a8fe2438cef7d7d7bc67e31db,2026-11-29,13:0,New Orleans Saints,Cincinnati Bengals,New Orleans Saints,422,Cincinnati Bengals,-561
+4760,2026-11-27 08:40:39 EST,e9da808e36e1b7475698a57465ad4519,2026-11-29,13:0,New York Giants,Indianapolis Colts,Indianapolis Colts,233,New York Giants,-283
+4761,2026-11-27 08:40:39 EST,81a8fee5b649a3ad5ad59e9528f2f376,2026-11-29,13:0,Tennessee Titans,Jacksonville Jaguars,Tennessee Titans,760,Jacksonville Jaguars,-1220
+4762,2026-11-27 08:40:39 EST,5ea0e3ea5944b0ad5169f21c0787b331,2026-11-29,13:0,New York Jets,Miami Dolphins,Miami Dolphins,204,New York Jets,-246
+4763,2026-11-27 08:40:39 EST,c64ceba13ede564e8658693e3171e7f9,2026-11-29,16:5,New England Patriots,Los Angeles Chargers,Los Angeles Chargers,115,New England Patriots,-137
+4764,2026-11-27 08:40:39 EST,69a1dbe9de3d3212c3a7a55be5d204ab,2026-11-29,16:25,Washington Commanders,Arizona Cardinals,Arizona Cardinals,281,Washington Commanders,-350
+4765,2026-11-27 08:40:39 EST,d68dced0b26726890b9c79bd19a5ffe5,2026-11-29,16:25,Seattle Seahawks,San Francisco 49ers,Seattle Seahawks,129,San Francisco 49ers,-152
+4766,2026-11-27 08:40:39 EST,eaa993c3d62d6b5aeb6142cdd7862fd5,2026-11-29,20:20,Las Vegas Raiders,Cleveland Browns,Las Vegas Raiders,201,Cleveland Browns,-244
+4767,2026-11-27 08:40:39 EST,2cdaecba7c0bff9b58a48a82e6ee17a7,2026-11-30,20:15,Carolina Panthers,Tampa Bay Buccaneers,Carolina Panthers,132,Tampa Bay Buccaneers,-157
+4768,2026-11-27 08:40:39 EST,06e52a676b516186989e3b181a37c8a7,2026-12-3,20:15,Kansas City Chiefs,Los Angeles Rams,Kansas City Chiefs,-108,Los Angeles Rams,-109
+4769,2026-11-27 08:40:39 EST,c94419ba8fb818fc36a5b21b526aab75,2026-12-6,13:0,Detroit Lions,Atlanta Falcons,Atlanta Falcons,160,Detroit Lions,-191
+4770,2026-11-27 08:40:39 EST,0236f9aa68d65ea03bd1ca025b749c20,2026-12-6,13:0,Jacksonville Jaguars,Chicago Bears,Jacksonville Jaguars,130,Chicago Bears,-154
+4771,2026-11-27 08:40:39 EST,b447fab53534af892f98a74eae26c1c6,2026-12-6,13:0,Cincinnati Bengals,Cleveland Browns,Cleveland Browns,212,Cincinnati Bengals,-258
+4772,2026-11-27 08:40:39 EST,9a55467e1cd6310ae2af20d8154612e1,2026-12-6,13:0,Miami Dolphins,Denver Broncos,Miami Dolphins,710,Denver Broncos,-1120
+4773,2026-11-27 08:40:39 EST,1ccb61b811b7aae4270df22a67e6459f,2026-12-6,13:0,Green Bay Packers,New Orleans Saints,New Orleans Saints,189,Green Bay Packers,-227
+4774,2026-11-27 08:40:39 EST,f8a92363386bd337975650879086cca6,2026-12-6,13:0,Los Angeles Chargers,Tampa Bay Buccaneers,Los Angeles Chargers,209,Tampa Bay Buccaneers,-253
+4775,2026-11-27 08:40:39 EST,a5495c3360b3bb13da76ba23a675c9ef,2026-12-6,13:0,San Francisco 49ers,New York Giants,New York Giants,241,San Francisco 49ers,-295
+4776,2026-11-27 08:40:39 EST,ae3429e95ee704c7fd001cade20072d0,2026-12-6,13:0,Washington Commanders,Tennessee Titans,Tennessee Titans,191,Washington Commanders,-230
+4777,2026-11-27 08:40:39 EST,f4897f48a5351881280f7598bd826408,2026-12-6,16:5,Philadelphia Eagles,Arizona Cardinals,Arizona Cardinals,141,Philadelphia Eagles,-167
+4778,2026-11-27 08:40:39 EST,4116dbff75ab7957b69c2152f204b74d,2026-12-6,16:25,Buffalo Bills,New England Patriots,New England Patriots,557,Buffalo Bills,-790
+4779,2026-11-27 08:40:39 EST,c186c605febd6370b292469c9151cfb3,2026-12-6,16:25,Carolina Panthers,Minnesota Vikings,Carolina Panthers,201,Minnesota Vikings,-243
+4780,2026-11-27 08:40:39 EST,26bf8e165d2d273ed0772a355f07ab16,2026-12-6,20:20,Houston Texans,Pittsburgh Steelers,Pittsburgh Steelers,186,Houston Texans,-224
+4781,2026-11-27 08:40:39 EST,0db4646c964ecdff19957373fe707546,2026-12-7,20:15,Dallas Cowboys,Seattle Seahawks,Dallas Cowboys,223,Seattle Seahawks,-272
+0,2026-11-27 11:59:46 EST,44a3bcf5bd002583ddef2207a92dd977,2026-11-27,15:0,Denver Broncos,Pittsburgh Steelers,Pittsburgh Steelers,197,Denver Broncos,-238
+1,2026-11-27 11:59:46 EST,6a05021bdb6bab24b9bb381ffff10f0c,2026-11-29,13:0,Atlanta Falcons,Minnesota Vikings,Atlanta Falcons,253,Minnesota Vikings,-311
+2,2026-11-27 11:59:46 EST,60d0c074801985c1062795362a24200e,2026-11-29,13:0,Baltimore Ravens,Houston Texans,Baltimore Ravens,266,Houston Texans,-331
+3,2026-11-27 11:59:46 EST,f7d3ae7a8fe2438cef7d7d7bc67e31db,2026-11-29,13:0,New Orleans Saints,Cincinnati Bengals,New Orleans Saints,421,Cincinnati Bengals,-558
+4,2026-11-27 11:59:46 EST,e9da808e36e1b7475698a57465ad4519,2026-11-29,13:0,New York Giants,Indianapolis Colts,Indianapolis Colts,233,New York Giants,-283
+5,2026-11-27 11:59:46 EST,81a8fee5b649a3ad5ad59e9528f2f376,2026-11-29,13:0,Tennessee Titans,Jacksonville Jaguars,Tennessee Titans,660,Jacksonville Jaguars,-1020
+6,2026-11-27 11:59:46 EST,5ea0e3ea5944b0ad5169f21c0787b331,2026-11-29,13:0,New York Jets,Miami Dolphins,Miami Dolphins,205,New York Jets,-249
+7,2026-11-27 11:59:46 EST,c64ceba13ede564e8658693e3171e7f9,2026-11-29,16:5,New England Patriots,Los Angeles Chargers,Los Angeles Chargers,115,New England Patriots,-137
+8,2026-11-27 11:59:46 EST,69a1dbe9de3d3212c3a7a55be5d204ab,2026-11-29,16:25,Washington Commanders,Arizona Cardinals,Arizona Cardinals,280,Washington Commanders,-348
+9,2026-11-27 11:59:46 EST,d68dced0b26726890b9c79bd19a5ffe5,2026-11-29,16:25,Seattle Seahawks,San Francisco 49ers,Seattle Seahawks,129,San Francisco 49ers,-152
+10,2026-11-27 11:59:46 EST,eaa993c3d62d6b5aeb6142cdd7862fd5,2026-11-29,20:20,Las Vegas Raiders,Cleveland Browns,Las Vegas Raiders,195,Cleveland Browns,-235
+11,2026-11-27 11:59:46 EST,2cdaecba7c0bff9b58a48a82e6ee17a7,2026-11-30,20:15,Carolina Panthers,Tampa Bay Buccaneers,Carolina Panthers,132,Tampa Bay Buccaneers,-157
+12,2026-11-27 11:59:46 EST,06e52a676b516186989e3b181a37c8a7,2026-12-3,20:15,Kansas City Chiefs,Los Angeles Rams,Kansas City Chiefs,-108,Los Angeles Rams,-109
+13,2026-11-27 11:59:46 EST,c94419ba8fb818fc36a5b21b526aab75,2026-12-6,13:0,Detroit Lions,Atlanta Falcons,Atlanta Falcons,160,Detroit Lions,-191
+14,2026-11-27 11:59:46 EST,0236f9aa68d65ea03bd1ca025b749c20,2026-12-6,13:0,Jacksonville Jaguars,Chicago Bears,Jacksonville Jaguars,129,Chicago Bears,-152
+15,2026-11-27 11:59:46 EST,b447fab53534af892f98a74eae26c1c6,2026-12-6,13:0,Cincinnati Bengals,Cleveland Browns,Cleveland Browns,212,Cincinnati Bengals,-258
+16,2026-11-27 11:59:46 EST,9a55467e1cd6310ae2af20d8154612e1,2026-12-6,13:0,Miami Dolphins,Denver Broncos,Miami Dolphins,710,Denver Broncos,-1120
+17,2026-11-27 11:59:46 EST,1ccb61b811b7aae4270df22a67e6459f,2026-12-6,13:0,Green Bay Packers,New Orleans Saints,New Orleans Saints,189,Green Bay Packers,-227
+18,2026-11-27 11:59:46 EST,f8a92363386bd337975650879086cca6,2026-12-6,13:0,Los Angeles Chargers,Tampa Bay Buccaneers,Los Angeles Chargers,209,Tampa Bay Buccaneers,-253
+19,2026-11-27 11:59:46 EST,a5495c3360b3bb13da76ba23a675c9ef,2026-12-6,13:0,San Francisco 49ers,New York Giants,New York Giants,241,San Francisco 49ers,-295
+20,2026-11-27 11:59:46 EST,ae3429e95ee704c7fd001cade20072d0,2026-12-6,13:0,Washington Commanders,Tennessee Titans,Tennessee Titans,191,Washington Commanders,-230
+21,2026-11-27 11:59:46 EST,f4897f48a5351881280f7598bd826408,2026-12-6,16:5,Philadelphia Eagles,Arizona Cardinals,Arizona Cardinals,141,Philadelphia Eagles,-167
+22,2026-11-27 11:59:46 EST,4116dbff75ab7957b69c2152f204b74d,2026-12-6,16:25,Buffalo Bills,New England Patriots,New England Patriots,557,Buffalo Bills,-790
+23,2026-11-27 11:59:46 EST,c186c605febd6370b292469c9151cfb3,2026-12-6,16:25,Carolina Panthers,Minnesota Vikings,Carolina Panthers,201,Minnesota Vikings,-243
+24,2026-11-27 11:59:46 EST,26bf8e165d2d273ed0772a355f07ab16,2026-12-6,20:20,Houston Texans,Pittsburgh Steelers,Pittsburgh Steelers,186,Houston Texans,-225
+25,2026-11-27 11:59:46 EST,0db4646c964ecdff19957373fe707546,2026-12-7,20:15,Dallas Cowboys,Seattle Seahawks,Dallas Cowboys,223,Seattle Seahawks,-272
